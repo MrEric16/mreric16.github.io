@@ -1,6 +1,16 @@
 {
-  "generatedAt": "2026-09-19T14:25:31.524881Z",
+  "generatedAt": "2026-09-19T21:28:28.845546Z",
   "teams": [
+    {
+      "name": "Pakhtakor",
+      "pld": 22,
+      "w": 14,
+      "d": 7,
+      "l": 1,
+      "gf": 39,
+      "ga": 20,
+      "pts": 49
+    },
     {
       "name": "Neftchi Fargona",
       "pld": 21,
@@ -10,16 +20,6 @@
       "gf": 49,
       "ga": 17,
       "pts": 48
-    },
-    {
-      "name": "Pakhtakor",
-      "pld": 21,
-      "w": 13,
-      "d": 7,
-      "l": 1,
-      "gf": 37,
-      "ga": 19,
-      "pts": 46
     },
     {
       "name": "Navbahor Namangan",
@@ -43,12 +43,12 @@
     },
     {
       "name": "Buxoro",
-      "pld": 21,
+      "pld": 22,
       "w": 10,
       "d": 4,
-      "l": 7,
-      "gf": 31,
-      "ga": 27,
+      "l": 8,
+      "gf": 32,
+      "ga": 29,
       "pts": 34
     },
     {
@@ -122,6 +122,16 @@
       "pts": 23
     },
     {
+      "name": "Bunyodkor",
+      "pld": 22,
+      "w": 7,
+      "d": 1,
+      "l": 14,
+      "gf": 22,
+      "ga": 36,
+      "pts": 22
+    },
+    {
       "name": "Xorazm Urganch",
       "pld": 21,
       "w": 5,
@@ -142,27 +152,31 @@
       "pts": 20
     },
     {
-      "name": "Bunyodkor",
-      "pld": 21,
-      "w": 6,
-      "d": 1,
-      "l": 14,
-      "gf": 20,
-      "ga": 35,
-      "pts": 19
-    },
-    {
       "name": "Mashal Muborak",
-      "pld": 21,
+      "pld": 22,
       "w": 1,
       "d": 1,
-      "l": 19,
-      "gf": 10,
-      "ga": 42,
+      "l": 20,
+      "gf": 11,
+      "ga": 44,
       "pts": 4
     }
   ],
   "results": [
+    {
+      "home": "Bunyodkor",
+      "away": "Buxoro",
+      "raw_time": "19.09. 15:15",
+      "homeScore": 2,
+      "awayScore": 1
+    },
+    {
+      "home": "Mashal Muborak",
+      "away": "Pakhtakor",
+      "raw_time": "19.09. 13:00",
+      "homeScore": 1,
+      "awayScore": 2
+    },
     {
       "home": "Navbahor Namangan",
       "away": "Din. Samarkand",
@@ -288,28 +302,9 @@
       "raw_time": "26.08. 15:00",
       "homeScore": 1,
       "awayScore": 0
-    },
-    {
-      "home": "Lok. Tashkent",
-      "away": "Bunyodkor",
-      "raw_time": "26.08. 14:00",
-      "homeScore": 4,
-      "awayScore": 1
-    },
-    {
-      "home": "Mashal Muborak",
-      "away": "Navbahor Namangan",
-      "raw_time": "26.08. 14:00",
-      "homeScore": 0,
-      "awayScore": 2
     }
   ],
   "fixtures": [
-    {
-      "home": "Bunyodkor",
-      "away": "Buxoro",
-      "raw_time": "19.09. 15:15"
-    },
     {
       "home": "Andijan",
       "away": "Nasaf Qarshi",
@@ -404,6 +399,11 @@
       "home": "Navbahor Namangan",
       "away": "Pakhtakor",
       "raw_time": "17.10. 15:00"
+    },
+    {
+      "home": "Kokand 1912",
+      "away": "Neftchi Fargona",
+      "raw_time": "18.10. 15:00"
     }
   ]
 }
