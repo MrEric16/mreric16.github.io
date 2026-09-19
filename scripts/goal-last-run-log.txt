@@ -2,19 +2,18 @@
 [goal-scraper] [PL] Found 6 finished-match links
 [goal-scraper] [PD] Found 5 finished-match links
 [goal-scraper] WARNING: Celta Vigo scored 5 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL
-[goal-scraper] [PD] SCORER PARSE FAILED (attempt 2/3) for Celta Vigo 5-0 Racing Santander -- NOT committing, will retry next run: https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL
+[goal-scraper] [PD] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Celta Vigo 5-0 Racing Santander: https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL
+[goal-scraper] [PD] Added: Celta Vigo 5-0 Racing Santander
 [goal-scraper] WARNING: Barcelona scored 3 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
-[goal-scraper] [PD] SCORER PARSE FAILED (attempt 1/3) for Sevilla 1-3 Barcelona -- NOT committing, will retry next run: https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
+[goal-scraper] [PD] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Sevilla 1-3 Barcelona: https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
+[goal-scraper] [PD] Added: Sevilla 1-3 Barcelona
 [goal-scraper] [BL1] Found 6 finished-match links
 [goal-scraper] [SA] Found 5 finished-match links
-[goal-scraper] [SA] Added: Venezia 0-2 Lazio
 [goal-scraper] [FL1] Found 6 finished-match links
 [goal-scraper] WARNING: Lyon scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq
-[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 1/3) for Lyon 4-0 Rennes -- NOT committing, will retry next run: https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq
-[goal-scraper] [FL1] Added: Angers 2-0 Troyes
+[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 2/3) for Lyon 4-0 Rennes -- NOT committing, will retry next run: https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq
 [goal-scraper] WARNING: Toulouse scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE
-[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 1/3) for Toulouse 3-2 Le Havre -- NOT committing, will retry next run: https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE
-[goal-scraper] [FL1] Added: Le Mans 2-1 Lorient
+[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 2/3) for Toulouse 3-2 Le Havre -- NOT committing, will retry next run: https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 22 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -40,8 +39,6 @@
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Atletico Madrid vs Barcelona on 2026-02-12
 [goal-scraper] WARNING: Barcelona scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-atletico-madrid/_ZprE2-vo0-u6L1aa-2iV
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Barcelona vs Atletico Madrid on 2026-03-03
-[goal-scraper] WARNING: Barcelona scored 3 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
-[goal-scraper] [barcelona] SCORER PARSE FAILED (attempt 2/3) for Sevilla 1-3 Barcelona -- NOT committing, will retry next run: https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
 [goal-scraper] [bayern-munich] Found 21 finished-match links
 [goal-scraper] WARNING: Bayern Munich scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
 [goal-scraper] WARNING: Fenerbahce scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
@@ -100,6 +97,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [arsenal-friendlies] Found 3 finished-match links
-[goal-scraper] TOTAL new results added this run: 3
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL', 'https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj', 'https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq', 'https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE']
+[goal-scraper] TOTAL new results added this run: 2
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq', 'https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE']
 [goal-scraper] Wrote data/goal-results.json

@@ -1,72 +1,6 @@
 {
-  "generatedAt": "2026-09-19T21:34:09.023928Z",
+  "generatedAt": "2026-09-19T23:49:53.835713Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/girona-vs-arsenal/__LS8d9Oc6I1wXn9g8956",
-      "date": "2026-08-01",
-      "home": "Girona",
-      "away": "Arsenal",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 1,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "A. Martinez",
-          "minute": 50
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "K. Havertz",
-          "minute": 16
-        },
-        {
-          "scorer": "C. Tzolis",
-          "minute": 30
-        },
-        {
-          "scorer": "M. Dowman",
-          "minute": 53
-        },
-        {
-          "scorer": "G. Jesus",
-          "minute": 55
-        }
-      ],
-      "competition": "arsenal-friendlies"
-    },
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-real-betis/BJc6NuJXo56zfuJ5DHbwP",
-      "date": "2026-08-05",
-      "home": "Arsenal",
-      "away": "Real Betis",
-      "htHome": 1,
-      "htAway": 3,
-      "ftHome": 1,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "P. Hincapie",
-          "minute": 32
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Riquelme",
-          "minute": 9
-        },
-        {
-          "scorer": "N. Deossa",
-          "minute": 26
-        },
-        {
-          "scorer": "P. Fornals",
-          "minute": 43
-        }
-      ],
-      "competition": "arsenal-friendlies"
-    },
     {
       "url": "https://www.goal.com/en/match/arsenal-vs-borussia-dortmund/Vm0njaYO9VJtjFK619x1D",
       "date": "2026-08-09",
@@ -7738,14 +7672,65 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL",
+      "date": null,
+      "home": "Celta Vigo",
+      "away": "Racing Santander",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "H. Gonzalez",
+          "minute": 32
+        },
+        {
+          "scorer": "I. Moriba",
+          "minute": 43
+        },
+        {
+          "scorer": "M. Roman",
+          "minute": 69
+        },
+        {
+          "scorer": "P. Duran",
+          "minute": 78
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj",
+      "date": null,
+      "home": "Sevilla",
+      "away": "Barcelona",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "Y. Fofana",
+          "minute": 19
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "Raphinha",
+          "minute": 22
+        }
+      ],
+      "competition": "PD"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL": 2,
-    "https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj": 2,
-    "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq": 1,
-    "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE": 1
+    "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq": 2,
+    "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE": 2
   }
 }
