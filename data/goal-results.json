@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T19:09:47.431141Z",
+  "generatedAt": "2026-09-19T21:34:09.023928Z",
   "results": [
     {
       "url": "https://www.goal.com/en/match/girona-vs-arsenal/__LS8d9Oc6I1wXn9g8956",
@@ -7667,11 +7667,85 @@
         }
       ],
       "competition": "roma"
+    },
+    {
+      "url": "https://www.goal.com/en/match/venezia-vs-lazio/yXoWm9C1mjiDY3weEt1K1",
+      "date": null,
+      "home": "Venezia",
+      "away": "Lazio",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "M. Zaccagni",
+          "minute": 51
+        },
+        {
+          "scorer": "T. Noslin",
+          "minute": 60
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/angers-vs-troyes/s4uaIaebPxKGyKPQdBiF6",
+      "date": null,
+      "home": "Angers",
+      "away": "Troyes",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "P. Peter",
+          "minute": 42
+        },
+        {
+          "scorer": "A. Sbai",
+          "minute": 57
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/le-mans-vs-lorient/h22SHyedG3ywYOprq5_it",
+      "date": null,
+      "home": "Le Mans",
+      "away": "Lorient",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Bourabaa",
+          "minute": 3
+        },
+        {
+          "scorer": "H. Diallo",
+          "minute": 57
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "I. Jensen",
+          "minute": 78
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL": 1
+    "https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL": 2,
+    "https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj": 2,
+    "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq": 1,
+    "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE": 1
   }
 }
