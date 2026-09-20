@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920093358">
+<meta name="app-build" content="20260920161558">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5602,10 +5602,15 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .c4-cell.filled-red{ background:#E8384F; }
   .c4-cell.filled-yellow{ background:#F5C518; }
 
-  /* Checkers board - 8x8, only dark squares are playable/interactive (light squares
-     are non-interactive filler, matching real checkers). Pieces drawn via a radial
-     gradient on the cell itself rather than a separate inner element, keeping this to
-     one element per square like the other boards. */
+  /* Checkers board - matches the single-player canvas rendering exactly (same colors,
+     same "circle within a square" piece shape, same selection/legal-move highlight
+     tints) rather than the separate radial-gradient look this had before, which made
+     pieces nearly indistinguishable from the dark squares - confirmed as a real
+     contrast problem from a screenshot, not a style preference. Pieces are a separate
+     inner element sized to ~72% of the cell (matching the single-player's
+     radius = 0.36 * square-size, i.e. diameter = 0.72 * square-size) rather than
+     filling the whole square, so the board colour still shows at the corners exactly
+     like the canvas version does. */
   .ck-board{
     display:grid; grid-template-columns:repeat(8,1fr); gap:0;
     max-width:320px; margin:0 auto; position:relative;
@@ -5613,17 +5618,21 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   .ck-cell{
     aspect-ratio:1; border:none; padding:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
   }
   .ck-cell:disabled{ cursor:default; }
-  .ck-light{ background:#F0D9B5; }
-  .ck-dark{ background:#3D2A22; }
-  .ck-dark.ck-red{ background:radial-gradient(circle at 35% 30%, #FF6B5B, #C0392B 70%); }
-  .ck-dark.ck-black{ background:radial-gradient(circle at 35% 30%, #5A5A5A, #1A1A1A 70%); }
-  .ck-dark.ck-king::after{
-    content:'★'; display:block; text-align:center; color:#F5C518; font-size:16px;
-    line-height:1; position:relative; top:35%;
+  .ck-light{ background:#EDE3D3; }
+  .ck-dark{ background:#7A5C3E; }
+  .ck-dark.ck-selected{ background:rgba(182,178,53,.55); }
+  .ck-dark.ck-legal{ background:rgba(90,143,78,.55); }
+  .ck-piece{
+    width:72%; height:72%; border-radius:50%;
+    box-shadow:0 0 0 2px rgba(255,255,255,.35) inset;
+    display:flex; align-items:center; justify-content:center;
   }
-  .ck-dark.ck-selected{ outline:3px solid var(--coral); outline-offset:-3px; }
+  .ck-piece.ck-red{ background:#A6342E; }
+  .ck-piece.ck-black{ background:#2b2b2b; }
+  .ck-piece.ck-king::after{ content:'★'; color:#B6B235; font-size:16px; line-height:1; }
 
   /* - Watch page: white + red theme (layout unchanged) - */
   body.theme-watch{background:#FFFFFF;}
@@ -7030,6 +7039,7 @@ const TURN_TIMEOUT_MS_BY_GAME = {
   'tic-tac-toe': 20000,
   'connect-4': 20000,
   'checkers': 20000,
+  'checkers-kamikaze': 20000,
   'chess': 30000,
 };
 function turnTimeoutMs(){
@@ -7039,6 +7049,7 @@ const CHALLENGE_GAMES = [
   { id:'tic-tac-toe', name:'Tic-Tac-Toe', emoji:'⭕' },
   { id:'connect-4', name:'Connect 4', emoji:'🔴' },
   { id:'checkers', name:'Checkers', emoji:'⚫' },
+  { id:'checkers-kamikaze', name:'Checkers (Kamikaze)', emoji:'💥' },
 ];
 
 // Shared plumbing that works across whichever game is currently active, added when
@@ -7048,7 +7059,7 @@ const CHALLENGE_GAMES = [
 function activeGameState(){
   if(activeGameType === 'tic-tac-toe') return ttt;
   if(activeGameType === 'connect-4') return c4;
-  if(activeGameType === 'checkers') return ck;
+  if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') return ck;
   return null;
 }
 let lastGameInfo = null; // { gameId, opponentKey, iWentFirst } - captured right before
@@ -7062,7 +7073,7 @@ function clearActiveGameState(){
   }
   if(activeGameType === 'tic-tac-toe') ttt = null;
   else if(activeGameType === 'connect-4') c4 = null;
-  else if(activeGameType === 'checkers') ck = null;
+  else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') ck = null;
   activeGameType = null;
 }
 function timerElId(){
@@ -7359,7 +7370,7 @@ function startGame(gameId, opponentKey, iGoFirst){
     };
     renderC4Overlay();
     if(c4.myTurn) startTurnTimer();
-  } else if(gameId === 'checkers'){
+  } else if(gameId === 'checkers' || gameId === 'checkers-kamikaze'){
     ck = {
       board: mtCkInitBoard(),
       myColor: iGoFirst ? 'red' : 'black', // matches the single-player convention: red moves first
@@ -7367,6 +7378,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       myTurn: iGoFirst,
       opponentKey,
       iWentFirst: iGoFirst,
+      kamikaze: gameId === 'checkers-kamikaze',
       selected: null,
       turnTimer: null,
       turnDeadline: null,
@@ -7484,7 +7496,7 @@ function makeTttMove(idx){
 function handleIncomingMove(payload){
   if(activeGameType === 'tic-tac-toe') handleIncomingTttMove(payload);
   else if(activeGameType === 'connect-4') handleIncomingC4Move(payload);
-  else if(activeGameType === 'checkers') handleIncomingCkMove(payload);
+  else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') handleIncomingCkMove(payload);
 }
 
 function handleIncomingTttMove(payload){
@@ -7742,6 +7754,18 @@ function endC4Game(result){
 
 function checkCkColor(color){ return color === 'red' ? 'ck-red' : 'ck-black'; }
 
+function ckPieceHtml(piece){
+  if(!piece) return '';
+  let cls = 'ck-piece ' + checkCkColor(piece.color);
+  if(piece.king) cls += ' ck-king';
+  return `<span class="${cls}"></span>`;
+}
+
+function ckStatusText(){
+  const hint = ck.kamikaze ? ' (Kamikaze: lose all your pieces to win!)' : '';
+  return (ck.myTurn ? "Your turn" : "Opponent's turn") + ` — you are ${ck.myColor}${hint}`;
+}
+
 function renderCkOverlay(){
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   if(!ck) return;
@@ -7753,21 +7777,18 @@ function renderCkOverlay(){
     for(let c=0;c<MT_CK_SIZE;c++){
       const dark = (r+c)%2===1;
       let cls = dark ? 'ck-dark' : 'ck-light';
+      let pieceHtml = '';
       if(dark){
-        const piece = ck.board[r][c];
-        if(piece){
-          cls += ' ' + checkCkColor(piece.color);
-          if(piece.king) cls += ' ck-king';
-        }
+        pieceHtml = ckPieceHtml(ck.board[r][c]);
         if(ck.selected && ck.selected.r===r && ck.selected.c===c) cls += ' ck-selected';
       }
-      cellsHtml += `<button class="ck-cell ${cls}" data-action="ck-tap" data-r="${r}" data-c="${c}" ${dark && ck.myTurn ? '' : 'disabled'}></button>`;
+      cellsHtml += `<button class="ck-cell ${cls}" data-action="ck-tap" data-r="${r}" data-c="${c}" ${dark && ck.myTurn ? '' : 'disabled'}>${pieceHtml}</button>`;
     }
   }
   overlay.innerHTML = `
     <div class="challenge-card">
       <div class="ttt-wrap">
-        <div class="ttt-status" id="ckStatus">${ck.myTurn ? "Your turn" : "Opponent's turn"} — you are ${ck.myColor}</div>
+        <div class="ttt-status" id="ckStatus">${ckStatusText()}</div>
         <div class="ttt-timer" id="ckTimer"></div>
         <div class="ck-board">${cellsHtml}</div>
         <button class="ttt-exit-btn" data-action="ck-exit">Exit game</button>
@@ -7780,17 +7801,28 @@ function renderCkOverlay(){
 // In-place cell update, same discipline as updateTttCell/updateC4Cell - the board
 // renders once at game start and only the handful of cells actually affected by a
 // move (from, to, captured, plus any selection-highlight change) get touched after
-// that, never a full rebuild.
+// that, never a full rebuild. The piece is a separate inner <span> (see ckPieceHtml)
+// so it can be sized independently of the square - rebuilding a cell's innerHTML here
+// is still cheap since it only ever touches the 3-4 affected cells, not the board.
 function updateCkCell(r, c){
   const btn = document.querySelector(`.ck-cell[data-r="${r}"][data-c="${c}"]`);
   if(!btn || !ck) return;
-  btn.classList.remove('ck-red','ck-black','ck-king','ck-selected');
-  const piece = ck.board[r][c];
-  if(piece){
-    btn.classList.add(checkCkColor(piece.color));
-    if(piece.king) btn.classList.add('ck-king');
-  }
+  btn.classList.remove('ck-selected');
+  btn.innerHTML = ckPieceHtml(ck.board[r][c]);
   if(ck.selected && ck.selected.r===r && ck.selected.c===c) btn.classList.add('ck-selected');
+}
+// Matches the single-player board's own affordance: once a piece is selected, its
+// legal destinations (captures only, if any are available - mirroring the mandatory-
+// capture rule) light up green so it's clear where it can actually go.
+function updateCkLegalHighlights(){
+  document.querySelectorAll('.ck-cell').forEach(btn => btn.classList.remove('ck-legal'));
+  if(!ck || !ck.selected) return;
+  const caps = mtCkGetCaptures(ck.board, ck.selected.r, ck.selected.c);
+  const moves = caps.length ? caps : mtCkGetSimpleMoves(ck.board, ck.selected.r, ck.selected.c);
+  moves.forEach(m => {
+    const btn = document.querySelector(`.ck-cell[data-r="${m.toR}"][data-c="${m.toC}"]`);
+    if(btn) btn.classList.add('ck-legal');
+  });
 }
 function updateCkCellsEnabled(){
   document.querySelectorAll('.ck-cell').forEach(btn => {
@@ -7800,7 +7832,7 @@ function updateCkCellsEnabled(){
 }
 function updateCkStatus(){
   const el = document.getElementById('ckStatus');
-  if(el) el.textContent = (ck.myTurn ? "Your turn" : "Opponent's turn") + ` — you are ${ck.myColor}`;
+  if(el) el.textContent = ckStatusText();
 }
 function disableAllCkCells(){
   document.querySelectorAll('.ck-cell').forEach(btn => { btn.disabled = true; });
@@ -7818,6 +7850,7 @@ function selectCkSquare(r, c){
       ck.selected = {r, c};
       updateCkCell(prev.r, prev.c);
       updateCkCell(r, c);
+      updateCkLegalHighlights();
       return;
     }
     attemptCkMove(r, c);
@@ -7828,6 +7861,7 @@ function selectCkSquare(r, c){
     if(mandatory.length && !mandatory.some(m => m.r===r && m.c===c)) return;
     ck.selected = {r, c};
     updateCkCell(r, c);
+    updateCkLegalHighlights();
   }
 }
 
@@ -7847,6 +7881,14 @@ function attemptCkMove(toR, toC){
   }
 }
 
+// Kamikaze inverts who wins when a side runs out of legal moves: in classic checkers
+// the side with no moves loses, in kamikaze that side wins (matches the single-player
+// checkGameOver logic exactly - same underlying mtCkHasAnyMove check, just the winner
+// assignment flipped).
+function ckWinnerIsMe(isMyMove){
+  return ck.kamikaze ? !isMyMove : isMyMove;
+}
+
 function executeCkSimpleMove(fromR, fromC, toR, toC, isMyMove){
   const prevSelected = ck.selected;
   ck.board[toR][toC] = ck.board[fromR][fromC];
@@ -7859,10 +7901,11 @@ function executeCkSimpleMove(fromR, fromC, toR, toC, isMyMove){
   updateCkCell(fromR, fromC);
   updateCkCell(toR, toC);
   if(prevSelected) updateCkCell(prevSelected.r, prevSelected.c);
+  updateCkLegalHighlights();
   clearTurnTimer();
   const nextColor = isMyMove ? ck.oppColor : ck.myColor;
   if(!mtCkHasAnyMove(ck.board, nextColor)){
-    endCkGame({ winnerIsMe: isMyMove });
+    endCkGame({ winnerIsMe: ckWinnerIsMe(isMyMove) });
     return;
   }
   ck.myTurn = !isMyMove;
@@ -7889,6 +7932,7 @@ function executeCkCapture(fromR, fromC, toR, toC, capR, capC, isMyMove){
   if(more){
     ck.selected = {r:toR, c:toC};
     updateCkCell(toR, toC);
+    updateCkLegalHighlights();
     ck.myTurn = isMyMove; // same player continues - turn does not pass
     updateCkStatus();
     updateCkCellsEnabled();
@@ -7897,10 +7941,11 @@ function executeCkCapture(fromR, fromC, toR, toC, capR, capC, isMyMove){
   }
   const nextColor = isMyMove ? ck.oppColor : ck.myColor;
   if(!mtCkHasAnyMove(ck.board, nextColor)){
-    endCkGame({ winnerIsMe: isMyMove });
+    endCkGame({ winnerIsMe: ckWinnerIsMe(isMyMove) });
     return;
   }
   ck.selected = null;
+  updateCkLegalHighlights();
   ck.myTurn = !isMyMove;
   updateCkStatus();
   updateCkCellsEnabled();
@@ -7919,7 +7964,10 @@ function handleIncomingCkMove(payload){
 
 function endCkGame(result){
   clearTurnTimer();
-  const msg = result.winnerIsMe ? 'You won! 🎉' : 'You lost.';
+  const kamikaze = ck.kamikaze; // read before clearActiveGameState nulls ck
+  const msg = result.winnerIsMe
+    ? (kamikaze ? 'You won by sacrifice! 🎉' : 'You won! 🎉')
+    : (kamikaze ? 'You lost - opponent won by sacrifice.' : 'You lost.');
   disableAllCkCells();
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
