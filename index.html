@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920091554">
+<meta name="app-build" content="20260920093358">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5540,10 +5540,15 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     text-align:center; box-shadow:0 10px 40px rgba(0,0,0,.4);
   }
   .game-popup-card .msg{ font-weight:800; font-size:17px; margin-bottom:18px; }
+  .game-popup-btn-row{ display:flex; gap:10px; justify-content:center; flex-wrap:wrap; }
   .game-popup-card button{
     background:var(--coral); color:#fff; border:none; border-radius:10px; padding:10px 24px;
     font-family:'Nunito',sans-serif; font-weight:800; font-size:14px; cursor:pointer;
   }
+  .game-popup-card button[data-action="request-rematch"]{
+    background:none; border:2px solid var(--coral); color:var(--coral);
+  }
+  .game-popup-waiting{ font-size:13px; color:var(--ink-soft); font-weight:700; margin-top:10px; }
 
   /* Tic-tac-toe board */
   .ttt-wrap{ max-width:360px; margin:0 auto; text-align:center; }
@@ -6981,6 +6986,7 @@ function initLiveUserCounter(){
     .on('broadcast', { event: 'challenge_reject' }, ({ payload }) => { if(payload.to === presenceKey) handleChallengeRejected(payload); })
     .on('broadcast', { event: 'game_move' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingMove(payload); })
     .on('broadcast', { event: 'game_forfeit' }, ({ payload }) => { if(payload.to === presenceKey) handleOpponentForfeit(payload); })
+    .on('broadcast', { event: 'rematch_request' }, ({ payload }) => { if(payload.to === presenceKey) handleRematchRequest(payload); })
     .subscribe(async (status) => {
       if(status === 'SUBSCRIBED'){
         await channel.track({ online_at: new Date().toISOString() });
@@ -7045,7 +7051,15 @@ function activeGameState(){
   if(activeGameType === 'checkers') return ck;
   return null;
 }
+let lastGameInfo = null; // { gameId, opponentKey, iWentFirst } - captured right before
+// clearActiveGameState wipes the live game state, so a rematch can be offered after any
+// game ends (win, loss, draw, or forfeit either way) without needing to re-derive who
+// was playing whom.
 function clearActiveGameState(){
+  const g = activeGameState();
+  if(g && activeGameType){
+    lastGameInfo = { gameId: activeGameType, opponentKey: g.opponentKey, iWentFirst: g.iWentFirst };
+  }
   if(activeGameType === 'tic-tac-toe') ttt = null;
   else if(activeGameType === 'connect-4') c4 = null;
   else if(activeGameType === 'checkers') ck = null;
@@ -7199,16 +7213,107 @@ function handleChallengeRejected(payload){
   if(!payload.silent) showGamePopup('Challenge rejected');
 }
 
-function showGamePopup(msg){
+function showGamePopup(msg, opts){
+  opts = opts || {};
   const overlay = document.createElement('div');
   overlay.className = 'game-popup-overlay';
+  const rematchBtn = opts.offerRematch ? `<button data-action="request-rematch">Rematch?</button>` : '';
   overlay.innerHTML = `
     <div class="game-popup-card">
       <div class="msg">${escapeHtml(msg)}</div>
-      <button data-action="close-game-popup">OK</button>
+      <div class="game-popup-btn-row">
+        <button data-action="close-game-popup">OK</button>
+        ${rematchBtn}
+      </div>
     </div>
   `;
   document.body.appendChild(overlay);
+}
+
+// --- Rematch ---
+// Mutual by design: either side can request one right from the result popup, but the
+// new game only actually starts once BOTH sides have asked - one player wanting a
+// rematch never forces the other into one. If the opponent asks first, it shows as an
+// incoming toast (same visual pattern as an incoming challenge) with its own Accept -
+// accepting that toast IS the second half of the mutual request, so it starts
+// immediately rather than needing yet another round-trip.
+//
+// Turn order flips automatically: lastGameInfo.iWentFirst records who went first in
+// the game that just ended, and the rematch gives the OTHER player first move -
+// both clients derive this identically and independently from their own
+// iWentFirst, so no extra negotiation message is needed for who goes first.
+let rematchState = null; // { gameId, iRequested, theyRequested, timer }
+const REMATCH_TIMEOUT_MS = 30000;
+
+function requestRematch(){
+  if(!lastGameInfo) return;
+  const { gameId, opponentKey, iWentFirst } = lastGameInfo;
+  if(rematchState && rematchState.theyRequested && rematchState.gameId === gameId){
+    acceptPendingRematch();
+    return;
+  }
+  gameChannel.send({ type:'broadcast', event:'rematch_request', payload:{ to:opponentKey, from:myPresenceKey, gameId } });
+  if(rematchState && rematchState.timer) clearTimeout(rematchState.timer);
+  rematchState = {
+    gameId, iRequested:true, theyRequested:false,
+    timer: setTimeout(() => { rematchState = null; }, REMATCH_TIMEOUT_MS)
+  };
+  document.querySelectorAll('.game-popup-overlay').forEach(el => el.remove());
+  const waitOverlay = document.createElement('div');
+  waitOverlay.className = 'game-popup-overlay';
+  waitOverlay.innerHTML = `
+    <div class="game-popup-card">
+      <div class="msg">Rematch requested</div>
+      <div class="game-popup-waiting">Waiting for opponent to accept…</div>
+    </div>
+  `;
+  document.body.appendChild(waitOverlay);
+}
+
+function acceptPendingRematch(){
+  if(!rematchState || !lastGameInfo) return;
+  const { gameId, opponentKey, iWentFirst } = lastGameInfo;
+  if(rematchState.timer) clearTimeout(rematchState.timer);
+  rematchState = null;
+  // Tell the opponent the match is confirmed - without this, accepting only ever
+  // started the game locally on the accepting side, leaving the original requester
+  // stuck on "Waiting for opponent to accept..." forever (found via simulation, not
+  // just reasoned through - the mutual-rematch test failed on the requester's side
+  // until this broadcast was added).
+  gameChannel.send({ type:'broadcast', event:'rematch_request', payload:{ to:opponentKey, from:myPresenceKey, gameId } });
+  document.querySelectorAll('.game-popup-overlay, .challenge-toast').forEach(el => el.remove());
+  startGame(gameId, opponentKey, !iWentFirst);
+}
+
+function handleRematchRequest(payload){
+  if(!lastGameInfo || payload.from !== lastGameInfo.opponentKey || payload.gameId !== lastGameInfo.gameId) return;
+  // Guards against the confirmation broadcast above being misread as a NEW request
+  // once a game is already active (e.g. the mutual case: A requests, B accepts and
+  // confirms back to A, A's own confirmation echo would otherwise look like a fresh
+  // request to B even though B's game already started).
+  if(activeGameType) return;
+  if(rematchState && rematchState.iRequested && rematchState.gameId === payload.gameId){
+    acceptPendingRematch();
+    return;
+  }
+  if(rematchState && rematchState.timer) clearTimeout(rematchState.timer);
+  rematchState = {
+    gameId: payload.gameId, iRequested:false, theyRequested:true,
+    timer: setTimeout(() => { rematchState = null; }, REMATCH_TIMEOUT_MS)
+  };
+  const gameName = (CHALLENGE_GAMES.find(g => g.id === payload.gameId) || {}).name || 'a rematch';
+  document.querySelectorAll('.challenge-toast').forEach(el => el.remove());
+  const toast = document.createElement('div');
+  toast.className = 'challenge-toast';
+  toast.innerHTML = `
+    <div class="title">Rematch?</div>
+    <div class="desc">Opponent wants to play ${escapeHtml(gameName)} again.</div>
+    <div class="btn-row">
+      <button class="accept-btn" data-action="accept-rematch">Accept</button>
+      <button class="reject-btn" data-action="close-game-popup-dismiss-toast">Not now</button>
+    </div>
+  `;
+  document.body.appendChild(toast);
 }
 
 // --- Tic-tac-toe ---
@@ -7233,6 +7338,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       oppSymbol: iGoFirst ? 'O' : 'X',
       myTurn: iGoFirst,
       opponentKey,
+      iWentFirst: iGoFirst, // remembered for rematch - the loser/other side goes first next time
       turnTimer: null,
       turnDeadline: null,
       tickInterval: null,
@@ -7246,6 +7352,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       oppSymbol: iGoFirst ? 'Y' : 'R',
       myTurn: iGoFirst,
       opponentKey,
+      iWentFirst: iGoFirst,
       turnTimer: null,
       turnDeadline: null,
       tickInterval: null,
@@ -7259,6 +7366,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       oppColor: iGoFirst ? 'black' : 'red',
       myTurn: iGoFirst,
       opponentKey,
+      iWentFirst: iGoFirst,
       selected: null,
       turnTimer: null,
       turnDeadline: null,
@@ -7426,12 +7534,12 @@ function endTttGame(result){
     setTimeout(() => {
       clearActiveGameState();
       document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-      showGamePopup(msg);
+      showGamePopup(msg, {offerRematch:true});
     }, 1400);
   } else {
     clearActiveGameState();
     document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-    showGamePopup(msg);
+    showGamePopup(msg, {offerRematch:true});
   }
 }
 
@@ -7443,7 +7551,7 @@ function sendForfeit(reason){
   gameChannel.send({ type:'broadcast', event:'game_forfeit', payload:{ to:opponentKey, reason } });
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-  showGamePopup(reason === 'timeout' ? "Time's up - you forfeited." : 'You left the game.');
+  showGamePopup(reason === 'timeout' ? "Time's up - you forfeited." : 'You left the game.', {offerRematch:true});
 }
 
 function handleOpponentForfeit(payload){
@@ -7452,7 +7560,7 @@ function handleOpponentForfeit(payload){
   clearTurnTimer();
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-  showGamePopup('Opponent has forfeited');
+  showGamePopup('Opponent has forfeited', {offerRematch:true});
 }
 
 // --- Connect 4 ---
@@ -7596,12 +7704,12 @@ function endC4Game(result){
     setTimeout(() => {
       clearActiveGameState();
       document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-      showGamePopup(msg);
+      showGamePopup(msg, {offerRematch:true});
     }, 1400);
   } else {
     clearActiveGameState();
     document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-    showGamePopup(msg);
+    showGamePopup(msg, {offerRematch:true});
   }
 }
 
@@ -7815,7 +7923,7 @@ function endCkGame(result){
   disableAllCkCells();
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
-  showGamePopup(msg);
+  showGamePopup(msg, {offerRematch:true});
 }
 
 /* - Analytics (fire-and-forget, never blocks the UI) - */
@@ -26278,6 +26386,24 @@ document.addEventListener('click', (e) => {
   if(closeGamePopupBtn){
     e.preventDefault();
     closeGamePopupBtn.closest('.game-popup-overlay').remove();
+    return;
+  }
+  const requestRematchBtn = e.target.closest('[data-action="request-rematch"]');
+  if(requestRematchBtn){
+    e.preventDefault();
+    requestRematch();
+    return;
+  }
+  const acceptRematchBtn = e.target.closest('[data-action="accept-rematch"]');
+  if(acceptRematchBtn){
+    e.preventDefault();
+    acceptPendingRematch();
+    return;
+  }
+  const dismissRematchToastBtn = e.target.closest('[data-action="close-game-popup-dismiss-toast"]');
+  if(dismissRematchToastBtn){
+    e.preventDefault();
+    dismissRematchToastBtn.closest('.challenge-toast').remove();
     return;
   }
   const tttMoveBtn = e.target.closest('[data-action="ttt-move"]');
