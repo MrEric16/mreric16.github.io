@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920161558">
+<meta name="app-build" content="20260920162627">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5550,6 +5550,44 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   .game-popup-waiting{ font-size:13px; color:var(--ink-soft); font-weight:700; margin-top:10px; }
 
+  /* Quick-phrase chat - fixed list only, no free text, so there is nothing to
+     moderate: taps send one of a small set of phrases, shown to the opponent as a
+     brief auto-dismissing bubble rather than a persistent chat log. */
+  .game-chat-btn{
+    margin-top:10px; background:none; border:1px solid var(--line); border-radius:10px;
+    padding:8px 16px; font-family:'Nunito',sans-serif; font-weight:700; font-size:13px;
+    color:var(--ink-soft); cursor:pointer; display:block; margin-left:auto; margin-right:auto;
+  }
+  .game-chat-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:2300;
+    display:flex; align-items:flex-end; justify-content:center; padding:16px;
+  }
+  .game-chat-card{
+    background:var(--card); border-radius:16px; padding:18px; max-width:360px; width:100%;
+    box-shadow:0 -4px 20px rgba(0,0,0,.3);
+  }
+  .game-chat-title{ font-weight:800; font-size:15px; margin-bottom:12px; text-align:center; }
+  .game-chat-phrase-list{ display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:12px; }
+  .game-chat-phrase-btn{
+    background:var(--coral); color:#fff; border:none; border-radius:999px;
+    padding:8px 14px; font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; cursor:pointer;
+  }
+  .game-chat-cancel{
+    display:block; margin:0 auto; background:none; border:none; color:var(--ink-soft);
+    font-family:'Nunito',sans-serif; font-weight:700; font-size:13px; cursor:pointer; padding:6px;
+  }
+  .game-chat-bubble{
+    position:fixed; bottom:110px; left:50%; transform:translateX(-50%);
+    background:var(--card); color:var(--ink); padding:10px 18px; border-radius:20px;
+    box-shadow:0 4px 16px rgba(0,0,0,.3); font-weight:700; font-size:14px; z-index:2400;
+    animation:gameChatBubbleIn .2s ease-out; max-width:80vw; text-align:center;
+  }
+  .game-chat-bubble.mine{ background:var(--coral); color:#fff; }
+  @keyframes gameChatBubbleIn{
+    from{ opacity:0; transform:translateX(-50%) translateY(10px); }
+    to{ opacity:1; transform:translateX(-50%) translateY(0); }
+  }
+
   /* Tic-tac-toe board */
   .ttt-wrap{ max-width:360px; margin:0 auto; text-align:center; }
   .ttt-status{ font-weight:800; font-size:16px; margin-bottom:4px; }
@@ -6996,6 +7034,7 @@ function initLiveUserCounter(){
     .on('broadcast', { event: 'game_move' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingMove(payload); })
     .on('broadcast', { event: 'game_forfeit' }, ({ payload }) => { if(payload.to === presenceKey) handleOpponentForfeit(payload); })
     .on('broadcast', { event: 'rematch_request' }, ({ payload }) => { if(payload.to === presenceKey) handleRematchRequest(payload); })
+    .on('broadcast', { event: 'game_chat' }, ({ payload }) => { if(payload.to === presenceKey) handleGameChat(payload); })
     .subscribe(async (status) => {
       if(status === 'SUBSCRIBED'){
         await channel.track({ online_at: new Date().toISOString() });
@@ -7241,6 +7280,58 @@ function showGamePopup(msg, opts){
   document.body.appendChild(overlay);
 }
 
+// --- Quick-phrase chat ---
+// Fixed list only, no free text field at all - there's nothing to moderate, and no
+// way to type anything inappropriate, by construction rather than by filtering.
+// Works identically across every game since it only needs activeGameState() for the
+// opponent's key, not anything game-specific.
+const GAME_CHAT_PHRASES = ['Good luck!', 'Unlucky!', 'Ha, loser!', 'Well played!', 'Play again?', 'Hurry up!', 'Gotta go', 'Wow!'];
+
+function openGameChatPicker(){
+  const g = activeGameState();
+  if(!g) return;
+  document.querySelectorAll('.game-chat-overlay').forEach(el => el.remove());
+  const overlay = document.createElement('div');
+  overlay.className = 'game-chat-overlay';
+  overlay.innerHTML = `
+    <div class="game-chat-card">
+      <div class="game-chat-title">Send a message</div>
+      <div class="game-chat-phrase-list">
+        ${GAME_CHAT_PHRASES.map(p => `<button class="game-chat-phrase-btn" data-action="send-game-chat" data-phrase="${escapeHtml(p)}">${escapeHtml(p)}</button>`).join('')}
+      </div>
+      <button class="game-chat-cancel" data-action="close-game-chat-picker">Cancel</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+}
+
+function closeGameChatPicker(){
+  document.querySelectorAll('.game-chat-overlay').forEach(el => el.remove());
+}
+
+function sendGameChatPhrase(phrase){
+  const g = activeGameState();
+  if(!g || !gameChannel) return;
+  gameChannel.send({ type:'broadcast', event:'game_chat', payload:{ to:g.opponentKey, from:myPresenceKey, phrase } });
+  closeGameChatPicker();
+  showGameChatBubble(phrase, true);
+}
+
+function handleGameChat(payload){
+  const g = activeGameState();
+  if(!g || payload.from !== g.opponentKey) return;
+  showGameChatBubble(payload.phrase, false);
+}
+
+function showGameChatBubble(phrase, isMine){
+  document.querySelectorAll('.game-chat-bubble').forEach(el => el.remove());
+  const bubble = document.createElement('div');
+  bubble.className = 'game-chat-bubble' + (isMine ? ' mine' : '');
+  bubble.textContent = phrase;
+  document.body.appendChild(bubble);
+  setTimeout(() => { bubble.remove(); }, 3000);
+}
+
 // --- Rematch ---
 // Mutual by design: either side can request one right from the result popup, but the
 // new game only actually starts once BOTH sides have asked - one player wanting a
@@ -7441,6 +7532,7 @@ function renderTttOverlay(){
           ${ttt.board.map((v,i) => `<button class="ttt-cell ${v==='X'||v==='O' ? (v===ttt.mySymbol?'mine':'theirs') : ''}" data-action="ttt-move" data-idx="${i}" ${v || !ttt.myTurn ? 'disabled' : ''}>${v || ''}</button>`).join('')}
         </div>
         <button class="ttt-exit-btn" data-action="ttt-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
       </div>
     </div>
   `;
@@ -7634,6 +7726,7 @@ function renderC4Overlay(){
         <div class="ttt-timer" id="c4Timer"></div>
         <div class="c4-board">${cellsHtml}</div>
         <button class="ttt-exit-btn" data-action="c4-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
       </div>
     </div>
   `;
@@ -7792,6 +7885,7 @@ function renderCkOverlay(){
         <div class="ttt-timer" id="ckTimer"></div>
         <div class="ck-board">${cellsHtml}</div>
         <button class="ttt-exit-btn" data-action="ck-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
       </div>
     </div>
   `;
@@ -26452,6 +26546,24 @@ document.addEventListener('click', (e) => {
   if(dismissRematchToastBtn){
     e.preventDefault();
     dismissRematchToastBtn.closest('.challenge-toast').remove();
+    return;
+  }
+  const openGameChatBtn = e.target.closest('[data-action="open-game-chat"]');
+  if(openGameChatBtn){
+    e.preventDefault();
+    openGameChatPicker();
+    return;
+  }
+  const sendGameChatBtn = e.target.closest('[data-action="send-game-chat"]');
+  if(sendGameChatBtn){
+    e.preventDefault();
+    sendGameChatPhrase(sendGameChatBtn.dataset.phrase);
+    return;
+  }
+  const closeGameChatBtn = e.target.closest('[data-action="close-game-chat-picker"]');
+  if(closeGameChatBtn){
+    e.preventDefault();
+    closeGameChatPicker();
     return;
   }
   const tttMoveBtn = e.target.closest('[data-action="ttt-move"]');
