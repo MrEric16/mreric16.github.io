@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920163735">
+<meta name="app-build" content="20260920170553">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7470,6 +7470,12 @@ function startGame(gameId, opponentKey, iGoFirst){
       opponentKey,
       iWentFirst: iGoFirst,
       kamikaze: gameId === 'checkers-kamikaze',
+      // Red starts at rows 5-7 (the bottom in the raw board array), so red's own
+      // pieces naturally render at the bottom of an unflipped board. Black starts at
+      // rows 0-2 (the top), so without flipping, black would see their OWN pieces at
+      // the top of their screen attacking downward - exactly the bug Mr Eric reported.
+      // Every player should control the bottom, pushing up, regardless of colour.
+      flipped: !iGoFirst,
       selected: null,
       turnTimer: null,
       turnDeadline: null,
@@ -7868,8 +7874,18 @@ function renderCkOverlay(){
   overlay.className = 'challenge-overlay';
   overlay.id = 'ckOverlay';
   let cellsHtml = '';
-  for(let r=0;r<MT_CK_SIZE;r++){
-    for(let c=0;c<MT_CK_SIZE;c++){
+  // Iterating in DISPLAY order (top-left to bottom-right on screen) while looking up
+  // the ARRAY cell to render there via the flip - when ck.flipped, both axes invert
+  // together (a proper 180-degree rotation, not just a row mirror), which is what
+  // keeps the light/dark chequer pattern correct from either side, same as flipping a
+  // real physical board around rather than just reading it upside down.
+  // data-r/data-c always hold the true ARRAY coordinates regardless of screen
+  // position, so every other function (updateCkCell, selectCkSquare, the whole move
+  // pipeline) needs no changes at all - they already only ever deal in array space.
+  for(let displayR=0; displayR<MT_CK_SIZE; displayR++){
+    for(let displayC=0; displayC<MT_CK_SIZE; displayC++){
+      const r = ck.flipped ? (MT_CK_SIZE-1-displayR) : displayR;
+      const c = ck.flipped ? (MT_CK_SIZE-1-displayC) : displayC;
       const dark = (r+c)%2===1;
       let cls = dark ? 'ck-dark' : 'ck-light';
       let pieceHtml = '';
