@@ -1,33 +1,6 @@
 {
-  "generatedAt": "2026-09-20T08:09:54.156795Z",
+  "generatedAt": "2026-09-20T13:08:57.651202Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/sevilla-vs-rayo-vallecano/cjnWqJvXGPNH1BdoZfR1V",
-      "date": "2026-08-15",
-      "home": "Sevilla",
-      "away": "Rayo Vallecano",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "J. Guridi",
-          "minute": 52
-        },
-        {
-          "scorer": "Peque",
-          "minute": 97
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Garcia",
-          "minute": 4
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/racing-santander-vs-villarreal/IpaB4xDohdKA1rY5SVWQc",
       "date": "2026-08-16",
@@ -7733,6 +7706,29 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/fiorentina-vs-ssc-napoli/MYxpraKitpWZujZr19FUp",
+      "date": null,
+      "home": "Fiorentina",
+      "away": "Ssc Napoli",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Jimenez",
+          "minute": 51
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "B. Gilmour",
+          "minute": 23
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
