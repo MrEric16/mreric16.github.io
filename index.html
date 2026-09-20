@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920041403">
+<meta name="app-build" content="20260920090706">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -6992,7 +6992,18 @@ let ttt = null;                // active tic-tac-toe game state, or null
 let c4 = null;                 // active Connect 4 game state, or null
 
 const CHALLENGE_TIMEOUT_MS = 30000;
-const TURN_TIMEOUT_MS = 30000;
+// Per-turn timeout varies by game - 20s for fast games, chess (once built) gets longer
+// since a single chess move genuinely needs more thought than a tic-tac-toe/connect-4
+// move. Reserved 'chess' key now even though chess isn't built yet, so adding it later
+// doesn't mean revisiting this lookup.
+const TURN_TIMEOUT_MS_BY_GAME = {
+  'tic-tac-toe': 20000,
+  'connect-4': 20000,
+  'chess': 30000,
+};
+function turnTimeoutMs(){
+  return TURN_TIMEOUT_MS_BY_GAME[activeGameType] || 20000;
+}
 const CHALLENGE_GAMES = [
   { id:'tic-tac-toe', name:'Tic-Tac-Toe', emoji:'⭕' },
   { id:'connect-4', name:'Connect 4', emoji:'🔴' },
@@ -7218,17 +7229,29 @@ function startTurnTimer(){
   const g = activeGameState();
   if(!g) return;
   clearTurnTimer();
-  g.turnDeadline = Date.now() + TURN_TIMEOUT_MS;
-  g.turnTimer = setTimeout(() => { sendForfeit('timeout'); }, TURN_TIMEOUT_MS);
+  const ms = turnTimeoutMs();
+  g.turnDeadline = Date.now() + ms;
+  g.turnTimer = setTimeout(() => { sendForfeit('timeout'); }, ms);
   g.tickInterval = setInterval(updateTurnTimerDisplay, 250);
   updateTurnTimerDisplay();
 }
+// Bug fix: this previously only cleared the timer/interval HANDLES, leaving
+// g.turnDeadline as a stale past timestamp and the displayed text exactly as it was at
+// the moment the interval stopped. Since nothing calls updateTurnTimerDisplay again
+// until the NEXT startTurnTimer (i.e. until it's your turn again), that frozen number
+// just sat on screen the whole time you were waiting on your opponent - reported as
+// "stuck on N seconds every time a move happens." Now explicitly clears the deadline
+// and blanks the displayed text immediately, so a waiting player sees nothing rather
+// than a misleadingly frozen countdown.
 function clearTurnTimer(){
   const g = activeGameState();
   if(!g) return;
   if(g.turnTimer) clearTimeout(g.turnTimer);
   if(g.tickInterval) clearInterval(g.tickInterval);
   g.turnTimer = null; g.tickInterval = null;
+  g.turnDeadline = null;
+  const el = document.getElementById(timerElId());
+  if(el) el.textContent = '';
 }
 function updateTurnTimerDisplay(){
   const g = activeGameState();
