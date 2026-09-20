@@ -1,64 +1,6 @@
 {
-  "generatedAt": "2026-09-19T23:49:53.835713Z",
+  "generatedAt": "2026-09-20T02:40:28.623825Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-borussia-dortmund/Vm0njaYO9VJtjFK619x1D",
-      "date": "2026-08-09",
-      "home": "Arsenal",
-      "away": "Borussia Dortmund",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "E. Nwaneri",
-          "minute": 54
-        },
-        {
-          "scorer": "V. Gyokeres",
-          "minute": 69
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "S. Inacio",
-          "minute": 7
-        },
-        {
-          "scorer": "K. Karetsas",
-          "minute": 29
-        },
-        {
-          "scorer": "J. Gadou",
-          "minute": 58
-        }
-      ],
-      "competition": "arsenal-friendlies"
-    },
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-como/koR3epM8vmLqxzq2PE-jy",
-      "date": "2026-08-12",
-      "home": "Arsenal",
-      "away": "Como",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "M. Lewis-Skelly",
-          "minute": 33
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Baturina",
-          "minute": 43
-        }
-      ],
-      "competition": "arsenal-friendlies"
-    },
     {
       "url": "https://www.goal.com/en/match/deportivo-alaves-vs-getafe/ILVFhRetUUirJj8CNahwC",
       "date": "2026-08-15",
@@ -7725,12 +7667,67 @@
         }
       ],
       "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq",
+      "date": null,
+      "home": "Lyon",
+      "away": "Rennes",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "E. Nuamah",
+          "minute": 7
+        },
+        {
+          "scorer": "Z. Athekame",
+          "minute": 48
+        },
+        {
+          "scorer": "C. Tolisso",
+          "minute": 76
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE",
+      "date": null,
+      "home": "Toulouse",
+      "away": "Le Havre",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "C. Tengstedt",
+          "minute": 49
+        },
+        {
+          "scorer": "T. Joergensen",
+          "minute": 79
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Maja",
+          "minute": 71
+        },
+        {
+          "scorer": "M. Samatta",
+          "minute": 88
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
-    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq": 2,
-    "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE": 2
+    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2
   }
 }
