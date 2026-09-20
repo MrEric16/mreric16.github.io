@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920171328">
+<meta name="app-build" content="20260920215100">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5548,6 +5548,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .game-popup-card button[data-action="request-rematch"]{
     background:none; border:2px solid var(--coral); color:var(--coral);
   }
+  .game-popup-card button[data-action="confirm-exit-game"]{
+    background:none; border:2px solid var(--coral); color:var(--coral);
+  }
   .game-popup-waiting{ font-size:13px; color:var(--ink-soft); font-weight:700; margin-top:10px; }
 
   /* Quick-phrase chat - fixed list only, no free text, so there is nothing to
@@ -5578,8 +5581,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   .game-chat-bubble{
     position:fixed; bottom:110px; left:50%; transform:translateX(-50%);
-    background:var(--card); color:var(--ink); padding:10px 18px; border-radius:20px;
-    box-shadow:0 4px 16px rgba(0,0,0,.3); font-weight:700; font-size:14px; z-index:2400;
+    background:var(--card); color:var(--ink); padding:12px 22px; border-radius:24px;
+    box-shadow:0 4px 16px rgba(0,0,0,.3); font-weight:800; font-size:18px; z-index:2400;
     animation:gameChatBubbleIn .2s ease-out; max-width:80vw; text-align:center;
   }
   .game-chat-bubble.mine{ background:var(--coral); color:#fff; }
@@ -7274,6 +7277,26 @@ function showGamePopup(msg, opts){
       <div class="game-popup-btn-row">
         <button data-action="close-game-popup">OK</button>
         ${rematchBtn}
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+}
+
+// Exit was previously immediate on tap - one accidental tap and the game (and any
+// progress in it) was just gone, forfeited with no way back. Now shared by every
+// game's exit button rather than each having its own confirmation, since they all
+// already route through the same sendForfeit('exit') call.
+function confirmExitGame(){
+  document.querySelectorAll('.game-popup-overlay').forEach(el => el.remove());
+  const overlay = document.createElement('div');
+  overlay.className = 'game-popup-overlay';
+  overlay.innerHTML = `
+    <div class="game-popup-card">
+      <div class="msg">Exit this game? You'll forfeit and your opponent wins.</div>
+      <div class="game-popup-btn-row">
+        <button data-action="cancel-exit-game">Stay</button>
+        <button data-action="confirm-exit-game">Exit</button>
       </div>
     </div>
   `;
@@ -26630,7 +26653,7 @@ document.addEventListener('click', (e) => {
   const tttExitBtn = e.target.closest('[data-action="ttt-exit"]');
   if(tttExitBtn){
     e.preventDefault();
-    sendForfeit('exit');
+    confirmExitGame();
     return;
   }
   const c4DropBtn = e.target.closest('[data-action="c4-drop"]');
@@ -26642,7 +26665,7 @@ document.addEventListener('click', (e) => {
   const c4ExitBtn = e.target.closest('[data-action="c4-exit"]');
   if(c4ExitBtn){
     e.preventDefault();
-    sendForfeit('exit');
+    confirmExitGame();
     return;
   }
   const ckTapBtn = e.target.closest('[data-action="ck-tap"]');
@@ -26654,6 +26677,19 @@ document.addEventListener('click', (e) => {
   const ckExitBtn = e.target.closest('[data-action="ck-exit"]');
   if(ckExitBtn){
     e.preventDefault();
+    confirmExitGame();
+    return;
+  }
+  const cancelExitBtn = e.target.closest('[data-action="cancel-exit-game"]');
+  if(cancelExitBtn){
+    e.preventDefault();
+    cancelExitBtn.closest('.game-popup-overlay').remove();
+    return;
+  }
+  const confirmExitBtn = e.target.closest('[data-action="confirm-exit-game"]');
+  if(confirmExitBtn){
+    e.preventDefault();
+    confirmExitBtn.closest('.game-popup-overlay').remove();
     sendForfeit('exit');
     return;
   }
