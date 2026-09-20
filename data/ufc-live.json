@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T08:11:26.705492+00:00",
+  "generatedAt": "2026-09-20T08:44:11.266681+00:00",
   "scheduled": [
     {
       "name": "UFC 335",
@@ -17,7 +17,8 @@
       "name": "UFC 334",
       "date_text": "Nov 14, 2026",
       "venue": "Madison Square Garden",
-      "location": "New York City,New York, U.S."
+      "location": "New York City,New York, U.S.",
+      "start_tashkent": "2026-11-15T07:00:00+05:00"
     },
     {
       "name": "UFC Fight Night: Bonfim vs. Brady",
@@ -67,16 +68,15 @@
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S.",
       "start_tashkent": "2026-09-27T05:00:00+05:00"
-    },
+    }
+  ],
+  "past": [
     {
       "name": "UFC 331: Van vs. Pantoja 2",
       "date_text": "Sep 19, 2026",
       "venue": "Crypto.com Arena",
-      "location": "Los Angeles,California, U.S.",
-      "start_tashkent": "2026-09-20T06:00:00+05:00"
-    }
-  ],
-  "past": [
+      "location": "Los Angeles,California, U.S."
+    },
     {
       "name": "UFC Fight Night: Silva vs. Delgado",
       "date_text": "Sep 12, 2026",
@@ -170,13 +170,6 @@
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S.",
       "result": "Gabriel Bonfim def. Belal Muhammad (Unanimous Decision)"
-    },
-    {
-      "name": "UFC Fight Night: Song vs. Figueiredo",
-      "date_text": "May 30, 2026",
-      "venue": "Galaxy Arena",
-      "location": "MacauSAR, China",
-      "result": "Song Yadong def. Deiveson Figueiredo (Submission, R2 4:42)"
     }
   ]
 }
