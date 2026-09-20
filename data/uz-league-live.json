@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T08:35:09.211814Z",
+  "generatedAt": "2026-09-20T14:42:29.578064Z",
   "teams": [
     {
       "name": "Pakhtakor",
@@ -42,6 +42,16 @@
       "pts": 35
     },
     {
+      "name": "Nasaf Qarshi",
+      "pld": 22,
+      "w": 9,
+      "d": 7,
+      "l": 6,
+      "gf": 33,
+      "ga": 21,
+      "pts": 34
+    },
+    {
       "name": "Buxoro",
       "pld": 22,
       "w": 10,
@@ -62,26 +72,6 @@
       "pts": 32
     },
     {
-      "name": "Nasaf Qarshi",
-      "pld": 21,
-      "w": 8,
-      "d": 7,
-      "l": 6,
-      "gf": 29,
-      "ga": 20,
-      "pts": 31
-    },
-    {
-      "name": "Andijan",
-      "pld": 21,
-      "w": 9,
-      "d": 3,
-      "l": 9,
-      "gf": 26,
-      "ga": 24,
-      "pts": 30
-    },
-    {
       "name": "Din. Samarkand",
       "pld": 22,
       "w": 8,
@@ -89,6 +79,16 @@
       "l": 8,
       "gf": 33,
       "ga": 34,
+      "pts": 30
+    },
+    {
+      "name": "Andijan",
+      "pld": 22,
+      "w": 9,
+      "d": 3,
+      "l": 10,
+      "gf": 27,
+      "ga": 28,
       "pts": 30
     },
     {
@@ -163,6 +163,13 @@
     }
   ],
   "results": [
+    {
+      "home": "Andijan",
+      "away": "Nasaf Qarshi",
+      "raw_time": "20.09. 12:15",
+      "homeScore": 1,
+      "awayScore": 4
+    },
     {
       "home": "Bunyodkor",
       "away": "Buxoro",
@@ -295,36 +302,9 @@
       "raw_time": "03.09. 14:00",
       "homeScore": 1,
       "awayScore": 0
-    },
-    {
-      "home": "Qizilqum",
-      "away": "Nasaf Qarshi",
-      "raw_time": "26.08. 15:00",
-      "homeScore": 1,
-      "awayScore": 0
     }
   ],
   "fixtures": [
-    {
-      "home": "Andijan",
-      "away": "Nasaf Qarshi",
-      "raw_time": "20.09. 12:15"
-    },
-    {
-      "home": "Termez Surkhon",
-      "away": "Kokand 1912",
-      "raw_time": "20.09. 13:00"
-    },
-    {
-      "home": "Sogdiana",
-      "away": "OKMK",
-      "raw_time": "20.09. 14:00"
-    },
-    {
-      "home": "Lok. Tashkent",
-      "away": "Neftchi Fargona",
-      "raw_time": "20.09. 14:30"
-    },
     {
       "home": "Xorazm Urganch",
       "away": "Qizilqum",
@@ -404,6 +384,26 @@
       "home": "Kokand 1912",
       "away": "Neftchi Fargona",
       "raw_time": "18.10. 15:00"
+    },
+    {
+      "home": "Lok. Tashkent",
+      "away": "Nasaf Qarshi",
+      "raw_time": "18.10. 15:00"
+    },
+    {
+      "home": "Xorazm Urganch",
+      "away": "Buxoro",
+      "raw_time": "20.10. 15:00"
+    },
+    {
+      "home": "Bunyodkor",
+      "away": "Mashal Muborak",
+      "raw_time": "23.10. 15:00"
+    },
+    {
+      "home": "Buxoro",
+      "away": "Termez Surkhon",
+      "raw_time": "23.10. 15:00"
     }
   ]
 }
