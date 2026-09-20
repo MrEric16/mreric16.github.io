@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920215100">
+<meta name="app-build" content="20260920220257">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5675,6 +5675,39 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .ck-piece.ck-black{ background:#2b2b2b; }
   .ck-piece.ck-king::after{ content:'★'; color:#B6B235; font-size:16px; line-height:1; }
 
+  /* Chess board - same 8x8 grid-of-buttons approach as checkers, with pieces as text
+     glyphs rather than colour-filled circles. Deliberately uses the SOLID/FILLED
+     Unicode glyph set for both colours (not the separate "white" glyph variants,
+     which render as outline-only shapes in most fonts independent of CSS colour) -
+     see chPieceGlyph's own comment. White pieces get a dark outline via BOTH
+     text-shadow (universally supported, so there's a real fallback) and
+     -webkit-text-stroke (crisper on browsers that support it) - relying on
+     text-stroke alone would mean near-white fill on a light square with zero
+     contrast on any browser lacking that property, exactly the kind of mistake
+     already made once with checkers' first pass. */
+  .chess-board{
+    display:grid; grid-template-columns:repeat(8,1fr); gap:0;
+    max-width:320px; margin:0 auto; position:relative;
+    border:3px solid #3D2A22; border-radius:6px; overflow:hidden;
+  }
+  .chess-cell{
+    aspect-ratio:1; border:none; padding:0; cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    font-size:30px; line-height:1;
+  }
+  .chess-cell:disabled{ cursor:default; }
+  .chess-light{ background:#F0D9B5; }
+  .chess-dark{ background:#B58863; }
+  .chess-dark.chess-selected, .chess-light.chess-selected{ background:rgba(182,178,53,.55); }
+  .chess-dark.chess-legal, .chess-light.chess-legal{ background:rgba(90,143,78,.55); }
+  .chess-piece{ user-select:none; }
+  .chess-piece.chess-white{
+    color:#F5F0E8;
+    text-shadow:-1px -1px 0 #2A1D14, 1px -1px 0 #2A1D14, -1px 1px 0 #2A1D14, 1px 1px 0 #2A1D14;
+    -webkit-text-stroke:1px #2A1D14;
+  }
+  .chess-piece.chess-black{ color:#1A1A1A; }
+
   /* - Watch page: white + red theme (layout unchanged) - */
   body.theme-watch{background:#FFFFFF;}
   body.theme-watch .back-link{color:#D6191A;}
@@ -7071,12 +7104,11 @@ let activeGameType = null;     // 'tic-tac-toe' | 'connect-4' | null - which gam
 let ttt = null;                // active tic-tac-toe game state, or null
 let c4 = null;                 // active Connect 4 game state, or null
 let ck = null;                 // active checkers game state, or null
+let mpChess = null;             // active chess game state, or null
 
 const CHALLENGE_TIMEOUT_MS = 30000;
-// Per-turn timeout varies by game - 20s for fast games, chess (once built) gets longer
-// since a single chess move genuinely needs more thought than a tic-tac-toe/connect-4
-// move. Reserved 'chess' key now even though chess isn't built yet, so adding it later
-// doesn't mean revisiting this lookup.
+// Per-turn timeout varies by game - 20s for fast games, chess gets longer since a
+// single move genuinely needs more thought than a tic-tac-toe/connect-4 move.
 const TURN_TIMEOUT_MS_BY_GAME = {
   'tic-tac-toe': 20000,
   'connect-4': 20000,
@@ -7092,6 +7124,7 @@ const CHALLENGE_GAMES = [
   { id:'connect-4', name:'Connect 4', emoji:'🔴' },
   { id:'checkers', name:'Checkers', emoji:'⚫' },
   { id:'checkers-kamikaze', name:'Checkers (Kamikaze)', emoji:'💥' },
+  { id:'chess', name:'Chess', emoji:'♟️' },
 ];
 
 // Shared plumbing that works across whichever game is currently active, added when
@@ -7102,6 +7135,7 @@ function activeGameState(){
   if(activeGameType === 'tic-tac-toe') return ttt;
   if(activeGameType === 'connect-4') return c4;
   if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') return ck;
+  if(activeGameType === 'chess') return mpChess;
   return null;
 }
 let lastGameInfo = null; // { gameId, opponentKey, iWentFirst } - captured right before
@@ -7116,11 +7150,13 @@ function clearActiveGameState(){
   if(activeGameType === 'tic-tac-toe') ttt = null;
   else if(activeGameType === 'connect-4') c4 = null;
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') ck = null;
+  else if(activeGameType === 'chess') mpChess = null;
   activeGameType = null;
 }
 function timerElId(){
   if(activeGameType === 'tic-tac-toe') return 'tttTimer';
   if(activeGameType === 'connect-4') return 'c4Timer';
+  if(activeGameType === 'chess') return 'chessTimer';
   return 'ckTimer';
 }
 
@@ -7506,6 +7542,27 @@ function startGame(gameId, opponentKey, iGoFirst){
     };
     renderCkOverlay();
     startTurnTimer();
+  } else if(gameId === 'chess'){
+    mpChess = {
+      board: chInitBoard(),
+      state: chInitState(),
+      myColor: iGoFirst ? 'white' : 'black', // white moves first, same as real chess
+      oppColor: iGoFirst ? 'black' : 'white',
+      myTurn: iGoFirst,
+      opponentKey,
+      iWentFirst: iGoFirst,
+      // Same reasoning as checkers: white starts at rows 6-7 (bottom of the raw
+      // array), so white's own pieces naturally render at the bottom unflipped.
+      // Black starts at rows 0-1 (top), so black needs flipping to also see their
+      // own pieces at the bottom, pushing up.
+      flipped: !iGoFirst,
+      selected: null,
+      turnTimer: null,
+      turnDeadline: null,
+      tickInterval: null,
+    };
+    renderChessOverlay();
+    startTurnTimer();
   }
 }
 
@@ -7619,6 +7676,7 @@ function handleIncomingMove(payload){
   if(activeGameType === 'tic-tac-toe') handleIncomingTttMove(payload);
   else if(activeGameType === 'connect-4') handleIncomingC4Move(payload);
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') handleIncomingCkMove(payload);
+  else if(activeGameType === 'chess') handleIncomingChessMove(payload);
 }
 
 function handleIncomingTttMove(payload){
@@ -8141,6 +8199,213 @@ function endCkGame(result){
     ? (kamikaze ? 'You won by sacrifice! 🎉' : 'You won! 🎉')
     : (kamikaze ? 'You lost - opponent won by sacrifice.' : 'You lost.');
   disableAllCkCells();
+  clearActiveGameState();
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  showGamePopup(msg, {offerRematch:true});
+}
+
+// --- Chess ---
+// Reuses the entire single-player rules engine (chInitBoard, chInitState,
+// chLegalMovesForPiece, chAllLegalMoves, chApplyMove, chGameStatus - all pure
+// board+state-in, board+state-out functions with no DOM coupling) rather than
+// reimplementing chess rules, same reasoning as checkers reusing mtCk*. This gets
+// castling, en passant, and promotion (auto-queen, matching the single-player) for
+// free, correctly, without re-deriving any of those edge cases.
+//
+// Sync is minimal by design: only {fromR, fromC, toR, toC} is broadcast. A given
+// piece moving from one square to a specific other square has exactly one possible
+// resulting move in this engine (promotion is always auto-queen, never a player
+// choice, so there's no ambiguity to resolve) - the receiving side looks up the one
+// matching legal move via chLegalMovesForPiece and applies it with chApplyMove,
+// guaranteeing both sides derive identical flags (capture/castle/enPassant/promotion)
+// from the same rules engine rather than trusting a broadcast copy of them.
+//
+// Unlike checkers, a chess move is always a single atomic action - there is no
+// multi-jump chain to continue, so the turn always passes after exactly one move.
+function chPieceGlyph(type){
+  // Solid/filled glyph variants only, for BOTH colours - deliberately not using the
+  // "white" Unicode chess symbols (♔♕♖♗♘♙), which render as outline-only shapes in
+  // most fonts regardless of CSS color. That would make white pieces' fill colour
+  // unreliable across fonts/devices - exactly the kind of contrast risk checkers
+  // already burned once. Using the solid variants for both sides and controlling the
+  // white/black distinction entirely via CSS fill colour + stroke keeps contrast
+  // fully in this stylesheet's control instead of depending on font glyph design.
+  return { p:'♟', n:'♞', b:'♝', r:'♜', q:'♛', k:'♚' }[type] || '';
+}
+function chPieceHtml(piece){
+  if(!piece) return '';
+  const colorCls = piece.color === 'white' ? 'chess-white' : 'chess-black';
+  return `<span class="chess-piece ${colorCls}">${chPieceGlyph(piece.type)}</span>`;
+}
+
+function chessStatusText(){
+  const inCheck = chIsInCheck(mpChess.board, mpChess.myTurn ? mpChess.myColor : mpChess.oppColor);
+  const checkHint = inCheck ? ' — Check!' : '';
+  return (mpChess.myTurn ? "Your turn" : "Opponent's turn") + ` — you are ${mpChess.myColor}${checkHint}`;
+}
+
+function renderChessOverlay(){
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  if(!mpChess) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay';
+  overlay.id = 'chessOverlay';
+  let cellsHtml = '';
+  for(let displayR=0; displayR<CH_SIZE; displayR++){
+    for(let displayC=0; displayC<CH_SIZE; displayC++){
+      const r = mpChess.flipped ? (CH_SIZE-1-displayR) : displayR;
+      const c = mpChess.flipped ? (CH_SIZE-1-displayC) : displayC;
+      const dark = (r+c)%2===1;
+      let cls = dark ? 'chess-dark' : 'chess-light';
+      if(mpChess.selected && mpChess.selected.r===r && mpChess.selected.c===c) cls += ' chess-selected';
+      const piece = mpChess.board[r][c];
+      const canTap = mpChess.myTurn; // any square can be tapped when it's my turn - own piece to select, or a legal destination
+      cellsHtml += `<button class="chess-cell ${cls}" data-action="chess-tap" data-r="${r}" data-c="${c}" ${canTap ? '' : 'disabled'}>${chPieceHtml(piece)}</button>`;
+    }
+  }
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <div class="ttt-wrap">
+        <div class="ttt-status" id="chessStatus">${chessStatusText()}</div>
+        <div class="ttt-timer" id="chessTimer"></div>
+        <div class="chess-board">${cellsHtml}</div>
+        <button class="ttt-exit-btn" data-action="chess-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+}
+
+function updateChessCell(r, c){
+  const btn = document.querySelector(`.chess-cell[data-r="${r}"][data-c="${c}"]`);
+  if(!btn || !mpChess) return;
+  btn.classList.remove('chess-selected');
+  btn.innerHTML = chPieceHtml(mpChess.board[r][c]);
+  if(mpChess.selected && mpChess.selected.r===r && mpChess.selected.c===c) btn.classList.add('chess-selected');
+}
+function moveChessPieceWithAnimation(fromR, fromC, toR, toC){
+  // Same FLIP-technique animation as checkers (see moveCkPieceWithAnimation's own
+  // comment for the full explanation) - purely visual, defensively guarded, never
+  // blocks or delays the actual move/turn logic.
+  const fromBtn = document.querySelector(`.chess-cell[data-r="${fromR}"][data-c="${fromC}"]`);
+  const fromRect = (fromBtn && fromBtn.getBoundingClientRect) ? fromBtn.getBoundingClientRect() : null;
+  updateChessCell(fromR, fromC);
+  updateChessCell(toR, toC);
+  if(!fromRect) return;
+  const toBtn = document.querySelector(`.chess-cell[data-r="${toR}"][data-c="${toC}"]`);
+  const pieceEl = (toBtn && toBtn.querySelector) ? toBtn.querySelector('.chess-piece') : null;
+  if(!pieceEl || !toBtn.getBoundingClientRect) return;
+  const toRect = toBtn.getBoundingClientRect();
+  const dx = fromRect.left - toRect.left;
+  const dy = fromRect.top - toRect.top;
+  if(!dx && !dy) return;
+  pieceEl.style.transition = 'none';
+  pieceEl.style.transform = `translate(${dx}px, ${dy}px)`;
+  pieceEl.getBoundingClientRect();
+  requestAnimationFrame(() => {
+    pieceEl.style.transition = 'transform .18s ease-out';
+    pieceEl.style.transform = '';
+  });
+}
+function updateChessLegalHighlights(){
+  document.querySelectorAll('.chess-cell').forEach(btn => btn.classList.remove('chess-legal'));
+  if(!mpChess || !mpChess.selected) return;
+  const moves = chLegalMovesForPiece(mpChess.board, mpChess.state, mpChess.selected.r, mpChess.selected.c);
+  moves.forEach(m => {
+    const btn = document.querySelector(`.chess-cell[data-r="${m.toR}"][data-c="${m.toC}"]`);
+    if(btn) btn.classList.add('chess-legal');
+  });
+}
+function updateChessCellsEnabled(){
+  document.querySelectorAll('.chess-cell').forEach(btn => { btn.disabled = !mpChess.myTurn; });
+}
+function updateChessStatus(){
+  const el = document.getElementById('chessStatus');
+  if(el) el.textContent = chessStatusText();
+}
+function disableAllChessCells(){
+  document.querySelectorAll('.chess-cell').forEach(btn => { btn.disabled = true; });
+}
+
+function selectChessSquare(r, c){
+  if(!mpChess || !mpChess.myTurn) return;
+  const piece = mpChess.board[r][c];
+  if(mpChess.selected){
+    if(mpChess.selected.r === r && mpChess.selected.c === c) return;
+    if(piece && piece.color === mpChess.myColor){
+      const prev = mpChess.selected;
+      mpChess.selected = {r, c};
+      updateChessCell(prev.r, prev.c);
+      updateChessCell(r, c);
+      updateChessLegalHighlights();
+      return;
+    }
+    attemptChessMove(r, c);
+    return;
+  }
+  if(piece && piece.color === mpChess.myColor){
+    mpChess.selected = {r, c};
+    updateChessCell(r, c);
+    updateChessLegalHighlights();
+  }
+}
+
+function attemptChessMove(toR, toC){
+  const moves = chLegalMovesForPiece(mpChess.board, mpChess.state, mpChess.selected.r, mpChess.selected.c);
+  const move = moves.find(m => m.toR === toR && m.toC === toC);
+  if(!move) return; // not a legal destination for the selected piece - silently ignored, same convention as every other game
+  executeChessMove(mpChess.selected.r, mpChess.selected.c, toR, toC, true);
+}
+
+function executeChessMove(fromR, fromC, toR, toC, isMyMove){
+  const prevSelected = mpChess.selected;
+  const moves = chLegalMovesForPiece(mpChess.board, mpChess.state, fromR, fromC);
+  const move = moves.find(m => m.toR === toR && m.toC === toC);
+  if(!move) return; // should never happen if both sides are in sync, but never apply an unrecognised move
+  const result = chApplyMove(mpChess.board, mpChess.state, fromR, fromC, move);
+  mpChess.board = result.board;
+  mpChess.state = result.state;
+  mpChess.selected = null;
+  if(isMyMove){
+    gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:mpChess.opponentKey, from:myPresenceKey, fromR, fromC, toR, toC } });
+  }
+  moveChessPieceWithAnimation(fromR, fromC, toR, toC);
+  // Castling relocates the rook too - the animation above only covers the king's own
+  // square, so the rook's cells need a plain (non-animated) refresh alongside it.
+  if(move.castle){
+    if(move.castle === 'king'){ updateChessCell(fromR, 5); updateChessCell(fromR, 7); }
+    else { updateChessCell(fromR, 3); updateChessCell(fromR, 0); }
+  }
+  if(move.enPassant) updateChessCell(fromR, toC); // the captured pawn sits beside the mover, not on the landing square
+  if(prevSelected && !(prevSelected.r === fromR && prevSelected.c === fromC)) updateChessCell(prevSelected.r, prevSelected.c);
+  updateChessLegalHighlights();
+  clearTurnTimer();
+  const nextColor = isMyMove ? mpChess.oppColor : mpChess.myColor;
+  const status = chGameStatus(mpChess.board, mpChess.state, nextColor);
+  if(status === 'checkmate'){
+    endChessGame({ winnerIsMe: isMyMove, draw:false });
+    return;
+  }
+  if(status === 'stalemate'){
+    endChessGame({ winnerIsMe: false, draw:true });
+    return;
+  }
+  mpChess.myTurn = !isMyMove;
+  updateChessStatus();
+  updateChessCellsEnabled();
+  startTurnTimer();
+}
+
+function handleIncomingChessMove(payload){
+  if(!mpChess || payload.from !== mpChess.opponentKey) return;
+  executeChessMove(payload.fromR, payload.fromC, payload.toR, payload.toC, false);
+}
+
+function endChessGame(result){
+  clearTurnTimer();
+  const msg = result.draw ? 'Stalemate - draw!' : (result.winnerIsMe ? 'Checkmate - you won! 🎉' : 'Checkmate - you lost.');
+  disableAllChessCells();
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   showGamePopup(msg, {offerRematch:true});
@@ -26676,6 +26941,18 @@ document.addEventListener('click', (e) => {
   }
   const ckExitBtn = e.target.closest('[data-action="ck-exit"]');
   if(ckExitBtn){
+    e.preventDefault();
+    confirmExitGame();
+    return;
+  }
+  const chessTapBtn = e.target.closest('[data-action="chess-tap"]');
+  if(chessTapBtn){
+    e.preventDefault();
+    selectChessSquare(parseInt(chessTapBtn.dataset.r, 10), parseInt(chessTapBtn.dataset.c, 10));
+    return;
+  }
+  const chessExitBtn = e.target.closest('[data-action="chess-exit"]');
+  if(chessExitBtn){
     e.preventDefault();
     confirmExitGame();
     return;
