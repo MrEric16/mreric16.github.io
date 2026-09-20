@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260919155936">
+<meta name="app-build" content="20260920041403">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5581,6 +5581,22 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   @keyframes tttWinLineDraw{ to{ stroke-dashoffset:0; } }
 
+  /* Connect 4 board - the .ttt-winline overlay class above is reused as-is here (same
+     percentage-based positioning works regardless of the grid's actual row/col count),
+     so only the board/cell styling itself is new. */
+  .c4-board{
+    background:#1B3A8F; border-radius:14px; padding:8px;
+    display:grid; grid-template-columns:repeat(7,1fr); gap:4px;
+    max-width:320px; margin:0 auto; position:relative;
+  }
+  .c4-cell{
+    aspect-ratio:1; border-radius:50%; border:none; padding:0;
+    background:#0D2159; cursor:pointer;
+  }
+  .c4-cell:disabled{ cursor:default; }
+  .c4-cell.filled-red{ background:#E8384F; }
+  .c4-cell.filled-yellow{ background:#F5C518; }
+
   /* - Watch page: white + red theme (layout unchanged) - */
   body.theme-watch{background:#FFFFFF;}
   body.theme-watch .back-link{color:#D6191A;}
@@ -6927,7 +6943,10 @@ function initLiveUserCounter(){
     // If a game is active and the opponent's presence key has disappeared from the
     // synced state, they've disconnected (closed the tab, lost connection) rather than
     // exited gracefully via the exit button - treated the same as any other forfeit.
-    if(ttt && ttt.opponentKey && !state[ttt.opponentKey]){
+    // Uses the generalized activeGameState() so this works for whichever game (if any)
+    // is currently live, not just tic-tac-toe.
+    const activeG = activeGameState();
+    if(activeG && activeG.opponentKey && !state[activeG.opponentKey]){
       handleOpponentForfeit({ reason:'disconnected' });
     }
   }
@@ -6968,13 +6987,34 @@ let gameChannel = null;
 let myPresenceKey = null;
 let pendingChallenge = null;   // { from, game, timer } - an incoming challenge awaiting my response
 let sentChallenge = null;      // { to, game, timer } - a challenge I sent awaiting their response
+let activeGameType = null;     // 'tic-tac-toe' | 'connect-4' | null - which game (if any) is live
 let ttt = null;                // active tic-tac-toe game state, or null
+let c4 = null;                 // active Connect 4 game state, or null
 
 const CHALLENGE_TIMEOUT_MS = 30000;
 const TURN_TIMEOUT_MS = 30000;
 const CHALLENGE_GAMES = [
   { id:'tic-tac-toe', name:'Tic-Tac-Toe', emoji:'⭕' },
+  { id:'connect-4', name:'Connect 4', emoji:'🔴' },
 ];
+
+// Shared plumbing that works across whichever game is currently active, added when
+// Connect 4 came in alongside tic-tac-toe - only genuinely game-specific logic (board
+// representation, win-checking, rendering) lives in each game's own functions below;
+// the turn timer, forfeit handling, and incoming-move routing are all generic.
+function activeGameState(){
+  if(activeGameType === 'tic-tac-toe') return ttt;
+  if(activeGameType === 'connect-4') return c4;
+  return null;
+}
+function clearActiveGameState(){
+  if(activeGameType === 'tic-tac-toe') ttt = null;
+  else if(activeGameType === 'connect-4') c4 = null;
+  activeGameType = null;
+}
+function timerElId(){
+  return activeGameType === 'tic-tac-toe' ? 'tttTimer' : 'c4Timer';
+}
 
 function initGameChallenge(channel, presenceKey){
   gameChannel = channel;
@@ -7144,6 +7184,7 @@ function checkTttWinner(board){
 function startGame(gameId, opponentKey, iGoFirst){
   closeAnyGameOverlay();
   logEvent('view', 'challenge-game/' + gameId);
+  activeGameType = gameId;
   if(gameId === 'tic-tac-toe'){
     ttt = {
       board: Array(9).fill(null),
@@ -7157,27 +7198,43 @@ function startGame(gameId, opponentKey, iGoFirst){
     };
     renderTttOverlay();
     if(ttt.myTurn) startTurnTimer();
+  } else if(gameId === 'connect-4'){
+    c4 = {
+      board: Array(MPC4_ROWS * MPC4_COLS).fill(null),
+      mySymbol: iGoFirst ? 'R' : 'Y',
+      oppSymbol: iGoFirst ? 'Y' : 'R',
+      myTurn: iGoFirst,
+      opponentKey,
+      turnTimer: null,
+      turnDeadline: null,
+      tickInterval: null,
+    };
+    renderC4Overlay();
+    if(c4.myTurn) startTurnTimer();
   }
 }
 
 function startTurnTimer(){
-  if(!ttt) return;
+  const g = activeGameState();
+  if(!g) return;
   clearTurnTimer();
-  ttt.turnDeadline = Date.now() + TURN_TIMEOUT_MS;
-  ttt.turnTimer = setTimeout(() => { sendForfeit('timeout'); }, TURN_TIMEOUT_MS);
-  ttt.tickInterval = setInterval(updateTurnTimerDisplay, 250);
+  g.turnDeadline = Date.now() + TURN_TIMEOUT_MS;
+  g.turnTimer = setTimeout(() => { sendForfeit('timeout'); }, TURN_TIMEOUT_MS);
+  g.tickInterval = setInterval(updateTurnTimerDisplay, 250);
   updateTurnTimerDisplay();
 }
 function clearTurnTimer(){
-  if(!ttt) return;
-  if(ttt.turnTimer) clearTimeout(ttt.turnTimer);
-  if(ttt.tickInterval) clearInterval(ttt.tickInterval);
-  ttt.turnTimer = null; ttt.tickInterval = null;
+  const g = activeGameState();
+  if(!g) return;
+  if(g.turnTimer) clearTimeout(g.turnTimer);
+  if(g.tickInterval) clearInterval(g.tickInterval);
+  g.turnTimer = null; g.tickInterval = null;
 }
 function updateTurnTimerDisplay(){
-  const el = document.getElementById('tttTimer');
-  if(!el || !ttt || !ttt.turnDeadline) return;
-  const secsLeft = Math.max(0, Math.ceil((ttt.turnDeadline - Date.now()) / 1000));
+  const g = activeGameState();
+  const el = document.getElementById(timerElId());
+  if(!el || !g || !g.turnDeadline) return;
+  const secsLeft = Math.max(0, Math.ceil((g.turnDeadline - Date.now()) / 1000));
   el.textContent = `${secsLeft}s to move`;
   el.classList.toggle('urgent', secsLeft <= 10);
 }
@@ -7246,7 +7303,15 @@ function makeTttMove(idx){
   updateTttCellsEnabled();
 }
 
+// Generic router - dispatches to whichever game is currently active. The actual
+// broadcast handler (registered in initLiveUserCounter) calls this one name
+// regardless of which game is live, so it needs to know where to send the payload.
 function handleIncomingMove(payload){
+  if(activeGameType === 'tic-tac-toe') handleIncomingTttMove(payload);
+  else if(activeGameType === 'connect-4') handleIncomingC4Move(payload);
+}
+
+function handleIncomingTttMove(payload){
   if(!ttt || payload.from !== ttt.opponentKey) return;
   ttt.board[payload.idx] = payload.symbol;
   updateTttCell(payload.idx);
@@ -7291,33 +7356,185 @@ function endTttGame(result){
     // Brief pause so the line is actually visible before the board disappears behind
     // the result popup - a draw has no line to show, so no pause needed there.
     setTimeout(() => {
-      ttt = null;
+      clearActiveGameState();
       document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
       showGamePopup(msg);
     }, 1400);
   } else {
-    ttt = null;
+    clearActiveGameState();
     document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
     showGamePopup(msg);
   }
 }
 
 function sendForfeit(reason){
-  if(!ttt) return;
-  const opponentKey = ttt.opponentKey;
+  const g = activeGameState();
+  if(!g) return;
+  const opponentKey = g.opponentKey;
   clearTurnTimer();
   gameChannel.send({ type:'broadcast', event:'game_forfeit', payload:{ to:opponentKey, reason } });
-  ttt = null;
+  clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   showGamePopup(reason === 'timeout' ? "Time's up - you forfeited." : 'You left the game.');
 }
 
 function handleOpponentForfeit(payload){
-  if(!ttt) return;
+  const g = activeGameState();
+  if(!g) return;
   clearTurnTimer();
-  ttt = null;
+  clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   showGamePopup('Opponent has forfeited');
+}
+
+// --- Connect 4 ---
+// Board is a flat array of 42 cells, row-major (index = row*7+col, row 0 = top).
+// Dropping a piece finds the lowest empty row in the clicked column - the row itself
+// is computed by whoever drops the piece and sent as part of the flat index, so the
+// receiving side never has to (and doesn't need to) independently recompute it, which
+// avoids any risk of the two boards silently drifting out of sync.
+const MPC4_ROWS = 6, MPC4_COLS = 7;
+function c4Idx(row, col){ return row * MPC4_COLS + col; }
+function c4LowestEmptyRow(board, col){
+  for(let row = MPC4_ROWS - 1; row >= 0; row--){
+    if(!board[c4Idx(row, col)]) return row;
+  }
+  return -1; // column full
+}
+function checkC4Winner(board){
+  const dirs = [[0,1],[1,0],[1,1],[1,-1]];
+  for(let row = 0; row < MPC4_ROWS; row++){
+    for(let col = 0; col < MPC4_COLS; col++){
+      const idx = c4Idx(row, col);
+      const symbol = board[idx];
+      if(!symbol) continue;
+      for(const [dr, dc] of dirs){
+        const line = [idx];
+        let r = row, c = col, ok = true;
+        for(let step = 1; step < 4; step++){
+          r += dr; c += dc;
+          if(r < 0 || r >= MPC4_ROWS || c < 0 || c >= MPC4_COLS || board[c4Idx(r,c)] !== symbol){ ok = false; break; }
+          line.push(c4Idx(r,c));
+        }
+        if(ok) return { symbol, line };
+      }
+    }
+  }
+  if(board.every(c => c)) return { symbol:'draw', line:null };
+  return null;
+}
+
+function renderC4Overlay(){
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  if(!c4) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay';
+  overlay.id = 'c4Overlay';
+  let cellsHtml = '';
+  for(let row = 0; row < MPC4_ROWS; row++){
+    for(let col = 0; col < MPC4_COLS; col++){
+      const idx = c4Idx(row, col);
+      const v = c4.board[idx];
+      const cls = v === 'R' ? 'filled-red' : v === 'Y' ? 'filled-yellow' : '';
+      cellsHtml += `<button class="c4-cell ${cls}" data-action="c4-drop" data-col="${col}" data-idx="${idx}" ${!c4.myTurn ? 'disabled' : ''}></button>`;
+    }
+  }
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <div class="ttt-wrap">
+        <div class="ttt-status" id="c4Status">${c4.myTurn ? "Your turn" : "Opponent's turn"}</div>
+        <div class="ttt-timer" id="c4Timer"></div>
+        <div class="c4-board">${cellsHtml}</div>
+        <button class="ttt-exit-btn" data-action="c4-exit">Exit game</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+}
+
+// Same in-place-update discipline as tic-tac-toe (see the comment on updateTttCell) -
+// the board renders once at game start, every move after that only touches the one
+// cell that changed.
+function updateC4Cell(idx){
+  const btn = document.querySelector(`.c4-cell[data-idx="${idx}"]`);
+  if(!btn || !c4) return;
+  const v = c4.board[idx];
+  btn.classList.toggle('filled-red', v === 'R');
+  btn.classList.toggle('filled-yellow', v === 'Y');
+}
+function updateC4CellsEnabled(){
+  document.querySelectorAll('.c4-cell').forEach(btn => { btn.disabled = !c4.myTurn; });
+}
+function updateC4Status(){
+  const statusEl = document.getElementById('c4Status');
+  if(statusEl) statusEl.textContent = c4.myTurn ? 'Your turn' : "Opponent's turn";
+}
+function disableAllC4Cells(){
+  document.querySelectorAll('.c4-cell').forEach(btn => { btn.disabled = true; });
+}
+
+function dropC4Piece(col){
+  if(!c4 || !c4.myTurn) return;
+  const row = c4LowestEmptyRow(c4.board, col);
+  if(row === -1) return; // column full, silently ignore - same "invalid move does
+  // nothing" convention as tic-tac-toe clicking an already-filled cell.
+  const idx = c4Idx(row, col);
+  c4.board[idx] = c4.mySymbol;
+  clearTurnTimer();
+  gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:c4.opponentKey, from:myPresenceKey, idx, symbol:c4.mySymbol } });
+  updateC4Cell(idx);
+  const result = checkC4Winner(c4.board);
+  if(result){ endC4Game(result); return; }
+  c4.myTurn = false;
+  updateC4Status();
+  updateC4CellsEnabled();
+}
+
+function handleIncomingC4Move(payload){
+  if(!c4 || payload.from !== c4.opponentKey) return;
+  c4.board[payload.idx] = payload.symbol;
+  updateC4Cell(payload.idx);
+  const result = checkC4Winner(c4.board);
+  if(result){ endC4Game(result); return; }
+  c4.myTurn = true;
+  updateC4Status();
+  updateC4CellsEnabled();
+  startTurnTimer();
+}
+
+// Same percentage-based approach as drawTttWinLine, adapted for the 7x6 grid.
+function drawC4WinLine(line){
+  const grid = document.querySelector('.c4-board');
+  if(!grid || !line) return;
+  const [a, , , d] = line;
+  const centerOf = (idx) => ({ x: ((idx % MPC4_COLS) + 0.5) / MPC4_COLS * 100, y: (Math.floor(idx / MPC4_COLS) + 0.5) / MPC4_ROWS * 100 });
+  const p1 = centerOf(a), p2 = centerOf(d);
+  const wrap = document.createElement('div');
+  wrap.className = 'ttt-winline';
+  wrap.innerHTML = `<svg viewBox="0 0 100 100" preserveAspectRatio="none">
+    <line class="ttt-winline-stroke" x1="${p1.x}" y1="${p1.y}" x2="${p2.x}" y2="${p2.y}"/>
+  </svg>`;
+  grid.appendChild(wrap);
+}
+
+function endC4Game(result){
+  clearTurnTimer();
+  const { symbol, line } = result;
+  const iWon = symbol === c4.mySymbol;
+  const msg = symbol === 'draw' ? "It's a draw!" : (iWon ? 'You won! 🎉' : 'You lost.');
+  disableAllC4Cells();
+  if(line){
+    drawC4WinLine(line);
+    setTimeout(() => {
+      clearActiveGameState();
+      document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+      showGamePopup(msg);
+    }, 1400);
+  } else {
+    clearActiveGameState();
+    document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+    showGamePopup(msg);
+  }
 }
 
 /* - Analytics (fire-and-forget, never blocks the UI) - */
@@ -25790,6 +26007,18 @@ document.addEventListener('click', (e) => {
   }
   const tttExitBtn = e.target.closest('[data-action="ttt-exit"]');
   if(tttExitBtn){
+    e.preventDefault();
+    sendForfeit('exit');
+    return;
+  }
+  const c4DropBtn = e.target.closest('[data-action="c4-drop"]');
+  if(c4DropBtn){
+    e.preventDefault();
+    dropC4Piece(parseInt(c4DropBtn.dataset.col, 10));
+    return;
+  }
+  const c4ExitBtn = e.target.closest('[data-action="c4-exit"]');
+  if(c4ExitBtn){
     e.preventDefault();
     sendForfeit('exit');
     return;
