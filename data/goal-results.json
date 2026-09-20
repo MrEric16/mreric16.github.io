@@ -1,146 +1,6 @@
 {
-  "generatedAt": "2026-09-20T19:13:00.701652Z",
+  "generatedAt": "2026-09-20T21:43:40.150213Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lens-vs-auxerre/tJCSNcO_6dfDEW8XPOk5H",
-      "date": "2026-08-22",
-      "home": "Lens",
-      "away": "Auxerre",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 5,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "F. Thauvin",
-          "minute": 13
-        },
-        {
-          "scorer": "F. Ivanovic",
-          "minute": 49
-        },
-        {
-          "scorer": "S. Abdulhamid",
-          "minute": 57
-        },
-        {
-          "scorer": "I. Ganiou",
-          "minute": 66
-        },
-        {
-          "scorer": "F. Thauvin",
-          "minute": 89
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "D. Namaso",
-          "minute": 61
-        },
-        {
-          "scorer": "L. Sy",
-          "minute": 69
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/brentford-vs-tottenham-hotspur/mivMswaiaDnAarjBKlm67",
-      "date": "2026-08-22",
-      "home": "Brentford",
-      "away": "Tottenham Hotspur",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "K. Lewis-Potter",
-          "minute": 12
-        },
-        {
-          "scorer": "V. Janelt",
-          "minute": 33
-        },
-        {
-          "scorer": "M. Kayode",
-          "minute": 49
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/inter-vs-monza/AirscAJQ9p6WiN_-XUL-0",
-      "date": "2026-08-22",
-      "home": "Inter",
-      "away": "Monza",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "H. Calhanoglu",
-          "minute": 6
-        },
-        {
-          "scorer": "P. Zielinski",
-          "minute": 48
-        },
-        {
-          "scorer": "F. Esposito",
-          "minute": 55
-        },
-        {
-          "scorer": "Y. Bisseck",
-          "minute": 63
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "G. Varela",
-          "minute": 29
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/udinese-vs-como/X0aQsOjS9ECOqwZAAJ7gy",
-      "date": "2026-08-22",
-      "home": "Udinese",
-      "away": "Como",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "H. Kamara",
-          "minute": 29
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Douvikas",
-          "minute": 54
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/valencia-vs-celta-vigo/oEKoRc9-uM2QQUGfnCWHn",
-      "date": "2026-08-22",
-      "home": "Valencia",
-      "away": "Celta Vigo",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/genoa-vs-ssc-napoli/wuEsGaaRQafhKj-65hYxy",
       "date": "2026-08-22",
@@ -7697,12 +7557,165 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/manchester-city-vs-sunderland/RMrT3c_D0VQr01pFM2nyD",
+      "date": null,
+      "home": "Manchester City",
+      "away": "Sunderland",
+      "htHome": 3,
+      "htAway": 2,
+      "ftHome": 5,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "E. Fernandez",
+          "minute": 9
+        },
+        {
+          "scorer": "R. Cherki",
+          "minute": 29
+        },
+        {
+          "scorer": "A. Semenyo",
+          "minute": 43
+        },
+        {
+          "scorer": "E. Haaland",
+          "minute": 81
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "B. Brobbey",
+          "minute": 12
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/valencia-vs-real-sociedad/E2mXqekvnhyfAXnEXKITm",
+      "date": null,
+      "home": "Valencia",
+      "away": "Real Sociedad",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "A. Mayol",
+          "minute": 57
+        },
+        {
+          "scorer": "L. Beitia",
+          "minute": 84
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Sucic",
+          "minute": 26
+        },
+        {
+          "scorer": "C. Soler",
+          "minute": 75
+        },
+        {
+          "scorer": "A. Barrenetxea",
+          "minute": 90
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paderborn-vs-hoffenheim/FDPUBpO4x2I6iwNgQemBB",
+      "date": null,
+      "home": "Paderborn",
+      "away": "Hoffenheim",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "S. Castaneda",
+          "minute": 29
+        },
+        {
+          "scorer": "S. Marino",
+          "minute": 43
+        },
+        {
+          "scorer": "S. Tigges",
+          "minute": 69
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Daghim",
+          "minute": 50
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ac-milan-vs-lecce/X7qW0dcpTiiOozULzTaiP",
+      "date": null,
+      "home": "Ac Milan",
+      "away": "Lecce",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "C. Pulisic",
+          "minute": 14
+        },
+        {
+          "scorer": "A. Rabiot",
+          "minute": 61
+        },
+        {
+          "scorer": "D. Moreira",
+          "minute": 73
+        }
+      ],
+      "awayGoals": [],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/marseille-vs-paris-saint-germain/svky1S1kX8DVg0gXNb82X",
+      "date": null,
+      "home": "Marseille",
+      "away": "Paris Saint Germain",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "A. Gomes",
+          "minute": 72
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "F. Torres",
+          "minute": 66
+        },
+        {
+          "scorer": "Marquinhos",
+          "minute": 74
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/manchester-city-vs-sunderland/RMrT3c_D0VQr01pFM2nyD": 2,
-    "https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q": 1
+    "https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q": 2
   }
 }
