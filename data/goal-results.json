@@ -1,32 +1,6 @@
 {
-  "generatedAt": "2026-09-20T02:40:28.623825Z",
+  "generatedAt": "2026-09-20T08:09:54.156795Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/deportivo-alaves-vs-getafe/ILVFhRetUUirJj8CNahwC",
-      "date": "2026-08-15",
-      "home": "Deportivo Alaves",
-      "away": "Getafe",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "F. Tenaglia",
-          "minute": 73
-        },
-        {
-          "scorer": "Mariano",
-          "minute": 90
-        },
-        {
-          "scorer": "M. Rodriguez",
-          "minute": 92
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/sevilla-vs-rayo-vallecano/cjnWqJvXGPNH1BdoZfR1V",
       "date": "2026-08-15",
@@ -7724,6 +7698,41 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/arsenal-vs-borussia-dortmund/Vm0njaYO9VJtjFK619x1D",
+      "date": "2026-08-09",
+      "home": "Arsenal",
+      "away": "Borussia Dortmund",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 2,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "E. Nwaneri",
+          "minute": 54
+        },
+        {
+          "scorer": "V. Gyoekeres",
+          "minute": 69
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Inacio",
+          "minute": 7
+        },
+        {
+          "scorer": "K. Karetsas",
+          "minute": 29
+        },
+        {
+          "scorer": "J. Gadou",
+          "minute": 58
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
