@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920170553">
+<meta name="app-build" content="20260920171328">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7923,6 +7923,39 @@ function updateCkCell(r, c){
   btn.innerHTML = ckPieceHtml(ck.board[r][c]);
   if(ck.selected && ck.selected.r===r && ck.selected.c===c) btn.classList.add('ck-selected');
 }
+// Animates a piece appearing to slide from (fromR,fromC) to (toR,toC) instead of
+// instantly teleporting - uses the standard FLIP technique (capture the piece's
+// on-screen position before the DOM update, let the update happen instantly as
+// before, then apply a reverse transform so it VISUALLY starts back where it was, and
+// animate that transform away). This is purely a visual layer wrapped around the
+// existing updateCkCell calls - the board data, move validation, win-checking, and
+// turn-passing are completely untouched and run exactly as before; the animation
+// starts asynchronously (requestAnimationFrame) and never blocks or delays any of
+// that logic. Every DOM lookup is defensively guarded so a missing element (an
+// unusual environment, or this running in a context without real layout) just skips
+// the animation and falls back to the original instant placement, rather than
+// throwing and breaking the actual move.
+function moveCkPieceWithAnimation(fromR, fromC, toR, toC){
+  const fromBtn = document.querySelector(`.ck-cell[data-r="${fromR}"][data-c="${fromC}"]`);
+  const fromRect = (fromBtn && fromBtn.getBoundingClientRect) ? fromBtn.getBoundingClientRect() : null;
+  updateCkCell(fromR, fromC);
+  updateCkCell(toR, toC);
+  if(!fromRect) return;
+  const toBtn = document.querySelector(`.ck-cell[data-r="${toR}"][data-c="${toC}"]`);
+  const pieceEl = (toBtn && toBtn.querySelector) ? toBtn.querySelector('.ck-piece') : null;
+  if(!pieceEl || !toBtn.getBoundingClientRect) return;
+  const toRect = toBtn.getBoundingClientRect();
+  const dx = fromRect.left - toRect.left;
+  const dy = fromRect.top - toRect.top;
+  if(!dx && !dy) return;
+  pieceEl.style.transition = 'none';
+  pieceEl.style.transform = `translate(${dx}px, ${dy}px)`;
+  pieceEl.getBoundingClientRect(); // force a reflow so the browser registers the starting transform before animating away from it
+  requestAnimationFrame(() => {
+    pieceEl.style.transition = 'transform .18s ease-out';
+    pieceEl.style.transform = '';
+  });
+}
 // Matches the single-player board's own affordance: once a piece is selected, its
 // legal destinations (captures only, if any are available - mirroring the mandatory-
 // capture rule) light up green so it's clear where it can actually go.
@@ -8010,9 +8043,8 @@ function executeCkSimpleMove(fromR, fromC, toR, toC, isMyMove){
   if(isMyMove){
     gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:ck.opponentKey, from:myPresenceKey, fromR, fromC, toR, toC, capR:null, capC:null } });
   }
-  updateCkCell(fromR, fromC);
-  updateCkCell(toR, toC);
-  if(prevSelected) updateCkCell(prevSelected.r, prevSelected.c);
+  moveCkPieceWithAnimation(fromR, fromC, toR, toC);
+  if(prevSelected && !(prevSelected.r === fromR && prevSelected.c === fromC)) updateCkCell(prevSelected.r, prevSelected.c);
   updateCkLegalHighlights();
   clearTurnTimer();
   const nextColor = isMyMove ? ck.oppColor : ck.myColor;
@@ -8045,10 +8077,9 @@ function executeCkCapture(fromR, fromC, toR, toC, capR, capC, isMyMove){
   // exactly the .ck-selected tint. Determining the final selection state first, before
   // touching the DOM, fixes this at the root rather than patching around it.
   ck.selected = more ? {r:toR, c:toC} : null;
-  updateCkCell(fromR, fromC);
-  updateCkCell(toR, toC);
+  moveCkPieceWithAnimation(fromR, fromC, toR, toC);
   updateCkCell(capR, capC);
-  if(prevSelected && !(prevSelected.r === toR && prevSelected.c === toC)) updateCkCell(prevSelected.r, prevSelected.c);
+  if(prevSelected && !(prevSelected.r === fromR && prevSelected.c === fromC)) updateCkCell(prevSelected.r, prevSelected.c);
   clearTurnTimer();
   if(more){
     updateCkLegalHighlights();
