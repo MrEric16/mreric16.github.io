@@ -1,46 +1,6 @@
 {
-  "generatedAt": "2026-09-20T21:43:40.150213Z",
+  "generatedAt": "2026-09-20T23:45:46.531918Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/genoa-vs-ssc-napoli/wuEsGaaRQafhKj-65hYxy",
-      "date": "2026-08-22",
-      "home": "Genoa",
-      "away": "Ssc Napoli",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "K. De Bruyne",
-          "minute": 82
-        },
-        {
-          "scorer": "A. Vergara",
-          "minute": 87
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/parma-calcio-1913-vs-cagliari/rMLwJfDiO0YFXTBTcTS4L",
-      "date": "2026-08-22",
-      "home": "Parma Calcio 1913",
-      "away": "Cagliari",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "A. Romano",
-          "minute": 79
-        }
-      ],
-      "competition": "SA"
-    },
     {
       "url": "https://www.goal.com/en/match/toulouse-vs-lyon/77zC4MY8N0wHO9oiOAM87",
       "date": "2026-08-22",
@@ -7711,11 +7671,71 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/inter-vs-monza/AirscAJQ9p6WiN_-XUL-0",
+      "date": "2026-08-22",
+      "home": "Inter",
+      "away": "Monza",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "H. Calhanoglu",
+          "minute": 6
+        },
+        {
+          "scorer": "P. Zielinski",
+          "minute": 48
+        },
+        {
+          "scorer": "F. Esposito",
+          "minute": 55
+        },
+        {
+          "scorer": "Y. Bisseck",
+          "minute": 63
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "G. Varela",
+          "minute": 29
+        }
+      ],
+      "competition": "inter-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q",
+      "date": "2026-08-21",
+      "home": "Marseille",
+      "away": "Strasbourg",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "A. Gouiri",
+          "minute": 46
+        },
+        {
+          "scorer": "K. Abdallah",
+          "minute": 89
+        },
+        {
+          "scorer": "P. Hoejbjerg",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [],
+      "competition": "marseille"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
-    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q": 2
+    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2
   }
 }
