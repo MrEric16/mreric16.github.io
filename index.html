@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920162627">
+<meta name="app-build" content="20260920163735">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7446,7 +7446,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       tickInterval: null,
     };
     renderTttOverlay();
-    if(ttt.myTurn) startTurnTimer();
+    startTurnTimer();
   } else if(gameId === 'connect-4'){
     c4 = {
       board: Array(MPC4_ROWS * MPC4_COLS).fill(null),
@@ -7460,7 +7460,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       tickInterval: null,
     };
     renderC4Overlay();
-    if(c4.myTurn) startTurnTimer();
+    startTurnTimer();
   } else if(gameId === 'checkers' || gameId === 'checkers-kamikaze'){
     ck = {
       board: mtCkInitBoard(),
@@ -7476,7 +7476,7 @@ function startGame(gameId, opponentKey, iGoFirst){
       tickInterval: null,
     };
     renderCkOverlay();
-    if(ck.myTurn) startTurnTimer();
+    startTurnTimer();
   }
 }
 
@@ -7486,18 +7486,18 @@ function startTurnTimer(){
   clearTurnTimer();
   const ms = turnTimeoutMs();
   g.turnDeadline = Date.now() + ms;
-  g.turnTimer = setTimeout(() => { sendForfeit('timeout'); }, ms);
+  // Only MY OWN device enforces MY OWN timeout (self-reporting model, see the module
+  // comment above) - but the countdown itself is now shown for BOTH turns, not just
+  // mine, so waiting players can actually see time passing rather than a blank gap.
+  // The opponent's own device is still the one that actually enforces their timeout
+  // and broadcasts the forfeit if it expires; this display-only countdown never fires
+  // sendForfeit on their behalf.
+  if(g.myTurn){
+    g.turnTimer = setTimeout(() => { sendForfeit('timeout'); }, ms);
+  }
   g.tickInterval = setInterval(updateTurnTimerDisplay, 250);
   updateTurnTimerDisplay();
 }
-// Bug fix: this previously only cleared the timer/interval HANDLES, leaving
-// g.turnDeadline as a stale past timestamp and the displayed text exactly as it was at
-// the moment the interval stopped. Since nothing calls updateTurnTimerDisplay again
-// until the NEXT startTurnTimer (i.e. until it's your turn again), that frozen number
-// just sat on screen the whole time you were waiting on your opponent - reported as
-// "stuck on N seconds every time a move happens." Now explicitly clears the deadline
-// and blanks the displayed text immediately, so a waiting player sees nothing rather
-// than a misleadingly frozen countdown.
 function clearTurnTimer(){
   const g = activeGameState();
   if(!g) return;
@@ -7513,7 +7513,7 @@ function updateTurnTimerDisplay(){
   const el = document.getElementById(timerElId());
   if(!el || !g || !g.turnDeadline) return;
   const secsLeft = Math.max(0, Math.ceil((g.turnDeadline - Date.now()) / 1000));
-  el.textContent = `${secsLeft}s to move`;
+  el.textContent = `${secsLeft}s left`;
   el.classList.toggle('urgent', secsLeft <= 10);
 }
 
@@ -7580,6 +7580,7 @@ function makeTttMove(idx){
   ttt.myTurn = false;
   updateTttStatus();
   updateTttCellsEnabled();
+  startTurnTimer();
 }
 
 // Generic router - dispatches to whichever game is currently active. The actual
@@ -7769,6 +7770,7 @@ function dropC4Piece(col){
   c4.myTurn = false;
   updateC4Status();
   updateC4CellsEnabled();
+  startTurnTimer();
 }
 
 function handleIncomingC4Move(payload){
@@ -8005,7 +8007,7 @@ function executeCkSimpleMove(fromR, fromC, toR, toC, isMyMove){
   ck.myTurn = !isMyMove;
   updateCkStatus();
   updateCkCellsEnabled();
-  if(ck.myTurn) startTurnTimer();
+  startTurnTimer();
 }
 
 function executeCkCapture(fromR, fromC, toR, toC, capR, capC, isMyMove){
@@ -8017,20 +8019,27 @@ function executeCkCapture(fromR, fromC, toR, toC, capR, capC, isMyMove){
   if(isMyMove){
     gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:ck.opponentKey, from:myPresenceKey, fromR, fromC, toR, toC, capR, capC } });
   }
+  const more = !kinged && mtCkGetCaptures(ck.board, toR, toC).length > 0;
+  // Bug fix: ck.selected must be reassigned to its FINAL value BEFORE the cell updates
+  // below run, not after - updateCkCell(prevSelected...) reads the CURRENT ck.selected
+  // to decide whether to re-add the highlight, so calling it while ck.selected still
+  // pointed at prevSelected meant it always re-added the very highlight it had just
+  // removed. Nothing ever corrected it afterward, leaving a permanently stuck yellow
+  // square - reported as "random yellow spots" and confirmed from a screenshot showing
+  // exactly the .ck-selected tint. Determining the final selection state first, before
+  // touching the DOM, fixes this at the root rather than patching around it.
+  ck.selected = more ? {r:toR, c:toC} : null;
   updateCkCell(fromR, fromC);
   updateCkCell(toR, toC);
   updateCkCell(capR, capC);
-  if(prevSelected) updateCkCell(prevSelected.r, prevSelected.c);
+  if(prevSelected && !(prevSelected.r === toR && prevSelected.c === toC)) updateCkCell(prevSelected.r, prevSelected.c);
   clearTurnTimer();
-  const more = !kinged && mtCkGetCaptures(ck.board, toR, toC).length > 0;
   if(more){
-    ck.selected = {r:toR, c:toC};
-    updateCkCell(toR, toC);
     updateCkLegalHighlights();
     ck.myTurn = isMyMove; // same player continues - turn does not pass
     updateCkStatus();
     updateCkCellsEnabled();
-    if(ck.myTurn) startTurnTimer();
+    startTurnTimer();
     return;
   }
   const nextColor = isMyMove ? ck.oppColor : ck.myColor;
@@ -8038,12 +8047,11 @@ function executeCkCapture(fromR, fromC, toR, toC, capR, capC, isMyMove){
     endCkGame({ winnerIsMe: ckWinnerIsMe(isMyMove) });
     return;
   }
-  ck.selected = null;
   updateCkLegalHighlights();
   ck.myTurn = !isMyMove;
   updateCkStatus();
   updateCkCellsEnabled();
-  if(ck.myTurn) startTurnTimer();
+  startTurnTimer();
 }
 
 function handleIncomingCkMove(payload){
