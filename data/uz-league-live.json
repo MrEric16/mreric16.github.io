@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T17:03:44.528902Z",
+  "generatedAt": "2026-09-21T22:35:25.842442Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -92,6 +92,16 @@
       "pts": 30
     },
     {
+      "name": "Qizilqum",
+      "pld": 22,
+      "w": 9,
+      "d": 2,
+      "l": 11,
+      "gf": 23,
+      "ga": 30,
+      "pts": 29
+    },
+    {
       "name": "Sogdiana",
       "pld": 22,
       "w": 8,
@@ -100,16 +110,6 @@
       "gf": 38,
       "ga": 43,
       "pts": 28
-    },
-    {
-      "name": "Qizilqum",
-      "pld": 21,
-      "w": 8,
-      "d": 2,
-      "l": 11,
-      "gf": 20,
-      "ga": 29,
-      "pts": 26
     },
     {
       "name": "Termez Surkhon",
@@ -133,12 +133,12 @@
     },
     {
       "name": "Xorazm Urganch",
-      "pld": 21,
+      "pld": 22,
       "w": 5,
       "d": 6,
-      "l": 10,
-      "gf": 17,
-      "ga": 29,
+      "l": 11,
+      "gf": 18,
+      "ga": 32,
       "pts": 21
     },
     {
@@ -163,6 +163,13 @@
     }
   ],
   "results": [
+    {
+      "home": "Xorazm Urganch",
+      "away": "Qizilqum",
+      "raw_time": "21.09. 15:15",
+      "homeScore": 1,
+      "awayScore": 3
+    },
     {
       "home": "Lok. Tashkent",
       "away": "Neftchi Fargona",
@@ -295,13 +302,6 @@
       "raw_time": "04.09. 15:15",
       "homeScore": 3,
       "awayScore": 0
-    },
-    {
-      "home": "Nasaf Qarshi",
-      "away": "Neftchi Fargona",
-      "raw_time": "04.09. 14:00",
-      "homeScore": 6,
-      "awayScore": 2
     }
   ],
   "fixtures": [
