@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260921030240">
+<meta name="app-build" content="20260921155044">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5725,13 +5725,25 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   .corners-cell:disabled{ cursor:default; }
   .corners-cell.corners-selected{ background:rgba(182,178,53,.55); }
-  .corners-cell.corners-legal{ background:rgba(90,143,78,.55); }
   .corners-piece{
     width:72%; height:72%; border-radius:50%;
     box-shadow:0 0 0 2px rgba(255,255,255,.35) inset;
   }
   .corners-piece.corners-a{ background:#2E6FA6; }
   .corners-piece.corners-b{ background:#D97F35; }
+  /* Double-tap-to-zoom prevention for Corners' stop-confirmation tap (tapping the
+     same square twice, deliberately, to confirm stopping a jump chain early). Mirrors
+     the memory-game zoom kill-switch exactly (see its own comments a few lines above
+     and the matching JS-layer IIFEs) rather than the simpler touch-action:manipulation
+     approach - this codebase already learned the hard way that manipulation alone
+     still permits pinch-zoom, and on iOS Safari a single manipulation-valued element
+     anywhere on the page can re-enable the browser's global double-tap-zoom gesture
+     recognizer even when the tapped element itself is set more restrictively. pan-y
+     set on html/body (not just the board) is what actually blocks it reliably, with a
+     matching JS-level touchend debounce as the historically-necessary fallback layer.
+     Toggled on whenever a Corners game (either p2p or Brain Train) is active. */
+  html.corners-no-zoom, body.corners-no-zoom{ touch-action:pan-y; }
+  html.corners-no-zoom *, body.corners-no-zoom *{ touch-action:pan-y !important; }
 
   /* - Watch page: white + red theme (layout unchanged) - */
   body.theme-watch{background:#FFFFFF;}
@@ -7096,6 +7108,7 @@ function initLiveUserCounter(){
     .on('broadcast', { event: 'game_forfeit' }, ({ payload }) => { if(payload.to === presenceKey) handleOpponentForfeit(payload); })
     .on('broadcast', { event: 'rematch_request' }, ({ payload }) => { if(payload.to === presenceKey) handleRematchRequest(payload); })
     .on('broadcast', { event: 'game_chat' }, ({ payload }) => { if(payload.to === presenceKey) handleGameChat(payload); })
+    .on('broadcast', { event: 'corners_stop' }, ({ payload }) => { if(payload.to === presenceKey) handleCornersStop(payload); })
     .subscribe(async (status) => {
       if(status === 'SUBSCRIBED'){
         await channel.track({ online_at: new Date().toISOString() });
@@ -7180,7 +7193,7 @@ function clearActiveGameState(){
   else if(activeGameType === 'connect-4') c4 = null;
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') ck = null;
   else if(activeGameType === 'chess') mpChess = null;
-  else if(activeGameType === 'corners') mpCorners = null;
+  else if(activeGameType === 'corners'){ mpCorners = null; setCornersNoZoom(false); }
   activeGameType = null;
 }
 function timerElId(){
@@ -7608,6 +7621,8 @@ function startGame(gameId, opponentKey, iGoFirst){
       // screen, regardless of which fixed corner they were actually assigned.
       flipped: !iGoFirst,
       selected: null,
+      hasJumped: false,
+      jumpedOverKeys: new Set(),
       turnTimer: null,
       turnDeadline: null,
       tickInterval: null,
@@ -8499,41 +8514,25 @@ function cornersSimpleMoves(board, r, c){
 }
 // A jump hops over ANY adjacent piece (own or enemy - "no eating" means nothing is
 // ever removed, so ownership of the jumped piece is irrelevant) landing on the empty
-// square directly beyond it in the same direction.
-function cornersJumpMoves(board, r, c){
+// square directly beyond it in the same direction. jumpedOverKeys (a Set of "r,c"
+// strings) excludes pieces already jumped over earlier in the SAME chain this turn -
+// per Mr Eric: a chain can never re-cross a piece it has already jumped, forward or
+// backward. This is what makes "jump straight back over the piece I just crossed"
+// illegal (it would be crossing that same piece a second time), and what caps a loop
+// around a tight cluster (e.g. a 4-piece cross) at exactly one lap, since completing
+// a second lap would mean re-crossing the first piece in that lap again. Pass an
+// empty Set (or omit) for the very first jump of a turn, when nothing is excluded yet.
+function cornersJumpMoves(board, r, c, jumpedOverKeys){
+  const excluded = jumpedOverKeys || new Set();
   const out = [];
   for(const [dr,dc] of CORNERS_DIRS){
     const midR=r+dr, midC=c+dc, landR=r+2*dr, landC=c+2*dc;
     if(cornersInBounds(midR,midC) && board[midR][midC] && cornersInBounds(landR,landC) && !board[landR][landC]){
+      if(excluded.has(`${midR},${midC}`)) continue;
       out.push({toR:landR, toC:landC});
     }
   }
   return out;
-}
-// Explores every square reachable via one OR MORE consecutive jumps from a starting
-// position. Jump-chains are treated as OPTIONAL here (a player may stop after any
-// single jump, not forced to keep going) - unlike checkers' mandatory-capture rule,
-// there's no "must eat" pressure since nothing is ever captured, so stopping early is
-// a perfectly reasonable choice, not typically a real rule in games of this shape.
-// This is a judgment call in the absence of an explicit "mandatory" instruction -
-// worth confirming if it should actually be forced.
-function cornersAllJumpDestinations(board, startR, startC){
-  const visited = new Set([`${startR},${startC}`]);
-  const results = [];
-  function explore(r, c){
-    for(const m of cornersJumpMoves(board, r, c)){
-      const key = `${m.toR},${m.toC}`;
-      if(visited.has(key)) continue;
-      visited.add(key);
-      results.push({toR:m.toR, toC:m.toC});
-      explore(m.toR, m.toC);
-    }
-  }
-  explore(startR, startC);
-  return results;
-}
-function cornersLegalMoves(board, r, c){
-  return [...cornersSimpleMoves(board, r, c), ...cornersAllJumpDestinations(board, r, c)];
 }
 function cornersHasWon(board, owner){
   return CORNERS_FINISH[owner].every(([r,c]) => board[r][c] && board[r][c].owner === owner);
@@ -8551,6 +8550,7 @@ function cornersStatusText(){
 function renderCornersOverlay(){
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   if(!mpCorners) return;
+  setCornersNoZoom(true);
   const overlay = document.createElement('div');
   overlay.className = 'challenge-overlay';
   overlay.id = 'cornersOverlay';
@@ -8608,15 +8608,6 @@ function moveCornersPieceWithAnimation(fromR, fromC, toR, toC){
     pieceEl.style.transform = '';
   });
 }
-function updateCornersLegalHighlights(){
-  document.querySelectorAll('.corners-cell').forEach(btn => btn.classList.remove('corners-legal'));
-  if(!mpCorners || !mpCorners.selected) return;
-  const moves = cornersLegalMoves(mpCorners.board, mpCorners.selected.r, mpCorners.selected.c);
-  moves.forEach(m => {
-    const btn = document.querySelector(`.corners-cell[data-r="${m.toR}"][data-c="${m.toC}"]`);
-    if(btn) btn.classList.add('corners-legal');
-  });
-}
 function updateCornersCellsEnabled(){
   document.querySelectorAll('.corners-cell').forEach(btn => { btn.disabled = !mpCorners.myTurn; });
 }
@@ -8628,47 +8619,122 @@ function disableAllCornersCells(){
   document.querySelectorAll('.corners-cell').forEach(btn => { btn.disabled = true; });
 }
 
+// Move mechanic, redesigned per Mr Eric's request: no legal-move highlighting at all,
+// and a jump chain is no longer resolved in one tap to a far-off endpoint. Instead:
+//   - The FIRST action from a piece's turn-starting square is a single tap - either a
+//     plain step, or ONE jump (never the whole chain at once).
+//   - After landing a jump, if ANOTHER jump is available, nothing happens
+//     automatically - the player must tap again: either a further jump destination
+//     (continues the chain, same rule applies again), or the square the piece is
+//     currently sitting on a SECOND time (confirms stopping here, even though more
+//     jumps were possible).
+//   - The moment a landing square has NO further jump available, the turn ends
+//     immediately - there's nothing left to choose between, so no confirmation tap
+//     is needed.
+// mpCorners.hasJumped tracks whether at least one jump has happened yet this turn -
+// while false, both a plain step AND a first jump are legal, and switching to a
+// different own piece is still allowed; once true, only continuing the jump or the
+// stop-confirmation tap are legal for the rest of the turn.
 function selectCornersSquare(r, c){
   if(!mpCorners || !mpCorners.myTurn) return;
   const piece = mpCorners.board[r][c];
-  if(mpCorners.selected){
-    if(mpCorners.selected.r === r && mpCorners.selected.c === c) return;
+
+  if(!mpCorners.selected){
     if(piece && piece.owner === mpCorners.myOwner){
-      const prev = mpCorners.selected;
       mpCorners.selected = {r, c};
-      updateCornersCell(prev.r, prev.c);
+      mpCorners.hasJumped = false;
+      mpCorners.jumpedOverKeys = new Set();
       updateCornersCell(r, c);
-      updateCornersLegalHighlights();
-      return;
     }
-    attemptCornersMove(r, c);
     return;
   }
-  if(piece && piece.owner === mpCorners.myOwner){
-    mpCorners.selected = {r, c};
-    updateCornersCell(r, c);
-    updateCornersLegalHighlights();
+
+  const sel = mpCorners.selected;
+
+  if(sel.r === r && sel.c === c){
+    if(mpCorners.hasJumped){
+      finalizeCornersTurn(true, true); // explicit stop - opponent needs telling, board state alone can't reveal a choice to stop early
+    } else {
+      mpCorners.selected = null;
+      updateCornersCell(r, c);
+    }
+    return;
   }
+
+  if(!mpCorners.hasJumped && piece && piece.owner === mpCorners.myOwner){
+    const prev = mpCorners.selected;
+    mpCorners.selected = {r, c};
+    mpCorners.jumpedOverKeys = new Set(); // switching piece before any jump = a fresh turn-start for this piece
+    updateCornersCell(prev.r, prev.c);
+    updateCornersCell(r, c);
+    return;
+  }
+
+  if(!mpCorners.hasJumped){
+    const simple = cornersSimpleMoves(mpCorners.board, sel.r, sel.c).find(m => m.toR===r && m.toC===c);
+    if(simple){ executeCornersStep(sel.r, sel.c, r, c, true, true); return; }
+  }
+  const jump = cornersJumpMoves(mpCorners.board, sel.r, sel.c, mpCorners.jumpedOverKeys).find(m => m.toR===r && m.toC===c);
+  if(jump){ executeCornersStep(sel.r, sel.c, r, c, true, false); return; }
+  // Anything else tapped is simply not a legal next action right now - ignored.
 }
-function attemptCornersMove(toR, toC){
-  const moves = cornersLegalMoves(mpCorners.board, mpCorners.selected.r, mpCorners.selected.c);
-  const move = moves.find(m => m.toR === toR && m.toC === toC);
-  if(!move) return;
-  executeCornersMove(mpCorners.selected.r, mpCorners.selected.c, toR, toC, true);
-}
-function executeCornersMove(fromR, fromC, toR, toC, isMyMove){
-  const prevSelected = mpCorners.selected;
+
+// Executes exactly ONE step - either the terminal simple move, or a single jump hop
+// (never a whole multi-jump chain at once). isSimpleMove distinguishes a plain step
+// (always ends the turn) from a jump (may continue or need a stop-confirmation).
+// jumpedOverKeys is updated here (not just by the local player's own taps) because
+// the "does it have further legal jumps" check right below needs it on BOTH sides -
+// an incoming opponent move goes through this same function with isMyMove false.
+function executeCornersStep(fromR, fromC, toR, toC, isMyMove, isSimpleMove){
   mpCorners.board[toR][toC] = mpCorners.board[fromR][fromC];
   mpCorners.board[fromR][fromC] = null;
-  mpCorners.selected = null;
+
+  if(!isSimpleMove){
+    const jumpedR = (fromR+toR)/2, jumpedC = (fromC+toC)/2;
+    mpCorners.jumpedOverKeys.add(`${jumpedR},${jumpedC}`);
+  }
+
   if(isMyMove){
-    gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:mpCorners.opponentKey, from:myPresenceKey, fromR, fromC, toR, toC } });
+    gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:mpCorners.opponentKey, from:myPresenceKey, fromR, fromC, toR, toC, simple:isSimpleMove } });
+    mpCorners.selected = {r:toR, c:toC};
+    if(!isSimpleMove) mpCorners.hasJumped = true;
   }
   moveCornersPieceWithAnimation(fromR, fromC, toR, toC);
-  if(prevSelected && !(prevSelected.r === fromR && prevSelected.c === fromC)) updateCornersCell(prevSelected.r, prevSelected.c);
-  updateCornersLegalHighlights();
+  updateCornersCell(fromR, fromC);
+
+  if(isSimpleMove){
+    finalizeCornersTurn(isMyMove, false);
+    return;
+  }
+  const moreJumps = cornersJumpMoves(mpCorners.board, toR, toC, mpCorners.jumpedOverKeys).length > 0;
+  if(!moreJumps){
+    finalizeCornersTurn(isMyMove, false);
+    return;
+  }
+  // Further jumps are available - wait for the next tap. For my own move, keep the
+  // piece visually marked as selected (still no destination hints) so it's at least
+  // clear which piece is mid-move.
+  if(isMyMove) updateCornersCell(toR, toC);
+}
+
+// isExplicitStop is true only when the mover had further jumps available and chose
+// to stop early (the re-tap case) - board state alone can't reveal that choice to the
+// opponent, so it needs its own signal. Every other ending (a plain step, or landing
+// somewhere with no further jump) is fully derivable from the board itself, so both
+// sides reach it independently with nothing extra to send.
+function finalizeCornersTurn(isMyMove, isExplicitStop){
+  if(isMyMove && isExplicitStop){
+    gameChannel.send({ type:'broadcast', event:'corners_stop', payload:{ to:mpCorners.opponentKey, from:myPresenceKey } });
+  }
   clearTurnTimer();
   const moverOwner = isMyMove ? mpCorners.myOwner : mpCorners.oppOwner;
+  if(mpCorners.selected){
+    const { r, c } = mpCorners.selected;
+    mpCorners.selected = null;
+    updateCornersCell(r, c);
+  }
+  mpCorners.hasJumped = false;
+  mpCorners.jumpedOverKeys = new Set();
   if(cornersHasWon(mpCorners.board, moverOwner)){
     endCornersGame({ winnerIsMe: isMyMove });
     return;
@@ -8678,9 +8744,14 @@ function executeCornersMove(fromR, fromC, toR, toC, isMyMove){
   updateCornersCellsEnabled();
   startTurnTimer();
 }
+
 function handleIncomingCornersMove(payload){
   if(!mpCorners || payload.from !== mpCorners.opponentKey) return;
-  executeCornersMove(payload.fromR, payload.fromC, payload.toR, payload.toC, false);
+  executeCornersStep(payload.fromR, payload.fromC, payload.toR, payload.toC, false, payload.simple);
+}
+function handleCornersStop(payload){
+  if(!mpCorners || payload.from !== mpCorners.opponentKey) return;
+  finalizeCornersTurn(false, false);
 }
 function endCornersGame(result){
   clearTurnTimer();
@@ -22963,6 +23034,35 @@ function mtMountConnectFourGame(container, opts){
 // not an adversarial capture game, so "how much closer does this move get a piece to
 // its own finish corner" is a genuinely meaningful, directly-computable score in a
 // way a checkers/chess-style search wouldn't map onto as naturally here.
+// Like the p2p engine's own jump-chain rules, but also records the sequence of
+// intermediate hops for each reachable destination - needed so the AI (which still
+// evaluates whole chains at once when deciding where to send a piece) can execute its
+// chosen chain one hop at a time, matching the same step-by-step presentation a human
+// now gets, rather than the piece jumping straight to a far-off endpoint. Tracks a
+// PER-PATH exclusion set (not a single shared one) since legality now depends on
+// which specific pieces THIS path has already crossed, not just which squares have
+// been visited - two different paths can reach the same square while having crossed
+// different pieces to get there, so a single shared "visited" set would wrongly
+// exclude some legal continuations.
+function cornersAllJumpDestinationsWithPaths(board, startR, startC){
+  const results = [];
+  function explore(r, c, pathSoFar, jumpedSoFar){
+    for(const m of cornersJumpMoves(board, r, c, jumpedSoFar)){
+      const jumpedR = (r+m.toR)/2, jumpedC = (c+m.toC)/2;
+      const newJumped = new Set(jumpedSoFar);
+      newJumped.add(`${jumpedR},${jumpedC}`);
+      const path = [...pathSoFar, {r:m.toR, c:m.toC}];
+      results.push({toR:m.toR, toC:m.toC, path});
+      explore(m.toR, m.toC, path, newJumped);
+    }
+  }
+  explore(startR, startC, [], new Set());
+  return results;
+}
+
+// Returns {fromR, fromC, path} where path is the ordered list of squares the piece
+// will pass through (a single entry for a plain step or a one-hop jump, multiple
+// entries for a chosen jump chain) - the caller executes it one hop at a time.
 function cornersAiPickMove(board, aiOwner){
   const finishCells = CORNERS_FINISH[aiOwner];
   function distToFinish(r, c){
@@ -22979,29 +23079,33 @@ function cornersAiPickMove(board, aiOwner){
       const piece = board[r][c];
       if(!piece || piece.owner !== aiOwner) continue;
       const alreadyHome = finishCells.some(([fr,fc]) => fr===r && fc===c);
-      const moves = cornersLegalMoves(board, r, c);
-      for(const m of moves){
+      const candidates = [
+        ...cornersSimpleMoves(board, r, c).map(m => ({toR:m.toR, toC:m.toC, path:[{r:m.toR,c:m.toC}], isJump:false})),
+        ...cornersAllJumpDestinationsWithPaths(board, r, c).map(m => ({toR:m.toR, toC:m.toC, path:m.path, isJump:true})),
+      ];
+      for(const cand of candidates){
         let score;
         if(alreadyHome){
-          // Moving a piece already in the finish corner is only ever a step
-          // backward for this heuristic - heavily penalised so it's picked only if
-          // truly nothing else has a better option, never preferred.
-          score = -1000 + (distToFinish(r,c) - distToFinish(m.toR,m.toC));
+          score = -1000 + (distToFinish(r,c) - distToFinish(cand.toR,cand.toC));
         } else {
-          score = distToFinish(r,c) - distToFinish(m.toR,m.toC); // positive = real progress
-          const isJump = Math.abs(m.toR-r) + Math.abs(m.toC-c) > 1;
-          if(isJump) score += 0.5; // mild preference for covering more ground per turn
+          score = distToFinish(r,c) - distToFinish(cand.toR,cand.toC);
+          if(cand.isJump) score += 0.5;
         }
-        if(score > bestScore){ bestScore = score; bestMove = {fromR:r, fromC:c, toR:m.toR, toC:m.toC}; }
+        if(score > bestScore){ bestScore = score; bestMove = {fromR:r, fromC:c, path:cand.path}; }
       }
     }
   }
   return bestMove;
 }
 
+// Move mechanic, redesigned per Mr Eric's request: no legal-move highlighting, and a
+// jump chain is no longer resolved in one tap. See the p2p version's own comment
+// (selectCornersSquare) for the full rule - this is the same logic applied locally,
+// without any network broadcast since both "sides" are on the same device.
 function mtMountCornersGame(container, opts){
   opts = opts || {};
   const mode = opts.mode === 'human' ? 'human' : 'cpu';
+  setCornersNoZoom(true);
   container.innerHTML = `
     <div class="mt-embedded-hint" id="mtCornersMsg">${mode === 'human' ? "Player A's move." : 'Your move.'}</div>
     <div class="corners-board" id="mtCornersBoard"></div>
@@ -23011,7 +23115,7 @@ function mtMountCornersGame(container, opts){
   const msgEl = container.querySelector('#mtCornersMsg');
   const resetBtn = container.querySelector('[data-corners-reset]');
   let running = true;
-  let board, turn, selected, gameOver, aiTimer = null;
+  let board, turn, selected, hasJumped, jumpedOverKeys, gameOver, aiTimer = null;
 
   function setMsg(t){ if(msgEl) msgEl.textContent = t; }
 
@@ -23019,6 +23123,8 @@ function mtMountCornersGame(container, opts){
     board = cornersInitBoard();
     turn = 'a';
     selected = null;
+    hasJumped = false;
+    jumpedOverKeys = new Set();
     gameOver = false;
     setMsg(mode === 'human' ? "Player A's move." : 'Your move.');
     render();
@@ -23036,35 +23142,53 @@ function mtMountCornersGame(container, opts){
       }
     }
     boardEl.innerHTML = html;
-    if(selected){
-      const moves = cornersLegalMoves(board, selected.r, selected.c);
-      moves.forEach(m => {
-        const btn = boardEl.querySelector(`[data-r="${m.toR}"][data-c="${m.toC}"]`);
-        if(btn) btn.classList.add('corners-legal');
-      });
-    }
   }
 
   function handleTap(r, c){
     if(gameOver) return;
     if(mode === 'cpu' && turn !== 'a') return;
     const piece = board[r][c];
-    if(selected){
-      if(selected.r===r && selected.c===c){ selected = null; render(); return; }
-      if(piece && piece.owner === turn){ selected = {r,c}; render(); return; }
-      const moves = cornersLegalMoves(board, selected.r, selected.c);
-      const move = moves.find(m => m.toR===r && m.toC===c);
-      if(move) makeMove(selected.r, selected.c, r, c);
+
+    if(!selected){
+      if(piece && piece.owner === turn){ selected = {r,c}; hasJumped = false; jumpedOverKeys = new Set(); render(); }
       return;
     }
-    if(piece && piece.owner === turn){ selected = {r,c}; render(); }
+
+    if(selected.r === r && selected.c === c){
+      if(hasJumped){ finalizeMove(); } else { selected = null; render(); }
+      return;
+    }
+
+    if(!hasJumped && piece && piece.owner === turn){ selected = {r,c}; jumpedOverKeys = new Set(); render(); return; }
+
+    if(!hasJumped){
+      const simple = cornersSimpleMoves(board, selected.r, selected.c).find(m => m.toR===r && m.toC===c);
+      if(simple){ doStep(selected.r, selected.c, r, c, true); return; }
+    }
+    const jump = cornersJumpMoves(board, selected.r, selected.c, jumpedOverKeys).find(m => m.toR===r && m.toC===c);
+    if(jump){ doStep(selected.r, selected.c, r, c, false); return; }
   }
 
-  function makeMove(fromR, fromC, toR, toC){
+  function doStep(fromR, fromC, toR, toC, isSimple){
     board[toR][toC] = board[fromR][fromC];
     board[fromR][fromC] = null;
+    if(!isSimple){
+      const jumpedR = (fromR+toR)/2, jumpedC = (fromC+toC)/2;
+      jumpedOverKeys.add(`${jumpedR},${jumpedC}`);
+    }
+    selected = {r:toR, c:toC};
+    if(!isSimple) hasJumped = true;
+    render();
+    if(isSimple){ finalizeMove(); return; }
+    const moreJumps = cornersJumpMoves(board, toR, toC, jumpedOverKeys).length > 0;
+    if(!moreJumps) finalizeMove();
+  }
+
+  function finalizeMove(){
     const moverTurn = turn;
     selected = null;
+    hasJumped = false;
+    jumpedOverKeys = new Set();
     if(cornersHasWon(board, moverTurn)){
       gameOver = true;
       render();
@@ -23093,7 +23217,22 @@ function mtMountCornersGame(container, opts){
     if(!running || gameOver) return;
     const move = cornersAiPickMove(board, 'b');
     if(!move) return; // no legal move anywhere for the AI - a theoretical edge case on a mostly-open 8x8 board; skip rather than crash
-    makeMove(move.fromR, move.fromC, move.toR, move.toC);
+    aiExecutePath(move.fromR, move.fromC, move.path, 0);
+  }
+  // Walks the AI's chosen path one hop at a time, pacing each hop with a short delay
+  // so a multi-jump chain is visibly stepped through rather than teleporting to its
+  // final square - the same step-by-step feel a human now gets, just AI-driven.
+  function aiExecutePath(fromR, fromC, path, idx){
+    if(!running || gameOver) return;
+    const step = path[idx];
+    board[step.r][step.c] = board[fromR][fromC];
+    board[fromR][fromC] = null;
+    render();
+    if(idx === path.length - 1){
+      finalizeMove();
+      return;
+    }
+    aiTimer = setTimeout(() => aiExecutePath(step.r, step.c, path, idx+1), 400);
   }
 
   function onBoardClick(e){
@@ -23110,6 +23249,7 @@ function mtMountCornersGame(container, opts){
     if(aiTimer) clearTimeout(aiTimer);
     boardEl.removeEventListener('click', onBoardClick);
     resetBtn.removeEventListener('click', setup);
+    setCornersNoZoom(false);
   };
 }
 
@@ -30330,6 +30470,66 @@ function triggerWeekendEgg(){
   window.visualViewport.addEventListener('scroll', function(){
     if(!document.body.classList.contains('mm-no-zoom')) return;
     if(window.visualViewport.scale > 1.02){ forceResetZoom(); }
+  });
+})();
+
+/* - 15: Corners zoom kill-switch -
+   Same three-layer system as the memory-game one above (CSS pan-y, touchend debounce,
+   visualViewport watcher), scoped to a separate corners-no-zoom class rather than
+   reusing mm-no-zoom directly - Corners' stop-confirmation deliberately taps the same
+   square twice, which is exactly the double-tap-to-zoom trigger, but it's toggled by
+   the game's own lifecycle (a p2p challenge overlay opening/closing, or the Brain
+   Train mount/cleanup) rather than by route the way memory-game is, since a p2p
+   overlay can appear on top of any route. setCornersNoZoom coordinates with mm-no-zoom
+   on the shared viewport meta tag so the two systems can't fight each other in the
+   unlikely event both are relevant at once. */
+function setCornersNoZoom(active){
+  document.documentElement.classList.toggle('corners-no-zoom', active);
+  document.body.classList.toggle('corners-no-zoom', active);
+  const viewportMeta = document.querySelector('meta[name="viewport"]');
+  if(!viewportMeta) return;
+  const otherSystemWantsNoZoom = document.body.classList.contains('mm-no-zoom');
+  viewportMeta.setAttribute('content', (active || otherSystemWantsNoZoom)
+    ? 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'
+    : 'width=device-width, initial-scale=1.0');
+}
+(function(){
+  let cornersLastTouchEnd = 0;
+  document.addEventListener('touchend', function(e){
+    if(!document.body.classList.contains('corners-no-zoom')) return;
+    const now = Date.now();
+    if(now - cornersLastTouchEnd <= 350){ e.preventDefault(); }
+    cornersLastTouchEnd = now;
+  }, { passive: false });
+  document.addEventListener('gesturestart', function(e){
+    if(document.body.classList.contains('corners-no-zoom')) e.preventDefault();
+  }, { passive: false });
+})();
+(function(){
+  if(!('visualViewport' in window)) return;
+  let resetting = false;
+  function forceResetCornersZoom(){
+    if(resetting) return;
+    resetting = true;
+    const vp = document.querySelector('meta[name="viewport"]');
+    if(vp){
+      const original = vp.getAttribute('content');
+      vp.setAttribute('content', original + ', shrink-to-fit=no');
+      requestAnimationFrame(() => {
+        vp.setAttribute('content', original);
+        resetting = false;
+      });
+    } else {
+      resetting = false;
+    }
+  }
+  window.visualViewport.addEventListener('resize', function(){
+    if(!document.body.classList.contains('corners-no-zoom')) return;
+    if(window.visualViewport.scale > 1.02){ forceResetCornersZoom(); }
+  });
+  window.visualViewport.addEventListener('scroll', function(){
+    if(!document.body.classList.contains('corners-no-zoom')) return;
+    if(window.visualViewport.scale > 1.02){ forceResetCornersZoom(); }
   });
 })();
 
