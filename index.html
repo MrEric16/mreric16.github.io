@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260921155044">
+<meta name="app-build" content="20260921235054">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7109,6 +7109,8 @@ function initLiveUserCounter(){
     .on('broadcast', { event: 'rematch_request' }, ({ payload }) => { if(payload.to === presenceKey) handleRematchRequest(payload); })
     .on('broadcast', { event: 'game_chat' }, ({ payload }) => { if(payload.to === presenceKey) handleGameChat(payload); })
     .on('broadcast', { event: 'corners_stop' }, ({ payload }) => { if(payload.to === presenceKey) handleCornersStop(payload); })
+    .on('broadcast', { event: 'battleship_fire' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingBattleshipFire(payload); })
+    .on('broadcast', { event: 'battleship_fire_result' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingBattleshipFireResult(payload); })
     .subscribe(async (status) => {
       if(status === 'SUBSCRIBED'){
         await channel.track({ online_at: new Date().toISOString() });
@@ -7144,6 +7146,7 @@ let c4 = null;                 // active Connect 4 game state, or null
 let ck = null;                 // active checkers game state, or null
 let mpChess = null;             // active chess game state, or null
 let mpCorners = null;           // active Corners game state, or null
+let mpBattleship = null;        // active p2p Battleship game state, or null
 
 const CHALLENGE_TIMEOUT_MS = 30000;
 // Per-turn timeout varies by game - 20s for fast games, chess gets longer since a
@@ -7155,6 +7158,7 @@ const TURN_TIMEOUT_MS_BY_GAME = {
   'checkers-kamikaze': 20000,
   'chess': 30000,
   'corners': 20000,
+  'battleship': 20000,
 };
 function turnTimeoutMs(){
   return TURN_TIMEOUT_MS_BY_GAME[activeGameType] || 20000;
@@ -7166,6 +7170,7 @@ const CHALLENGE_GAMES = [
   { id:'checkers-kamikaze', name:'Checkers (Kamikaze)', emoji:'💥' },
   { id:'chess', name:'Chess', emoji:'♟️' },
   { id:'corners', name:'Corners', emoji:'🔺' },
+  { id:'battleship', name:'Battleship', emoji:'🚢' },
 ];
 
 // Shared plumbing that works across whichever game is currently active, added when
@@ -7178,6 +7183,7 @@ function activeGameState(){
   if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') return ck;
   if(activeGameType === 'chess') return mpChess;
   if(activeGameType === 'corners') return mpCorners;
+  if(activeGameType === 'battleship') return mpBattleship;
   return null;
 }
 let lastGameInfo = null; // { gameId, opponentKey, iWentFirst } - captured right before
@@ -7194,6 +7200,7 @@ function clearActiveGameState(){
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') ck = null;
   else if(activeGameType === 'chess') mpChess = null;
   else if(activeGameType === 'corners'){ mpCorners = null; setCornersNoZoom(false); }
+  else if(activeGameType === 'battleship') mpBattleship = null;
   activeGameType = null;
 }
 function timerElId(){
@@ -7201,6 +7208,7 @@ function timerElId(){
   if(activeGameType === 'connect-4') return 'c4Timer';
   if(activeGameType === 'chess') return 'chessTimer';
   if(activeGameType === 'corners') return 'cornersTimer';
+  if(activeGameType === 'battleship') return 'battleshipTimer';
   return 'ckTimer';
 }
 
@@ -7628,6 +7636,31 @@ function startGame(gameId, opponentKey, iGoFirst){
       tickInterval: null,
     };
     renderCornersOverlay();
+    startTurnTimer();
+  } else if(gameId === 'battleship'){
+    // Hidden-information game, unlike every other game here - each player's own
+    // fleet placement is generated locally (matching the single-player convention of
+    // random placement rather than a manual drag-to-place phase) and never sent to
+    // the opponent; only fire coordinates and their results cross the wire. See the
+    // battleship section further down for the full request/response sync model.
+    const myFleet = bsPlaceShipsRandomly(BS_GRID_SIZE, BS_SHIPS_DEF);
+    mpBattleship = {
+      myGrid: myFleet.grid,
+      myShips: myFleet.ships,
+      oppTrackingGrid: bsCreateEmptyGrid(BS_GRID_SIZE), // what I've learned of the opponent's waters from my own shots only
+      oppShipsTracking: BS_SHIPS_DEF.map(s => ({ name:s.name, size:s.size, hits:0 })), // opponent's fleet composition is always the same list; sunk status fills in as I'm told
+      myFired: new Set(),
+      myTurn: iGoFirst,
+      opponentKey,
+      iWentFirst: iGoFirst,
+      gameOver: false,
+      shotsFired: 0,
+      hits: 0,
+      turnTimer: null,
+      turnDeadline: null,
+      tickInterval: null,
+    };
+    renderBattleshipOverlay();
     startTurnTimer();
   }
 }
@@ -8757,6 +8790,132 @@ function endCornersGame(result){
   clearTurnTimer();
   const msg = result.winnerIsMe ? 'You won! 🎉' : 'You lost.';
   disableAllCornersCells();
+  clearActiveGameState();
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  showGamePopup(msg, {offerRematch:true});
+}
+
+// --- Battleship (p2p) ---
+// Reuses the entire single-player engine (bsCreateEmptyGrid, bsPlaceShipsRandomly,
+// bsAllSunk, bsFireAt, bsGridHtml, bsFleetStatusHtml, BS_SHIPS_DEF, BS_GRID_SIZE) -
+// none of it needed modification, since bsFireAt/bsAllSunk operate on a plain
+// grid+ships pair regardless of who owns them, and bsGridHtml only ever reads the
+// grid passed to it, never global state.
+//
+// Fundamentally different sync model from every other p2p game here: this is the
+// only hidden-information game. Each player's own fleet placement is generated
+// locally and never transmitted - broadcasting it would let the opponent cheat.
+// Instead firing is a request/response pair: the attacker broadcasts only the
+// coordinates fired at (battleship_fire); the defender is the only one who can
+// actually resolve it, since only they know their own ship layout, so THEY apply
+// bsFireAt to their own real grid and broadcast back the result (battleship_fire_
+// result) - hit/miss, which ship if any was sunk, and whether their whole fleet is
+// now gone. The attacker never touches the defender's real grid at all, only a
+// tracking grid built purely from results they've been told.
+//
+// Turn handling: myTurn flips to false the instant I fire (no human decision left
+// until the result arrives) and flips true on the defender's side the instant they
+// receive a shot (they are now the next attacker) - both sides derive this
+// identically from the same causal sequence of events, no separate turn-passing
+// message needed. The per-turn timer only genuinely enforces on the side about to
+// choose where to fire next; the brief request/response round trip itself is
+// expected to be near-instant and isn't separately timed.
+function battleshipStatusText(){
+  if(mpBattleship.gameOver) return '';
+  return mpBattleship.myTurn ? 'Your turn - fire at their waters.' : "Opponent's turn.";
+}
+
+function renderBattleshipOverlay(){
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  if(!mpBattleship) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay';
+  overlay.id = 'battleshipOverlay';
+  const oppGridHtml = bsGridHtml(mpBattleship.oppTrackingGrid, null, {
+    interactive: mpBattleship.myTurn && !mpBattleship.gameOver,
+    revealShips: false,
+    onFireAction: 'battleship-fire',
+  });
+  const myGridHtml = bsGridHtml(mpBattleship.myGrid, null, {
+    interactive: false,
+    revealShips: true,
+    onFireAction: '',
+  });
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <div class="ttt-wrap">
+        <div class="ttt-status" id="battleshipStatus">${battleshipStatusText()}</div>
+        <div class="ttt-timer" id="battleshipTimer"></div>
+        <h3 class="bs-grid-label">Enemy Waters${mpBattleship.myTurn && !mpBattleship.gameOver ? ' - tap to fire' : ''}</h3>
+        ${oppGridHtml}
+        ${bsFleetStatusHtml(mpBattleship.oppShipsTracking)}
+        <h3 class="bs-grid-label" style="margin-top:18px;">Your Fleet</h3>
+        ${myGridHtml}
+        ${bsFleetStatusHtml(mpBattleship.myShips)}
+        <button class="ttt-exit-btn" data-action="battleship-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+}
+
+function fireAtOpponent(r, c){
+  if(!mpBattleship || !mpBattleship.myTurn || mpBattleship.gameOver) return;
+  const key = bsCellKey(r, c);
+  if(mpBattleship.myFired.has(key)) return;
+  mpBattleship.myFired.add(key);
+  mpBattleship.myTurn = false;
+  clearTurnTimer();
+  gameChannel.send({ type:'broadcast', event:'battleship_fire', payload:{ to:mpBattleship.opponentKey, from:myPresenceKey, r, c } });
+  renderBattleshipOverlay();
+}
+
+function handleIncomingBattleshipFire(payload){
+  if(!mpBattleship || payload.from !== mpBattleship.opponentKey) return;
+  const { r, c } = payload;
+  const result = bsFireAt(mpBattleship.myGrid, mpBattleship.myShips, r, c);
+  const gameOver = bsAllSunk(mpBattleship.myShips);
+  gameChannel.send({ type:'broadcast', event:'battleship_fire_result', payload:{
+    to: mpBattleship.opponentKey, from: myPresenceKey, r, c,
+    hit: result.hit, sunkName: result.sunk ? result.sunk.name : null, gameOver,
+  }});
+  if(gameOver){
+    endBattleshipGame({ winnerIsMe:false });
+    return;
+  }
+  mpBattleship.myTurn = true;
+  renderBattleshipOverlay();
+  startTurnTimer();
+}
+
+function handleIncomingBattleshipFireResult(payload){
+  if(!mpBattleship || payload.from !== mpBattleship.opponentKey) return;
+  const { r, c, hit, sunkName, gameOver } = payload;
+  mpBattleship.shotsFired++;
+  if(hit){
+    mpBattleship.hits++;
+    // shipIndex just needs to read as "not -1" for bsGridHtml's hit-styling check -
+    // the exact index is never read back, only whether a hit landed on a ship.
+    mpBattleship.oppTrackingGrid[r][c] = { shipIndex: 0, hit: true };
+  } else {
+    mpBattleship.oppTrackingGrid[r][c] = { shipIndex: -1, hit: true };
+  }
+  if(sunkName){
+    const ship = mpBattleship.oppShipsTracking.find(s => s.name === sunkName);
+    if(ship) ship.hits = ship.size;
+  }
+  if(gameOver){
+    endBattleshipGame({ winnerIsMe:true });
+    return;
+  }
+  renderBattleshipOverlay();
+  startTurnTimer(); // display-only on my side here (myTurn is false) - shows a countdown for the opponent's now-live decision window, matching every other game's both-sides-see-a-timer convention
+}
+
+function endBattleshipGame(result){
+  clearTurnTimer();
+  const msg = result.winnerIsMe ? 'You sank their fleet! You won! 🎉' : 'Your fleet was sunk. You lost.';
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   showGamePopup(msg, {offerRematch:true});
@@ -27553,6 +27712,18 @@ document.addEventListener('click', (e) => {
   }
   const cornersExitBtn = e.target.closest('[data-action="corners-exit"]');
   if(cornersExitBtn){
+    e.preventDefault();
+    confirmExitGame();
+    return;
+  }
+  const battleshipFireBtn = e.target.closest('[data-action="battleship-fire"]');
+  if(battleshipFireBtn){
+    e.preventDefault();
+    fireAtOpponent(parseInt(battleshipFireBtn.dataset.r, 10), parseInt(battleshipFireBtn.dataset.c, 10));
+    return;
+  }
+  const battleshipExitBtn = e.target.closest('[data-action="battleship-exit"]');
+  if(battleshipExitBtn){
     e.preventDefault();
     confirmExitGame();
     return;
