@@ -2,8 +2,8 @@
 [goal-scraper] [PL] Found 10 finished-match links
 [goal-scraper] [PD] Found 10 finished-match links
 [goal-scraper] [BL1] Found 9 finished-match links
-[goal-scraper] [SA] Found 10 finished-match links
-[goal-scraper] [FL1] Found 9 finished-match links
+[goal-scraper] [SA] Found 0 finished-match links
+[goal-scraper] [FL1] Found 0 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 23 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -51,7 +51,6 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs River Plate on 2025-06-25
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Fluminense on 2025-06-30
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Bologna vs Inter on 2025-12-19
-[goal-scraper] [inter-milan] Added: Inter 4-1 Monza
 [goal-scraper] [ac-milan] Found 11 finished-match links
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Ssc Napoli vs Ac Milan on 2025-12-18
 [goal-scraper] [psg] Found 19 finished-match links
@@ -72,9 +71,6 @@
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Rennes on 2026-02-03
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Toulouse on 2026-03-04
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Yamoussoukro Fc vs Marseille on 2026-07-17
-[goal-scraper] WARNING: Marseille scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q
-[goal-scraper] [marseille] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Marseille 4-0 Strasbourg: https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q
-[goal-scraper] [marseille] Added: Marseille 4-0 Strasbourg
 [goal-scraper] [dortmund] Found 18 finished-match links
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fluminense vs Borussia Dortmund on 2025-06-17
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Mamelodi Sundowns Fc vs Borussia Dortmund on 2025-06-21
@@ -90,7 +86,7 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Wydad Casablanca on 2025-06-22
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
-[goal-scraper] [arsenal-friendlies] Found 3 finished-match links
-[goal-scraper] TOTAL new results added this run: 2
+[goal-scraper] [arsenal-friendlies] Found 2 finished-match links
+[goal-scraper] TOTAL new results added this run: 0
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM']
 [goal-scraper] Wrote data/goal-results.json
