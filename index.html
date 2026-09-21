@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260920220257">
+<meta name="app-build" content="20260921024247">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5708,6 +5708,31 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   .chess-piece.chess-black{ color:#1A1A1A; }
 
+  /* Corners board - unlike checkers/chess, every square is usable (movement is
+     orthogonal, not diagonal-only), so there's no light/dark chequer distinction to
+     draw. A thin gap over a dark background between cells gives grid-line clarity
+     instead. Two piece colours distinct from every other game's palette (blue vs
+     orange) so all five boards read as visually separate at a glance. */
+  .corners-board{
+    display:grid; grid-template-columns:repeat(8,1fr); gap:2px;
+    max-width:320px; margin:0 auto; position:relative;
+    background:#3D2A22; border:3px solid #3D2A22; border-radius:6px; padding:2px;
+  }
+  .corners-cell{
+    aspect-ratio:1; border:none; padding:0; cursor:pointer;
+    background:#F0E6D2;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .corners-cell:disabled{ cursor:default; }
+  .corners-cell.corners-selected{ background:rgba(182,178,53,.55); }
+  .corners-cell.corners-legal{ background:rgba(90,143,78,.55); }
+  .corners-piece{
+    width:72%; height:72%; border-radius:50%;
+    box-shadow:0 0 0 2px rgba(255,255,255,.35) inset;
+  }
+  .corners-piece.corners-a{ background:#2E6FA6; }
+  .corners-piece.corners-b{ background:#D97F35; }
+
   /* - Watch page: white + red theme (layout unchanged) - */
   body.theme-watch{background:#FFFFFF;}
   body.theme-watch .back-link{color:#D6191A;}
@@ -7105,6 +7130,7 @@ let ttt = null;                // active tic-tac-toe game state, or null
 let c4 = null;                 // active Connect 4 game state, or null
 let ck = null;                 // active checkers game state, or null
 let mpChess = null;             // active chess game state, or null
+let mpCorners = null;           // active Corners game state, or null
 
 const CHALLENGE_TIMEOUT_MS = 30000;
 // Per-turn timeout varies by game - 20s for fast games, chess gets longer since a
@@ -7115,6 +7141,7 @@ const TURN_TIMEOUT_MS_BY_GAME = {
   'checkers': 20000,
   'checkers-kamikaze': 20000,
   'chess': 30000,
+  'corners': 20000,
 };
 function turnTimeoutMs(){
   return TURN_TIMEOUT_MS_BY_GAME[activeGameType] || 20000;
@@ -7125,6 +7152,7 @@ const CHALLENGE_GAMES = [
   { id:'checkers', name:'Checkers', emoji:'⚫' },
   { id:'checkers-kamikaze', name:'Checkers (Kamikaze)', emoji:'💥' },
   { id:'chess', name:'Chess', emoji:'♟️' },
+  { id:'corners', name:'Corners', emoji:'🔺' },
 ];
 
 // Shared plumbing that works across whichever game is currently active, added when
@@ -7136,6 +7164,7 @@ function activeGameState(){
   if(activeGameType === 'connect-4') return c4;
   if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') return ck;
   if(activeGameType === 'chess') return mpChess;
+  if(activeGameType === 'corners') return mpCorners;
   return null;
 }
 let lastGameInfo = null; // { gameId, opponentKey, iWentFirst } - captured right before
@@ -7151,12 +7180,14 @@ function clearActiveGameState(){
   else if(activeGameType === 'connect-4') c4 = null;
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') ck = null;
   else if(activeGameType === 'chess') mpChess = null;
+  else if(activeGameType === 'corners') mpCorners = null;
   activeGameType = null;
 }
 function timerElId(){
   if(activeGameType === 'tic-tac-toe') return 'tttTimer';
   if(activeGameType === 'connect-4') return 'c4Timer';
   if(activeGameType === 'chess') return 'chessTimer';
+  if(activeGameType === 'corners') return 'cornersTimer';
   return 'ckTimer';
 }
 
@@ -7563,6 +7594,26 @@ function startGame(gameId, opponentKey, iGoFirst){
     };
     renderChessOverlay();
     startTurnTimer();
+  } else if(gameId === 'corners'){
+    mpCorners = {
+      board: cornersInitBoard(),
+      myOwner: iGoFirst ? 'a' : 'b', // 'a' starts bottom-left, matching the request's fixed start points
+      oppOwner: iGoFirst ? 'b' : 'a',
+      myTurn: iGoFirst,
+      opponentKey,
+      iWentFirst: iGoFirst,
+      // 'a' starts bottom-left, already the natural "bottom" in an unflipped array -
+      // 'b' starts top-right and needs the same 180-degree flip checkers/chess use so
+      // every player always sees their own start/finish at the bottom of their own
+      // screen, regardless of which fixed corner they were actually assigned.
+      flipped: !iGoFirst,
+      selected: null,
+      turnTimer: null,
+      turnDeadline: null,
+      tickInterval: null,
+    };
+    renderCornersOverlay();
+    startTurnTimer();
   }
 }
 
@@ -7677,6 +7728,7 @@ function handleIncomingMove(payload){
   else if(activeGameType === 'connect-4') handleIncomingC4Move(payload);
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') handleIncomingCkMove(payload);
   else if(activeGameType === 'chess') handleIncomingChessMove(payload);
+  else if(activeGameType === 'corners') handleIncomingCornersMove(payload);
 }
 
 function handleIncomingTttMove(payload){
@@ -8406,6 +8458,234 @@ function endChessGame(result){
   clearTurnTimer();
   const msg = result.draw ? 'Stalemate - draw!' : (result.winnerIsMe ? 'Checkmate - you won! 🎉' : 'Checkmate - you lost.');
   disableAllChessCells();
+  clearActiveGameState();
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  showGamePopup(msg, {offerRematch:true});
+}
+
+// --- Corners ---
+// A genuinely different variant from checkers/kamikaze, not a reskin: orthogonal
+// (not diagonal) movement, no captures at all, and a race win condition (first to
+// relocate all 9 of your own pieces into the opposite 3x3 corner). Built as a
+// reusable, DOM-free rules engine (cornersInitBoard/cornersLegalMoves/cornersHasWon)
+// exactly like the mtCk*/ch* engines checkers and chess reuse - this same engine is
+// what a future single-player AI opponent (Brain Train) would also call, rather than
+// having two separate rules implementations that could drift apart.
+//
+// Board is the standard 8x8. Player 'a' starts bottom-left (rows 5-7, cols 0-2) and
+// finishes top-right (rows 0-2, cols 5-7); player 'b' starts top-right and finishes
+// bottom-left - always these two fixed corners, matching the exact starting/finishing
+// squares Mr Eric specified, independent of who's the challenger vs acceptor.
+const CORNERS_SIZE = 8;
+const CORNERS_DIRS = [[-1,0],[1,0],[0,-1],[0,1]]; // up, down, left, right - orthogonal only
+function cornersInBounds(r,c){ return r>=0 && r<CORNERS_SIZE && c>=0 && c<CORNERS_SIZE; }
+function cornersInitBoard(){
+  const b = Array.from({length:8}, () => Array(8).fill(null));
+  for(let r=5;r<8;r++) for(let c=0;c<3;c++) b[r][c] = {owner:'a'};
+  for(let r=0;r<3;r++) for(let c=5;c<8;c++) b[r][c] = {owner:'b'};
+  return b;
+}
+const CORNERS_FINISH = {
+  a: [[0,5],[0,6],[0,7],[1,5],[1,6],[1,7],[2,5],[2,6],[2,7]],
+  b: [[5,0],[5,1],[5,2],[6,0],[6,1],[6,2],[7,0],[7,1],[7,2]],
+};
+function cornersSimpleMoves(board, r, c){
+  const out = [];
+  for(const [dr,dc] of CORNERS_DIRS){
+    const nr=r+dr, nc=c+dc;
+    if(cornersInBounds(nr,nc) && !board[nr][nc]) out.push({toR:nr, toC:nc});
+  }
+  return out;
+}
+// A jump hops over ANY adjacent piece (own or enemy - "no eating" means nothing is
+// ever removed, so ownership of the jumped piece is irrelevant) landing on the empty
+// square directly beyond it in the same direction.
+function cornersJumpMoves(board, r, c){
+  const out = [];
+  for(const [dr,dc] of CORNERS_DIRS){
+    const midR=r+dr, midC=c+dc, landR=r+2*dr, landC=c+2*dc;
+    if(cornersInBounds(midR,midC) && board[midR][midC] && cornersInBounds(landR,landC) && !board[landR][landC]){
+      out.push({toR:landR, toC:landC});
+    }
+  }
+  return out;
+}
+// Explores every square reachable via one OR MORE consecutive jumps from a starting
+// position. Jump-chains are treated as OPTIONAL here (a player may stop after any
+// single jump, not forced to keep going) - unlike checkers' mandatory-capture rule,
+// there's no "must eat" pressure since nothing is ever captured, so stopping early is
+// a perfectly reasonable choice, not typically a real rule in games of this shape.
+// This is a judgment call in the absence of an explicit "mandatory" instruction -
+// worth confirming if it should actually be forced.
+function cornersAllJumpDestinations(board, startR, startC){
+  const visited = new Set([`${startR},${startC}`]);
+  const results = [];
+  function explore(r, c){
+    for(const m of cornersJumpMoves(board, r, c)){
+      const key = `${m.toR},${m.toC}`;
+      if(visited.has(key)) continue;
+      visited.add(key);
+      results.push({toR:m.toR, toC:m.toC});
+      explore(m.toR, m.toC);
+    }
+  }
+  explore(startR, startC);
+  return results;
+}
+function cornersLegalMoves(board, r, c){
+  return [...cornersSimpleMoves(board, r, c), ...cornersAllJumpDestinations(board, r, c)];
+}
+function cornersHasWon(board, owner){
+  return CORNERS_FINISH[owner].every(([r,c]) => board[r][c] && board[r][c].owner === owner);
+}
+
+function cornersPieceHtml(piece){
+  if(!piece) return '';
+  const cls = piece.owner === 'a' ? 'corners-a' : 'corners-b';
+  return `<span class="corners-piece ${cls}"></span>`;
+}
+function cornersStatusText(){
+  return (mpCorners.myTurn ? "Your turn" : "Opponent's turn") + ` — you are ${mpCorners.myOwner === 'a' ? 'Player A' : 'Player B'}`;
+}
+
+function renderCornersOverlay(){
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  if(!mpCorners) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay';
+  overlay.id = 'cornersOverlay';
+  let cellsHtml = '';
+  for(let displayR=0; displayR<CORNERS_SIZE; displayR++){
+    for(let displayC=0; displayC<CORNERS_SIZE; displayC++){
+      const r = mpCorners.flipped ? (CORNERS_SIZE-1-displayR) : displayR;
+      const c = mpCorners.flipped ? (CORNERS_SIZE-1-displayC) : displayC;
+      let cls = 'corners-cell';
+      if(mpCorners.selected && mpCorners.selected.r===r && mpCorners.selected.c===c) cls += ' corners-selected';
+      const piece = mpCorners.board[r][c];
+      cellsHtml += `<button class="${cls}" data-action="corners-tap" data-r="${r}" data-c="${c}" ${mpCorners.myTurn ? '' : 'disabled'}>${cornersPieceHtml(piece)}</button>`;
+    }
+  }
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <div class="ttt-wrap">
+        <div class="ttt-status" id="cornersStatus">${cornersStatusText()}</div>
+        <div class="ttt-timer" id="cornersTimer"></div>
+        <div class="corners-board">${cellsHtml}</div>
+        <button class="ttt-exit-btn" data-action="corners-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+}
+
+function updateCornersCell(r, c){
+  const btn = document.querySelector(`.corners-cell[data-r="${r}"][data-c="${c}"]`);
+  if(!btn || !mpCorners) return;
+  btn.classList.remove('corners-selected');
+  btn.innerHTML = cornersPieceHtml(mpCorners.board[r][c]);
+  if(mpCorners.selected && mpCorners.selected.r===r && mpCorners.selected.c===c) btn.classList.add('corners-selected');
+}
+function moveCornersPieceWithAnimation(fromR, fromC, toR, toC){
+  // Same FLIP-technique animation as checkers/chess.
+  const fromBtn = document.querySelector(`.corners-cell[data-r="${fromR}"][data-c="${fromC}"]`);
+  const fromRect = (fromBtn && fromBtn.getBoundingClientRect) ? fromBtn.getBoundingClientRect() : null;
+  updateCornersCell(fromR, fromC);
+  updateCornersCell(toR, toC);
+  if(!fromRect) return;
+  const toBtn = document.querySelector(`.corners-cell[data-r="${toR}"][data-c="${toC}"]`);
+  const pieceEl = (toBtn && toBtn.querySelector) ? toBtn.querySelector('.corners-piece') : null;
+  if(!pieceEl || !toBtn.getBoundingClientRect) return;
+  const toRect = toBtn.getBoundingClientRect();
+  const dx = fromRect.left - toRect.left;
+  const dy = fromRect.top - toRect.top;
+  if(!dx && !dy) return;
+  pieceEl.style.transition = 'none';
+  pieceEl.style.transform = `translate(${dx}px, ${dy}px)`;
+  pieceEl.getBoundingClientRect();
+  requestAnimationFrame(() => {
+    pieceEl.style.transition = 'transform .18s ease-out';
+    pieceEl.style.transform = '';
+  });
+}
+function updateCornersLegalHighlights(){
+  document.querySelectorAll('.corners-cell').forEach(btn => btn.classList.remove('corners-legal'));
+  if(!mpCorners || !mpCorners.selected) return;
+  const moves = cornersLegalMoves(mpCorners.board, mpCorners.selected.r, mpCorners.selected.c);
+  moves.forEach(m => {
+    const btn = document.querySelector(`.corners-cell[data-r="${m.toR}"][data-c="${m.toC}"]`);
+    if(btn) btn.classList.add('corners-legal');
+  });
+}
+function updateCornersCellsEnabled(){
+  document.querySelectorAll('.corners-cell').forEach(btn => { btn.disabled = !mpCorners.myTurn; });
+}
+function updateCornersStatus(){
+  const el = document.getElementById('cornersStatus');
+  if(el) el.textContent = cornersStatusText();
+}
+function disableAllCornersCells(){
+  document.querySelectorAll('.corners-cell').forEach(btn => { btn.disabled = true; });
+}
+
+function selectCornersSquare(r, c){
+  if(!mpCorners || !mpCorners.myTurn) return;
+  const piece = mpCorners.board[r][c];
+  if(mpCorners.selected){
+    if(mpCorners.selected.r === r && mpCorners.selected.c === c) return;
+    if(piece && piece.owner === mpCorners.myOwner){
+      const prev = mpCorners.selected;
+      mpCorners.selected = {r, c};
+      updateCornersCell(prev.r, prev.c);
+      updateCornersCell(r, c);
+      updateCornersLegalHighlights();
+      return;
+    }
+    attemptCornersMove(r, c);
+    return;
+  }
+  if(piece && piece.owner === mpCorners.myOwner){
+    mpCorners.selected = {r, c};
+    updateCornersCell(r, c);
+    updateCornersLegalHighlights();
+  }
+}
+function attemptCornersMove(toR, toC){
+  const moves = cornersLegalMoves(mpCorners.board, mpCorners.selected.r, mpCorners.selected.c);
+  const move = moves.find(m => m.toR === toR && m.toC === toC);
+  if(!move) return;
+  executeCornersMove(mpCorners.selected.r, mpCorners.selected.c, toR, toC, true);
+}
+function executeCornersMove(fromR, fromC, toR, toC, isMyMove){
+  const prevSelected = mpCorners.selected;
+  mpCorners.board[toR][toC] = mpCorners.board[fromR][fromC];
+  mpCorners.board[fromR][fromC] = null;
+  mpCorners.selected = null;
+  if(isMyMove){
+    gameChannel.send({ type:'broadcast', event:'game_move', payload:{ to:mpCorners.opponentKey, from:myPresenceKey, fromR, fromC, toR, toC } });
+  }
+  moveCornersPieceWithAnimation(fromR, fromC, toR, toC);
+  if(prevSelected && !(prevSelected.r === fromR && prevSelected.c === fromC)) updateCornersCell(prevSelected.r, prevSelected.c);
+  updateCornersLegalHighlights();
+  clearTurnTimer();
+  const moverOwner = isMyMove ? mpCorners.myOwner : mpCorners.oppOwner;
+  if(cornersHasWon(mpCorners.board, moverOwner)){
+    endCornersGame({ winnerIsMe: isMyMove });
+    return;
+  }
+  mpCorners.myTurn = !isMyMove;
+  updateCornersStatus();
+  updateCornersCellsEnabled();
+  startTurnTimer();
+}
+function handleIncomingCornersMove(payload){
+  if(!mpCorners || payload.from !== mpCorners.opponentKey) return;
+  executeCornersMove(payload.fromR, payload.fromC, payload.toR, payload.toC, false);
+}
+function endCornersGame(result){
+  clearTurnTimer();
+  const msg = result.winnerIsMe ? 'You won! 🎉' : 'You lost.';
+  disableAllCornersCells();
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   showGamePopup(msg, {offerRematch:true});
@@ -26953,6 +27233,18 @@ document.addEventListener('click', (e) => {
   }
   const chessExitBtn = e.target.closest('[data-action="chess-exit"]');
   if(chessExitBtn){
+    e.preventDefault();
+    confirmExitGame();
+    return;
+  }
+  const cornersTapBtn = e.target.closest('[data-action="corners-tap"]');
+  if(cornersTapBtn){
+    e.preventDefault();
+    selectCornersSquare(parseInt(cornersTapBtn.dataset.r, 10), parseInt(cornersTapBtn.dataset.c, 10));
+    return;
+  }
+  const cornersExitBtn = e.target.closest('[data-action="corners-exit"]');
+  if(cornersExitBtn){
     e.preventDefault();
     confirmExitGame();
     return;
