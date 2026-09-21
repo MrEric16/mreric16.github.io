@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260921025422">
+<meta name="app-build" content="20260921030240">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -27807,7 +27807,15 @@ document.addEventListener('click', (e) => {
   const btModePickBtn = e.target.closest('[data-action="bt-mode-pick"]');
   if(btModePickBtn){
     e.preventDefault();
-    const gameKey = btModePickBtn.dataset.game === 'checkers' ? 'bt-checkers' : 'bt-connect4';
+    // Bug fix: this used to be a hardcoded two-way ternary (checkers -> bt-checkers,
+    // anything else -> bt-connect4), written back when those were the only two
+    // options. Adding Corners meant its "1 Player"/"2 Player" buttons both fell into
+    // the "anything else" branch and silently opened Connect 4 instead - confirmed
+    // from Mr Eric hitting this in both single and 2-player (pass the phone) mode,
+    // since both buttons route through this same line. Generalised to the actual
+    // naming convention (every bt-game route is just 'bt-' + its registry key) so
+    // this can't silently break again the next time a game is added here.
+    const gameKey = 'bt-' + btModePickBtn.dataset.game;
     location.hash = '#' + gameKey + '/' + btModePickBtn.dataset.mode;
     return;
   }
