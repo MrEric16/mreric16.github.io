@@ -377,3 +377,218 @@ requires a human approval step and manual publish — not fully autonomous.
 - The person tests things themselves (screenshots included) and will call out a
   claimed fix that isn't actually fixed — treat every "it's fixed" statement as one
   that needs to survive that scrutiny before saying it.
+
+## Two-Player Challenge System (p2p multiplayer games) — entirely new subsystem, built this session
+
+A full peer-to-peer multiplayer challenge system, live from the site's existing
+"X users on the site right now" presence indicator. Two online users can challenge
+each other to any of seven games. This is now a mature, well-tested subsystem — not
+a prototype — but it grew across many turns and several real bugs were found and
+fixed along the way. Read this whole section before touching any of it.
+
+### Architecture
+
+- **Channel:** reuses the existing `site-presence` Supabase Realtime channel (already
+  used for the live user-count display), extended with broadcast events for
+  challenges, moves, chat, rematch, etc. Strictly capped at exactly 2 users online —
+  the challenge picker doesn't appear otherwise.
+- **Challenge flow:** `sendChallenge(gameId)` → 30s timeout auto-rejects if unanswered
+  → `acceptChallenge()` on the other side → `startGame(gameId, opponentKey, iGoFirst)`.
+  The challenger always goes first (`iGoFirst`), which every game's own "who starts"
+  convention derives from.
+- **One central router, not per-game special-casing:** `activeGameState()`,
+  `clearActiveGameState()`, `timerElId()`, and `handleIncomingMove()` are the FOUR
+  places that need a new `else if` branch when adding a game. `CHALLENGE_GAMES`
+  (the picker list) and `TURN_TIMEOUT_MS_BY_GAME` are the other two required
+  registrations. Miss any of these five and the new game either won't appear, won't
+  route incoming moves, or won't time out correctly — this pattern held for all
+  seven games built this session.
+- **Per-turn timer:** 20s for fast games, 30s for chess. **Shows a live countdown for
+  BOTH players at all times, not just whoever's about to move** — this was a real,
+  reported bug (the countdown went blank the instant you made your own move, because
+  every move-handler only called `startTurnTimer()` conditionally on it being your
+  own turn) — fixed by making `startTurnTimer()` always run after any turn change,
+  but only the actual mover's own device sets up real *enforcement* (a `setTimeout`
+  that calls `sendForfeit('timeout')`); the waiting side's countdown is display-only.
+  This is a self-reporting timeout model — each player's own device is the only one
+  that can force their own forfeit.
+- **Rematch:** mutual by design — either side can request one from the result popup,
+  but the new game only actually starts once BOTH sides have asked (one player
+  wanting a rematch never forces the other into one). Turn order flips automatically
+  each rematch (whoever didn't go first last game goes first now), derived
+  independently and identically on both clients from their own `iWentFirst` flag —
+  no extra negotiation message needed for that part specifically.
+- **Quick-phrase chat:** a fixed list of 8 phrases only (`GAME_CHAT_PHRASES`) — no
+  free-text field at all, so there's nothing to moderate by construction. Works
+  identically across every game since it only needs `activeGameState()` for the
+  opponent's key.
+- **Exit confirmation:** tapping "Exit game" used to forfeit instantly on a single
+  tap — now shows a confirm dialog first (`confirmExitGame()`). Applies to every
+  game since they all route through the same `sendForfeit('exit')` call.
+- **Move animation:** pieces visibly slide rather than teleport, via the FLIP
+  technique (capture the piece's on-screen position before the DOM update, apply a
+  reverse transform immediately, then animate that transform away on the next
+  frame). Used in checkers, chess, and Corners (`moveCkPieceWithAnimation`,
+  equivalent chess/corners versions) — purely visual, wrapped around the existing
+  cell-update calls, defensively guarded so a missing element just falls back to
+  instant placement rather than throwing.
+
+### Per-game notes
+
+- **Tic-tac-toe, Connect 4:** the two simplest, first built. Full-information games,
+  single broadcast per move.
+- **Checkers (+ Kamikaze variant):** reuses the single-player `mtCk*` rules engine
+  entirely (mandatory captures, multi-jump chains, kinging) rather than
+  reimplementing checkers rules. Kamikaze is the same engine with only the win
+  condition inverted (running out of legal moves wins instead of loses) — confirmed
+  from the single-player's own `checkGameOver` logic, not guessed.
+  - **Board orientation bug, fixed:** originally both players saw the board in the
+    same fixed array orientation, so whoever was Black (starting at the array top)
+    saw their own pieces at the top attacking downward. Fixed with a per-player
+    display-only 180° flip (`ck.flipped`) — the board array and all move logic are
+    untouched, only which array cell renders at which screen position changes for
+    Black. The same pattern was applied to chess and Corners from the start.
+  - **Selection-highlight bug, fixed — watch for this exact pattern elsewhere:** in
+    `executeCkCapture`, `ck.selected` was being reassigned to its new value *after*
+    calling `updateCkCell()` on the previously-selected square. That function reads
+    the *current* `ck.selected` to decide whether to re-add the highlight it just
+    removed — so it read the still-old value and re-added the very highlight it was
+    supposed to clear, and nothing ever corrected it afterward. Showed up as
+    permanently stuck yellow squares. The fix is general: always determine a piece
+    of state's *final* value before touching the DOM based on it, not after.
+- **Chess:** reuses the single-player `ch*` rules engine entirely (castling, en
+  passant, promotion — all inherited correctly rather than re-derived). Sync is
+  deliberately minimal: only `{fromR, fromC, toR, toC}` is broadcast; the receiving
+  side finds the one matching legal move via `chLegalMovesForPiece` and applies it
+  with `chApplyMove`, so both sides always derive identical move flags
+  (capture/castle/enPassant/promotion) from the same engine rather than trusting a
+  broadcast copy of them. Promotion is always auto-queen (matching single-player),
+  so there's no ambiguity to resolve from a bare from/to pair.
+  - Piece rendering deliberately uses the *solid/filled* Unicode chess glyph set for
+    **both** colours, not the separate "white" glyph variants — those render as
+    outline-only shapes in most fonts regardless of CSS `color`, which would have
+    made white pieces' contrast unreliable across devices. White/black distinction
+    is controlled entirely via CSS fill colour + `text-shadow`/`-webkit-text-stroke`
+    instead.
+- **Corners:** a genuinely new variant with no single-player precedent before this
+  session — built the whole rules engine from scratch (`cornersInitBoard`,
+  `cornersSimpleMoves`, `cornersJumpMoves`, `cornersHasWon`, etc.), then a
+  single-player Brain Train version reusing that same engine. **Rules, confirmed
+  directly with Mr Eric, don't re-derive from first principles:**
+  - Movement is **orthogonal only** (up/down/left/right), never diagonal.
+  - A jump hops over **any** adjacent piece (own or enemy) landing on the empty
+    square directly beyond it — **nothing is ever captured/removed**, the jumped
+    piece stays exactly where it was.
+  - Win condition is a **race**: first to get all 9 of your own pieces into the
+    fixed opposite 3×3 corner (start/finish corners are always bottom-left ↔
+    top-right, regardless of who's the challenger).
+  - **No legal-move highlighting at all** (removed after initial build — was
+    originally shown, explicitly asked to be removed).
+  - **Jump chains are resolved one hop at a time, not one tap to a far-off
+    endpoint:** the first jump is a single tap; continuing requires tapping the next
+    landing square; stopping early (when a further jump is still available) requires
+    *re-tapping the current square* to confirm — this double-tap-to-stop pattern is
+    exactly what real-world double-tap-zoom targets, hence the zoom-prevention work
+    below. Landing somewhere with no further jump available ends the turn
+    automatically, no confirmation needed.
+  - **No-repeat-jump rule** (clarified directly after an early ambiguity): within one
+    chain, a piece can **never cross the same piece twice**, forward or backward.
+    This is what makes "jump straight back over the piece you just crossed" illegal,
+    and what caps a loop around a tight cluster (e.g. a 4-piece cross) at exactly
+    one rotation — completing a second lap would mean re-crossing the first piece in
+    that lap again. Resets fully on the player's next turn. Implemented via a
+    per-chain `jumpedOverKeys` Set threaded through `cornersJumpMoves`'s optional
+    third argument.
+  - The Brain Train AI is a **greedy distance heuristic** (advance whichever piece
+    gets closest to its own finish corner, mild preference for jump moves, strong
+    penalty against moving a piece that's already home), not a minimax search — a
+    race game doesn't map onto adversarial search the way checkers/chess do. It
+    executes its own chosen jump chains hop-by-hop too (via
+    `cornersAllJumpDestinationsWithPaths`, a path-tracking variant of the chain
+    explorer), respecting the same no-repeat-jump rule a human is bound by.
+  - Brain Train's rendering deliberately reuses the p2p version's DOM/CSS
+    (`.corners-board`/`.corners-cell`/`.corners-piece`) rather than matching
+    checkers/chess's hand-drawn canvas style within Brain Train — a real tradeoff
+    (visual inconsistency with the other two Brain Train games) made in favour of
+    reusing already-tested rendering code. Revisit if that inconsistency matters in
+    practice.
+  - **Zoom-prevention system, `corners-no-zoom`:** the stop-confirmation tap (same
+    square, twice) is exactly what triggers a browser's double-tap-to-zoom gesture.
+    A simple `touch-action: manipulation` fix was tried first and found
+    insufficient — this codebase had already fought and solved an identical problem
+    for the Memory Match game (see `mm-no-zoom` elsewhere in the file) and left
+    detailed comments explaining why `manipulation` alone doesn't reliably work on
+    iOS Safari (it still permits pinch-zoom, and can re-enable the browser's global
+    double-tap gesture recognizer from a single element anywhere on the page).
+    Corners now replicates that same proven three-layer system under its own class
+    name (not sharing `mm-no-zoom` directly, since a p2p overlay isn't tied to a
+    route change the way the memory-game page is): CSS `touch-action: pan-y` on
+    `html`/`body` (not just the board), a touchend debounce as a JS-level fallback,
+    and a `visualViewport` scale-drift watcher. Toggled by the game's own lifecycle
+    (`setCornersNoZoom(true/false)`) in both p2p (`renderCornersOverlay` /
+    `clearActiveGameState`) and Brain Train (mount / cleanup), and coordinates with
+    `mm-no-zoom` on the shared viewport meta tag so the two systems can't fight each
+    other if both ever happen to be relevant at once.
+  - **A real routing bug, fixed:** adding Corners to Brain Train broke *both* its
+    "1 Player" and "2 Player" buttons, sending them to Connect 4 instead. The cause:
+    `viewBtModeChoice`'s mode-pick click handler had a hardcoded two-way ternary
+    (`dataset.game === 'checkers' ? 'bt-checkers' : 'bt-connect4'`) written back when
+    those were the only two Brain Train games — anything that wasn't literally
+    `'checkers'` fell into the `'bt-connect4'` branch. Fixed by generalizing to
+    `'bt-' + dataset.game`, matching the actual route-naming convention, so this
+    can't silently recur the next time a game is added here. **Watch for this exact
+    hardcoded-two-way-branch pattern elsewhere in the codebase** — it will break the
+    same way the moment a third option is introduced.
+- **Battleship:** the only genuinely hidden-information game here, so it needed a
+  different sync model from every other game. Reuses the entire single-player
+  engine unmodified (`bsCreateEmptyGrid`, `bsPlaceShipsRandomly`, `bsAllSunk`,
+  `bsFireAt`, `bsGridHtml`, `bsFleetStatusHtml`, `BS_SHIPS_DEF`) — none of it needed
+  changes, since those functions already just operate on a plain grid+ships pair
+  with no coupling to single-player state. Each player's own fleet placement (still
+  random, matching the single-player convention — no manual placement UI) is
+  generated locally and **never transmitted** — sending it would let the opponent
+  see it. Firing is a request/response pair: the attacker broadcasts only the fired-
+  at coordinates (`battleship_fire`); the defender — the only side that actually
+  knows their own layout — resolves the shot against their own real grid and reports
+  back hit/miss/sunk-ship-name/game-over (`battleship_fire_result`). The attacker
+  builds a private tracking grid purely from what they've been told, never touching
+  the defender's real data structure.
+
+### Verification discipline used for this entire subsystem
+
+Every game and every fix in this section was verified via Node.js simulation
+*before* pushing, not just read over. The pattern: extract the relevant code
+section(s) with `sed` into standalone `.js` files, combine them inside one
+`new Function('document','escapeHtml','logEvent', ...)` call (not separate `eval()`
+calls — a real scoping issue was hit this session where `const`/`let` declared in
+one `eval()` isn't visible to a second, separate `eval()` call; a single combined
+function body doesn't have this problem), mock just enough of `document` to capture
+DOM writes as inspectable state, run two simulated clients through a fake broadcast
+bus, and assert on the resulting state on both sides. This caught real bugs before
+they shipped — checkers' selection-highlight ordering bug, an incorrect en passant
+test coordinate and an invalid stalemate test position for chess (both test bugs,
+caught before trusting the result), the checkers timer-visibility gap, and more.
+
+Two other standing disciplines from this session, worth carrying forward for any
+future work here:
+- **Always re-fetch the file fresh from GitHub immediately before every push and
+  diff it against the local working copy before trusting it.** A real near-miss
+  happened this session: a chunk of Corners work was built on a locally-stale copy
+  of `index.html` that predated an earlier, already-pushed fix — caught only
+  because of this habitual pre-push diff check, before anything was actually
+  pushed. Skipping this check even once could have silently reverted a shipped fix.
+- **When a game's rules are genuinely ambiguous (not just under-specified), ask
+  rather than guess.** This happened more than once this session (kamikaze
+  checkers' win condition, Corners' jump-back/no-repeat rule) and was explicitly
+  the right call both times — guessing wrong here doesn't just produce a bug, it
+  means building the wrong game entirely.
+
+### Outstanding — not yet built
+
+Tug-of-war and stick fight (from Mind Temple's "mess about" section) were asked for
+as p2p multiplayer additions but not yet started. Single-player versions already
+exist (`mtMountTugGame`, `mtMountFightGame`, registered in `MT_EMBEDDED_GAMES`) —
+investigate that existing implementation first, same approach as every game in this
+section, before building a multiplayer version. Stick fight was also asked to have
+extended HP for longer rounds and best-of-3 for multiplayer specifically, not
+carried over from single-player as-is.
