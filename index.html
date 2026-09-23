@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260922194311">
+<meta name="app-build" content="20260923142522">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5627,6 +5627,32 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   @keyframes tttWinLineDraw{ to{ stroke-dashoffset:0; } }
 
+  /* Tug of War - a horizontal track with a marker that slides based on tugPos(), plus
+     a big single PULL button (no board/cells - it's the same one action repeated fast,
+     unlike every tap-a-square game above). transition on .tug-marker's left property
+     gives a smooth slide purely from CSS, no animation loop needed since updateTugDisplay
+     just sets a percentage. */
+  .tug-wrap{ max-width:360px; margin:0 auto; text-align:center; }
+  .tug-track{
+    position:relative; height:16px; border-radius:999px; background:var(--line);
+    margin:0 auto 22px; overflow:hidden; border:2px solid var(--line);
+  }
+  .tug-zone{ position:absolute; top:0; bottom:0; width:18%; }
+  .tug-zone-mine{ left:0; background:rgba(107,122,61,.35); }
+  .tug-zone-theirs{ right:0; background:rgba(122,46,53,.35); }
+  .tug-marker{
+    position:absolute; top:50%; width:26px; height:26px; border-radius:50%;
+    background:var(--gold); border:2px solid var(--ink); transform:translate(-50%,-50%);
+    left:50%; transition:left .12s linear;
+  }
+  .tug-pull-btn{
+    background:var(--coral); color:#fff; border:none; border-radius:14px;
+    padding:18px 40px; font-family:'Nunito',sans-serif; font-weight:800; font-size:20px;
+    cursor:pointer; width:100%; max-width:220px; user-select:none; -webkit-user-select:none;
+    touch-action:manipulation;
+  }
+  .tug-pull-btn:active{ transform:scale(0.96); }
+
   /* Connect 4 board - the .ttt-winline overlay class above is reused as-is here (same
      percentage-based positioning works regardless of the grid's actual row/col count),
      so only the board/cell styling itself is new. */
@@ -7111,6 +7137,8 @@ function initLiveUserCounter(){
     .on('broadcast', { event: 'corners_stop' }, ({ payload }) => { if(payload.to === presenceKey) handleCornersStop(payload); })
     .on('broadcast', { event: 'battleship_fire' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingBattleshipFire(payload); })
     .on('broadcast', { event: 'battleship_fire_result' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingBattleshipFireResult(payload); })
+    .on('broadcast', { event: 'tug_tap_update' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingTugUpdate(payload); })
+    .on('broadcast', { event: 'tug_win' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingTugWin(payload); })
     .subscribe(async (status) => {
       if(status === 'SUBSCRIBED'){
         await channel.track({ online_at: new Date().toISOString() });
@@ -7147,6 +7175,7 @@ let ck = null;                 // active checkers game state, or null
 let mpChess = null;             // active chess game state, or null
 let mpCorners = null;           // active Corners game state, or null
 let mpBattleship = null;        // active p2p Battleship game state, or null
+let tug = null;                 // active p2p Tug of War game state, or null
 
 const CHALLENGE_TIMEOUT_MS = 30000;
 // Per-turn timeout varies by game - 20s for fast games, chess gets longer since a
@@ -7160,6 +7189,12 @@ const TURN_TIMEOUT_MS_BY_GAME = {
   'corners': 20000,
   'battleship': 20000,
 };
+// Tug of War has no turns (both players tap simultaneously) so it doesn't use
+// TURN_TIMEOUT_MS_BY_GAME at all - see TUG_ROUND_MS/startTugRound below instead,
+// which is a whole-round safety cap, not a per-turn one.
+const TUG_ROUND_MS = 45000;
+const TUG_TAP_WEIGHT = 0.05;   // same per-tap pull strength as the single-player version
+const TUG_BROADCAST_MS = 120;  // batches taps into one throttled broadcast instead of one per tap
 function turnTimeoutMs(){
   return TURN_TIMEOUT_MS_BY_GAME[activeGameType] || 20000;
 }
@@ -7171,6 +7206,7 @@ const CHALLENGE_GAMES = [
   { id:'chess', name:'Chess', emoji:'♟️' },
   { id:'corners', name:'Corners', emoji:'🔺' },
   { id:'battleship', name:'Battleship', emoji:'🚢' },
+  { id:'tug-of-war', name:'Tug of War', emoji:'🪢' },
 ];
 
 // Shared plumbing that works across whichever game is currently active, added when
@@ -7184,6 +7220,7 @@ function activeGameState(){
   if(activeGameType === 'chess') return mpChess;
   if(activeGameType === 'corners') return mpCorners;
   if(activeGameType === 'battleship') return mpBattleship;
+  if(activeGameType === 'tug-of-war') return tug;
   return null;
 }
 let lastGameInfo = null; // { gameId, opponentKey, iWentFirst } - captured right before
@@ -7201,6 +7238,7 @@ function clearActiveGameState(){
   else if(activeGameType === 'chess') mpChess = null;
   else if(activeGameType === 'corners'){ mpCorners = null; setCornersNoZoom(false); }
   else if(activeGameType === 'battleship') mpBattleship = null;
+  else if(activeGameType === 'tug-of-war') tug = null;
   activeGameType = null;
 }
 function timerElId(){
@@ -7209,6 +7247,7 @@ function timerElId(){
   if(activeGameType === 'chess') return 'chessTimer';
   if(activeGameType === 'corners') return 'cornersTimer';
   if(activeGameType === 'battleship') return 'battleshipTimer';
+  if(activeGameType === 'tug-of-war') return 'tugTimer';
   return 'ckTimer';
 }
 
@@ -7662,6 +7701,26 @@ function startGame(gameId, opponentKey, iGoFirst){
     };
     renderBattleshipOverlay();
     startTurnTimer();
+  } else if(gameId === 'tug-of-war'){
+    // No turns at all here (both players tap simultaneously), so this does NOT call
+    // startTurnTimer() - it calls its own startTugRound() instead. See the Tug of War
+    // section further down for the full simultaneous-input sync model (commutative
+    // tap-count math instead of move-by-move exchange, since there's no discrete "move").
+    tug = {
+      myTaps: 0,
+      oppTaps: 0,
+      opponentKey,
+      iWentFirst: iGoFirst, // no real first-move advantage in this game, kept only so
+                             // the shared rematch code (which flips iWentFirst) has
+                             // something consistent to flip each rematch
+      gameOver: false,
+      broadcastPending: false,
+      turnTimer: null,
+      turnDeadline: null,
+      tickInterval: null,
+    };
+    renderTugOverlay();
+    startTugRound();
   }
 }
 
@@ -8919,6 +8978,154 @@ function endBattleshipGame(result){
   clearActiveGameState();
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   showGamePopup(msg, {offerRematch:true});
+}
+
+// --- Tug of War (p2p) ---
+// Genuinely different sync model from every turn-based game above (and from
+// Battleship's request/response model too): both players tap simultaneously, with no
+// concept of "whose turn it is" at all. Broadcasting every single tap would flood the
+// channel during a fast tapper's burst, and a naive turn-by-turn exchange makes no
+// sense when there ARE no turns.
+//
+// The fix: make the game's own math commutative/order-independent so the two clients
+// never need to agree on an ORDER of events, only on a running TOTAL. tugPos() is
+// derived purely from (myTaps - oppTaps) - it gives the identical result regardless of
+// what order those taps happened in or arrived over the network, so there's nothing to
+// reconcile. Each side sends its own cumulative tap COUNT (not a delta) on a throttled
+// interval (TUG_BROADCAST_MS) rather than one broadcast per tap - since it's a running
+// total rather than a delta, a single dropped broadcast can never cause permanent
+// drift, the next one just corrects it. handleIncomingTugUpdate additionally guards
+// against ever moving oppTaps backward, in case a broadcast arrives out of order.
+function tugPos(){
+  if(!tug) return 0.5;
+  // 0 = my win zone, 1 = opponent's win zone - matches the single-player convention
+  // (mtMountTugGame) where 0 was always the human player's win side.
+  return Math.max(0, Math.min(1, 0.5 - (tug.myTaps - tug.oppTaps) * TUG_TAP_WEIGHT));
+}
+function renderTugOverlay(){
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  if(!tug) return;
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay';
+  overlay.id = 'tugOverlay';
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <div class="tug-wrap">
+        <div class="ttt-status" id="tugStatus">Tap fast to pull the rope your way!</div>
+        <div class="ttt-timer" id="tugTimer"></div>
+        <div class="tug-track">
+          <div class="tug-zone tug-zone-mine"></div>
+          <div class="tug-zone tug-zone-theirs"></div>
+          <div class="tug-marker" id="tugMarker"></div>
+        </div>
+        <button class="tug-pull-btn" data-action="tug-pull">PULL!</button>
+        <button class="ttt-exit-btn" data-action="tug-exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  updateTugDisplay();
+}
+function updateTugDisplay(){
+  if(!tug) return;
+  const marker = document.getElementById('tugMarker');
+  if(marker) marker.style.left = (tugPos() * 100) + '%';
+}
+function handleTugTap(){
+  if(!tug || tug.gameOver) return;
+  tug.myTaps++;
+  updateTugDisplay(); // instant local feedback - never waits on the network round-trip
+  scheduleTugBroadcast();
+  checkTugWin();
+}
+// Trailing-edge throttle: the first tap in a burst schedules one broadcast
+// TUG_BROADCAST_MS later; every tap after that until it fires just adds to tug.myTaps
+// (already reflected locally) without scheduling a second one. Caps the broadcast rate
+// regardless of how fast someone can physically tap.
+function scheduleTugBroadcast(){
+  if(!tug || tug.broadcastPending) return;
+  tug.broadcastPending = true;
+  setTimeout(() => {
+    if(!tug) return;
+    tug.broadcastPending = false;
+    if(tug.gameOver || !gameChannel) return;
+    gameChannel.send({ type:'broadcast', event:'tug_tap_update', payload:{ to:tug.opponentKey, from:myPresenceKey, count:tug.myTaps } });
+  }, TUG_BROADCAST_MS);
+}
+function handleIncomingTugUpdate(payload){
+  if(!tug || tug.gameOver || payload.from !== tug.opponentKey) return;
+  // Never move oppTaps backward - guards against an out-of-order broadcast (an older,
+  // lower count arriving after a newer, higher one) silently un-counting real taps.
+  if(payload.count > tug.oppTaps) tug.oppTaps = payload.count;
+  updateTugDisplay();
+  checkTugWin();
+}
+function checkTugWin(){
+  if(!tug || tug.gameOver) return;
+  const pos = tugPos();
+  if(pos <= 0.05) finishTugGame(true);
+  else if(pos >= 0.95) finishTugGame(false);
+}
+// Whichever side crosses the threshold first (using its own locally-known myTaps,
+// which is always exact and instant - only oppTaps can ever lag) declares the result
+// and tells the other side. Because tugPos() is symmetric (my pos and their pos always
+// sum to 1, once both sides' counts are in sync), a genuine double-declare needs both
+// clients to independently detect their own win within the same ~TUG_BROADCAST_MS
+// window - possible only on a hairline-close finish, and left as an accepted rare edge
+// case rather than solved with an extra confirmation round-trip for a party minigame.
+function finishTugGame(iWon){
+  if(!tug || tug.gameOver) return;
+  tug.gameOver = true;
+  clearTurnTimer();
+  if(gameChannel) gameChannel.send({ type:'broadcast', event:'tug_win', payload:{ to:tug.opponentKey, from:myPresenceKey, winnerKey: iWon ? myPresenceKey : tug.opponentKey } });
+  endTugGame(iWon);
+}
+function handleIncomingTugWin(payload){
+  if(!tug || tug.gameOver || payload.from !== tug.opponentKey) return;
+  tug.gameOver = true;
+  clearTurnTimer();
+  if(payload.winnerKey === null){
+    clearActiveGameState();
+    document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+    showGamePopup("Time's up - dead even, it's a draw!", {offerRematch:true});
+    return;
+  }
+  endTugGame(payload.winnerKey === myPresenceKey);
+}
+function endTugGame(iWon){
+  const msg = iWon ? 'You won the tug of war! 🎉' : 'Opponent pulled you over. You lost.';
+  clearActiveGameState();
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  showGamePopup(msg, {offerRematch:true});
+}
+// Whole-round safety cap, not a per-turn timeout (there are no turns) - if neither side
+// reaches the win threshold within TUG_ROUND_MS (e.g. both players tapping at a near-
+// identical rate), whoever's ahead when time runs out wins; a genuine dead-even tie
+// draws. Reuses the same generic startTurnTimer/clearTurnTimer plumbing as every other
+// game (they only ever touch g.turnTimer/tickInterval/turnDeadline via
+// activeGameState()/timerElId(), both already wired above) - just with a round-length
+// callback instead of startTurnTimer()'s forfeit-on-timeout one.
+function startTugRound(){
+  if(!tug) return;
+  tug.turnDeadline = Date.now() + TUG_ROUND_MS;
+  tug.turnTimer = setTimeout(tugRoundTimeout, TUG_ROUND_MS);
+  tug.tickInterval = setInterval(updateTurnTimerDisplay, 250);
+  updateTurnTimerDisplay();
+}
+function tugRoundTimeout(){
+  if(!tug || tug.gameOver) return;
+  const pos = tugPos();
+  if(Math.abs(pos - 0.5) < 0.001){
+    tug.gameOver = true;
+    clearTurnTimer();
+    if(gameChannel) gameChannel.send({ type:'broadcast', event:'tug_win', payload:{ to:tug.opponentKey, from:myPresenceKey, winnerKey:null } });
+    clearActiveGameState();
+    document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+    showGamePopup("Time's up - dead even, it's a draw!", {offerRematch:true});
+    return;
+  }
+  finishTugGame(pos < 0.5);
 }
 
 /* - Analytics (fire-and-forget, never blocks the UI) - */
@@ -27739,6 +27946,18 @@ document.addEventListener('click', (e) => {
   }
   const battleshipExitBtn = e.target.closest('[data-action="battleship-exit"]');
   if(battleshipExitBtn){
+    e.preventDefault();
+    confirmExitGame();
+    return;
+  }
+  const tugPullBtn = e.target.closest('[data-action="tug-pull"]');
+  if(tugPullBtn){
+    e.preventDefault();
+    handleTugTap();
+    return;
+  }
+  const tugExitBtn = e.target.closest('[data-action="tug-exit"]');
+  if(tugExitBtn){
     e.preventDefault();
     confirmExitGame();
     return;
