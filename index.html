@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260923150103">
+<meta name="app-build" content="20260923151125">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5710,16 +5710,13 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .ck-piece.ck-black{ background:#2b2b2b; }
   .ck-piece.ck-king::after{ content:'★'; color:#B6B235; font-size:16px; line-height:1; }
 
-  /* Chess board - same 8x8 grid-of-buttons approach as checkers, with pieces as text
-     glyphs rather than colour-filled circles. Deliberately uses the SOLID/FILLED
-     Unicode glyph set for both colours (not the separate "white" glyph variants,
-     which render as outline-only shapes in most fonts independent of CSS colour) -
-     see chPieceGlyph's own comment. White pieces get a dark outline via BOTH
-     text-shadow (universally supported, so there's a real fallback) and
-     -webkit-text-stroke (crisper on browsers that support it) - relying on
-     text-stroke alone would mean near-white fill on a light square with zero
-     contrast on any browser lacking that property, exactly the kind of mistake
-     already made once with checkers' first pass. */
+  /* Chess board - same 8x8 grid-of-buttons approach as checkers. Pieces are hand-drawn
+     SVG shapes (see CH_PIECE_SHAPES), not Unicode glyphs - a real bug on Mr Eric's own
+     device forced this: several of the Unicode chess glyphs render solid black no
+     matter what CSS color is set on them (platform-dependent fixed-color glyph data
+     for those specific codepoints), while others respect color fine - a per-glyph
+     unreliability that a font-size fix can't touch. SVG fill/stroke is fully and
+     directly controlled here instead, exactly like every other icon on this site. */
   .chess-board{
     display:grid; grid-template-columns:repeat(8,1fr); gap:0;
     max-width:320px; margin:0 auto; position:relative;
@@ -5728,35 +5725,23 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .chess-cell{
     aspect-ratio:1; border:none; padding:0; cursor:pointer;
     display:flex; align-items:center; justify-content:center;
-    font-size:30px; line-height:1;
   }
   .chess-cell:disabled{ cursor:default; }
   .chess-light{ background:#F0D9B5; }
   .chess-dark{ background:#B58863; }
   .chess-dark.chess-selected, .chess-light.chess-selected{ background:rgba(182,178,53,.55); }
   .chess-dark.chess-legal, .chess-light.chess-legal{ background:rgba(90,143,78,.55); }
-  .chess-piece{ user-select:none; }
-  .chess-piece.chess-white{
-    color:#F5F0E8;
-    text-shadow:-1px -1px 0 #2A1D14, 1px -1px 0 #2A1D14, -1px 1px 0 #2A1D14, 1px 1px 0 #2A1D14;
-    -webkit-text-stroke:1px #2A1D14;
-  }
-  .chess-piece.chess-black{ color:#1A1A1A; }
-  /* Per-type size correction: the solid/filled Unicode chess glyphs (U+265A-U+265F)
-     are NOT drawn at consistent relative sizes within most fonts' own em-box - the
-     pawn glyph in particular renders far larger/bolder than the king or queen glyph
-     in the same font at the same font-size (a known cross-platform quirk of this
-     Unicode block, most visible on iOS Safari's system symbol fallback - confirmed
-     from Mr Eric's own screenshot: pawns huge, back row tiny, at one uniform
-     font-size). These per-type overrides compensate by scaling each glyph's own
-     font-size individually so all six pieces read as visually uniform in practice,
-     rather than relying on the font to size them consistently on its own. */
-  .chess-piece.chess-type-p{ font-size:19px; }
-  .chess-piece.chess-type-n{ font-size:28px; }
-  .chess-piece.chess-type-b{ font-size:28px; }
-  .chess-piece.chess-type-r{ font-size:26px; }
-  .chess-piece.chess-type-q{ font-size:29px; }
-  .chess-piece.chess-type-k{ font-size:29px; }
+  /* Every piece shares one fixed-size viewBox and the same 78%-of-cell display size,
+     so all six types read as visually uniform - no per-type size correction needed
+     the way the old font-glyph version required. */
+  .chess-piece{ width:78%; height:78%; user-select:none; }
+  .chess-piece.chess-white *{ fill:#F5F0E8; stroke:#2A1D14; stroke-width:0.9; stroke-linejoin:round; }
+  .chess-piece.chess-black *{ fill:#1A1A1A; stroke:none; }
+  /* Knight's eye dot needs to contrast against the KNIGHT'S OWN fill, not the square
+     underneath (a black knight can sit on either a light or dark square) - so it's
+     always the opposite of the piece's own body color, not tied to square color. */
+  .chess-piece.chess-white .chess-eye{ fill:#2A1D14; }
+  .chess-piece.chess-black .chess-eye{ fill:#F5F0E8; stroke:none; }
 
   /* Corners board - unlike checkers/chess, every square is usable (movement is
      orthogonal, not diagonal-only), so there's no light/dark chequer distinction to
@@ -8425,20 +8410,36 @@ function endCkGame(result){
 //
 // Unlike checkers, a chess move is always a single atomic action - there is no
 // multi-jump chain to continue, so the turn always passes after exactly one move.
-function chPieceGlyph(type){
-  // Solid/filled glyph variants only, for BOTH colours - deliberately not using the
-  // "white" Unicode chess symbols (♔♕♖♗♘♙), which render as outline-only shapes in
-  // most fonts regardless of CSS color. That would make white pieces' fill colour
-  // unreliable across fonts/devices - exactly the kind of contrast risk checkers
-  // already burned once. Using the solid variants for both sides and controlling the
-  // white/black distinction entirely via CSS fill colour + stroke keeps contrast
-  // fully in this stylesheet's control instead of depending on font glyph design.
-  return { p:'♟', n:'♞', b:'♝', r:'♜', q:'♛', k:'♚' }[type] || '';
-}
+//
+// Piece rendering was originally Unicode glyphs (♟♞♝♜♛♚), same idea as the rest of
+// the site avoiding real photos/logos - but this turned out to be a genuinely
+// unreliable foundation, not just a size-tuning problem: on Mr Eric's device several
+// of these glyphs (pawn, rook, king specifically) render as solid black regardless of
+// the CSS `color` set on them, while others (knight, bishop, queen) respect it
+// correctly - some platforms back certain codepoints in this Unicode block with
+// fixed-color glyph data that plain text-color/-webkit-text-stroke can't touch at
+// all. A font-size correction (tried first, for the earlier "pawns huge" bug) can't
+// fix a color problem, and chasing per-glyph, per-platform quirks further isn't a
+// real fix. Replaced with hand-drawn SVG shapes instead - same approach already used
+// for FLAGS/ICONS elsewhere in this file - so fill color is fully and directly
+// controlled here, not left to whatever a given device's font happens to do with a
+// particular codepoint. Every piece shares the same base footprint (a fixed-width
+// rounded rect) so sizing reads as uniform across all six types, which was the other
+// half of the original complaint.
+const CH_PIECE_BASE = '<rect x="5" y="19" width="14" height="3" rx="1.5"/>';
+const CH_PIECE_SHAPES = {
+  p: CH_PIECE_BASE + '<circle cx="12" cy="9" r="3.2"/><path d="M9.5 12.5 Q12 11 14.5 12.5 L15.5 18.5 L8.5 18.5 Z"/>',
+  r: CH_PIECE_BASE + '<rect x="8" y="10" width="8" height="8"/><rect x="8" y="4" width="2.5" height="6"/><rect x="10.75" y="4" width="2.5" height="6"/><rect x="13.5" y="4" width="2.5" height="6"/>',
+  n: CH_PIECE_BASE + '<path d="M8,19 L8,15 Q8,12 10,11.5 Q9,10 9.5,8.5 Q10.5,6.5 13,6.5 Q16,6.5 17,9 Q17.5,10 17,11 L15.5,10.7 Q16.3,12 16,13.5 L16,19 Z"/><circle cx="14.3" cy="8.3" r="0.55" class="chess-eye"/>',
+  b: CH_PIECE_BASE + '<polygon points="12,7 15,14 12,18 9,14"/><circle cx="12" cy="5.5" r="1.4"/>',
+  q: CH_PIECE_BASE + '<polygon points="8,18 16,18 15,10 9,10"/><circle cx="9" cy="9" r="1.3"/><circle cx="12" cy="9" r="1.3"/><circle cx="15" cy="9" r="1.3"/>',
+  k: CH_PIECE_BASE + '<polygon points="8,18 16,18 15,11 9,11"/><rect x="11" y="4" width="2" height="5"/><rect x="9.5" y="5.5" width="5" height="2"/>',
+};
 function chPieceHtml(piece){
   if(!piece) return '';
   const colorCls = piece.color === 'white' ? 'chess-white' : 'chess-black';
-  return `<span class="chess-piece ${colorCls} chess-type-${piece.type}">${chPieceGlyph(piece.type)}</span>`;
+  const shapes = CH_PIECE_SHAPES[piece.type] || '';
+  return `<svg class="chess-piece ${colorCls}" viewBox="0 0 24 24">${shapes}</svg>`;
 }
 
 function chessStatusText(){
