@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260924013538">
+<meta name="app-build" content="20260924141226">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -3881,6 +3881,39 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     box-shadow:0 3px 0 rgba(58,42,30,.08);
   }
   .search-input:focus{outline:2px solid var(--coral);}
+  /* Irregular Verbs table (Train Your Brain) - reuses .search-input for the search box
+     so it matches the site's one search-box look everywhere else, just with room made
+     for a leading icon. .ivb-highlight is a LIVE match state, not a filter - non-
+     matching rows stay visible, only the matching row(s) get tinted, since this is a
+     reference table someone may want to keep browsing mid-search. color-mix() keeps
+     the tint theme-aware automatically (works out of the box under every colour theme
+     the site has, including dark mode) rather than a hardcoded highlight colour that
+     would need re-checking against every theme's own palette. */
+  .ivb-search-wrap{ position:relative; margin-bottom:10px; }
+  .ivb-search-wrap .search-input{ padding-left:42px; }
+  .ivb-search-icon{
+    position:absolute; left:14px; top:50%; transform:translateY(-50%);
+    width:18px; height:18px; opacity:.55; pointer-events:none;
+  }
+  .ivb-count{ font-size:12px; color:var(--ink-soft); font-weight:700; margin-bottom:10px; }
+  .ivb-table-wrap{
+    overflow-x:auto; border-radius:14px; background:var(--card);
+    box-shadow:0 3px 0 rgba(58,42,30,.08);
+  }
+  table.ivb-table{ width:100%; border-collapse:collapse; font-size:14px; min-width:320px; }
+  table.ivb-table th{
+    font-family:'Space Mono', monospace; font-size:10px; text-transform:uppercase;
+    letter-spacing:.03em; color:var(--ink-soft); text-align:left; padding:10px 12px;
+    border-bottom:1.5px solid var(--line);
+  }
+  table.ivb-table td{
+    padding:9px 12px; border-bottom:1px solid var(--line); font-weight:600; color:var(--ink);
+  }
+  table.ivb-table tr:last-child td{ border-bottom:none; }
+  table.ivb-table tr.ivb-highlight td{
+    background: color-mix(in srgb, var(--gold) 35%, transparent);
+    font-weight:800;
+  }
   #backToTopBtn{
     position:fixed;
     bottom:calc(var(--tabbar-h, 62px) + 10px);
@@ -14238,6 +14271,70 @@ function geoHubExternalTile(name){
   if(!site) return null;
   return { name: site.name, emoji: icon('share'), url: site.url, internal: false };
 }
+// Irregular verb reference tables (British English throughout, no Americanisms - no
+// "gotten", no "dove", no "snuck", no irregular "fit"). Two separate lists rather than
+// one, matching Mr Eric's request: a Most Common table (~150 entries, standard EFL
+// irregular-verb set) and an Uncommon table (curated from theenglishspace.com's
+// unusual-irregular-verbs page, with anything that overlapped the common list removed,
+// two archaic/obsolete entries dropped - Strip and Vex are regular in modern English,
+// their listed "irregular" forms are centuries out of use - and a handful of other
+// genuinely uncommon-but-real irregular verbs added on top).
+const IRREGULAR_VERBS_COMMON = [
+  ["arise","arose","arisen"], ["awake","awoke","awoken"], ["be","was/were","been"], ["bear","bore","borne"],
+  ["beat","beat","beaten"], ["become","became","become"], ["begin","began","begun"], ["bend","bent","bent"],
+  ["bet","bet","bet"], ["bind","bound","bound"], ["bite","bit","bitten"], ["bleed","bled","bled"],
+  ["blow","blew","blown"], ["break","broke","broken"], ["breed","bred","bred"], ["bring","brought","brought"],
+  ["broadcast","broadcast","broadcast"], ["build","built","built"], ["burn","burnt","burnt"], ["burst","burst","burst"],
+  ["buy","bought","bought"], ["cast","cast","cast"], ["catch","caught","caught"], ["choose","chose","chosen"],
+  ["cling","clung","clung"], ["come","came","come"], ["cost","cost","cost"], ["creep","crept","crept"],
+  ["cut","cut","cut"], ["deal","dealt","dealt"], ["dig","dug","dug"], ["dive","dived","dived"],
+  ["do","did","done"], ["draw","drew","drawn"], ["dream","dreamt","dreamt"], ["drink","drank","drunk"],
+  ["drive","drove","driven"], ["eat","ate","eaten"], ["fall","fell","fallen"], ["feed","fed","fed"],
+  ["feel","felt","felt"], ["fight","fought","fought"], ["find","found","found"], ["flee","fled","fled"],
+  ["fly","flew","flown"], ["forbid","forbade","forbidden"], ["forecast","forecast","forecast"], ["foresee","foresaw","foreseen"],
+  ["forget","forgot","forgotten"], ["forgive","forgave","forgiven"], ["freeze","froze","frozen"], ["get","got","got"],
+  ["give","gave","given"], ["go","went","gone"], ["grind","ground","ground"], ["grow","grew","grown"],
+  ["hang","hung","hung"], ["have","had","had"], ["hear","heard","heard"], ["hide","hid","hidden"],
+  ["hit","hit","hit"], ["hold","held","held"], ["hurt","hurt","hurt"], ["keep","kept","kept"],
+  ["kneel","knelt","knelt"], ["know","knew","known"], ["lay","laid","laid"], ["lead","led","led"],
+  ["lean","leant","leant"], ["leap","leapt","leapt"], ["learn","learnt","learnt"], ["leave","left","left"],
+  ["lend","lent","lent"], ["let","let","let"], ["lie","lay","lain"], ["light","lit","lit"],
+  ["lose","lost","lost"], ["make","made","made"], ["mean","meant","meant"], ["meet","met","met"],
+  ["mow","mowed","mown"], ["pay","paid","paid"], ["prove","proved","proved"], ["put","put","put"],
+  ["quit","quit","quit"], ["read","read","read"], ["ride","rode","ridden"], ["ring","rang","rung"],
+  ["rise","rose","risen"], ["run","ran","run"], ["saw","sawed","sawn"], ["say","said","said"],
+  ["see","saw","seen"], ["seek","sought","sought"], ["sell","sold","sold"], ["send","sent","sent"],
+  ["set","set","set"], ["sew","sewed","sewn"], ["shake","shook","shaken"], ["shear","sheared","shorn"],
+  ["shed","shed","shed"], ["shine","shone","shone"], ["shoot","shot","shot"], ["show","showed","shown"],
+  ["shrink","shrank","shrunk"], ["shut","shut","shut"], ["sing","sang","sung"], ["sink","sank","sunk"],
+  ["sit","sat","sat"], ["sleep","slept","slept"], ["slide","slid","slid"], ["sling","slung","slung"],
+  ["slit","slit","slit"], ["smell","smelt","smelt"], ["sow","sowed","sown"], ["speak","spoke","spoken"],
+  ["speed","sped","sped"], ["spell","spelt","spelt"], ["spend","spent","spent"], ["spill","spilt","spilt"],
+  ["spin","spun","spun"], ["spit","spat","spat"], ["split","split","split"], ["spoil","spoilt","spoilt"],
+  ["spread","spread","spread"], ["spring","sprang","sprung"], ["stand","stood","stood"], ["steal","stole","stolen"],
+  ["stick","stuck","stuck"], ["sting","stung","stung"], ["stink","stank","stunk"], ["strike","struck","struck"],
+  ["string","strung","strung"], ["strive","strove","striven"], ["swear","swore","sworn"], ["sweep","swept","swept"],
+  ["swell","swelled","swollen"], ["swim","swam","swum"], ["swing","swung","swung"], ["take","took","taken"],
+  ["teach","taught","taught"], ["tear","tore","torn"], ["tell","told","told"], ["think","thought","thought"],
+  ["throw","threw","thrown"], ["thrust","thrust","thrust"], ["tread","trod","trodden"], ["understand","understood","understood"],
+  ["upset","upset","upset"], ["wake","woke","woken"], ["wear","wore","worn"], ["weave","wove","woven"],
+  ["weep","wept","wept"], ["win","won","won"], ["wind","wound","wound"], ["withdraw","withdrew","withdrawn"],
+  ["wring","wrung","wrung"], ["write","wrote","written"],
+];
+const IRREGULAR_VERBS_UNCOMMON = [
+  ["abide","abode","abode"], ["alight","alit","alit"], ["behold","beheld","beheld"], ["bespeak","bespoke","bespoken"],
+  ["bid","bade","bidden"], ["cleave","cleft","cleft"], ["clothe","clad","clad"], ["dwell","dwelt","dwelt"],
+  ["fling","flung","flung"], ["forgo","forwent","forgone"], ["foretell","foretold","foretold"], ["forsake","forsook","forsaken"],
+  ["heave","hove","hove"], ["hew","hewed","hewn"], ["inlay","inlaid","inlaid"], ["input","input","input"],
+  ["interlay","interlaid","interlaid"], ["outdo","outdid","outdone"], ["outgrow","outgrew","outgrown"], ["overcome","overcame","overcome"],
+  ["overdraw","overdrew","overdrawn"], ["overhear","overheard","overheard"], ["overtake","overtook","overtaken"], ["overthrow","overthrew","overthrown"],
+  ["partake","partook","partaken"], ["preset","preset","preset"], ["rend","rent","rent"], ["rid","rid","rid"],
+  ["rive","rived","riven"], ["slay","slew","slain"], ["slink","slunk","slunk"], ["smite","smote","smitten"],
+  ["strew","strewed","strewn"], ["stride","strode","stridden"], ["unbind","unbound","unbound"], ["uphold","upheld","upheld"],
+  ["undergo","underwent","undergone"], ["undertake","undertook","undertaken"], ["wet","wet","wet"], ["withhold","withheld","withheld"],
+  ["withstand","withstood","withstood"],
+];
+
 const GEOGRAPHY_HUB_TILES = [
   { name: "Guess the Flag", emoji: icon('globe'), url: "#flag-game", internal: true },
   { name: "Capital Cities", emoji: icon('compass2'), url: "#capital-game", internal: true },
@@ -14267,6 +14364,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Connect 4", emoji: icon('fourInRow'), url: "#bt-connect4", internal: true },
   { name: "Corners", emoji: icon('target'), url: "#bt-corners", internal: true },
   { name: "Battleship", emoji: icon('ship'), url: "#battleship-game", internal: true },
+  { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
   geoHubExternalTile("GeoGuessr"),
   geoHubExternalTile("OpenGuessr"),
 ].filter(Boolean);
@@ -14281,6 +14379,86 @@ function viewGeographyHub(){
       </div>
     </section>
   `;
+}
+
+function viewIrregularVerbsHub(){
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="section-head"><span class="emoji">${icon('book')}</span><h2>Irregular Verbs</h2></div>
+      <div class="sport-hub-grid">
+        <a class="sport-hub-tile" href="#irregular-verbs/common">
+          <span class="name"><span class="hub-icon">${icon('book')}</span> Most Common Irregular Verbs</span>
+        </a>
+        <a class="sport-hub-tile" href="#irregular-verbs/uncommon">
+          <span class="name"><span class="hub-icon">${icon('book')}</span> Uncommon Irregular Verbs</span>
+        </a>
+      </div>
+    </section>
+  `;
+}
+
+function ivbTableRowsHtml(data, kind){
+  return data.map((v, i) => `
+    <tr class="ivb-row" id="ivbRow-${kind}-${i}" data-v1="${escapeHtml(v[0])}" data-v2="${escapeHtml(v[1])}" data-v3="${escapeHtml(v[2])}">
+      <td>${escapeHtml(v[0])}</td>
+      <td>${escapeHtml(v[1])}</td>
+      <td>${escapeHtml(v[2])}</td>
+    </tr>
+  `).join('');
+}
+function viewIrregularVerbsTable(kind){
+  const isCommon = kind === 'common';
+  const data = isCommon ? IRREGULAR_VERBS_COMMON : IRREGULAR_VERBS_UNCOMMON;
+  const title = isCommon ? 'Most Common Irregular Verbs' : 'Uncommon Irregular Verbs';
+  return `
+    <a class="back-link" href="#irregular-verbs">← Back to Irregular Verbs</a>
+    <section style="padding-top:14px;">
+      <div class="section-head"><span class="emoji">${icon('book')}</span><h2>${title}</h2></div>
+      <div class="ivb-search-wrap">
+        <span class="ivb-search-icon">${icon('search')}</span>
+        <input type="text" id="ivbSearchInput" class="search-input" placeholder="Search a verb…" autocomplete="off" autocapitalize="off" spellcheck="false">
+      </div>
+      <div class="ivb-count" id="ivbCount">${data.length} verbs</div>
+      <div class="ivb-table-wrap">
+        <table class="ivb-table">
+          <thead><tr><th>V1</th><th>V2 (past simple)</th><th>V3 (past participle)</th></tr></thead>
+          <tbody id="ivbTableBody">${ivbTableRowsHtml(data, kind)}</tbody>
+        </table>
+      </div>
+    </section>
+  `;
+}
+// Wired after every render of an #irregular-verbs/<kind> page (see renderRoute's
+// wireIrregularVerbsSearch(app) call). Highlights matching rows LIVE as the person
+// types - deliberately does not filter/hide non-matching rows, since this is a
+// reference table someone might want to keep browsing while a search is active, not a
+// game where non-matches should disappear. Matches on all three columns (V1, V2, V3)
+// so searching an unusual past-tense form like "wrought" or "trodden" still finds the
+// row, not just a search on the base form.
+function wireIrregularVerbsSearch(app){
+  const input = app.querySelector('#ivbSearchInput');
+  if(!input) return;
+  const rows = Array.from(app.querySelectorAll('.ivb-row'));
+  const countEl = app.querySelector('#ivbCount');
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    let firstMatch = null;
+    let matchCount = 0;
+    rows.forEach(row => {
+      const hay = (row.dataset.v1 + ' ' + row.dataset.v2 + ' ' + row.dataset.v3).toLowerCase();
+      const isMatch = q.length > 0 && hay.includes(q);
+      row.classList.toggle('ivb-highlight', isMatch);
+      if(isMatch){
+        matchCount++;
+        if(!firstMatch) firstMatch = row;
+      }
+    });
+    if(countEl){
+      countEl.textContent = q.length === 0 ? `${rows.length} verbs` : `${matchCount} match${matchCount===1?'':'es'}`;
+    }
+    if(firstMatch) firstMatch.scrollIntoView({ block:'center', behavior:'smooth' });
+  });
 }
 
 const SPORTS_TILES = [
@@ -28762,6 +28940,10 @@ function renderRoute(opts){
     html = viewXwordGame();
   } else if(parts[0] === 'geography-hub'){
     html = viewGeographyHub();
+  } else if(parts[0] === 'irregular-verbs' && parts[1]){
+    html = viewIrregularVerbsTable(parts[1]);
+  } else if(parts[0] === 'irregular-verbs'){
+    html = viewIrregularVerbsHub();
   } else if(parts[0] === 'mind-temple'){
     html = viewMindTemple();
   } else if(parts[0] === 'arcade' && parts[1]){
@@ -28864,6 +29046,7 @@ function renderRoute(opts){
   } else if(parts[0] === 'bt-corners' && parts[1]){
     wireBtGame('corners');
   }
+  if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
   if(parts[0] === 'install'){ wireInstallPage(); }
   if(parts[0] === 'stats'){ loadStats(); }
   if(parts[0] === 'events-tashkent'){ loadTashkentEvents(); wireEventsDaystrip(); }
