@@ -249,7 +249,7 @@ const ALL_GAMES = [
   ["Tower of Hanoi","hanoi-game"], ["2048","2048-game"], ["Minesweeper","minesweeper-game"],
   ["Sudoku","sudoku-game"], ["Hangman","hangman-game"], ["Higher or Lower","higher-lower-game"],
   ["True or False","true-false-game"], ["Mini Crossword","xword-game"], ["Chess","arcade/chess"],
-  ["Checkers","bt-checkers"], ["Connect 4","bt-connect4"], ["Battleship","battleship-game"],
+  ["Checkers","bt-checkers"], ["Connect 4","bt-connect4"], ["Corners","bt-corners"], ["Battleship","battleship-game"],
 ];
 
 const loginScreen = document.getElementById('loginScreen');
@@ -455,8 +455,30 @@ async function loadAll(){
   // Games: view events whose label matches a known game route.
   const gameRouteSet = new Set(ALL_GAMES.map(g => g[1]));
   const gameNameByRoute = Object.fromEntries(ALL_GAMES);
+  // Checkers/Connect 4/Corners route through a mode-choice screen (bare 'bt-checkers'
+  // etc.) BEFORE the actual game starts - matching v.label against that bare route
+  // directly was counting every VISIT to the mode-choice screen as a "play", including
+  // backing out and going back in with zero new games actually started (confirmed:
+  // that's what inflated "132 game plays today" to a number nowhere near real usage).
+  // These three now require the full mode(+variant) depth the real game screen's own
+  // hash actually has - matching what viewBtGame's own route-dispatch condition
+  // requires (see renderRoute in index.html: 'bt-checkers' needs parts[1] AND parts[2],
+  // 'bt-connect4'/'bt-corners' need just parts[1]) - so only an actual game start
+  // counts, not a trip through the picker.
+  function matchedGameRoute(label){
+    if(/^bt-checkers\/[^/]+\/[^/]+$/.test(label)) return 'bt-checkers';
+    if(/^bt-connect4\/[^/]+$/.test(label)) return 'bt-connect4';
+    if(/^bt-corners\/[^/]+$/.test(label)) return 'bt-corners';
+    // The three bt- routes above are handled entirely by those regexes (which require
+    // the mode/variant depth an actual game screen's hash has) - if a label reaches
+    // here as one of their bare names, it's the mode-choice screen itself and must
+    // NOT count, even though it's still technically present in gameRouteSet (used
+    // elsewhere for the leaderboard's route->name lookup).
+    if(label === 'bt-checkers' || label === 'bt-connect4' || label === 'bt-corners') return null;
+    return gameRouteSet.has(label) ? label : null;
+  }
   const gameCounts = {};
-  views.forEach(v => { if(gameRouteSet.has(v.label)) gameCounts[v.label] = (gameCounts[v.label]||0) + 1; });
+  views.forEach(v => { const route = matchedGameRoute(v.label); if(route) gameCounts[route] = (gameCounts[route]||0) + 1; });
   const gamesRanked = ALL_GAMES.map(([name, route]) => [name, gameCounts[route] || 0])
     .sort((a,b) => b[1]-a[1]);
   const neverPlayed = gamesRanked.filter(([,c]) => c === 0).map(([name]) => name);
@@ -490,7 +512,7 @@ async function loadAll(){
   const avgSessionSecToday = durationsToday.length ? Math.round(durationsToday.reduce((a,b)=>a+b,0)/durationsToday.length) : 0;
 
   const gameCountsToday = {};
-  views.filter(isToday).forEach(v => { if(gameRouteSet.has(v.label)) gameCountsToday[v.label] = (gameCountsToday[v.label]||0) + 1; });
+  views.filter(isToday).forEach(v => { const route = matchedGameRoute(v.label); if(route) gameCountsToday[route] = (gameCountsToday[route]||0) + 1; });
   const gamesPlayedTodayList = Object.entries(gameCountsToday)
     .map(([route, count]) => [gameNameByRoute[route] || route, count])
     .sort((a,b) => b[1]-a[1]);
