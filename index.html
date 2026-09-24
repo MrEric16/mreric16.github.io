@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260923153951">
+<meta name="app-build" content="20260924013538">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -22826,136 +22826,185 @@ const MT_CHESS_PUZZLES = {
 // never touch a system font for pieces at all. Everything below is drawn with plain
 // canvas paths/arcs - same exact shape and size on every phone, always.
 // u = half the square size, used as the base unit so all pieces scale together.
-function chDrawPieceBase(ctx, cx, cy, u){
+// Piece shapes redesigned to match a standard Staunton icon convention (crown+cross
+// king, spiked crown queen, mitred bishop, horse-head knight, castellated rook, round
+// pawn) at Mr Eric's explicit request, matching the same design used for the p2p
+// multiplayer pieces (see CH_PIECE_SHAPES) - same coordinate values even, just
+// replayed as canvas draw calls instead of SVG markup since this board is
+// canvas-based. Every function takes X/Y coordinate-transform helpers (mapping the
+// shared 0-24 design space onto the actual on-screen piece position/size) rather than
+// raw cx/cy/u math inline, so these coordinates can be compared directly against
+// CH_PIECE_SHAPES's path data if the two ever need to be kept in sync again.
+// Blends a semi-transparent highlight overlay (selected/legal-move/hint tint) into a
+// base hex color, so chDrawMark's accent marks can match the square's ACTUAL
+// on-screen color instead of just the plain checker color underneath a highlight.
+function chBlendColor(baseHex, overlayRgb, alpha){
+  const b = parseInt(baseHex.slice(1), 16);
+  const br = (b>>16)&255, bg = (b>>8)&255, bb = b&255;
+  const r = Math.round(overlayRgb[0]*alpha + br*(1-alpha));
+  const g = Math.round(overlayRgb[1]*alpha + bg*(1-alpha));
+  const bl = Math.round(overlayRgb[2]*alpha + bb*(1-alpha));
+  return `rgb(${r},${g},${bl})`;
+}
+function chDrawPieceBase(ctx, X, Y, scale){
   ctx.beginPath();
-  ctx.moveTo(cx-u*0.5, cy+u*0.62);
-  ctx.lineTo(cx+u*0.5, cy+u*0.62);
-  ctx.lineTo(cx+u*0.36, cy+u*0.78);
-  ctx.lineTo(cx-u*0.36, cy+u*0.78);
+  ctx.rect(X(4), Y(19), 16*scale, 2.2*scale);
+  ctx.fill(); ctx.stroke();
+}
+// Paints an accent mark (bishop's cross, queen/king's band line, knight's eye/mouth)
+// in the SQUARE'S OWN effective color (including any selected/legal-move/hint tint),
+// not the piece's - so it reads as a genuine cutout against the piece's single solid
+// fill regardless of which color the piece is, without touching the "one flat piece
+// color, no mixing" rule chDrawPiece already enforces for the piece itself. A
+// destination-out composite erase was tried first and rejected: it erases straight
+// through to full canvas transparency (the square background lives on the same
+// canvas, not a separate layer, so there's nothing to "reveal") - confirmed by
+// actually rendering it, not assumed, which is why white pieces silently had no
+// visible marks at all in that first attempt.
+function chDrawMark(ctx, squareColor, fn){
+  ctx.save();
+  ctx.shadowColor = 'transparent';
+  ctx.fillStyle = squareColor;
+  ctx.strokeStyle = squareColor;
+  fn();
+  ctx.restore();
+}
+function chDrawPawn(ctx, X, Y, scale){
+  ctx.beginPath();
+  ctx.arc(X(12), Y(8.5), 3*scale, 0, Math.PI*2);
+  ctx.fill(); ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(X(8.7),Y(12.5));
+  ctx.quadraticCurveTo(X(12),Y(10.8), X(15.3),Y(12.5));
+  ctx.quadraticCurveTo(X(16.3),Y(15), X(15),Y(18.5));
+  ctx.lineTo(X(9),Y(18.5));
+  ctx.quadraticCurveTo(X(7.7),Y(15), X(8.7),Y(12.5));
   ctx.closePath();
   ctx.fill(); ctx.stroke();
 }
-function chDrawPawn(ctx, cx, cy, u){
+function chDrawRook(ctx, X, Y, scale){
   ctx.beginPath();
-  ctx.arc(cx, cy-u*0.38, u*0.26, 0, Math.PI*2);
-  ctx.fill(); ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(cx-u*0.22, cy-u*0.08);
-  ctx.lineTo(cx+u*0.22, cy-u*0.08);
-  ctx.lineTo(cx+u*0.36, cy+u*0.5);
-  ctx.lineTo(cx-u*0.36, cy+u*0.5);
+  ctx.moveTo(X(7),Y(19));
+  ctx.lineTo(X(17),Y(19));
+  ctx.lineTo(X(16),Y(10.5));
+  ctx.lineTo(X(8),Y(10.5));
   ctx.closePath();
   ctx.fill(); ctx.stroke();
-  chDrawPieceBase(ctx, cx, cy, u);
-}
-function chDrawRook(ctx, cx, cy, u){
-  ctx.beginPath();
-  ctx.rect(cx-u*0.34, cy-u*0.05, u*0.68, u*0.55);
-  ctx.fill(); ctx.stroke();
-  // Crenellations: three teeth across the top edge.
-  const toothW = u*0.2, gap = u*0.04, topY = cy-u*0.42;
-  const startX = cx - (toothW*3 + gap*2)/2;
-  for(let i=0;i<3;i++){
+  for(const mx of [7.3, 10.7, 14.1]){
     ctx.beginPath();
-    ctx.rect(startX + i*(toothW+gap), topY, toothW, u*0.4);
+    ctx.rect(X(mx), Y(5), 2.6*scale, 5.8*scale);
     ctx.fill(); ctx.stroke();
   }
-  chDrawPieceBase(ctx, cx, cy, u);
 }
-function chDrawBishop(ctx, cx, cy, u){
+function chDrawKnight(ctx, X, Y, scale, squareColor){
+  // Horse head-and-neck profile facing right, same shape as the p2p version's
+  // CH_PIECE_SHAPES.n path, replayed as quadraticCurveTo calls.
   ctx.beginPath();
-  ctx.arc(cx, cy-u*0.5, u*0.1, 0, Math.PI*2);
-  ctx.fill(); ctx.stroke();
-  ctx.beginPath();
-  ctx.moveTo(cx, cy-u*0.36);
-  ctx.quadraticCurveTo(cx-u*0.3, cy-u*0.1, cx-u*0.26, cy+u*0.35);
-  ctx.lineTo(cx+u*0.26, cy+u*0.35);
-  ctx.quadraticCurveTo(cx+u*0.3, cy-u*0.1, cx, cy-u*0.36);
+  ctx.moveTo(X(7),Y(19));
+  ctx.lineTo(X(7),Y(13));
+  ctx.quadraticCurveTo(X(7),Y(9.5), X(9),Y(8));
+  ctx.lineTo(X(9.5),Y(4));
+  ctx.lineTo(X(10.3),Y(6.7));
+  ctx.quadraticCurveTo(X(12),Y(5.8), X(13.8),Y(6.3));
+  ctx.quadraticCurveTo(X(15.8),Y(6.8), X(17.3),Y(8.5));
+  ctx.quadraticCurveTo(X(18.2),Y(9.4), X(17.4),Y(10.2));
+  ctx.quadraticCurveTo(X(16.4),Y(10.6), X(15.9),Y(10.1));
+  ctx.quadraticCurveTo(X(14.9),Y(11.2), X(14.6),Y(13));
+  ctx.quadraticCurveTo(X(14.5),Y(15), X(14.5),Y(19));
   ctx.closePath();
   ctx.fill(); ctx.stroke();
-  // The traditional bishop mitre slit - what actually distinguishes it from a pawn.
-  ctx.beginPath();
-  ctx.moveTo(cx-u*0.12, cy-u*0.15);
-  ctx.lineTo(cx+u*0.1, cy+u*0.08);
-  ctx.lineWidth = Math.max(1, u*0.1);
-  ctx.stroke();
-  chDrawPieceBase(ctx, cx, cy, u);
-}
-function chDrawKnight(ctx, cx, cy, u){
-  // Horse head-and-neck profile facing right, built with curves for a smoother, more
-  // recognizable silhouette than a raw polygon gives at small sizes.
-  ctx.beginPath();
-  ctx.moveTo(cx-u*0.34, cy+u*0.5);
-  ctx.lineTo(cx-u*0.3, cy+u*0.05);
-  ctx.quadraticCurveTo(cx-u*0.28, cy-u*0.22, cx-u*0.08, cy-u*0.3);
-  ctx.quadraticCurveTo(cx-u*0.06, cy-u*0.48, cx+u*0.1, cy-u*0.46);
-  ctx.quadraticCurveTo(cx+u*0.1, cy-u*0.34, cx+u*0.02, cy-u*0.26);
-  ctx.quadraticCurveTo(cx+u*0.22, cy-u*0.24, cx+u*0.4, cy-u*0.1);
-  ctx.quadraticCurveTo(cx+u*0.44, cy+u*0.02, cx+u*0.3, cy+u*0.04);
-  ctx.quadraticCurveTo(cx+u*0.2, cy+u*0.1, cx+u*0.22, cy+u*0.2);
-  ctx.lineTo(cx+u*0.36, cy+u*0.5);
-  ctx.closePath();
-  ctx.fill(); ctx.stroke();
-  // A small eye dot - cheap but effective final "this is a horse" cue.
-  const bodyFill = ctx.fillStyle;
-  ctx.beginPath();
-  ctx.arc(cx+u*0.02, cy-u*0.28, u*0.045, 0, Math.PI*2);
-  ctx.fillStyle = ctx.strokeStyle;
-  ctx.fill();
-  ctx.fillStyle = bodyFill;
-  chDrawPieceBase(ctx, cx, cy, u);
-}
-function chDrawQueen(ctx, cx, cy, u){
-  ctx.beginPath();
-  ctx.moveTo(cx-u*0.34, cy+u*0.42);
-  ctx.lineTo(cx+u*0.34, cy+u*0.42);
-  ctx.lineTo(cx+u*0.24, cy-u*0.08);
-  ctx.lineTo(cx-u*0.24, cy-u*0.08);
-  ctx.closePath();
-  ctx.fill(); ctx.stroke();
-  // Zigzag crown with 5 points, small jewel balls at each tip.
-  const tipsX = [-0.34,-0.18,0,0.18,0.34], baseY = -0.08, tipY = -0.42;
-  ctx.beginPath();
-  ctx.moveTo(cx+tipsX[0]*u, cy+baseY*u);
-  for(let i=0;i<5;i++){
-    ctx.lineTo(cx+tipsX[i]*u, cy+tipY*u);
-    const nextX = i<4 ? (tipsX[i]+tipsX[i+1])/2 : tipsX[4];
-    ctx.lineTo(cx+nextX*u, cy+baseY*u);
-  }
-  ctx.closePath();
-  ctx.fill(); ctx.stroke();
-  for(const tx of tipsX){
+  chDrawMark(ctx, squareColor, () => {
     ctx.beginPath();
-    ctx.arc(cx+tx*u, cy+tipY*u, u*0.09, 0, Math.PI*2);
+    ctx.arc(X(16.6), Y(8.9), 0.5*scale, 0, Math.PI*2);
+    ctx.fill();
+  });
+  chDrawMark(ctx, squareColor, () => {
+    ctx.lineWidth = 0.5*scale;
+    ctx.beginPath();
+    ctx.moveTo(X(15), Y(10.3));
+    ctx.quadraticCurveTo(X(15.8), Y(10.9), X(16.6), Y(10.5));
+    ctx.stroke();
+  });
+}
+function chDrawBishop(ctx, X, Y, scale, squareColor){
+  ctx.beginPath();
+  ctx.ellipse(X(12), Y(17), 5.5*scale, 1.8*scale, 0, 0, Math.PI*2);
+  ctx.fill(); ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(X(12),Y(4.5));
+  ctx.quadraticCurveTo(X(17),Y(9), X(15.5),Y(14));
+  ctx.quadraticCurveTo(X(14),Y(17), X(12),Y(17));
+  ctx.quadraticCurveTo(X(10),Y(17), X(8.5),Y(14));
+  ctx.quadraticCurveTo(X(7),Y(9), X(12),Y(4.5));
+  ctx.closePath();
+  ctx.fill(); ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(X(12), Y(4), 1.1*scale, 0, Math.PI*2);
+  ctx.fill(); ctx.stroke();
+  // The traditional bishop mitre cross - what actually distinguishes it from a pawn.
+  chDrawMark(ctx, squareColor, () => {
+    ctx.lineWidth = 0.8*scale;
+    ctx.beginPath();
+    ctx.moveTo(X(9.8),Y(10.5)); ctx.lineTo(X(14.2),Y(10.5)); ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(X(12),Y(9)); ctx.lineTo(X(12),Y(12)); ctx.stroke();
+  });
+}
+function chDrawQueen(ctx, X, Y, scale, squareColor){
+  ctx.beginPath();
+  ctx.ellipse(X(12), Y(17.3), 6*scale, 1.6*scale, 0, 0, Math.PI*2);
+  ctx.fill(); ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(X(8),Y(17));
+  ctx.quadraticCurveTo(X(7),Y(12), X(8.3),Y(7.5));
+  ctx.lineTo(X(10.3),Y(10.3));
+  ctx.lineTo(X(12),Y(6));
+  ctx.lineTo(X(13.7),Y(10.3));
+  ctx.lineTo(X(15.7),Y(7.5));
+  ctx.quadraticCurveTo(X(17),Y(12), X(16),Y(17));
+  ctx.closePath();
+  ctx.fill(); ctx.stroke();
+  // 3-point crown with jewel balls at each tip.
+  for(const [bx,by] of [[8.1,6.3],[12,5],[15.9,6.3]]){
+    ctx.beginPath();
+    ctx.arc(X(bx), Y(by), 1.1*scale, 0, Math.PI*2);
     ctx.fill(); ctx.stroke();
   }
-  chDrawPieceBase(ctx, cx, cy, u);
+  chDrawMark(ctx, squareColor, () => {
+    ctx.lineWidth = 0.6*scale;
+    ctx.beginPath();
+    ctx.moveTo(X(9),Y(14)); ctx.lineTo(X(15),Y(14)); ctx.stroke();
+  });
 }
-function chDrawKing(ctx, cx, cy, u){
+function chDrawKing(ctx, X, Y, scale, squareColor){
   ctx.beginPath();
-  ctx.moveTo(cx-u*0.32, cy+u*0.42);
-  ctx.lineTo(cx+u*0.32, cy+u*0.42);
-  ctx.lineTo(cx+u*0.22, cy-u*0.05);
-  ctx.lineTo(cx-u*0.22, cy-u*0.05);
+  ctx.ellipse(X(12), Y(17.3), 6*scale, 1.6*scale, 0, 0, Math.PI*2);
+  ctx.fill(); ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(X(8),Y(17));
+  ctx.quadraticCurveTo(X(7),Y(12.5), X(8.5),Y(9));
+  ctx.quadraticCurveTo(X(12),Y(7.3), X(15.5),Y(9));
+  ctx.quadraticCurveTo(X(17),Y(12.5), X(16),Y(17));
   ctx.closePath();
   ctx.fill(); ctx.stroke();
-  // A small band, then a clear, bigger cross on top - the previous version was too small
-  // to read at phone-screen size.
   ctx.beginPath();
-  ctx.rect(cx-u*0.22, cy-u*0.14, u*0.44, u*0.1);
-  ctx.fill(); ctx.stroke();
-  const armH = u*0.13;
-  ctx.beginPath();
-  ctx.rect(cx-armH/2, cy-u*0.5, armH, u*0.36);
+  ctx.rect(X(11.2), Y(4), 1.6*scale, 4.2*scale);
   ctx.fill(); ctx.stroke();
   ctx.beginPath();
-  ctx.rect(cx-u*0.2, cy-u*0.4, u*0.4, armH);
+  ctx.rect(X(10), Y(5.3), 4*scale, 1.6*scale);
   ctx.fill(); ctx.stroke();
-  chDrawPieceBase(ctx, cx, cy, u);
+  chDrawMark(ctx, squareColor, () => {
+    ctx.lineWidth = 0.6*scale;
+    ctx.beginPath();
+    ctx.moveTo(X(9),Y(13.2)); ctx.lineTo(X(15),Y(13.2)); ctx.stroke();
+  });
 }
 const CH_PIECE_DRAWERS = { p:chDrawPawn, n:chDrawKnight, b:chDrawBishop, r:chDrawRook, q:chDrawQueen, k:chDrawKing };
-function chDrawPiece(ctx, type, color, cx, cy, s){
+function chDrawPiece(ctx, type, color, cx, cy, s, squareColor){
   const u = s*0.44;
+  const scale = u/12;
+  const X = v => cx + (v-12)*scale;
+  const Y = v => cy + (v-12)*scale;
   // FULLY single-color pieces - no mixing, at all. White pieces are #FFFFFF fill AND
   // #FFFFFF stroke; black pieces are #000000 fill AND #000000 stroke. The previous
   // version used the OPPOSITE color for the outline (black outline on white pieces,
@@ -22963,12 +23012,15 @@ function chDrawPiece(ctx, type, color, cx, cy, s){
   // as similar/muddy at a glance - confirmed from an actual screenshot, not assumed.
   // Stroke color now always equals fill color, so ctx.stroke() has zero visual effect
   // (kept only so the call sites in each piece-drawer function don't need touching) and
-  // every piece renders as one flat, solid color with no second color anywhere in it.
+  // every piece renders as one flat, solid color with no second color anywhere in it -
+  // chDrawMark's square-colored accent marks are the one deliberate exception, and
+  // they borrow the SQUARE's color, never introduce a new piece color.
   const solid = color === 'white' ? '#FFFFFF' : '#000000';
   ctx.fillStyle = solid;
   ctx.strokeStyle = solid;
-  ctx.lineWidth = Math.max(1.6, s*0.05);
+  ctx.lineWidth = Math.max(1.2, scale*0.9);
   ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
   // A pure single-color piece has almost no visible edge against a same-toned square
   // (a white piece on the cream square, mainly) - rendered and confirmed this myself
   // before adding the fix below. A drop shadow restores the edge WITHOUT putting a
@@ -22978,8 +23030,9 @@ function chDrawPiece(ctx, type, color, cx, cy, s){
   ctx.shadowBlur = Math.max(2, s*0.06);
   ctx.shadowOffsetX = 0;
   ctx.shadowOffsetY = Math.max(1, s*0.02);
+  chDrawPieceBase(ctx, X, Y, scale);
   const drawer = CH_PIECE_DRAWERS[type];
-  if(drawer) drawer(ctx, cx, cy, u);
+  if(drawer) drawer(ctx, X, Y, scale, squareColor);
   ctx.shadowColor = 'transparent';
   ctx.shadowBlur = 0;
   ctx.shadowOffsetY = 0;
@@ -23077,12 +23130,13 @@ function mtMountChessGame(container){
       ctx.fillStyle = 'rgba(182,178,53,0.6)';
       ctx.fillRect(hintSquare.c*s, hintSquare.r*s, s, s);
     }
+    let legalMoves = null;
     if(selected){
       ctx.fillStyle = 'rgba(182,178,53,0.55)';
       ctx.fillRect(selected.c*s, selected.r*s, s, s);
-      const moves = chLegalMovesForPiece(board, state, selected.r, selected.c);
+      legalMoves = chLegalMovesForPiece(board, state, selected.r, selected.c);
       ctx.fillStyle = 'rgba(90,143,78,0.55)';
-      for(const m of moves) ctx.fillRect(m.toC*s, m.toR*s, s, s);
+      for(const m of legalMoves) ctx.fillRect(m.toC*s, m.toR*s, s, s);
     }
     // Pieces are hand-drawn vector shapes now (see chDrawPiece and friends, defined
     // above) - no system font involved at all, so there is no possibility of a phone
@@ -23093,7 +23147,19 @@ function mtMountChessGame(container){
       const piece = board[r][c];
       if(!piece) continue;
       const cx = c*s+s/2, cy = r*s+s/2;
-      chDrawPiece(ctx, piece.type, piece.color, cx, cy, s);
+      // The accent-mark color (see chDrawMark) needs the square's ACTUAL effective
+      // color, including whatever highlight tint is currently on it - not just the
+      // plain checker color - or a bishop's cross on a selected/legal-move-highlighted
+      // square would show a slightly mismatched plain-cream color instead of blending
+      // into the yellow/green tint. Confirmed this mismatch by rendering it before
+      // adding the blend here, not assumed.
+      let squareColor = (r+c)%2===0 ? '#EDE3D3' : '#7A5C3E';
+      if(hintSquare && hintSquare.r===r && hintSquare.c===c) squareColor = chBlendColor(squareColor, [182,178,53], 0.6);
+      if(selected){
+        if(selected.r===r && selected.c===c) squareColor = chBlendColor(squareColor, [182,178,53], 0.55);
+        else if(legalMoves && legalMoves.some(m => m.toR===r && m.toC===c)) squareColor = chBlendColor(squareColor, [90,143,78], 0.55);
+      }
+      chDrawPiece(ctx, piece.type, piece.color, cx, cy, s, squareColor);
     }
   }
 
