@@ -1,9 +1,12 @@
-[khl] standings page: captured 148 chars
+[khl] standings fetch failed: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://en.khl.ru/standings/
+Call log:
+  - navigating to "https://en.khl.ru/standings/", waiting until "load"
+
+[khl] standings page: captured 0 chars
 [khl] parsed 0 standings row(s)
-[khl] WARNING: 0 standings rows. Found 0 <tbody> element(s) total
-[khl] liveresult page https://www.liveresult.ru/hockey/Kontinental-Hockey-League/results: captured 211270 chars
+[khl] liveresult page https://www.liveresult.ru/hockey/Kontinental-Hockey-League/results: captured 211242 chars
 [khl] parsed 78 match(es) from https://www.liveresult.ru/hockey/Kontinental-Hockey-League/results
-[khl] liveresult page https://www.liveresult.ru/hockey/Kontinental-Hockey-League/scheduled: captured 769756 chars
+[khl] liveresult page https://www.liveresult.ru/hockey/Kontinental-Hockey-League/scheduled: captured 769730 chars
 [khl] parsed 674 match(es) from https://www.liveresult.ru/hockey/Kontinental-Hockey-League/scheduled
 [khl] parsed 752 total match(es) from liveresult
 [khl] wrote data/khl-live.json: 0 standings, 670 fixtures, 78 results
