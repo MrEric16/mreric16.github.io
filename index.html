@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260925154844">
+<meta name="app-build" content="20260925173547">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5546,6 +5546,51 @@ body.usertheme-vintage:not(.dark-mode) header::before{
      challenge entry point on the footer only appears when currentSitePresenceCount is
      exactly 2, and a 3rd person joining doesn't get any challenge UI at all, by design,
      not as an oversight. */
+  /* Daily Surprise - a small, dismissible editorial teaser card, deliberately
+     distinct from the game-challenge overlay above: lighter backdrop, no game
+     chrome, styled like a card that "appeared to tempt", not a game prompt.
+     Reuses the site's own theme tokens (--card/--gold/--coral/--ink/--ink-soft)
+     rather than inventing a new palette. */
+  .dsurprise-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.55); z-index:2200;
+    display:flex; align-items:center; justify-content:center; padding:20px;
+    opacity:0; transition:opacity .25s ease;
+  }
+  .dsurprise-overlay.dsurprise-in{ opacity:1; }
+  .dsurprise-card{
+    background:var(--card); border-radius:20px; padding:28px 24px; max-width:380px; width:100%;
+    position:relative; box-shadow:0 12px 40px rgba(0,0,0,.35); text-align:center;
+    transform:translateY(14px) scale(.96); opacity:0;
+    transition:transform .3s cubic-bezier(.34,1.56,.64,1), opacity .3s ease;
+  }
+  .dsurprise-overlay.dsurprise-in .dsurprise-card{ transform:translateY(0) scale(1); opacity:1; }
+  .dsurprise-reduced-motion{ transition:none; }
+  .dsurprise-reduced-motion .dsurprise-card{ transition:none; transform:none; opacity:1; }
+  .dsurprise-card:focus{ outline:3px solid var(--gold); outline-offset:2px; }
+  .dsurprise-close{
+    position:absolute; top:8px; right:12px; background:none; border:none;
+    font-size:24px; line-height:1; color:var(--ink-soft); cursor:pointer; padding:8px;
+  }
+  .dsurprise-close:focus-visible{ outline:2px solid var(--coral); outline-offset:2px; }
+  .dsurprise-label{
+    font-family:'Space Mono', monospace; font-size:11px; font-weight:800; letter-spacing:.06em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:10px;
+  }
+  .dsurprise-headline{
+    font-family:'Baloo 2', sans-serif; font-weight:800; font-size:22px; color:var(--ink);
+    line-height:1.25; margin-bottom:10px;
+  }
+  .dsurprise-teaser{ font-size:14px; color:var(--ink-soft); margin-bottom:20px; }
+  .dsurprise-cta{
+    display:block; width:100%; border:none; background:var(--coral); color:#fff;
+    border-radius:999px; padding:14px; font-family:'Nunito', sans-serif; font-weight:800;
+    font-size:15px; cursor:pointer; box-shadow:0 3px 0 rgba(0,0,0,.15);
+  }
+  .dsurprise-cta:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  @media (prefers-reduced-motion: reduce){
+    .dsurprise-overlay, .dsurprise-card{ transition:none !important; }
+  }
+
   .challenge-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.7); z-index:2000;
     display:flex; align-items:flex-start; justify-content:center; padding:20px;
@@ -6328,6 +6373,344 @@ const ICONS = {
 
 };
 function icon(name){ return ICONS[name] || ''; }
+
+// --- Daily Surprise ---
+// A small, dismissible "editorial teaser" popup that surfaces one real piece of
+// existing site content per student per day - an article, video, instrument (this
+// site's own term for the EXPLORE_SITES interactive-tools collection), or game -
+// wrapped in a curiosity-driven headline template. Deliberately content-driven, not
+// hand-authored: draws from DISPATCHES (300), WATCH_VIDEOS (302), EXPLORE_SITES (234)
+// and GEOGRAPHY_HUB_TILES' internal games (28), reusing exactly the data structures,
+// routing, and anonymous-ID mechanism (getUserId(), already used for analytics) the
+// rest of the site already has - no second content database, no new identity system.
+const DAILY_SURPRISE_CONFIG = {
+  enabled: true,
+  delay: 5000, // ms after boot, alongside checkTodaysBirthdays' own 700ms - see the boot hook near mtSkipReopenPopups
+  weights: { article: 30, video: 20, instrument: 20, game: 20, discovery: 10 },
+};
+// Curiosity-driven label pools, grouped by the kind of claim they make - matched to
+// content types below so a template never gets paired with content it doesn't fit
+// (a "challenge" label only ever goes with a game, never an article).
+const DSURPRISE_TEMPLATES = {
+  curiosity: [
+    "YOU PROBABLY DIDN'T KNOW THIS", "THIS IS STRANGER THAN IT LOOKS",
+    "WAIT \u2014 WHY DOES THIS HAPPEN?", "YOU'VE PROBABLY SEEN THIS BEFORE",
+    "WHAT IS THIS ACTUALLY?", "THIS ONE IS WORTH KNOWING",
+  ],
+  challenge: [
+    "YOU HAVE 30 SECONDS", "CAN YOU GET THIS RIGHT?", "THINK YOU KNOW THIS?",
+    "QUICK CHALLENGE", "PROVE IT",
+  ],
+  explanation: [
+    "HOW DOES THIS ACTUALLY WORK?", "WHY DOES THIS HAPPEN?",
+    "HOW DID THIS BECOME POSSIBLE?", "WHAT'S THE SCIENCE BEHIND THIS?",
+    "WHAT'S THE STORY HERE?",
+  ],
+  discovery: [
+    "MR E'S RANDOM THING OF THE DAY", "TODAY'S RABBIT HOLE",
+    "ONE THING WORTH KNOWING", "SOMETHING YOU DIDN'T KNOW YOU NEEDED TO KNOW",
+    "GO DOWN THE RABBIT HOLE",
+  ],
+};
+// Short, honest, non-fabricated one-line invitations for the games pool - the ONE
+// place in this feature with any hand-written text, and deliberately small (28 lines,
+// not 836): each describes the game's own real mechanic, nothing invented about it.
+// Keyed by url (GEOGRAPHY_HUB_TILES' stable identifier) so it survives a game being
+// renamed. A game added later without an entry here just gets the generic fallback in
+// dsurpriseGameTeaser() below - never a broken or missing line.
+const DSURPRISE_GAME_TEASERS = {
+  '#flag-game': "Can you identify a flag from just a glance?",
+  '#capital-game': "Can you name the right capital city?",
+  '#wordle-game': "Guess the word in six tries.",
+  '#anagram-game': "Unscramble the letters - can you spot the word?",
+  '#odd-one-out-game': "Four things, one doesn't belong. Can you spot it?",
+  '#idiom-match-game': "Match the idiom to its real meaning.",
+  '#antonym-match-game': "Find the opposite - fast.",
+  '#currency-game': "Can you match the currency to its country?",
+  '#language-game': "Can you guess the language just from how it looks?",
+  '#phrase-lang-game': "Learn to say hello in a language you've never studied.",
+  '#nerdle-game': "Wordle, but with numbers.",
+  '#memory-game': "How sharp is your memory, really?",
+  '#silhouette-game': "Can you name a country from its outline alone?",
+  '#mastermind-game': "Crack the hidden code.",
+  '#lightsout-game': "Turn every light off - if you can work out how.",
+  '#hanoi-game': "Move the whole tower without breaking the rules.",
+  '#2048-game': "Merge your way to 2048.",
+  '#minesweeper-game': "One wrong click and it's over.",
+  '#sudoku-game': "Nine numbers, one grid, zero shortcuts.",
+  '#hangman-game': "Guess the word before you run out of tries.",
+  '#higher-lower-game': "Higher or lower? Trust your gut.",
+  '#true-false-game': "Fact or myth - can you tell the difference?",
+  '#xword-game': "A crossword you can actually finish in one sitting.",
+  '#arcade/chess': "Fancy a quick game of chess?",
+  '#bt-checkers': "Challenge someone to checkers - or play the computer.",
+  '#bt-connect4': "Four in a row. Simple to learn, hard to master.",
+  '#bt-corners': "A race-style board game you've probably never played.",
+  '#battleship-game': "Sink the fleet before they sink yours.",
+};
+function dsurpriseGameTeaser(url){
+  return DSURPRISE_GAME_TEASERS[url] || "Give it a go.";
+}
+// A why/how/what/who-shaped headline only gets used when the real title already
+// reads as an explainer - never invented for content that doesn't actually answer
+// that question. Simple, honest heuristic: does the REAL title already ask or answer
+// one, in its own words.
+function dsurpriseLooksExplainer(title){
+  const t = (title || '').trim();
+  return /^(how|why|what|who|when)\b/i.test(t) || /\b(actually works|explained|the truth about|the reason)\b/i.test(t);
+}
+// Small seeded PRNG (mulberry32) - deterministic sequence of numbers from one integer
+// seed, so "the same student on the same day" always derives the same content-type
+// pick, item pick, and template pick, without needing to store the actual choice
+// anywhere until it's shown (see dsurpriseCompute below).
+function dsurpriseHashStr(str){
+  let h = 0;
+  for(let i = 0; i < str.length; i++){ h = (Math.imul(h, 31) + str.charCodeAt(i)) | 0; }
+  return h >>> 0;
+}
+function dsurpriseMulberry32(seed){
+  let a = seed >>> 0;
+  return function(){
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+function dsurpriseTodayKey(){
+  const d = new Date(); // local date, matching the site's other date-keyed popups (bdayPopupSeenDate etc)
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+const DSURPRISE_STATE_KEY = 'dsurpriseState_v1';
+function dsurpriseLoadState(){
+  try{
+    const raw = localStorage.getItem(DSURPRISE_STATE_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return null;
+}
+function dsurpriseSaveState(state){
+  try{ localStorage.setItem(DSURPRISE_STATE_KEY, JSON.stringify(state)); }catch(e){}
+}
+function dsurpriseWeightedPick(rand, weights){
+  const entries = Object.entries(weights).filter(([,w]) => w > 0);
+  const total = entries.reduce((s,[,w]) => s + w, 0);
+  if(total <= 0) return null;
+  let r = rand() * total;
+  for(const [key, w] of entries){
+    if(r < w) return key;
+    r -= w;
+  }
+  return entries[entries.length - 1][0];
+}
+function dsurprisePools(){
+  return {
+    article: DISPATCHES.filter(a => a.url && a.headline),
+    video: WATCH_VIDEOS.filter(v => v.videoId && v.title),
+    instrument: EXPLORE_SITES.filter(s => s.url && s.name),
+    game: GEOGRAPHY_HUB_TILES.filter(g => g.internal && g.url && g.name && g.url !== '#irregular-verbs'),
+  };
+}
+// Builds today's pick: deterministic from (student id, date), avoids repeating
+// yesterday's exact content or template category, gracefully skips any empty pool.
+function dsurpriseCompute(){
+  const pools = dsurprisePools();
+  const uid = getUserId(); // the site's own existing anonymous ID - see getSessionId/getUserId near the top of the script
+  const dateKey = dsurpriseTodayKey();
+  const rand = dsurpriseMulberry32(dsurpriseHashStr(uid + '|' + dateKey));
+
+  const nonEmptyWeights = {};
+  Object.keys(DAILY_SURPRISE_CONFIG.weights).forEach(k => {
+    const poolKey = k === 'discovery' ? null : k; // discovery re-uses article+instrument, not its own pool
+    if(k === 'discovery'){
+      if((pools.article.length + pools.instrument.length) > 0) nonEmptyWeights[k] = DAILY_SURPRISE_CONFIG.weights[k];
+    } else if(pools[poolKey] && pools[poolKey].length > 0){
+      nonEmptyWeights[k] = DAILY_SURPRISE_CONFIG.weights[k];
+    }
+  });
+  const bucket = dsurpriseWeightedPick(rand, nonEmptyWeights);
+  if(!bucket) return null; // every pool empty - nothing to show, handled gracefully
+
+  let contentType = bucket === 'discovery' ? (rand() < 0.5 && pools.article.length ? 'article' : (pools.instrument.length ? 'instrument' : 'article')) : bucket;
+  let pool = pools[contentType];
+  if(!pool || pool.length === 0) return null;
+
+  let itemIndex = Math.floor(rand() * pool.length);
+
+  // Template category selection, constrained to what actually fits this content type.
+  let templateCategory;
+  if(bucket === 'discovery'){
+    templateCategory = 'discovery';
+  } else if(contentType === 'game'){
+    templateCategory = 'challenge';
+  } else {
+    const item = pool[itemIndex];
+    const title = contentType === 'article' ? item.headline : (contentType === 'video' ? item.title : item.name);
+    const canExplain = dsurpriseLooksExplainer(title);
+    templateCategory = (canExplain && rand() < 0.5) ? 'explanation' : 'curiosity';
+  }
+
+  // Avoid repeating yesterday's exact item or template category - deterministic
+  // nudge (advance by one), not a re-roll, so the result stays reproducible within
+  // the same day even after this adjustment.
+  const prev = dsurpriseLoadState();
+  if(prev && prev.dateKey !== dateKey){
+    if(prev.contentType === contentType && prev.itemKey === dsurpriseItemKey(contentType, pool[itemIndex])){
+      itemIndex = (itemIndex + 1) % pool.length;
+    }
+    if(prev.templateCategory === templateCategory){
+      const cats = Object.keys(DSURPRISE_TEMPLATES).filter(c => {
+        if(contentType === 'game') return c === 'challenge';
+        if(bucket === 'discovery') return c === 'discovery';
+        return c === 'curiosity' || c === 'explanation';
+      });
+      const curIdx = cats.indexOf(templateCategory);
+      if(cats.length > 1) templateCategory = cats[(curIdx + 1) % cats.length];
+    }
+  }
+
+  const item = pool[itemIndex];
+  const templatePool = DSURPRISE_TEMPLATES[templateCategory];
+  const templateIndex = Math.floor(rand() * templatePool.length);
+  const label = templatePool[templateIndex];
+
+  return dsurpriseBuildSurprise(contentType, item, label, templateCategory, dateKey);
+}
+function dsurpriseItemKey(contentType, item){
+  if(contentType === 'article') return item.url;
+  if(contentType === 'video') return item.videoId;
+  if(contentType === 'instrument') return item.url;
+  if(contentType === 'game') return item.url;
+  return '';
+}
+function dsurpriseBuildSurprise(contentType, item, label, templateCategory, dateKey){
+  let headline, teaser, cta, action;
+  if(contentType === 'article'){
+    headline = item.headline;
+    teaser = (item.read || '') + (item.read ? ' read' : '');
+    cta = templateCategory === 'explanation' ? 'FIND OUT WHY \u2192' : 'FIND OUT \u2192';
+    action = { kind:'external-nav', url: item.url };
+  } else if(contentType === 'video'){
+    headline = item.title;
+    teaser = item.channel ? (item.channel + ' \u00b7 video') : 'video';
+    cta = 'WATCH IT \u2192';
+    action = { kind:'hash', hash: '#play/' + item.videoId };
+  } else if(contentType === 'instrument'){
+    headline = item.name;
+    teaser = item.desc ? (item.desc.length > 90 ? item.desc.slice(0,87) + '...' : item.desc) : '';
+    cta = templateCategory === 'explanation' ? 'FIND OUT WHY \u2192' : 'FIND OUT \u2192';
+    action = { kind:'external-tab', url: item.url };
+  } else if(contentType === 'game'){
+    headline = item.name;
+    teaser = dsurpriseGameTeaser(item.url);
+    cta = 'PLAY NOW \u2192';
+    action = { kind:'hash', hash: item.url };
+  } else {
+    return null;
+  }
+  return {
+    contentType, label, headline, teaser, cta, action, dateKey,
+    itemKey: dsurpriseItemKey(contentType, item), templateCategory,
+  };
+}
+function dsurpriseFireAction(action){
+  // Mirrors the EXISTING per-type opening behaviour used by the site's own "random"
+  // buttons (see the .random-btn click handler near checkTodaysBirthdays) exactly -
+  // same navigation method per content type, not a new pattern.
+  if(action.kind === 'hash') location.hash = action.hash;
+  else if(action.kind === 'external-nav') location.href = action.url;
+  else if(action.kind === 'external-tab') window.open(action.url, '_blank', 'noopener,noreferrer');
+}
+function dsurpriseDismiss(){
+  const overlay = document.getElementById('dsurpriseOverlay');
+  if(overlay) overlay.remove();
+  document.removeEventListener('keydown', dsurpriseKeydownHandler);
+}
+function dsurpriseKeydownHandler(e){
+  if(e.key === 'Escape') dsurpriseDismiss();
+}
+function renderDailySurpriseOverlay(surprise){
+  const reducedMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const overlay = document.createElement('div');
+  overlay.className = 'dsurprise-overlay' + (reducedMotion ? ' dsurprise-reduced-motion' : '');
+  overlay.id = 'dsurpriseOverlay';
+  overlay.innerHTML = `
+    <div class="dsurprise-card" role="dialog" aria-modal="true" aria-labelledby="dsurpriseHeadline" tabindex="-1">
+      <button class="dsurprise-close" aria-label="Close">\u00d7</button>
+      <div class="dsurprise-label">${escapeHtml(surprise.label)}</div>
+      <div class="dsurprise-headline" id="dsurpriseHeadline">${escapeHtml(surprise.headline)}</div>
+      ${surprise.teaser ? `<div class="dsurprise-teaser">${escapeHtml(surprise.teaser)}</div>` : ''}
+      <button class="dsurprise-cta">${escapeHtml(surprise.cta)}</button>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  const card = overlay.querySelector('.dsurprise-card');
+
+  // Dismissal: X button, backdrop click, Escape key, horizontal swipe - all funnel
+  // into the same dsurpriseDismiss(), matching the "never trapped" requirement.
+  overlay.querySelector('.dsurprise-close').addEventListener('click', dsurpriseDismiss);
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) dsurpriseDismiss(); });
+  document.addEventListener('keydown', dsurpriseKeydownHandler);
+
+  overlay.querySelector('.dsurprise-cta').addEventListener('click', () => {
+    logEvent('click_daily_surprise', surprise.contentType + ':' + surprise.itemKey);
+    dsurpriseDismiss();
+    dsurpriseFireAction(surprise.action);
+  });
+
+  // Horizontal swipe-to-dismiss - card follows the finger, snaps back if released
+  // short of the threshold, dismisses if released past it. Purely additive touch
+  // handling scoped to this one card element, not a global gesture listener, so it
+  // can't conflict with the site's existing swipe-nav (wireSwipeNav) elsewhere.
+  let touchStartX = null, touchDX = 0, dragging = false;
+  card.addEventListener('touchstart', (e) => {
+    if(e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    dragging = true;
+    card.style.transition = 'none';
+  }, { passive:true });
+  card.addEventListener('touchmove', (e) => {
+    if(!dragging || touchStartX === null) return;
+    touchDX = e.touches[0].clientX - touchStartX;
+    card.style.transform = `translateX(${touchDX}px) rotate(${touchDX/30}deg)`;
+    card.style.opacity = String(Math.max(0.3, 1 - Math.abs(touchDX)/300));
+  }, { passive:true });
+  card.addEventListener('touchend', () => {
+    if(!dragging) return;
+    dragging = false;
+    card.style.transition = reducedMotion ? 'none' : 'transform .25s ease, opacity .25s ease';
+    if(Math.abs(touchDX) > 90){
+      card.style.transform = `translateX(${touchDX > 0 ? 500 : -500}px) rotate(${touchDX/10}deg)`;
+      card.style.opacity = '0';
+      setTimeout(dsurpriseDismiss, reducedMotion ? 0 : 250);
+    } else {
+      card.style.transform = '';
+      card.style.opacity = '';
+    }
+    touchStartX = null; touchDX = 0;
+  });
+
+  if(!reducedMotion) requestAnimationFrame(() => overlay.classList.add('dsurprise-in'));
+  else overlay.classList.add('dsurprise-in');
+  card.focus();
+}
+// Gate: shows at most once per student per calendar day. "Shown" is marked the
+// instant the popup actually appears (not on dismiss/click) - per spec, a reload or
+// route change after seeing it today must never bring it back, even if it was never
+// explicitly closed.
+function maybeShowDailySurprise(){
+  if(!DAILY_SURPRISE_CONFIG.enabled) return;
+  const dateKey = dsurpriseTodayKey();
+  const prev = dsurpriseLoadState();
+  if(prev && prev.dateKey === dateKey) return; // already shown today
+  const surprise = dsurpriseCompute();
+  if(!surprise) return; // every content pool empty - nothing to show, no error
+  dsurpriseSaveState({
+    dateKey: surprise.dateKey, contentType: surprise.contentType,
+    itemKey: surprise.itemKey, templateCategory: surprise.templateCategory,
+  });
+  renderDailySurpriseOverlay(surprise);
+}
 
 // Flags - hand-built SVGs (flags carry no copyright, so these are safe & accurate).
 const FLAGS = {
@@ -30411,6 +30794,11 @@ const mtSkipReopenPopups = (function(){
   return flag;
 })();
 if(!mtSkipReopenPopups){ setTimeout(checkTodaysBirthdays, 700); }
+// Daily Surprise fires later than the birthday popup on purpose (own configurable
+// delay, default 5s) so the two never compete for attention if both happen to be
+// eligible the same visit; same mtSkipReopenPopups guard so a pull-to-refresh reload
+// doesn't re-show it either.
+if(!mtSkipReopenPopups){ setTimeout(maybeShowDailySurprise, DAILY_SURPRISE_CONFIG.delay); }
 // Tab bar is now populated and visible (show-bottom-tabs added during renderRoute) -
 // safe to measure its real height now.
 syncTabBarHeight();
