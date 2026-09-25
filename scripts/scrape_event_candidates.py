@@ -239,6 +239,23 @@ def fetch_nasa_candidates():
 
     log(f"NASA scheduled-events page: found {len(by_url)} distinct /scheduled-video/ link(s)")
 
+    if not by_url:
+        # Two real attempts have now both found zero matches against the actual live
+        # page despite passing locally-simulated tests each time - stop guessing a
+        # third time blind and log real evidence instead, so the next run's log
+        # tells us what the DOM genuinely contains rather than another assumption.
+        all_hrefs = [t.get("href", "") for t in soup.find_all(href=True)]
+        video_ish = [h for h in all_hrefs if "video" in h.lower() or "scheduled" in h.lower()]
+        log(f"  DIAGNOSTIC: {len(all_hrefs)} total href-bearing elements on the page; "
+            f"{len(video_ish)} contain 'video' or 'scheduled': {video_ish[:5]!r}")
+        idx = html.lower().find("progress 96")
+        if idx == -1:
+            idx = html.lower().find("scheduled")
+        if idx != -1:
+            log(f"  DIAGNOSTIC: raw HTML around a known title/keyword match: {html[max(0,idx-300):idx+300]!r}")
+        else:
+            log("  DIAGNOSTIC: could not find 'progress 96' or 'scheduled' anywhere in the raw HTML at all")
+
     unparsed = 0
     for url, (a, title) in by_url.items():
         if not title or title.lower() in ("watch now", "open video player"):
