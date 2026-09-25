@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T05:10:16.653003+00:00",
+  "generatedAt": "2026-09-25T12:03:10.423680+00:00",
   "standings": [
     {
       "team": "Lokomotiv",
@@ -267,11 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Amur",
-      "away": "Lokomotiv",
-      "start": "2026-09-25T04:00:00+05:00"
-    },
     {
       "home": "Traktor",
       "away": "SKA",
@@ -3594,6 +3589,14 @@
     }
   ],
   "results": [
+    {
+      "home": "Amur",
+      "away": "Lokomotiv",
+      "start": "2026-09-25T04:00:00+05:00",
+      "homeScore": 3,
+      "awayScore": 1,
+      "finished": true
+    },
     {
       "home": "Spartak",
       "away": "Avangard",
