@@ -14,14 +14,22 @@ judgment step intact -- the scraper's job is just to surface candidates from sou
 already trusted enough to be worth a human's five seconds to glance at, not to make the
 appropriateness call itself.
 
-SOURCES: starts with NASA's own live-events schedule (nasa.gov/live/), which lists
-real, dated, free public events in consistently formatted text
-("Tuesday, Aug. 18 · 7 a.m. | <description>") -- confirmed directly against the live
-page's actual text before this pattern was written, same evidence-based approach used
-for the UFC time-scraping fix. Intentionally starts narrow with one well-understood
-source rather than many unverified ones; more sources can be added the same way once
-each one's actual format has been confirmed against real output, not assumed from search
-snippets alone.
+SOURCES: NASA's scheduled-events page (plus.nasa.gov/scheduled-events/) and the NGA
+Center for Advanced Study news page. NASA's URL/format was updated 2026-09-25: the old
+nasa.gov/live/ text-list page ("Tuesday, Aug. 18 · 7 a.m. | <description>" inside plain
+<p><strong> tags) has been replaced by NASA with a JS-rendered card layout on
+plus.nasa.gov -- confirmed directly by fetching the live page, not assumed, after this
+scraper had been silently returning 0 NASA candidates on every run since the migration
+(caught when Mr Eric asked why nothing new was showing up and pointed out the old
+"check the real page before writing the pattern" discipline). New pattern: each event is
+a heading (h1-h5) containing a link to a `/scheduled-video/...` URL -- a stable,
+meaningful URL naming convention, used here instead of guessing CSS class names, which
+are far more likely to change on NASA's next redesign than their URL scheme is. The
+date/time text ("Today 9:00 am" was the only example seen live, since the page had just
+one scheduled item at write time) sits in the same card container as the heading; parsed
+liberally (several date-shape patterns tried) with any unparseable card logged clearly by
+its raw text, rather than silently dropped, specifically so a THIRD silent breakage would
+show up in the log instead of just going quiet again.
 
 Output: rows inserted into Supabase's pending_events table (see review.html's SQL note
 for the schema). Writes nothing to the repo itself.
@@ -37,12 +45,14 @@ from playwright.sync_api import sync_playwright
 
 SUPABASE_URL = "https://uugjyucgeyopyvmhckdg.supabase.co"
 SUPABASE_SERVICE_ROLE_KEY = os.environ.get("SUPABASE_SERVICE_ROLE_KEY", "")
-NASA_LIVE_URL = "https://www.nasa.gov/live/"
+NASA_LIVE_URL = "https://plus.nasa.gov/scheduled-events/"
 EVENTS_VIRTUAL_PATH = "data/events-virtual.json"
 
-# How far ahead to look for candidates -- wider than the site's own 8-day display window,
-# since a candidate found today might not get reviewed and approved for a day or two.
-WINDOW_DAYS = 12
+# How far ahead to look for candidates. Was 12 days - far too narrow once a person
+# expects to see "this month"'s events: from anywhere after the 18th or so of a month,
+# 12 days can't even reach the end of THAT month, let alone into the next one. 45 days
+# comfortably covers "the rest of this month plus next month" from any starting date.
+WINDOW_DAYS = 45
 
 
 def log(msg):
@@ -142,76 +152,129 @@ def fetch_all_candidates():
 MONTHS = {
     'jan':1,'feb':2,'mar':3,'apr':4,'may':5,'jun':6,
     'jul':7,'aug':8,'sep':9,'oct':10,'nov':11,'dec':12,
+    'january':1,'february':2,'march':3,'april':4,'june':6,'july':7,
+    'august':8,'september':9,'october':10,'november':11,'december':12,
 }
-# Confirmed against the real page's actual HTML (2026-08-16): the date sits alone inside
-# a <p><strong>Tuesday, Aug. 18</strong></p>, and the time + description sit in the very
-# next <p> tag as plain text: "7 a.m. | Coverage of <a href=...>description</a>...". They
-# are NOT on one joined line -- that flattened appearance only came from how a search
-# engine's snippet extraction displays HTML, not the real markup. Parsed structurally
-# (paragraph by paragraph) rather than with one regex spanning both, since the two pieces
-# of information are genuinely in separate elements.
-DATE_PATTERN = re.compile(r"[A-Z][a-z]+,\s*([A-Z][a-z]{2})\.?\s+(\d{1,2})\b")
-TIME_DESC_PATTERN = re.compile(r"(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?\s*\|\s*(.+)", re.IGNORECASE | re.DOTALL)
+# Today H:MM am/pm  (the only example seen live), or a weekday/month-day date followed
+# by a time, in whatever order/punctuation NASA happens to use -- tried as several
+# alternatives rather than one rigid pattern, since only ONE live example (a same-day
+# "Today" card) existed to confirm a format against when this was written. A card whose
+# text matches none of these gets logged with its raw text rather than silently
+# skipped, so a genuinely new format shows up in the log instead of just another silent
+# zero.
+NASA_TODAY_PATTERN = re.compile(r"\bToday\b[^\d]*?(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?", re.IGNORECASE)
+NASA_DATE_TIME_PATTERN = re.compile(
+    r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\b[^\d]{0,20}?(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?",
+    re.IGNORECASE,
+)
+
+
+def _parse_nasa_card_datetime(card_text, now):
+    """Returns (candidate_date, time_text) or (None, None) if nothing recognisable."""
+    m = NASA_TODAY_PATTERN.search(card_text)
+    if m:
+        hour_12, minute, meridiem = m.groups()
+        minute = int(minute) if minute else 0
+        return now.date(), f"{hour_12}:{minute:02d} {meridiem.upper()}M"
+
+    m = NASA_DATE_TIME_PATTERN.search(card_text)
+    if m:
+        month_name, day, hour_12, minute, meridiem = m.groups()
+        month = MONTHS.get(month_name.lower())
+        if not month:
+            return None, None
+        minute = int(minute) if minute else 0
+        year = now.year
+        try:
+            candidate_date = datetime(year, month, int(day)).date()
+        except ValueError:
+            return None, None
+        if candidate_date < now.date():
+            candidate_date = datetime(year + 1, month, int(day)).date()
+        return candidate_date, f"{hour_12}:{minute:02d} {meridiem.upper()}M"
+
+    return None, None
 
 
 def fetch_nasa_candidates():
     candidates = []
     try:
-        r = requests.get(NASA_LIVE_URL, headers={"User-Agent": "Mozilla/5.0 (compatible; EricsLoungeBot/1.0)"}, timeout=30)
-        r.raise_for_status()
-        text = r.text
+        with sync_playwright() as p:
+            browser = p.chromium.launch()
+            page = browser.new_page()
+            page.goto(NASA_LIVE_URL, timeout=30000)
+            page.wait_for_timeout(3000)
+            html = page.content()
+            browser.close()
     except Exception as e:
-        log(f"NASA live page fetch failed: {e}")
+        log(f"NASA scheduled-events page fetch failed: {e}")
         return candidates
 
-    soup = BeautifulSoup(text, "html.parser")
-    paragraphs = soup.find_all("p")
+    log(f"NASA scheduled-events page: captured {len(html)} chars")
+    soup = BeautifulSoup(html, "html.parser")
     now = datetime.now(timezone.utc)
 
-    pending_date = None  # (month, day) parsed from the most recent date-only paragraph
-    for p in paragraphs:
-        strong = p.find("strong")
-        if strong:
-            date_match = DATE_PATTERN.search(strong.get_text(strip=True))
-            if date_match:
-                month = MONTHS.get(date_match.group(1).lower())
-                day = date_match.group(2)
-                pending_date = (month, day) if month else None
-                continue
+    # Anchored on the /scheduled-video/ URL pattern rather than a CSS class name -
+    # NASA's own stable per-event URL scheme, far less likely to change on a future
+    # redesign than whatever class names this particular layout happens to use.
+    seen_urls = set()
+    headings = [h for h in soup.find_all(["h1", "h2", "h3", "h4", "h5"])
+                if h.find("a", href=re.compile(r"/scheduled-video/"))]
+    log(f"NASA scheduled-events page: found {len(headings)} event heading(s) via /scheduled-video/ links")
 
-        if not pending_date:
+    unparsed = 0
+    for h in headings:
+        a = h.find("a", href=re.compile(r"/scheduled-video/"))
+        url = a.get("href", "")
+        if url.startswith("/"):
+            url = "https://plus.nasa.gov" + url
+        if url in seen_urls:
+            continue
+        seen_urls.add(url)
+
+        title = a.get_text(strip=True)
+        if not title:
             continue
 
-        ptext = p.get_text(" ", strip=True)
-        m = TIME_DESC_PATTERN.search(ptext)
-        if m:
-            month, day = pending_date
-            hour_12, minute, meridiem, description = m.groups()
-            minute = int(minute) if minute else 0
-            hour_24 = int(hour_12) % 12
-            if meridiem.lower() == 'p':
-                hour_24 += 12
-            year = now.year
-            try:
-                candidate_date = datetime(year, month, int(day))
-            except ValueError:
-                pending_date = None
-                continue
-            if candidate_date.date() < now.date():
-                candidate_date = datetime(year + 1, month, int(day))
-            candidates.append({
-                "title": description.strip()[:200],
-                "org": "NASA",
-                "description": description.strip()[:500],
-                "start_date": candidate_date.strftime("%Y-%m-%d"),
-                "time_text": f"{hour_12}:{minute:02d} {meridiem.upper()}M ET",
-                "category": "science",
-                "url": NASA_LIVE_URL,
-                "source": "NASA live events page",
-            })
-        pending_date = None  # a date only ever applies to the paragraph right after it
+        # The date/time and description sit in the same card as the heading - walk up
+        # one ancestor at a time and stop at the SMALLEST container that holds exactly
+        # this one event heading (not zero - too small still - and not more than one -
+        # too big, merges in a neighbouring card's text). A fixed walk-up depth was
+        # tried first and confirmed broken by testing: it went past the card boundary
+        # into a shared ancestor holding every card, so every event on the page ended
+        # up reading the FIRST card's date/time. Adapting to whatever the real
+        # nesting turns out to be avoids assuming a specific depth at all.
+        card = h
+        while card.parent is not None:
+            candidate = card.parent
+            matching = sum(1 for hh in candidate.find_all(["h1", "h2", "h3", "h4", "h5"])
+                           if hh.find("a", href=re.compile(r"/scheduled-video/")))
+            if matching > 1:
+                break  # candidate already spans more than one event - card is as far as we go
+            card = candidate
+        card_text = card.get_text(" ", strip=True)
 
-    log(f"NASA live page: found {len(candidates)} raw candidate(s)")
+        candidate_date, time_text = _parse_nasa_card_datetime(card_text, now)
+        if not candidate_date:
+            unparsed += 1
+            log(f"  could not parse a date/time from NASA card {title!r} - raw card text: {card_text[:200]!r}")
+            continue
+
+        desc_el = h.find_next_sibling("p")
+        description = desc_el.get_text(strip=True) if desc_el else title
+
+        candidates.append({
+            "title": title[:200],
+            "org": "NASA",
+            "description": description.strip()[:500],
+            "start_date": candidate_date.strftime("%Y-%m-%d"),
+            "time_text": time_text,
+            "category": "science",
+            "url": url or NASA_LIVE_URL,
+            "source": "NASA scheduled events page",
+        })
+
+    log(f"NASA scheduled-events page: found {len(candidates)} candidate(s), {unparsed} card(s) with an unparseable date")
     return candidates
 
 
