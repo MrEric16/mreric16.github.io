@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260924143735">
+<meta name="app-build" content="20260925130829">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7140,6 +7140,7 @@ const STUDENTS_OF_WEEK = [
   { name:"Muxitdinov \"Photosynthesis\" Asadbek", note:"Being a man of your word academically and beyond, staying true to your principles, and placing integrity first.", photoUrl:"photos/superstar-muxitdinov-asadbek.jpeg", date:"15/09/2026", dateLabel:"September, week 3" },
   { name:"Nazarova Nana", note:"Facing your fears, battling your discomfort, and never letting your standards slip.", photoUrl:"photos/superstar-nazarova-nana.jpeg", date:"01/09/2026", dateLabel:"September, week 1" },
   { name:"Amanov Zafar", note:"For striving to better yourself every day, and being a model student academically and extracurricularly.", photoUrl:"photos/superstar-amanov-zafar.jpeg", date:"08/09/2026", dateLabel:"September, week 2" },
+  { name:"Rashidov Saidbosit", note:"Mr Reliable in your studies and in character, always showing initiative, going through with it until the end, and never backing down in the face of adversity.", photoUrl:"photos/superstar-rashidov-saidbosit.jpeg", date:"22/09/2026", dateLabel:"September, week 4" },
 ];
 
 const RECOMMENDATIONS = [
@@ -14507,6 +14508,21 @@ function wireIrregularVerbsSearch(app){
 // tries) once. Progress is saved to localStorage so a single pass through 199 verbs
 // can span multiple sessions, not just one sitting.
 const IVP_STATE_KEY = 'ivPracticeState_v1';
+// 50 synonyms for "Correct!" - rotated through a shuffled bag (see ivpShuffledPraise/
+// ivpNextPraise inside the wiring function below) rather than pure random-with-repeats,
+// so the same word can't pop up twice in a row and every word gets seen before any
+// repeats. British spellings kept (Marvellous, not Marvelous) - same rule as the verb
+// data itself.
+const IVP_PRAISE = [
+  'Correct!', 'Splendid!', 'Amazing!', 'Fantastic!', 'Bombastic!', 'Awesome!', 'Wonderful!',
+  'Brilliant!', 'Superb!', 'Excellent!', 'Marvellous!', 'Outstanding!', 'Terrific!',
+  'Magnificent!', 'Smashing!', 'Cracking!', 'Spot on!', 'Bang on!', 'Nailed it!',
+  'Well done!', 'Nice one!', 'Top marks!', 'First-rate!', 'Top-notch!', 'Exceptional!',
+  'Stellar!', 'Impressive!', 'Remarkable!', 'Phenomenal!', 'Perfect!', 'Flawless!',
+  'Champion!', 'Legend!', 'Genius!', 'Belter!', 'Textbook!', 'Right you are!',
+  'Class act!', 'Ace!', 'Superstar!', 'Chuffed for you!', 'Job well done!', 'Sublime!',
+  'Exquisite!', 'Masterful!', 'Peachy!', 'A-star!', 'Dazzling!', 'Radiant!', 'Beautiful!',
+];
 function ivpAllVerbs(){ return [...IRREGULAR_VERBS_COMMON, ...IRREGULAR_VERBS_UNCOMMON]; }
 function ivpVerbMap(){
   const m = new Map();
@@ -14613,6 +14629,17 @@ function wireIrregularVerbsPractice(app){
   // (disabling or blurring it is exactly what would dismiss the native keyboard, the
   // one thing this whole feature exists to avoid) - just a flag checked before acting.
   let transitioning = false;
+  let praiseBag = [];
+  function nextPraise(){
+    if(!praiseBag.length){
+      praiseBag = IVP_PRAISE.slice();
+      for(let i = praiseBag.length - 1; i > 0; i--){
+        const j = Math.floor(Math.random() * (i + 1));
+        [praiseBag[i], praiseBag[j]] = [praiseBag[j], praiseBag[i]];
+      }
+    }
+    return praiseBag.pop();
+  }
 
   function currentVerb(){
     return state.queue.length ? pool.get(state.queue[0]) : null;
@@ -14678,7 +14705,7 @@ function wireIrregularVerbsPractice(app){
     ivpSaveState(state);
   }
   function handleCorrect(){
-    feedbackEl.textContent = 'Correct!';
+    feedbackEl.textContent = nextPraise();
     feedbackEl.className = 'ivp-feedback ivp-correct';
     advanceStageOrVerb();
     transitioning = true;
