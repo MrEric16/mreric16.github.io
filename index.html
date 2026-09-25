@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260925130829">
+<meta name="app-build" content="20260925154844">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -14508,11 +14508,10 @@ function wireIrregularVerbsSearch(app){
 // tries) once. Progress is saved to localStorage so a single pass through 199 verbs
 // can span multiple sessions, not just one sitting.
 const IVP_STATE_KEY = 'ivPracticeState_v1';
-// 50 synonyms for "Correct!" - rotated through a shuffled bag (see ivpShuffledPraise/
-// ivpNextPraise inside the wiring function below) rather than pure random-with-repeats,
-// so the same word can't pop up twice in a row and every word gets seen before any
-// repeats. British spellings kept (Marvellous, not Marvelous) - same rule as the verb
-// data itself.
+// 100 synonyms for "Correct!" - fully randomised (see nextPraise below: a plain
+// random pick each time, can repeat back to back) rather than the earlier no-repeat
+// shuffled-bag version. British spellings kept (Marvellous, not Marvelous) - same
+// rule as the verb data itself.
 const IVP_PRAISE = [
   'Correct!', 'Splendid!', 'Amazing!', 'Fantastic!', 'Bombastic!', 'Awesome!', 'Wonderful!',
   'Brilliant!', 'Superb!', 'Excellent!', 'Marvellous!', 'Outstanding!', 'Terrific!',
@@ -14522,6 +14521,15 @@ const IVP_PRAISE = [
   'Champion!', 'Legend!', 'Genius!', 'Belter!', 'Textbook!', 'Right you are!',
   'Class act!', 'Ace!', 'Superstar!', 'Chuffed for you!', 'Job well done!', 'Sublime!',
   'Exquisite!', 'Masterful!', 'Peachy!', 'A-star!', 'Dazzling!', 'Radiant!', 'Beautiful!',
+  'Faultless!', 'Immaculate!', 'Supreme!', 'Peerless!', 'Incredible!', 'Extraordinary!',
+  'Astonishing!', 'Astounding!', 'Breathtaking!', 'Glorious!', 'Triumphant!', 'Victorious!',
+  'Dashing!', 'Good show!', 'Jolly good!', 'Bravo!', 'Encore!', 'World-class!',
+  'Gold star!', 'Ten out of ten!', 'Bullseye!', 'On the money!', 'Dead on!', 'Sharp!',
+  'Slick!', 'Polished!', 'Pristine!', 'Pitch-perfect!', 'Note-perfect!', 'Sterling!',
+  'Golden!', 'Diamond!', 'Stunning!', 'Gorgeous!', 'Delightful!', 'Divine!',
+  'Heavenly!', 'Sensational!', 'Spectacular!', 'Electric!', 'Dynamite!', 'Blinding!',
+  'Corking!', 'Mighty fine!', 'A triumph!', 'Second to none!', 'Unbeatable!', 'Unstoppable!',
+  'Prodigious!', 'Crikey, well done!',
 ];
 function ivpAllVerbs(){ return [...IRREGULAR_VERBS_COMMON, ...IRREGULAR_VERBS_UNCOMMON]; }
 function ivpVerbMap(){
@@ -14629,16 +14637,12 @@ function wireIrregularVerbsPractice(app){
   // (disabling or blurring it is exactly what would dismiss the native keyboard, the
   // one thing this whole feature exists to avoid) - just a flag checked before acting.
   let transitioning = false;
-  let praiseBag = [];
+  // Fully randomised on each correct answer - a plain independent pick, so the same
+  // word CAN repeat back to back. Deliberately simpler than the old shuffled-bag
+  // version (which guaranteed no repeat until all had been seen) - asked for by name:
+  // "completely randomise".
   function nextPraise(){
-    if(!praiseBag.length){
-      praiseBag = IVP_PRAISE.slice();
-      for(let i = praiseBag.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i + 1));
-        [praiseBag[i], praiseBag[j]] = [praiseBag[j], praiseBag[i]];
-      }
-    }
-    return praiseBag.pop();
+    return IVP_PRAISE[Math.floor(Math.random() * IVP_PRAISE.length)];
   }
 
   function currentVerb(){
