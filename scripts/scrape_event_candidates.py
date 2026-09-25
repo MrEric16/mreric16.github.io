@@ -214,42 +214,54 @@ def fetch_nasa_candidates():
     soup = BeautifulSoup(html, "html.parser")
     now = datetime.now(timezone.utc)
 
-    # Anchored on the /scheduled-video/ URL pattern rather than a CSS class name -
-    # NASA's own stable per-event URL scheme, far less likely to change on a future
-    # redesign than whatever class names this particular layout happens to use.
-    seen_urls = set()
-    headings = [h for h in soup.find_all(["h1", "h2", "h3", "h4", "h5"])
-                if h.find("a", href=re.compile(r"/scheduled-video/"))]
-    log(f"NASA scheduled-events page: found {len(headings)} event heading(s) via /scheduled-video/ links")
+    # Anchored on the /scheduled-video/ URL pattern rather than a CSS class name or a
+    # specific heading tag - NASA's own stable per-event URL scheme, far less likely to
+    # change on a future redesign than either of those. Deliberately does NOT require
+    # the link to sit inside an h1-h5 tag: a first version did, on the assumption a
+    # bold "####"-looking title in the page's own text meant a real heading tag -
+    # wrong, confirmed by an actual run finding zero matches against the live site
+    # despite the URL pattern itself being right. Modern component-styled sites often
+    # fake a heading's LOOK with a styled span/div, not a real semantic tag.
+    video_links = soup.find_all("a", href=re.compile(r"/scheduled-video/"))
 
-    unparsed = 0
-    for h in headings:
-        a = h.find("a", href=re.compile(r"/scheduled-video/"))
+    # The SAME event's URL appears multiple times on the page (a thumbnail-wrapper
+    # link, a "Watch Now" link, and the actual title link all point at one URL) - group
+    # by URL and, for each, keep the occurrence with the LONGEST text, since the real
+    # title is the substantive one and "Watch Now" is short and generic.
+    by_url = {}
+    for a in video_links:
         url = a.get("href", "")
         if url.startswith("/"):
             url = "https://plus.nasa.gov" + url
-        if url in seen_urls:
-            continue
-        seen_urls.add(url)
+        text = a.get_text(strip=True)
+        if url not in by_url or len(text) > len(by_url[url][1]):
+            by_url[url] = (a, text)
 
-        title = a.get_text(strip=True)
-        if not title:
+    log(f"NASA scheduled-events page: found {len(by_url)} distinct /scheduled-video/ link(s)")
+
+    unparsed = 0
+    for url, (a, title) in by_url.items():
+        if not title or title.lower() in ("watch now", "open video player"):
             continue
 
-        # The date/time and description sit in the same card as the heading - walk up
+        # The date/time and description sit in the same card as this link - walk up
         # one ancestor at a time and stop at the SMALLEST container that holds exactly
-        # this one event heading (not zero - too small still - and not more than one -
-        # too big, merges in a neighbouring card's text). A fixed walk-up depth was
-        # tried first and confirmed broken by testing: it went past the card boundary
-        # into a shared ancestor holding every card, so every event on the page ended
-        # up reading the FIRST card's date/time. Adapting to whatever the real
-        # nesting turns out to be avoids assuming a specific depth at all.
-        card = h
+        # this one event's links (not more than one - too big, merges in a neighbouring
+        # card's text). A fixed walk-up depth was tried first and confirmed broken by
+        # testing: it went past the card boundary into a shared ancestor holding every
+        # card, so every event on the page ended up reading the FIRST card's date/time.
+        # Adapting to whatever the real nesting turns out to be avoids assuming a
+        # specific depth at all.
+        card = a
         while card.parent is not None:
             candidate = card.parent
-            matching = sum(1 for hh in candidate.find_all(["h1", "h2", "h3", "h4", "h5"])
-                           if hh.find("a", href=re.compile(r"/scheduled-video/")))
-            if matching > 1:
+            distinct_urls_here = set()
+            for cand_a in candidate.find_all("a", href=re.compile(r"/scheduled-video/")):
+                cand_url = cand_a.get("href", "")
+                if cand_url.startswith("/"):
+                    cand_url = "https://plus.nasa.gov" + cand_url
+                distinct_urls_here.add(cand_url)
+            if len(distinct_urls_here) > 1:
                 break  # candidate already spans more than one event - card is as far as we go
             card = candidate
         card_text = card.get_text(" ", strip=True)
@@ -260,8 +272,19 @@ def fetch_nasa_candidates():
             log(f"  could not parse a date/time from NASA card {title!r} - raw card text: {card_text[:200]!r}")
             continue
 
-        desc_el = h.find_next_sibling("p")
-        description = desc_el.get_text(strip=True) if desc_el else title
+        # The description is plain text in the same card, after the title and after the
+        # date/time text - take the card's own text, strip the title and whatever
+        # date/time substring we actually matched out, and use what's left as a
+        # reasonable description.
+        description = card_text.replace(title, "", 1)
+        date_match_span = NASA_TODAY_PATTERN.search(description) or NASA_DATE_TIME_PATTERN.search(description)
+        if date_match_span:
+            description = description[:date_match_span.start()] + description[date_match_span.end():]
+        for junk in ("Watch Now", "Open Video Player", "Today"):
+            description = description.replace(junk, "")
+        description = description.strip()
+        if not description:
+            description = title
 
         candidates.append({
             "title": title[:200],
