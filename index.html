@@ -4808,6 +4808,39 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     font-size:20px; cursor:pointer; box-shadow:0 2px 0 rgba(0,0,0,.08);
   }
 
+  /* - Tetris - */
+  .tetris-wrap{ max-width:340px; }
+  .tetris-top-row{
+    display:flex; justify-content:center; gap:16px; margin-bottom:12px; text-align:center;
+    font-family:'Space Mono', monospace; font-weight:700; font-size:11.5px; color:var(--ink-soft);
+    text-transform:uppercase; letter-spacing:.02em;
+  }
+  .tetris-top-row b{ display:block; font-size:16px; color:var(--ink); text-transform:none; margin-top:2px; }
+  .tetris-play-area{ display:flex; gap:12px; justify-content:center; align-items:flex-start; }
+  .tetris-board-wrap{ touch-action:none; flex-shrink:0; }
+  .tetris-canvas{ display:block; width:180px; height:360px; border-radius:8px; background:#15181f; }
+  .tetris-side{ display:flex; flex-direction:column; gap:8px; width:72px; }
+  .tetris-next-label{
+    font-family:'Space Mono', monospace; font-weight:700; font-size:11px; color:var(--ink-soft);
+    text-align:center; text-transform:uppercase; letter-spacing:.03em;
+  }
+  .tetris-next-canvas{ display:block; width:72px; height:72px; border-radius:6px; margin:0 auto; background:#15181f; }
+  .tetris-controls{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; max-width:260px; margin:16px auto 0; }
+  .tetris-ctrl-btn{
+    height:48px; border-radius:10px; border:none; background:var(--card); color:var(--ink);
+    font-size:20px; cursor:pointer; box-shadow:0 2px 0 rgba(0,0,0,.08); touch-action:none;
+  }
+  .tetris-down-btn{
+    display:block; width:100%; max-width:260px; margin:8px auto 0; font-size:14px;
+    font-family:'Nunito', sans-serif; font-weight:700;
+  }
+  .tetris-pause-btn{
+    display:block; margin:14px auto 0; border:none; background:var(--line); color:var(--ink);
+    font-family:'Nunito', sans-serif; font-weight:700; font-size:13px; padding:9px 22px;
+    border-radius:999px; cursor:pointer;
+  }
+  .tetris-level-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+
   .hanoi-board{ display:flex; justify-content:space-around; align-items:flex-end; gap:8px; max-width:420px; margin:0 auto; height:220px; }
   .hanoi-peg{
     flex:1; height:100%; border:none; background:transparent; cursor:pointer;
@@ -6370,6 +6403,7 @@ const ICONS = {
   kingPiece: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><circle cx="12" cy="6.5" r="2.3"/><path d="M9.3 11.5h5.4l1.6 6.5H7.7l1.6-6.5Z"/><path d="M6.5 20.5h11"/></svg>`,
   checkerboard: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="3" y="3" width="9" height="9" fill="currentColor" stroke="none"/><rect x="12" y="12" width="9" height="9" fill="currentColor" stroke="none"/></svg>`,
   fourInRow: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="7" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="11" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>`,
+  tetromino: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="15" y="9" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/></svg>`,
 
 };
 function icon(name){ return ICONS[name] || ''; }
@@ -6447,6 +6481,7 @@ const DSURPRISE_GAME_TEASERS = {
   '#bt-connect4': "Four in a row. Simple to learn, hard to master.",
   '#bt-corners': "A race-style board game you've probably never played.",
   '#battleship-game': "Sink the fleet before they sink yours.",
+  '#tetris-game': "Clear lines before the stack reaches the top.",
 };
 function dsurpriseGameTeaser(url){
   return DSURPRISE_GAME_TEASERS[url] || "Give it a go.";
@@ -14064,6 +14099,340 @@ function wireG2048Touch(container){
   if(wrap) mtPreventTouchNav(wrap);
 }
 
+// - Tetris -
+// Single-player only, by explicit request - no p2p/CPU mode like Checkers/Connect4/
+// Corners. Faithful to the original: the 7 standard tetrominoes in their guideline
+// spawn orientations, the classic NES scoring table and speed curve, no hold piece, no
+// ghost piece, no wall kicks (a rotation that would collide simply fails, same as the
+// original). The one addition beyond the original ruleset is Pause - which the original
+// also had (the Start button) - and auto-pausing when you navigate away mid-game rather
+// than silently losing your run in the background.
+const TETRIS_COLS = 10;
+const TETRIS_ROWS = 20;
+const TETRIS_BLOCK = 18; // px - matches the .tetris-canvas CSS size (180x360)
+
+const TETRIS_SHAPES = {
+  I: [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]],
+  O: [[1,1],[1,1]],
+  T: [[0,1,0],[1,1,1],[0,0,0]],
+  S: [[0,1,1],[1,1,0],[0,0,0]],
+  Z: [[1,1,0],[0,1,1],[0,0,0]],
+  J: [[1,0,0],[1,1,1],[0,0,0]],
+  L: [[0,0,1],[1,1,1],[0,0,0]],
+};
+const TETRIS_COLORS = { I:'#31C7EF', O:'#F7D308', T:'#AD4D9C', S:'#42B642', Z:'#EF2029', J:'#5A65AD', L:'#EF7921' };
+const TETRIS_TYPES = Object.keys(TETRIS_SHAPES);
+
+// The real NES frames-per-row-of-fall by level, converted to ms - not an invented curve.
+// Levels beyond the table (29+) all fall at the fastest speed, same as the original's
+// "kill screen".
+const TETRIS_FRAMES_PER_LEVEL = [48,43,38,33,28,23,18,13,8,6,5,5,5,4,4,4,3,3,3,2,2,2,2,2,2,2,2,2,2,1];
+function tetrisDropIntervalMs(level){
+  const frames = TETRIS_FRAMES_PER_LEVEL[Math.min(level, TETRIS_FRAMES_PER_LEVEL.length - 1)];
+  return frames * 1000 / 60;
+}
+
+// Rotates an NxN piece matrix 90 degrees clockwise.
+function tetrisRotateMatrix(m){
+  const n = m.length;
+  const out = Array.from({ length: n }, () => Array(n).fill(0));
+  for(let r = 0; r < n; r++) for(let c = 0; c < n; c++) out[c][n - 1 - r] = m[r][c];
+  return out;
+}
+
+function tetrisCollides(grid, matrix, px, py){
+  for(let r = 0; r < matrix.length; r++){
+    for(let c = 0; c < matrix.length; c++){
+      if(!matrix[r][c]) continue;
+      const x = px + c, y = py + r;
+      if(x < 0 || x >= TETRIS_COLS || y >= TETRIS_ROWS) return true;
+      if(y >= 0 && grid[y][x]) return true;
+    }
+  }
+  return false;
+}
+
+// Uniform random 7, rerolled once if it repeats the piece just played - approximates
+// the original's bias against long same-piece droughts without the far more convoluted
+// exact NES lookup-table algorithm.
+function tetrisRandomType(prevType){
+  let t = TETRIS_TYPES[Math.floor(Math.random() * 7)];
+  if(t === prevType) t = TETRIS_TYPES[Math.floor(Math.random() * 7)];
+  return t;
+}
+
+let tetrisState = null;
+let tetrisLoopId = null;
+let tetrisDAS = { dir: 0, timer: null, repeatTimer: null };
+
+function tetrisSpawnNext(s){
+  const type = s.next || tetrisRandomType(null);
+  const matrix = TETRIS_SHAPES[type].map(row => row.slice());
+  const x = Math.floor((TETRIS_COLS - matrix.length) / 2);
+  s.current = { type, matrix, x, y: 0 };
+  s.next = tetrisRandomType(type);
+  if(tetrisCollides(s.grid, matrix, x, 0)){
+    s.over = true;
+    tetrisStopLoop();
+    if(s.score > s.best){
+      s.best = s.score;
+      try{ localStorage.setItem('tetrisBest', String(s.best)); }catch(e){}
+    }
+  }
+}
+
+function tetrisStart(startLevel){
+  tetrisStopLoop();
+  tetrisClearDAS();
+  let best = 0;
+  try{ best = parseInt(localStorage.getItem('tetrisBest') || '0', 10); }catch(e){}
+  tetrisState = {
+    grid: Array.from({ length: TETRIS_ROWS }, () => Array(TETRIS_COLS).fill(null)),
+    current: null, next: null,
+    score: 0, lines: 0, level: startLevel, startLevel,
+    over: false, paused: false, best,
+  };
+  tetrisSpawnNext(tetrisState);
+  renderRoute();
+}
+
+function tetrisClearLines(s){
+  const remaining = s.grid.filter(row => row.some(cell => !cell));
+  const cleared = TETRIS_ROWS - remaining.length;
+  while(remaining.length < TETRIS_ROWS) remaining.unshift(Array(TETRIS_COLS).fill(null));
+  s.grid = remaining;
+  return cleared;
+}
+
+const TETRIS_LINE_SCORE = [0, 40, 100, 300, 1200]; // classic NES single/double/triple/tetris table
+
+function tetrisLockPiece(s){
+  const { matrix, x, y, type } = s.current;
+  for(let r = 0; r < matrix.length; r++){
+    for(let c = 0; c < matrix.length; c++){
+      if(matrix[r][c] && y + r >= 0) s.grid[y + r][x + c] = type;
+    }
+  }
+  const cleared = tetrisClearLines(s);
+  if(cleared > 0){
+    s.score += TETRIS_LINE_SCORE[cleared] * (s.level + 1);
+    s.lines += cleared;
+    s.level = s.startLevel + Math.floor(s.lines / 10);
+  }
+  tetrisSpawnNext(s);
+}
+
+function tetrisStopLoop(){
+  if(tetrisLoopId){ clearTimeout(tetrisLoopId); tetrisLoopId = null; }
+}
+
+// Recursive setTimeout, not a fixed setInterval - the delay is recomputed every tick
+// from the current level, so speeding up on a level-up needs no separate teardown/
+// rebuild of a running timer.
+function tetrisScheduleTick(){
+  const s = tetrisState;
+  if(!s || s.over || s.paused) return;
+  tetrisLoopId = setTimeout(() => { tetrisTick(); tetrisScheduleTick(); }, tetrisDropIntervalMs(s.level));
+}
+
+function tetrisTick(){
+  const s = tetrisState;
+  if(!s || s.over || s.paused) return;
+  if(!tetrisCollides(s.grid, s.current.matrix, s.current.x, s.current.y + 1)){
+    s.current.y += 1;
+  } else {
+    tetrisLockPiece(s);
+  }
+  if(s.over){ renderRoute(); return; } // genuine one-time transition to the game-over overlay
+  tetrisDraw();
+  tetrisUpdateInfoDOM();
+}
+
+function tetrisMove(dir){
+  const s = tetrisState;
+  if(!s || s.over || s.paused) return;
+  const nx = s.current.x + dir;
+  if(!tetrisCollides(s.grid, s.current.matrix, nx, s.current.y)){
+    s.current.x = nx;
+    tetrisDraw();
+  }
+}
+
+function tetrisRotate(dir){
+  const s = tetrisState;
+  if(!s || s.over || s.paused || s.current.type === 'O') return;
+  const rotated = dir > 0 ? tetrisRotateMatrix(s.current.matrix)
+    : tetrisRotateMatrix(tetrisRotateMatrix(tetrisRotateMatrix(s.current.matrix)));
+  if(!tetrisCollides(s.grid, rotated, s.current.x, s.current.y)){
+    s.current.matrix = rotated;
+    tetrisDraw();
+  }
+}
+
+function tetrisSoftDrop(){
+  const s = tetrisState;
+  if(!s || s.over || s.paused) return;
+  if(!tetrisCollides(s.grid, s.current.matrix, s.current.x, s.current.y + 1)){
+    s.current.y += 1;
+    s.score += 1; // classic soft-drop scoring: 1 point per cell dropped
+  } else {
+    tetrisLockPiece(s);
+    if(s.over){ renderRoute(); return; }
+  }
+  tetrisDraw();
+  tetrisUpdateInfoDOM();
+}
+
+function tetrisTogglePause(){
+  const s = tetrisState;
+  if(!s || s.over) return;
+  s.paused = !s.paused;
+  if(s.paused){ tetrisStopLoop(); tetrisClearDAS(); }
+  else tetrisScheduleTick();
+  const overlay = document.querySelector('.tetris-pause-overlay');
+  if(overlay) overlay.style.display = s.paused ? 'flex' : 'none';
+  const btn = document.querySelector('.tetris-pause-btn');
+  if(btn) btn.textContent = s.paused ? 'Resume' : 'Pause';
+}
+
+function tetrisClearDAS(){
+  if(tetrisDAS.timer) clearTimeout(tetrisDAS.timer);
+  if(tetrisDAS.repeatTimer) clearInterval(tetrisDAS.repeatTimer);
+  tetrisDAS = { dir: 0, timer: null, repeatTimer: null };
+}
+
+function tetrisDraw(){
+  const s = tetrisState;
+  const canvas = document.querySelector('.tetris-canvas');
+  if(!s || !canvas) return;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#15181f';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const B = TETRIS_BLOCK;
+  const drawCell = (x, y, color) => {
+    ctx.fillStyle = color;
+    ctx.fillRect(x * B + 1, y * B + 1, B - 2, B - 2);
+  };
+  for(let y = 0; y < TETRIS_ROWS; y++){
+    for(let x = 0; x < TETRIS_COLS; x++){
+      const v = s.grid[y][x];
+      if(v) drawCell(x, y, TETRIS_COLORS[v]);
+    }
+  }
+  const { matrix, x: px, y: py, type } = s.current;
+  for(let r = 0; r < matrix.length; r++){
+    for(let c = 0; c < matrix.length; c++){
+      if(matrix[r][c] && py + r >= 0) drawCell(px + c, py + r, TETRIS_COLORS[type]);
+    }
+  }
+}
+
+function tetrisDrawNext(){
+  const s = tetrisState;
+  const canvas = document.querySelector('.tetris-next-canvas');
+  if(!s || !canvas) return;
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#15181f';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  const matrix = TETRIS_SHAPES[s.next];
+  const n = matrix.length;
+  const B = Math.floor(canvas.width / 4);
+  const offset = (4 - n) / 2 * B;
+  for(let r = 0; r < n; r++){
+    for(let c = 0; c < n; c++){
+      if(matrix[r][c]){
+        ctx.fillStyle = TETRIS_COLORS[s.next];
+        ctx.fillRect(offset + c * B + 1, offset + r * B + 1, B - 2, B - 2);
+      }
+    }
+  }
+}
+
+function tetrisUpdateInfoDOM(){
+  const s = tetrisState;
+  if(!s) return;
+  const scoreEl = document.querySelector('.tetris-score');
+  const linesEl = document.querySelector('.tetris-lines');
+  const levelEl = document.querySelector('.tetris-level');
+  const bestEl = document.querySelector('.tetris-best');
+  if(scoreEl) scoreEl.textContent = String(s.score);
+  if(linesEl) linesEl.textContent = String(s.lines);
+  if(levelEl) levelEl.textContent = String(s.level);
+  if(bestEl) bestEl.textContent = String(s.best);
+  tetrisDrawNext();
+}
+
+// Scoped to the tetris route only via the .tetris-board-wrap check, same pattern as the
+// 2048 keyboard handler below - never intercepts arrow keys anywhere else on the site.
+function tetrisKeyDown(e){
+  if(!document.querySelector('.tetris-board-wrap')) return;
+  const s = tetrisState;
+  if(!s) return;
+  if(e.key === 'p' || e.key === 'P'){ e.preventDefault(); tetrisTogglePause(); return; }
+  if(s.over || s.paused) return;
+  if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+    e.preventDefault();
+    const dir = e.key === 'ArrowLeft' ? -1 : 1;
+    if(tetrisDAS.dir === dir) return; // already auto-repeating this direction
+    tetrisClearDAS();
+    tetrisMove(dir);
+    tetrisDAS.dir = dir;
+    tetrisDAS.timer = setTimeout(() => { tetrisDAS.repeatTimer = setInterval(() => tetrisMove(dir), 100); }, 267);
+  } else if(e.key === 'ArrowDown'){
+    e.preventDefault();
+    tetrisSoftDrop();
+  } else if(e.key === 'ArrowUp' || e.key === 'x' || e.key === 'X'){
+    e.preventDefault();
+    tetrisRotate(1);
+  } else if(e.key === 'z' || e.key === 'Z'){
+    e.preventDefault();
+    tetrisRotate(-1);
+  }
+}
+function tetrisKeyUp(e){
+  if(e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+    const dir = e.key === 'ArrowLeft' ? -1 : 1;
+    if(tetrisDAS.dir === dir) tetrisClearDAS();
+  }
+}
+
+// Press-and-hold for the on-screen move/soft-drop buttons - mirrors the keyboard's DAS
+// above (an immediate move, then a repeat after 267ms, then every 100ms while held).
+function tetrisWireHoldButton(btn, fn){
+  let timer = null, repeater = null;
+  const start = (e) => {
+    e.preventDefault();
+    fn();
+    timer = setTimeout(() => { repeater = setInterval(fn, 100); }, 267);
+  };
+  const stop = () => {
+    if(timer) clearTimeout(timer);
+    if(repeater) clearInterval(repeater);
+    timer = null; repeater = null;
+  };
+  btn.addEventListener('pointerdown', start);
+  btn.addEventListener('pointerup', stop);
+  btn.addEventListener('pointerleave', stop);
+  btn.addEventListener('pointercancel', stop);
+}
+
+// Applied after every full render on the tetris route (game start, or the game-over
+// overlay appearing) - a fresh .tetris-board-wrap exists each time, so fresh listeners
+// and a fresh draw are correct here, not a leak. Ordinary in-game moves/ticks patch the
+// canvas directly (tetrisDraw/tetrisUpdateInfoDOM) without ever calling this again.
+function wireTetris(container){
+  if(!tetrisState || tetrisState.over) return;
+  tetrisDraw();
+  tetrisUpdateInfoDOM();
+  const leftBtn = container.querySelector('[data-action="tetris-left"]');
+  const rightBtn = container.querySelector('[data-action="tetris-right"]');
+  const downBtn = container.querySelector('[data-action="tetris-down"]');
+  if(leftBtn) tetrisWireHoldButton(leftBtn, () => tetrisMove(-1));
+  if(rightBtn) tetrisWireHoldButton(rightBtn, () => tetrisMove(1));
+  if(downBtn) tetrisWireHoldButton(downBtn, () => tetrisSoftDrop());
+  if(!tetrisState.paused) tetrisScheduleTick();
+}
+
 // - Tower of Hanoi -
 // No generator needed - the board always starts fully stacked on peg 0 (largest disc
 // at the bottom, size N down to 1). The entire rule set is move validation: a disc can
@@ -14784,6 +15153,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Checkers", emoji: icon('checkerboard'), url: "#bt-checkers", internal: true },
   { name: "Connect 4", emoji: icon('fourInRow'), url: "#bt-connect4", internal: true },
   { name: "Corners", emoji: icon('target'), url: "#bt-corners", internal: true },
+  { name: "Tetris", emoji: icon('tetromino'), url: "#tetris-game", internal: true },
   { name: "Battleship", emoji: icon('ship'), url: "#battleship-game", internal: true },
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
   geoHubExternalTile("GeoGuessr"),
@@ -21589,6 +21959,83 @@ function g2048PlayingHtml(){
       </div>
     </section>
   `;
+}
+
+function tetrisIntroHtml(){
+  let best = 0;
+  try{ best = parseInt(localStorage.getItem('tetrisBest') || '0', 10); }catch(e){}
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="section-head"><span class="emoji">${icon('tetromino')}</span><h2>Tetris</h2></div>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px;">Guide each falling piece into place. Clear a line to make it vanish - clear four at once for a Tetris. The board fills up fast as the level - and the speed - climbs.</p>
+        <div class="hl-streak-row" style="margin-bottom:18px;">Best Score: <span class="tetris-best">${best}</span></div>
+        <div style="font-size:12.5px; color:var(--ink-soft); font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px; text-align:center;">Starting Level</div>
+        <div class="tetris-level-grid">
+          <button class="fg-start-btn" data-action="tetris-start" data-level="0">0</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="3">3</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="6">6</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="9">9</button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function tetrisPlayingHtml(){
+  const s = tetrisState;
+  let overlayHtml = '';
+  if(s.over){
+    overlayHtml = `
+      <div class="ms-overlay">
+        <div class="ms-overlay-msg">Game Over<br><span style="font-size:15px;">Score: ${s.score}</span></div>
+        <button class="fg-start-btn" data-action="tetris-start" data-level="${s.startLevel}">New Game</button>
+      </div>
+    `;
+  }
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap tetris-wrap">
+        <div class="section-head"><span class="emoji">${icon('tetromino')}</span><h2>Tetris</h2></div>
+        <div class="tetris-top-row">
+          <div>Score<br><b class="tetris-score">${s.score}</b></div>
+          <div>Lines<br><b class="tetris-lines">${s.lines}</b></div>
+          <div>Level<br><b class="tetris-level">${s.level}</b></div>
+          <div>Best<br><b class="tetris-best">${s.best}</b></div>
+        </div>
+        <div class="tetris-play-area">
+          <div class="ms-board-wrap tetris-board-wrap">
+            <canvas class="tetris-canvas" width="180" height="360"></canvas>
+            <div class="ms-overlay tetris-pause-overlay" style="display:${s.paused && !s.over ? 'flex' : 'none'};">
+              <div class="ms-overlay-msg">Paused</div>
+              <button class="fg-start-btn" data-action="tetris-pause-toggle">Resume</button>
+            </div>
+            ${overlayHtml}
+          </div>
+          <div class="tetris-side">
+            <div class="tetris-next-label">Next</div>
+            <canvas class="tetris-next-canvas" width="72" height="72"></canvas>
+          </div>
+        </div>
+        ${s.over ? '' : `
+        <div class="tetris-controls">
+          <button class="tetris-ctrl-btn" data-action="tetris-left" aria-label="Move left">${'←'}</button>
+          <button class="tetris-ctrl-btn" data-action="tetris-rotate" data-dir="1" aria-label="Rotate">${'↻'}</button>
+          <button class="tetris-ctrl-btn" data-action="tetris-right" aria-label="Move right">${'→'}</button>
+        </div>
+        <button class="tetris-ctrl-btn tetris-down-btn" data-action="tetris-down">${'↓'} Soft Drop</button>
+        <button class="tetris-pause-btn" data-action="tetris-pause-toggle">${s.paused ? 'Resume' : 'Pause'}</button>
+        `}
+      </div>
+    </section>
+  `;
+}
+
+function viewTetrisGame(){
+  if(!tetrisState) return tetrisIntroHtml();
+  return tetrisPlayingHtml();
 }
 
 function viewMastermindGame(){
@@ -29325,6 +29772,24 @@ document.addEventListener('click', (e) => {
     g2048KeepPlaying();
     return;
   }
+  const tetrisStartBtn = e.target.closest('[data-action="tetris-start"]');
+  if(tetrisStartBtn){
+    e.preventDefault();
+    tetrisStart(parseInt(tetrisStartBtn.dataset.level, 10) || 0);
+    return;
+  }
+  const tetrisRotateBtn = e.target.closest('[data-action="tetris-rotate"]');
+  if(tetrisRotateBtn){
+    e.preventDefault();
+    tetrisRotate(parseInt(tetrisRotateBtn.dataset.dir, 10) || 1);
+    return;
+  }
+  const tetrisPauseBtn = e.target.closest('[data-action="tetris-pause-toggle"]');
+  if(tetrisPauseBtn){
+    e.preventDefault();
+    tetrisTogglePause();
+    return;
+  }
   const minesweeperStartBtn = e.target.closest('[data-action="minesweeper-start"]');
   if(minesweeperStartBtn){
     e.preventDefault();
@@ -29605,6 +30070,8 @@ function renderRoute(opts){
     html = viewHanoiGame();
   } else if(parts[0] === '2048-game'){
     html = viewG2048Game();
+  } else if(parts[0] === 'tetris-game'){
+    html = viewTetrisGame();
   } else if(parts[0] === 'minesweeper-game'){
     html = viewMinesweeperGame();
   } else if(parts[0] === 'sudoku-game'){
@@ -29701,6 +30168,7 @@ function renderRoute(opts){
   }
   if(parts[0] === 'mind-temple'){ mtInit(); }
   if(parts[0] === '2048-game'){ wireG2048Touch(app); }
+  if(parts[0] === 'tetris-game'){ wireTetris(app); }
   if(parts[0] !== 'flag-game' && fgState){ fgState = null; }
   if(parts[0] !== 'capital-game' && ccState){ ccState = null; }
   if(parts[0] !== 'wordle-game' && wordleState){ wordleState = null; }
@@ -29719,6 +30187,16 @@ function renderRoute(opts){
   if(parts[0] !== 'higher-lower-game' && higherLowerState){ higherLowerState = null; }
   if(parts[0] !== 'true-false-game' && tfState){ tfState = null; }
   if(parts[0] !== 'xword-game' && xwState){ xwState = null; }
+  // Tetris keeps its state across a navigate-away (like 2048) rather than discarding an
+  // in-progress run, but unlike 2048 it has a live falling-piece timer that must never
+  // keep ticking off-screen - so leaving the route always stops the loop and, if the
+  // game wasn't already over, auto-pauses it. Coming back later resumes from the Paused
+  // overlay exactly where it was left.
+  if(parts[0] !== 'tetris-game' && tetrisState){
+    tetrisStopLoop();
+    tetrisClearDAS();
+    if(!tetrisState.over) tetrisState.paused = true;
+  }
   if(parts[0] === 'arcade' && parts[1]){ wireArcade(parts[1]); }
   if(parts[0] === 'bt-checkers' && parts[1] && parts[2]){
     wireBtGame('checkers');
@@ -31631,6 +32109,17 @@ setInterval(updateSudokuTimer, 1000);
     }
   });
 })();
+
+document.addEventListener('keydown', tetrisKeyDown);
+document.addEventListener('keyup', tetrisKeyUp);
+// A tab switch or app backgrounding mid-game shouldn't leave the drop timer ticking
+// unseen - same reasoning as the route-leave auto-pause in renderRoute, for the case
+// where the route never actually changes.
+document.addEventListener('visibilitychange', () => {
+  if(document.visibilityState === 'hidden' && tetrisState && !tetrisState.over && !tetrisState.paused && document.querySelector('.tetris-board-wrap')){
+    tetrisTogglePause();
+  }
+});
 
 // Real bug found and fixed via testing: renderRoute() was only ever wired to
 // hashchange, which fires on a CHANGE from one hash to another - it does NOT
