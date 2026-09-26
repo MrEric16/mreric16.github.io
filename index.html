@@ -4829,6 +4829,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .tetris-ctrl-btn{
     height:48px; border-radius:10px; border:none; background:var(--card); color:var(--ink);
     font-size:20px; cursor:pointer; box-shadow:0 2px 0 rgba(0,0,0,.08); touch-action:none;
+    user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
   }
   .tetris-down-btn{
     display:block; width:100%; max-width:260px; margin:8px auto 0; font-size:14px;
@@ -4837,7 +4838,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .tetris-pause-btn{
     display:block; margin:14px auto 0; border:none; background:var(--line); color:var(--ink);
     font-family:'Nunito', sans-serif; font-weight:700; font-size:13px; padding:9px 22px;
-    border-radius:999px; cursor:pointer;
+    border-radius:999px; cursor:pointer; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
   }
   .tetris-level-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
 
