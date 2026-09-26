@@ -4835,11 +4835,13 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     display:block; width:100%; max-width:260px; margin:8px auto 0; font-size:14px;
     font-family:'Nunito', sans-serif; font-weight:700;
   }
+  .tetris-bottom-row{ display:flex; gap:10px; justify-content:center; margin-top:14px; }
   .tetris-pause-btn{
-    display:block; margin:14px auto 0; border:none; background:var(--line); color:var(--ink);
+    border:none; background:var(--line); color:var(--ink);
     font-family:'Nunito', sans-serif; font-weight:700; font-size:13px; padding:9px 22px;
     border-radius:999px; cursor:pointer; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none;
   }
+  .tetris-quit-btn{ background:color-mix(in srgb, var(--coral) 16%, transparent); color:var(--coral); }
   .tetris-level-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
 
   .hanoi-board{ display:flex; justify-content:space-around; align-items:flex-end; gap:8px; max-width:420px; margin:0 auto; height:220px; }
@@ -14296,6 +14298,15 @@ function tetrisTogglePause(){
   if(btn) btn.textContent = s.paused ? 'Resume' : 'Pause';
 }
 
+// Abandons the current run (if any) and returns to the difficulty-select screen -
+// a genuine one-time transition, so a full renderRoute() (not a DOM patch) is correct.
+function tetrisQuit(){
+  tetrisStopLoop();
+  tetrisClearDAS();
+  tetrisState = null;
+  renderRoute();
+}
+
 function tetrisClearDAS(){
   if(tetrisDAS.timer) clearTimeout(tetrisDAS.timer);
   if(tetrisDAS.repeatTimer) clearInterval(tetrisDAS.repeatTimer);
@@ -21972,12 +21983,12 @@ function tetrisIntroHtml(){
         <div class="section-head"><span class="emoji">${icon('tetromino')}</span><h2>Tetris</h2></div>
         <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px;">Guide each falling piece into place. Clear a line to make it vanish - clear four at once for a Tetris. The board fills up fast as the level - and the speed - climbs.</p>
         <div class="hl-streak-row" style="margin-bottom:18px;">Best Score: <span class="tetris-best">${best}</span></div>
-        <div style="font-size:12.5px; color:var(--ink-soft); font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px; text-align:center;">Starting Level</div>
+        <div style="font-size:12.5px; color:var(--ink-soft); font-weight:700; text-transform:uppercase; letter-spacing:.03em; margin-bottom:8px; text-align:center;">Difficulty</div>
         <div class="tetris-level-grid">
-          <button class="fg-start-btn" data-action="tetris-start" data-level="0">0</button>
-          <button class="fg-start-btn" data-action="tetris-start" data-level="3">3</button>
-          <button class="fg-start-btn" data-action="tetris-start" data-level="6">6</button>
-          <button class="fg-start-btn" data-action="tetris-start" data-level="9">9</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="0">Easy</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="3">Medium</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="6">Hard</button>
+          <button class="fg-start-btn" data-action="tetris-start" data-level="29">LOL</button>
         </div>
       </div>
     </section>
@@ -21991,7 +22002,10 @@ function tetrisPlayingHtml(){
     overlayHtml = `
       <div class="ms-overlay">
         <div class="ms-overlay-msg">Game Over<br><span style="font-size:15px;">Score: ${s.score}</span></div>
-        <button class="fg-start-btn" data-action="tetris-start" data-level="${s.startLevel}">New Game</button>
+        <div style="display:flex; gap:10px;">
+          <button class="fg-start-btn" data-action="tetris-start" data-level="${s.startLevel}">Play Again</button>
+          <button class="fg-start-btn" data-action="tetris-quit" style="background:var(--line); color:var(--ink);">Change Difficulty</button>
+        </div>
       </div>
     `;
   }
@@ -22011,7 +22025,10 @@ function tetrisPlayingHtml(){
             <canvas class="tetris-canvas" width="180" height="360"></canvas>
             <div class="ms-overlay tetris-pause-overlay" style="display:${s.paused && !s.over ? 'flex' : 'none'};">
               <div class="ms-overlay-msg">Paused</div>
-              <button class="fg-start-btn" data-action="tetris-pause-toggle">Resume</button>
+              <div style="display:flex; gap:10px;">
+                <button class="fg-start-btn" data-action="tetris-pause-toggle">Resume</button>
+                <button class="fg-start-btn" data-action="tetris-quit" style="background:var(--line); color:var(--ink);">Quit</button>
+              </div>
             </div>
             ${overlayHtml}
           </div>
@@ -22027,7 +22044,10 @@ function tetrisPlayingHtml(){
           <button class="tetris-ctrl-btn" data-action="tetris-right" aria-label="Move right">${'→'}</button>
         </div>
         <button class="tetris-ctrl-btn tetris-down-btn" data-action="tetris-down">${'↓'} Soft Drop</button>
-        <button class="tetris-pause-btn" data-action="tetris-pause-toggle">${s.paused ? 'Resume' : 'Pause'}</button>
+        <div class="tetris-bottom-row">
+          <button class="tetris-pause-btn" data-action="tetris-pause-toggle">${s.paused ? 'Resume' : 'Pause'}</button>
+          <button class="tetris-pause-btn tetris-quit-btn" data-action="tetris-quit">Quit</button>
+        </div>
         `}
       </div>
     </section>
@@ -29789,6 +29809,12 @@ document.addEventListener('click', (e) => {
   if(tetrisPauseBtn){
     e.preventDefault();
     tetrisTogglePause();
+    return;
+  }
+  const tetrisQuitBtn = e.target.closest('[data-action="tetris-quit"]');
+  if(tetrisQuitBtn){
+    e.preventDefault();
+    tetrisQuit();
     return;
   }
   const minesweeperStartBtn = e.target.closest('[data-action="minesweeper-start"]');
