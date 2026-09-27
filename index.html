@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260927130346">
+<meta name="app-build" content="20260927131026">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -13813,6 +13813,8 @@ function sdkGeneratePuzzle(difficulty){
 }
 
 let sudokuState = null;
+const SUDOKU_STATE_KEY = 'btSudokuGameState_v1';
+function sudokuQuit(){ btClearState(SUDOKU_STATE_KEY); location.hash = '#geography-hub'; }
 
 function sudokuStart(difficulty){
   sudokuState = { loading: true, difficulty: difficulty || 'medium' };
@@ -13889,6 +13891,7 @@ function sudokuEnterNumber(n){
   }
   sudokuSyncCell(row, col);
   sudokuUpdateMistakesDOM();
+  btSaveState(SUDOKU_STATE_KEY, sudokuState); // direct save - taps patch the DOM in place, not via renderRoute
 }
 
 function sudokuClearCell(){
@@ -13897,6 +13900,7 @@ function sudokuClearCell(){
   if(sudokuState.given[row][col]) return;
   sudokuState.puzzle[row][col] = 0;
   sudokuSyncCell(row, col);
+  btSaveState(SUDOKU_STATE_KEY, sudokuState);
 }
 
 // The elapsed-time display used to only update as a side effect of some OTHER render
@@ -14037,6 +14041,8 @@ function g2048DetectSwipeDirection(dx, dy, threshold){
 }
 
 let g2048State = null;
+const G2048_STATE_KEY = 'bt2048GameState_v1';
+function g2048Quit(){ btClearState(G2048_STATE_KEY); location.hash = '#geography-hub'; }
 
 function g2048Start(){
   let tiles = [];
@@ -14131,6 +14137,7 @@ function g2048HandleMove(direction){
 
   g2048SyncDOM(result, spawnResult.spawned);
   g2048UpdateScoreDOM();
+  btSaveState(G2048_STATE_KEY, s); // direct save - moves patch the DOM in place, not via renderRoute
 }
 
 function g2048KeepPlaying(){
@@ -14214,6 +14221,7 @@ function tetrisRandomType(prevType){
 let tetrisState = null;
 let tetrisLoopId = null;
 let tetrisDAS = { dir: 0, timer: null, repeatTimer: null };
+const TETRIS_STATE_KEY = 'btTetrisGameState_v1';
 
 function tetrisSpawnNext(s){
   const type = s.next || tetrisRandomType(null);
@@ -14244,6 +14252,7 @@ function tetrisStart(startLevel){
     over: false, paused: false, best,
   };
   tetrisSpawnNext(tetrisState);
+  btSaveState(TETRIS_STATE_KEY, tetrisState);
   renderRoute();
 }
 
@@ -14297,6 +14306,7 @@ function tetrisTick(){
   if(s.over){ renderRoute(); return; } // genuine one-time transition to the game-over overlay
   tetrisDraw();
   tetrisUpdateInfoDOM();
+  btSaveState(TETRIS_STATE_KEY, s); // direct save - ticks patch the canvas in place, not via renderRoute
 }
 
 function tetrisMove(dir){
@@ -14306,6 +14316,7 @@ function tetrisMove(dir){
   if(!tetrisCollides(s.grid, s.current.matrix, nx, s.current.y)){
     s.current.x = nx;
     tetrisDraw();
+    btSaveState(TETRIS_STATE_KEY, s);
   }
 }
 
@@ -14317,6 +14328,7 @@ function tetrisRotate(dir){
   if(!tetrisCollides(s.grid, rotated, s.current.x, s.current.y)){
     s.current.matrix = rotated;
     tetrisDraw();
+    btSaveState(TETRIS_STATE_KEY, s);
   }
 }
 
@@ -14332,6 +14344,7 @@ function tetrisSoftDrop(){
   }
   tetrisDraw();
   tetrisUpdateInfoDOM();
+  btSaveState(TETRIS_STATE_KEY, s);
 }
 
 function tetrisTogglePause(){
@@ -14344,6 +14357,7 @@ function tetrisTogglePause(){
   if(overlay) overlay.style.display = s.paused ? 'flex' : 'none';
   const btn = document.querySelector('.tetris-pause-btn');
   if(btn) btn.textContent = s.paused ? 'Resume' : 'Pause';
+  btSaveState(TETRIS_STATE_KEY, s);
 }
 
 // Abandons the current run (if any) and returns to the difficulty-select screen -
@@ -14352,6 +14366,7 @@ function tetrisQuit(){
   tetrisStopLoop();
   tetrisClearDAS();
   tetrisStopHold();
+  btClearState(TETRIS_STATE_KEY);
   tetrisState = null;
   renderRoute();
 }
@@ -14524,6 +14539,8 @@ function wireTetris(container){
 const HANOI_DISC_OPTIONS = [3, 5, 7];
 
 let hanoiState = null;
+const HANOI_STATE_KEY = 'btHanoiGameState_v1';
+function hanoiQuit(){ btClearState(HANOI_STATE_KEY); location.hash = '#geography-hub'; }
 
 function hanoiStart(discCount){
   const n = HANOI_DISC_OPTIONS.includes(discCount) ? discCount : 5;
@@ -14607,6 +14624,8 @@ function hanoiSelectPeg(pegIndex){
     s.over = true;
     s.endTime = Date.now();
     renderRoute(); // genuine one-time transition to the completion view
+  } else {
+    btSaveState(HANOI_STATE_KEY, s); // direct save - moves patch the DOM in place, not via renderRoute
   }
 }
 
@@ -14651,6 +14670,8 @@ function loGeneratePuzzle(size, scrambleCount){
 }
 
 let lightsOutState = null;
+const LIGHTSOUT_STATE_KEY = 'btLightsOutGameState_v1';
+function lightsOutQuit(){ btClearState(LIGHTSOUT_STATE_KEY); location.hash = '#geography-hub'; }
 
 function lightsOutStart(){
   const size = LIGHTSOUT_SIZE;
@@ -14689,6 +14710,8 @@ function lightsOutTapCell(r, c){
     s.over = true;
     s.endTime = Date.now();
     renderRoute(); // genuine one-time transition to the completion view
+  } else {
+    btSaveState(LIGHTSOUT_STATE_KEY, s); // direct save - taps patch the DOM in place, not via renderRoute
   }
 }
 
@@ -14730,6 +14753,8 @@ function mastermindScoreGuess(secret, guess){
 }
 
 let mastermindState = null;
+const MASTERMIND_STATE_KEY = 'btMastermindGameState_v1';
+function mastermindQuit(){ btClearState(MASTERMIND_STATE_KEY); location.hash = '#geography-hub'; }
 
 function mastermindStart(){
   const secret = Array.from({ length: MASTERMIND_CODE_LENGTH }, () =>
@@ -14871,6 +14896,28 @@ function msFloodFill(rows, cols, counts, mines, startR, startC, revealed){
 }
 
 let minesweeperState = null;
+const MINESWEEPER_STATE_KEY = 'btMinesweeperGameState_v1';
+function minesweeperQuit(){ btClearState(MINESWEEPER_STATE_KEY); location.hash = '#geography-hub'; }
+// mines/revealed/flagged are Sets, which JSON.stringify silently turns into "{}" - these
+// two wrap the generic btSaveState/btLoadState with the Array<->Set conversion needed to
+// survive a real save/reload round trip without losing the board.
+function minesweeperSave(){
+  const s = minesweeperState;
+  btSaveState(MINESWEEPER_STATE_KEY, {
+    ...s,
+    mines: s.mines ? Array.from(s.mines) : null,
+    revealed: Array.from(s.revealed),
+    flagged: Array.from(s.flagged),
+  });
+}
+function minesweeperHydrate(){
+  const loaded = btLoadState(MINESWEEPER_STATE_KEY);
+  if(!loaded) return null;
+  loaded.mines = loaded.mines ? new Set(loaded.mines) : null;
+  loaded.revealed = new Set(loaded.revealed || []);
+  loaded.flagged = new Set(loaded.flagged || []);
+  return loaded;
+}
 
 function minesweeperStart(difficulty){
   const cfg = MINESWEEPER_DIFFICULTIES[difficulty] || MINESWEEPER_DIFFICULTIES.easy;
@@ -14991,6 +15038,7 @@ function minesweeperCellTap(r, c){
     minesweeperToggleFlag(r, c);
     minesweeperSyncCells(new Set([key]));
     minesweeperUpdateMinesLeft();
+    minesweeperSave();
     return;
   }
 
@@ -15008,6 +15056,7 @@ function minesweeperCellTap(r, c){
   const changed = new Set();
   for(const k of s.revealed){ if(!beforeRevealed.has(k)) changed.add(k); }
   minesweeperSyncCells(changed);
+  minesweeperSave();
 }
 
 function minesweeperToggleFlagMode(){
@@ -21957,6 +22006,13 @@ function hangmanEndHtml(){
 }
 
 function viewSudokuGame(){
+  if(!sudokuState){
+    sudokuState = btLoadState(SUDOKU_STATE_KEY);
+    // A saved snapshot mid the ~30ms generator delay is stuck forever on reload (the
+    // setTimeout that would finish it only existed in the original call) - treat it the
+    // same as no saved state at all rather than showing a permanent loading screen.
+    if(sudokuState && sudokuState.loading) sudokuState = null;
+  }
   if(!sudokuState) return sudokuIntroHtml();
   if(sudokuState.loading) return sudokuLoadingHtml();
   if(sudokuState.complete) return sudokuCompleteHtml();
@@ -22005,6 +22061,7 @@ function sudokuPlayingHtml(){
   const ss = String(elapsed % 60).padStart(2, '0');
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-action="sudoku-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="hl-streak-row">${s.difficulty[0].toUpperCase() + s.difficulty.slice(1)} · Mistakes: <span class="sdk-mistakes">${s.mistakes}</span> · <span class="sdk-timer">${mm}:${ss}</span></div>
@@ -22037,6 +22094,7 @@ function sudokuCompleteHtml(){
 }
 
 function viewG2048Game(){
+  if(!g2048State) g2048State = btLoadState(G2048_STATE_KEY);
   if(!g2048State) return g2048IntroHtml();
   return g2048PlayingHtml();
 }
@@ -22088,6 +22146,7 @@ function g2048PlayingHtml(){
 
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-action="g2048-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="hl-streak-row">Score: <span class="g2048-score">${s.score}</span> · Best: <span class="g2048-best">${s.best}</span></div>
@@ -22189,11 +22248,19 @@ function tetrisPlayingHtml(){
 }
 
 function viewTetrisGame(){
+  if(!tetrisState){
+    tetrisState = btLoadState(TETRIS_STATE_KEY);
+    // Same reasoning as the existing route-leave auto-pause: never resume with the drop
+    // timer already running unannounced - land on the Paused overlay and let Resume
+    // restart the loop explicitly, same as coming back from another in-app route.
+    if(tetrisState && !tetrisState.over) tetrisState.paused = true;
+  }
   if(!tetrisState) return tetrisIntroHtml();
   return tetrisPlayingHtml();
 }
 
 function viewMastermindGame(){
+  if(!mastermindState) mastermindState = btLoadState(MASTERMIND_STATE_KEY);
   if(!mastermindState) return mastermindIntroHtml();
   if(mastermindState.over) return mastermindCompleteHtml();
   return mastermindPlayingHtml();
@@ -22248,6 +22315,7 @@ function mastermindPlayingHtml(){
 
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-action="mastermind-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="hl-streak-row">Guess ${s.guesses.length + 1} of ${MASTERMIND_MAX_GUESSES}</div>
@@ -22281,6 +22349,7 @@ function mastermindCompleteHtml(){
 }
 
 function viewLightsOutGame(){
+  if(!lightsOutState) lightsOutState = btLoadState(LIGHTSOUT_STATE_KEY);
   if(!lightsOutState) return lightsOutIntroHtml();
   if(lightsOutState.over) return lightsOutCompleteHtml();
   return lightsOutPlayingHtml();
@@ -22309,6 +22378,7 @@ function lightsOutPlayingHtml(){
   }
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-action="lightsout-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="hl-streak-row">Moves: <span class="lo-moves">${s.moves}</span></div>
@@ -22337,6 +22407,7 @@ function lightsOutCompleteHtml(){
 }
 
 function viewHanoiGame(){
+  if(!hanoiState) hanoiState = btLoadState(HANOI_STATE_KEY);
   if(!hanoiState) return hanoiIntroHtml();
   if(hanoiState.over) return hanoiCompleteHtml();
   return hanoiPlayingHtml();
@@ -22370,6 +22441,7 @@ function hanoiPlayingHtml(){
   `).join('');
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-action="hanoi-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="hl-streak-row">${s.discCount} discs · Moves: <span class="hanoi-moves">${s.moves}</span> · Minimum: ${s.minMoves}</div>
@@ -22399,6 +22471,7 @@ function hanoiCompleteHtml(){
 }
 
 function viewMinesweeperGame(){
+  if(!minesweeperState) minesweeperState = minesweeperHydrate();
   if(!minesweeperState) return minesweeperIntroHtml();
   return minesweeperPlayingHtml();
 }
@@ -22465,6 +22538,7 @@ function minesweeperPlayingHtml(){
   }
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-action="minesweeper-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="hl-streak-row">${s.difficulty[0].toUpperCase() + s.difficulty.slice(1)} · Mines left: <span class="ms-mines-left">${minesLeft}</span></div>
@@ -29966,6 +30040,12 @@ document.addEventListener('click', (e) => {
     mastermindStart();
     return;
   }
+  const mastermindQuitBtn = e.target.closest('[data-action="mastermind-quit"]');
+  if(mastermindQuitBtn){
+    e.preventDefault();
+    mastermindQuit();
+    return;
+  }
   const mmSlotBtn = e.target.closest('[data-action="mm-slot"]');
   if(mmSlotBtn){
     e.preventDefault();
@@ -29990,10 +30070,22 @@ document.addEventListener('click', (e) => {
     lightsOutStart();
     return;
   }
+  const lightsOutQuitBtn = e.target.closest('[data-action="lightsout-quit"]');
+  if(lightsOutQuitBtn){
+    e.preventDefault();
+    lightsOutQuit();
+    return;
+  }
   const loCellBtn = e.target.closest('[data-action="lo-cell"]');
   if(loCellBtn){
     e.preventDefault();
     lightsOutTapCell(parseInt(loCellBtn.dataset.row, 10), parseInt(loCellBtn.dataset.col, 10));
+    return;
+  }
+  const hanoiQuitBtn = e.target.closest('[data-action="hanoi-quit"]');
+  if(hanoiQuitBtn){
+    e.preventDefault();
+    hanoiQuit();
     return;
   }
   const hanoiStartBtn = e.target.closest('[data-action="hanoi-start"]');
@@ -30026,6 +30118,12 @@ document.addEventListener('click', (e) => {
     g2048KeepPlaying();
     return;
   }
+  const g2048QuitBtn = e.target.closest('[data-action="g2048-quit"]');
+  if(g2048QuitBtn){
+    e.preventDefault();
+    g2048Quit();
+    return;
+  }
   const tetrisStartBtn = e.target.closest('[data-action="tetris-start"]');
   if(tetrisStartBtn){
     e.preventDefault();
@@ -30056,6 +30154,12 @@ document.addEventListener('click', (e) => {
     minesweeperStart(minesweeperStartBtn.dataset.mode);
     return;
   }
+  const minesweeperQuitBtn = e.target.closest('[data-action="minesweeper-quit"]');
+  if(minesweeperQuitBtn){
+    e.preventDefault();
+    minesweeperQuit();
+    return;
+  }
   const msCellBtn = e.target.closest('[data-action="ms-cell"]');
   if(msCellBtn){
     e.preventDefault();
@@ -30072,6 +30176,12 @@ document.addEventListener('click', (e) => {
   if(sudokuStartBtn){
     e.preventDefault();
     sudokuStart(sudokuStartBtn.dataset.mode);
+    return;
+  }
+  const sudokuQuitBtn = e.target.closest('[data-action="sudoku-quit"]');
+  if(sudokuQuitBtn){
+    e.preventDefault();
+    sudokuQuit();
     return;
   }
   const sudokuCellBtn = e.target.closest('[data-action="sudoku-cell"]');
@@ -30493,6 +30603,22 @@ function renderRoute(opts){
   if(parts[0] !== 'true-false-game' && tfState){ tfState = null; }
   if(parts[0] === 'xword-game' && xwState){ btSaveState(XW_STATE_KEY, xwState); }
   if(parts[0] !== 'xword-game' && xwState){ xwState = null; }
+  // Mastermind, Lights Out, Hanoi, 2048, Minesweeper and Sudoku previously had NO
+  // reset-on-leave line at all here (state just stayed in memory across an in-app
+  // navigate-away-and-back, but was lost on an actual app close/reload). Same
+  // save-then-null pattern as every game above, newly added for these six.
+  if(parts[0] === 'mastermind-game' && mastermindState){ btSaveState(MASTERMIND_STATE_KEY, mastermindState); }
+  if(parts[0] !== 'mastermind-game' && mastermindState){ mastermindState = null; }
+  if(parts[0] === 'lightsout-game' && lightsOutState){ btSaveState(LIGHTSOUT_STATE_KEY, lightsOutState); }
+  if(parts[0] !== 'lightsout-game' && lightsOutState){ lightsOutState = null; }
+  if(parts[0] === 'hanoi-game' && hanoiState){ btSaveState(HANOI_STATE_KEY, hanoiState); }
+  if(parts[0] !== 'hanoi-game' && hanoiState){ hanoiState = null; }
+  if(parts[0] === '2048-game' && g2048State){ btSaveState(G2048_STATE_KEY, g2048State); }
+  if(parts[0] !== '2048-game' && g2048State){ g2048State = null; }
+  if(parts[0] === 'minesweeper-game' && minesweeperState){ minesweeperSave(); }
+  if(parts[0] !== 'minesweeper-game' && minesweeperState){ minesweeperState = null; }
+  if(parts[0] === 'sudoku-game' && sudokuState && !sudokuState.loading){ btSaveState(SUDOKU_STATE_KEY, sudokuState); }
+  if(parts[0] !== 'sudoku-game' && sudokuState){ sudokuState = null; }
   // Tetris keeps its state across a navigate-away (like 2048) rather than discarding an
   // in-progress run, but unlike 2048 it has a live falling-piece timer that must never
   // keep ticking off-screen - so leaving the route always stops the loop and, if the
@@ -30503,6 +30629,7 @@ function renderRoute(opts){
     tetrisClearDAS();
     tetrisStopHold();
     if(!tetrisState.over) tetrisState.paused = true;
+    btSaveState(TETRIS_STATE_KEY, tetrisState);
   }
   if(parts[0] === 'arcade' && parts[1]){ wireArcade(parts[1]); }
   if(parts[0] === 'bt-checkers' && parts[1] && parts[2]){
