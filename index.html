@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260927155243">
+<meta name="app-build" content="20260927160130">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -23681,12 +23681,24 @@ function mtMountCheckersGame(container, opts){
                             // check below), alternates red/black in 2-player mode
 
   function setMsg(t){ if(msgEl) msgEl.textContent = t; }
+  // CPU-mode-only resume (human/pass-the-phone games never persist - see
+  // btCpuGameStateKey). selected/aiCaptureQueue are mid-tap UI state, not meaningful
+  // across an app close - resuming always lands with nothing selected.
+  function saveIfCpu(){
+    if(mode === 'cpu' && opts.stateKey) btSaveState(opts.stateKey, { board, turn, gameOver });
+  }
   function setupBoard(){
     board = mtCkInitBoard();
     turn = 'player'; activeColor = 'red'; selected = null; gameOver = false; aiThinking = false; aiCaptureQueue = null;
     setMsg((mode === 'human' ? "Red's move. Tap a piece, then tap where to move." : 'Your move (red). Tap a piece, then tap where to move.') + kamikazeHint);
   }
-  setupBoard();
+  if(mode === 'cpu' && opts.initialState){
+    board = opts.initialState.board; turn = opts.initialState.turn; gameOver = opts.initialState.gameOver;
+    activeColor = 'red'; selected = null; aiThinking = false; aiCaptureQueue = null;
+    setMsg(gameOver ? 'Game over.' : (turn === 'player' ? 'Your move (red). Tap a piece, then tap where to move.' : 'Computer is thinking...') + kamikazeHint);
+  } else {
+    setupBoard();
+  }
 
   function resize(){
     const w = Math.min(container.clientWidth, 340);
@@ -23829,6 +23841,7 @@ function mtMountCheckersGame(container, opts){
     turn = 'ai';
     aiThinking = true;
     setMsg('Computer is thinking...');
+    saveIfCpu();
     aiTimer = setTimeout(runAiTurn, 500);
   }
 
@@ -24003,9 +24016,17 @@ function mtMountCheckersGame(container, opts){
     if(checkGameOver()) return;
     turn = 'player';
     setMsg('Your move (red).');
+    saveIfCpu();
+  }
+  // Resuming mid the AI's own turn (app was closed right after the human moved, before
+  // the computer replied) - just let it move now, same 500ms "thinking" delay as normal.
+  if(mode === 'cpu' && opts.initialState && !gameOver && turn === 'ai'){
+    aiThinking = true;
+    setMsg('Computer is thinking...');
+    aiTimer = setTimeout(runAiTurn, 500);
   }
 
-  function onReset(){ const p = container.querySelector('.mt-result-overlay'); if(p) p.remove(); setupBoard(); resize(); }
+  function onReset(){ const p = container.querySelector('.mt-result-overlay'); if(p) p.remove(); setupBoard(); resize(); saveIfCpu(); }
   resetBtn.addEventListener('click', onReset);
   window.addEventListener('resize', resize);
   resize();
@@ -24600,7 +24621,8 @@ function chDrawPiece(ctx, type, color, cx, cy, s, squareColor){
 }
 
 
-function mtMountChessGame(container){
+function mtMountChessGame(container, opts){
+  opts = opts || {};
   container.innerHTML = `
     <div class="mt-checkers-wrap">
       <canvas class="mt-embedded-canvas mt-checkers-canvas"></canvas>
@@ -24646,6 +24668,14 @@ function mtMountChessGame(container){
     });
     if(history.length > 40) history.shift(); // plenty for a casual session, no unbounded growth
   }
+  // Chess (reached only via #arcade/chess) has no human/pass-the-phone mode at all to
+  // exclude - it's always vs the computer or a puzzle - so, unlike the other embedded
+  // games, this saves unconditionally rather than gating on a mode check. history
+  // (undo) and selected/hintSquare are UI/session state, not meaningful across an app
+  // close - resuming always starts with an empty undo stack and nothing selected.
+  function saveState(){
+    if(opts.stateKey) btSaveState(opts.stateKey, { mode, board, state, turn, gameOver, puzzleN, puzzleRemaining, puzzleName });
+  }
   function setupPlay(){
     mode = 'play'; puzzleN = null; puzzleRemaining = null; puzzleName = null;
     board = chInitBoard(); state = chInitState();
@@ -24666,7 +24696,25 @@ function mtMountChessGame(container){
     hintSquare = null;
     setMsg(`Puzzle: ${pick.name}. Find checkmate in ${n} move${n>1?'s':''} (white to move).`);
   }
-  setupPlay();
+  function restoreFromSaved(saved){
+    mode = saved.mode; puzzleN = saved.puzzleN; puzzleRemaining = saved.puzzleRemaining; puzzleName = saved.puzzleName;
+    board = saved.board; state = saved.state; turn = saved.turn; gameOver = saved.gameOver;
+    selected = null; aiThinking = false; history = []; hintSquare = null;
+    setMsg(gameOver ? 'Game over.' : (turn === 'white'
+      ? 'Your move (white). Tap a piece, then tap where to move.'
+      : (mode === 'puzzle' ? '...' : 'Computer is thinking...')));
+    // Resuming mid the opponent's own turn (app was closed right after the human
+    // moved, before the reply came back) - just let it move now, same delay as normal.
+    if(!gameOver && turn === 'black'){
+      aiThinking = true;
+      aiTimer = setTimeout(mode === 'puzzle' ? runPuzzleOpponentReply : runAiTurn, mode === 'puzzle' ? 450 : 500);
+    }
+  }
+  if(opts.initialState){
+    restoreFromSaved(opts.initialState);
+  } else {
+    setupPlay();
+  }
 
   function resize(){
     const w = Math.min(container.clientWidth, 360);
@@ -24771,12 +24819,14 @@ function mtMountChessGame(container){
       turn = 'black';
       aiThinking = true;
       setMsg('...');
+      saveState();
       aiTimer = setTimeout(runPuzzleOpponentReply, 450);
       return;
     }
     turn = 'black';
     aiThinking = true;
     setMsg('Computer is thinking...');
+    saveState();
     aiTimer = setTimeout(runAiTurn, 500);
   }
 
@@ -24794,6 +24844,7 @@ function mtMountChessGame(container){
     if(checkGameOver('white')) return;
     turn = 'white';
     setMsg(`Keep going \u2014 ${puzzleRemaining} move${puzzleRemaining>1?'s':''} left.`);
+    saveState();
   }
 
   function handlePointer(e){
@@ -24844,9 +24895,10 @@ function mtMountChessGame(container){
     if(checkGameOver('white')) return;
     turn = 'white';
     setMsg('Your move (white).');
+    saveState();
   }
 
-  function onReset(){ const p = container.querySelector('.mt-result-overlay'); if(p) p.remove(); setupPlay(); resize(); }
+  function onReset(){ const p = container.querySelector('.mt-result-overlay'); if(p) p.remove(); setupPlay(); resize(); saveState(); }
   resetBtn.addEventListener('click', onReset);
 
   function onUndo(){
@@ -24861,6 +24913,7 @@ function mtMountChessGame(container){
     if(aiTimer){ clearTimeout(aiTimer); aiTimer = null; }
     setMsg(mode === 'puzzle' ? `Undone \u2014 ${puzzleRemaining} move${puzzleRemaining>1?'s':''} left.` : 'Undone. Your move (white).');
     draw();
+    saveState();
   }
   undoBtn.addEventListener('click', onUndo);
 
@@ -24888,6 +24941,7 @@ function mtMountChessGame(container){
       if(btn.dataset.mode === 'play'){ setupPlay(); }
       else { setupPuzzle(parseInt(btn.dataset.n, 10), puzzleName); }
       resize();
+      saveState();
     });
   });
 
@@ -25050,11 +25104,24 @@ function mtMountConnectFourGame(container, opts){
   let drops = []; // brief falling-piece animation state per placement
 
   function setMsg(t){ if(msgEl) msgEl.textContent = t; }
+  // CPU-mode-only resume (human/pass-the-phone games never persist - see
+  // btCpuGameStateKey). Only board/turn/gameOver are worth saving; drops is a brief
+  // falling-piece animation and aiThinking is mid-turn UI state, neither meaningful
+  // across an app close.
+  function saveIfCpu(){
+    if(mode === 'cpu' && opts.stateKey) btSaveState(opts.stateKey, { board, turn, gameOver });
+  }
   function setup(){
     board = c4InitBoard(); turn = 'red'; gameOver = false; aiThinking = false; drops = [];
     setMsg(mode === 'human' ? "Red's move. Tap a column to drop." : 'Your move (red). Tap a column to drop.');
   }
-  setup();
+  if(mode === 'cpu' && opts.initialState){
+    board = opts.initialState.board; turn = opts.initialState.turn; gameOver = opts.initialState.gameOver;
+    aiThinking = false; drops = [];
+    setMsg(gameOver ? 'Game over.' : (turn === 'red' ? 'Your move (red). Tap a column to drop.' : 'Computer is thinking...'));
+  } else {
+    setup();
+  }
 
   function resize(){
     const w = Math.min(container.clientWidth, 360);
@@ -25154,6 +25221,7 @@ function mtMountConnectFourGame(container, opts){
     turn = 'yellow';
     aiThinking = true;
     setMsg('Computer is thinking...');
+    saveIfCpu();
     aiTimer = setTimeout(runAiTurn, 500);
   }
   canvas.addEventListener('pointerdown', handlePointer);
@@ -25166,9 +25234,17 @@ function mtMountConnectFourGame(container, opts){
     if(gameOver) return;
     turn = 'red';
     setMsg('Your move (red).');
+    saveIfCpu();
+  }
+  // Resuming mid the AI's own turn (app was closed right after the human moved, before
+  // the computer replied) - just let it move now, same 500ms "thinking" delay as normal.
+  if(mode === 'cpu' && opts.initialState && !gameOver && turn === 'yellow'){
+    aiThinking = true;
+    setMsg('Computer is thinking...');
+    aiTimer = setTimeout(runAiTurn, 500);
   }
 
-  function onReset(){ const p = container.querySelector('.mt-result-overlay'); if(p) p.remove(); setup(); resize(); }
+  function onReset(){ const p = container.querySelector('.mt-result-overlay'); if(p) p.remove(); setup(); resize(); saveIfCpu(); }
   resetBtn.addEventListener('click', onReset);
   window.addEventListener('resize', resize);
   resize();
@@ -25282,6 +25358,13 @@ function mtMountCornersGame(container, opts){
   let board, turn, selected, hasJumped, jumpedOverKeys, gameOver, aiTimer = null;
 
   function setMsg(t){ if(msgEl) msgEl.textContent = t; }
+  // CPU-mode-only resume (human/pass-the-phone games never persist - see
+  // btCpuGameStateKey). selected/hasJumped/jumpedOverKeys are mid-tap chain-jump UI
+  // state, not meaningful across an app close - resuming always lands with nothing
+  // selected and no in-progress jump chain.
+  function saveIfCpu(){
+    if(mode === 'cpu' && opts.stateKey) btSaveState(opts.stateKey, { board, turn, gameOver });
+  }
 
   function setup(){
     board = cornersInitBoard();
@@ -25293,6 +25376,22 @@ function mtMountCornersGame(container, opts){
     setMsg(mode === 'human' ? "Player A's move." : 'Your move.');
     render();
   }
+  function restoreFromSaved(saved){
+    board = saved.board;
+    turn = saved.turn;
+    selected = null;
+    hasJumped = false;
+    jumpedOverKeys = new Set();
+    gameOver = saved.gameOver;
+    setMsg(gameOver ? 'Game over.' : (turn === 'a' ? 'Your move.' : 'Computer is thinking...'));
+    render();
+    // Resuming mid the AI's own turn (app was closed right after the human moved,
+    // before the computer replied) - just let it move now, same 500ms delay as normal.
+    if(!gameOver && turn === 'b'){
+      aiTimer = setTimeout(aiMove, 500);
+    }
+  }
+  function onReset(){ setup(); saveIfCpu(); }
 
   function render(){
     let html = '';
@@ -25372,6 +25471,7 @@ function mtMountCornersGame(container, opts){
       ? (turn === 'a' ? "Player A's move." : "Player B's move.")
       : (turn === 'a' ? 'Your move.' : 'Computer is thinking...'));
     render();
+    saveIfCpu();
     if(mode === 'cpu' && turn === 'b'){
       aiTimer = setTimeout(aiMove, 500);
     }
@@ -25404,15 +25504,19 @@ function mtMountCornersGame(container, opts){
     if(btn) handleTap(parseInt(btn.dataset.r,10), parseInt(btn.dataset.c,10));
   }
   boardEl.addEventListener('click', onBoardClick);
-  resetBtn.addEventListener('click', setup);
+  resetBtn.addEventListener('click', onReset);
 
-  setup();
+  if(mode === 'cpu' && opts.initialState){
+    restoreFromSaved(opts.initialState);
+  } else {
+    setup();
+  }
 
   return function cleanup(){
     running = false;
     if(aiTimer) clearTimeout(aiTimer);
     boardEl.removeEventListener('click', onBoardClick);
-    resetBtn.removeEventListener('click', setup);
+    resetBtn.removeEventListener('click', onReset);
     setCornersNoZoom(false);
   };
 }
@@ -27872,14 +27976,21 @@ function viewArcade(id){
       <section style="padding-top:14px;"><div class="empty-card">That game doesn't exist.</div></section>
     `;
   }
+  // The quit button is scoped to id==='chess' specifically - this route also serves an
+  // undocumented Easter egg (typing "pixel8" in search surfaces every MT_EMBEDDED_GAMES
+  // entry via #arcade/<id>), and only Chess, the one Brain Train game that lives here,
+  // now has any saved state to clear.
   return `
     <a class="back-link" href="#" data-mt-exit>← Back to Mr Eric's Lounge</a>
+    ${id === 'chess' ? `<button class="back-link bt-quit-btn" data-action="chess-quit" style="margin-left:14px;">Quit</button>` : ''}
     <section style="padding-top:14px;">
       <div class="section-head"><h2>${escapeHtml(game.title)}</h2></div>
       <div class="mt-wrap" id="arcadeContainer"></div>
     </section>
   `;
 }
+const CHESS_STATE_KEY = 'btChessGameState_v1';
+function chessQuit(){ btClearState(CHESS_STATE_KEY); location.hash = '#geography-hub'; }
 function wireArcade(id){
   const game = MT_EMBEDDED_GAMES[id];
   const slot = document.getElementById('arcadeContainer');
@@ -27889,7 +28000,8 @@ function wireArcade(id){
   // renderRoute, see below) is enough to guarantee nothing is ever left running detached,
   // regardless of which of the two entry points mounted it.
   if(mtActiveEmbeddedCleanup){ mtActiveEmbeddedCleanup(); mtActiveEmbeddedCleanup = null; }
-  mtActiveEmbeddedCleanup = game.mount(slot);
+  const mountOpts = id === 'chess' ? { stateKey: CHESS_STATE_KEY, initialState: btLoadState(CHESS_STATE_KEY) } : undefined;
+  mtActiveEmbeddedCleanup = game.mount(slot, mountOpts);
   slot.querySelectorAll('canvas').forEach(mtPreventTouchNav);
 }
 
@@ -27955,6 +28067,7 @@ function viewBtGame(key){
   const variantSuffix = (key === 'checkers' && btCheckersKamikaze) ? ' - Kamikaze' : '';
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    ${btGameMode === 'cpu' ? `<button class="back-link bt-quit-btn" data-action="bt-game-quit" data-game="${key}" style="margin-left:14px;">Quit</button>` : ''}
     <section style="padding-top:14px;">
       <div class="section-head"><h2>${escapeHtml(game.title.replace(' (vs computer)', ''))}${btGameMode === 'human' ? ' (2 Player)' : ' (vs Computer)'}${variantSuffix}</h2></div>
       <div class="mt-wrap" id="btGameContainer"></div>
@@ -27965,13 +28078,32 @@ function viewBtGame(key){
 let btGameMode = 'cpu';
 let btCheckersKamikaze = false;
 
+// CPU-mode-only resume, per explicit request: a human-vs-human (pass the phone) game
+// never persists - there's no clean way to "resume" a live 2-player match after the app
+// closes, and both players are gone anyway. Only 1-player-vs-computer state is worth
+// saving. Checkers has two independent CPU saves (kamikaze is a rules variant, not a
+// difficulty - resuming a kamikaze game as a normal one, or vice versa, would be wrong).
+function btCpuGameStateKey(key){
+  if(key === 'checkers') return btCheckersKamikaze ? 'btCheckersKamikazeCpuState_v1' : 'btCheckersCpuState_v1';
+  if(key === 'connect4') return 'btConnect4CpuState_v1';
+  if(key === 'corners') return 'btCornersCpuState_v1';
+  return null;
+}
+function btGameQuit(key){
+  const storageKey = btCpuGameStateKey(key);
+  if(storageKey) btClearState(storageKey);
+  location.hash = '#geography-hub';
+}
+
 function wireBtGame(key){
   const g = BT_TWO_PLAYER_GAMES[key];
   const game = g ? MT_EMBEDDED_GAMES[g.id] : null;
   const slot = document.getElementById('btGameContainer');
   if(!game || !slot) return;
   if(mtActiveEmbeddedCleanup){ mtActiveEmbeddedCleanup(); mtActiveEmbeddedCleanup = null; }
-  mtActiveEmbeddedCleanup = game.mount(slot, { mode: btGameMode, kamikaze: key === 'checkers' && btCheckersKamikaze });
+  const stateKey = btGameMode === 'cpu' ? btCpuGameStateKey(key) : null;
+  const initialState = stateKey ? btLoadState(stateKey) : null;
+  mtActiveEmbeddedCleanup = game.mount(slot, { mode: btGameMode, kamikaze: key === 'checkers' && btCheckersKamikaze, stateKey, initialState });
   slot.querySelectorAll('canvas').forEach(mtPreventTouchNav);
 }
 
@@ -30327,6 +30459,18 @@ document.addEventListener('click', (e) => {
     // this can't silently break again the next time a game is added here.
     const gameKey = 'bt-' + btModePickBtn.dataset.game;
     location.hash = '#' + gameKey + '/' + btModePickBtn.dataset.mode;
+    return;
+  }
+  const btGameQuitBtn = e.target.closest('[data-action="bt-game-quit"]');
+  if(btGameQuitBtn){
+    e.preventDefault();
+    btGameQuit(btGameQuitBtn.dataset.game);
+    return;
+  }
+  const chessQuitBtn = e.target.closest('[data-action="chess-quit"]');
+  if(chessQuitBtn){
+    e.preventDefault();
+    chessQuit();
     return;
   }
   const btCheckersVariantBtn = e.target.closest('[data-action="bt-checkers-variant-pick"]');
