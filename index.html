@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260927131026">
+<meta name="app-build" content="20260927155243">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -11137,6 +11137,25 @@ function bsAiRegisterResult(state, r, c, result){
 const BS_WINS_KEY = 'battleshipWins';
 const BS_STREAK_KEY = 'battleshipStreak';
 let bsState = null;
+const BS_STATE_KEY = 'btBattleshipGameState_v1';
+function bsQuit(){ btClearState(BS_STATE_KEY); location.hash = '#geography-hub'; }
+// playerFired/aiFired are Sets, which JSON.stringify silently turns into "{}" - these
+// two wrap the generic btSaveState/btLoadState with the Array<->Set conversion needed
+// to survive a real save/reload round trip without losing which cells were fired at.
+function bsSave(){
+  btSaveState(BS_STATE_KEY, {
+    ...bsState,
+    playerFired: Array.from(bsState.playerFired),
+    aiFired: Array.from(bsState.aiFired),
+  });
+}
+function bsHydrate(){
+  const loaded = btLoadState(BS_STATE_KEY);
+  if(!loaded) return null;
+  loaded.playerFired = new Set(loaded.playerFired || []);
+  loaded.aiFired = new Set(loaded.aiFired || []);
+  return loaded;
+}
 
 function bsStart(){
   const player = bsPlaceShipsRandomly(BS_GRID_SIZE, BS_SHIPS_DEF);
@@ -21234,6 +21253,7 @@ function bsPlayingHtml(){
     onFireAction: '',
   });
   return `
+    <button class="back-link bt-quit-btn" data-action="bs-quit">← Quit</button>
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="fg-progress-row">
@@ -21270,6 +21290,7 @@ function bsEndHtml(){
 }
 
 function viewBattleshipGame(){
+  if(!bsState) bsState = bsHydrate();
   if(!bsState){
     return bsIntroHtml();
   }
@@ -29912,6 +29933,12 @@ document.addEventListener('click', (e) => {
     bsStart();
     return;
   }
+  const bsQuitBtn = e.target.closest('[data-action="bs-quit"]');
+  if(bsQuitBtn){
+    e.preventDefault();
+    bsQuit();
+    return;
+  }
   const bsFireBtn = e.target.closest('[data-action="bs-fire"]');
   if(bsFireBtn){
     e.preventDefault();
@@ -30582,6 +30609,7 @@ function renderRoute(opts){
   if(parts[0] !== 'idiom-match-game' && idiomMatchState){ idiomMatchState = null; }
   if(parts[0] === 'antonym-match-game' && antMatchState){ btSaveState(ANT_MATCH_STATE_KEY, antMatchState); }
   if(parts[0] !== 'antonym-match-game' && antMatchState){ antMatchState = null; }
+  if(parts[0] === 'battleship-game' && bsState){ bsSave(); }
   if(parts[0] !== 'battleship-game' && bsState){ bsState = null; }
   if(parts[0] === 'currency-game' && currencyState){ btSaveState(CUR_STATE_KEY, currencyState); }
   if(parts[0] !== 'currency-game' && currencyState){ currencyState = null; }
