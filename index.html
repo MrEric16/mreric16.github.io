@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260926192110">
+<meta name="app-build" content="20260927112250">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -27961,10 +27961,17 @@ async function loadSubmittedPhotos(){
       };
     }));
     SUBMITTED_PHOTOS = withUrls.filter(Boolean);
+    // Real bug fixed here: this checked hash === 'photos' and re-rendered via
+    // viewPhotos() - but 'photos' is a DIFFERENT page (the Superstars/Photo
+    // Library menu). The actual Photo Library grid lives at 'photo-library'
+    // via viewPhotoLibrary(). Because of the mismatch, submitted photos were
+    // finishing their fetch in the background but never actually appearing on
+    // screen - only a fresh navigation away and back would show them, which is
+    // exactly the "sometimes they load late, sometimes they don't" symptom.
     const hash = location.hash.replace(/^#/, '');
-    if(hash.split('/')[0] === 'photos' && SUBMITTED_PHOTOS.length > 0){
+    if(hash.split('/')[0] === 'photo-library' && SUBMITTED_PHOTOS.length > 0){
       const app = document.getElementById('app');
-      app.innerHTML = viewPhotos();
+      app.innerHTML = viewPhotoLibrary();
       wirePhotoLightbox(app);
       wirePhotoUpload(app);
     }
@@ -27976,12 +27983,20 @@ function wirePhotoLightbox(container){
   const closeBtn = container.querySelector('#lightboxClose');
   if(!lightbox || !track) return;
   let currentIndex = 0;
-  function loadNearby(idx){
-    // Only the current slide plus one on each side ever get a real src -
-    // this is the actual fix for photos loading slowly: previously every
-    // photo in the whole library requested at once when the lightbox opened.
-    for(let i = Math.max(0, idx - 1); i <= Math.min(track.children.length - 1, idx + 1); i++){
-      const img = track.children[i] && track.children[i].querySelector('img');
+  // Real bug found and fixed: swiping between slides is native browser scroll-
+  // snap (see .lightbox-track/.lightbox-slide CSS) - there is no scroll listener
+  // on the track, so a touch swipe never runs any JS at all. The previous
+  // approach only ever promoted data-src -> src for the CURRENT slide's
+  // immediate neighbors, and only from goToSlide() (keyboard/click navigation).
+  // A native swipe past that one neighbor landed on a slide that had never been
+  // given a real src - an empty <img>, showing the dimmed backdrop through it
+  // until the user gave up and closed it. Loading every slide's real src the
+  // moment the lightbox actually opens (not before - the slides still carry
+  // only data-src at page-render time, so the Photo Library page itself never
+  // pays for this) fixes it: every swipe, in either direction, is instant.
+  function loadAll(){
+    for(let i = 0; i < track.children.length; i++){
+      const img = track.children[i].querySelector('img');
       if(img && img.dataset.src){
         img.src = img.dataset.src;
         delete img.dataset.src;
@@ -27992,7 +28007,7 @@ function wirePhotoLightbox(container){
     currentIndex = idx;
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
-    loadNearby(idx);
+    loadAll();
     const slide = track.children[idx];
     if(slide) slide.scrollIntoView({ block:'nearest', inline:'center' });
   }
@@ -28003,7 +28018,6 @@ function wirePhotoLightbox(container){
   function goToSlide(idx){
     const clamped = Math.max(0, Math.min(track.children.length - 1, idx));
     currentIndex = clamped;
-    loadNearby(clamped);
     const slide = track.children[clamped];
     if(slide) slide.scrollIntoView({ block:'nearest', inline:'center', behavior:'smooth' });
   }
