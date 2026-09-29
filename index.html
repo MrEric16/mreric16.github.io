@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260929063953">
+<meta name="app-build" content="20260929064220">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -19895,7 +19895,7 @@ async function fetchWordEntry(word){
   // it into a normal "rejected" entry, which allSettled already tolerates fine.
   const dictFetch = (url) => {
     const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 4000);
+    const timer = setTimeout(() => controller.abort(), 1500);
     return fetch(url, { signal: controller.signal }).finally(() => clearTimeout(timer));
   };
   let defData = null, synData = null, antData = null, datamuseDefData = null;
@@ -20047,7 +20047,7 @@ function wireSearch(container){
       if(!entry){ dictCard.innerHTML = ''; return; }
       dictCard.innerHTML = dictCardHtml(entry);
       wireDictCard(dictCard, entry);
-    }, 900);
+    }, 300);
   }
 
   input.addEventListener('input', ()=>{
