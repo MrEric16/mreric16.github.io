@@ -1,9 +1,9 @@
 [event-candidates] 74 already published, 0 already pending review
-[event-candidates] NASA scheduled-events page: captured 262570 chars
-[event-candidates] NASA scheduled-events page: found 0 distinct /scheduled-video/ link(s)
-[event-candidates]   DIAGNOSTIC: 333 total href-bearing elements on the page; 5 contain 'video' or 'scheduled': ['https://plus.nasa.gov/scheduled-events/', 'https://plus.nasa.gov/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fplus.nasa.gov%2Fscheduled-events%2F', 'https://plus.nasa.gov/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fplus.nasa.gov%2Fscheduled-events%2F&format=xml', 'https://plus.nasa.gov/scheduled-events/', 'https://plus.nasa.gov/scheduled-events/']
-[event-candidates]   DIAGNOSTIC: raw HTML around a known title/keyword match: '<!DOCTYPE html><html lang="en-US" xml:lang="en-US" prefix="og: https://ogp.me/ns#" class=""><head>\n\t\t<meta charset="UTF-8">\n\t<meta name="viewport" content="width=device-width, initial-scale=1">\n\t<title>Scheduled Events | NASA+</title>\n\t<meta property="og:title" content="Scheduled Events">\n\t<meta property="og:site_name" content="NASA+">\n\t<meta property="og:type" content="website">\n\t<meta property="og:url" content="https://plus.nasa.gov/scheduled-events/">\n\t<meta property="og:image" content="https:/'
-[event-candidates] NASA scheduled-events page: found 0 candidate(s), 0 card(s) with an unparseable date
+[event-candidates] NASA scheduled-events page: captured 269086 chars
+[event-candidates] NASA scheduled-events page: found 2 distinct /scheduled-video/ link(s)
+[event-candidates]   could not parse a date/time from NASA card 'NASA’s SpaceX Crew-13 Launch' - raw card text: 'Watch Now Open Video Player October 1, 2026 9:20 am NASA’s SpaceX Crew-13 Launch Coverage of the Launch of the NASA/SpaceX Crew-13 Crew to the International Space Station.'
+[event-candidates]   could not parse a date/time from NASA card 'NASA’s SpaceX Crew-13 Arrival & Welcome Remarks' - raw card text: 'Watch Now Open Video Player October 1, 2026 5:20 pm NASA’s SpaceX Crew-13 Arrival & Welcome Remarks Coverage of the Rendezvous, Docking, Hatch Opening and Welcoming Remarks by the NASA/SpaceX Crew-13 '
+[event-candidates] NASA scheduled-events page: found 0 candidate(s), 2 card(s) with an unparseable date
 [event-candidates] NGA page: captured 28636 chars
 [event-candidates] NGA page: found 2 h2/h3 headings to check
 [event-candidates] NGA page: checked 0 dated headings, found 0 explicitly-virtual/online candidate(s)
