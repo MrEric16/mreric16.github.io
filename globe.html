@@ -341,15 +341,19 @@ function factFileHtml(c){
     row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null),
     row('Head of government', c.headOfGovernment ? escapeHtml(c.headOfGovernment) + ' <span class="info-sub">(as of Oct 2026 - changes often)</span>' : null)
   ];
-  // GDP, passport-index and life expectancy are the indexed stats sourced in
-  // bulk for all 196 entries - every other indexed/volatile stat (crime,
-  // military spend, happiness index, unemployment, literacy, etc.) is still
-  // left out rather than guessed. All carry their source and year rather
-  // than being stated as plain fact, since they update periodically - head
-  // of government especially, which is a live snapshot, not a stable fact.
+  // GDP, passport-index, life expectancy, literacy, unemployment, internet
+  // usage, happiness score and peace/safety score are the indexed stats
+  // sourced in bulk for all/most of the 196 entries - crime rate and
+  // military spend are the only two the user explicitly accepted leaving
+  // out as too unreliable/confidential to source cleanly. All carry their
+  // source and year rather than being stated as plain fact, since they
+  // update periodically - head of government especially, which is a live
+  // snapshot, not a stable fact.
   const economyRows = [
     row('GDP (nominal)', c.gdpMillionUsd != null ? escapeHtml(formatGdp(c.gdpMillionUsd)) : null),
     row('Passport rank', c.passportRank != null ? `#${c.passportRank} of 195 <span class="info-sub">(${c.passportVisaFreeCount} visa-free/on-arrival destinations)</span>` : null),
+    row('Happiness score', c.happinessScore != null ? `${c.happinessScore} <span class="info-sub">(rank #${c.happinessRank} of ${c.happinessRankOf})</span>` : null),
+    row('Peace / safety rank', c.peaceRank != null ? `#${c.peaceRank} of ${c.peaceRankOf} <span class="info-sub">(score ${c.peaceScore}, lower = safer)</span>` : null),
     row('Life expectancy', c.lifeExpectancy != null ? `${c.lifeExpectancy} years` : null),
     row('Literacy rate', c.literacyRate != null ? `${c.literacyRate}%` + (c.literacyNote ? ` <span class="info-sub">(${escapeHtml(c.literacyNote)})</span>` : c.literacyYear ? ` <span class="info-sub">(${c.literacyYear})</span>` : '') : null),
     row('Unemployment rate', c.unemploymentRate != null ? `${c.unemploymentRate}%` : null),
@@ -357,7 +361,7 @@ function factFileHtml(c){
   ];
   const economyContent = economyRows.filter(Boolean).join('');
   const economySection = economyContent
-    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. All change over time.</p></details>`
+    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Happiness: World Happiness Report 2025 (avg 2022-24). Peace/safety: Global Peace Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. All change over time.</p></details>`
     : '';
   if(!f){
     const bulkContent = bulkRows.filter(Boolean).join('');
