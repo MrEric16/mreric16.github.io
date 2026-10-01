@@ -1,39 +1,109 @@
 {
   "uz": {
-    "government": { "form": "Unitary presidential constitutional republic", "nationalDay": "September 1 (Independence Day)" },
+    "government": {
+      "form": "Unitary presidential constitutional republic",
+      "nationalDay": "September 1 (Independence Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "September 1, 1991", "from": "Soviet Union" },
-    "formerNames": ["Uzbek Soviet Socialist Republic (1924–1991)"],
+    "independence": {
+      "date": "September 1, 1991",
+      "from": "Soviet Union"
+    },
+    "formerNames": [
+      "Uzbek Soviet Socialist Republic (1924–1991)"
+    ],
     "formerCapitals": [],
     "earliestSettlement": "Samarkand is one of the oldest continuously inhabited cities in Central Asia, settled by at least the 7th century BC.",
     "keyDates": [
-      { "year": -329, "event": "Alexander the Great conquers Sogdiana, including Samarkand" },
-      { "year": 1370, "event": "Timur (Tamerlane) makes Samarkand the capital of his empire" },
-      { "year": 1865, "event": "Russian Empire captures Tashkent" },
-      { "year": 1924, "event": "Uzbek SSR formed within the Soviet Union" },
-      { "year": 1991, "event": "Independence from the Soviet Union, September 1" },
-      { "year": 2016, "event": "Shavkat Mirziyoyev becomes president, launching a reform era" }
+      {
+        "year": -329,
+        "event": "Alexander the Great conquers Sogdiana, including Samarkand"
+      },
+      {
+        "year": 1370,
+        "event": "Timur (Tamerlane) makes Samarkand the capital of his empire"
+      },
+      {
+        "year": 1865,
+        "event": "Russian Empire captures Tashkent"
+      },
+      {
+        "year": 1924,
+        "event": "Uzbek SSR formed within the Soviet Union"
+      },
+      {
+        "year": 1991,
+        "event": "Independence from the Soviet Union, September 1"
+      },
+      {
+        "year": 2016,
+        "event": "Shavkat Mirziyoyev becomes president, launching a reform era"
+      }
     ],
     "historicalFigures": [
-      { "name": "Timur (Tamerlane)", "wiki": "https://en.wikipedia.org/wiki/Timur" },
-      { "name": "Mirzo Ulugh Beg", "wiki": "https://en.wikipedia.org/wiki/Ulugh_Beg" },
-      { "name": "Al-Khwarizmi", "wiki": "https://en.wikipedia.org/wiki/Al-Khwarizmi" }
+      {
+        "name": "Timur (Tamerlane)",
+        "wiki": "https://en.wikipedia.org/wiki/Timur"
+      },
+      {
+        "name": "Mirzo Ulugh Beg",
+        "wiki": "https://en.wikipedia.org/wiki/Ulugh_Beg"
+      },
+      {
+        "name": "Al-Khwarizmi",
+        "wiki": "https://en.wikipedia.org/wiki/Al-Khwarizmi"
+      }
     ],
-    "highestPeak": { "name": "Khazret Sultan", "elevation": "4,643 m", "wiki": "https://en.wikipedia.org/wiki/Khazret_Sultan" },
-    "famousFeature": { "name": "Registan Square, Samarkand", "wiki": "https://en.wikipedia.org/wiki/Registan" },
+    "highestPeak": {
+      "name": "Khazret Sultan",
+      "elevation": "4,643 m",
+      "wiki": "https://en.wikipedia.org/wiki/Khazret_Sultan"
+    },
+    "famousFeature": {
+      "name": "Registan Square, Samarkand",
+      "wiki": "https://en.wikipedia.org/wiki/Registan"
+    },
     "climate": "Mostly arid continental desert/steppe, hot summers and cold winters.",
-    "naturalResources": ["Natural gas", "Gold", "Uranium", "Copper", "Cotton"],
+    "naturalResources": [
+      "Natural gas",
+      "Gold",
+      "Uranium",
+      "Copper",
+      "Cotton"
+    ],
     "nationalAnimal": "Grey wolf",
     "nationalSport": "Kurash (wrestling)",
-    "nationalDish": { "name": "Plov (Osh)", "wiki": "https://en.wikipedia.org/wiki/Plov" },
-    "majorReligions": ["Islam (Sunni majority)"],
-    "unesco": [
-      { "name": "Historic Centre of Bukhara", "wiki": "https://en.wikipedia.org/wiki/Historic_Centre_of_Bukhara" },
-      { "name": "Samarkand – Crossroads of Cultures", "wiki": "https://en.wikipedia.org/wiki/Samarkand" },
-      { "name": "Itchan Kala", "wiki": "https://en.wikipedia.org/wiki/Itchan_Kala" },
-      { "name": "Historic Centre of Shakhrisyabz", "wiki": "https://en.wikipedia.org/wiki/Shahrisabz" }
+    "nationalDish": {
+      "name": "Plov (Osh)",
+      "wiki": "https://en.wikipedia.org/wiki/Plov"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)"
     ],
-    "engineeringProjects": [{ "name": "Tashkent Metro", "wiki": "https://en.wikipedia.org/wiki/Tashkent_Metro" }],
+    "unesco": [
+      {
+        "name": "Historic Centre of Bukhara",
+        "wiki": "https://en.wikipedia.org/wiki/Historic_Centre_of_Bukhara"
+      },
+      {
+        "name": "Samarkand – Crossroads of Cultures",
+        "wiki": "https://en.wikipedia.org/wiki/Samarkand"
+      },
+      {
+        "name": "Itchan Kala",
+        "wiki": "https://en.wikipedia.org/wiki/Itchan_Kala"
+      },
+      {
+        "name": "Historic Centre of Shakhrisyabz",
+        "wiki": "https://en.wikipedia.org/wiki/Shahrisabz"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Tashkent Metro",
+        "wiki": "https://en.wikipedia.org/wiki/Tashkent_Metro"
+      }
+    ],
     "mostVisitedCity": "Samarkand",
     "funFacts": [
       "Tashkent's metro, opened in 1977, was the first in Central Asia - and its stations are famous for lavish, palace-like decoration.",
@@ -44,38 +114,105 @@
     ]
   },
   "kz": {
-    "government": { "form": "Unitary presidential republic", "nationalDay": "December 16 (Independence Day)" },
+    "government": {
+      "form": "Unitary presidential republic",
+      "nationalDay": "December 16 (Independence Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "December 16, 1991", "from": "Soviet Union" },
-    "formerNames": ["Kazakh Soviet Socialist Republic (1936–1991)"],
-    "formerCapitals": ["Almaty (capital until 1997)"],
+    "independence": {
+      "date": "December 16, 1991",
+      "from": "Soviet Union"
+    },
+    "formerNames": [
+      "Kazakh Soviet Socialist Republic (1936–1991)"
+    ],
+    "formerCapitals": [
+      "Almaty (capital until 1997)"
+    ],
     "earliestSettlement": "The Botai culture, in northern Kazakhstan, is associated with some of the earliest evidence of horse domestication, around 3500 BC.",
     "keyDates": [
-      { "year": 1465, "event": "Kazakh Khanate founded" },
-      { "year": 1731, "event": "Beginning of Russian imperial expansion into Kazakh lands" },
-      { "year": 1936, "event": "Kazakh SSR established" },
-      { "year": 1991, "event": "Independence from the Soviet Union, December 16" },
-      { "year": 1997, "event": "Capital moved from Almaty to Akmola, soon renamed Astana" },
-      { "year": 2019, "event": "Astana renamed Nur-Sultan, then reverted to Astana in 2022" }
+      {
+        "year": 1465,
+        "event": "Kazakh Khanate founded"
+      },
+      {
+        "year": 1731,
+        "event": "Beginning of Russian imperial expansion into Kazakh lands"
+      },
+      {
+        "year": 1936,
+        "event": "Kazakh SSR established"
+      },
+      {
+        "year": 1991,
+        "event": "Independence from the Soviet Union, December 16"
+      },
+      {
+        "year": 1997,
+        "event": "Capital moved from Almaty to Akmola, soon renamed Astana"
+      },
+      {
+        "year": 2019,
+        "event": "Astana renamed Nur-Sultan, then reverted to Astana in 2022"
+      }
     ],
     "historicalFigures": [
-      { "name": "Abylai Khan", "wiki": "https://en.wikipedia.org/wiki/Ablai_Khan" },
-      { "name": "Abai Qunanbaiuly", "wiki": "https://en.wikipedia.org/wiki/Abai_Qunanbaiuly" }
+      {
+        "name": "Abylai Khan",
+        "wiki": "https://en.wikipedia.org/wiki/Ablai_Khan"
+      },
+      {
+        "name": "Abai Qunanbaiuly",
+        "wiki": "https://en.wikipedia.org/wiki/Abai_Qunanbaiuly"
+      }
     ],
-    "highestPeak": { "name": "Khan Tengri", "elevation": "7,010 m", "wiki": "https://en.wikipedia.org/wiki/Khan_Tengri" },
-    "famousFeature": { "name": "Charyn Canyon", "wiki": "https://en.wikipedia.org/wiki/Charyn_Canyon" },
+    "highestPeak": {
+      "name": "Khan Tengri",
+      "elevation": "7,010 m",
+      "wiki": "https://en.wikipedia.org/wiki/Khan_Tengri"
+    },
+    "famousFeature": {
+      "name": "Charyn Canyon",
+      "wiki": "https://en.wikipedia.org/wiki/Charyn_Canyon"
+    },
     "climate": "Continental, with hot summers and very cold winters; semi-arid to arid in the south.",
-    "naturalResources": ["Oil", "Natural gas", "Coal", "Uranium", "Iron ore"],
+    "naturalResources": [
+      "Oil",
+      "Natural gas",
+      "Coal",
+      "Uranium",
+      "Iron ore"
+    ],
     "nationalAnimal": "Snow leopard",
     "nationalSport": "Kokpar (horseback goat-dragging)",
-    "nationalDish": { "name": "Beshbarmak", "wiki": "https://en.wikipedia.org/wiki/Beshbarmak" },
-    "majorReligions": ["Islam (Sunni majority)", "Christianity (Russian Orthodox minority)"],
-    "unesco": [
-      { "name": "Mausoleum of Khoja Ahmed Yasawi", "wiki": "https://en.wikipedia.org/wiki/Mausoleum_of_Khoja_Ahmed_Yasawi" },
-      { "name": "Petroglyphs of Tamgaly", "wiki": "https://en.wikipedia.org/wiki/Tamgaly" },
-      { "name": "Saryarka – Steppe and Lakes of Northern Kazakhstan", "wiki": "https://en.wikipedia.org/wiki/Saryarka_%E2%80%93_Steppe_and_Lakes_of_Northern_Kazakhstan" }
+    "nationalDish": {
+      "name": "Beshbarmak",
+      "wiki": "https://en.wikipedia.org/wiki/Beshbarmak"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)",
+      "Christianity (Russian Orthodox minority)"
     ],
-    "engineeringProjects": [{ "name": "Baikonur Cosmodrome", "wiki": "https://en.wikipedia.org/wiki/Baikonur_Cosmodrome" }],
+    "unesco": [
+      {
+        "name": "Mausoleum of Khoja Ahmed Yasawi",
+        "wiki": "https://en.wikipedia.org/wiki/Mausoleum_of_Khoja_Ahmed_Yasawi"
+      },
+      {
+        "name": "Petroglyphs of Tamgaly",
+        "wiki": "https://en.wikipedia.org/wiki/Tamgaly"
+      },
+      {
+        "name": "Saryarka – Steppe and Lakes of Northern Kazakhstan",
+        "wiki": "https://en.wikipedia.org/wiki/Saryarka_%E2%80%93_Steppe_and_Lakes_of_Northern_Kazakhstan"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Baikonur Cosmodrome",
+        "wiki": "https://en.wikipedia.org/wiki/Baikonur_Cosmodrome"
+      }
+    ],
     "mostVisitedCity": "Almaty",
     "funFacts": [
       "Kazakhstan is the world's largest landlocked country by area.",
@@ -86,35 +223,90 @@
     ]
   },
   "tj": {
-    "government": { "form": "Unitary presidential republic", "nationalDay": "September 9 (Independence Day)" },
+    "government": {
+      "form": "Unitary presidential republic",
+      "nationalDay": "September 9 (Independence Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "September 9, 1991", "from": "Soviet Union" },
-    "formerNames": ["Tajik Soviet Socialist Republic (1929–1991)"],
+    "independence": {
+      "date": "September 9, 1991",
+      "from": "Soviet Union"
+    },
+    "formerNames": [
+      "Tajik Soviet Socialist Republic (1929–1991)"
+    ],
     "formerCapitals": [],
     "earliestSettlement": "Sarazm, a proto-urban settlement near Panjakent, dates back to around 4000 BC.",
     "keyDates": [
-      { "year": 1929, "event": "Tajik SSR separated from the Uzbek SSR" },
-      { "year": 1991, "event": "Independence from the Soviet Union, September 9" },
-      { "year": 1992, "event": "Civil war begins, lasting until 1997" },
-      { "year": 1997, "event": "Peace agreement ends the Tajik Civil War" }
+      {
+        "year": 1929,
+        "event": "Tajik SSR separated from the Uzbek SSR"
+      },
+      {
+        "year": 1991,
+        "event": "Independence from the Soviet Union, September 9"
+      },
+      {
+        "year": 1992,
+        "event": "Civil war begins, lasting until 1997"
+      },
+      {
+        "year": 1997,
+        "event": "Peace agreement ends the Tajik Civil War"
+      }
     ],
     "historicalFigures": [
-      { "name": "Ismail Samani", "wiki": "https://en.wikipedia.org/wiki/Ismail_ibn_Ahmad" },
-      { "name": "Rudaki", "wiki": "https://en.wikipedia.org/wiki/Rudaki" }
+      {
+        "name": "Ismail Samani",
+        "wiki": "https://en.wikipedia.org/wiki/Ismail_ibn_Ahmad"
+      },
+      {
+        "name": "Rudaki",
+        "wiki": "https://en.wikipedia.org/wiki/Rudaki"
+      }
     ],
-    "highestPeak": { "name": "Ismoil Somoni Peak", "elevation": "7,495 m", "wiki": "https://en.wikipedia.org/wiki/Ismoil_Somoni_Peak" },
-    "famousFeature": { "name": "Pamir Mountains", "wiki": "https://en.wikipedia.org/wiki/Pamir_Mountains" },
+    "highestPeak": {
+      "name": "Ismoil Somoni Peak",
+      "elevation": "7,495 m",
+      "wiki": "https://en.wikipedia.org/wiki/Ismoil_Somoni_Peak"
+    },
+    "famousFeature": {
+      "name": "Pamir Mountains",
+      "wiki": "https://en.wikipedia.org/wiki/Pamir_Mountains"
+    },
     "climate": "Continental, strongly varied by elevation - hot lowlands, alpine Pamir highlands.",
-    "naturalResources": ["Hydropower", "Aluminium ore", "Gold", "Silver", "Antimony"],
+    "naturalResources": [
+      "Hydropower",
+      "Aluminium ore",
+      "Gold",
+      "Silver",
+      "Antimony"
+    ],
     "nationalAnimal": "Snow leopard",
     "nationalSport": "Gushtigiri (wrestling)",
-    "nationalDish": { "name": "Qurutob", "wiki": "https://en.wikipedia.org/wiki/Qurutob" },
-    "majorReligions": ["Islam (Sunni majority)"],
-    "unesco": [
-      { "name": "Proto-urban site of Sarazm", "wiki": "https://en.wikipedia.org/wiki/Sarazm" },
-      { "name": "Tajik National Park (Mountains of the Pamirs)", "wiki": "https://en.wikipedia.org/wiki/Tajik_National_Park" }
+    "nationalDish": {
+      "name": "Qurutob",
+      "wiki": "https://en.wikipedia.org/wiki/Qurutob"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)"
     ],
-    "engineeringProjects": [{ "name": "Nurek Dam", "wiki": "https://en.wikipedia.org/wiki/Nurek_Dam" }],
+    "unesco": [
+      {
+        "name": "Proto-urban site of Sarazm",
+        "wiki": "https://en.wikipedia.org/wiki/Sarazm"
+      },
+      {
+        "name": "Tajik National Park (Mountains of the Pamirs)",
+        "wiki": "https://en.wikipedia.org/wiki/Tajik_National_Park"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Nurek Dam",
+        "wiki": "https://en.wikipedia.org/wiki/Nurek_Dam"
+      }
+    ],
     "mostVisitedCity": "Dushanbe",
     "funFacts": [
       "The Nurek Dam was, for decades, the tallest dam in the world.",
@@ -124,32 +316,78 @@
     ]
   },
   "kg": {
-    "government": { "form": "Unitary parliamentary republic", "nationalDay": "August 31 (Independence Day)" },
+    "government": {
+      "form": "Unitary parliamentary republic",
+      "nationalDay": "August 31 (Independence Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "August 31, 1991", "from": "Soviet Union" },
-    "formerNames": ["Kirghiz Soviet Socialist Republic (1936–1991)"],
+    "independence": {
+      "date": "August 31, 1991",
+      "from": "Soviet Union"
+    },
+    "formerNames": [
+      "Kirghiz Soviet Socialist Republic (1936–1991)"
+    ],
     "formerCapitals": [],
     "earliestSettlement": "The Sulaiman-Too mountain in Osh has been a place of worship and settlement for over 3,000 years.",
     "keyDates": [
-      { "year": 1936, "event": "Kirghiz SSR established" },
-      { "year": 1991, "event": "Independence from the Soviet Union, August 31" },
-      { "year": 2005, "event": "Tulip Revolution ousts President Akayev" },
-      { "year": 2010, "event": "Second revolution leads to a parliamentary system of government" }
+      {
+        "year": 1936,
+        "event": "Kirghiz SSR established"
+      },
+      {
+        "year": 1991,
+        "event": "Independence from the Soviet Union, August 31"
+      },
+      {
+        "year": 2005,
+        "event": "Tulip Revolution ousts President Akayev"
+      },
+      {
+        "year": 2010,
+        "event": "Second revolution leads to a parliamentary system of government"
+      }
     ],
     "historicalFigures": [
-      { "name": "Chinghiz Aitmatov", "wiki": "https://en.wikipedia.org/wiki/Chinghiz_Aitmatov" },
-      { "name": "Manas (legendary epic hero)", "wiki": "https://en.wikipedia.org/wiki/Epic_of_Manas" }
+      {
+        "name": "Chinghiz Aitmatov",
+        "wiki": "https://en.wikipedia.org/wiki/Chinghiz_Aitmatov"
+      },
+      {
+        "name": "Manas (legendary epic hero)",
+        "wiki": "https://en.wikipedia.org/wiki/Epic_of_Manas"
+      }
     ],
-    "highestPeak": { "name": "Jengish Chokusu (Pik Pobedy)", "elevation": "7,439 m", "wiki": "https://en.wikipedia.org/wiki/Jengish_Chokusu" },
-    "famousFeature": { "name": "Lake Issyk-Kul", "wiki": "https://en.wikipedia.org/wiki/Issyk-Kul" },
+    "highestPeak": {
+      "name": "Jengish Chokusu (Pik Pobedy)",
+      "elevation": "7,439 m",
+      "wiki": "https://en.wikipedia.org/wiki/Jengish_Chokusu"
+    },
+    "famousFeature": {
+      "name": "Lake Issyk-Kul",
+      "wiki": "https://en.wikipedia.org/wiki/Issyk-Kul"
+    },
     "climate": "Continental and strongly mountainous, with sharp altitude-driven variation.",
-    "naturalResources": ["Gold", "Coal", "Hydropower", "Rare earth metals"],
+    "naturalResources": [
+      "Gold",
+      "Coal",
+      "Hydropower",
+      "Rare earth metals"
+    ],
     "nationalAnimal": "Snow leopard",
     "nationalSport": "Kok boru (horseback goat-dragging)",
-    "nationalDish": { "name": "Beshbarmak", "wiki": "https://en.wikipedia.org/wiki/Beshbarmak" },
-    "majorReligions": ["Islam (Sunni majority)"],
+    "nationalDish": {
+      "name": "Beshbarmak",
+      "wiki": "https://en.wikipedia.org/wiki/Beshbarmak"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)"
+    ],
     "unesco": [
-      { "name": "Sulaiman-Too Sacred Mountain", "wiki": "https://en.wikipedia.org/wiki/Sulayman_Mountain" }
+      {
+        "name": "Sulaiman-Too Sacred Mountain",
+        "wiki": "https://en.wikipedia.org/wiki/Sulayman_Mountain"
+      }
     ],
     "engineeringProjects": [],
     "mostVisitedCity": "Bishkek",
@@ -160,32 +398,78 @@
     ]
   },
   "tm": {
-    "government": { "form": "Unitary presidential republic", "nationalDay": "September 27 (Independence Day)" },
+    "government": {
+      "form": "Unitary presidential republic",
+      "nationalDay": "September 27 (Independence Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "October 27, 1991", "from": "Soviet Union" },
-    "formerNames": ["Turkmen Soviet Socialist Republic (1925–1991)"],
+    "independence": {
+      "date": "October 27, 1991",
+      "from": "Soviet Union"
+    },
+    "formerNames": [
+      "Turkmen Soviet Socialist Republic (1925–1991)"
+    ],
     "formerCapitals": [],
     "earliestSettlement": "Ancient Merv, one of the great oasis-cities of the Silk Road, has roots going back over 2,500 years.",
     "keyDates": [
-      { "year": 1925, "event": "Turkmen SSR established" },
-      { "year": 1991, "event": "Independence from the Soviet Union, October 27" },
-      { "year": 1995, "event": "UN recognizes Turkmenistan's permanent neutrality" }
+      {
+        "year": 1925,
+        "event": "Turkmen SSR established"
+      },
+      {
+        "year": 1991,
+        "event": "Independence from the Soviet Union, October 27"
+      },
+      {
+        "year": 1995,
+        "event": "UN recognizes Turkmenistan's permanent neutrality"
+      }
     ],
     "historicalFigures": [
-      { "name": "Magtymguly Pyragy", "wiki": "https://en.wikipedia.org/wiki/Magtymguly_Pyragy" }
+      {
+        "name": "Magtymguly Pyragy",
+        "wiki": "https://en.wikipedia.org/wiki/Magtymguly_Pyragy"
+      }
     ],
-    "highestPeak": { "name": "Ayrybaba", "elevation": "3,139 m", "wiki": "https://en.wikipedia.org/wiki/Ayrybaba" },
-    "famousFeature": { "name": "Darvaza Gas Crater ('Door to Hell')", "wiki": "https://en.wikipedia.org/wiki/Darvaza_gas_crater" },
+    "highestPeak": {
+      "name": "Ayrybaba",
+      "elevation": "3,139 m",
+      "wiki": "https://en.wikipedia.org/wiki/Ayrybaba"
+    },
+    "famousFeature": {
+      "name": "Darvaza Gas Crater ('Door to Hell')",
+      "wiki": "https://en.wikipedia.org/wiki/Darvaza_gas_crater"
+    },
     "climate": "Mostly arid desert (Karakum Desert covers ~70% of the country).",
-    "naturalResources": ["Natural gas", "Oil", "Sulfur", "Salt"],
+    "naturalResources": [
+      "Natural gas",
+      "Oil",
+      "Sulfur",
+      "Salt"
+    ],
     "nationalAnimal": "Akhal-Teke horse",
     "nationalSport": "Horse racing",
-    "nationalDish": { "name": "Plov", "wiki": "https://en.wikipedia.org/wiki/Plov" },
-    "majorReligions": ["Islam (Sunni majority)"],
+    "nationalDish": {
+      "name": "Plov",
+      "wiki": "https://en.wikipedia.org/wiki/Plov"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)"
+    ],
     "unesco": [
-      { "name": "State Historical and Cultural Park 'Ancient Merv'", "wiki": "https://en.wikipedia.org/wiki/Merv" },
-      { "name": "Kunya-Urgench", "wiki": "https://en.wikipedia.org/wiki/K%C3%B6neürgenç" },
-      { "name": "Parthian Fortresses of Nisa", "wiki": "https://en.wikipedia.org/wiki/Nisa_(city)" }
+      {
+        "name": "State Historical and Cultural Park 'Ancient Merv'",
+        "wiki": "https://en.wikipedia.org/wiki/Merv"
+      },
+      {
+        "name": "Kunya-Urgench",
+        "wiki": "https://en.wikipedia.org/wiki/K%C3%B6neürgenç"
+      },
+      {
+        "name": "Parthian Fortresses of Nisa",
+        "wiki": "https://en.wikipedia.org/wiki/Nisa_(city)"
+      }
     ],
     "engineeringProjects": [],
     "mostVisitedCity": "Ashgabat",
@@ -196,45 +480,132 @@
     ]
   },
   "us": {
-    "government": { "form": "Federal presidential constitutional republic", "nationalDay": "July 4 (Independence Day)" },
+    "government": {
+      "form": "Federal presidential constitutional republic",
+      "nationalDay": "July 4 (Independence Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "July 4, 1776", "from": "Great Britain" },
-    "formerNames": ["Thirteen Colonies (pre-1776)"],
-    "formerCapitals": ["New York City (1785–1790)", "Philadelphia (1790–1800)"],
+    "independence": {
+      "date": "July 4, 1776",
+      "from": "Great Britain"
+    },
+    "formerNames": [
+      "Thirteen Colonies (pre-1776)"
+    ],
+    "formerCapitals": [
+      "New York City (1785–1790)",
+      "Philadelphia (1790–1800)"
+    ],
     "earliestSettlement": "Indigenous peoples inhabited North America for over 15,000 years before European colonization; the earliest lasting European colony was St. Augustine, Florida (1565).",
     "keyDates": [
-      { "year": 1776, "event": "Declaration of Independence" },
-      { "year": 1787, "event": "US Constitution drafted" },
-      { "year": 1861, "event": "American Civil War begins" },
-      { "year": 1865, "event": "Slavery abolished (13th Amendment)" },
-      { "year": 1945, "event": "End of World War II; US emerges as a global superpower" },
-      { "year": 1969, "event": "Apollo 11 moon landing" }
+      {
+        "year": 1776,
+        "event": "Declaration of Independence"
+      },
+      {
+        "year": 1787,
+        "event": "US Constitution drafted"
+      },
+      {
+        "year": 1861,
+        "event": "American Civil War begins"
+      },
+      {
+        "year": 1865,
+        "event": "Slavery abolished (13th Amendment)"
+      },
+      {
+        "year": 1945,
+        "event": "End of World War II; US emerges as a global superpower"
+      },
+      {
+        "year": 1969,
+        "event": "Apollo 11 moon landing"
+      }
     ],
     "historicalFigures": [
-      { "name": "George Washington", "wiki": "https://en.wikipedia.org/wiki/George_Washington" },
-      { "name": "Abraham Lincoln", "wiki": "https://en.wikipedia.org/wiki/Abraham_Lincoln" },
-      { "name": "Martin Luther King Jr.", "wiki": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr." }
+      {
+        "name": "George Washington",
+        "wiki": "https://en.wikipedia.org/wiki/George_Washington"
+      },
+      {
+        "name": "Abraham Lincoln",
+        "wiki": "https://en.wikipedia.org/wiki/Abraham_Lincoln"
+      },
+      {
+        "name": "Martin Luther King Jr.",
+        "wiki": "https://en.wikipedia.org/wiki/Martin_Luther_King_Jr."
+      }
     ],
-    "highestPeak": { "name": "Denali", "elevation": "6,190 m", "wiki": "https://en.wikipedia.org/wiki/Denali" },
-    "famousFeature": { "name": "Grand Canyon", "wiki": "https://en.wikipedia.org/wiki/Grand_Canyon" },
+    "highestPeak": {
+      "name": "Denali",
+      "elevation": "6,190 m",
+      "wiki": "https://en.wikipedia.org/wiki/Denali"
+    },
+    "famousFeature": {
+      "name": "Grand Canyon",
+      "wiki": "https://en.wikipedia.org/wiki/Grand_Canyon"
+    },
     "climate": "Extremely varied: arctic in Alaska, tropical in Hawaii/Florida, arid in the Southwest, temperate elsewhere.",
-    "naturalResources": ["Coal", "Petroleum", "Natural gas", "Copper", "Timber"],
+    "naturalResources": [
+      "Coal",
+      "Petroleum",
+      "Natural gas",
+      "Copper",
+      "Timber"
+    ],
     "nationalAnimal": "Bald eagle",
     "nationalSport": "Baseball",
-    "nationalDish": { "name": "Hamburger", "wiki": "https://en.wikipedia.org/wiki/Hamburger" },
-    "majorReligions": ["Christianity (majority)", "religiously unaffiliated minority"],
+    "nationalDish": {
+      "name": "Hamburger",
+      "wiki": "https://en.wikipedia.org/wiki/Hamburger"
+    },
+    "majorReligions": [
+      "Christianity (majority)",
+      "religiously unaffiliated minority"
+    ],
     "unesco": [
-      { "name": "Statue of Liberty", "wiki": "https://en.wikipedia.org/wiki/Statue_of_Liberty" },
-      { "name": "Yellowstone National Park", "wiki": "https://en.wikipedia.org/wiki/Yellowstone_National_Park" },
-      { "name": "Grand Canyon National Park", "wiki": "https://en.wikipedia.org/wiki/Grand_Canyon_National_Park" }
+      {
+        "name": "Statue of Liberty",
+        "wiki": "https://en.wikipedia.org/wiki/Statue_of_Liberty"
+      },
+      {
+        "name": "Yellowstone National Park",
+        "wiki": "https://en.wikipedia.org/wiki/Yellowstone_National_Park"
+      },
+      {
+        "name": "Grand Canyon National Park",
+        "wiki": "https://en.wikipedia.org/wiki/Grand_Canyon_National_Park"
+      }
     ],
     "engineeringProjects": [
-      { "name": "Hoover Dam", "wiki": "https://en.wikipedia.org/wiki/Hoover_Dam" },
-      { "name": "Golden Gate Bridge", "wiki": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge" }
+      {
+        "name": "Hoover Dam",
+        "wiki": "https://en.wikipedia.org/wiki/Hoover_Dam"
+      },
+      {
+        "name": "Golden Gate Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/Golden_Gate_Bridge"
+      }
     ],
-    "largestCompany": { "name": "Apple Inc.", "wiki": "https://en.wikipedia.org/wiki/Apple_Inc." },
-    "famousBrands": [{ "name": "Coca-Cola", "industry": "Beverages" }, { "name": "Nike", "industry": "Sportswear" }],
-    "busiestAirport": { "name": "Hartsfield–Jackson Atlanta International", "code": "ATL" },
+    "largestCompany": {
+      "name": "Apple Inc.",
+      "wiki": "https://en.wikipedia.org/wiki/Apple_Inc."
+    },
+    "famousBrands": [
+      {
+        "name": "Coca-Cola",
+        "industry": "Beverages"
+      },
+      {
+        "name": "Nike",
+        "industry": "Sportswear"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Hartsfield–Jackson Atlanta International",
+      "code": "ATL"
+    },
     "mostVisitedCity": "New York City",
     "funFacts": [
       "The United States has no official national language at the federal level.",
@@ -243,40 +614,106 @@
     ]
   },
   "gb": {
-    "government": { "form": "Unitary parliamentary constitutional monarchy", "nationalDay": "No single national day" },
+    "government": {
+      "form": "Unitary parliamentary constitutional monarchy",
+      "nationalDay": "No single national day"
+    },
     "drivesOn": "left",
     "independence": null,
     "formerNames": [],
     "formerCapitals": [],
     "earliestSettlement": "Settlement in Britain dates back to the Paleolithic; London itself was founded by the Romans as Londinium around 43 AD.",
     "keyDates": [
-      { "year": 1066, "event": "Norman Conquest of England" },
-      { "year": 1215, "event": "Magna Carta signed" },
-      { "year": 1707, "event": "Acts of Union create the Kingdom of Great Britain" },
-      { "year": 1801, "event": "Act of Union with Ireland forms the United Kingdom" },
-      { "year": 1945, "event": "WWII ends; postwar decolonization begins" },
-      { "year": 2020, "event": "UK formally leaves the European Union (Brexit)" }
+      {
+        "year": 1066,
+        "event": "Norman Conquest of England"
+      },
+      {
+        "year": 1215,
+        "event": "Magna Carta signed"
+      },
+      {
+        "year": 1707,
+        "event": "Acts of Union create the Kingdom of Great Britain"
+      },
+      {
+        "year": 1801,
+        "event": "Act of Union with Ireland forms the United Kingdom"
+      },
+      {
+        "year": 1945,
+        "event": "WWII ends; postwar decolonization begins"
+      },
+      {
+        "year": 2020,
+        "event": "UK formally leaves the European Union (Brexit)"
+      }
     ],
     "historicalFigures": [
-      { "name": "Winston Churchill", "wiki": "https://en.wikipedia.org/wiki/Winston_Churchill" },
-      { "name": "Queen Elizabeth I", "wiki": "https://en.wikipedia.org/wiki/Elizabeth_I" }
+      {
+        "name": "Winston Churchill",
+        "wiki": "https://en.wikipedia.org/wiki/Winston_Churchill"
+      },
+      {
+        "name": "Queen Elizabeth I",
+        "wiki": "https://en.wikipedia.org/wiki/Elizabeth_I"
+      }
     ],
-    "highestPeak": { "name": "Ben Nevis", "elevation": "1,345 m", "wiki": "https://en.wikipedia.org/wiki/Ben_Nevis" },
-    "famousFeature": { "name": "Stonehenge", "wiki": "https://en.wikipedia.org/wiki/Stonehenge" },
+    "highestPeak": {
+      "name": "Ben Nevis",
+      "elevation": "1,345 m",
+      "wiki": "https://en.wikipedia.org/wiki/Ben_Nevis"
+    },
+    "famousFeature": {
+      "name": "Stonehenge",
+      "wiki": "https://en.wikipedia.org/wiki/Stonehenge"
+    },
     "climate": "Temperate maritime - mild, often cloudy and rainy.",
-    "naturalResources": ["Coal", "North Sea oil and gas", "Tin"],
+    "naturalResources": [
+      "Coal",
+      "North Sea oil and gas",
+      "Tin"
+    ],
     "nationalAnimal": "Lion (England) / varies by nation",
     "nationalSport": "Football (soccer) / Cricket",
-    "nationalDish": { "name": "Fish and chips", "wiki": "https://en.wikipedia.org/wiki/Fish_and_chips" },
-    "majorReligions": ["Christianity", "religiously unaffiliated minority"],
-    "unesco": [
-      { "name": "Stonehenge, Avebury and Associated Sites", "wiki": "https://en.wikipedia.org/wiki/Stonehenge" },
-      { "name": "Tower of London", "wiki": "https://en.wikipedia.org/wiki/Tower_of_London" }
+    "nationalDish": {
+      "name": "Fish and chips",
+      "wiki": "https://en.wikipedia.org/wiki/Fish_and_chips"
+    },
+    "majorReligions": [
+      "Christianity",
+      "religiously unaffiliated minority"
     ],
-    "engineeringProjects": [{ "name": "Channel Tunnel", "wiki": "https://en.wikipedia.org/wiki/Channel_Tunnel" }],
-    "largestCompany": { "name": "Shell plc", "wiki": "https://en.wikipedia.org/wiki/Shell_plc" },
-    "famousBrands": [{ "name": "Burberry", "industry": "Fashion" }],
-    "busiestAirport": { "name": "London Heathrow", "code": "LHR" },
+    "unesco": [
+      {
+        "name": "Stonehenge, Avebury and Associated Sites",
+        "wiki": "https://en.wikipedia.org/wiki/Stonehenge"
+      },
+      {
+        "name": "Tower of London",
+        "wiki": "https://en.wikipedia.org/wiki/Tower_of_London"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Channel Tunnel",
+        "wiki": "https://en.wikipedia.org/wiki/Channel_Tunnel"
+      }
+    ],
+    "largestCompany": {
+      "name": "Shell plc",
+      "wiki": "https://en.wikipedia.org/wiki/Shell_plc"
+    },
+    "famousBrands": [
+      {
+        "name": "Burberry",
+        "industry": "Fashion"
+      }
+    ],
+    "busiestAirport": {
+      "name": "London Heathrow",
+      "code": "LHR"
+    },
     "mostVisitedCity": "London",
     "funFacts": [
       "The United Kingdom is made up of four nations: England, Scotland, Wales, and Northern Ireland.",
@@ -285,38 +722,106 @@
     ]
   },
   "ru": {
-    "government": { "form": "Federal semi-presidential republic", "nationalDay": "June 12 (Russia Day)" },
+    "government": {
+      "form": "Federal semi-presidential republic",
+      "nationalDay": "June 12 (Russia Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "December 25, 1991", "from": "Dissolution of the Soviet Union" },
-    "formerNames": ["Russian Soviet Federative Socialist Republic (1917–1991)", "Russian Empire (1721–1917)"],
-    "formerCapitals": ["Saint Petersburg (1713–1918)"],
+    "independence": {
+      "date": "December 25, 1991",
+      "from": "Dissolution of the Soviet Union"
+    },
+    "formerNames": [
+      "Russian Soviet Federative Socialist Republic (1917–1991)",
+      "Russian Empire (1721–1917)"
+    ],
+    "formerCapitals": [
+      "Saint Petersburg (1713–1918)"
+    ],
     "earliestSettlement": "The Kievan Rus' state, the earliest East Slavic state, was founded around 882 AD.",
     "keyDates": [
-      { "year": 882, "event": "Founding of Kievan Rus'" },
-      { "year": 1547, "event": "Ivan IV crowned first Tsar of Russia" },
-      { "year": 1917, "event": "Russian Revolution; end of the monarchy" },
-      { "year": 1922, "event": "Soviet Union formally established" },
-      { "year": 1945, "event": "Soviet Union helps defeat Nazi Germany in WWII" },
-      { "year": 1991, "event": "Dissolution of the Soviet Union" }
+      {
+        "year": 882,
+        "event": "Founding of Kievan Rus'"
+      },
+      {
+        "year": 1547,
+        "event": "Ivan IV crowned first Tsar of Russia"
+      },
+      {
+        "year": 1917,
+        "event": "Russian Revolution; end of the monarchy"
+      },
+      {
+        "year": 1922,
+        "event": "Soviet Union formally established"
+      },
+      {
+        "year": 1945,
+        "event": "Soviet Union helps defeat Nazi Germany in WWII"
+      },
+      {
+        "year": 1991,
+        "event": "Dissolution of the Soviet Union"
+      }
     ],
     "historicalFigures": [
-      { "name": "Peter the Great", "wiki": "https://en.wikipedia.org/wiki/Peter_the_Great" },
-      { "name": "Leo Tolstoy", "wiki": "https://en.wikipedia.org/wiki/Leo_Tolstoy" }
+      {
+        "name": "Peter the Great",
+        "wiki": "https://en.wikipedia.org/wiki/Peter_the_Great"
+      },
+      {
+        "name": "Leo Tolstoy",
+        "wiki": "https://en.wikipedia.org/wiki/Leo_Tolstoy"
+      }
     ],
-    "highestPeak": { "name": "Mount Elbrus", "elevation": "5,642 m", "wiki": "https://en.wikipedia.org/wiki/Mount_Elbrus" },
-    "famousFeature": { "name": "Lake Baikal", "wiki": "https://en.wikipedia.org/wiki/Lake_Baikal" },
+    "highestPeak": {
+      "name": "Mount Elbrus",
+      "elevation": "5,642 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Elbrus"
+    },
+    "famousFeature": {
+      "name": "Lake Baikal",
+      "wiki": "https://en.wikipedia.org/wiki/Lake_Baikal"
+    },
     "climate": "Vast range from subarctic/tundra in Siberia to humid continental and subtropical in the south.",
-    "naturalResources": ["Natural gas", "Oil", "Coal", "Timber", "Diamonds"],
+    "naturalResources": [
+      "Natural gas",
+      "Oil",
+      "Coal",
+      "Timber",
+      "Diamonds"
+    ],
     "nationalAnimal": "Eurasian brown bear",
     "nationalSport": "Bandy (official); ice hockey is most popular",
-    "nationalDish": { "name": "Borscht", "wiki": "https://en.wikipedia.org/wiki/Borscht" },
-    "majorReligions": ["Russian Orthodox Christianity", "Islam (minority)"],
-    "unesco": [
-      { "name": "Historic Centre of Saint Petersburg", "wiki": "https://en.wikipedia.org/wiki/Historic_Centre_of_Saint_Petersburg" },
-      { "name": "Lake Baikal", "wiki": "https://en.wikipedia.org/wiki/Lake_Baikal" },
-      { "name": "Moscow Kremlin and Red Square", "wiki": "https://en.wikipedia.org/wiki/Moscow_Kremlin" }
+    "nationalDish": {
+      "name": "Borscht",
+      "wiki": "https://en.wikipedia.org/wiki/Borscht"
+    },
+    "majorReligions": [
+      "Russian Orthodox Christianity",
+      "Islam (minority)"
     ],
-    "engineeringProjects": [{ "name": "Trans-Siberian Railway", "wiki": "https://en.wikipedia.org/wiki/Trans-Siberian_Railway" }],
+    "unesco": [
+      {
+        "name": "Historic Centre of Saint Petersburg",
+        "wiki": "https://en.wikipedia.org/wiki/Historic_Centre_of_Saint_Petersburg"
+      },
+      {
+        "name": "Lake Baikal",
+        "wiki": "https://en.wikipedia.org/wiki/Lake_Baikal"
+      },
+      {
+        "name": "Moscow Kremlin and Red Square",
+        "wiki": "https://en.wikipedia.org/wiki/Moscow_Kremlin"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Trans-Siberian Railway",
+        "wiki": "https://en.wikipedia.org/wiki/Trans-Siberian_Railway"
+      }
+    ],
     "mostVisitedCity": "Moscow",
     "funFacts": [
       "Russia spans 11 time zones, more than any other country.",
@@ -325,43 +830,118 @@
     ]
   },
   "cn": {
-    "government": { "form": "Unitary one-party socialist republic", "nationalDay": "October 1 (National Day)" },
+    "government": {
+      "form": "Unitary one-party socialist republic",
+      "nationalDay": "October 1 (National Day)"
+    },
     "drivesOn": "right",
     "independence": null,
-    "formerNames": ["Various dynastic names throughout history"],
-    "formerCapitals": ["Nanjing", "Xi'an (Chang'an)", "Luoyang"],
+    "formerNames": [
+      "Various dynastic names throughout history"
+    ],
+    "formerCapitals": [
+      "Nanjing",
+      "Xi'an (Chang'an)",
+      "Luoyang"
+    ],
     "earliestSettlement": "Chinese civilization along the Yellow River dates back over 5,000 years; the Shang Dynasty (c. 1600 BC) left the earliest confirmed written records.",
     "keyDates": [
-      { "year": -221, "event": "Qin Shi Huang unifies China, becomes first emperor" },
-      { "year": 1279, "event": "Mongol-led Yuan Dynasty established" },
-      { "year": 1912, "event": "Qing Dynasty falls; Republic of China founded" },
-      { "year": 1949, "event": "People's Republic of China proclaimed" },
-      { "year": 1978, "event": "Economic reforms under Deng Xiaoping begin" }
+      {
+        "year": -221,
+        "event": "Qin Shi Huang unifies China, becomes first emperor"
+      },
+      {
+        "year": 1279,
+        "event": "Mongol-led Yuan Dynasty established"
+      },
+      {
+        "year": 1912,
+        "event": "Qing Dynasty falls; Republic of China founded"
+      },
+      {
+        "year": 1949,
+        "event": "People's Republic of China proclaimed"
+      },
+      {
+        "year": 1978,
+        "event": "Economic reforms under Deng Xiaoping begin"
+      }
     ],
     "historicalFigures": [
-      { "name": "Confucius", "wiki": "https://en.wikipedia.org/wiki/Confucius" },
-      { "name": "Qin Shi Huang", "wiki": "https://en.wikipedia.org/wiki/Qin_Shi_Huang" }
+      {
+        "name": "Confucius",
+        "wiki": "https://en.wikipedia.org/wiki/Confucius"
+      },
+      {
+        "name": "Qin Shi Huang",
+        "wiki": "https://en.wikipedia.org/wiki/Qin_Shi_Huang"
+      }
     ],
-    "highestPeak": { "name": "Mount Everest (shared with Nepal)", "elevation": "8,849 m", "wiki": "https://en.wikipedia.org/wiki/Mount_Everest" },
-    "famousFeature": { "name": "Great Wall of China", "wiki": "https://en.wikipedia.org/wiki/Great_Wall_of_China" },
+    "highestPeak": {
+      "name": "Mount Everest (shared with Nepal)",
+      "elevation": "8,849 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Everest"
+    },
+    "famousFeature": {
+      "name": "Great Wall of China",
+      "wiki": "https://en.wikipedia.org/wiki/Great_Wall_of_China"
+    },
     "climate": "Extremely varied: monsoon in the southeast, arid in the northwest, alpine on the Tibetan Plateau.",
-    "naturalResources": ["Coal", "Rare earth elements", "Iron ore", "Tungsten"],
+    "naturalResources": [
+      "Coal",
+      "Rare earth elements",
+      "Iron ore",
+      "Tungsten"
+    ],
     "nationalAnimal": "Giant panda",
     "nationalSport": "Table tennis",
-    "nationalDish": { "name": "Peking duck", "wiki": "https://en.wikipedia.org/wiki/Peking_duck" },
-    "majorReligions": ["Buddhism", "Taoism", "religiously unaffiliated majority"],
+    "nationalDish": {
+      "name": "Peking duck",
+      "wiki": "https://en.wikipedia.org/wiki/Peking_duck"
+    },
+    "majorReligions": [
+      "Buddhism",
+      "Taoism",
+      "religiously unaffiliated majority"
+    ],
     "unesco": [
-      { "name": "Great Wall of China", "wiki": "https://en.wikipedia.org/wiki/Great_Wall_of_China" },
-      { "name": "Forbidden City", "wiki": "https://en.wikipedia.org/wiki/Forbidden_City" },
-      { "name": "Terracotta Army", "wiki": "https://en.wikipedia.org/wiki/Terracotta_Army" }
+      {
+        "name": "Great Wall of China",
+        "wiki": "https://en.wikipedia.org/wiki/Great_Wall_of_China"
+      },
+      {
+        "name": "Forbidden City",
+        "wiki": "https://en.wikipedia.org/wiki/Forbidden_City"
+      },
+      {
+        "name": "Terracotta Army",
+        "wiki": "https://en.wikipedia.org/wiki/Terracotta_Army"
+      }
     ],
     "engineeringProjects": [
-      { "name": "Three Gorges Dam", "wiki": "https://en.wikipedia.org/wiki/Three_Gorges_Dam" },
-      { "name": "Beijing–Shanghai High-Speed Railway", "wiki": "https://en.wikipedia.org/wiki/Beijing%E2%80%93Shanghai_high-speed_railway" }
+      {
+        "name": "Three Gorges Dam",
+        "wiki": "https://en.wikipedia.org/wiki/Three_Gorges_Dam"
+      },
+      {
+        "name": "Beijing–Shanghai High-Speed Railway",
+        "wiki": "https://en.wikipedia.org/wiki/Beijing%E2%80%93Shanghai_high-speed_railway"
+      }
     ],
-    "largestCompany": { "name": "ICBC", "wiki": "https://en.wikipedia.org/wiki/Industrial_and_Commercial_Bank_of_China" },
-    "famousBrands": [{ "name": "Huawei", "industry": "Electronics" }],
-    "busiestAirport": { "name": "Beijing Capital International", "code": "PEK" },
+    "largestCompany": {
+      "name": "ICBC",
+      "wiki": "https://en.wikipedia.org/wiki/Industrial_and_Commercial_Bank_of_China"
+    },
+    "famousBrands": [
+      {
+        "name": "Huawei",
+        "industry": "Electronics"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Beijing Capital International",
+      "code": "PEK"
+    },
     "mostVisitedCity": "Shanghai",
     "funFacts": [
       "The Great Wall of China is not a single continuous wall, but many walls built by different dynasties over centuries.",
@@ -370,39 +950,109 @@
     ]
   },
   "fr": {
-    "government": { "form": "Unitary semi-presidential republic", "nationalDay": "July 14 (Bastille Day)" },
+    "government": {
+      "form": "Unitary semi-presidential republic",
+      "nationalDay": "July 14 (Bastille Day)"
+    },
     "drivesOn": "right",
     "independence": null,
-    "formerNames": ["Kingdom of France (pre-1792)"],
+    "formerNames": [
+      "Kingdom of France (pre-1792)"
+    ],
     "formerCapitals": [],
     "earliestSettlement": "Paris began as a Celtic settlement called Lutetia, later developed by the Romans.",
     "keyDates": [
-      { "year": 843, "event": "Treaty of Verdun creates West Francia, forerunner of France" },
-      { "year": 1789, "event": "French Revolution begins" },
-      { "year": 1804, "event": "Napoleon crowned Emperor" },
-      { "year": 1944, "event": "Liberation of Paris from Nazi occupation" },
-      { "year": 1958, "event": "Fifth Republic established" }
+      {
+        "year": 843,
+        "event": "Treaty of Verdun creates West Francia, forerunner of France"
+      },
+      {
+        "year": 1789,
+        "event": "French Revolution begins"
+      },
+      {
+        "year": 1804,
+        "event": "Napoleon crowned Emperor"
+      },
+      {
+        "year": 1944,
+        "event": "Liberation of Paris from Nazi occupation"
+      },
+      {
+        "year": 1958,
+        "event": "Fifth Republic established"
+      }
     ],
     "historicalFigures": [
-      { "name": "Napoleon Bonaparte", "wiki": "https://en.wikipedia.org/wiki/Napoleon" },
-      { "name": "Joan of Arc", "wiki": "https://en.wikipedia.org/wiki/Joan_of_Arc" }
+      {
+        "name": "Napoleon Bonaparte",
+        "wiki": "https://en.wikipedia.org/wiki/Napoleon"
+      },
+      {
+        "name": "Joan of Arc",
+        "wiki": "https://en.wikipedia.org/wiki/Joan_of_Arc"
+      }
     ],
-    "highestPeak": { "name": "Mont Blanc", "elevation": "4,808 m", "wiki": "https://en.wikipedia.org/wiki/Mont_Blanc" },
-    "famousFeature": { "name": "Eiffel Tower", "wiki": "https://en.wikipedia.org/wiki/Eiffel_Tower" },
+    "highestPeak": {
+      "name": "Mont Blanc",
+      "elevation": "4,808 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mont_Blanc"
+    },
+    "famousFeature": {
+      "name": "Eiffel Tower",
+      "wiki": "https://en.wikipedia.org/wiki/Eiffel_Tower"
+    },
     "climate": "Mostly temperate oceanic; Mediterranean in the south.",
-    "naturalResources": ["Coal", "Iron ore", "Timber", "Fish"],
+    "naturalResources": [
+      "Coal",
+      "Iron ore",
+      "Timber",
+      "Fish"
+    ],
     "nationalAnimal": "Gallic rooster",
     "nationalSport": "Football (soccer)",
-    "nationalDish": { "name": "Pot-au-feu / Croissant (widely cited)", "wiki": "https://en.wikipedia.org/wiki/French_cuisine" },
-    "majorReligions": ["Christianity (historically majority)", "religiously unaffiliated"],
-    "unesco": [
-      { "name": "Palace of Versailles", "wiki": "https://en.wikipedia.org/wiki/Palace_of_Versailles" },
-      { "name": "Mont-Saint-Michel", "wiki": "https://en.wikipedia.org/wiki/Mont-Saint-Michel" }
+    "nationalDish": {
+      "name": "Pot-au-feu / Croissant (widely cited)",
+      "wiki": "https://en.wikipedia.org/wiki/French_cuisine"
+    },
+    "majorReligions": [
+      "Christianity (historically majority)",
+      "religiously unaffiliated"
     ],
-    "engineeringProjects": [{ "name": "Channel Tunnel", "wiki": "https://en.wikipedia.org/wiki/Channel_Tunnel" }],
-    "largestCompany": { "name": "LVMH", "wiki": "https://en.wikipedia.org/wiki/LVMH" },
-    "famousBrands": [{ "name": "Louis Vuitton", "industry": "Luxury fashion" }, { "name": "Chanel", "industry": "Luxury fashion" }],
-    "busiestAirport": { "name": "Paris Charles de Gaulle", "code": "CDG" },
+    "unesco": [
+      {
+        "name": "Palace of Versailles",
+        "wiki": "https://en.wikipedia.org/wiki/Palace_of_Versailles"
+      },
+      {
+        "name": "Mont-Saint-Michel",
+        "wiki": "https://en.wikipedia.org/wiki/Mont-Saint-Michel"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Channel Tunnel",
+        "wiki": "https://en.wikipedia.org/wiki/Channel_Tunnel"
+      }
+    ],
+    "largestCompany": {
+      "name": "LVMH",
+      "wiki": "https://en.wikipedia.org/wiki/LVMH"
+    },
+    "famousBrands": [
+      {
+        "name": "Louis Vuitton",
+        "industry": "Luxury fashion"
+      },
+      {
+        "name": "Chanel",
+        "industry": "Luxury fashion"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Paris Charles de Gaulle",
+      "code": "CDG"
+    },
     "mostVisitedCity": "Paris",
     "funFacts": [
       "France is the world's most-visited country by international tourist arrivals.",
@@ -411,40 +1061,116 @@
     ]
   },
   "de": {
-    "government": { "form": "Federal parliamentary republic", "nationalDay": "October 3 (German Unity Day)" },
+    "government": {
+      "form": "Federal parliamentary republic",
+      "nationalDay": "October 3 (German Unity Day)"
+    },
     "drivesOn": "right",
     "independence": null,
-    "formerNames": ["German Empire (1871–1918)", "West/East Germany (1949–1990)"],
-    "formerCapitals": ["Bonn (West Germany capital, 1949–1990)"],
+    "formerNames": [
+      "German Empire (1871–1918)",
+      "West/East Germany (1949–1990)"
+    ],
+    "formerCapitals": [
+      "Bonn (West Germany capital, 1949–1990)"
+    ],
     "earliestSettlement": "Germanic tribes inhabited the region from antiquity; Trier, founded by the Romans around 16 BC, claims to be Germany's oldest city.",
     "keyDates": [
-      { "year": 1871, "event": "German Empire unified under Prussia" },
-      { "year": 1933, "event": "Nazi Party seizes power" },
-      { "year": 1945, "event": "End of WWII; Germany divided" },
-      { "year": 1961, "event": "Berlin Wall built" },
-      { "year": 1989, "event": "Fall of the Berlin Wall" },
-      { "year": 1990, "event": "German reunification" }
+      {
+        "year": 1871,
+        "event": "German Empire unified under Prussia"
+      },
+      {
+        "year": 1933,
+        "event": "Nazi Party seizes power"
+      },
+      {
+        "year": 1945,
+        "event": "End of WWII; Germany divided"
+      },
+      {
+        "year": 1961,
+        "event": "Berlin Wall built"
+      },
+      {
+        "year": 1989,
+        "event": "Fall of the Berlin Wall"
+      },
+      {
+        "year": 1990,
+        "event": "German reunification"
+      }
     ],
     "historicalFigures": [
-      { "name": "Otto von Bismarck", "wiki": "https://en.wikipedia.org/wiki/Otto_von_Bismarck" },
-      { "name": "Johann Wolfgang von Goethe", "wiki": "https://en.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe" }
+      {
+        "name": "Otto von Bismarck",
+        "wiki": "https://en.wikipedia.org/wiki/Otto_von_Bismarck"
+      },
+      {
+        "name": "Johann Wolfgang von Goethe",
+        "wiki": "https://en.wikipedia.org/wiki/Johann_Wolfgang_von_Goethe"
+      }
     ],
-    "highestPeak": { "name": "Zugspitze", "elevation": "2,962 m", "wiki": "https://en.wikipedia.org/wiki/Zugspitze" },
-    "famousFeature": { "name": "Neuschwanstein Castle", "wiki": "https://en.wikipedia.org/wiki/Neuschwanstein_Castle" },
+    "highestPeak": {
+      "name": "Zugspitze",
+      "elevation": "2,962 m",
+      "wiki": "https://en.wikipedia.org/wiki/Zugspitze"
+    },
+    "famousFeature": {
+      "name": "Neuschwanstein Castle",
+      "wiki": "https://en.wikipedia.org/wiki/Neuschwanstein_Castle"
+    },
     "climate": "Temperate seasonal, with warm summers and cold (but not extreme) winters.",
-    "naturalResources": ["Coal", "Lignite", "Potash", "Timber"],
+    "naturalResources": [
+      "Coal",
+      "Lignite",
+      "Potash",
+      "Timber"
+    ],
     "nationalAnimal": "Federal eagle (Bundesadler)",
     "nationalSport": "Football (soccer)",
-    "nationalDish": { "name": "Sauerbraten", "wiki": "https://en.wikipedia.org/wiki/Sauerbraten" },
-    "majorReligions": ["Christianity (Catholic and Protestant)", "religiously unaffiliated"],
-    "unesco": [
-      { "name": "Cologne Cathedral", "wiki": "https://en.wikipedia.org/wiki/Cologne_Cathedral" },
-      { "name": "Museum Island, Berlin", "wiki": "https://en.wikipedia.org/wiki/Museum_Island" }
+    "nationalDish": {
+      "name": "Sauerbraten",
+      "wiki": "https://en.wikipedia.org/wiki/Sauerbraten"
+    },
+    "majorReligions": [
+      "Christianity (Catholic and Protestant)",
+      "religiously unaffiliated"
     ],
-    "engineeringProjects": [{ "name": "Autobahn network", "wiki": "https://en.wikipedia.org/wiki/Autobahn" }],
-    "largestCompany": { "name": "Volkswagen Group", "wiki": "https://en.wikipedia.org/wiki/Volkswagen_Group" },
-    "famousBrands": [{ "name": "BMW", "industry": "Automotive" }, { "name": "Adidas", "industry": "Sportswear" }],
-    "busiestAirport": { "name": "Frankfurt Airport", "code": "FRA" },
+    "unesco": [
+      {
+        "name": "Cologne Cathedral",
+        "wiki": "https://en.wikipedia.org/wiki/Cologne_Cathedral"
+      },
+      {
+        "name": "Museum Island, Berlin",
+        "wiki": "https://en.wikipedia.org/wiki/Museum_Island"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Autobahn network",
+        "wiki": "https://en.wikipedia.org/wiki/Autobahn"
+      }
+    ],
+    "largestCompany": {
+      "name": "Volkswagen Group",
+      "wiki": "https://en.wikipedia.org/wiki/Volkswagen_Group"
+    },
+    "famousBrands": [
+      {
+        "name": "BMW",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Adidas",
+        "industry": "Sportswear"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Frankfurt Airport",
+      "code": "FRA"
+    },
     "mostVisitedCity": "Berlin",
     "funFacts": [
       "Germany has over 1,500 different types of sausage (Wurst).",
@@ -453,40 +1179,112 @@
     ]
   },
   "jp": {
-    "government": { "form": "Unitary parliamentary constitutional monarchy", "nationalDay": "February 11 (National Foundation Day)" },
+    "government": {
+      "form": "Unitary parliamentary constitutional monarchy",
+      "nationalDay": "February 11 (National Foundation Day)"
+    },
     "drivesOn": "left",
     "independence": null,
     "formerNames": [],
-    "formerCapitals": ["Kyoto (794–1868)", "Nara (710–794)"],
+    "formerCapitals": [
+      "Kyoto (794–1868)",
+      "Nara (710–794)"
+    ],
     "earliestSettlement": "The Jōmon period, one of the earliest known pottery-making cultures, dates back over 14,000 years in Japan.",
     "keyDates": [
-      { "year": 710, "event": "Nara established as the first permanent capital" },
-      { "year": 1603, "event": "Tokugawa Shogunate begins, over 250 years of relative isolation" },
-      { "year": 1868, "event": "Meiji Restoration; Japan rapidly modernizes" },
-      { "year": 1945, "event": "WWII ends after atomic bombings of Hiroshima and Nagasaki" },
-      { "year": 1964, "event": "Tokyo hosts the first Olympics in Asia" }
+      {
+        "year": 710,
+        "event": "Nara established as the first permanent capital"
+      },
+      {
+        "year": 1603,
+        "event": "Tokugawa Shogunate begins, over 250 years of relative isolation"
+      },
+      {
+        "year": 1868,
+        "event": "Meiji Restoration; Japan rapidly modernizes"
+      },
+      {
+        "year": 1945,
+        "event": "WWII ends after atomic bombings of Hiroshima and Nagasaki"
+      },
+      {
+        "year": 1964,
+        "event": "Tokyo hosts the first Olympics in Asia"
+      }
     ],
     "historicalFigures": [
-      { "name": "Emperor Meiji", "wiki": "https://en.wikipedia.org/wiki/Emperor_Meiji" },
-      { "name": "Tokugawa Ieyasu", "wiki": "https://en.wikipedia.org/wiki/Tokugawa_Ieyasu" }
+      {
+        "name": "Emperor Meiji",
+        "wiki": "https://en.wikipedia.org/wiki/Emperor_Meiji"
+      },
+      {
+        "name": "Tokugawa Ieyasu",
+        "wiki": "https://en.wikipedia.org/wiki/Tokugawa_Ieyasu"
+      }
     ],
-    "highestPeak": { "name": "Mount Fuji", "elevation": "3,776 m", "wiki": "https://en.wikipedia.org/wiki/Mount_Fuji" },
-    "famousFeature": { "name": "Mount Fuji", "wiki": "https://en.wikipedia.org/wiki/Mount_Fuji" },
+    "highestPeak": {
+      "name": "Mount Fuji",
+      "elevation": "3,776 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Fuji"
+    },
+    "famousFeature": {
+      "name": "Mount Fuji",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Fuji"
+    },
     "climate": "Varies north to south: humid continental in Hokkaido to subtropical in Okinawa.",
-    "naturalResources": ["Fish", "Limited minerals - resource-poor overall"],
+    "naturalResources": [
+      "Fish",
+      "Limited minerals - resource-poor overall"
+    ],
     "nationalAnimal": "Green pheasant",
     "nationalSport": "Sumo wrestling",
-    "nationalDish": { "name": "Sushi", "wiki": "https://en.wikipedia.org/wiki/Sushi" },
-    "majorReligions": ["Shinto", "Buddhism"],
-    "unesco": [
-      { "name": "Mount Fuji", "wiki": "https://en.wikipedia.org/wiki/Mount_Fuji" },
-      { "name": "Himeji Castle", "wiki": "https://en.wikipedia.org/wiki/Himeji_Castle" },
-      { "name": "Hiroshima Peace Memorial", "wiki": "https://en.wikipedia.org/wiki/Hiroshima_Peace_Memorial" }
+    "nationalDish": {
+      "name": "Sushi",
+      "wiki": "https://en.wikipedia.org/wiki/Sushi"
+    },
+    "majorReligions": [
+      "Shinto",
+      "Buddhism"
     ],
-    "engineeringProjects": [{ "name": "Shinkansen (bullet train)", "wiki": "https://en.wikipedia.org/wiki/Shinkansen" }],
-    "largestCompany": { "name": "Toyota Motor Corporation", "wiki": "https://en.wikipedia.org/wiki/Toyota" },
-    "famousBrands": [{ "name": "Sony", "industry": "Electronics" }, { "name": "Nintendo", "industry": "Gaming" }],
-    "busiestAirport": { "name": "Tokyo Haneda", "code": "HND" },
+    "unesco": [
+      {
+        "name": "Mount Fuji",
+        "wiki": "https://en.wikipedia.org/wiki/Mount_Fuji"
+      },
+      {
+        "name": "Himeji Castle",
+        "wiki": "https://en.wikipedia.org/wiki/Himeji_Castle"
+      },
+      {
+        "name": "Hiroshima Peace Memorial",
+        "wiki": "https://en.wikipedia.org/wiki/Hiroshima_Peace_Memorial"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Shinkansen (bullet train)",
+        "wiki": "https://en.wikipedia.org/wiki/Shinkansen"
+      }
+    ],
+    "largestCompany": {
+      "name": "Toyota Motor Corporation",
+      "wiki": "https://en.wikipedia.org/wiki/Toyota"
+    },
+    "famousBrands": [
+      {
+        "name": "Sony",
+        "industry": "Electronics"
+      },
+      {
+        "name": "Nintendo",
+        "industry": "Gaming"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Tokyo Haneda",
+      "code": "HND"
+    },
     "mostVisitedCity": "Tokyo",
     "funFacts": [
       "Japan's Shinkansen (bullet train) began service in 1964 and has carried billions of passengers with no passenger fatalities from derailment or collision.",
@@ -495,39 +1293,112 @@
     ]
   },
   "in": {
-    "government": { "form": "Federal parliamentary republic", "nationalDay": "August 15 (Independence Day)" },
+    "government": {
+      "form": "Federal parliamentary republic",
+      "nationalDay": "August 15 (Independence Day)"
+    },
     "drivesOn": "left",
-    "independence": { "date": "August 15, 1947", "from": "United Kingdom" },
-    "formerNames": ["British Raj (1858–1947)"],
-    "formerCapitals": ["Calcutta/Kolkata (capital of British India until 1911)"],
+    "independence": {
+      "date": "August 15, 1947",
+      "from": "United Kingdom"
+    },
+    "formerNames": [
+      "British Raj (1858–1947)"
+    ],
+    "formerCapitals": [
+      "Calcutta/Kolkata (capital of British India until 1911)"
+    ],
     "earliestSettlement": "The Indus Valley Civilization, one of the world's earliest urban cultures, flourished from around 3300 BC.",
     "keyDates": [
-      { "year": -2600, "event": "Indus Valley Civilization at its peak" },
-      { "year": 1526, "event": "Mughal Empire founded" },
-      { "year": 1858, "event": "British Crown rule begins" },
-      { "year": 1947, "event": "Independence and Partition, August 15" },
-      { "year": 1950, "event": "India becomes a republic" }
+      {
+        "year": -2600,
+        "event": "Indus Valley Civilization at its peak"
+      },
+      {
+        "year": 1526,
+        "event": "Mughal Empire founded"
+      },
+      {
+        "year": 1858,
+        "event": "British Crown rule begins"
+      },
+      {
+        "year": 1947,
+        "event": "Independence and Partition, August 15"
+      },
+      {
+        "year": 1950,
+        "event": "India becomes a republic"
+      }
     ],
     "historicalFigures": [
-      { "name": "Mahatma Gandhi", "wiki": "https://en.wikipedia.org/wiki/Mahatma_Gandhi" },
-      { "name": "Ashoka the Great", "wiki": "https://en.wikipedia.org/wiki/Ashoka" }
+      {
+        "name": "Mahatma Gandhi",
+        "wiki": "https://en.wikipedia.org/wiki/Mahatma_Gandhi"
+      },
+      {
+        "name": "Ashoka the Great",
+        "wiki": "https://en.wikipedia.org/wiki/Ashoka"
+      }
     ],
-    "highestPeak": { "name": "Kangchenjunga", "elevation": "8,586 m", "wiki": "https://en.wikipedia.org/wiki/Kangchenjunga" },
-    "famousFeature": { "name": "Taj Mahal", "wiki": "https://en.wikipedia.org/wiki/Taj_Mahal" },
+    "highestPeak": {
+      "name": "Kangchenjunga",
+      "elevation": "8,586 m",
+      "wiki": "https://en.wikipedia.org/wiki/Kangchenjunga"
+    },
+    "famousFeature": {
+      "name": "Taj Mahal",
+      "wiki": "https://en.wikipedia.org/wiki/Taj_Mahal"
+    },
     "climate": "Monsoon-dominated, ranging from tropical in the south to alpine in the Himalayas.",
-    "naturalResources": ["Coal", "Iron ore", "Manganese", "Bauxite"],
+    "naturalResources": [
+      "Coal",
+      "Iron ore",
+      "Manganese",
+      "Bauxite"
+    ],
     "nationalAnimal": "Bengal tiger",
     "nationalSport": "Field hockey (official); cricket most popular",
-    "nationalDish": { "name": "Khichdi (often cited as national dish)", "wiki": "https://en.wikipedia.org/wiki/Khichdi" },
-    "majorReligions": ["Hinduism (majority)", "Islam", "Christianity", "Sikhism"],
-    "unesco": [
-      { "name": "Taj Mahal", "wiki": "https://en.wikipedia.org/wiki/Taj_Mahal" },
-      { "name": "Red Fort", "wiki": "https://en.wikipedia.org/wiki/Red_Fort" }
+    "nationalDish": {
+      "name": "Khichdi (often cited as national dish)",
+      "wiki": "https://en.wikipedia.org/wiki/Khichdi"
+    },
+    "majorReligions": [
+      "Hinduism (majority)",
+      "Islam",
+      "Christianity",
+      "Sikhism"
     ],
-    "engineeringProjects": [{ "name": "Statue of Unity", "wiki": "https://en.wikipedia.org/wiki/Statue_of_Unity" }],
-    "largestCompany": { "name": "Reliance Industries", "wiki": "https://en.wikipedia.org/wiki/Reliance_Industries" },
-    "famousBrands": [{ "name": "Tata", "industry": "Conglomerate" }],
-    "busiestAirport": { "name": "Indira Gandhi International, Delhi", "code": "DEL" },
+    "unesco": [
+      {
+        "name": "Taj Mahal",
+        "wiki": "https://en.wikipedia.org/wiki/Taj_Mahal"
+      },
+      {
+        "name": "Red Fort",
+        "wiki": "https://en.wikipedia.org/wiki/Red_Fort"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Statue of Unity",
+        "wiki": "https://en.wikipedia.org/wiki/Statue_of_Unity"
+      }
+    ],
+    "largestCompany": {
+      "name": "Reliance Industries",
+      "wiki": "https://en.wikipedia.org/wiki/Reliance_Industries"
+    },
+    "famousBrands": [
+      {
+        "name": "Tata",
+        "industry": "Conglomerate"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Indira Gandhi International, Delhi",
+      "code": "DEL"
+    },
     "mostVisitedCity": "Delhi",
     "funFacts": [
       "India is home to the Statue of Unity, the tallest statue in the world at 182 metres.",
@@ -536,39 +1407,97 @@
     ]
   },
   "ae": {
-    "government": { "form": "Federal elective monarchy (federation of seven emirates)", "nationalDay": "December 2 (National Day)" },
+    "government": {
+      "form": "Federal elective monarchy (federation of seven emirates)",
+      "nationalDay": "December 2 (National Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "December 2, 1971", "from": "United Kingdom (Trucial States)" },
-    "formerNames": ["Trucial States (pre-1971)"],
+    "independence": {
+      "date": "December 2, 1971",
+      "from": "United Kingdom (Trucial States)"
+    },
+    "formerNames": [
+      "Trucial States (pre-1971)"
+    ],
     "formerCapitals": [],
     "earliestSettlement": "Archaeological sites near Al Ain show settlement dating back over 5,000 years.",
     "keyDates": [
-      { "year": 1853, "event": "Perpetual Maritime Truce signed with Britain" },
-      { "year": 1971, "event": "United Arab Emirates formed, December 2" },
-      { "year": 1973, "event": "UAE dirham introduced as common currency" },
-      { "year": 2010, "event": "Burj Khalifa opens as the world's tallest building" }
+      {
+        "year": 1853,
+        "event": "Perpetual Maritime Truce signed with Britain"
+      },
+      {
+        "year": 1971,
+        "event": "United Arab Emirates formed, December 2"
+      },
+      {
+        "year": 1973,
+        "event": "UAE dirham introduced as common currency"
+      },
+      {
+        "year": 2010,
+        "event": "Burj Khalifa opens as the world's tallest building"
+      }
     ],
     "historicalFigures": [
-      { "name": "Sheikh Zayed bin Sultan Al Nahyan", "wiki": "https://en.wikipedia.org/wiki/Zayed_bin_Sultan_Al_Nahyan" }
+      {
+        "name": "Sheikh Zayed bin Sultan Al Nahyan",
+        "wiki": "https://en.wikipedia.org/wiki/Zayed_bin_Sultan_Al_Nahyan"
+      }
     ],
-    "highestPeak": { "name": "Jebel Jais", "elevation": "1,934 m", "wiki": "https://en.wikipedia.org/wiki/Jebel_Jais" },
-    "famousFeature": { "name": "Burj Khalifa", "wiki": "https://en.wikipedia.org/wiki/Burj_Khalifa" },
+    "highestPeak": {
+      "name": "Jebel Jais",
+      "elevation": "1,934 m",
+      "wiki": "https://en.wikipedia.org/wiki/Jebel_Jais"
+    },
+    "famousFeature": {
+      "name": "Burj Khalifa",
+      "wiki": "https://en.wikipedia.org/wiki/Burj_Khalifa"
+    },
     "climate": "Arid desert - very hot summers, mild winters.",
-    "naturalResources": ["Petroleum", "Natural gas"],
+    "naturalResources": [
+      "Petroleum",
+      "Natural gas"
+    ],
     "nationalAnimal": "Arabian oryx",
     "nationalSport": "Falconry / Camel racing",
-    "nationalDish": { "name": "Al Machboos", "wiki": "https://en.wikipedia.org/wiki/Machboos" },
-    "majorReligions": ["Islam (official)"],
+    "nationalDish": {
+      "name": "Al Machboos",
+      "wiki": "https://en.wikipedia.org/wiki/Machboos"
+    },
+    "majorReligions": [
+      "Islam (official)"
+    ],
     "unesco": [
-      { "name": "Cultural Sites of Al Ain", "wiki": "https://en.wikipedia.org/wiki/Al_Ain" }
+      {
+        "name": "Cultural Sites of Al Ain",
+        "wiki": "https://en.wikipedia.org/wiki/Al_Ain"
+      }
     ],
     "engineeringProjects": [
-      { "name": "Burj Khalifa", "wiki": "https://en.wikipedia.org/wiki/Burj_Khalifa" },
-      { "name": "Palm Jumeirah", "wiki": "https://en.wikipedia.org/wiki/Palm_Jumeirah" }
+      {
+        "name": "Burj Khalifa",
+        "wiki": "https://en.wikipedia.org/wiki/Burj_Khalifa"
+      },
+      {
+        "name": "Palm Jumeirah",
+        "wiki": "https://en.wikipedia.org/wiki/Palm_Jumeirah"
+      }
     ],
-    "largestCompany": { "name": "ADNOC", "wiki": "https://en.wikipedia.org/wiki/Abu_Dhabi_National_Oil_Company" },
-    "famousBrands": [{ "name": "Emirates", "industry": "Aviation" }],
-    "busiestAirport": { "name": "Dubai International", "code": "DXB" },
+    "largestCompany": {
+      "name": "ADNOC",
+      "wiki": "https://en.wikipedia.org/wiki/Abu_Dhabi_National_Oil_Company"
+    },
+    "famousBrands": [
+      {
+        "name": "Emirates",
+        "industry": "Aviation"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Dubai International",
+      "code": "DXB"
+    },
     "mostVisitedCity": "Dubai",
     "funFacts": [
       "The Burj Khalifa in Dubai is the tallest structure in the world, standing at 828 metres.",
@@ -578,36 +1507,97 @@
     ]
   },
   "tr": {
-    "government": { "form": "Unitary presidential republic", "nationalDay": "October 29 (Republic Day)" },
+    "government": {
+      "form": "Unitary presidential republic",
+      "nationalDay": "October 29 (Republic Day)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "October 29, 1923", "from": "Proclaimed as a republic following the collapse of the Ottoman Empire" },
-    "formerNames": ["Ottoman Empire (1299–1922)"],
-    "formerCapitals": ["Istanbul/Constantinople (Ottoman capital until 1923)", "Bursa", "Edirne"],
+    "independence": {
+      "date": "October 29, 1923",
+      "from": "Proclaimed as a republic following the collapse of the Ottoman Empire"
+    },
+    "formerNames": [
+      "Ottoman Empire (1299–1922)"
+    ],
+    "formerCapitals": [
+      "Istanbul/Constantinople (Ottoman capital until 1923)",
+      "Bursa",
+      "Edirne"
+    ],
     "earliestSettlement": "Göbekli Tepe in southeastern Turkey, dated to around 9500 BC, is among the oldest known temple complexes in the world.",
     "keyDates": [
-      { "year": 330, "event": "Constantinople founded as capital of the Roman/Byzantine Empire" },
-      { "year": 1453, "event": "Ottomans conquer Constantinople" },
-      { "year": 1922, "event": "Ottoman Sultanate abolished" },
-      { "year": 1923, "event": "Republic of Turkey proclaimed, October 29" }
+      {
+        "year": 330,
+        "event": "Constantinople founded as capital of the Roman/Byzantine Empire"
+      },
+      {
+        "year": 1453,
+        "event": "Ottomans conquer Constantinople"
+      },
+      {
+        "year": 1922,
+        "event": "Ottoman Sultanate abolished"
+      },
+      {
+        "year": 1923,
+        "event": "Republic of Turkey proclaimed, October 29"
+      }
     ],
     "historicalFigures": [
-      { "name": "Mustafa Kemal Atatürk", "wiki": "https://en.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk" },
-      { "name": "Suleiman the Magnificent", "wiki": "https://en.wikipedia.org/wiki/Suleiman_the_Magnificent" }
+      {
+        "name": "Mustafa Kemal Atatürk",
+        "wiki": "https://en.wikipedia.org/wiki/Mustafa_Kemal_Atat%C3%BCrk"
+      },
+      {
+        "name": "Suleiman the Magnificent",
+        "wiki": "https://en.wikipedia.org/wiki/Suleiman_the_Magnificent"
+      }
     ],
-    "highestPeak": { "name": "Mount Ararat", "elevation": "5,137 m", "wiki": "https://en.wikipedia.org/wiki/Mount_Ararat" },
-    "famousFeature": { "name": "Hagia Sophia", "wiki": "https://en.wikipedia.org/wiki/Hagia_Sophia" },
+    "highestPeak": {
+      "name": "Mount Ararat",
+      "elevation": "5,137 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Ararat"
+    },
+    "famousFeature": {
+      "name": "Hagia Sophia",
+      "wiki": "https://en.wikipedia.org/wiki/Hagia_Sophia"
+    },
     "climate": "Mediterranean on the coasts, continental in the interior.",
-    "naturalResources": ["Coal", "Chromium", "Copper", "Boron"],
+    "naturalResources": [
+      "Coal",
+      "Chromium",
+      "Copper",
+      "Boron"
+    ],
     "nationalAnimal": "Grey wolf",
     "nationalSport": "Oil wrestling (Yağlı güreş)",
-    "nationalDish": { "name": "Kebab", "wiki": "https://en.wikipedia.org/wiki/Kebab" },
-    "majorReligions": ["Islam (Sunni majority)"],
-    "unesco": [
-      { "name": "Historic Areas of Istanbul", "wiki": "https://en.wikipedia.org/wiki/Historic_Areas_of_Istanbul" },
-      { "name": "Göbekli Tepe", "wiki": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe" },
-      { "name": "Cappadocia", "wiki": "https://en.wikipedia.org/wiki/Cappadocia" }
+    "nationalDish": {
+      "name": "Kebab",
+      "wiki": "https://en.wikipedia.org/wiki/Kebab"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)"
     ],
-    "engineeringProjects": [{ "name": "Bosphorus Bridge", "wiki": "https://en.wikipedia.org/wiki/15_July_Martyrs_Bridge" }],
+    "unesco": [
+      {
+        "name": "Historic Areas of Istanbul",
+        "wiki": "https://en.wikipedia.org/wiki/Historic_Areas_of_Istanbul"
+      },
+      {
+        "name": "Göbekli Tepe",
+        "wiki": "https://en.wikipedia.org/wiki/G%C3%B6bekli_Tepe"
+      },
+      {
+        "name": "Cappadocia",
+        "wiki": "https://en.wikipedia.org/wiki/Cappadocia"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Bosphorus Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/15_July_Martyrs_Bridge"
+      }
+    ],
     "mostVisitedCity": "Istanbul",
     "funFacts": [
       "Istanbul is the only major city in the world that spans two continents, Europe and Asia.",
@@ -616,41 +1606,1242 @@
     ]
   },
   "sa": {
-    "government": { "form": "Unitary Islamic absolute monarchy", "nationalDay": "September 23 (Founding Day: February 22)" },
+    "government": {
+      "form": "Unitary Islamic absolute monarchy",
+      "nationalDay": "September 23 (Founding Day: February 22)"
+    },
     "drivesOn": "right",
-    "independence": { "date": "September 23, 1932 (unification)", "from": "Unified from earlier Saudi states, not a colonial independence" },
-    "formerNames": ["Emirate of Diriyah", "Kingdom of Hejaz and Nejd"],
-    "formerCapitals": ["Diriyah (first Saudi capital)"],
+    "independence": {
+      "date": "September 23, 1932 (unification)",
+      "from": "Unified from earlier Saudi states, not a colonial independence"
+    },
+    "formerNames": [
+      "Emirate of Diriyah",
+      "Kingdom of Hejaz and Nejd"
+    ],
+    "formerCapitals": [
+      "Diriyah (first Saudi capital)"
+    ],
     "earliestSettlement": "The Arabian Peninsula has been inhabited since prehistoric times; Mecca has been a settlement and pilgrimage site for over a thousand years before Islam.",
     "keyDates": [
-      { "year": 1744, "event": "First Saudi State founded at Diriyah" },
-      { "year": 1902, "event": "Ibn Saud recaptures Riyadh, beginning modern unification" },
-      { "year": 1932, "event": "Kingdom of Saudi Arabia proclaimed, September 23" },
-      { "year": 1938, "event": "Oil discovered in commercial quantities" }
+      {
+        "year": 1744,
+        "event": "First Saudi State founded at Diriyah"
+      },
+      {
+        "year": 1902,
+        "event": "Ibn Saud recaptures Riyadh, beginning modern unification"
+      },
+      {
+        "year": 1932,
+        "event": "Kingdom of Saudi Arabia proclaimed, September 23"
+      },
+      {
+        "year": 1938,
+        "event": "Oil discovered in commercial quantities"
+      }
     ],
     "historicalFigures": [
-      { "name": "Ibn Saud (Abdulaziz)", "wiki": "https://en.wikipedia.org/wiki/Ibn_Saud" }
+      {
+        "name": "Ibn Saud (Abdulaziz)",
+        "wiki": "https://en.wikipedia.org/wiki/Ibn_Saud"
+      }
     ],
-    "highestPeak": { "name": "Jabal Sawda", "elevation": "3,015 m", "wiki": "https://en.wikipedia.org/wiki/Jabal_Sawda" },
-    "famousFeature": { "name": "Masjid al-Haram, Mecca", "wiki": "https://en.wikipedia.org/wiki/Masjid_al-Haram" },
+    "highestPeak": {
+      "name": "Jabal Sawda",
+      "elevation": "3,015 m",
+      "wiki": "https://en.wikipedia.org/wiki/Jabal_Sawda"
+    },
+    "famousFeature": {
+      "name": "Masjid al-Haram, Mecca",
+      "wiki": "https://en.wikipedia.org/wiki/Masjid_al-Haram"
+    },
     "climate": "Arid desert - extremely hot summers, mild winters.",
-    "naturalResources": ["Petroleum", "Natural gas"],
+    "naturalResources": [
+      "Petroleum",
+      "Natural gas"
+    ],
     "nationalAnimal": "Arabian horse / Saker falcon",
     "nationalSport": "Camel racing / Falconry",
-    "nationalDish": { "name": "Kabsa", "wiki": "https://en.wikipedia.org/wiki/Kabsa" },
-    "majorReligions": ["Islam (official)"],
-    "unesco": [
-      { "name": "Al-Hijr Archaeological Site (Madain Salih)", "wiki": "https://en.wikipedia.org/wiki/Mada%27in_Salih" },
-      { "name": "At-Turaif District, Diriyah", "wiki": "https://en.wikipedia.org/wiki/At-Turaif" }
+    "nationalDish": {
+      "name": "Kabsa",
+      "wiki": "https://en.wikipedia.org/wiki/Kabsa"
+    },
+    "majorReligions": [
+      "Islam (official)"
     ],
-    "engineeringProjects": [{ "name": "NEOM", "wiki": "https://en.wikipedia.org/wiki/NEOM" }],
-    "largestCompany": { "name": "Saudi Aramco", "wiki": "https://en.wikipedia.org/wiki/Saudi_Aramco" },
-    "busiestAirport": { "name": "King Abdulaziz International, Jeddah", "code": "JED" },
+    "unesco": [
+      {
+        "name": "Al-Hijr Archaeological Site (Madain Salih)",
+        "wiki": "https://en.wikipedia.org/wiki/Mada%27in_Salih"
+      },
+      {
+        "name": "At-Turaif District, Diriyah",
+        "wiki": "https://en.wikipedia.org/wiki/At-Turaif"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "NEOM",
+        "wiki": "https://en.wikipedia.org/wiki/NEOM"
+      }
+    ],
+    "largestCompany": {
+      "name": "Saudi Aramco",
+      "wiki": "https://en.wikipedia.org/wiki/Saudi_Aramco"
+    },
+    "busiestAirport": {
+      "name": "King Abdulaziz International, Jeddah",
+      "code": "JED"
+    },
     "mostVisitedCity": "Mecca",
     "funFacts": [
       "Saudi Aramco is one of the most valuable companies in the world by market capitalization.",
       "Mecca receives millions of Muslim pilgrims every year during the Hajj.",
       "Saudi Arabia has no permanent rivers."
+    ]
+  },
+  "ca": {
+    "government": {
+      "form": "Federal parliamentary constitutional monarchy",
+      "nationalDay": "July 1 (Canada Day)"
+    },
+    "drivesOn": "right",
+    "independence": "July 1, 1867 (Confederation, from the United Kingdom; full legislative independence via the Statute of Westminster 1931 and Canada Act 1982)",
+    "formerNames": [
+      "Dominion of Canada"
+    ],
+    "formerCapitals": [
+      "Kingston",
+      "Montreal",
+      "Toronto",
+      "Quebec City"
+    ],
+    "earliestSettlement": "Indigenous peoples inhabited the region for over 10,000 years before European contact; permanent European settlement began with Quebec City, founded by Samuel de Champlain in 1608.",
+    "keyDates": [
+      {
+        "year": 1608,
+        "event": "Samuel de Champlain founds Quebec City"
+      },
+      {
+        "year": 1763,
+        "event": "Treaty of Paris cedes New France to Britain"
+      },
+      {
+        "year": 1867,
+        "event": "Confederation creates the Dominion of Canada"
+      },
+      {
+        "year": 1931,
+        "event": "Statute of Westminster grants legislative independence"
+      },
+      {
+        "year": 1982,
+        "event": "Canada Act patriates the constitution"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Sir John A. Macdonald",
+        "wiki": "https://en.wikipedia.org/wiki/John_A._Macdonald"
+      },
+      {
+        "name": "Samuel de Champlain",
+        "wiki": "https://en.wikipedia.org/wiki/Samuel_de_Champlain"
+      }
+    ],
+    "highestPeak": {
+      "name": "Mount Logan",
+      "elevation": "5,959 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Logan"
+    },
+    "famousFeature": {
+      "name": "Niagara Falls",
+      "wiki": "https://en.wikipedia.org/wiki/Niagara_Falls"
+    },
+    "climate": "Varies widely - arctic in the north, humid continental in central/eastern regions, oceanic on the west coast.",
+    "naturalResources": [
+      "Timber",
+      "Oil sands",
+      "Nickel",
+      "Potash",
+      "Freshwater"
+    ],
+    "nationalAnimal": "Beaver (national symbol); moose and Canada goose also prominent",
+    "nationalSport": "Ice hockey (lacrosse is the official summer national sport)",
+    "nationalDish": {
+      "name": "Poutine",
+      "wiki": "https://en.wikipedia.org/wiki/Poutine"
+    },
+    "majorReligions": [
+      "Christianity",
+      "religiously unaffiliated"
+    ],
+    "unesco": [
+      {
+        "name": "Nahanni National Park",
+        "wiki": "https://en.wikipedia.org/wiki/Nahanni_National_Park_Reserve"
+      },
+      {
+        "name": "Old Town Lunenburg",
+        "wiki": "https://en.wikipedia.org/wiki/Old_Town_Lunenburg"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "CN Tower",
+        "wiki": "https://en.wikipedia.org/wiki/CN_Tower"
+      },
+      {
+        "name": "Confederation Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/Confederation_Bridge"
+      }
+    ],
+    "largestCompany": {
+      "name": "Royal Bank of Canada",
+      "wiki": "https://en.wikipedia.org/wiki/Royal_Bank_of_Canada"
+    },
+    "famousBrands": [
+      {
+        "name": "Tim Hortons",
+        "industry": "Food & beverage"
+      },
+      {
+        "name": "Canada Goose",
+        "industry": "Apparel"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Toronto Pearson International",
+      "code": "YYZ"
+    },
+    "mostVisitedCity": "Toronto",
+    "funFacts": [
+      "Canada has the longest coastline of any country in the world.",
+      "Canada has more lakes than the rest of the world's lakes combined.",
+      "The world's first IMAX film was shown in Canada in 1970."
+    ]
+  },
+  "au": {
+    "government": {
+      "form": "Federal parliamentary constitutional monarchy",
+      "nationalDay": "January 26 (Australia Day)"
+    },
+    "drivesOn": "left",
+    "independence": "January 1, 1901 (Federation of the Australian colonies; full legislative independence via the Statute of Westminster, adopted 1942)",
+    "formerNames": [
+      "New Holland"
+    ],
+    "formerCapitals": [
+      "Melbourne (interim, until Canberra was built)"
+    ],
+    "earliestSettlement": "Aboriginal Australians have inhabited the continent for at least 50,000-65,000 years, among the oldest continuous cultures on Earth.",
+    "keyDates": [
+      {
+        "year": 1770,
+        "event": "James Cook charts and claims the east coast for Britain"
+      },
+      {
+        "year": 1788,
+        "event": "First Fleet arrives, founding the colony of New South Wales"
+      },
+      {
+        "year": 1901,
+        "event": "Federation of Australia"
+      },
+      {
+        "year": 1915,
+        "event": "Gallipoli campaign, formative in national identity (ANZAC)"
+      },
+      {
+        "year": 1986,
+        "event": "Australia Act severs remaining legal ties to the UK Parliament"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "James Cook",
+        "wiki": "https://en.wikipedia.org/wiki/James_Cook"
+      },
+      {
+        "name": "Edmund Barton",
+        "wiki": "https://en.wikipedia.org/wiki/Edmund_Barton"
+      }
+    ],
+    "highestPeak": {
+      "name": "Mount Kosciuszko",
+      "elevation": "2,228 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Kosciuszko"
+    },
+    "famousFeature": {
+      "name": "Uluru (Ayers Rock)",
+      "wiki": "https://en.wikipedia.org/wiki/Uluru"
+    },
+    "climate": "Arid/desert across most of the interior; tropical in the north, temperate in the south and east.",
+    "naturalResources": [
+      "Iron ore",
+      "Coal",
+      "Gold",
+      "Natural gas",
+      "Uranium"
+    ],
+    "nationalAnimal": "Red kangaroo (emu also a national symbol)",
+    "nationalSport": "Cricket (informally); Australian rules football is the most-attended",
+    "nationalDish": {
+      "name": "Meat pie",
+      "wiki": "https://en.wikipedia.org/wiki/Australian_meat_pie"
+    },
+    "majorReligions": [
+      "Christianity",
+      "religiously unaffiliated"
+    ],
+    "unesco": [
+      {
+        "name": "Great Barrier Reef",
+        "wiki": "https://en.wikipedia.org/wiki/Great_Barrier_Reef"
+      },
+      {
+        "name": "Sydney Opera House",
+        "wiki": "https://en.wikipedia.org/wiki/Sydney_Opera_House"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Sydney Harbour Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/Sydney_Harbour_Bridge"
+      },
+      {
+        "name": "Snowy Mountains Scheme",
+        "wiki": "https://en.wikipedia.org/wiki/Snowy_Mountains_Scheme"
+      }
+    ],
+    "largestCompany": {
+      "name": "BHP",
+      "wiki": "https://en.wikipedia.org/wiki/BHP"
+    },
+    "famousBrands": [
+      {
+        "name": "Qantas",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Bonds",
+        "industry": "Apparel"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Sydney Airport",
+      "code": "SYD"
+    },
+    "mostVisitedCity": "Sydney",
+    "funFacts": [
+      "Australia is the only country that is also a continent.",
+      "Over 80% of Australia's plants, mammals, reptiles and frogs are found nowhere else on Earth.",
+      "Australia has more venomous snake species than any other country."
+    ]
+  },
+  "br": {
+    "government": {
+      "form": "Federal presidential republic",
+      "nationalDay": "September 7 (Independence Day)"
+    },
+    "drivesOn": "right",
+    "independence": "September 7, 1822, from Portugal (declared by Prince Pedro, who became Emperor Pedro I)",
+    "formerNames": [
+      "Empire of Brazil (1822-1889)",
+      "United States of Brazil (1889-1967)"
+    ],
+    "formerCapitals": [
+      "Salvador",
+      "Rio de Janeiro"
+    ],
+    "earliestSettlement": "Indigenous peoples inhabited Brazil for thousands of years; Portuguese colonization began in 1500 when Pedro Alvares Cabral landed on the coast.",
+    "keyDates": [
+      {
+        "year": 1500,
+        "event": "Pedro Alvares Cabral claims Brazil for Portugal"
+      },
+      {
+        "year": 1822,
+        "event": "Independence declared by Pedro I"
+      },
+      {
+        "year": 1888,
+        "event": "Slavery abolished (Lei Aurea)"
+      },
+      {
+        "year": 1889,
+        "event": "Monarchy abolished, republic proclaimed"
+      },
+      {
+        "year": 1960,
+        "event": "Capital moved from Rio de Janeiro to newly built Brasília"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Pedro I of Brazil",
+        "wiki": "https://en.wikipedia.org/wiki/Pedro_I_of_Brazil"
+      },
+      {
+        "name": "Getulio Vargas",
+        "wiki": "https://en.wikipedia.org/wiki/Get%C3%BAlio_Vargas"
+      }
+    ],
+    "highestPeak": {
+      "name": "Pico da Neblina",
+      "elevation": "2,995 m",
+      "wiki": "https://en.wikipedia.org/wiki/Pico_da_Neblina"
+    },
+    "famousFeature": {
+      "name": "Christ the Redeemer",
+      "wiki": "https://en.wikipedia.org/wiki/Christ_the_Redeemer_(statue)"
+    },
+    "climate": "Mostly tropical; equatorial in the Amazon, semi-arid in the northeast, subtropical in the south.",
+    "naturalResources": [
+      "Iron ore",
+      "Timber",
+      "Gold",
+      "Oil",
+      "Fertile farmland"
+    ],
+    "nationalAnimal": "Jaguar",
+    "nationalSport": "Football (soccer)",
+    "nationalDish": {
+      "name": "Feijoada",
+      "wiki": "https://en.wikipedia.org/wiki/Feijoada"
+    },
+    "majorReligions": [
+      "Christianity (Roman Catholic majority, large Protestant minority)"
+    ],
+    "unesco": [
+      {
+        "name": "Iguaçu National Park",
+        "wiki": "https://en.wikipedia.org/wiki/Iguazu_National_Park_(Brazil)"
+      },
+      {
+        "name": "Historic Centre of Salvador de Bahia",
+        "wiki": "https://en.wikipedia.org/wiki/Pelourinho"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Itaipu Dam",
+        "wiki": "https://en.wikipedia.org/wiki/Itaipu_Dam"
+      },
+      {
+        "name": "Brasília (planned capital city)",
+        "wiki": "https://en.wikipedia.org/wiki/Bras%C3%ADlia"
+      }
+    ],
+    "largestCompany": {
+      "name": "Petrobras",
+      "wiki": "https://en.wikipedia.org/wiki/Petrobras"
+    },
+    "famousBrands": [
+      {
+        "name": "Havaianas",
+        "industry": "Footwear"
+      },
+      {
+        "name": "Embraer",
+        "industry": "Aerospace"
+      }
+    ],
+    "busiestAirport": {
+      "name": "São Paulo-Guarulhos International",
+      "code": "GRU"
+    },
+    "mostVisitedCity": "Rio de Janeiro",
+    "funFacts": [
+      "Brazil is the only Portuguese-speaking country in the Americas.",
+      "The Amazon River discharges more water than the next seven largest rivers combined.",
+      "Brasília was purpose-built as the capital and completed in just 41 months."
+    ]
+  },
+  "mx": {
+    "government": {
+      "form": "Federal presidential republic",
+      "nationalDay": "September 16 (Independence Day)"
+    },
+    "drivesOn": "right",
+    "independence": "September 16, 1810 (start of war of independence); formally recognized September 27, 1821, from Spain",
+    "formerNames": [
+      "New Spain (colonial era)",
+      "First Mexican Empire (1821-1823)"
+    ],
+    "formerCapitals": [],
+    "earliestSettlement": "Home to major pre-Columbian civilizations including the Olmec, Maya, and Aztec; Tenochtitlan, the Aztec capital, was founded around 1325 on the site of modern Mexico City.",
+    "keyDates": [
+      {
+        "year": 1325,
+        "event": "Aztecs found Tenochtitlan"
+      },
+      {
+        "year": 1521,
+        "event": "Spanish conquest of the Aztec Empire under Hernan Cortes"
+      },
+      {
+        "year": 1810,
+        "event": "Miguel Hidalgo's Grito de Dolores begins the independence war"
+      },
+      {
+        "year": 1846,
+        "event": "Mexican-American War begins (Mexico loses roughly half its territory)"
+      },
+      {
+        "year": 1910,
+        "event": "Mexican Revolution begins"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Miguel Hidalgo",
+        "wiki": "https://en.wikipedia.org/wiki/Miguel_Hidalgo_y_Costilla"
+      },
+      {
+        "name": "Benito Juarez",
+        "wiki": "https://en.wikipedia.org/wiki/Benito_Ju%C3%A1rez"
+      }
+    ],
+    "highestPeak": {
+      "name": "Pico de Orizaba",
+      "elevation": "5,636 m",
+      "wiki": "https://en.wikipedia.org/wiki/Pico_de_Orizaba"
+    },
+    "famousFeature": {
+      "name": "Chichen Itza",
+      "wiki": "https://en.wikipedia.org/wiki/Chichen_Itza"
+    },
+    "climate": "Highly varied - arid in the north, tropical on the coasts, temperate highlands in the central plateau.",
+    "naturalResources": [
+      "Silver",
+      "Oil",
+      "Natural gas",
+      "Copper",
+      "Agricultural land"
+    ],
+    "nationalAnimal": "Golden eagle",
+    "nationalSport": "Charreria (rodeo-style sport); football is the most popular spectator sport",
+    "nationalDish": {
+      "name": "Mole",
+      "wiki": "https://en.wikipedia.org/wiki/Mole_(sauce)"
+    },
+    "majorReligions": [
+      "Christianity (Roman Catholic majority)"
+    ],
+    "unesco": [
+      {
+        "name": "Chichen Itza",
+        "wiki": "https://en.wikipedia.org/wiki/Chichen_Itza"
+      },
+      {
+        "name": "Historic Centre of Mexico City and Xochimilco",
+        "wiki": "https://en.wikipedia.org/wiki/Historic_centre_of_Mexico_City"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Torre Latinoamericana",
+        "wiki": "https://en.wikipedia.org/wiki/Torre_Latinoamericana"
+      }
+    ],
+    "largestCompany": {
+      "name": "America Movil",
+      "wiki": "https://en.wikipedia.org/wiki/Am%C3%A9rica_M%C3%B3vil"
+    },
+    "famousBrands": [
+      {
+        "name": "Corona",
+        "industry": "Beverages"
+      },
+      {
+        "name": "Bimbo",
+        "industry": "Food"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Mexico City International Airport",
+      "code": "MEX"
+    },
+    "mostVisitedCity": "Mexico City",
+    "funFacts": [
+      "Mexico City was built on the site of the Aztec capital Tenochtitlan, itself built on a lake.",
+      "Mexico introduced chocolate, corn, tomatoes and chili peppers to the world.",
+      "Mexico has more UNESCO World Heritage Sites than any other country in the Americas."
+    ]
+  },
+  "it": {
+    "government": {
+      "form": "Unitary parliamentary republic",
+      "nationalDay": "June 2 (Festa della Repubblica)"
+    },
+    "drivesOn": "right",
+    "independence": "March 17, 1861 (Unification of Italy, Kingdom of Italy proclaimed)",
+    "formerNames": [
+      "Kingdom of Italy (1861-1946)"
+    ],
+    "formerCapitals": [
+      "Turin",
+      "Florence"
+    ],
+    "earliestSettlement": "Rome traditionally founded 753 BC; the Italian peninsula was home to Etruscan and Greek colonies even earlier.",
+    "keyDates": [
+      {
+        "year": -753,
+        "event": "Traditional founding of Rome"
+      },
+      {
+        "year": 476,
+        "event": "Fall of the Western Roman Empire"
+      },
+      {
+        "year": 1861,
+        "event": "Unification - Kingdom of Italy proclaimed"
+      },
+      {
+        "year": 1922,
+        "event": "Mussolini's March on Rome, rise of Fascism"
+      },
+      {
+        "year": 1946,
+        "event": "Referendum abolishes the monarchy, Republic of Italy founded"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Julius Caesar",
+        "wiki": "https://en.wikipedia.org/wiki/Julius_Caesar"
+      },
+      {
+        "name": "Giuseppe Garibaldi",
+        "wiki": "https://en.wikipedia.org/wiki/Giuseppe_Garibaldi"
+      }
+    ],
+    "highestPeak": {
+      "name": "Mont Blanc (shared with France)",
+      "elevation": "4,808 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mont_Blanc"
+    },
+    "famousFeature": {
+      "name": "Colosseum",
+      "wiki": "https://en.wikipedia.org/wiki/Colosseum"
+    },
+    "climate": "Mediterranean along the coasts, alpine in the north.",
+    "naturalResources": [
+      "Natural gas",
+      "Marble",
+      "Fish",
+      "Arable land"
+    ],
+    "nationalAnimal": "Italian wolf",
+    "nationalSport": "Football (soccer)",
+    "nationalDish": {
+      "name": "Pasta (regionally varied; no single official dish)",
+      "wiki": "https://en.wikipedia.org/wiki/Italian_cuisine"
+    },
+    "majorReligions": [
+      "Christianity (Roman Catholic majority)"
+    ],
+    "unesco": [
+      {
+        "name": "Historic Centre of Rome",
+        "wiki": "https://en.wikipedia.org/wiki/Historic_Centre_of_Rome"
+      },
+      {
+        "name": "Venice and its Lagoon",
+        "wiki": "https://en.wikipedia.org/wiki/Venice_and_its_Lagoon"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Leaning Tower of Pisa",
+        "wiki": "https://en.wikipedia.org/wiki/Leaning_Tower_of_Pisa"
+      }
+    ],
+    "largestCompany": {
+      "name": "Eni",
+      "wiki": "https://en.wikipedia.org/wiki/Eni"
+    },
+    "famousBrands": [
+      {
+        "name": "Ferrari",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Gucci",
+        "industry": "Luxury fashion"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Rome Fiumicino",
+      "code": "FCO"
+    },
+    "mostVisitedCity": "Rome",
+    "funFacts": [
+      "Italy has more UNESCO World Heritage Sites than any other country.",
+      "Italy is home to the world's two smallest sovereign states as enclaves: Vatican City and San Marino.",
+      "The pizza Margherita was named after Queen Margherita of Savoy in 1889."
+    ]
+  },
+  "es": {
+    "government": {
+      "form": "Parliamentary constitutional monarchy",
+      "nationalDay": "October 12 (Fiesta Nacional de Espana)"
+    },
+    "drivesOn": "right",
+    "independence": null,
+    "formerNames": [
+      "Hispania (Roman era)"
+    ],
+    "formerCapitals": [
+      "Toledo",
+      "Valladolid"
+    ],
+    "earliestSettlement": "Inhabited since prehistoric times (Altamira cave paintings date to c. 36,000 years ago); unified under the Catholic Monarchs in 1469-1492.",
+    "keyDates": [
+      {
+        "year": 711,
+        "event": "Umayyad conquest begins Islamic rule (Al-Andalus)"
+      },
+      {
+        "year": 1492,
+        "event": "Fall of Granada completes the Reconquista; Columbus reaches the Americas"
+      },
+      {
+        "year": 1588,
+        "event": "Spanish Armada defeated by England"
+      },
+      {
+        "year": 1936,
+        "event": "Spanish Civil War begins"
+      },
+      {
+        "year": 1975,
+        "event": "Death of Franco, transition to democracy begins"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Isabella I of Castile",
+        "wiki": "https://en.wikipedia.org/wiki/Isabella_I_of_Castile"
+      },
+      {
+        "name": "Francisco Franco",
+        "wiki": "https://en.wikipedia.org/wiki/Francisco_Franco"
+      }
+    ],
+    "highestPeak": {
+      "name": "Teide (Tenerife, Canary Islands)",
+      "elevation": "3,715 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Teide"
+    },
+    "famousFeature": {
+      "name": "Sagrada Familia",
+      "wiki": "https://en.wikipedia.org/wiki/Sagrada_Fam%C3%ADlia"
+    },
+    "climate": "Mediterranean along the coasts, semi-arid in the interior, oceanic in the northwest.",
+    "naturalResources": [
+      "Coal",
+      "Iron ore",
+      "Uranium",
+      "Mercury",
+      "Fish"
+    ],
+    "nationalAnimal": "Bull (cultural symbol, not official)",
+    "nationalSport": "Football (soccer); bullfighting is a traditional spectacle",
+    "nationalDish": {
+      "name": "Paella",
+      "wiki": "https://en.wikipedia.org/wiki/Paella"
+    },
+    "majorReligions": [
+      "Christianity (Roman Catholic majority)"
+    ],
+    "unesco": [
+      {
+        "name": "Alhambra, Generalife and Albaicin, Granada",
+        "wiki": "https://en.wikipedia.org/wiki/Alhambra"
+      },
+      {
+        "name": "Sagrada Familia and Gaudi works, Barcelona",
+        "wiki": "https://en.wikipedia.org/wiki/Works_of_Antoni_Gaud%C3%AD"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Alcantara Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/Alc%C3%A1ntara_Bridge"
+      }
+    ],
+    "largestCompany": {
+      "name": "Banco Santander",
+      "wiki": "https://en.wikipedia.org/wiki/Banco_Santander"
+    },
+    "famousBrands": [
+      {
+        "name": "Zara",
+        "industry": "Fashion retail"
+      },
+      {
+        "name": "Iberia",
+        "industry": "Aviation"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Madrid-Barajas",
+      "code": "MAD"
+    },
+    "mostVisitedCity": "Barcelona",
+    "funFacts": [
+      "Spain has the second-most UNESCO World Heritage Sites of any country, after Italy.",
+      "Spain's siesta tradition arose from the need to avoid the midday heat during farm work.",
+      "The Sagrada Familia has been under construction since 1882 and is still unfinished."
+    ]
+  },
+  "eg": {
+    "government": {
+      "form": "Unitary semi-presidential republic",
+      "nationalDay": "July 23 (Revolution Day)"
+    },
+    "drivesOn": "right",
+    "independence": "February 28, 1922, from the United Kingdom (full sovereignty recognized progressively; 1952 revolution ended the monarchy)",
+    "formerNames": [
+      "United Arab Republic (1958-1961, union with Syria)"
+    ],
+    "formerCapitals": [
+      "Memphis",
+      "Thebes",
+      "Alexandria"
+    ],
+    "earliestSettlement": "One of the world's oldest civilizations, with settled agriculture along the Nile from around 6000 BC and unification under the first pharaoh around 3100 BC.",
+    "keyDates": [
+      {
+        "year": -3100,
+        "event": "Unification of Upper and Lower Egypt under Narmer"
+      },
+      {
+        "year": -2560,
+        "event": "Great Pyramid of Giza built (approx.)"
+      },
+      {
+        "year": 641,
+        "event": "Arab conquest of Egypt"
+      },
+      {
+        "year": 1922,
+        "event": "Nominal independence from Britain"
+      },
+      {
+        "year": 1952,
+        "event": "Revolution overthrows the monarchy"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Ramesses II",
+        "wiki": "https://en.wikipedia.org/wiki/Ramesses_II"
+      },
+      {
+        "name": "Gamal Abdel Nasser",
+        "wiki": "https://en.wikipedia.org/wiki/Gamal_Abdel_Nasser"
+      }
+    ],
+    "highestPeak": {
+      "name": "Mount Catherine",
+      "elevation": "2,629 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mount_Catherine_(Egypt)"
+    },
+    "famousFeature": {
+      "name": "Great Pyramid of Giza",
+      "wiki": "https://en.wikipedia.org/wiki/Great_Pyramid_of_Giza"
+    },
+    "climate": "Desert, hot and dry; the Nile Valley and Delta are the main fertile regions.",
+    "naturalResources": [
+      "Petroleum",
+      "Natural gas",
+      "Phosphates",
+      "Iron ore"
+    ],
+    "nationalAnimal": "Steppe eagle",
+    "nationalSport": "Football (soccer); squash also very strong internationally",
+    "nationalDish": {
+      "name": "Koshari",
+      "wiki": "https://en.wikipedia.org/wiki/Koshari"
+    },
+    "majorReligions": [
+      "Islam (Sunni majority)",
+      "Coptic Christianity (significant minority)"
+    ],
+    "unesco": [
+      {
+        "name": "Memphis and its Necropolis (Pyramids of Giza)",
+        "wiki": "https://en.wikipedia.org/wiki/Memphis,_Egypt"
+      },
+      {
+        "name": "Ancient Thebes (Luxor)",
+        "wiki": "https://en.wikipedia.org/wiki/Thebes,_Egypt"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Suez Canal",
+        "wiki": "https://en.wikipedia.org/wiki/Suez_Canal"
+      },
+      {
+        "name": "Aswan High Dam",
+        "wiki": "https://en.wikipedia.org/wiki/Aswan_Dam"
+      }
+    ],
+    "largestCompany": {
+      "name": "Commercial International Bank",
+      "wiki": "https://en.wikipedia.org/wiki/Commercial_International_Bank"
+    },
+    "famousBrands": [],
+    "busiestAirport": {
+      "name": "Cairo International Airport",
+      "code": "CAI"
+    },
+    "mostVisitedCity": "Cairo",
+    "funFacts": [
+      "The Great Pyramid of Giza was the tallest man-made structure in the world for almost 3,800 years.",
+      "The Suez Canal, opened in 1869, connects the Mediterranean and Red Seas, avoiding the trip around Africa.",
+      "Ancient Egyptian hieroglyphs were only deciphered after the discovery of the Rosetta Stone in 1799."
+    ]
+  },
+  "za": {
+    "government": {
+      "form": "Unitary parliamentary republic",
+      "nationalDay": "April 27 (Freedom Day)"
+    },
+    "drivesOn": "left",
+    "independence": "May 31, 1910 (Union of South Africa from Britain); May 31, 1961 full republic",
+    "formerNames": [
+      "Union of South Africa (1910-1961)"
+    ],
+    "formerCapitals": [],
+    "earliestSettlement": "Home to some of the earliest evidence of modern humans; Dutch settlers founded Cape Town in 1652 as a Dutch East India Company supply station.",
+    "keyDates": [
+      {
+        "year": 1652,
+        "event": "Dutch found Cape Town"
+      },
+      {
+        "year": 1910,
+        "event": "Union of South Africa formed"
+      },
+      {
+        "year": 1948,
+        "event": "Apartheid system formally institutionalized"
+      },
+      {
+        "year": 1990,
+        "event": "Nelson Mandela released from prison"
+      },
+      {
+        "year": 1994,
+        "event": "First democratic multi-racial elections; Mandela becomes president"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Nelson Mandela",
+        "wiki": "https://en.wikipedia.org/wiki/Nelson_Mandela"
+      },
+      {
+        "name": "Desmond Tutu",
+        "wiki": "https://en.wikipedia.org/wiki/Desmond_Tutu"
+      }
+    ],
+    "highestPeak": {
+      "name": "Mafadi",
+      "elevation": "3,450 m",
+      "wiki": "https://en.wikipedia.org/wiki/Mafadi"
+    },
+    "famousFeature": {
+      "name": "Table Mountain",
+      "wiki": "https://en.wikipedia.org/wiki/Table_Mountain"
+    },
+    "climate": "Mostly semi-arid, Mediterranean in the southwest, subtropical on the east coast.",
+    "naturalResources": [
+      "Gold",
+      "Diamonds",
+      "Platinum",
+      "Coal",
+      "Chromium"
+    ],
+    "nationalAnimal": "Springbok",
+    "nationalSport": "Rugby union (football and cricket also very popular)",
+    "nationalDish": {
+      "name": "Bobotie",
+      "wiki": "https://en.wikipedia.org/wiki/Bobotie"
+    },
+    "majorReligions": [
+      "Christianity (majority)"
+    ],
+    "unesco": [
+      {
+        "name": "Robben Island",
+        "wiki": "https://en.wikipedia.org/wiki/Robben_Island"
+      },
+      {
+        "name": "Cradle of Humankind",
+        "wiki": "https://en.wikipedia.org/wiki/Cradle_of_Humankind"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Gautrain",
+        "wiki": "https://en.wikipedia.org/wiki/Gautrain"
+      }
+    ],
+    "largestCompany": {
+      "name": "Naspers",
+      "wiki": "https://en.wikipedia.org/wiki/Naspers"
+    },
+    "famousBrands": [
+      {
+        "name": "MTN",
+        "industry": "Telecommunications"
+      }
+    ],
+    "busiestAirport": {
+      "name": "O.R. Tambo International Airport",
+      "code": "JNB"
+    },
+    "mostVisitedCity": "Cape Town",
+    "funFacts": [
+      "South Africa has three capital cities: Pretoria (administrative), Cape Town (legislative), Bloemfontein (judicial).",
+      "South Africa has 12 official languages, more than any other country.",
+      "Nelson Mandela spent 27 years in prison before becoming the country's first democratically elected president."
+    ]
+  },
+  "kr": {
+    "government": {
+      "form": "Unitary presidential republic",
+      "nationalDay": "August 15 (Liberation Day / Gwangbokjeol)"
+    },
+    "drivesOn": "right",
+    "independence": "August 15, 1945, from Japanese colonial rule (Republic of Korea formally established August 15, 1948)",
+    "formerNames": [
+      "Joseon (pre-colonial dynasty)",
+      "Korean Empire (1897-1910)"
+    ],
+    "formerCapitals": [
+      "Gyeongju (Silla era)",
+      "Gaeseong (Goryeo era)"
+    ],
+    "earliestSettlement": "Korean history traces back to ancient kingdoms such as Gojoseon; the Silla, Goguryeo and Baekje kingdoms shaped the peninsula from around the 1st century BC.",
+    "keyDates": [
+      {
+        "year": 668,
+        "event": "Silla unifies the Three Kingdoms of Korea"
+      },
+      {
+        "year": 1392,
+        "event": "Joseon Dynasty founded"
+      },
+      {
+        "year": 1910,
+        "event": "Annexed by Japan"
+      },
+      {
+        "year": 1945,
+        "event": "Liberation and division of Korea"
+      },
+      {
+        "year": 1950,
+        "event": "Korean War begins"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "King Sejong the Great",
+        "wiki": "https://en.wikipedia.org/wiki/Sejong_the_Great"
+      },
+      {
+        "name": "Syngman Rhee",
+        "wiki": "https://en.wikipedia.org/wiki/Syngman_Rhee"
+      }
+    ],
+    "highestPeak": {
+      "name": "Hallasan",
+      "elevation": "1,947 m",
+      "wiki": "https://en.wikipedia.org/wiki/Hallasan"
+    },
+    "famousFeature": {
+      "name": "Gyeongbokgung Palace",
+      "wiki": "https://en.wikipedia.org/wiki/Gyeongbokgung"
+    },
+    "climate": "Temperate, with four distinct seasons; humid continental in the north, humid subtropical in the south.",
+    "naturalResources": [
+      "Coal (limited)",
+      "Tungsten",
+      "Graphite",
+      "Hydropower potential"
+    ],
+    "nationalAnimal": "Korean tiger (Siberian tiger)",
+    "nationalSport": "Taekwondo",
+    "nationalDish": {
+      "name": "Kimchi (as a staple; bibimbap and bulgogi also iconic)",
+      "wiki": "https://en.wikipedia.org/wiki/Kimchi"
+    },
+    "majorReligions": [
+      "Religiously unaffiliated (largest group)",
+      "Christianity",
+      "Buddhism"
+    ],
+    "unesco": [
+      {
+        "name": "Changdeokgung Palace Complex",
+        "wiki": "https://en.wikipedia.org/wiki/Changdeokgung"
+      },
+      {
+        "name": "Seokguram Grotto and Bulguksa Temple",
+        "wiki": "https://en.wikipedia.org/wiki/Bulguksa"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Incheon Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/Incheon_Bridge"
+      }
+    ],
+    "largestCompany": {
+      "name": "Samsung Electronics",
+      "wiki": "https://en.wikipedia.org/wiki/Samsung_Electronics"
+    },
+    "famousBrands": [
+      {
+        "name": "Samsung",
+        "industry": "Electronics"
+      },
+      {
+        "name": "Hyundai",
+        "industry": "Automotive"
+      },
+      {
+        "name": "LG",
+        "industry": "Electronics"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Incheon International Airport",
+      "code": "ICN"
+    },
+    "mostVisitedCity": "Seoul",
+    "funFacts": [
+      "South Korea has one of the fastest average internet speeds in the world.",
+      "The Korean alphabet, Hangul, was deliberately designed and introduced in 1443 by King Sejong.",
+      "South Korea transformed from one of the world's poorest countries to a top-15 economy within a few decades, known as the 'Miracle on the Han River.'"
+    ]
+  },
+  "id": {
+    "government": {
+      "form": "Unitary presidential republic",
+      "nationalDay": "August 17 (Independence Day)"
+    },
+    "drivesOn": "left",
+    "independence": "August 17, 1945, from the Netherlands (Dutch recognition came in 1949 after a war of independence)",
+    "formerNames": [
+      "Dutch East Indies (colonial era)"
+    ],
+    "formerCapitals": [
+      "Yogyakarta (briefly, during the revolution)"
+    ],
+    "earliestSettlement": "The archipelago was shaped by powerful Hindu-Buddhist empires such as Srivijaya and Majapahit from around the 7th century CE onward.",
+    "keyDates": [
+      {
+        "year": 1293,
+        "event": "Majapahit Empire founded"
+      },
+      {
+        "year": 1602,
+        "event": "Dutch East India Company (VOC) established, beginning colonial control"
+      },
+      {
+        "year": 1945,
+        "event": "Sukarno proclaims independence"
+      },
+      {
+        "year": 1949,
+        "event": "Netherlands formally recognizes Indonesian sovereignty"
+      },
+      {
+        "year": 1998,
+        "event": "Suharto's 32-year authoritarian rule ends"
+      }
+    ],
+    "historicalFigures": [
+      {
+        "name": "Sukarno",
+        "wiki": "https://en.wikipedia.org/wiki/Sukarno"
+      },
+      {
+        "name": "Suharto",
+        "wiki": "https://en.wikipedia.org/wiki/Suharto"
+      }
+    ],
+    "highestPeak": {
+      "name": "Puncak Jaya",
+      "elevation": "4,884 m",
+      "wiki": "https://en.wikipedia.org/wiki/Puncak_Jaya"
+    },
+    "famousFeature": {
+      "name": "Borobudur",
+      "wiki": "https://en.wikipedia.org/wiki/Borobudur"
+    },
+    "climate": "Tropical, hot and humid year-round; monsoonal rainfall patterns.",
+    "naturalResources": [
+      "Petroleum",
+      "Natural gas",
+      "Tin",
+      "Coal",
+      "Palm oil"
+    ],
+    "nationalAnimal": "Komodo dragon",
+    "nationalSport": "Badminton (unofficially, dominant on the world stage); Pencak Silat is the traditional martial art",
+    "nationalDish": {
+      "name": "Nasi goreng",
+      "wiki": "https://en.wikipedia.org/wiki/Nasi_goreng"
+    },
+    "majorReligions": [
+      "Islam (world's largest Muslim population)"
+    ],
+    "unesco": [
+      {
+        "name": "Borobudur Temple Compounds",
+        "wiki": "https://en.wikipedia.org/wiki/Borobudur"
+      },
+      {
+        "name": "Komodo National Park",
+        "wiki": "https://en.wikipedia.org/wiki/Komodo_National_Park"
+      }
+    ],
+    "engineeringProjects": [
+      {
+        "name": "Suramadu Bridge",
+        "wiki": "https://en.wikipedia.org/wiki/Suramadu_Bridge"
+      }
+    ],
+    "largestCompany": {
+      "name": "Bank Central Asia",
+      "wiki": "https://en.wikipedia.org/wiki/Bank_Central_Asia"
+    },
+    "famousBrands": [
+      {
+        "name": "Indomie",
+        "industry": "Food"
+      }
+    ],
+    "busiestAirport": {
+      "name": "Soekarno-Hatta International Airport",
+      "code": "CGK"
+    },
+    "mostVisitedCity": "Bali (Denpasar area)",
+    "funFacts": [
+      "Indonesia is the world's largest archipelago, with over 17,000 islands.",
+      "Indonesia has more active volcanoes than any other country.",
+      "Jakarta is sinking so fast that Indonesia is building an entirely new capital city, Nusantara, on Borneo."
     ]
   }
 }
