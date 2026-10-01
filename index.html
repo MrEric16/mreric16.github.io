@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261001101306">
+<meta name="app-build" content="20261001105243">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4608,12 +4608,23 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .tf-answer-btn:disabled{ opacity:.5; }
 
   /* - Alias - */
-  .alias-topbar{ display:flex; justify-content:space-between; gap:10px; margin-bottom:14px; max-width:340px; margin-left:auto; margin-right:auto; }
-  .alias-leaderboard-btn, .alias-end-btn{
+  .alias-topbar{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px; margin-bottom:14px; max-width:340px; margin-left:auto; margin-right:auto; }
+  .alias-leaderboard-btn, .alias-end-btn, .alias-pause-btn{
     font-size:12px; font-weight:700; padding:8px 12px; border-radius:10px;
     border:1px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; touch-action:manipulation;
   }
   .alias-end-btn{ color:#EF4444; border-color:#EF4444; }
+  .alias-mode-row{ display:flex; gap:8px; max-width:340px; margin:0 auto 18px; flex-wrap:wrap; justify-content:center; }
+  .alias-mode-btn{
+    flex:1; min-width:90px; font-size:13px; font-weight:700; padding:10px 8px; border-radius:10px;
+    border:2px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; touch-action:manipulation;
+  }
+  .alias-mode-btn.selected{ border-color:var(--gold); background:color-mix(in srgb, var(--gold) 16%, var(--card)); }
+  .alias-mode-tag{
+    font-size:11px; font-weight:700; padding:6px 10px; border-radius:8px;
+    background:color-mix(in srgb, var(--misc-flaggame) 16%, var(--card)); color:var(--misc-flaggame);
+  }
+  .alias-word-card-paused{ color:var(--ink-soft); font-style:italic; }
   .alias-team-input-wrap{ max-width:220px; margin:0 auto 18px; }
   .alias-team-input{
     width:100%; padding:12px; border-radius:10px; border:2px solid var(--line);
@@ -15357,83 +15368,219 @@ function btClearState(key){
 // - Alias (word description game) -
 // Pass-and-play party game: a team describes a word on screen without saying it while
 // everyone else guesses out loud. 120 seconds per team's turn, as many correct guesses
-// as possible. No categories - one pooled list spanning roughly elementary to upper-
-// intermediate difficulty, since the real difficulty for this game is explaining the
-// word in English, not just recognising it. Random team order each lap through all
-// teams (reshuffled every time a full cycle completes), continues indefinitely until
-// "End Game" is tapped. Per the standing rule against per-tap renderRoute() inside a
-// game loop, YES/NO taps during an active turn patch the DOM directly (word text, running
-// score) rather than re-rendering - only genuine one-time transitions (turn start, turn
-// end, game over) go through renderRoute().
-const ALIAS_WORDS = [
-  "teacher", "doctor", "nurse", "police officer", "firefighter", "driver", "pilot", "farmer",
-  "chef", "waiter", "builder", "artist", "singer", "dancer", "actor", "writer",
-  "photographer", "journalist", "scientist", "engineer", "dentist", "lawyer", "soldier", "sailor",
-  "astronaut", "librarian", "cashier", "mechanic", "barber", "babysitter", "tourist", "neighbour",
-  "stranger", "twin", "orphan", "widow", "grandparent", "boss", "employee", "volunteer",
-  "elephant", "giraffe", "penguin", "dolphin", "kangaroo", "crocodile", "octopus", "hedgehog",
-  "squirrel", "butterfly", "spider", "snail", "bee", "ant", "owl", "eagle",
-  "shark", "whale", "camel", "zebra", "peacock", "flamingo", "bat", "frog",
-  "snake", "turtle", "lizard", "goat", "donkey", "pigeon", "rooster", "puppy",
-  "kitten", "hamster", "parrot", "jellyfish", "lobster", "seahorse", "woodpecker", "ladybird",
-  "pancake", "sandwich", "soup", "salad", "pizza", "spaghetti", "omelette", "yoghurt",
-  "porridge", "popcorn", "biscuit", "dumpling", "noodles", "sausage", "pickle", "honey",
-  "jam", "butter", "garlic", "ginger", "lemon", "watermelon", "pineapple", "strawberry",
-  "avocado", "mushroom", "pumpkin", "cucumber", "cherry", "coconut", "milkshake", "smoothie",
-  "lemonade", "barbecue", "dessert", "leftovers", "recipe", "ingredient", "appetite", "diet",
-  "mirror", "pillow", "blanket", "candle", "umbrella", "suitcase", "wallet", "keychain",
-  "doorbell", "ladder", "broom", "bucket", "sponge", "toothbrush", "hairbrush", "razor",
-  "scale", "thermometer", "calendar", "clock", "curtain", "carpet", "wardrobe", "drawer",
-  "shelf", "mattress", "lamp", "socket", "remote control", "battery", "scissors", "stapler",
-  "envelope", "paperclip", "eraser", "ruler", "highlighter", "notebook", "calculator", "magnet",
-  "smartphone", "laptop", "headphones", "charger", "printer", "webcam", "keyboard", "router",
-  "password", "download", "upload", "screenshot", "notification", "app", "browser", "cloud storage",
-  "firewall", "virus", "software", "hardware", "bluetooth", "touchscreen", "satellite", "robot",
-  "drone", "hologram", "algorithm", "database", "username", "emoji", "airport", "hospital",
-  "library", "museum", "stadium", "bakery", "pharmacy", "cinema", "zoo", "aquarium",
-  "lighthouse", "castle", "bridge", "tunnel", "desert", "island", "volcano", "waterfall",
-  "jungle", "glacier", "village", "harbour", "market", "playground", "staircase", "basement",
-  "balcony", "rooftop", "courtyard", "greenhouse", "embassy", "orphanage", "prison", "monastery",
-  "cemetery", "battlefield", "border", "skyscraper", "suburb", "campsite", "thunderstorm", "rainbow",
-  "earthquake", "hurricane", "drought", "avalanche", "tornado", "frost", "fog", "breeze",
-  "sunrise", "sunset", "tide", "current", "shadow", "reflection", "puddle", "dew",
-  "mist", "blizzard", "compost", "pollen", "root", "branch", "petal", "seed",
-  "harvest", "wildfire", "ecosystem", "whisper", "shout", "giggle", "sneeze", "yawn",
-  "hiccup", "blink", "wink", "nod", "shrug", "stretch", "crawl", "tiptoe",
-  "stumble", "wobble", "juggle", "whistle", "hum", "snore", "sweat", "bite",
-  "chew", "swallow", "spit", "lick", "sniff", "squeeze", "pinch", "scratch",
-  "tickle", "fold", "unfold", "wrap", "unwrap", "pour", "spill", "stir",
-  "chop", "grate", "peel", "knock", "slam", "push", "pull", "drag",
-  "lift", "carry", "balance", "trip", "slip", "jealous", "nervous", "embarrassed",
-  "confused", "curious", "confident", "anxious", "grateful", "ashamed", "proud", "stubborn",
-  "generous", "selfish", "honest", "shy", "patient", "lazy", "ambitious", "clumsy",
-  "polite", "rude", "brave", "cowardly", "cheerful", "gloomy", "furious", "relieved",
-  "bored", "exhausted", "overwhelmed", "gymnastics", "wrestling", "archery", "fencing", "surfing",
-  "skateboarding", "snowboarding", "bowling", "darts", "badminton", "volleyball", "rowing", "cycling",
-  "hiking", "camping", "fishing", "painting", "knitting", "pottery", "origami", "chess",
-  "puzzle", "magic trick", "juggling", "karaoke", "gardening", "baking", "sculpting", "collecting stamps",
-  "birdwatching", "homework", "timetable", "exam", "essay", "deadline", "whiteboard", "classroom",
-  "uniform", "detention", "graduation", "scholarship", "interview", "resume", "salary", "promotion",
-  "meeting", "contract", "colleague", "internship", "overtime", "notice board", "photocopier", "projector",
-  "textbook", "dictionary", "attendance", "report card", "scarf", "glove", "boot", "sandal",
-  "necklace", "bracelet", "earring", "belt", "zipper", "button", "pocket", "hood",
-  "collar", "sleeve", "raincoat", "swimsuit", "pyjamas", "apron", "helmet", "costume",
-  "bicycle", "motorbike", "scooter", "submarine", "helicopter", "rocket", "tractor", "ambulance",
-  "caravan", "ferry", "sledge", "cable car", "escalator", "elevator", "traffic light", "roundabout",
-  "pavement", "crossroads", "petrol station", "parking lot", "eyebrow", "eyelash", "forehead", "chin",
-  "elbow", "wrist", "ankle", "thumb", "nostril", "shoulder", "skeleton", "muscle",
-  "heartbeat", "bruise", "blister", "sunburn", "allergy", "bandage", "crutches", "wheelchair",
-  "coincidence", "habit", "rumour", "privacy", "freedom", "justice", "tradition", "superstition",
-  "loyalty", "curiosity", "patience", "responsibility", "apology", "compliment", "excuse", "promise",
-  "secret", "surprise", "memory", "nightmare", "daydream", "routine", "hobby", "achievement",
-  "mistake", "challenge", "opportunity", "compromise", "decision", "triangle", "rectangle", "diamond shape",
-  "spiral", "zigzag", "pattern", "stripe", "dot", "century", "decade", "anniversary",
-  "midnight", "weekend", "holiday", "festival",
+// as possible. Three difficulty modes, each with its own dedicated 500-word pool (no
+// categories within a pool - word choice alone carries the difficulty): Ooga Booga
+// (A1-A2, concrete/simple), Normie (A2-B1, everyday vocabulary), Shakespeare (B1-B2+,
+// abstract/formal/literary). Random team order each lap through all teams (reshuffled
+// every time a full cycle completes), continues indefinitely until "End Game" is
+// tapped. Per the standing rule against per-tap renderRoute() inside a game loop,
+// YES/NO taps during an active turn patch the DOM directly (word text, running score)
+// rather than re-rendering - only genuine one-time transitions (turn start, turn end,
+// game over) go through renderRoute(). Pause (manual button, or automatically while the
+// leaderboard overlay is open) freezes the countdown via the same in-place DOM-patch
+// approach rather than a route change, so it never interrupts an active turn's render.
+const ALIAS_WORDS_OOGA = [
+  "head", "hair", "eye", "ear", "nose", "mouth", "tooth", "tongue",
+  "neck", "arm", "hand", "finger", "leg", "foot", "toe", "back",
+  "tummy", "knee", "face", "chin", "mother", "father", "sister", "brother",
+  "baby", "grandma", "grandpa", "aunt", "uncle", "cousin", "son", "daughter",
+  "husband", "wife", "family", "friend", "kid", "man", "woman", "child",
+  "dog", "cat", "cow", "pig", "sheep", "horse", "duck", "chicken",
+  "fish", "bird", "mouse", "rabbit", "lion", "tiger", "bear", "monkey",
+  "fox", "wolf", "deer", "ox", "ant", "bee", "fly", "frog",
+  "snake", "snail", "worm", "crab", "seal", "bat", "bread", "rice",
+  "egg", "cheese", "milk", "water", "juice", "tea", "coffee", "cake",
+  "apple", "banana", "orange", "grape", "potato", "tomato", "carrot", "onion",
+  "meat", "sugar", "salt", "oil", "soup", "cookie", "chocolate", "ice cream",
+  "pie", "toast", "sandwich", "house", "room", "door", "window", "wall",
+  "roof", "floor", "table", "chair", "bed", "sofa", "bath", "sink",
+  "cup", "plate", "fork", "spoon", "knife", "bag", "box", "key",
+  "lamp", "clock", "mirror", "towel", "soap", "brush", "comb", "bin",
+  "bottle", "shirt", "trousers", "dress", "skirt", "shoe", "sock", "hat",
+  "coat", "jacket", "jumper", "glove", "scarf", "belt", "tie", "pyjamas",
+  "swimsuit", "boot", "cap", "vest", "apron", "sun", "moon", "star",
+  "sky", "cloud", "rain", "snow", "wind", "storm", "ice", "tree",
+  "flower", "grass", "leaf", "forest", "mountain", "river", "lake", "sea",
+  "beach", "rock", "sand", "hill", "field", "garden", "fire", "smoke",
+  "rainbow", "day", "night", "run", "walk", "jump", "sit", "stand",
+  "sleep", "eat", "drink", "talk", "sing", "dance", "swim", "read",
+  "write", "draw", "play", "cook", "clean", "wash", "cut", "open",
+  "close", "buy", "sell", "give", "take", "throw", "catch", "kick",
+  "hit", "laugh", "cry", "smile", "fall", "climb", "drive", "ride",
+  "build", "break", "big", "small", "tall", "short", "fat", "thin",
+  "fast", "slow", "hot", "cold", "wet", "dry", "dirty", "new",
+  "old", "young", "happy", "sad", "angry", "hungry", "thirsty", "tired",
+  "full", "empty", "loud", "quiet", "soft", "hard", "heavy", "school",
+  "shop", "park", "street", "road", "farm", "city", "town", "church",
+  "car", "bus", "train", "boat", "plane", "bike", "truck", "taxi",
+  "ship", "sled", "morning", "afternoon", "evening", "today", "tomorrow", "yesterday",
+  "week", "month", "year", "birthday", "summer", "winter", "spring", "autumn",
+  "clock face", "watch", "calendar page", "minute", "hour", "second", "pen", "pencil",
+  "book", "bag school", "paper", "desk", "ball", "doll", "kite balloon", "toy car",
+  "puzzle piece", "blocks", "balloon", "game", "drum", "guitar", "piano", "whistle toy",
+  "swing", "slide", "phone", "tv", "radio", "fridge", "oven", "washing machine",
+  "umbrella", "ladder", "broom", "bucket", "candle", "match", "torch", "map",
+  "ticket", "coin", "money", "present gift", "card", "letter", "goat", "donkey",
+  "turkey", "goose", "owl", "eagle", "shark", "whale", "dolphin", "octopus",
+  "spider", "butterfly", "ladybird", "squirrel", "hedgehog", "turtle", "lizard", "camel",
+  "zebra", "elephant", "giraffe", "kangaroo", "penguin", "parrot", "hamster", "puppy",
+  "kitten", "crocodile", "peacock", "flamingo", "pizza", "pasta", "noodles", "popcorn",
+  "honey", "jam", "butter", "yoghurt", "pancake", "biscuit", "watermelon", "pineapple",
+  "strawberry", "lemon", "cherry", "mushroom", "pumpkin", "cucumber", "garlic", "pepper",
+  "hamburger", "hot dog", "french fries", "doughnut", "muffin", "jelly", "lollipop", "candy",
+  "pretzel", "waffle", "pillow", "blanket", "curtain", "carpet", "shelf", "drawer",
+  "basket", "jar", "pot", "pan", "kettle", "toaster", "mop", "sponge",
+  "toothbrush", "toothpaste", "hairbrush", "rug", "vase", "necklace", "bracelet", "ring",
+  "earring", "button", "zipper", "pocket", "hood", "sleeve", "sandal", "slipper",
+  "raincoat", "sunglasses", "watch wrist", "backpack", "handbag", "wallet", "purse", "puddle",
+  "mud", "dew", "fog", "mist", "breeze", "thunder", "lightning", "volcano",
+  "island", "desert", "jungle", "waterfall", "cave", "cliff", "valley", "pond",
+  "stream", "bush", "root", "push", "pull", "carry", "lift", "drop",
+  "pour", "spill", "stir", "chop", "bite", "chew", "lick", "sniff",
+  "hug", "kiss", "wave", "point", "clap", "whistle", "shout", "whisper",
+  "sneeze", "yawn", "cough", "blink", "wink", "nod", "shake", "bounce",
+  "roll", "spin", "hop", "skip", "crawl", "stretch", "knock", "blow",
+  "bright", "dark", "shiny", "sharp", "round", "square", "long", "narrow",
+  "wide", "deep", "shallow", "sweet", "sour", "bitter", "salty", "spicy",
+  "smooth", "rough", "sticky", "slippery",
 ];
+const ALIAS_WORDS_NORMIE = [
+  "neighbour", "stranger", "colleague", "customer", "passenger", "tenant", "landlord", "guest",
+  "host", "roommate", "babysitter", "tourist", "mechanic", "electrician", "plumber", "dentist",
+  "vet", "photographer", "journalist", "librarian", "smartphone", "laptop", "password", "wifi",
+  "download", "upload", "notification", "app", "browser", "charger", "headphones", "printer",
+  "router", "screenshot", "webcam", "emoji", "username", "playlist", "subscription", "update",
+  "airport", "supermarket", "pharmacy", "gym", "cinema", "museum", "stadium", "hotel",
+  "restaurant", "office", "apartment", "suburb", "harbour", "campsite", "car park", "roundabout",
+  "crossroads", "petrol station", "bus stop", "platform", "suitcase", "passport", "ticket", "boarding pass",
+  "departure", "arrival", "delay", "luggage", "taxi rank", "itinerary", "motorway", "traffic jam",
+  "detour", "shortcut", "signpost", "toll", "roundtrip", "layover", "timetable", "platform number",
+  "jogging", "cycling", "hiking", "yoga", "barbecue", "picnic", "carpool", "babysitting",
+  "recycling", "volunteering", "networking", "commuting", "multitasking", "browsing", "streaming", "texting",
+  "video call", "grocery shopping", "house-sitting", "dog-walking", "recipe", "ingredient", "leftovers", "takeaway",
+  "delivery", "portion", "seasoning", "marinade", "grocery list", "expiry date", "reservation", "menu",
+  "waiter service", "tip", "bill", "receipt", "discount", "voucher", "refund", "warranty",
+  "deadline", "meeting", "interview", "resume", "promotion", "overtime", "salary", "contract",
+  "internship", "colleague meeting", "homework", "exam", "essay", "detention", "graduation", "scholarship",
+  "attendance", "report card", "classroom", "nervous", "confused", "embarrassed", "curious", "confident",
+  "grateful", "jealous", "proud", "stubborn", "generous", "shy", "patient", "ambitious",
+  "clumsy", "polite", "cheerful", "annoyed", "disappointed", "relieved", "surprised", "allergy",
+  "appointment", "prescription", "checkup", "symptom", "bandage", "sunburn", "bruise", "headache",
+  "fever", "exercise", "diet", "vitamin", "stretching", "posture", "hydration", "nutrition",
+  "injury", "recovery", "physiotherapy", "laundry", "dishwasher", "vacuum", "thermostat", "plumbing",
+  "leaking tap", "power cut", "extension cord", "toolbox", "lightbulb", "renovation", "decoration", "housework",
+  "grocery bag", "recycling bin", "doormat", "letterbox", "doorbell", "smoke alarm", "spare key", "budget",
+  "sale", "installment", "subscription fee", "bargain", "clearance", "cash machine", "bank account", "online banking",
+  "invoice", "expense", "savings", "allowance", "pocket money", "loan", "deposit", "gossip",
+  "rumour", "compliment", "apology", "argument", "agreement", "invitation", "reunion", "gathering",
+  "celebration", "small talk", "group chat", "voicemail", "reminder", "appointment card", "RSVP", "farewell",
+  "greeting", "introduction", "conversation", "forecast", "humidity", "drizzle", "breeze", "heatwave",
+  "shade", "sunscreen", "umbrella stand", "pollution", "recycling point", "litter", "traffic noise", "streetlight",
+  "pavement", "crosswalk", "bike lane", "park bench", "public garden", "fountain", "playground equipment", "toaster",
+  "kettle", "blender", "iron", "hairdryer", "vacuum cleaner", "extension lead", "batteries", "remote control",
+  "charger cable", "notebook", "highlighter", "sticky note", "stapler", "paperclip", "calculator", "whiteboard",
+  "projector", "flash drive", "calendar app", "raincoat", "sneakers", "hoodie", "cardigan", "leggings",
+  "blazer", "tracksuit", "swimming trunks", "flip-flops", "earphones", "wristwatch", "sunglasses", "backpack",
+  "handbag", "wallet", "keyring", "umbrella", "scarf", "beanie", "gloves pair", "customs",
+  "visa", "currency exchange", "time zone", "jet lag", "road trip", "campervan", "hostel", "guided tour",
+  "souvenir", "sightseeing", "check-in", "check-out", "frequent flyer", "connecting flight", "cabin crew", "overhead locker",
+  "security check", "duty free", "travel insurance", "spreadsheet", "presentation", "conference call", "email thread", "office supplies",
+  "cubicle", "water cooler", "coffee break", "sick leave", "annual leave", "performance review", "team building", "brainstorm",
+  "deadline extension", "project manager", "job application", "cover letter", "reference letter", "probation period", "notice period", "in-laws",
+  "stepfather", "stepmother", "half-sibling", "godparent", "babysitter duty", "family reunion", "anniversary dinner", "engagement",
+  "wedding reception", "honeymoon", "divorce", "custody", "foster family", "adoption", "single parent", "blended family",
+  "extended family", "family tree", "family gathering", "hiking trail", "nature reserve", "picnic blanket", "camping gear", "sleeping bag",
+  "tent", "compass", "binoculars", "flashlight", "mosquito repellent", "firewood", "campfire", "nature walk",
+  "bird feeder", "vegetable patch", "compost bin", "greenhouse", "watering can", "garden hose", "lawn mower", "streaming service",
+  "subscription box", "podcast", "livestream", "fan base", "box office", "soundtrack", "trailer", "review score",
+  "season finale", "plot twist", "cliffhanger", "spoiler", "fandom", "merchandise", "ticket booth", "intermission",
+  "encore", "autograph", "meet and greet", "tuition", "curriculum", "assignment", "group project", "presentation slide",
+  "study group", "revision", "mock exam", "parent-teacher meeting", "school trip", "after-school club", "extracurricular", "dormitory",
+  "campus", "lecture hall", "tutorial", "study abroad", "exchange student", "graduation ceremony", "diploma", "gym membership",
+  "personal trainer", "meal prep", "sleep schedule", "screen time", "mental break", "self-care", "work-life balance", "stress relief",
+  "mindfulness", "meditation app", "step counter", "fitness tracker", "cheat day", "hydration bottle", "protein shake", "warm-up",
+  "cool-down", "rest day", "recovery day", "awkward silence", "peer pressure", "FOMO", "burnout", "motivation",
+  "procrastination", "overthinking", "comfort zone", "confidence boost", "mood swing", "small victory", "bad habit", "good habit",
+  "personal goal", "bucket list", "life hack", "gut feeling", "second thoughts", "mixed feelings", "wake-up call", "online shopping",
+  "delivery driver", "tracking number", "return label", "package", "doorstep delivery", "shopping cart", "checkout", "loyalty card",
+  "gift card", "birthday party", "surprise party", "party favours", "balloon arch", "guest list", "potluck", "housewarming",
+  "farewell party", "costume party", "theme party", "road sign", "speed bump", "pedestrian crossing", "parking ticket", "car wash",
+  "petrol pump", "traffic warden", "bike rack", "scooter rental", "carpool lane", "weather app", "traffic app", "map app",
+  "voice assistant", "smart speaker", "smart watch", "fitness app", "banking app", "food delivery app", "ride-sharing app", "neighbourhood watch",
+  "community centre", "local market", "farmers market", "charity shop",
+];
+const ALIAS_WORDS_SHAKESPEARE = [
+  "justice", "freedom", "privacy", "loyalty", "integrity", "ambition", "resilience", "empathy",
+  "hypocrisy", "arrogance", "humility", "dignity", "prejudice", "tolerance", "equality", "injustice",
+  "corruption", "censorship", "diplomacy", "bureaucracy", "anarchy", "tyranny", "legacy", "heritage",
+  "identity", "morality", "ethics", "virtue", "vice", "temptation", "melancholy", "nostalgia",
+  "apprehension", "indignation", "resentment", "remorse", "envy", "contempt", "disdain", "euphoria",
+  "despair", "anguish", "serenity", "complacency", "restlessness", "bewilderment", "skepticism", "cynicism",
+  "naivety", "vanity", "audacity", "defiance", "resignation", "vulnerability", "insecurity", "paranoia",
+  "obsession", "infatuation", "longing", "yearning", "negotiation", "compromise", "consensus", "merger",
+  "acquisition", "shareholder", "stakeholder", "liability", "litigation", "arbitration", "regulation", "compliance",
+  "transparency", "accountability", "governance", "monopoly", "recession", "inflation", "deficit", "subsidy",
+  "infrastructure", "logistics", "procurement", "outsourcing", "redundancy", "restructuring", "downsizing", "conglomerate",
+  "entrepreneur", "venture", "metaphor", "irony", "satire", "allegory", "paradox", "foreshadowing",
+  "symbolism", "narrative", "protagonist", "antagonist", "soliloquy", "tragedy", "comedy", "epic",
+  "sonnet", "elegy", "parable", "fable", "anecdote", "monologue", "rhetoric", "eloquence",
+  "verbosity", "ambiguity", "euphemism", "cliche", "hyperbole", "understatement", "juxtaposition", "allusion",
+  "existentialism", "determinism", "idealism", "materialism", "individualism", "collectivism", "nihilism", "utilitarianism",
+  "pragmatism", "relativism", "consciousness", "perception", "cognition", "intuition", "rationality", "subjectivity",
+  "objectivity", "causality", "free will", "procrastinate", "contemplate", "deliberate", "reconcile", "undermine",
+  "exacerbate", "alleviate", "perpetuate", "scrutinize", "articulate", "fabricate", "manipulate", "orchestrate",
+  "substantiate", "corroborate", "vindicate", "admonish", "reprimand", "ostracize", "vilify", "exonerate",
+  "condone", "reciprocate", "relinquish", "renounce", "transcend", "subside", "dwindle", "flourish",
+  "languish", "meticulous", "ambiguous", "arbitrary", "candid", "cryptic", "eloquent", "formidable",
+  "gregarious", "impeccable", "lucid", "mundane", "notorious", "obsolete", "pervasive", "plausible",
+  "pragmatic", "resilient", "scrupulous", "tenacious", "volatile", "whimsical", "zealous", "austere",
+  "benevolent", "clandestine", "deferential", "ephemeral", "frugal", "gratuitous", "insidious", "hypothesis",
+  "methodology", "correlation", "variable", "phenomenon", "paradigm", "empirical", "theoretical", "synthesis",
+  "analysis", "equilibrium", "catalyst", "momentum", "entropy", "symbiosis", "evolution", "mutation",
+  "adaptation", "biodiversity", "scapegoat", "catalyst for change", "watershed moment", "double standard", "vicious cycle", "silver lining",
+  "elephant in the room", "wild goose chase", "last straw", "tipping point", "turning point", "blessing in disguise", "moment of clarity", "leap of faith",
+  "act of defiance", "show of strength", "test of patience", "battle of wits", "clash of ideas", "colonization", "revolution", "insurgency",
+  "sovereignty", "constitution", "referendum", "coalition", "parliament", "dictatorship", "oligarchy", "feudalism",
+  "imperialism", "nationalism", "propaganda", "manifesto", "treaty", "ceasefire", "annexation", "secession",
+  "diaspora", "autonomy", "solidarity", "conformity", "nonconformity", "assimilation", "segregation", "discrimination",
+  "stereotype", "stigma", "taboo", "convention", "tradition", "superstition", "etiquette", "decorum",
+  "propriety", "indiscretion", "impropriety", "gravitas", "charisma", "magnanimity", "altruism", "selflessness",
+  "narcissism", "egotism", "chauvinism", "xenophobia", "misanthropy", "philanthropy", "patronage", "prose",
+  "verse", "stanza", "prologue", "epilogue", "denouement", "motif", "archetype", "muse",
+  "manuscript", "anthology", "memoir", "biography", "autobiography", "satirist", "playwright", "novelist",
+  "critique", "commentary", "ubiquitous", "innate", "inherent", "intrinsic", "extrinsic", "superfluous",
+  "redundant", "incessant", "relentless", "unwavering", "indifferent", "apathetic", "vindictive", "malicious",
+  "benign", "malignant", "lucrative", "futile", "viable", "feasible", "elusive", "evasive",
+  "intangible", "tangible", "inevitable", "imminent", "transient", "perpetual", "circumvent", "appease",
+  "placate", "antagonize", "provoke", "incite", "instigate", "galvanize", "mobilize", "paralyze",
+  "stagnate", "proliferate", "diminish", "amplify", "intensify", "mitigate", "counteract", "neutralize",
+  "jeopardize", "safeguard", "capitulate", "retaliate", "collaborate", "coerce", "intimidate", "reassure",
+  "console", "alienate", "integrate", "marginalize", "thesis", "dissertation", "peer review", "citation",
+  "plagiarism", "footnote", "bibliography", "abstract summary", "literature review", "sample size", "statistical significance", "control group",
+  "placebo", "longitudinal study", "case study", "qualitative data", "quantitative data", "cross-examination", "testimony", "cognitive bias",
+  "confirmation bias", "self-fulfilling prophecy", "groupthink", "imposter syndrome", "cognitive dissonance", "defence mechanism", "subconscious mind", "repression",
+  "projection", "denial", "rationalization", "displacement", "sublimation", "catharsis", "epiphany", "introspection",
+  "self-actualization", "gratification", "instant gratification", "austerity", "protectionism", "globalization", "deregulation", "privatization",
+  "nationalization", "black market", "supply chain", "trade deficit", "fiscal policy", "monetary policy", "interest rate", "stock market",
+  "bond market", "hedge fund", "venture capital", "intellectual property", "patent", "copyright", "trademark", "anomaly",
+  "paradigm shift", "status quo", "modus operandi", "deja vu", "zeitgeist", "renaissance", "epoch", "millennium",
+  "antiquity", "posterity", "providence", "fate", "destiny", "omen", "premonition", "prophecy",
+  "revelation", "enlightenment", "awakening", "sycophant", "demagogue", "iconoclast", "connoisseur", "aficionado",
+  "recluse", "maverick", "prodigy", "virtuoso", "dilettante", "martyr", "visionary", "trailblazer",
+  "renegade", "vagabond", "nomad", "hermit", "benefactor", "grandiloquence", "loquacity", "reticence",
+  "taciturnity", "garrulousness", "sagacity", "acumen", "discernment", "perspicacity", "astuteness", "callousness",
+  "compassion fatigue", "altruistic act", "vicarious pleasure", "schadenfreude", "hubris", "nemesis", "zeal", "inevitability",
+  "ambivalence", "complicity", "culpability", "impunity", "retribution", "vindication", "absolution", "redemption",
+  "atonement", "subjugation", "emancipation", "vindictiveness", "obstinacy", "equanimity", "forbearance", "circumspection",
+  "ingenuity", "audaciousness", "fortitude", "unrequited love",
+];
+const ALIAS_WORD_POOLS = { ooga: ALIAS_WORDS_OOGA, normie: ALIAS_WORDS_NORMIE, shakespeare: ALIAS_WORDS_SHAKESPEARE };
+const ALIAS_MODE_LABELS = { ooga: "Ooga Booga", normie: "Normie", shakespeare: "Shakespeare" };
 const ALIAS_STATE_KEY = 'btAliasGameState_v1';
 const ALIAS_ROUND_MS = 120000;
 let aliasState = null;
 let aliasTickInterval = null;
+let aliasSetupMode = 'normie';
 
 function aliasShuffleIndices(n){
   const arr = Array.from({length:n}, (_,i)=>i);
@@ -15445,8 +15592,9 @@ function aliasShuffleIndices(n){
 }
 
 function aliasNextWordIndex(state){
+  const pool = ALIAS_WORD_POOLS[state.mode] || ALIAS_WORD_POOLS.normie;
   if(!state.wordQueue || state.wordPointer >= state.wordQueue.length){
-    state.wordQueue = aliasShuffleIndices(ALIAS_WORDS.length);
+    state.wordQueue = aliasShuffleIndices(pool.length);
     state.wordPointer = 0;
   }
   const idx = state.wordQueue[state.wordPointer];
@@ -15470,6 +15618,7 @@ function aliasSetupStart(countRaw){
   if(!n) return;
   aliasState = {
     phase: 'ready',
+    mode: aliasSetupMode,
     teamCount: n,
     scores: new Array(n).fill(0),
     teamOrder: [],
@@ -15482,6 +15631,9 @@ function aliasSetupStart(countRaw){
     turnCorrect: 0,
     lastTeamIdx: null,
     lastTurnScore: 0,
+    paused: false,
+    pausedByLeaderboard: false,
+    pausedRemainingMs: null,
   };
   aliasEnsureTeamOrder(aliasState);
   aliasState.currentTeamIdx = aliasState.teamOrder[aliasState.turnPointer];
@@ -15493,6 +15645,9 @@ function aliasStartTurn(){
   if(!aliasState) return;
   aliasState.phase = 'playing';
   aliasState.turnCorrect = 0;
+  aliasState.paused = false;
+  aliasState.pausedByLeaderboard = false;
+  aliasState.pausedRemainingMs = null;
   aliasState.currentWordIdx = aliasNextWordIndex(aliasState);
   aliasState.turnDeadline = Date.now() + ALIAS_ROUND_MS;
   btSaveState(ALIAS_STATE_KEY, aliasState);
@@ -15501,6 +15656,7 @@ function aliasStartTurn(){
 
 function aliasTick(){
   if(!aliasState || aliasState.phase !== 'playing'){ aliasClearTick(); return; }
+  if(aliasState.paused) return;
   const secsLeft = Math.max(0, Math.ceil((aliasState.turnDeadline - Date.now()) / 1000));
   const timerEl = document.getElementById('aliasTimerDisplay');
   if(timerEl){
@@ -15510,15 +15666,66 @@ function aliasTick(){
   if(secsLeft <= 0){ aliasEndTurn(); }
 }
 
-function aliasAnswer(correct){
+function aliasPauseTimer(reason){
+  if(!aliasState || aliasState.phase !== 'playing' || aliasState.paused) return;
+  aliasState.paused = true;
+  aliasState.pausedByLeaderboard = (reason === 'leaderboard');
+  aliasState.pausedRemainingMs = Math.max(0, aliasState.turnDeadline - Date.now());
+  aliasClearTick();
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+  aliasApplyPausedUI(true);
+}
+
+function aliasResumeTimer(){
+  if(!aliasState || !aliasState.paused) return;
+  aliasState.turnDeadline = Date.now() + (aliasState.pausedRemainingMs || 0);
+  aliasState.paused = false;
+  aliasState.pausedByLeaderboard = false;
+  aliasState.pausedRemainingMs = null;
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+  aliasApplyPausedUI(false);
+  aliasClearTick();
+  aliasTickInterval = setInterval(aliasTick, 250);
+  aliasTick();
+}
+
+function aliasPauseToggle(){
   if(!aliasState || aliasState.phase !== 'playing') return;
+  if(aliasState.paused) aliasResumeTimer();
+  else aliasPauseTimer('manual');
+}
+
+function aliasApplyPausedUI(pausedBool){
+  if(!aliasState) return;
+  const pool = ALIAS_WORD_POOLS[aliasState.mode] || ALIAS_WORD_POOLS.normie;
+  const cardEl = document.getElementById('aliasWordText');
+  const pauseBtn = document.getElementById('aliasPauseBtn');
+  const yesBtn = document.getElementById('aliasYesBtn');
+  const noBtn = document.getElementById('aliasNoBtn');
+  if(cardEl){
+    if(pausedBool){
+      cardEl.textContent = 'Paused';
+      cardEl.classList.add('alias-word-card-paused');
+    } else {
+      cardEl.textContent = pool[aliasState.currentWordIdx];
+      cardEl.classList.remove('alias-word-card-paused');
+    }
+  }
+  if(pauseBtn) pauseBtn.textContent = pausedBool ? '▶ Resume' : '⏸ Pause';
+  if(yesBtn) yesBtn.disabled = pausedBool;
+  if(noBtn) noBtn.disabled = pausedBool;
+}
+
+function aliasAnswer(correct){
+  if(!aliasState || aliasState.phase !== 'playing' || aliasState.paused) return;
+  const pool = ALIAS_WORD_POOLS[aliasState.mode] || ALIAS_WORD_POOLS.normie;
   if(correct){
     aliasState.scores[aliasState.currentTeamIdx]++;
     aliasState.turnCorrect++;
   }
   aliasState.currentWordIdx = aliasNextWordIndex(aliasState);
   const wordEl = document.getElementById('aliasWordText');
-  if(wordEl) wordEl.textContent = ALIAS_WORDS[aliasState.currentWordIdx];
+  if(wordEl) wordEl.textContent = pool[aliasState.currentWordIdx];
   const scoreEl = document.getElementById('aliasTurnScore');
   if(scoreEl) scoreEl.textContent = aliasState.turnCorrect;
   btSaveState(ALIAS_STATE_KEY, aliasState);
@@ -15571,6 +15778,9 @@ function aliasLeaderboardRowsHtml(ranked){
 
 function aliasShowLeaderboard(){
   if(!aliasState) return;
+  if(aliasState.phase === 'playing' && !aliasState.paused){
+    aliasPauseTimer('leaderboard');
+  }
   document.querySelectorAll('.alias-leaderboard-overlay').forEach(el => el.remove());
   const overlay = document.createElement('div');
   overlay.className = 'challenge-overlay alias-leaderboard-overlay';
@@ -15582,7 +15792,12 @@ function aliasShowLeaderboard(){
     </div>
   `;
   document.body.appendChild(overlay);
-  overlay.addEventListener('click', (e) => { if(e.target === overlay) overlay.remove(); });
+  overlay.addEventListener('click', (e) => {
+    if(e.target === overlay){
+      overlay.remove();
+      if(aliasState && aliasState.pausedByLeaderboard) aliasResumeTimer();
+    }
+  });
 }
 
 function aliasSetupHtml(){
@@ -15591,7 +15806,12 @@ function aliasSetupHtml(){
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="section-head"><span class="emoji">${icon('chatBubble')}</span><h2>Alias</h2></div>
-        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px;">Describe the word on screen without saying it - your team shouts out guesses. 120 seconds per turn, as many correct guesses as you can get. How many teams are playing?</p>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px;">Describe the word on screen without saying it - your team shouts out guesses. 120 seconds per turn, as many correct guesses as you can get. Pick a difficulty, then how many teams are playing.</p>
+        <div class="alias-mode-row">
+          <button class="alias-mode-btn${aliasSetupMode === 'ooga' ? ' selected' : ''}" data-action="alias-mode-select" data-mode="ooga">Ooga Booga</button>
+          <button class="alias-mode-btn${aliasSetupMode === 'normie' ? ' selected' : ''}" data-action="alias-mode-select" data-mode="normie">Normie</button>
+          <button class="alias-mode-btn${aliasSetupMode === 'shakespeare' ? ' selected' : ''}" data-action="alias-mode-select" data-mode="shakespeare">Shakespeare</button>
+        </div>
         <div class="alias-team-input-wrap">
           <label for="aliasTeamCountInput" style="display:block; font-size:13px; font-weight:700; color:var(--ink-soft); margin-bottom:6px;">Number of teams (1-15)</label>
           <input type="number" id="aliasTeamCountInput" min="1" max="15" value="4" class="alias-team-input" inputmode="numeric">
@@ -15608,6 +15828,7 @@ function aliasReadyHtml(){
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="alias-topbar">
+          <span class="alias-mode-tag">${escapeHtml(ALIAS_MODE_LABELS[aliasState.mode] || '')}</span>
           <button class="alias-leaderboard-btn" data-action="alias-leaderboard-open">🏆 Leaderboard</button>
           <button class="alias-end-btn" data-action="alias-end-game">End Game</button>
         </div>
@@ -15621,12 +15842,18 @@ function aliasReadyHtml(){
 
 function aliasPlayingHtml(){
   const teamName = `Team ${aliasState.currentTeamIdx + 1}`;
-  const secsLeft = Math.max(0, Math.ceil((aliasState.turnDeadline - Date.now()) / 1000));
+  const pool = ALIAS_WORD_POOLS[aliasState.mode] || ALIAS_WORD_POOLS.normie;
+  const paused = !!aliasState.paused;
+  const secsLeft = paused
+    ? Math.max(0, Math.ceil((aliasState.pausedRemainingMs || 0) / 1000))
+    : Math.max(0, Math.ceil((aliasState.turnDeadline - Date.now()) / 1000));
   return `
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="alias-topbar">
+          <span class="alias-mode-tag">${escapeHtml(ALIAS_MODE_LABELS[aliasState.mode] || '')}</span>
           <button class="alias-leaderboard-btn" data-action="alias-leaderboard-open">🏆 Leaderboard</button>
+          <button class="alias-pause-btn" id="aliasPauseBtn" data-action="alias-pause-toggle">${paused ? '▶ Resume' : '⏸ Pause'}</button>
           <button class="alias-end-btn" data-action="alias-end-game">End Game</button>
         </div>
         <div class="tf-progress-row">
@@ -15634,10 +15861,10 @@ function aliasPlayingHtml(){
           <span id="aliasTimerDisplay" class="alias-timer${secsLeft <= 10 ? ' urgent' : ''}">${secsLeft}s</span>
           <span>Score: <span id="aliasTurnScore">${aliasState.turnCorrect}</span></span>
         </div>
-        <div class="alias-word-card" id="aliasWordText">${escapeHtml(ALIAS_WORDS[aliasState.currentWordIdx])}</div>
-        <div class="tf-answer-row">
-          <button class="tf-answer-btn tf-true" data-action="alias-answer" data-correct="true">YES</button>
-          <button class="tf-answer-btn tf-false" data-action="alias-answer" data-correct="false">NO</button>
+        <div class="alias-word-card${paused ? ' alias-word-card-paused' : ''}" id="aliasWordText">${paused ? 'Paused' : escapeHtml(pool[aliasState.currentWordIdx])}</div>
+        <div class="tf-answer-row" id="aliasAnswerRow">
+          <button class="tf-answer-btn tf-true" id="aliasYesBtn" data-action="alias-answer" data-correct="true"${paused ? ' disabled' : ''}>YES</button>
+          <button class="tf-answer-btn tf-false" id="aliasNoBtn" data-action="alias-answer" data-correct="false"${paused ? ' disabled' : ''}>NO</button>
         </div>
       </div>
     </section>
@@ -15651,6 +15878,7 @@ function aliasTurnEndHtml(){
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="alias-topbar">
+          <span class="alias-mode-tag">${escapeHtml(ALIAS_MODE_LABELS[aliasState.mode] || '')}</span>
           <button class="alias-leaderboard-btn" data-action="alias-leaderboard-open">🏆 Leaderboard</button>
           <button class="alias-end-btn" data-action="alias-end-game">End Game</button>
         </div>
@@ -15680,6 +15908,7 @@ function aliasOverHtml(){
 function viewAliasGame(){
   if(!aliasState) aliasState = btLoadState(ALIAS_STATE_KEY);
   if(!aliasState) return aliasSetupHtml();
+  if(!aliasState.mode) aliasState.mode = 'normie';
   if(aliasState.phase === 'ready') return aliasReadyHtml();
   if(aliasState.phase === 'playing') return aliasPlayingHtml();
   if(aliasState.phase === 'turnEnd') return aliasTurnEndHtml();
@@ -15689,6 +15918,10 @@ function viewAliasGame(){
 
 function wireAliasGame(app){
   if(aliasState && aliasState.phase === 'playing'){
+    if(aliasState.paused){
+      aliasClearTick();
+      return;
+    }
     if(aliasState.turnDeadline && Date.now() >= aliasState.turnDeadline){
       aliasEndTurn();
       return;
@@ -30887,6 +31120,22 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     const overlay = aliasLeaderboardCloseBtn.closest('.challenge-overlay');
     if(overlay) overlay.remove();
+    if(aliasState && aliasState.pausedByLeaderboard){
+      aliasResumeTimer();
+    }
+    return;
+  }
+  const aliasPauseToggleBtn = e.target.closest('[data-action="alias-pause-toggle"]');
+  if(aliasPauseToggleBtn){
+    e.preventDefault();
+    aliasPauseToggle();
+    return;
+  }
+  const aliasModeSelectBtn = e.target.closest('[data-action="alias-mode-select"]');
+  if(aliasModeSelectBtn){
+    e.preventDefault();
+    aliasSetupMode = aliasModeSelectBtn.dataset.mode;
+    document.querySelectorAll('.alias-mode-btn').forEach(btn => btn.classList.toggle('selected', btn.dataset.mode === aliasSetupMode));
     return;
   }
   const aliasEndGameBtn = e.target.closest('[data-action="alias-end-game"]');
