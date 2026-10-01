@@ -15,7 +15,10 @@
     "endonym": "United States",
     "tld": ".us",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 32383920,
+    "passportVisaFreeCount": 179,
+    "passportRank": 37
   },
   {
     "name": "United Kingdom",
@@ -25,7 +28,7 @@
     "language": "English",
     "population": 66460344,
     "currency": "British pound",
-    "currencySymbol": "£",
+    "currencySymbol": "\u00a3",
     "lat": 54,
     "lng": -2,
     "subregion": "Northern Europe",
@@ -33,7 +36,10 @@
     "endonym": "United Kingdom",
     "tld": ".uk",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 4264794,
+    "passportVisaFreeCount": 183,
+    "passportRank": 22
   },
   {
     "name": "France",
@@ -43,7 +49,7 @@
     "language": "French",
     "population": 66977107,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 46,
     "lng": 2,
     "subregion": "Western Europe",
@@ -51,7 +57,10 @@
     "endonym": "France",
     "tld": ".fr",
     "neighbours": 8,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 3596094,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Germany",
@@ -61,7 +70,7 @@
     "language": "German",
     "population": 82905782,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 51,
     "lng": 9,
     "subregion": "Western Europe",
@@ -69,7 +78,10 @@
     "endonym": "Deutschland",
     "tld": ".de",
     "neighbours": 9,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 5452858,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Italy",
@@ -79,7 +91,7 @@
     "language": "Italian",
     "population": 60421760,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 42.83333333,
     "lng": 12.83333333,
     "subregion": "Southern Europe",
@@ -87,7 +99,10 @@
     "endonym": "Italia",
     "tld": ".it",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2738164,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Spain",
@@ -97,15 +112,18 @@
     "language": "Spanish",
     "population": 46796540,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 40,
     "lng": -4,
     "subregion": "Southern Europe",
     "area": 505992,
-    "endonym": "España",
+    "endonym": "Espa\u00f1a",
     "tld": ".es",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2091222,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Japan",
@@ -115,15 +133,18 @@
     "language": "Japanese",
     "population": 126529100,
     "currency": "Japanese yen",
-    "currencySymbol": "¥",
+    "currencySymbol": "\u00a5",
     "lat": 36,
     "lng": 138,
     "subregion": "Eastern Asia",
     "area": 377930,
-    "endonym": "日本",
+    "endonym": "\u65e5\u672c",
     "tld": ".jp",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 4379253,
+    "passportVisaFreeCount": 187,
+    "passportRank": 2
   },
   {
     "name": "China",
@@ -133,15 +154,18 @@
     "language": "Mandarin",
     "population": 1392730000,
     "currency": "Chinese yuan",
-    "currencySymbol": "¥",
+    "currencySymbol": "\u00a5",
     "lat": 35,
     "lng": 105,
     "subregion": "Eastern Asia",
     "area": 9706961,
-    "endonym": "中国",
+    "endonym": "\u4e2d\u56fd",
     "tld": ".cn",
     "neighbours": 16,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 20851593,
+    "passportVisaFreeCount": 82,
+    "passportRank": 109
   },
   {
     "name": "Canada",
@@ -162,13 +186,16 @@
     "endonym": "Canada",
     "tld": ".ca",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2507340,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "Brazil",
     "code": "br",
     "region": "americas",
-    "capital": "Brasília",
+    "capital": "Bras\u00edlia",
     "language": "Portuguese",
     "population": 209469333,
     "currency": "Brazilian real",
@@ -180,7 +207,10 @@
     "endonym": "Brasil",
     "tld": ".br",
     "neighbours": 10,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2635912,
+    "passportVisaFreeCount": 168,
+    "passportRank": 45
   },
   {
     "name": "Russia",
@@ -190,15 +220,18 @@
     "language": "Russian",
     "population": 144478050,
     "currency": "Russian ruble",
-    "currencySymbol": "₽",
+    "currencySymbol": "\u20bd",
     "lat": 60,
     "lng": 100,
     "subregion": "Eastern Europe",
     "area": 17098242,
-    "endonym": "Россия",
+    "endonym": "\u0420\u043e\u0441\u0441\u0438\u044f",
     "tld": ".ru",
     "neighbours": 14,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2656452,
+    "passportVisaFreeCount": 113,
+    "passportRank": 91
   },
   {
     "name": "Australia",
@@ -216,7 +249,10 @@
     "endonym": "Australia",
     "tld": ".au",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2123963,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "India",
@@ -232,7 +268,7 @@
     ],
     "population": 1352617328,
     "currency": "Indian rupee",
-    "currencySymbol": "₹",
+    "currencySymbol": "\u20b9",
     "lat": 20,
     "lng": 77,
     "subregion": "Southern Asia",
@@ -240,7 +276,10 @@
     "endonym": "India",
     "tld": ".in",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 4153191,
+    "passportVisaFreeCount": 56,
+    "passportRank": 145
   },
   {
     "name": "Mexico",
@@ -255,10 +294,13 @@
     "lng": -102,
     "subregion": "North America",
     "area": 1964375,
-    "endonym": "México",
+    "endonym": "M\u00e9xico",
     "tld": ".mx",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2120855,
+    "passportVisaFreeCount": 156,
+    "passportRank": 54
   },
   {
     "name": "South Korea",
@@ -268,15 +310,18 @@
     "language": "Korean",
     "population": 51606633,
     "currency": "South Korean won",
-    "currencySymbol": "₩",
+    "currencySymbol": "\u20a9",
     "lat": 37,
     "lng": 127.5,
     "subregion": "Eastern Asia",
     "area": 100210,
-    "endonym": "한국",
+    "endonym": "\ud55c\uad6d",
     "tld": ".kr",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1931008,
+    "passportVisaFreeCount": 187,
+    "passportRank": 2
   },
   {
     "name": "Switzerland",
@@ -299,7 +344,10 @@
     "endonym": "Suisse",
     "tld": ".ch",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 1146911,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Sweden",
@@ -317,7 +365,10 @@
     "endonym": "Sverige",
     "tld": ".se",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 760481,
+    "passportVisaFreeCount": 186,
+    "passportRank": 5
   },
   {
     "name": "South Africa",
@@ -340,7 +391,10 @@
     "endonym": "South Africa",
     "tld": ".za",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 479964,
+    "passportVisaFreeCount": 100,
+    "passportRank": 94
   },
   {
     "name": "Egypt",
@@ -350,15 +404,18 @@
     "language": "Arabic",
     "population": 98423595,
     "currency": "Egyptian pound",
-    "currencySymbol": "£",
+    "currencySymbol": "\u00a3",
     "lat": 27,
     "lng": 30,
     "subregion": "Northern Africa",
     "area": 1002450,
-    "endonym": "مصر",
+    "endonym": "\u0645\u0635\u0631",
     "tld": ".eg",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 429645,
+    "passportVisaFreeCount": 49,
+    "passportRank": 161
   },
   {
     "name": "Turkey",
@@ -368,15 +425,18 @@
     "language": "Turkish",
     "population": 82319724,
     "currency": "Turkish lira",
-    "currencySymbol": "₺",
+    "currencySymbol": "\u20ba",
     "lat": 39,
     "lng": 35,
     "subregion": "Western Asia",
     "area": 783562,
-    "endonym": "Türkiye",
+    "endonym": "T\u00fcrkiye",
     "tld": ".tr",
     "neighbours": 8,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1640223,
+    "passportVisaFreeCount": 113,
+    "passportRank": 91
   },
   {
     "name": "Greece",
@@ -386,15 +446,18 @@
     "language": "Greek",
     "population": 10731726,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 39,
     "lng": 22,
     "subregion": "Southern Europe",
     "area": 131990,
-    "endonym": "Ελλάδα",
+    "endonym": "\u0395\u03bb\u03bb\u03ac\u03b4\u03b1",
     "tld": ".gr",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 307554,
+    "passportVisaFreeCount": 184,
+    "passportRank": 18
   },
   {
     "name": "Portugal",
@@ -404,7 +467,7 @@
     "language": "Portuguese",
     "population": 10283822,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 39.5,
     "lng": -8,
     "subregion": "Southern Europe",
@@ -412,7 +475,10 @@
     "endonym": "Portugal",
     "tld": ".pt",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 380637,
+    "passportVisaFreeCount": 184,
+    "passportRank": 18
   },
   {
     "name": "Argentina",
@@ -430,7 +496,10 @@
     "endonym": "Argentina",
     "tld": ".ar",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 688378,
+    "passportVisaFreeCount": 168,
+    "passportRank": 45
   },
   {
     "name": "Ireland",
@@ -443,7 +512,7 @@
     ],
     "population": 4867309,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 53,
     "lng": -8,
     "subregion": "Northern Europe",
@@ -451,7 +520,10 @@
     "endonym": "Ireland",
     "tld": ".ie",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 779381,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Netherlands",
@@ -461,7 +533,7 @@
     "language": "Dutch",
     "population": 17231624,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 52.5,
     "lng": 5.75,
     "subregion": "Western Europe",
@@ -469,7 +541,10 @@
     "endonym": "Nederland",
     "tld": ".nl",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1449704,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Norway",
@@ -487,7 +562,10 @@
     "endonym": "Noreg",
     "tld": ".no",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 599406,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Poland",
@@ -496,8 +574,8 @@
     "capital": "Warsaw",
     "language": "Polish",
     "population": 37974750,
-    "currency": "Polish złoty",
-    "currencySymbol": "zł",
+    "currency": "Polish z\u0142oty",
+    "currencySymbol": "z\u0142",
     "lat": 52,
     "lng": 20,
     "subregion": "Central Europe",
@@ -505,7 +583,10 @@
     "endonym": "Polska",
     "tld": ".pl",
     "neighbours": 7,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1134248,
+    "passportVisaFreeCount": 183,
+    "passportRank": 22
   },
   {
     "name": "Belgium",
@@ -519,7 +600,7 @@
     ],
     "population": 11433256,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 50.83333333,
     "lng": 4,
     "subregion": "Western Europe",
@@ -527,7 +608,10 @@
     "endonym": "Belgien",
     "tld": ".be",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 776730,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Austria",
@@ -537,15 +621,18 @@
     "language": "German",
     "population": 8840521,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 47.33333333,
     "lng": 13.33333333,
     "subregion": "Central Europe",
     "area": 83871,
-    "endonym": "Österreich",
+    "endonym": "\u00d6sterreich",
     "tld": ".at",
     "neighbours": 8,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 623719,
+    "passportVisaFreeCount": 184,
+    "passportRank": 18
   },
   {
     "name": "Denmark",
@@ -563,7 +650,10 @@
     "endonym": "Danmark",
     "tld": ".dk",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 503772,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Finland",
@@ -576,7 +666,7 @@
     ],
     "population": 5515525,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 64,
     "lng": 26,
     "subregion": "Northern Europe",
@@ -584,7 +674,10 @@
     "endonym": "Suomi",
     "tld": ".fi",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 337669,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Ukraine",
@@ -597,15 +690,18 @@
     ],
     "population": 44622516,
     "currency": "Ukrainian hryvnia",
-    "currencySymbol": "₴",
+    "currencySymbol": "\u20b4",
     "lat": 49,
     "lng": 32,
     "subregion": "Eastern Europe",
     "area": 603500,
-    "endonym": "Україна",
+    "endonym": "\u0423\u043a\u0440\u0430\u0457\u043d\u0430",
     "tld": ".ua",
     "neighbours": 7,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 225337,
+    "passportVisaFreeCount": 142,
+    "passportRank": 67
   },
   {
     "name": "Israel",
@@ -618,15 +714,18 @@
     ],
     "population": 8882800,
     "currency": "Israeli new shekel",
-    "currencySymbol": "₪",
+    "currencySymbol": "\u20aa",
     "lat": 31.47,
     "lng": 35.13,
     "subregion": "Western Asia",
     "area": 20770,
-    "endonym": "إسرائيل",
+    "endonym": "\u0625\u0633\u0631\u0627\u0626\u064a\u0644",
     "tld": ".il",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 719848,
+    "passportVisaFreeCount": 166,
+    "passportRank": 47
   },
   {
     "name": "Saudi Arabia",
@@ -636,15 +735,18 @@
     "language": "Arabic",
     "population": 33699947,
     "currency": "Saudi riyal",
-    "currencySymbol": "ر.س",
+    "currencySymbol": "\u0631.\u0633",
     "lat": 25,
     "lng": 45,
     "subregion": "Western Asia",
     "area": 2149690,
-    "endonym": "السعودية",
+    "endonym": "\u0627\u0644\u0633\u0639\u0648\u062f\u064a\u0629",
     "tld": ".sa",
     "neighbours": 7,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1388676,
+    "passportVisaFreeCount": 87,
+    "passportRank": 101
   },
   {
     "name": "United Arab Emirates",
@@ -654,15 +756,18 @@
     "language": "Arabic",
     "population": 9630959,
     "currency": "United Arab Emirates dirham",
-    "currencySymbol": "د.إ",
+    "currencySymbol": "\u062f.\u0625",
     "lat": 24,
     "lng": 54,
     "subregion": "Western Asia",
     "area": 83600,
-    "endonym": "الإمارات",
+    "endonym": "\u0627\u0644\u0625\u0645\u0627\u0631\u0627\u062a",
     "tld": ".ae",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 621546,
+    "passportVisaFreeCount": 187,
+    "passportRank": 2
   },
   {
     "name": "Thailand",
@@ -672,15 +777,18 @@
     "language": "Thai",
     "population": 69428524,
     "currency": "Thai baht",
-    "currencySymbol": "฿",
+    "currencySymbol": "\u0e3f",
     "lat": 15,
     "lng": 100,
     "subregion": "South-Eastern Asia",
     "area": 513120,
-    "endonym": "ประเทศไทย",
+    "endonym": "\u0e1b\u0e23\u0e30\u0e40\u0e17\u0e28\u0e44\u0e17\u0e22",
     "tld": ".th",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 579996,
+    "passportVisaFreeCount": 76,
+    "passportRank": 115
   },
   {
     "name": "Vietnam",
@@ -689,16 +797,19 @@
     "capital": "Hanoi",
     "language": "Vietnamese",
     "population": 95540395,
-    "currency": "Vietnamese đồng",
-    "currencySymbol": "₫",
+    "currency": "Vietnamese \u0111\u1ed3ng",
+    "currencySymbol": "\u20ab",
     "lat": 16.16666666,
     "lng": 107.83333333,
     "subregion": "South-Eastern Asia",
     "area": 331212,
-    "endonym": "Việt Nam",
+    "endonym": "Vi\u1ec7t Nam",
     "tld": ".vn",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 527266,
+    "passportVisaFreeCount": 48,
+    "passportRank": 165
   },
   {
     "name": "Indonesia",
@@ -716,7 +827,10 @@
     "endonym": "Indonesia",
     "tld": ".id",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1539872,
+    "passportVisaFreeCount": 70,
+    "passportRank": 122
   },
   {
     "name": "Philippines",
@@ -729,7 +843,7 @@
     ],
     "population": 106651922,
     "currency": "Philippine peso",
-    "currencySymbol": "₱",
+    "currencySymbol": "\u20b1",
     "lat": 13,
     "lng": 122,
     "subregion": "South-Eastern Asia",
@@ -737,7 +851,10 @@
     "endonym": "Philippines",
     "tld": ".ph",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 512222,
+    "passportVisaFreeCount": 65,
+    "passportRank": 131
   },
   {
     "name": "Pakistan",
@@ -751,7 +868,7 @@
     ],
     "population": 212215030,
     "currency": "Pakistani rupee",
-    "currencySymbol": "₨",
+    "currencySymbol": "\u20a8",
     "lat": 30,
     "lng": 70,
     "subregion": "Southern Asia",
@@ -759,7 +876,10 @@
     "endonym": "Pakistan",
     "tld": ".pk",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 452000,
+    "passportVisaFreeCount": 31,
+    "passportRank": 191
   },
   {
     "name": "Nigeria",
@@ -774,7 +894,7 @@
     ],
     "population": 195874740,
     "currency": "Nigerian naira",
-    "currencySymbol": "₦",
+    "currencySymbol": "\u20a6",
     "lat": 10,
     "lng": 8,
     "subregion": "Western Africa",
@@ -782,7 +902,10 @@
     "endonym": "Nigeria",
     "tld": ".ng",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 377365,
+    "passportVisaFreeCount": 44,
+    "passportRank": 176
   },
   {
     "name": "Kenya",
@@ -803,7 +926,10 @@
     "endonym": "Kenya",
     "tld": ".ke",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 147265,
+    "passportVisaFreeCount": 69,
+    "passportRank": 124
   },
   {
     "name": "Morocco",
@@ -813,21 +939,24 @@
     "language": "Arabic",
     "population": 36029138,
     "currency": "Moroccan dirham",
-    "currencySymbol": "د.م.",
+    "currencySymbol": "\u062f.\u0645.",
     "lat": 32,
     "lng": -5,
     "subregion": "Northern Africa",
     "area": 446550,
-    "endonym": "المغرب",
+    "endonym": "\u0627\u0644\u0645\u063a\u0631\u0628",
     "tld": ".ma",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 194333,
+    "passportVisaFreeCount": 71,
+    "passportRank": 119
   },
   {
     "name": "Colombia",
     "code": "co",
     "region": "americas",
-    "capital": "Bogotá",
+    "capital": "Bogot\u00e1",
     "language": "Spanish",
     "population": 49648685,
     "currency": "Colombian peso",
@@ -839,7 +968,10 @@
     "endonym": "Colombia",
     "tld": ".co",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 539530,
+    "passportVisaFreeCount": 130,
+    "passportRank": 74
   },
   {
     "name": "Venezuela",
@@ -848,7 +980,7 @@
     "capital": "Caracas",
     "language": "Spanish",
     "population": 28870195,
-    "currency": "Venezuelan bolívar soberano",
+    "currency": "Venezuelan bol\u00edvar soberano",
     "currencySymbol": "Bs.S.",
     "lat": 8,
     "lng": -66,
@@ -857,7 +989,10 @@
     "endonym": "Venezuela",
     "tld": ".ve",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 111303,
+    "passportVisaFreeCount": 116,
+    "passportRank": 90
   },
   {
     "name": "Chile",
@@ -875,7 +1010,10 @@
     "endonym": "Chile",
     "tld": ".cl",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 407850,
+    "passportVisaFreeCount": 174,
+    "passportRank": 42
   },
   {
     "name": "Peru",
@@ -896,7 +1034,10 @@
     "endonym": "Piruw",
     "tld": ".pe",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 380900,
+    "passportVisaFreeCount": 141,
+    "passportRank": 68
   },
   {
     "name": "Cuba",
@@ -914,7 +1055,9 @@
     "endonym": "Cuba",
     "tld": ".cu",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "passportVisaFreeCount": 56,
+    "passportRank": 145
   },
   {
     "name": "New Zealand",
@@ -932,25 +1075,31 @@
     "endonym": "New Zealand",
     "tld": ".nz",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 278636,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "Iceland",
     "code": "is",
     "region": "europe",
-    "capital": "Reykjavík",
+    "capital": "Reykjav\u00edk",
     "language": "Icelandic",
     "population": 352721,
-    "currency": "Icelandic króna",
+    "currency": "Icelandic kr\u00f3na",
     "currencySymbol": "kr",
     "lat": 65,
     "lng": -18,
     "subregion": "Northern Europe",
     "area": 103000,
-    "endonym": "Ísland",
+    "endonym": "\u00cdsland",
     "tld": ".is",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 43800,
+    "passportVisaFreeCount": 179,
+    "passportRank": 37
   },
   {
     "name": "Czechia",
@@ -960,15 +1109,18 @@
     "language": "Czech",
     "population": 10629928,
     "currency": "Czech koruna",
-    "currencySymbol": "Kč",
+    "currencySymbol": "K\u010d",
     "lat": 49.75,
     "lng": 15.5,
     "subregion": "Central Europe",
     "area": 78865,
-    "endonym": "Česko",
+    "endonym": "\u010cesko",
     "tld": ".cz",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 432597,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "Hungary",
@@ -983,10 +1135,13 @@
     "lng": 20,
     "subregion": "Central Europe",
     "area": 93028,
-    "endonym": "Magyarország",
+    "endonym": "Magyarorsz\u00e1g",
     "tld": ".hu",
     "neighbours": 7,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 271122,
+    "passportVisaFreeCount": 183,
+    "passportRank": 22
   },
   {
     "name": "Romania",
@@ -1001,10 +1156,13 @@
     "lng": 25,
     "subregion": "Southeast Europe",
     "area": 238391,
-    "endonym": "România",
+    "endonym": "Rom\u00e2nia",
     "tld": ".ro",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 480834,
+    "passportVisaFreeCount": 177,
+    "passportRank": 39
   },
   {
     "name": "Iran",
@@ -1014,15 +1172,18 @@
     "language": "Persian",
     "population": 81800269,
     "currency": "Iranian rial",
-    "currencySymbol": "﷼",
+    "currencySymbol": "\ufdfc",
     "lat": 32,
     "lng": 53,
     "subregion": "Southern Asia",
     "area": 1648195,
-    "endonym": "ایران",
+    "endonym": "\u0627\u06cc\u0631\u0627\u0646",
     "tld": ".ir",
     "neighbours": 7,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 300293,
+    "passportVisaFreeCount": 38,
+    "passportRank": 185
   },
   {
     "name": "Iraq",
@@ -1035,15 +1196,18 @@
     ],
     "population": 38433600,
     "currency": "Iraqi dinar",
-    "currencySymbol": "ع.د",
+    "currencySymbol": "\u0639.\u062f",
     "lat": 33,
     "lng": 44,
     "subregion": "Western Asia",
     "area": 438317,
-    "endonym": "العراق",
+    "endonym": "\u0627\u0644\u0639\u0631\u0627\u0642",
     "tld": ".iq",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 264784,
+    "passportVisaFreeCount": 29,
+    "passportRank": 193
   },
   {
     "name": "Singapore",
@@ -1066,7 +1230,10 @@
     "endonym": "Singapore",
     "tld": ".sg",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 659572,
+    "passportVisaFreeCount": 192,
+    "passportRank": 1
   },
   {
     "name": "Malaysia",
@@ -1089,7 +1256,10 @@
     "endonym": "Malaysia",
     "tld": ".my",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 516428,
+    "passportVisaFreeCount": 183,
+    "passportRank": 22
   },
   {
     "name": "Kazakhstan",
@@ -1102,15 +1272,18 @@
     ],
     "population": 18272430,
     "currency": "Kazakhstani tenge",
-    "currencySymbol": "₸",
+    "currencySymbol": "\u20b8",
     "lat": 48,
     "lng": 68,
     "subregion": "Central Asia",
     "area": 2724900,
-    "endonym": "Қазақстан",
+    "endonym": "\u049a\u0430\u0437\u0430\u049b\u0441\u0442\u0430\u043d",
     "tld": ".kz",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 360456,
+    "passportVisaFreeCount": 78,
+    "passportRank": 112
   },
   {
     "name": "Uzbekistan",
@@ -1122,16 +1295,19 @@
       "Russian"
     ],
     "population": 32955400,
-    "currency": "Uzbekistani soʻm",
+    "currency": "Uzbekistani so\u02bbm",
     "currencySymbol": "so'm",
     "lat": 41,
     "lng": 64,
     "subregion": "Central Asia",
     "area": 447400,
-    "endonym": "Узбекистан",
+    "endonym": "\u0423\u0437\u0431\u0435\u043a\u0438\u0441\u0442\u0430\u043d",
     "tld": ".uz",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 181502,
+    "passportVisaFreeCount": 59,
+    "passportRank": 140
   },
   {
     "name": "Mongolia",
@@ -1140,16 +1316,19 @@
     "capital": "Ulaanbaatar",
     "language": "Mongolian",
     "population": 3170208,
-    "currency": "Mongolian tögrög",
-    "currencySymbol": "₮",
+    "currency": "Mongolian t\u00f6gr\u00f6g",
+    "currencySymbol": "\u20ae",
     "lat": 46,
     "lng": 105,
     "subregion": "Eastern Asia",
     "area": 1564110,
-    "endonym": "Монгол улс",
+    "endonym": "\u041c\u043e\u043d\u0433\u043e\u043b \u0443\u043b\u0441",
     "tld": ".mn",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 28450,
+    "passportVisaFreeCount": 64,
+    "passportRank": 134
   },
   {
     "name": "Nepal",
@@ -1162,15 +1341,18 @@
     ],
     "population": 28087871,
     "currency": "Nepalese rupee",
-    "currencySymbol": "₨",
+    "currencySymbol": "\u20a8",
     "lat": 28,
     "lng": 84,
     "subregion": "Southern Asia",
     "area": 147181,
-    "endonym": "नेपाल",
+    "endonym": "\u0928\u0947\u092a\u093e\u0932",
     "tld": ".np",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 45844,
+    "passportVisaFreeCount": 35,
+    "passportRank": 187
   },
   {
     "name": "Sri Lanka",
@@ -1183,15 +1365,18 @@
     ],
     "population": 21670000,
     "currency": "Sri Lankan rupee",
-    "currencySymbol": "Rs  රු",
+    "currencySymbol": "Rs  \u0dbb\u0dd4",
     "lat": 7,
     "lng": 81,
     "subregion": "Southern Asia",
     "area": 65610,
-    "endonym": "ශ්‍රී ලංකාව",
+    "endonym": "\u0dc1\u0dca\u200d\u0dbb\u0dd3 \u0dbd\u0d82\u0d9a\u0dcf\u0dc0",
     "tld": ".lk",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 98964,
+    "passportVisaFreeCount": 39,
+    "passportRank": 183
   },
   {
     "name": "Bangladesh",
@@ -1204,15 +1389,18 @@
     ],
     "population": 161356039,
     "currency": "Bangladeshi taka",
-    "currencySymbol": "৳",
+    "currencySymbol": "\u09f3",
     "lat": 24,
     "lng": 90,
     "subregion": "Southern Asia",
     "area": 147570,
-    "endonym": "বাংলাদেশ",
+    "endonym": "\u09ac\u09be\u0982\u09b2\u09be\u09a6\u09c7\u09b6",
     "tld": ".bd",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 510705,
+    "passportVisaFreeCount": 34,
+    "passportRank": 189
   },
   {
     "name": "Myanmar",
@@ -1230,10 +1418,13 @@
     "lng": 98,
     "subregion": "South-Eastern Asia",
     "area": 676578,
-    "endonym": "မြန်မာ",
+    "endonym": "\u1019\u103c\u1014\u103a\u1019\u102c",
     "tld": ".mm",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 83832,
+    "passportVisaFreeCount": 42,
+    "passportRank": 179
   },
   {
     "name": "Cambodia",
@@ -1243,15 +1434,18 @@
     "language": "Khmer",
     "population": 16249798,
     "currency": "Cambodian riel",
-    "currencySymbol": "៛",
+    "currencySymbol": "\u17db",
     "lat": 13,
     "lng": 105,
     "subregion": "South-Eastern Asia",
     "area": 181035,
-    "endonym": "Kâmpŭchéa",
+    "endonym": "K\u00e2mp\u016dch\u00e9a",
     "tld": ".kh",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 52379,
+    "passportVisaFreeCount": 47,
+    "passportRank": 169
   },
   {
     "name": "Laos",
@@ -1261,15 +1455,18 @@
     "language": "Lao",
     "population": 7061507,
     "currency": "Lao kip",
-    "currencySymbol": "₭",
+    "currencySymbol": "\u20ad",
     "lat": 18,
     "lng": 105,
     "subregion": "South-Eastern Asia",
     "area": 236800,
-    "endonym": "ສປປລາວ",
+    "endonym": "\u0eaa\u0e9b\u0e9b\u0ea5\u0eb2\u0ea7",
     "tld": ".la",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 18959,
+    "passportVisaFreeCount": 45,
+    "passportRank": 173
   },
   {
     "name": "North Korea",
@@ -1279,15 +1476,17 @@
     "language": "Korean",
     "population": 25549819,
     "currency": "North Korean won",
-    "currencySymbol": "₩",
+    "currencySymbol": "\u20a9",
     "lat": 40,
     "lng": 127,
     "subregion": "Eastern Asia",
     "area": 120538,
-    "endonym": "조선",
+    "endonym": "\uc870\uc120",
     "tld": ".kp",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "passportVisaFreeCount": 35,
+    "passportRank": 187
   },
   {
     "name": "Taiwan",
@@ -1301,10 +1500,13 @@
     "lng": 121,
     "subregion": "Eastern Asia",
     "area": 36193,
-    "endonym": "台灣",
+    "endonym": "\u53f0\u7063",
     "tld": ".tw",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 976719,
+    "passportVisaFreeCount": 134,
+    "passportRank": 70
   },
   {
     "name": "Jordan",
@@ -1314,15 +1516,18 @@
     "language": "Arabic",
     "population": 9956011,
     "currency": "Jordanian dinar",
-    "currencySymbol": "د.ا",
+    "currencySymbol": "\u062f.\u0627",
     "lat": 31,
     "lng": 36,
     "subregion": "Western Asia",
     "area": 89342,
-    "endonym": "الأردن",
+    "endonym": "\u0627\u0644\u0623\u0631\u062f\u0646",
     "tld": ".jo",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 64909,
+    "passportVisaFreeCount": 49,
+    "passportRank": 161
   },
   {
     "name": "Lebanon",
@@ -1332,15 +1537,18 @@
     "language": "Arabic",
     "population": 6848925,
     "currency": "Lebanese pound",
-    "currencySymbol": "ل.ل",
+    "currencySymbol": "\u0644.\u0644",
     "lat": 33.83333333,
     "lng": 35.83333333,
     "subregion": "Western Asia",
     "area": 10452,
-    "endonym": "لبنان",
+    "endonym": "\u0644\u0628\u0646\u0627\u0646",
     "tld": ".lb",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 34497,
+    "passportVisaFreeCount": 43,
+    "passportRank": 177
   },
   {
     "name": "Syria",
@@ -1350,15 +1558,18 @@
     "language": "Arabic",
     "population": 16906283,
     "currency": "Syrian pound",
-    "currencySymbol": "£",
+    "currencySymbol": "\u00a3",
     "lat": 35,
     "lng": 38,
     "subregion": "Western Asia",
     "area": 185180,
-    "endonym": "سوريا",
+    "endonym": "\u0633\u0648\u0631\u064a\u0627",
     "tld": ".sy",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 60043,
+    "passportVisaFreeCount": 26,
+    "passportRank": 194
   },
   {
     "name": "Yemen",
@@ -1368,15 +1579,18 @@
     "language": "Arabic",
     "population": 28498687,
     "currency": "Yemeni rial",
-    "currencySymbol": "﷼",
+    "currencySymbol": "\ufdfc",
     "lat": 15,
     "lng": 48,
     "subregion": "Western Asia",
     "area": 527968,
-    "endonym": "اليمن",
+    "endonym": "\u0627\u0644\u064a\u0645\u0646",
     "tld": ".ye",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 7435,
+    "passportVisaFreeCount": 31,
+    "passportRank": 191
   },
   {
     "name": "Kuwait",
@@ -1386,15 +1600,18 @@
     "language": "Arabic",
     "population": 4137309,
     "currency": "Kuwaiti dinar",
-    "currencySymbol": "د.ك",
+    "currencySymbol": "\u062f.\u0643",
     "lat": 29.5,
     "lng": 45.75,
     "subregion": "Western Asia",
     "area": 17818,
-    "endonym": "الكويت",
+    "endonym": "\u0627\u0644\u0643\u0648\u064a\u062a",
     "tld": ".kw",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 172920,
+    "passportVisaFreeCount": 96,
+    "passportRank": 96
   },
   {
     "name": "Qatar",
@@ -1404,15 +1621,18 @@
     "language": "Arabic",
     "population": 2781677,
     "currency": "Qatari riyal",
-    "currencySymbol": "ر.ق",
+    "currencySymbol": "\u0631.\u0642",
     "lat": 25.5,
     "lng": 51.25,
     "subregion": "Western Asia",
     "area": 11586,
-    "endonym": "قطر",
+    "endonym": "\u0642\u0637\u0631",
     "tld": ".qa",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 217416,
+    "passportVisaFreeCount": 111,
+    "passportRank": 93
   },
   {
     "name": "Bahrain",
@@ -1422,15 +1642,18 @@
     "language": "Arabic",
     "population": 1569439,
     "currency": "Bahraini dinar",
-    "currencySymbol": ".د.ب",
+    "currencySymbol": ".\u062f.\u0628",
     "lat": 26,
     "lng": 50.55,
     "subregion": "Western Asia",
     "area": 765,
-    "endonym": "البحرين",
+    "endonym": "\u0627\u0644\u0628\u062d\u0631\u064a\u0646",
     "tld": ".bh",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 48849,
+    "passportVisaFreeCount": 87,
+    "passportRank": 101
   },
   {
     "name": "Oman",
@@ -1440,15 +1663,18 @@
     "language": "Arabic",
     "population": 4829483,
     "currency": "Omani rial",
-    "currencySymbol": "ر.ع.",
+    "currencySymbol": "\u0631.\u0639.",
     "lat": 21,
     "lng": 57,
     "subregion": "Western Asia",
     "area": 309500,
-    "endonym": "عمان",
+    "endonym": "\u0639\u0645\u0627\u0646",
     "tld": ".om",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 117176,
+    "passportVisaFreeCount": 84,
+    "passportRank": 107
   },
   {
     "name": "Afghanistan",
@@ -1461,15 +1687,18 @@
     ],
     "population": 37172386,
     "currency": "Afghan afghani",
-    "currencySymbol": "؋",
+    "currencySymbol": "\u060b",
     "lat": 33,
     "lng": 65,
     "subregion": "Southern Asia",
     "area": 652230,
-    "endonym": "افغانستان",
+    "endonym": "\u0627\u0641\u063a\u0627\u0646\u0633\u062a\u0627\u0646",
     "tld": ".af",
     "neighbours": 6,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 19662,
+    "passportVisaFreeCount": 23,
+    "passportRank": 195
   },
   {
     "name": "Azerbaijan",
@@ -1482,15 +1711,18 @@
     ],
     "population": 9939800,
     "currency": "Azerbaijani manat",
-    "currencySymbol": "₼",
+    "currencySymbol": "\u20bc",
     "lat": 40.5,
     "lng": 47.5,
     "subregion": "Western Asia",
     "area": 86600,
-    "endonym": "Azərbaycan",
+    "endonym": "Az\u0259rbaycan",
     "tld": ".az",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 78372,
+    "passportVisaFreeCount": 67,
+    "passportRank": 127
   },
   {
     "name": "Armenia",
@@ -1503,15 +1735,18 @@
     ],
     "population": 2951776,
     "currency": "Armenian dram",
-    "currencySymbol": "֏",
+    "currencySymbol": "\u058f",
     "lat": 40,
     "lng": 45,
     "subregion": "Western Asia",
     "area": 29743,
-    "endonym": "Հայաստան",
+    "endonym": "\u0540\u0561\u0575\u0561\u057d\u057f\u0561\u0576",
     "tld": ".am",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 31873,
+    "passportVisaFreeCount": 64,
+    "passportRank": 134
   },
   {
     "name": "Georgia",
@@ -1524,15 +1759,18 @@
     ],
     "population": 3726549,
     "currency": "lari",
-    "currencySymbol": "₾",
+    "currencySymbol": "\u20be",
     "lat": 42,
     "lng": 43.5,
     "subregion": "Western Asia",
     "area": 69700,
-    "endonym": "საქართველო",
+    "endonym": "\u10e1\u10d0\u10e5\u10d0\u10e0\u10d7\u10d5\u10d4\u10da\u10dd",
     "tld": ".ge",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 42716,
+    "passportVisaFreeCount": 120,
+    "passportRank": 86
   },
   {
     "name": "Turkmenistan",
@@ -1550,10 +1788,13 @@
     "lng": 60,
     "subregion": "Central Asia",
     "area": 488100,
-    "endonym": "Туркмения",
+    "endonym": "\u0422\u0443\u0440\u043a\u043c\u0435\u043d\u0438\u044f",
     "tld": ".tm",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 83065,
+    "passportVisaFreeCount": 45,
+    "passportRank": 173
   },
   {
     "name": "Tajikistan",
@@ -1566,15 +1807,18 @@
     ],
     "population": 9100837,
     "currency": "Tajikistani somoni",
-    "currencySymbol": "ЅМ",
+    "currencySymbol": "\u0405\u041c",
     "lat": 39,
     "lng": 71,
     "subregion": "Central Asia",
     "area": 143100,
-    "endonym": "Таджикистан",
+    "endonym": "\u0422\u0430\u0434\u0436\u0438\u043a\u0438\u0441\u0442\u0430\u043d",
     "tld": ".tj",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 20418,
+    "passportVisaFreeCount": 53,
+    "passportRank": 154
   },
   {
     "name": "Kyrgyzstan",
@@ -1587,15 +1831,18 @@
     ],
     "population": 6322800,
     "currency": "Kyrgyzstani som",
-    "currencySymbol": "с",
+    "currencySymbol": "\u0441",
     "lat": 41,
     "lng": 75,
     "subregion": "Central Asia",
     "area": 199951,
-    "endonym": "Кыргызстан",
+    "endonym": "\u041a\u044b\u0440\u0433\u044b\u0437\u0441\u0442\u0430\u043d",
     "tld": ".kg",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 23606,
+    "passportVisaFreeCount": 59,
+    "passportRank": 140
   },
   {
     "name": "Bhutan",
@@ -1613,31 +1860,37 @@
     "lng": 90.5,
     "subregion": "Southern Asia",
     "area": 38394,
-    "endonym": "འབྲུག་ཡུལ་",
+    "endonym": "\u0f60\u0f56\u0fb2\u0f74\u0f42\u0f0b\u0f61\u0f74\u0f63\u0f0b",
     "tld": ".bt",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 3856,
+    "passportVisaFreeCount": 47,
+    "passportRank": 169
   },
   {
     "name": "Maldives",
     "code": "mv",
     "region": "asia",
-    "capital": "Malé",
+    "capital": "Mal\u00e9",
     "language": "Dhivehi",
     "otherOfficial": [
       "English"
     ],
     "population": 515696,
     "currency": "Maldivian rufiyaa",
-    "currencySymbol": ".ރ",
+    "currencySymbol": ".\u0783",
     "lat": 3.25,
     "lng": 73,
     "subregion": "Southern Asia",
     "area": 300,
-    "endonym": "ދިވެހިރާއްޖޭގެ",
+    "endonym": "\u078b\u07a8\u0788\u07ac\u0780\u07a8\u0783\u07a7\u0787\u07b0\u0796\u07ad\u078e\u07ac",
     "tld": ".mv",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 8130,
+    "passportVisaFreeCount": 92,
+    "passportRank": 98
   },
   {
     "name": "Brunei",
@@ -1658,7 +1911,10 @@
     "endonym": "Negara Brunei Darussalam",
     "tld": ".bn",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 16863,
+    "passportVisaFreeCount": 163,
+    "passportRank": 49
   },
   {
     "name": "Timor-Leste",
@@ -1680,7 +1936,10 @@
     "endonym": "Timor-Leste",
     "tld": ".tl",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2170,
+    "passportVisaFreeCount": 92,
+    "passportRank": 98
   },
   {
     "name": "Ghana",
@@ -1690,7 +1949,7 @@
     "language": "English",
     "population": 29767108,
     "currency": "Ghanaian cedi",
-    "currencySymbol": "₵",
+    "currencySymbol": "\u20b5",
     "lat": 8,
     "lng": -2,
     "subregion": "Western Africa",
@@ -1698,7 +1957,10 @@
     "endonym": "Ghana",
     "tld": ".gh",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 118293,
+    "passportVisaFreeCount": 67,
+    "passportRank": 127
   },
   {
     "name": "Ethiopia",
@@ -1713,10 +1975,13 @@
     "lng": 38,
     "subregion": "Eastern Africa",
     "area": 1104300,
-    "endonym": "ኢትዮጵያ",
+    "endonym": "\u12a2\u1275\u12ee\u1335\u12eb",
     "tld": ".et",
     "neighbours": 6,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 121527,
+    "passportVisaFreeCount": 42,
+    "passportRank": 179
   },
   {
     "name": "Tanzania",
@@ -1737,7 +2002,10 @@
     "endonym": "Tanzania",
     "tld": ".tz",
     "neighbours": 8,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 94889,
+    "passportVisaFreeCount": 68,
+    "passportRank": 125
   },
   {
     "name": "Uganda",
@@ -1758,7 +2026,10 @@
     "endonym": "Uganda",
     "tld": ".ug",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 73370,
+    "passportVisaFreeCount": 65,
+    "passportRank": 131
   },
   {
     "name": "Algeria",
@@ -1768,15 +2039,18 @@
     "language": "Arabic",
     "population": 42228429,
     "currency": "Algerian dinar",
-    "currencySymbol": "د.ج",
+    "currencySymbol": "\u062f.\u062c",
     "lat": 28,
     "lng": 3,
     "subregion": "Northern Africa",
     "area": 2381741,
-    "endonym": "الجزائر",
+    "endonym": "\u0627\u0644\u062c\u0632\u0627\u0626\u0631",
     "tld": ".dz",
     "neighbours": 7,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 317173,
+    "passportVisaFreeCount": 55,
+    "passportRank": 149
   },
   {
     "name": "Tunisia",
@@ -1786,15 +2060,18 @@
     "language": "Arabic",
     "population": 11565204,
     "currency": "Tunisian dinar",
-    "currencySymbol": "د.ت",
+    "currencySymbol": "\u062f.\u062a",
     "lat": 34,
     "lng": 9,
     "subregion": "Northern Africa",
     "area": 163610,
-    "endonym": "تونس",
+    "endonym": "\u062a\u0648\u0646\u0633",
     "tld": ".tn",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 60745,
+    "passportVisaFreeCount": 66,
+    "passportRank": 129
   },
   {
     "name": "Libya",
@@ -1804,15 +2081,18 @@
     "language": "Arabic",
     "population": 6678567,
     "currency": "Libyan dinar",
-    "currencySymbol": "ل.د",
+    "currencySymbol": "\u0644.\u062f",
     "lat": 25,
     "lng": 17,
     "subregion": "Northern Africa",
     "area": 1759540,
-    "endonym": "ليبيا",
+    "endonym": "\u0644\u064a\u0628\u064a\u0627",
     "tld": ".ly",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 52453,
+    "passportVisaFreeCount": 39,
+    "passportRank": 183
   },
   {
     "name": "Sudan",
@@ -1830,10 +2110,13 @@
     "lng": 30,
     "subregion": "Northern Africa",
     "area": 1886068,
-    "endonym": "السودان",
+    "endonym": "\u0627\u0644\u0633\u0648\u062f\u0627\u0646",
     "tld": ".sd",
     "neighbours": 7,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 44688,
+    "passportVisaFreeCount": 41,
+    "passportRank": 181
   },
   {
     "name": "Senegal",
@@ -1848,10 +2131,13 @@
     "lng": -14,
     "subregion": "Western Africa",
     "area": 196722,
-    "endonym": "Sénégal",
+    "endonym": "S\u00e9n\u00e9gal",
     "tld": ".sn",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 40469,
+    "passportVisaFreeCount": 56,
+    "passportRank": 145
   },
   {
     "name": "Mali",
@@ -1869,7 +2155,10 @@
     "endonym": "Mali",
     "tld": ".ml",
     "neighbours": 7,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 33847,
+    "passportVisaFreeCount": 53,
+    "passportRank": 154
   },
   {
     "name": "Guinea",
@@ -1884,10 +2173,13 @@
     "lng": -10,
     "subregion": "Western Africa",
     "area": 245857,
-    "endonym": "Guinée",
+    "endonym": "Guin\u00e9e",
     "tld": ".gn",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 29930,
+    "passportVisaFreeCount": 52,
+    "passportRank": 156
   },
   {
     "name": "Ivory Coast",
@@ -1902,16 +2194,19 @@
     "lng": -5,
     "subregion": "Western Africa",
     "area": 322463,
-    "endonym": "Côte d'Ivoire",
+    "endonym": "C\u00f4te d'Ivoire",
     "tld": ".ci",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 112115,
+    "passportVisaFreeCount": 55,
+    "passportRank": 149
   },
   {
     "name": "Cameroon",
     "code": "cm",
     "region": "africa",
-    "capital": "Yaoundé",
+    "capital": "Yaound\u00e9",
     "language": "French",
     "otherOfficial": [
       "English"
@@ -1926,7 +2221,10 @@
     "endonym": "Cameroon",
     "tld": ".cm",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 65135,
+    "passportVisaFreeCount": 47,
+    "passportRank": 169
   },
   {
     "name": "Zambia",
@@ -1944,7 +2242,10 @@
     "endonym": "Zambia",
     "tld": ".zm",
     "neighbours": 8,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 41243,
+    "passportVisaFreeCount": 64,
+    "passportRank": 134
   },
   {
     "name": "Zimbabwe",
@@ -1966,7 +2267,10 @@
     "endonym": "Zimbabwe",
     "tld": ".zw",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 56713,
+    "passportVisaFreeCount": 61,
+    "passportRank": 139
   },
   {
     "name": "Angola",
@@ -1984,7 +2288,10 @@
     "endonym": "Angola",
     "tld": ".ao",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 152354,
+    "passportVisaFreeCount": 48,
+    "passportRank": 165
   },
   {
     "name": "Mozambique",
@@ -2002,10 +2309,13 @@
     "lng": 35,
     "subregion": "Eastern Africa",
     "area": 801590,
-    "endonym": "Moçambique",
+    "endonym": "Mo\u00e7ambique",
     "tld": ".mz",
     "neighbours": 6,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 23275,
+    "passportVisaFreeCount": 59,
+    "passportRank": 140
   },
   {
     "name": "Namibia",
@@ -2023,10 +2333,13 @@
     "lng": 17,
     "subregion": "Southern Africa",
     "area": 825615,
-    "endonym": "Namibië",
+    "endonym": "Namibi\u00eb",
     "tld": ".na",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 17314,
+    "passportVisaFreeCount": 74,
+    "passportRank": 117
   },
   {
     "name": "Botswana",
@@ -2047,7 +2360,10 @@
     "endonym": "Botswana",
     "tld": ".bw",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 21937,
+    "passportVisaFreeCount": 81,
+    "passportRank": 110
   },
   {
     "name": "Rwanda",
@@ -2069,7 +2385,10 @@
     "endonym": "Rwanda",
     "tld": ".rw",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 17336,
+    "passportVisaFreeCount": 66,
+    "passportRank": 129
   },
   {
     "name": "Somalia",
@@ -2087,10 +2406,13 @@
     "lng": 49,
     "subregion": "Eastern Africa",
     "area": 637657,
-    "endonym": "الصومال",
+    "endonym": "\u0627\u0644\u0635\u0648\u0645\u0627\u0644",
     "tld": ".so",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 14174,
+    "passportVisaFreeCount": 32,
+    "passportRank": 190
   },
   {
     "name": "Democratic Republic of the Congo",
@@ -2112,7 +2434,10 @@
     "endonym": "RD Congo",
     "tld": ".cd",
     "neighbours": 9,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 123406,
+    "passportVisaFreeCount": 43,
+    "passportRank": 177
   },
   {
     "name": "Republic of the Congo",
@@ -2127,10 +2452,13 @@
     "lng": 15,
     "subregion": "Middle Africa",
     "area": 342000,
-    "endonym": "République du Congo",
+    "endonym": "R\u00e9publique du Congo",
     "tld": ".cg",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 17028,
+    "passportVisaFreeCount": 46,
+    "passportRank": 172
   },
   {
     "name": "Panama",
@@ -2145,20 +2473,23 @@
     "lng": -80,
     "subregion": "Central America",
     "area": 75417,
-    "endonym": "Panamá",
+    "endonym": "Panam\u00e1",
     "tld": ".pa",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 95024,
+    "passportVisaFreeCount": 147,
+    "passportRank": 60
   },
   {
     "name": "Costa Rica",
     "code": "cr",
     "region": "americas",
-    "capital": "San José",
+    "capital": "San Jos\u00e9",
     "language": "Spanish",
     "population": 4999441,
-    "currency": "Costa Rican colón",
-    "currencySymbol": "₡",
+    "currency": "Costa Rican col\u00f3n",
+    "currencySymbol": "\u20a1",
     "lat": 10,
     "lng": -84,
     "subregion": "Central America",
@@ -2166,7 +2497,10 @@
     "endonym": "Costa Rica",
     "tld": ".cr",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 109931,
+    "passportVisaFreeCount": 148,
+    "passportRank": 59
   },
   {
     "name": "Nicaragua",
@@ -2175,7 +2509,7 @@
     "capital": "Managua",
     "language": "Spanish",
     "population": 6465513,
-    "currency": "Nicaraguan córdoba",
+    "currency": "Nicaraguan c\u00f3rdoba",
     "currencySymbol": "C$",
     "lat": 13,
     "lng": -85,
@@ -2184,7 +2518,10 @@
     "endonym": "Nicaragua",
     "tld": ".ni",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 24227,
+    "passportVisaFreeCount": 125,
+    "passportRank": 81
   },
   {
     "name": "Honduras",
@@ -2202,7 +2539,10 @@
     "endonym": "Honduras",
     "tld": ".hn",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 41505,
+    "passportVisaFreeCount": 129,
+    "passportRank": 75
   },
   {
     "name": "El Salvador",
@@ -2220,7 +2560,10 @@
     "endonym": "El Salvador",
     "tld": ".sv",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 39838,
+    "passportVisaFreeCount": 131,
+    "passportRank": 73
   },
   {
     "name": "Guatemala",
@@ -2238,7 +2581,10 @@
     "endonym": "Guatemala",
     "tld": ".gt",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 128886,
+    "passportVisaFreeCount": 132,
+    "passportRank": 71
   },
   {
     "name": "Ecuador",
@@ -2256,7 +2602,10 @@
     "endonym": "Ecuador",
     "tld": ".ec",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 138194,
+    "passportVisaFreeCount": 93,
+    "passportRank": 97
   },
   {
     "name": "Bolivia",
@@ -2278,28 +2627,34 @@
     "endonym": "Wuliwya",
     "tld": ".bo",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 80743,
+    "passportVisaFreeCount": 77,
+    "passportRank": 113
   },
   {
     "name": "Paraguay",
     "code": "py",
     "region": "americas",
-    "capital": "Asunción",
+    "capital": "Asunci\u00f3n",
     "language": "Spanish",
     "otherOfficial": [
       "Guarani"
     ],
     "population": 6956071,
-    "currency": "Paraguayan guaraní",
-    "currencySymbol": "₲",
+    "currency": "Paraguayan guaran\u00ed",
+    "currencySymbol": "\u20b2",
     "lat": -23,
     "lng": -58,
     "subregion": "South America",
     "area": 406752,
-    "endonym": "Paraguái",
+    "endonym": "Paragu\u00e1i",
     "tld": ".py",
     "neighbours": 3,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 60542,
+    "passportVisaFreeCount": 145,
+    "passportRank": 63
   },
   {
     "name": "Uruguay",
@@ -2317,7 +2672,10 @@
     "endonym": "Uruguay",
     "tld": ".uy",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 96092,
+    "passportVisaFreeCount": 155,
+    "passportRank": 55
   },
   {
     "name": "Dominican Republic",
@@ -2332,10 +2690,13 @@
     "lng": -70.66666666,
     "subregion": "Caribbean",
     "area": 48671,
-    "endonym": "República Dominicana",
+    "endonym": "Rep\u00fablica Dominicana",
     "tld": ".do",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 136148,
+    "passportVisaFreeCount": 71,
+    "passportRank": 119
   },
   {
     "name": "Haiti",
@@ -2350,10 +2711,13 @@
     "lng": -72.41666666,
     "subregion": "Caribbean",
     "area": 27750,
-    "endonym": "Haïti",
+    "endonym": "Ha\u00efti",
     "tld": ".ht",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 39180,
+    "passportVisaFreeCount": 49,
+    "passportRank": 161
   },
   {
     "name": "Jamaica",
@@ -2371,7 +2735,10 @@
     "endonym": "Jamaica",
     "tld": ".jm",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 23028,
+    "passportVisaFreeCount": 85,
+    "passportRank": 106
   },
   {
     "name": "Slovakia",
@@ -2381,7 +2748,7 @@
     "language": "Slovak",
     "population": 5446771,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 48.66666666,
     "lng": 19.5,
     "subregion": "Central Europe",
@@ -2389,7 +2756,10 @@
     "endonym": "Slovensko",
     "tld": ".sk",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 168897,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "Slovenia",
@@ -2399,7 +2769,7 @@
     "language": "Slovenian",
     "population": 2073894,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 46.11666666,
     "lng": 14.81666666,
     "subregion": "Central Europe",
@@ -2407,7 +2777,10 @@
     "endonym": "Slovenija",
     "tld": ".si",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 86732,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "Croatia",
@@ -2417,7 +2790,7 @@
     "language": "Croatian",
     "population": 4087843,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 45.16666666,
     "lng": 15.5,
     "subregion": "Southeast Europe",
@@ -2425,7 +2798,10 @@
     "endonym": "Hrvatska",
     "tld": ".hr",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 116574,
+    "passportVisaFreeCount": 181,
+    "passportRank": 33
   },
   {
     "name": "Serbia",
@@ -2435,15 +2811,18 @@
     "language": "Serbian",
     "population": 6963764,
     "currency": "Serbian dinar",
-    "currencySymbol": "дин.",
+    "currencySymbol": "\u0434\u0438\u043d.",
     "lat": 44,
     "lng": 21,
     "subregion": "Southeast Europe",
     "area": 88361,
-    "endonym": "Србија",
+    "endonym": "\u0421\u0440\u0431\u0438\u0458\u0430",
     "tld": ".rs",
     "neighbours": 8,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 112025,
+    "passportVisaFreeCount": 135,
+    "passportRank": 69
   },
   {
     "name": "Bosnia and Herzegovina",
@@ -2465,7 +2844,10 @@
     "endonym": "Bosna i Hercegovina",
     "tld": ".ba",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 36771,
+    "passportVisaFreeCount": 121,
+    "passportRank": 84
   },
   {
     "name": "Bulgaria",
@@ -2475,15 +2857,18 @@
     "language": "Bulgarian",
     "population": 7025037,
     "currency": "Bulgarian lev",
-    "currencySymbol": "лв",
+    "currencySymbol": "\u043b\u0432",
     "lat": 43,
     "lng": 25,
     "subregion": "Southeast Europe",
     "area": 110879,
-    "endonym": "България",
+    "endonym": "\u0411\u044a\u043b\u0433\u0430\u0440\u0438\u044f",
     "tld": ".bg",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 148121,
+    "passportVisaFreeCount": 177,
+    "passportRank": 39
   },
   {
     "name": "North Macedonia",
@@ -2498,10 +2883,13 @@
     "lng": 22,
     "subregion": "Southeast Europe",
     "area": 25713,
-    "endonym": "Македонија",
+    "endonym": "\u041c\u0430\u043a\u0435\u0434\u043e\u043d\u0438\u0458\u0430",
     "tld": ".mk",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 21605,
+    "passportVisaFreeCount": 126,
+    "passportRank": 79
   },
   {
     "name": "Albania",
@@ -2516,10 +2904,13 @@
     "lng": 20,
     "subregion": "Southeast Europe",
     "area": 28748,
-    "endonym": "Shqipëria",
+    "endonym": "Shqip\u00ebria",
     "tld": ".al",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 33333,
+    "passportVisaFreeCount": 121,
+    "passportRank": 84
   },
   {
     "name": "Montenegro",
@@ -2532,15 +2923,18 @@
     ],
     "population": 631219,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 42.5,
     "lng": 19.3,
     "subregion": "Southeast Europe",
     "area": 13812,
-    "endonym": "Црна Гора",
+    "endonym": "\u0426\u0440\u043d\u0430 \u0413\u043e\u0440\u0430",
     "tld": ".me",
     "neighbours": 5,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 10227,
+    "passportVisaFreeCount": 126,
+    "passportRank": 79
   },
   {
     "name": "Kosovo",
@@ -2549,7 +2943,7 @@
     "capital": "Pristina",
     "language": "Albanian",
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 42.666667,
     "lng": 21.166667,
     "subregion": "Southeast Europe",
@@ -2557,13 +2951,16 @@
     "endonym": "Kosova",
     "tld": ".xk",
     "neighbours": 4,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 14053,
+    "passportVisaFreeCount": 81,
+    "passportRank": 110
   },
   {
     "name": "Moldova",
     "code": "md",
     "region": "europe",
-    "capital": "Chișinău",
+    "capital": "Chi\u0219in\u0103u",
     "language": "Romanian",
     "otherOfficial": [
       "Russian"
@@ -2578,7 +2975,10 @@
     "endonym": "Moldova",
     "tld": ".md",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 21889,
+    "passportVisaFreeCount": 119,
+    "passportRank": 89
   },
   {
     "name": "Belarus",
@@ -2596,10 +2996,13 @@
     "lng": 28,
     "subregion": "Eastern Europe",
     "area": 207600,
-    "endonym": "Белару́сь",
+    "endonym": "\u0411\u0435\u043b\u0430\u0440\u0443\u0301\u0441\u044c",
     "tld": ".by",
     "neighbours": 5,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 102042,
+    "passportVisaFreeCount": 77,
+    "passportRank": 113
   },
   {
     "name": "Lithuania",
@@ -2609,7 +3012,7 @@
     "language": "Lithuanian",
     "population": 2801543,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 56,
     "lng": 24,
     "subregion": "Northern Europe",
@@ -2617,7 +3020,10 @@
     "endonym": "Lietuva",
     "tld": ".lt",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 105907,
+    "passportVisaFreeCount": 180,
+    "passportRank": 35
   },
   {
     "name": "Latvia",
@@ -2627,7 +3033,7 @@
     "language": "Latvian",
     "population": 1927174,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 57,
     "lng": 25,
     "subregion": "Northern Europe",
@@ -2635,7 +3041,10 @@
     "endonym": "Latvija",
     "tld": ".lv",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 53686,
+    "passportVisaFreeCount": 182,
+    "passportRank": 26
   },
   {
     "name": "Estonia",
@@ -2645,7 +3054,7 @@
     "language": "Estonian",
     "population": 1321977,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 59,
     "lng": 26,
     "subregion": "Northern Europe",
@@ -2653,7 +3062,10 @@
     "endonym": "Eesti",
     "tld": ".ee",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 51634,
+    "passportVisaFreeCount": 181,
+    "passportRank": 33
   },
   {
     "name": "Luxembourg",
@@ -2667,7 +3079,7 @@
     ],
     "population": 607950,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 49.75,
     "lng": 6.16666666,
     "subregion": "Western Europe",
@@ -2675,7 +3087,10 @@
     "endonym": "Luxemburg",
     "tld": ".lu",
     "neighbours": 3,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 110417,
+    "passportVisaFreeCount": 185,
+    "passportRank": 6
   },
   {
     "name": "Malta",
@@ -2688,7 +3103,7 @@
     ],
     "population": 484630,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 35.83333333,
     "lng": 14.58333333,
     "subregion": "Southern Europe",
@@ -2696,7 +3111,10 @@
     "endonym": "Malta",
     "tld": ".mt",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 30712,
+    "passportVisaFreeCount": 184,
+    "passportRank": 18
   },
   {
     "name": "Cyprus",
@@ -2709,15 +3127,18 @@
     ],
     "population": 1189265,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 35,
     "lng": 33,
     "subregion": "Southern Europe",
     "area": 9251,
-    "endonym": "Κύπρος",
+    "endonym": "\u039a\u03cd\u03c0\u03c1\u03bf\u03c2",
     "tld": ".cy",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 45171,
+    "passportVisaFreeCount": 174,
+    "passportRank": 42
   },
   {
     "name": "Liechtenstein",
@@ -2735,7 +3156,10 @@
     "endonym": "Liechtenstein",
     "tld": ".li",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 9442,
+    "passportVisaFreeCount": 180,
+    "passportRank": 35
   },
   {
     "name": "Monaco",
@@ -2748,7 +3172,7 @@
     ],
     "population": 38682,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 43.73333333,
     "lng": 7.4,
     "subregion": "Western Europe",
@@ -2756,7 +3180,9 @@
     "endonym": "Monaco",
     "tld": ".mc",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "passportVisaFreeCount": 176,
+    "passportRank": 41
   },
   {
     "name": "San Marino",
@@ -2769,7 +3195,7 @@
     ],
     "population": 33785,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 43.76666666,
     "lng": 12.41666666,
     "subregion": "Southern Europe",
@@ -2777,7 +3203,10 @@
     "endonym": "San Marino",
     "tld": ".sm",
     "neighbours": 1,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 2417,
+    "passportVisaFreeCount": 166,
+    "passportRank": 47
   },
   {
     "name": "Andorra",
@@ -2791,7 +3220,7 @@
     ],
     "population": 77006,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 42.5,
     "lng": 1.5,
     "subregion": "Southern Europe",
@@ -2799,7 +3228,10 @@
     "endonym": "Andorra",
     "tld": ".ad",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 4879,
+    "passportVisaFreeCount": 169,
+    "passportRank": 44
   },
   {
     "name": "Vatican City",
@@ -2812,7 +3244,7 @@
     ],
     "population": 825,
     "currency": "Euro",
-    "currencySymbol": "€",
+    "currencySymbol": "\u20ac",
     "lat": 41.9,
     "lng": 12.45,
     "subregion": "Southern Europe",
@@ -2820,7 +3252,9 @@
     "endonym": "Vaticano",
     "tld": ".va",
     "neighbours": 1,
-    "landlocked": true
+    "landlocked": true,
+    "passportVisaFreeCount": 151,
+    "passportRank": 58
   },
   {
     "name": "Fiji",
@@ -2838,7 +3272,10 @@
     "endonym": "Fiji",
     "tld": ".fj",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 6352,
+    "passportVisaFreeCount": 87,
+    "passportRank": 101
   },
   {
     "name": "Papua New Guinea",
@@ -2856,7 +3293,10 @@
     "endonym": "Papua New Guinea",
     "tld": ".pg",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 34403,
+    "passportVisaFreeCount": 84,
+    "passportRank": 107
   },
   {
     "name": "Samoa",
@@ -2865,7 +3305,7 @@
     "capital": "Apia",
     "language": "Samoan",
     "population": 196130,
-    "currency": "Samoan tālā",
+    "currency": "Samoan t\u0101l\u0101",
     "currencySymbol": "T",
     "lat": -13.58333333,
     "lng": -172.33333333,
@@ -2874,16 +3314,19 @@
     "endonym": "Samoa",
     "tld": ".ws",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1376,
+    "passportVisaFreeCount": 129,
+    "passportRank": 75
   },
   {
     "name": "Tonga",
     "code": "to",
     "region": "oceania",
-    "capital": "Nukuʻalofa",
+    "capital": "Nuku\u02bbalofa",
     "language": "Tongan",
     "population": 103197,
-    "currency": "Tongan paʻanga",
+    "currency": "Tongan pa\u02bbanga",
     "currencySymbol": "T$",
     "lat": -20,
     "lng": -175,
@@ -2892,7 +3335,10 @@
     "endonym": "Tonga",
     "tld": ".to",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 716,
+    "passportVisaFreeCount": 127,
+    "passportRank": 77
   },
   {
     "name": "Vanuatu",
@@ -2914,7 +3360,10 @@
     "endonym": "Vanuatu",
     "tld": ".vu",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1396,
+    "passportVisaFreeCount": 87,
+    "passportRank": 101
   },
   {
     "name": "Solomon Islands",
@@ -2932,7 +3381,10 @@
     "endonym": "Solomon Islands",
     "tld": ".sb",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1836,
+    "passportVisaFreeCount": 132,
+    "passportRank": 71
   },
   {
     "name": "Kiribati",
@@ -2950,7 +3402,10 @@
     "endonym": "Kiribati",
     "tld": ".ki",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 401,
+    "passportVisaFreeCount": 122,
+    "passportRank": 83
   },
   {
     "name": "Tuvalu",
@@ -2968,7 +3423,10 @@
     "endonym": "Tuvalu",
     "tld": ".tv",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 65,
+    "passportVisaFreeCount": 125,
+    "passportRank": 81
   },
   {
     "name": "Nauru",
@@ -2986,7 +3444,10 @@
     "endonym": "Nauru",
     "tld": ".nr",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 196,
+    "passportVisaFreeCount": 86,
+    "passportRank": 105
   },
   {
     "name": "Marshall Islands",
@@ -3004,7 +3465,10 @@
     "endonym": "Marshall Islands",
     "tld": ".mh",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 342,
+    "passportVisaFreeCount": 127,
+    "passportRank": 77
   },
   {
     "name": "Palau",
@@ -3022,7 +3486,10 @@
     "endonym": "Palau",
     "tld": ".pw",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 377,
+    "passportVisaFreeCount": 120,
+    "passportRank": 86
   },
   {
     "name": "Micronesia",
@@ -3040,7 +3507,10 @@
     "endonym": "Micronesia",
     "tld": ".fm",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 521,
+    "passportVisaFreeCount": 120,
+    "passportRank": 86
   },
   {
     "name": "Trinidad and Tobago",
@@ -3058,7 +3528,10 @@
     "endonym": "Trinidad and Tobago",
     "tld": ".tt",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 26836,
+    "passportVisaFreeCount": 145,
+    "passportRank": 63
   },
   {
     "name": "Bahamas",
@@ -3076,7 +3549,10 @@
     "endonym": "Bahamas",
     "tld": ".bs",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 17042,
+    "passportVisaFreeCount": 158,
+    "passportRank": 51
   },
   {
     "name": "Barbados",
@@ -3094,7 +3570,10 @@
     "endonym": "Barbados",
     "tld": ".bb",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 8483,
+    "passportVisaFreeCount": 163,
+    "passportRank": 49
   },
   {
     "name": "Belize",
@@ -3112,7 +3591,10 @@
     "endonym": "Belize",
     "tld": ".bz",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 3450,
+    "passportVisaFreeCount": 100,
+    "passportRank": 94
   },
   {
     "name": "Guyana",
@@ -3130,7 +3612,10 @@
     "endonym": "Guyana",
     "tld": ".gy",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 33961,
+    "passportVisaFreeCount": 88,
+    "passportRank": 100
   },
   {
     "name": "Suriname",
@@ -3148,7 +3633,10 @@
     "endonym": "Suriname",
     "tld": ".sr",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 5908,
+    "passportVisaFreeCount": 75,
+    "passportRank": 116
   },
   {
     "name": "Grenada",
@@ -3166,7 +3654,10 @@
     "endonym": "Grenada",
     "tld": ".gd",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1483,
+    "passportVisaFreeCount": 147,
+    "passportRank": 60
   },
   {
     "name": "Saint Lucia",
@@ -3184,7 +3675,10 @@
     "endonym": "Saint Lucia",
     "tld": ".lc",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2765,
+    "passportVisaFreeCount": 144,
+    "passportRank": 66
   },
   {
     "name": "Saint Vincent and the Grenadines",
@@ -3202,7 +3696,10 @@
     "endonym": "Saint Vincent and the Grenadines",
     "tld": ".vc",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1236,
+    "passportVisaFreeCount": 157,
+    "passportRank": 52
   },
   {
     "name": "Antigua and Barbuda",
@@ -3220,7 +3717,10 @@
     "endonym": "Antigua and Barbuda",
     "tld": ".ag",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2385,
+    "passportVisaFreeCount": 154,
+    "passportRank": 56
   },
   {
     "name": "Dominica",
@@ -3238,7 +3738,10 @@
     "endonym": "Dominica",
     "tld": ".dm",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 791,
+    "passportVisaFreeCount": 145,
+    "passportRank": 63
   },
   {
     "name": "Saint Kitts and Nevis",
@@ -3256,7 +3759,10 @@
     "endonym": "Saint Kitts and Nevis",
     "tld": ".kn",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1143,
+    "passportVisaFreeCount": 157,
+    "passportRank": 52
   },
   {
     "name": "South Sudan",
@@ -3269,7 +3775,7 @@
     ],
     "population": 10975920,
     "currency": "South Sudanese pound",
-    "currencySymbol": "£",
+    "currencySymbol": "\u00a3",
     "lat": 7,
     "lng": 30,
     "subregion": "Middle Africa",
@@ -3277,7 +3783,10 @@
     "endonym": "South Sudan",
     "tld": ".ss",
     "neighbours": 6,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 6069,
+    "passportVisaFreeCount": 41,
+    "passportRank": 181
   },
   {
     "name": "Chad",
@@ -3295,10 +3804,13 @@
     "lng": 19,
     "subregion": "Middle Africa",
     "area": 1284000,
-    "endonym": "تشاد",
+    "endonym": "\u062a\u0634\u0627\u062f",
     "tld": ".td",
     "neighbours": 6,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 25628,
+    "passportVisaFreeCount": 51,
+    "passportRank": 158
   },
   {
     "name": "Niger",
@@ -3316,7 +3828,10 @@
     "endonym": "Niger",
     "tld": ".ne",
     "neighbours": 7,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 24813,
+    "passportVisaFreeCount": 54,
+    "passportRank": 153
   },
   {
     "name": "Burkina Faso",
@@ -3334,7 +3849,10 @@
     "endonym": "Burkina Faso",
     "tld": ".bf",
     "neighbours": 6,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 32513,
+    "passportVisaFreeCount": 56,
+    "passportRank": 145
   },
   {
     "name": "Benin",
@@ -3349,16 +3867,19 @@
     "lng": 2.25,
     "subregion": "Western Africa",
     "area": 112622,
-    "endonym": "Bénin",
+    "endonym": "B\u00e9nin",
     "tld": ".bj",
     "neighbours": 4,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 27786,
+    "passportVisaFreeCount": 65,
+    "passportRank": 131
   },
   {
     "name": "Togo",
     "code": "tg",
     "region": "africa",
-    "capital": "Lomé",
+    "capital": "Lom\u00e9",
     "language": "French",
     "population": 7889094,
     "currency": "West African CFA franc",
@@ -3370,7 +3891,10 @@
     "endonym": "Togo",
     "tld": ".tg",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 13437,
+    "passportVisaFreeCount": 57,
+    "passportRank": 144
   },
   {
     "name": "Sierra Leone",
@@ -3388,7 +3912,10 @@
     "endonym": "Sierra Leone",
     "tld": ".sl",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 8270,
+    "passportVisaFreeCount": 62,
+    "passportRank": 138
   },
   {
     "name": "Liberia",
@@ -3406,7 +3933,10 @@
     "endonym": "Liberia",
     "tld": ".lr",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 5642,
+    "passportVisaFreeCount": 49,
+    "passportRank": 161
   },
   {
     "name": "Gambia",
@@ -3424,7 +3954,10 @@
     "endonym": "Gambia",
     "tld": ".gm",
     "neighbours": 1,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2792,
+    "passportVisaFreeCount": 68,
+    "passportRank": 125
   },
   {
     "name": "Guinea-Bissau",
@@ -3439,10 +3972,13 @@
     "lng": -15,
     "subregion": "Western Africa",
     "area": 36125,
-    "endonym": "Guiné-Bissau",
+    "endonym": "Guin\u00e9-Bissau",
     "tld": ".gw",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2985,
+    "passportVisaFreeCount": 50,
+    "passportRank": 159
   },
   {
     "name": "Equatorial Guinea",
@@ -3457,10 +3993,13 @@
     "lng": 10,
     "subregion": "Middle Africa",
     "area": 28051,
-    "endonym": "Guinée équatoriale",
+    "endonym": "Guin\u00e9e \u00e9quatoriale",
     "tld": ".gq",
     "neighbours": 2,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 13722,
+    "passportVisaFreeCount": 52,
+    "passportRank": 156
   },
   {
     "name": "Gabon",
@@ -3478,7 +4017,10 @@
     "endonym": "Gabon",
     "tld": ".ga",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 23363,
+    "passportVisaFreeCount": 55,
+    "passportRank": 149
   },
   {
     "name": "Central African Republic",
@@ -3493,10 +4035,13 @@
     "lng": 21,
     "subregion": "Middle Africa",
     "area": 622984,
-    "endonym": "République centrafricaine",
+    "endonym": "R\u00e9publique centrafricaine",
     "tld": ".cf",
     "neighbours": 6,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 3492,
+    "passportVisaFreeCount": 48,
+    "passportRank": 165
   },
   {
     "name": "Djibouti",
@@ -3514,10 +4059,13 @@
     "lng": 43,
     "subregion": "Eastern Africa",
     "area": 23200,
-    "endonym": "جيبوتي",
+    "endonym": "\u062c\u064a\u0628\u0648\u062a\u064a",
     "tld": ".dj",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 4725,
+    "passportVisaFreeCount": 45,
+    "passportRank": 173
   },
   {
     "name": "Eritrea",
@@ -3535,10 +4083,13 @@
     "lng": 39,
     "subregion": "Eastern Africa",
     "area": 117600,
-    "endonym": "إريتريا",
+    "endonym": "\u0625\u0631\u064a\u062a\u0631\u064a\u0627",
     "tld": ".er",
     "neighbours": 3,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1982,
+    "passportVisaFreeCount": 38,
+    "passportRank": 185
   },
   {
     "name": "Burundi",
@@ -3559,7 +4110,10 @@
     "endonym": "Burundi",
     "tld": ".bi",
     "neighbours": 3,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 8137,
+    "passportVisaFreeCount": 48,
+    "passportRank": 165
   },
   {
     "name": "Malawi",
@@ -3580,7 +4134,10 @@
     "endonym": "Malawi",
     "tld": ".mw",
     "neighbours": 3,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 18152,
+    "passportVisaFreeCount": 70,
+    "passportRank": 122
   },
   {
     "name": "Madagascar",
@@ -3598,7 +4155,10 @@
     "endonym": "Madagascar",
     "tld": ".mg",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 21185,
+    "passportVisaFreeCount": 55,
+    "passportRank": 149
   },
   {
     "name": "Mauritius",
@@ -3608,7 +4168,7 @@
     "language": "English",
     "population": 1265303,
     "currency": "Mauritian rupee",
-    "currencySymbol": "₨",
+    "currencySymbol": "\u20a8",
     "lat": -20.28333333,
     "lng": 57.55,
     "subregion": "Eastern Africa",
@@ -3616,7 +4176,10 @@
     "endonym": "Mauritius",
     "tld": ".mu",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 17119,
+    "passportVisaFreeCount": 147,
+    "passportRank": 60
   },
   {
     "name": "Seychelles",
@@ -3626,7 +4189,7 @@
     "language": "French",
     "population": 96762,
     "currency": "Seychellois rupee",
-    "currencySymbol": "₨",
+    "currencySymbol": "\u20a8",
     "lat": -4.58333333,
     "lng": 55.66666666,
     "subregion": "Eastern Africa",
@@ -3634,7 +4197,10 @@
     "endonym": "Sesel",
     "tld": ".sc",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 2251,
+    "passportVisaFreeCount": 154,
+    "passportRank": 56
   },
   {
     "name": "Comoros",
@@ -3653,10 +4219,13 @@
     "lng": 44.25,
     "subregion": "Eastern Africa",
     "area": 1862,
-    "endonym": "جزر القمر",
+    "endonym": "\u062c\u0632\u0631 \u0627\u0644\u0642\u0645\u0631",
     "tld": ".km",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1814,
+    "passportVisaFreeCount": 50,
+    "passportRank": 159
   },
   {
     "name": "Cape Verde",
@@ -3674,25 +4243,31 @@
     "endonym": "Cabo Verde",
     "tld": ".cv",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 3448,
+    "passportVisaFreeCount": 63,
+    "passportRank": 137
   },
   {
     "name": "Sao Tome and Principe",
     "code": "st",
     "region": "africa",
-    "capital": "São Tomé",
+    "capital": "S\u00e3o Tom\u00e9",
     "language": "Portuguese",
     "population": 211028,
-    "currency": "São Tomé and Príncipe dobra",
+    "currency": "S\u00e3o Tom\u00e9 and Pr\u00edncipe dobra",
     "currencySymbol": "Db",
     "lat": 1,
     "lng": 7,
     "subregion": "Middle Africa",
     "area": 964,
-    "endonym": "São Tomé e Príncipe",
+    "endonym": "S\u00e3o Tom\u00e9 e Pr\u00edncipe",
     "tld": ".st",
     "neighbours": 0,
-    "landlocked": false
+    "landlocked": false,
+    "gdpMillionUsd": 1161,
+    "passportVisaFreeCount": 58,
+    "passportRank": 143
   },
   {
     "name": "Lesotho",
@@ -3713,7 +4288,10 @@
     "endonym": "Lesotho",
     "tld": ".ls",
     "neighbours": 1,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 2972,
+    "passportVisaFreeCount": 73,
+    "passportRank": 118
   },
   {
     "name": "Eswatini",
@@ -3734,7 +4312,10 @@
     "endonym": "Eswatini",
     "tld": ".sz",
     "neighbours": 2,
-    "landlocked": true
+    "landlocked": true,
+    "gdpMillionUsd": 5792,
+    "passportVisaFreeCount": 71,
+    "passportRank": 119
   },
   {
     "name": "Greenland",

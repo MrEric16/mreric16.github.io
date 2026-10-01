@@ -326,6 +326,13 @@ function section(title, rowsHtml){
   return `<details class="ff-section"><summary>${escapeHtml(title)}</summary><div class="info-grid ff-grid">${content}</div></details>`;
 }
 
+function formatGdp(millions){
+  if(millions == null) return null;
+  if(millions >= 1e6) return '$' + (millions / 1e6).toFixed(2) + 'T';
+  if(millions >= 1e3) return '$' + (millions / 1e3).toFixed(1) + 'B';
+  return '$' + Math.round(millions).toLocaleString('en-US') + 'M';
+}
+
 function factFileHtml(c){
   const f = FACTFILES[c.code];
   const bulkRows = [
@@ -333,11 +340,26 @@ function factFileHtml(c){
     row('Internet domain', c.tld ? escapeHtml(c.tld) : null),
     row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null)
   ];
+  // GDP and passport-index are the two indexed stats sourced in bulk for all
+  // 196 entries (IMF nominal GDP; Henley Passport Index visa-free count,
+  // rank computed by sorting that score) - every other indexed/volatile stat
+  // (crime, military spend, happiness index, etc.) is still left out rather
+  // than guessed. Both carry their source and year rather than being stated
+  // as plain fact, since they update annually.
+  const economyRows = [
+    row('GDP (nominal)', c.gdpMillionUsd != null ? escapeHtml(formatGdp(c.gdpMillionUsd)) : null),
+    row('Passport rank', c.passportRank != null ? `#${c.passportRank} of 195 <span class="info-sub">(${c.passportVisaFreeCount} visa-free/on-arrival destinations)</span>` : null)
+  ];
+  const economyContent = economyRows.filter(Boolean).join('');
+  const economySection = economyContent
+    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Both change year to year.</p></details>`
+    : '';
   if(!f){
     const bulkContent = bulkRows.filter(Boolean).join('');
     return `
       <div class="ff-wrap">
         ${bulkContent ? `<div class="info-grid ff-grid" style="margin-top:14px;">${bulkContent}</div>` : ''}
+        ${economySection}
         <p class="info-note" style="margin-top:12px;">Full fact file not researched yet for this country - more are being added in waves.</p>
       </div>
     `;
@@ -403,7 +425,7 @@ function factFileHtml(c){
 
   const funFactBox = f.funFacts && f.funFacts.length ? funFactHtml(c.code) : '';
 
-  return `<div class="ff-wrap">${govSection}${historySection}${geoSection}${cultureSection}${landmarkSection}${funFactBox}</div>`;
+  return `<div class="ff-wrap">${govSection}${economySection}${historySection}${geoSection}${cultureSection}${landmarkSection}${funFactBox}</div>`;
 }
 
 function funFactHtml(code){
