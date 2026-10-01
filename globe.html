@@ -339,8 +339,8 @@ function factFileHtml(c){
     row('Endonym', c.endonym && c.endonym !== c.name ? escapeHtml(c.endonym) : null),
     row('Internet domain', c.tld ? escapeHtml(c.tld) : null),
     row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null),
-    row('Head of state', c.headOfState ? escapeHtml(c.headOfState) + ' <span class="info-sub">(as of Oct 2026 - changes often)</span>' : null),
-    row('Head of government', c.headOfGovernment ? escapeHtml(c.headOfGovernment) + ' <span class="info-sub">(as of Oct 2026 - changes often)</span>' : null)
+    row('Head of state', c.headOfState ? escapeHtml(c.headOfState) : null),
+    row('Head of government', c.headOfGovernment ? escapeHtml(c.headOfGovernment) : null)
   ];
   // GDP, passport-index, life expectancy, literacy, unemployment, internet
   // usage, happiness score and peace/safety score are the indexed stats
@@ -367,16 +367,18 @@ function factFileHtml(c){
   ];
   const economyContent = economyRows.filter(Boolean).join('');
   const economySection = economyContent
-    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Happiness: World Happiness Report 2025 (avg 2022-24). Peace/safety: Global Peace Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. Electricity access: World Bank/latest survey. Clean water access: WHO/UNICEF JMP, safely-managed-service definition (stricter than basic access, so some otherwise-developed countries show under 100%). Air quality: WHO-based PM2.5 average. Education/healthcare spending: World Bank/WHO, % of GDP, year varies by country. All change over time.</p></details>`
+    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div></details>`
     : '';
+  const sourceNote = `<p class="info-note" style="margin-top:12px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Happiness: World Happiness Report 2025 (avg 2022-24). Peace/safety: Global Peace Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. Electricity access: World Bank/latest survey. Clean water access: WHO/UNICEF JMP, safely-managed-service definition (stricter than basic access, so some otherwise-developed countries show under 100%). Air quality: WHO-based PM2.5 average. Education/healthcare spending: World Bank/WHO, % of GDP, year varies by country. All change over time.</p>`;
   if(!f){
     const bulkContent = bulkRows.filter(Boolean).join('');
     return `
       <div class="ff-wrap">
         ${bulkContent ? `<div class="info-grid ff-grid" style="margin-top:14px;">${bulkContent}</div>` : ''}
-        ${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:4px;">Head of state and head of government are different roles - in presidential republics they're usually the same person; in monarchies and many parliamentary systems they're not.</p>` : ''}
+        ${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:4px;">Head of state &amp; head of government can differ.</p>` : ''}
         ${economySection}
         <p class="info-note" style="margin-top:12px;">Full fact file not researched yet for this country - more are being added in waves.</p>
+        ${sourceNote}
       </div>
     `;
   }
@@ -392,7 +394,7 @@ function factFileHtml(c){
     row('Drives on', f.drivesOn ? (f.drivesOn === 'left' ? 'Left' : 'Right') : null)
   ].filter(Boolean).join('');
   const govSection = govRowsContent
-    ? `<details class="ff-section"><summary>Government &amp; Identity</summary><div class="info-grid ff-grid">${govRowsContent}</div>${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:8px;">Head of state and head of government are different roles - in presidential republics they're usually the same person; in monarchies and many parliamentary systems they're not.</p>` : ''}</details>`
+    ? `<details class="ff-section"><summary>Government &amp; Identity</summary><div class="info-grid ff-grid">${govRowsContent}</div>${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:8px;">Head of state &amp; head of government can differ.</p>` : ''}</details>`
     : '';
 
   const historyRows = [
@@ -444,14 +446,17 @@ function factFileHtml(c){
 
   const funFactBox = f.funFacts && f.funFacts.length ? funFactHtml(c.code) : '';
 
-  return `<div class="ff-wrap">${govSection}${economySection}${historySection}${geoSection}${cultureSection}${landmarkSection}${funFactBox}</div>`;
+  return `<div class="ff-wrap">${govSection}${economySection}${historySection}${geoSection}${cultureSection}${landmarkSection}${funFactBox}${sourceNote}</div>`;
 }
 
 function funFactHtml(code){
   const facts = (FACTFILES[code] || {}).funFacts || [];
   if(!facts.length) return '';
-  let idx = Math.floor(Math.random() * facts.length);
-  if(facts.length > 1 && idx === lastFunFactIndex[code]) idx = (idx + 1) % facts.length;
+  // Deterministic cycle, not random: same order every time, so "Another one"
+  // always advances to the next fact in the list (wrapping at the end)
+  // instead of jumping around unpredictably.
+  const prev = lastFunFactIndex[code];
+  const idx = prev == null ? 0 : (prev + 1) % facts.length;
   lastFunFactIndex[code] = idx;
   return `
     <div class="ff-funfact">
