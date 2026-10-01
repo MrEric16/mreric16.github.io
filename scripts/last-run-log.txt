@@ -1,26 +1,27 @@
 [scrape] Run started. Today (Tashkent): 2026-10-01  Window end: 2026-10-15
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-10-01: 20 new event URLs discovered
+[scrape] calendar 2026-10-01: 21 new event URLs discovered
 [scrape] calendar 2026-10-02: 14 new event URLs discovered
-[scrape] calendar 2026-10-03: 19 new event URLs discovered
+[scrape] calendar 2026-10-03: 20 new event URLs discovered
 [scrape] calendar 2026-10-04: 12 new event URLs discovered
 [scrape] calendar 2026-10-05: 2 new event URLs discovered
 [scrape] calendar 2026-10-06: 3 new event URLs discovered
 [scrape] calendar 2026-10-07: 1 new event URLs discovered
-[scrape] calendar 2026-10-08: 4 new event URLs discovered
+[scrape] calendar 2026-10-08: 5 new event URLs discovered
 [scrape] calendar 2026-10-09: 8 new event URLs discovered
 [scrape] calendar 2026-10-10: 18 new event URLs discovered
 [scrape] exhibitions listing: EXCLUDED '/ru/exhibitions/2026/07/02/tiff-2026' on link text 'Международная туристическая выставка «Туризм по Шелковому пути — 2026»\nс 25 по 2'
-[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 19 total exhibition links seen on page
+[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 20 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 110 unique event URLs to check
+[scrape] calendar discovery complete: 113 unique event URLs to check
 [scrape] Translation failed for 'Шоу «Вечер иллюзий» в греческом ресторан': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Праздничной программа ко Дню учителя в T': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Праздничный концерт в Anhor Park': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Шоу «Легенда о любви» в Самарканде': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Гала-концерт «Оперные шедевры»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for "Концерт Akmal'": Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Выставочный проект San’at Up в Гёте-Инст': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка ORALIK в ZanMakon': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка Interflows в галерее ARTepa': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка работ Паулы Модерзон-Беккер и х': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
@@ -50,6 +51,7 @@
 [scrape] Translation failed for 'Broadway Fest': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Фейерверк-шоу в парке Tashkent City': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Вечера живой музыки в ресторане «Тепло»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Концерт Candle Fire: AUTUMN': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Концерт Сины Батаи в Самарканде': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Симфонический рок-концерт ORKESTROK': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Симфоническое рок-шоу Bohemian Rhapsody': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
@@ -80,6 +82,7 @@
 [scrape] Translation failed for 'Спектакль «Белый белый черный аист»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape]   DROPPED (blacklisted venue): https://www.afisha.uz/ru/restaurants/2026/09/24/gastro-cult | title='Гастроужин в Cultura' venue='CulturaТашкент, просп. Шарафа Рашидова, 40'
 [scrape] Translation failed for 'Концерт Navai': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Спектакль «Собачье сердце»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Комедия «Медведь. Предложение»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Балет «Лебединое озеро»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Певица Dora': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
@@ -112,15 +115,15 @@
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape] Translation failed for 'Эстетика многослойности: в Ташкенте откр': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 207 events kept from 110 pages checked
+[scrape] calendar detail pass complete: 224 events kept from 113 pages checked
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 30 events kept
-[scrape] iticket.uz cat=theatre: 14 events kept
+[scrape] iticket.uz cat=concert: 8 events kept
+[scrape] iticket.uz cat=theatre: 17 events kept
 [scrape] iticket.uz cat=exhibition: 0 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
 [scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 251  |  after dedup: 239
+[scrape] TOTAL before dedup: 249  |  after dedup: 240
 [scrape] Wrote data/events-tashkent.json
