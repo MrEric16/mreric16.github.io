@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Globe — Mr Eric's Lounge</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="#3D2A22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F3EADD;
+    --card:#FBF5EA;
+    --ink:#3D2A22;
+    --ink-soft:#856F5C;
+    --coral:#7A2E35;
+    --coral-dark:#5C2530;
+    --teal:#6B7A3D;
+    --gold:#B5862B;
+    --line:#E0CBA4;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Nunito', sans-serif;
+    min-height:100vh;
+    padding:16px 14px 50px;
+  }
+  .back-link{
+    display:inline-block;
+    font-size:13px;
+    color:var(--ink-soft);
+    text-decoration:none;
+    margin-bottom:10px;
+  }
+  .back-link:hover{ color:var(--coral); }
+  h1{
+    font-family:'Baloo 2', sans-serif;
+    font-weight:800;
+    font-size:24px;
+    margin:0 0 4px 0;
+    text-align:center;
+  }
+  .sub{
+    font-size:13px;
+    color:var(--ink-soft);
+    text-align:center;
+    line-height:1.5;
+    margin:0 auto 16px;
+    max-width:460px;
+  }
+  .wrap{ max-width:720px; margin:0 auto; }
+  .search-row{ position:relative; max-width:420px; margin:0 auto 16px; }
+  .search-input{
+    width:100%;
+    padding:10px 14px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    font-family:'Nunito', sans-serif;
+    font-size:14px;
+    background:#fff;
+    color:var(--ink);
+  }
+  .search-results{
+    display:none;
+    position:absolute;
+    top:calc(100% + 4px);
+    left:0; right:0;
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:10px;
+    overflow:hidden;
+    z-index:20;
+    max-height:260px;
+    overflow-y:auto;
+    box-shadow:0 4px 14px rgba(58,42,30,.15);
+  }
+  .search-results.open{ display:block; }
+  .search-result{
+    display:block;
+    width:100%;
+    text-align:left;
+    padding:9px 14px;
+    border:none;
+    background:none;
+    font-family:'Nunito', sans-serif;
+    font-size:14px;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .search-result:hover{ background:color-mix(in srgb, var(--gold) 10%, var(--card)); }
+  .search-empty{ padding:10px 14px; font-size:13px; color:var(--ink-soft); }
+  .canvas-wrap{
+    position:relative;
+    width:100%;
+    height:480px;
+    background:#0B1220;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 2px 0 rgba(58,42,30,.08);
+  }
+  .globe-container{ width:100%; height:100%; }
+  .loading{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#DCE3EE;
+    font-family:'Space Mono', monospace;
+    font-size:13px;
+  }
+  .zoom-hint{
+    position:absolute;
+    bottom:10px; left:0; right:0;
+    text-align:center;
+    font-size:11px;
+    color:rgba(255,255,255,.55);
+    font-family:'Space Mono', monospace;
+    pointer-events:none;
+  }
+  .info-panel{
+    margin-top:16px;
+    background:var(--card);
+    border-radius:16px;
+    padding:18px;
+    min-height:70px;
+    box-shadow:0 2px 0 rgba(58,42,30,.08);
+  }
+  .info-empty{ display:flex; align-items:center; justify-content:center; }
+  .info-placeholder{ font-size:14px; color:var(--ink-soft); text-align:center; margin:0; }
+  .info-head{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .info-flag{ width:32px; height:auto; border-radius:3px; display:block; }
+  .info-head h3{ font-family:'Baloo 2', sans-serif; font-size:19px; margin:0; }
+  .info-grid{ display:grid; gap:8px; }
+  .info-row{ display:flex; justify-content:space-between; gap:10px; font-size:14px; padding:6px 0; border-bottom:1px solid var(--line); }
+  .info-row:last-child{ border-bottom:none; }
+  .info-label{ color:var(--ink-soft); font-weight:700; }
+  .info-value{ text-align:right; }
+  .info-sub{ font-size:12px; color:var(--ink-soft); font-weight:400; }
+  .info-note{ font-size:12px; color:var(--ink-soft); margin:10px 0 0; font-style:italic; }
+  @media (max-width: 600px){ .canvas-wrap{ height:360px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="back-link" href="index.html#geography-hub">← Back to Train Your Brain</a>
+  <h1>Globe</h1>
+  <p class="sub">Drag to rotate, scroll or pinch to zoom, click any country — or search for one below. Zoom in to reveal more names.</p>
+  <div class="search-row">
+    <input type="text" id="searchInput" class="search-input" placeholder="Search a country..." autocomplete="off">
+    <div id="searchResults" class="search-results"></div>
+  </div>
+  <div class="canvas-wrap">
+    <div id="globeContainer" class="globe-container"></div>
+    <div id="loadingMsg" class="loading">Loading globe…</div>
+    <div class="zoom-hint">zoom in for more labels</div>
+  </div>
+  <div id="infoPanel" class="info-panel info-empty">
+    <p class="info-placeholder">Click a country on the globe, or search for one above.</p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/globe.gl"></script>
+<script>
+// ============ Globe v2 — a standalone page (not part of the main SPA) so the
+// globe.gl library (~550KB gzipped) and its earth texture only ever load for
+// someone who actually opens this page, same as GeoGuessr/OpenGuessr are opened
+// in a new tab from Train Your Brain rather than bundled into the app shell.
+// No ads, no tracking, no third-party embeds - just a rendering library, a
+// public-domain boundary dataset, and this site's own country data.
+//
+// v2 fixes, based on direct feedback on v1:
+//  - Swapped the 1.46MB "blue marble" texture + 378KB bump map for a single
+//    244KB day-texture image. No bump map at all. Much lighter payload.
+//  - Removed the hover tooltip (.polygonLabel/.onPolygonHover) entirely - on
+//    touch devices, synthetic hover events fire unpredictably during scroll/
+//    drag, which is what caused country names to "pop up randomly". Labels
+//    are now a persistent layer instead, never hover-triggered.
+//  - Added always-on labels for every country, every capital, and major
+//    oceans/seas/lakes/mountain ranges, filtered by zoom level (see LOD
+//    below) so nothing is shown "randomly" - it's either always there at
+//    the current zoom, or it isn't, and zooming in reveals more.
+
+function escapeHtml(str){
+  const d = document.createElement('div');
+  d.textContent = str;
+  return d.innerHTML;
+}
+
+let COUNTRIES = [];
+let COUNTRIES_BY_CODE = {};
+let WATER_FEATURES = { oceans: [], seas: [], lakes: [], mountains: [] };
+let geoFeatures = [];
+let globeInstance = null;
+let selectedCode = null;
+let currentAltitude = 2.4;
+
+function formatPopulation(n){
+  if(n == null) return '—';
+  if(n >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+  if(n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if(n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return String(n);
+}
+function formatArea(n){
+  if(n == null) return '—';
+  return n.toLocaleString('en-US') + ' km²';
+}
+const REGION_LABELS = { americas: 'Americas', europe: 'Europe', asia: 'Asia', africa: 'Africa', oceania: 'Oceania' };
+
+function infoPanelHtml(c){
+  if(!c) return `<p class="info-placeholder">Click a country on the globe, or search for one above.</p>`;
+  const otherLangs = c.otherOfficial && c.otherOfficial.length ? ` <span class="info-sub">(also ${c.otherOfficial.map(escapeHtml).join(', ')})</span>` : '';
+  return `
+    <div class="info-head">
+      <img class="info-flag" src="https://flagcdn.com/w80/${escapeHtml(c.code)}.png" alt="" onerror="this.style.display='none'">
+      <h3>${escapeHtml(c.name)}</h3>
+    </div>
+    <div class="info-grid">
+      <div class="info-row"><span class="info-label">Capital</span><span class="info-value">${escapeHtml(c.capital || '—')}</span></div>
+      <div class="info-row"><span class="info-label">Currency</span><span class="info-value">${c.currency ? `${escapeHtml(c.currency)}${c.currencySymbol ? ' (' + escapeHtml(c.currencySymbol) + ')' : ''}` : '—'}</span></div>
+      <div class="info-row"><span class="info-label">Language</span><span class="info-value">${escapeHtml(c.language || '—')}${otherLangs}</span></div>
+      <div class="info-row"><span class="info-label">Population</span><span class="info-value">${formatPopulation(c.population)}</span></div>
+      <div class="info-row"><span class="info-label">Region</span><span class="info-value">${escapeHtml(REGION_LABELS[c.region] || c.region)}${c.subregion ? ' · ' + escapeHtml(c.subregion) : ''}</span></div>
+      <div class="info-row"><span class="info-label">Area</span><span class="info-value">${formatArea(c.area)}</span></div>
+    </div>
+    ${(c.population == null) ? `<p class="info-note">Population figure not available for this entity.</p>` : ''}
+  `;
+}
+
+function capColor(feat){
+  const code = feat.properties.code;
+  if(code && code === selectedCode) return '#FFD34D';
+  return 'rgba(110, 190, 120, 0.55)';
+}
+
+function selectCountry(code, flyTo){
+  const c = COUNTRIES_BY_CODE[code];
+  if(!c) return;
+  selectedCode = code;
+  const panel = document.getElementById('infoPanel');
+  if(panel){
+    panel.innerHTML = infoPanelHtml(c);
+    panel.classList.remove('info-empty');
+  }
+  const searchInput = document.getElementById('searchInput');
+  if(searchInput) searchInput.value = '';
+  const results = document.getElementById('searchResults');
+  if(results){ results.innerHTML = ''; results.classList.remove('open'); }
+  if(globeInstance && geoFeatures.length){
+    // Fresh array reference forces globe.gl to re-run capColor for every
+    // feature so the selection highlight actually redraws.
+    globeInstance.polygonsData([...geoFeatures]);
+    if(flyTo !== false && c.lat != null && c.lng != null){
+      globeInstance.pointOfView({ lat: c.lat, lng: c.lng, altitude: 1.1 }, 1200);
+    }
+  }
+}
+
+function searchRun(query){
+  const results = document.getElementById('searchResults');
+  if(!results) return;
+  const q = query.trim().toLowerCase();
+  if(!q){ results.innerHTML = ''; results.classList.remove('open'); return; }
+  const matches = COUNTRIES.filter(c => c.name.toLowerCase().includes(q)).slice(0, 8);
+  if(!matches.length){
+    results.innerHTML = `<div class="search-empty">No country found.</div>`;
+    results.classList.add('open');
+    return;
+  }
+  results.innerHTML = matches.map(c => `<button class="search-result" data-code="${escapeHtml(c.code)}">${escapeHtml(c.name)}</button>`).join('');
+  results.classList.add('open');
+  results.querySelectorAll('.search-result').forEach(btn => {
+    btn.addEventListener('click', () => selectCountry(btn.dataset.code));
+  });
+}
+
+// ---------- Labels / LOD (level-of-detail) ----------
+// Everything on the globe is a persistent label (never a hover tooltip), and
+// what's visible depends purely on how far zoomed in you are - nothing pops
+// up from a stray touch. Three tiers:
+//   FAR    (altitude > 1.8): oceans only, plus the ~40 largest countries by
+//          area (name only - no capitals yet, keeps a world view readable).
+//   MID    (0.8 < altitude <= 1.8): every country's name, every sea/lake/
+//          mountain range, and capitals for countries large enough that both
+//          labels fit without overlapping (area > 20,000 km²).
+//   CLOSE  (altitude <= 0.8): everything, including capitals of the smallest
+//          countries - the "zoom in or click" case for tiny nations.
+// Capital labels are placed at a small latitude offset from the country's
+// centroid (the dataset only has one coordinate per country, not a true
+// capital-city coordinate) - a disclosed approximation, not a precise pin.
+let topCountriesByArea = [];
+const CAPITAL_AREA_THRESHOLD = 20000;
+
+function buildLabelPool(){
+  const countryLabels = COUNTRIES.filter(c => c.lat != null && c.lng != null).map(c => ({
+    kind: 'country', text: c.name, lat: c.lat, lng: c.lng,
+    size: 0.85, color: 'rgba(255,255,255,0.92)', area: c.area || 0
+  }));
+  const capitalLabels = COUNTRIES.filter(c => c.lat != null && c.lng != null && c.capital).map(c => ({
+    kind: 'capital', text: c.capital, lat: c.lat - 1.6, lng: c.lng,
+    size: 0.6, color: 'rgba(255,211,77,0.95)', area: c.area || 0
+  }));
+  const oceanLabels = WATER_FEATURES.oceans.map(o => ({
+    kind: 'ocean', text: o.text, lat: o.lat, lng: o.lng, size: 1.0, color: 'rgba(140,195,255,0.9)'
+  }));
+  const waterLabels = [...WATER_FEATURES.seas, ...WATER_FEATURES.lakes].map(w => ({
+    kind: 'water', text: w.text, lat: w.lat, lng: w.lng, size: 0.55, color: 'rgba(140,195,255,0.85)'
+  }));
+  const mountainLabels = WATER_FEATURES.mountains.map(m => ({
+    kind: 'mountain', text: m.text, lat: m.lat, lng: m.lng, size: 0.55, color: 'rgba(214,180,140,0.9)'
+  }));
+  topCountriesByArea = [...COUNTRIES].filter(c => c.area).sort((a, b) => b.area - a.area).slice(0, 40).map(c => c.name);
+  return { countryLabels, capitalLabels, oceanLabels, waterLabels, mountainLabels };
+}
+
+let labelPool = null;
+
+function labelsForAltitude(altitude){
+  if(!labelPool) labelPool = buildLabelPool();
+  const { countryLabels, capitalLabels, oceanLabels, waterLabels, mountainLabels } = labelPool;
+  if(altitude > 1.8){
+    const topSet = new Set(topCountriesByArea);
+    return [...oceanLabels, ...countryLabels.filter(l => topSet.has(l.text))];
+  }
+  if(altitude > 0.8){
+    return [
+      ...oceanLabels, ...waterLabels, ...mountainLabels,
+      ...countryLabels,
+      ...capitalLabels.filter(l => l.area > CAPITAL_AREA_THRESHOLD)
+    ];
+  }
+  return [...oceanLabels, ...waterLabels, ...mountainLabels, ...countryLabels, ...capitalLabels];
+}
+
+function applyLabelsForAltitude(altitude){
+  if(!globeInstance) return;
+  globeInstance.labelsData(labelsForAltitude(altitude));
+}
+
+function initGlobe(container){
+  globeInstance = new Globe(container, { animateIn: true })
+    .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-day.jpg')
+    .backgroundColor('rgba(0,0,0,0)')
+    .width(container.clientWidth)
+    .height(container.clientHeight || 480)
+    .polygonsData(geoFeatures)
+    .polygonCapColor(capColor)
+    .polygonSideColor(() => 'rgba(60,60,60,0.25)')
+    .polygonStrokeColor(() => 'rgba(20,20,20,0.5)')
+    .polygonAltitude(0.01)
+    .onPolygonClick(feat => {
+      const code = feat.properties.code;
+      if(code && COUNTRIES_BY_CODE[code]) selectCountry(code);
+    })
+    .labelLat(d => d.lat)
+    .labelLng(d => d.lng)
+    .labelText(d => d.text)
+    .labelColor(d => d.color)
+    .labelSize(d => d.size)
+    .labelDotRadius(d => d.kind === 'country' ? 0 : 0.25)
+    .labelAltitude(0.012)
+    .labelResolution(2)
+    .labelIncludeDot(d => d.kind !== 'country')
+    .onZoom(({ altitude }) => {
+      currentAltitude = altitude;
+      applyLabelsForAltitude(altitude);
+    });
+  applyLabelsForAltitude(currentAltitude);
+  globeInstance.controls().autoRotate = true;
+  globeInstance.controls().autoRotateSpeed = 0.4;
+  // Stop the idle auto-rotate for good the first time someone actually takes
+  // the controls - keeps it from fighting a mid-drag rotation.
+  globeInstance.controls().addEventListener('start', () => { globeInstance.controls().autoRotate = false; });
+  globeInstance.pointOfView({ lat: 20, lng: 20, altitude: currentAltitude }, 0);
+
+  window.addEventListener('resize', () => {
+    if(!globeInstance) return;
+    const wrap = document.getElementById('globeContainer');
+    if(wrap) globeInstance.width(wrap.clientWidth);
+  });
+}
+
+function boot(){
+  Promise.all([
+    fetch('data/globe-countries.json').then(r => r.json()),
+    fetch('data/globe-countries.geo.json').then(r => r.json()),
+    fetch('data/globe-water-features.json').then(r => r.json())
+  ]).then(([countries, geo, water]) => {
+    COUNTRIES = countries;
+    COUNTRIES.forEach(c => { COUNTRIES_BY_CODE[c.code] = c; });
+    geoFeatures = geo.features;
+    WATER_FEATURES = water;
+    const container = document.getElementById('globeContainer');
+    const loadingEl = document.getElementById('loadingMsg');
+    if(loadingEl) loadingEl.style.display = 'none';
+    initGlobe(container);
+  }).catch(() => {
+    const loadingEl = document.getElementById('loadingMsg');
+    if(loadingEl) loadingEl.textContent = 'Could not load the globe - check your connection and try again.';
+  });
+
+  const searchInput = document.getElementById('searchInput');
+  if(searchInput){
+    searchInput.addEventListener('input', (e) => searchRun(e.target.value));
+    searchInput.addEventListener('focus', (e) => { if(e.target.value) searchRun(e.target.value); });
+    searchInput.addEventListener('blur', () => {
+      setTimeout(() => {
+        const results = document.getElementById('searchResults');
+        if(results) results.classList.remove('open');
+      }, 150);
+    });
+    searchInput.addEventListener('keydown', (e) => {
+      if(e.key !== 'Enter') return;
+      const q = e.target.value.trim().toLowerCase();
+      if(!q) return;
+      const match = COUNTRIES.find(c => c.name.toLowerCase().includes(q));
+      if(match) selectCountry(match.code);
+    });
+  }
+}
+
+boot();
+</script>
+</body>
+</html>
