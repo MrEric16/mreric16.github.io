@@ -338,8 +338,27 @@ function labelsForAltitude(altitude){
   return [...oceanLabels, ...waterLabels, ...mountainLabels, ...countryLabels, ...capitalLabels];
 }
 
-function applyLabelsForAltitude(altitude){
+function tierForAltitude(altitude){
+  if(altitude > 1.8) return 'far';
+  if(altitude > 0.8) return 'mid';
+  return 'close';
+}
+
+// OrbitControls fires its 'change' event (which drives onZoom) on every single
+// frame while dragging/zooming/rotating - not just when the gesture settles.
+// Rebuilding and reassigning the whole label array on every one of those calls
+// was the actual cause of the "extremely laggy, almost unresponsive" behavior:
+// hundreds of label objects getting torn down and rebuilt many times a second
+// during any interaction at all. The label SET only needs to change when you
+// cross one of the three zoom tiers, so that's the only time we touch
+// labelsData() now - a plain property comparison the rest of the time.
+let currentTier = null;
+
+function applyLabelsForAltitude(altitude, force){
   if(!globeInstance) return;
+  const tier = tierForAltitude(altitude);
+  if(!force && tier === currentTier) return;
+  currentTier = tier;
   globeInstance.labelsData(labelsForAltitude(altitude));
 }
 
@@ -371,7 +390,7 @@ function initGlobe(container){
       currentAltitude = altitude;
       applyLabelsForAltitude(altitude);
     });
-  applyLabelsForAltitude(currentAltitude);
+  applyLabelsForAltitude(currentAltitude, true);
   globeInstance.controls().autoRotate = true;
   globeInstance.controls().autoRotateSpeed = 0.4;
   // Stop the idle auto-rotate for good the first time someone actually takes
