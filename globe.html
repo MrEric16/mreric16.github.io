@@ -143,6 +143,11 @@
   .info-value{ text-align:right; }
   .info-sub{ font-size:12px; color:var(--ink-soft); font-weight:400; }
   .info-note{ font-size:12px; color:var(--ink-soft); margin:10px 0 0; font-style:italic; }
+  .info-note-divider{
+    border-top:1px solid var(--line);
+    padding-top:10px;
+    margin-top:10px !important;
+  }
   @media (max-width: 600px){ .canvas-wrap{ height:360px; } }
   .ff-wrap{ margin-top:14px; }
   .ff-section{
@@ -375,7 +380,7 @@ function factFileHtml(c){
     return `
       <div class="ff-wrap">
         ${bulkContent ? `<div class="info-grid ff-grid" style="margin-top:14px;">${bulkContent}</div>` : ''}
-        ${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:4px;">Head of state &amp; head of government can differ.</p>` : ''}
+        ${(c.headOfState || c.headOfGovernment) ? `<p class="info-note info-note-divider">Head of state &amp; head of government can differ.</p>` : ''}
         ${economySection}
         <p class="info-note" style="margin-top:12px;">Full fact file not researched yet for this country - more are being added in waves.</p>
         ${sourceNote}
@@ -394,7 +399,7 @@ function factFileHtml(c){
     row('Drives on', f.drivesOn ? (f.drivesOn === 'left' ? 'Left' : 'Right') : null)
   ].filter(Boolean).join('');
   const govSection = govRowsContent
-    ? `<details class="ff-section"><summary>Government &amp; Identity</summary><div class="info-grid ff-grid">${govRowsContent}</div>${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:8px;">Head of state &amp; head of government can differ.</p>` : ''}</details>`
+    ? `<details class="ff-section"><summary>Government &amp; Identity</summary><div class="info-grid ff-grid">${govRowsContent}</div>${(c.headOfState || c.headOfGovernment) ? `<p class="info-note info-note-divider">Head of state &amp; head of government can differ.</p>` : ''}</details>`
     : '';
 
   const historyRows = [
