@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20260930022311">
+<meta name="app-build" content="20261001101306">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4607,6 +4607,38 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .tf-answer-btn.tf-false{ background:#EF4444; }
   .tf-answer-btn:disabled{ opacity:.5; }
 
+  /* - Alias - */
+  .alias-topbar{ display:flex; justify-content:space-between; gap:10px; margin-bottom:14px; max-width:340px; margin-left:auto; margin-right:auto; }
+  .alias-leaderboard-btn, .alias-end-btn{
+    font-size:12px; font-weight:700; padding:8px 12px; border-radius:10px;
+    border:1px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; touch-action:manipulation;
+  }
+  .alias-end-btn{ color:#EF4444; border-color:#EF4444; }
+  .alias-team-input-wrap{ max-width:220px; margin:0 auto 18px; }
+  .alias-team-input{
+    width:100%; padding:12px; border-radius:10px; border:2px solid var(--line);
+    background:var(--card); color:var(--ink); font-family:'Space Mono', monospace;
+    font-size:20px; text-align:center; font-weight:700;
+  }
+  .alias-word-card{
+    max-width:340px; margin:0 auto 24px; padding:36px 18px; border-radius:16px;
+    background:var(--card); border:2px solid var(--line); text-align:center;
+    font-family:'Baloo 2', sans-serif; font-weight:800; font-size:30px; color:var(--ink);
+    line-height:1.3; min-height:110px; display:flex; align-items:center; justify-content:center;
+    text-transform:capitalize;
+  }
+  .alias-timer{ font-family:'Space Mono', monospace; font-weight:700; }
+  .alias-timer.urgent{ color:#EF4444; }
+  .alias-leaderboard-list{ max-width:340px; margin:0 auto; }
+  .alias-leaderboard-row{
+    display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:10px;
+    background:var(--card); border:1px solid var(--line); margin-bottom:6px; font-weight:700;
+  }
+  .alias-leaderboard-row.leading{ border-color:var(--gold); background:color-mix(in srgb, var(--gold) 12%, var(--card)); }
+  .alias-lb-rank{ width:22px; color:var(--ink-soft); font-family:'Space Mono', monospace; }
+  .alias-lb-name{ flex:1; }
+  .alias-lb-score{ font-family:'Space Mono', monospace; color:var(--misc-flaggame); }
+
   /* - Mini Crossword - */
   .xw-grid{ display:grid; gap:3px; max-width:280px; margin:0 auto 18px; }
   .xw-cell{
@@ -6490,6 +6522,7 @@ const DSURPRISE_GAME_TEASERS = {
   '#bt-corners': "A race-style board game you've probably never played.",
   '#battleship-game': "Sink the fleet before they sink yours.",
   '#tetris-game': "Clear lines before the stack reaches the top.",
+  '#alias-game': "Can you describe a word without saying it?",
 };
 function dsurpriseGameTeaser(url){
   return DSURPRISE_GAME_TEASERS[url] || "Give it a go.";
@@ -15321,6 +15354,351 @@ function btClearState(key){
   try{ localStorage.removeItem(key); }catch(e){}
 }
 
+// - Alias (word description game) -
+// Pass-and-play party game: a team describes a word on screen without saying it while
+// everyone else guesses out loud. 120 seconds per team's turn, as many correct guesses
+// as possible. No categories - one pooled list spanning roughly elementary to upper-
+// intermediate difficulty, since the real difficulty for this game is explaining the
+// word in English, not just recognising it. Random team order each lap through all
+// teams (reshuffled every time a full cycle completes), continues indefinitely until
+// "End Game" is tapped. Per the standing rule against per-tap renderRoute() inside a
+// game loop, YES/NO taps during an active turn patch the DOM directly (word text, running
+// score) rather than re-rendering - only genuine one-time transitions (turn start, turn
+// end, game over) go through renderRoute().
+const ALIAS_WORDS = [
+  "teacher", "doctor", "nurse", "police officer", "firefighter", "driver", "pilot", "farmer",
+  "chef", "waiter", "builder", "artist", "singer", "dancer", "actor", "writer",
+  "photographer", "journalist", "scientist", "engineer", "dentist", "lawyer", "soldier", "sailor",
+  "astronaut", "librarian", "cashier", "mechanic", "barber", "babysitter", "tourist", "neighbour",
+  "stranger", "twin", "orphan", "widow", "grandparent", "boss", "employee", "volunteer",
+  "elephant", "giraffe", "penguin", "dolphin", "kangaroo", "crocodile", "octopus", "hedgehog",
+  "squirrel", "butterfly", "spider", "snail", "bee", "ant", "owl", "eagle",
+  "shark", "whale", "camel", "zebra", "peacock", "flamingo", "bat", "frog",
+  "snake", "turtle", "lizard", "goat", "donkey", "pigeon", "rooster", "puppy",
+  "kitten", "hamster", "parrot", "jellyfish", "lobster", "seahorse", "woodpecker", "ladybird",
+  "pancake", "sandwich", "soup", "salad", "pizza", "spaghetti", "omelette", "yoghurt",
+  "porridge", "popcorn", "biscuit", "dumpling", "noodles", "sausage", "pickle", "honey",
+  "jam", "butter", "garlic", "ginger", "lemon", "watermelon", "pineapple", "strawberry",
+  "avocado", "mushroom", "pumpkin", "cucumber", "cherry", "coconut", "milkshake", "smoothie",
+  "lemonade", "barbecue", "dessert", "leftovers", "recipe", "ingredient", "appetite", "diet",
+  "mirror", "pillow", "blanket", "candle", "umbrella", "suitcase", "wallet", "keychain",
+  "doorbell", "ladder", "broom", "bucket", "sponge", "toothbrush", "hairbrush", "razor",
+  "scale", "thermometer", "calendar", "clock", "curtain", "carpet", "wardrobe", "drawer",
+  "shelf", "mattress", "lamp", "socket", "remote control", "battery", "scissors", "stapler",
+  "envelope", "paperclip", "eraser", "ruler", "highlighter", "notebook", "calculator", "magnet",
+  "smartphone", "laptop", "headphones", "charger", "printer", "webcam", "keyboard", "router",
+  "password", "download", "upload", "screenshot", "notification", "app", "browser", "cloud storage",
+  "firewall", "virus", "software", "hardware", "bluetooth", "touchscreen", "satellite", "robot",
+  "drone", "hologram", "algorithm", "database", "username", "emoji", "airport", "hospital",
+  "library", "museum", "stadium", "bakery", "pharmacy", "cinema", "zoo", "aquarium",
+  "lighthouse", "castle", "bridge", "tunnel", "desert", "island", "volcano", "waterfall",
+  "jungle", "glacier", "village", "harbour", "market", "playground", "staircase", "basement",
+  "balcony", "rooftop", "courtyard", "greenhouse", "embassy", "orphanage", "prison", "monastery",
+  "cemetery", "battlefield", "border", "skyscraper", "suburb", "campsite", "thunderstorm", "rainbow",
+  "earthquake", "hurricane", "drought", "avalanche", "tornado", "frost", "fog", "breeze",
+  "sunrise", "sunset", "tide", "current", "shadow", "reflection", "puddle", "dew",
+  "mist", "blizzard", "compost", "pollen", "root", "branch", "petal", "seed",
+  "harvest", "wildfire", "ecosystem", "whisper", "shout", "giggle", "sneeze", "yawn",
+  "hiccup", "blink", "wink", "nod", "shrug", "stretch", "crawl", "tiptoe",
+  "stumble", "wobble", "juggle", "whistle", "hum", "snore", "sweat", "bite",
+  "chew", "swallow", "spit", "lick", "sniff", "squeeze", "pinch", "scratch",
+  "tickle", "fold", "unfold", "wrap", "unwrap", "pour", "spill", "stir",
+  "chop", "grate", "peel", "knock", "slam", "push", "pull", "drag",
+  "lift", "carry", "balance", "trip", "slip", "jealous", "nervous", "embarrassed",
+  "confused", "curious", "confident", "anxious", "grateful", "ashamed", "proud", "stubborn",
+  "generous", "selfish", "honest", "shy", "patient", "lazy", "ambitious", "clumsy",
+  "polite", "rude", "brave", "cowardly", "cheerful", "gloomy", "furious", "relieved",
+  "bored", "exhausted", "overwhelmed", "gymnastics", "wrestling", "archery", "fencing", "surfing",
+  "skateboarding", "snowboarding", "bowling", "darts", "badminton", "volleyball", "rowing", "cycling",
+  "hiking", "camping", "fishing", "painting", "knitting", "pottery", "origami", "chess",
+  "puzzle", "magic trick", "juggling", "karaoke", "gardening", "baking", "sculpting", "collecting stamps",
+  "birdwatching", "homework", "timetable", "exam", "essay", "deadline", "whiteboard", "classroom",
+  "uniform", "detention", "graduation", "scholarship", "interview", "resume", "salary", "promotion",
+  "meeting", "contract", "colleague", "internship", "overtime", "notice board", "photocopier", "projector",
+  "textbook", "dictionary", "attendance", "report card", "scarf", "glove", "boot", "sandal",
+  "necklace", "bracelet", "earring", "belt", "zipper", "button", "pocket", "hood",
+  "collar", "sleeve", "raincoat", "swimsuit", "pyjamas", "apron", "helmet", "costume",
+  "bicycle", "motorbike", "scooter", "submarine", "helicopter", "rocket", "tractor", "ambulance",
+  "caravan", "ferry", "sledge", "cable car", "escalator", "elevator", "traffic light", "roundabout",
+  "pavement", "crossroads", "petrol station", "parking lot", "eyebrow", "eyelash", "forehead", "chin",
+  "elbow", "wrist", "ankle", "thumb", "nostril", "shoulder", "skeleton", "muscle",
+  "heartbeat", "bruise", "blister", "sunburn", "allergy", "bandage", "crutches", "wheelchair",
+  "coincidence", "habit", "rumour", "privacy", "freedom", "justice", "tradition", "superstition",
+  "loyalty", "curiosity", "patience", "responsibility", "apology", "compliment", "excuse", "promise",
+  "secret", "surprise", "memory", "nightmare", "daydream", "routine", "hobby", "achievement",
+  "mistake", "challenge", "opportunity", "compromise", "decision", "triangle", "rectangle", "diamond shape",
+  "spiral", "zigzag", "pattern", "stripe", "dot", "century", "decade", "anniversary",
+  "midnight", "weekend", "holiday", "festival",
+];
+const ALIAS_STATE_KEY = 'btAliasGameState_v1';
+const ALIAS_ROUND_MS = 120000;
+let aliasState = null;
+let aliasTickInterval = null;
+
+function aliasShuffleIndices(n){
+  const arr = Array.from({length:n}, (_,i)=>i);
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function aliasNextWordIndex(state){
+  if(!state.wordQueue || state.wordPointer >= state.wordQueue.length){
+    state.wordQueue = aliasShuffleIndices(ALIAS_WORDS.length);
+    state.wordPointer = 0;
+  }
+  const idx = state.wordQueue[state.wordPointer];
+  state.wordPointer++;
+  return idx;
+}
+
+function aliasEnsureTeamOrder(state){
+  if(!state.teamOrder || state.turnPointer >= state.teamOrder.length){
+    state.teamOrder = aliasShuffleIndices(state.teamCount);
+    state.turnPointer = 0;
+  }
+}
+
+function aliasClearTick(){
+  if(aliasTickInterval){ clearInterval(aliasTickInterval); aliasTickInterval = null; }
+}
+
+function aliasSetupStart(countRaw){
+  const n = Math.max(1, Math.min(15, parseInt(countRaw, 10) || 0));
+  if(!n) return;
+  aliasState = {
+    phase: 'ready',
+    teamCount: n,
+    scores: new Array(n).fill(0),
+    teamOrder: [],
+    turnPointer: 0,
+    currentTeamIdx: null,
+    wordQueue: [],
+    wordPointer: 0,
+    currentWordIdx: null,
+    turnDeadline: null,
+    turnCorrect: 0,
+    lastTeamIdx: null,
+    lastTurnScore: 0,
+  };
+  aliasEnsureTeamOrder(aliasState);
+  aliasState.currentTeamIdx = aliasState.teamOrder[aliasState.turnPointer];
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+  renderRoute();
+}
+
+function aliasStartTurn(){
+  if(!aliasState) return;
+  aliasState.phase = 'playing';
+  aliasState.turnCorrect = 0;
+  aliasState.currentWordIdx = aliasNextWordIndex(aliasState);
+  aliasState.turnDeadline = Date.now() + ALIAS_ROUND_MS;
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+  renderRoute();
+}
+
+function aliasTick(){
+  if(!aliasState || aliasState.phase !== 'playing'){ aliasClearTick(); return; }
+  const secsLeft = Math.max(0, Math.ceil((aliasState.turnDeadline - Date.now()) / 1000));
+  const timerEl = document.getElementById('aliasTimerDisplay');
+  if(timerEl){
+    timerEl.textContent = secsLeft + 's';
+    timerEl.classList.toggle('urgent', secsLeft <= 10);
+  }
+  if(secsLeft <= 0){ aliasEndTurn(); }
+}
+
+function aliasAnswer(correct){
+  if(!aliasState || aliasState.phase !== 'playing') return;
+  if(correct){
+    aliasState.scores[aliasState.currentTeamIdx]++;
+    aliasState.turnCorrect++;
+  }
+  aliasState.currentWordIdx = aliasNextWordIndex(aliasState);
+  const wordEl = document.getElementById('aliasWordText');
+  if(wordEl) wordEl.textContent = ALIAS_WORDS[aliasState.currentWordIdx];
+  const scoreEl = document.getElementById('aliasTurnScore');
+  if(scoreEl) scoreEl.textContent = aliasState.turnCorrect;
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+}
+
+function aliasEndTurn(){
+  if(!aliasState) return;
+  aliasClearTick();
+  aliasState.phase = 'turnEnd';
+  aliasState.lastTeamIdx = aliasState.currentTeamIdx;
+  aliasState.lastTurnScore = aliasState.turnCorrect;
+  aliasState.turnPointer++;
+  aliasEnsureTeamOrder(aliasState);
+  aliasState.currentTeamIdx = aliasState.teamOrder[aliasState.turnPointer];
+  aliasState.turnDeadline = null;
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+  renderRoute();
+}
+
+function aliasEndGame(){
+  aliasClearTick();
+  if(aliasState) aliasState.phase = 'over';
+  btSaveState(ALIAS_STATE_KEY, aliasState);
+  renderRoute();
+}
+
+function aliasPlayAgain(){
+  aliasClearTick();
+  aliasState = null;
+  btClearState(ALIAS_STATE_KEY);
+  renderRoute();
+}
+
+function aliasRankedTeams(){
+  if(!aliasState) return [];
+  return aliasState.scores
+    .map((score, i) => ({ name: `Team ${i + 1}`, score, idx: i }))
+    .sort((a, b) => b.score - a.score);
+}
+
+function aliasLeaderboardRowsHtml(ranked){
+  return ranked.map((t, pos) => `
+    <div class="alias-leaderboard-row${pos === 0 && t.score > 0 ? ' leading' : ''}">
+      <span class="alias-lb-rank">${pos + 1}</span>
+      <span class="alias-lb-name">${escapeHtml(t.name)}</span>
+      <span class="alias-lb-score">${t.score}</span>
+    </div>
+  `).join('');
+}
+
+function aliasShowLeaderboard(){
+  if(!aliasState) return;
+  document.querySelectorAll('.alias-leaderboard-overlay').forEach(el => el.remove());
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay alias-leaderboard-overlay';
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <button class="challenge-close" data-action="alias-leaderboard-close">×</button>
+      <h2>Leaderboard</h2>
+      <div class="alias-leaderboard-list">${aliasLeaderboardRowsHtml(aliasRankedTeams())}</div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', (e) => { if(e.target === overlay) overlay.remove(); });
+}
+
+function aliasSetupHtml(){
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="section-head"><span class="emoji">${icon('chatBubble')}</span><h2>Alias</h2></div>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px;">Describe the word on screen without saying it - your team shouts out guesses. 120 seconds per turn, as many correct guesses as you can get. How many teams are playing?</p>
+        <div class="alias-team-input-wrap">
+          <label for="aliasTeamCountInput" style="display:block; font-size:13px; font-weight:700; color:var(--ink-soft); margin-bottom:6px;">Number of teams (1-15)</label>
+          <input type="number" id="aliasTeamCountInput" min="1" max="15" value="4" class="alias-team-input" inputmode="numeric">
+        </div>
+        <button class="fg-start-btn" data-action="alias-setup-start">Start Game</button>
+      </div>
+    </section>
+  `;
+}
+
+function aliasReadyHtml(){
+  const teamName = `Team ${aliasState.currentTeamIdx + 1}`;
+  return `
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="alias-topbar">
+          <button class="alias-leaderboard-btn" data-action="alias-leaderboard-open">🏆 Leaderboard</button>
+          <button class="alias-end-btn" data-action="alias-end-game">End Game</button>
+        </div>
+        <div class="section-head"><span class="emoji">${icon('chatBubble')}</span><h2>${escapeHtml(teamName)}'s Turn</h2></div>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px; text-align:center;">Pass the device to ${escapeHtml(teamName)}. 120 seconds to describe as many words as you can.</p>
+        <button class="fg-start-btn" data-action="alias-start-turn">Start Turn</button>
+      </div>
+    </section>
+  `;
+}
+
+function aliasPlayingHtml(){
+  const teamName = `Team ${aliasState.currentTeamIdx + 1}`;
+  const secsLeft = Math.max(0, Math.ceil((aliasState.turnDeadline - Date.now()) / 1000));
+  return `
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="alias-topbar">
+          <button class="alias-leaderboard-btn" data-action="alias-leaderboard-open">🏆 Leaderboard</button>
+          <button class="alias-end-btn" data-action="alias-end-game">End Game</button>
+        </div>
+        <div class="tf-progress-row">
+          <span>${escapeHtml(teamName)}</span>
+          <span id="aliasTimerDisplay" class="alias-timer${secsLeft <= 10 ? ' urgent' : ''}">${secsLeft}s</span>
+          <span>Score: <span id="aliasTurnScore">${aliasState.turnCorrect}</span></span>
+        </div>
+        <div class="alias-word-card" id="aliasWordText">${escapeHtml(ALIAS_WORDS[aliasState.currentWordIdx])}</div>
+        <div class="tf-answer-row">
+          <button class="tf-answer-btn tf-true" data-action="alias-answer" data-correct="true">YES</button>
+          <button class="tf-answer-btn tf-false" data-action="alias-answer" data-correct="false">NO</button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function aliasTurnEndHtml(){
+  const lastTeamName = `Team ${aliasState.lastTeamIdx + 1}`;
+  const nextTeamName = `Team ${aliasState.currentTeamIdx + 1}`;
+  return `
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="alias-topbar">
+          <button class="alias-leaderboard-btn" data-action="alias-leaderboard-open">🏆 Leaderboard</button>
+          <button class="alias-end-btn" data-action="alias-end-game">End Game</button>
+        </div>
+        <div class="section-head"><span class="emoji">${icon('chatBubble')}</span><h2>Time's Up!</h2></div>
+        <div class="fg-end-score" style="font-size:36px;">${escapeHtml(lastTeamName)}: ${aliasState.lastTurnScore}</div>
+        <div class="alias-leaderboard-list" style="margin-bottom:18px;">${aliasLeaderboardRowsHtml(aliasRankedTeams())}</div>
+        <p style="font-size:14px; color:var(--ink-soft); text-align:center; margin-bottom:14px;">Up next: ${escapeHtml(nextTeamName)}</p>
+        <button class="fg-start-btn" data-action="alias-start-turn">Start ${escapeHtml(nextTeamName)}'s Turn</button>
+      </div>
+    </section>
+  `;
+}
+
+function aliasOverHtml(){
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="section-head"><span class="emoji">${icon('chatBubble')}</span><h2>Final Results</h2></div>
+        <div class="alias-leaderboard-list" style="margin-bottom:18px;">${aliasLeaderboardRowsHtml(aliasRankedTeams())}</div>
+        <button class="fg-start-btn" data-action="alias-play-again">Play Again</button>
+      </div>
+    </section>
+  `;
+}
+
+function viewAliasGame(){
+  if(!aliasState) aliasState = btLoadState(ALIAS_STATE_KEY);
+  if(!aliasState) return aliasSetupHtml();
+  if(aliasState.phase === 'ready') return aliasReadyHtml();
+  if(aliasState.phase === 'playing') return aliasPlayingHtml();
+  if(aliasState.phase === 'turnEnd') return aliasTurnEndHtml();
+  if(aliasState.phase === 'over') return aliasOverHtml();
+  return aliasSetupHtml();
+}
+
+function wireAliasGame(app){
+  if(aliasState && aliasState.phase === 'playing'){
+    if(aliasState.turnDeadline && Date.now() >= aliasState.turnDeadline){
+      aliasEndTurn();
+      return;
+    }
+    aliasClearTick();
+    aliasTickInterval = setInterval(aliasTick, 250);
+    aliasTick();
+  }
+}
+
 const GEOGRAPHY_HUB_TILES = [
   { name: "Guess the Flag", emoji: icon('globe'), url: "#flag-game", internal: true },
   { name: "Capital Cities", emoji: icon('compass2'), url: "#capital-game", internal: true },
@@ -15352,6 +15730,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Tetris", emoji: icon('tetromino'), url: "#tetris-game", internal: true },
   { name: "Battleship", emoji: icon('ship'), url: "#battleship-game", internal: true },
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
+  { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
   geoHubExternalTile("GeoGuessr"),
   geoHubExternalTile("OpenGuessr"),
 ].filter(Boolean);
@@ -30478,6 +30857,50 @@ document.addEventListener('click', (e) => {
     tfAnswer(tfAnswerBtn.dataset.guess === 'true');
     return;
   }
+  const aliasSetupBtn = e.target.closest('[data-action="alias-setup-start"]');
+  if(aliasSetupBtn){
+    e.preventDefault();
+    const aliasInput = document.getElementById('aliasTeamCountInput');
+    aliasSetupStart(aliasInput ? aliasInput.value : 4);
+    return;
+  }
+  const aliasStartTurnBtn = e.target.closest('[data-action="alias-start-turn"]');
+  if(aliasStartTurnBtn){
+    e.preventDefault();
+    aliasStartTurn();
+    return;
+  }
+  const aliasAnswerBtn = e.target.closest('[data-action="alias-answer"]');
+  if(aliasAnswerBtn){
+    e.preventDefault();
+    aliasAnswer(aliasAnswerBtn.dataset.correct === 'true');
+    return;
+  }
+  const aliasLeaderboardOpenBtn = e.target.closest('[data-action="alias-leaderboard-open"]');
+  if(aliasLeaderboardOpenBtn){
+    e.preventDefault();
+    aliasShowLeaderboard();
+    return;
+  }
+  const aliasLeaderboardCloseBtn = e.target.closest('[data-action="alias-leaderboard-close"]');
+  if(aliasLeaderboardCloseBtn){
+    e.preventDefault();
+    const overlay = aliasLeaderboardCloseBtn.closest('.challenge-overlay');
+    if(overlay) overlay.remove();
+    return;
+  }
+  const aliasEndGameBtn = e.target.closest('[data-action="alias-end-game"]');
+  if(aliasEndGameBtn){
+    e.preventDefault();
+    aliasEndGame();
+    return;
+  }
+  const aliasPlayAgainBtn = e.target.closest('[data-action="alias-play-again"]');
+  if(aliasPlayAgainBtn){
+    e.preventDefault();
+    aliasPlayAgain();
+    return;
+  }
   const xwordStartBtn = e.target.closest('[data-action="xword-start"]');
   if(xwordStartBtn){
     e.preventDefault();
@@ -30714,6 +31137,8 @@ function renderRoute(opts){
     html = viewXwordGame();
   } else if(parts[0] === 'geography-hub'){
     html = viewGeographyHub();
+  } else if(parts[0] === 'alias-game'){
+    html = viewAliasGame();
   } else if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){
     html = viewIrregularVerbsPractice();
   } else if(parts[0] === 'irregular-verbs' && parts[1]){
@@ -30866,6 +31291,7 @@ function renderRoute(opts){
     if(!tetrisState.over) tetrisState.paused = true;
     btSaveState(TETRIS_STATE_KEY, tetrisState);
   }
+  if(parts[0] !== 'alias-game'){ aliasClearTick(); }
   if(parts[0] === 'arcade' && parts[1]){ wireArcade(parts[1]); }
   if(parts[0] === 'bt-checkers' && parts[1] && parts[2]){
     wireBtGame('checkers');
@@ -30874,6 +31300,7 @@ function renderRoute(opts){
   } else if(parts[0] === 'bt-corners' && parts[1]){
     wireBtGame('corners');
   }
+  if(parts[0] === 'alias-game'){ wireAliasGame(app); }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
   if(parts[0] === 'install'){ wireInstallPage(); }
