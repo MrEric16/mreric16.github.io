@@ -150,7 +150,7 @@
 <div class="wrap">
   <a class="back-link" href="index.html#geography-hub">← Back to Train Your Brain</a>
   <h1>Globe</h1>
-  <p class="sub">Drag to rotate, scroll or pinch to zoom, click any country — or search for one below. Zoom in to reveal more names.</p>
+  <p class="sub">Drag to rotate, scroll or pinch to zoom, click any country — or search for one below. Countries are labeled by code (e.g. DE = Germany); click one for its full name, capital and more.</p>
   <div class="search-row">
     <input type="text" id="searchInput" class="search-input" placeholder="Search a country..." autocomplete="off">
     <div id="searchResults" class="search-results"></div>
@@ -287,61 +287,53 @@ function searchRun(query){
 //   FAR    (altitude > 1.8): oceans only, plus the ~40 largest countries by
 //          area (name only - no capitals yet, keeps a world view readable).
 //   MID    (0.8 < altitude <= 1.8): every country's name, every sea/lake/
-//          mountain range, and capitals for countries large enough that both
-//          labels fit without overlapping (area > 20,000 km²).
-//   CLOSE  (altitude <= 0.8): everything, including capitals of the smallest
-//          countries - the "zoom in or click" case for tiny nations.
-// Capital labels are placed at a small latitude offset from the country's
-// centroid (the dataset only has one coordinate per country, not a true
-// capital-city coordinate) - a disclosed approximation, not a precise pin.
+//          mountain range.
+//   CLOSE  (altitude <= 1.8): every country, by its code, plus every water/
+//          mountain-range label.
+// Country labels use the ISO 3166-1 alpha-2 code (DE, ES, IT - the same code
+// already used for this site's flag images) instead of the full name: full
+// names at this density were an unreadable pile-up of overlapping text, which
+// is what the first version actually shipped with. Codes are short enough to
+// stay legible at this zoom instead of stacking on top of each other. Capitals
+// are deliberately NOT drawn on the globe at all - clicking (or searching for)
+// a country still shows its capital in the info panel below, and a capital
+// label next to every country code on top of an already-dense map would have
+// put the clutter right back. Full country names are also in the info panel
+// on click, so nothing here is lost, just not drawn twice.
 let topCountriesByArea = [];
-const CAPITAL_AREA_THRESHOLD = 20000;
 
 function buildLabelPool(){
   const countryLabels = COUNTRIES.filter(c => c.lat != null && c.lng != null).map(c => ({
-    kind: 'country', text: c.name, lat: c.lat, lng: c.lng,
-    size: 0.85, color: 'rgba(255,255,255,0.92)', area: c.area || 0
-  }));
-  const capitalLabels = COUNTRIES.filter(c => c.lat != null && c.lng != null && c.capital).map(c => ({
-    kind: 'capital', text: c.capital, lat: c.lat - 1.6, lng: c.lng,
-    size: 0.6, color: 'rgba(255,211,77,0.95)', area: c.area || 0
+    kind: 'country', text: (c.code || '').toUpperCase(), lat: c.lat, lng: c.lng,
+    size: 0.55, color: 'rgba(255,255,255,0.92)', area: c.area || 0
   }));
   const oceanLabels = WATER_FEATURES.oceans.map(o => ({
-    kind: 'ocean', text: o.text, lat: o.lat, lng: o.lng, size: 1.0, color: 'rgba(140,195,255,0.9)'
+    kind: 'ocean', text: o.text, lat: o.lat, lng: o.lng, size: 0.9, color: 'rgba(140,195,255,0.9)'
   }));
   const waterLabels = [...WATER_FEATURES.seas, ...WATER_FEATURES.lakes].map(w => ({
-    kind: 'water', text: w.text, lat: w.lat, lng: w.lng, size: 0.55, color: 'rgba(140,195,255,0.85)'
+    kind: 'water', text: w.text, lat: w.lat, lng: w.lng, size: 0.45, color: 'rgba(140,195,255,0.85)'
   }));
   const mountainLabels = WATER_FEATURES.mountains.map(m => ({
-    kind: 'mountain', text: m.text, lat: m.lat, lng: m.lng, size: 0.55, color: 'rgba(214,180,140,0.9)'
+    kind: 'mountain', text: m.text, lat: m.lat, lng: m.lng, size: 0.45, color: 'rgba(214,180,140,0.9)'
   }));
-  topCountriesByArea = [...COUNTRIES].filter(c => c.area).sort((a, b) => b.area - a.area).slice(0, 40).map(c => c.name);
-  return { countryLabels, capitalLabels, oceanLabels, waterLabels, mountainLabels };
+  topCountriesByArea = [...COUNTRIES].filter(c => c.area).sort((a, b) => b.area - a.area).slice(0, 40).map(c => c.code);
+  return { countryLabels, oceanLabels, waterLabels, mountainLabels };
 }
 
 let labelPool = null;
 
 function labelsForAltitude(altitude){
   if(!labelPool) labelPool = buildLabelPool();
-  const { countryLabels, capitalLabels, oceanLabels, waterLabels, mountainLabels } = labelPool;
+  const { countryLabels, oceanLabels, waterLabels, mountainLabels } = labelPool;
   if(altitude > 1.8){
-    const topSet = new Set(topCountriesByArea);
+    const topSet = new Set(topCountriesByArea.map(c => c.toUpperCase()));
     return [...oceanLabels, ...countryLabels.filter(l => topSet.has(l.text))];
   }
-  if(altitude > 0.8){
-    return [
-      ...oceanLabels, ...waterLabels, ...mountainLabels,
-      ...countryLabels,
-      ...capitalLabels.filter(l => l.area > CAPITAL_AREA_THRESHOLD)
-    ];
-  }
-  return [...oceanLabels, ...waterLabels, ...mountainLabels, ...countryLabels, ...capitalLabels];
+  return [...oceanLabels, ...waterLabels, ...mountainLabels, ...countryLabels];
 }
 
 function tierForAltitude(altitude){
-  if(altitude > 1.8) return 'far';
-  if(altitude > 0.8) return 'mid';
-  return 'close';
+  return altitude > 1.8 ? 'far' : 'close';
 }
 
 // OrbitControls fires its 'change' event (which drives onZoom) on every single
