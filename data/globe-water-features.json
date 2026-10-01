@@ -1,245 +1,57 @@
 {
   "oceans": [
-    {
-      "text": "Pacific Ocean",
-      "lat": 0,
-      "lng": -160
-    },
-    {
-      "text": "Atlantic Ocean",
-      "lat": 0,
-      "lng": -30
-    },
-    {
-      "text": "Indian Ocean",
-      "lat": -20,
-      "lng": 75
-    },
-    {
-      "text": "Arctic Ocean",
-      "lat": 84,
-      "lng": 0
-    },
-    {
-      "text": "Southern Ocean",
-      "lat": -65,
-      "lng": 0
-    }
+    { "text": "Pacific Ocean", "lat": 0, "lng": -160, "size": 0.85 },
+    { "text": "Atlantic Ocean", "lat": 0, "lng": -30, "size": 0.75 },
+    { "text": "Indian Ocean", "lat": -20, "lng": 75, "size": 0.7 },
+    { "text": "Arctic Ocean", "lat": 84, "lng": 0, "size": 0.5 },
+    { "text": "Southern Ocean", "lat": -65, "lng": 0, "size": 0.55 }
   ],
   "seas": [
-    {
-      "text": "Mediterranean Sea",
-      "lat": 35,
-      "lng": 18
-    },
-    {
-      "text": "Caribbean Sea",
-      "lat": 15,
-      "lng": -75
-    },
-    {
-      "text": "Gulf of Mexico",
-      "lat": 25,
-      "lng": -90
-    },
-    {
-      "text": "Red Sea",
-      "lat": 20,
-      "lng": 38
-    },
-    {
-      "text": "Black Sea",
-      "lat": 43,
-      "lng": 35
-    },
-    {
-      "text": "Baltic Sea",
-      "lat": 58,
-      "lng": 19
-    },
-    {
-      "text": "North Sea",
-      "lat": 56,
-      "lng": 3
-    },
-    {
-      "text": "Caspian Sea",
-      "lat": 42,
-      "lng": 51
-    },
-    {
-      "text": "Persian Gulf",
-      "lat": 27,
-      "lng": 51
-    },
-    {
-      "text": "Arabian Sea",
-      "lat": 15,
-      "lng": 65
-    },
-    {
-      "text": "Bay of Bengal",
-      "lat": 15,
-      "lng": 88
-    },
-    {
-      "text": "South China Sea",
-      "lat": 12,
-      "lng": 114
-    },
-    {
-      "text": "Sea of Japan",
-      "lat": 40,
-      "lng": 135
-    },
-    {
-      "text": "Yellow Sea",
-      "lat": 36,
-      "lng": 123
-    },
-    {
-      "text": "Bering Sea",
-      "lat": 58,
-      "lng": -178
-    },
-    {
-      "text": "Sea of Okhotsk",
-      "lat": 55,
-      "lng": 150
-    },
-    {
-      "text": "Coral Sea",
-      "lat": -16,
-      "lng": 155
-    },
-    {
-      "text": "Tasman Sea",
-      "lat": -40,
-      "lng": 160
-    }
+    { "text": "Mediterranean Sea", "lat": 35, "lng": 18, "size": 0.5 },
+    { "text": "Caribbean Sea", "lat": 15, "lng": -75, "size": 0.4 },
+    { "text": "Gulf of Mexico", "lat": 25, "lng": -90, "size": 0.32 },
+    { "text": "Red Sea", "lat": 20, "lng": 38, "size": 0.22 },
+    { "text": "Black Sea", "lat": 43, "lng": 35, "size": 0.3 },
+    { "text": "Baltic Sea", "lat": 58, "lng": 19, "size": 0.22 },
+    { "text": "North Sea", "lat": 56, "lng": 3, "size": 0.25 },
+    { "text": "Caspian Sea", "lat": 42, "lng": 51, "size": 0.2 },
+    { "text": "Arabian Gulf", "lat": 27, "lng": 51, "size": 0.14 },
+    { "text": "Arabian Sea", "lat": 15, "lng": 65, "size": 0.4 },
+    { "text": "Bay of Bengal", "lat": 15, "lng": 88, "size": 0.32 },
+    { "text": "South China Sea", "lat": 12, "lng": 114, "size": 0.4 },
+    { "text": "Sea of Japan", "lat": 40, "lng": 135, "size": 0.25 },
+    { "text": "Yellow Sea", "lat": 36, "lng": 123, "size": 0.2 },
+    { "text": "Bering Sea", "lat": 58, "lng": -178, "size": 0.4 },
+    { "text": "Sea of Okhotsk", "lat": 55, "lng": 150, "size": 0.28 },
+    { "text": "Coral Sea", "lat": -16, "lng": 155, "size": 0.38 },
+    { "text": "Tasman Sea", "lat": -40, "lng": 160, "size": 0.3 }
   ],
   "lakes": [
-    {
-      "text": "Lake Superior",
-      "lat": 47.7,
-      "lng": -87.5
-    },
-    {
-      "text": "Lake Victoria",
-      "lat": -1.1,
-      "lng": 33
-    },
-    {
-      "text": "Lake Huron",
-      "lat": 44.8,
-      "lng": -82.4
-    },
-    {
-      "text": "Lake Michigan",
-      "lat": 44,
-      "lng": -87
-    },
-    {
-      "text": "Lake Tanganyika",
-      "lat": -6.5,
-      "lng": 29.8
-    },
-    {
-      "text": "Lake Baikal",
-      "lat": 53.5,
-      "lng": 108
-    },
-    {
-      "text": "Great Bear Lake",
-      "lat": 66,
-      "lng": -121
-    },
-    {
-      "text": "Lake Malawi",
-      "lat": -12,
-      "lng": 34.5
-    },
-    {
-      "text": "Lake Erie",
-      "lat": 42.2,
-      "lng": -81.2
-    }
+    { "text": "Lake Superior", "lat": 47.7, "lng": -87.5, "size": 0.16 },
+    { "text": "Lake Victoria", "lat": -1.1, "lng": 33, "size": 0.15 },
+    { "text": "Lake Huron", "lat": 44.8, "lng": -82.4, "size": 0.14 },
+    { "text": "Lake Michigan", "lat": 44, "lng": -87, "size": 0.14 },
+    { "text": "Lake Tanganyika", "lat": -6.5, "lng": 29.8, "size": 0.15 },
+    { "text": "Lake Baikal", "lat": 53.5, "lng": 108, "size": 0.14 },
+    { "text": "Great Bear Lake", "lat": 66, "lng": -121, "size": 0.14 },
+    { "text": "Lake Malawi", "lat": -12, "lng": 34.5, "size": 0.13 },
+    { "text": "Lake Erie", "lat": 42.2, "lng": -81.2, "size": 0.12 }
   ],
   "mountains": [
-    {
-      "text": "Himalayas",
-      "lat": 28,
-      "lng": 84
-    },
-    {
-      "text": "Andes",
-      "lat": -22,
-      "lng": -68
-    },
-    {
-      "text": "Rocky Mountains",
-      "lat": 45,
-      "lng": -110
-    },
-    {
-      "text": "Alps",
-      "lat": 46.5,
-      "lng": 10
-    },
-    {
-      "text": "Ural Mountains",
-      "lat": 60,
-      "lng": 59.5
-    },
-    {
-      "text": "Atlas Mountains",
-      "lat": 31.5,
-      "lng": -6
-    },
-    {
-      "text": "Caucasus Mountains",
-      "lat": 42.7,
-      "lng": 44.5
-    },
-    {
-      "text": "Appalachian Mountains",
-      "lat": 38,
-      "lng": -80.5
-    },
-    {
-      "text": "Alaska Range",
-      "lat": 63,
-      "lng": -150
-    },
-    {
-      "text": "Karakoram",
-      "lat": 35.8,
-      "lng": 76
-    },
-    {
-      "text": "Tian Shan",
-      "lat": 42,
-      "lng": 78
-    },
-    {
-      "text": "Great Dividing Range",
-      "lat": -25,
-      "lng": 148
-    },
-    {
-      "text": "Drakensberg",
-      "lat": -29,
-      "lng": 29
-    },
-    {
-      "text": "Pyrenees",
-      "lat": 42.7,
-      "lng": 1
-    },
-    {
-      "text": "Zagros Mountains",
-      "lat": 33,
-      "lng": 47
-    }
+    { "text": "Himalayas", "lat": 28, "lng": 84, "size": 0.38 },
+    { "text": "Andes", "lat": -22, "lng": -68, "size": 0.22 },
+    { "text": "Rocky Mountains", "lat": 45, "lng": -110, "size": 0.25 },
+    { "text": "Alps", "lat": 46.5, "lng": 10, "size": 0.3 },
+    { "text": "Ural Mountains", "lat": 60, "lng": 59.5, "size": 0.22 },
+    { "text": "Atlas Mountains", "lat": 31.5, "lng": -6, "size": 0.28 },
+    { "text": "Caucasus Mountains", "lat": 42.7, "lng": 44.5, "size": 0.2 },
+    { "text": "Appalachian Mountains", "lat": 38, "lng": -80.5, "size": 0.25 },
+    { "text": "Alaska Range", "lat": 63, "lng": -150, "size": 0.22 },
+    { "text": "Karakoram", "lat": 35.8, "lng": 76, "size": 0.18 },
+    { "text": "Tian Shan", "lat": 42, "lng": 78, "size": 0.3 },
+    { "text": "Great Dividing Range", "lat": -25, "lng": 148, "size": 0.25 },
+    { "text": "Drakensberg", "lat": -29, "lng": 29, "size": 0.18 },
+    { "text": "Pyrenees", "lat": 42.7, "lng": 1, "size": 0.2 },
+    { "text": "Zagros Mountains", "lat": 33, "lng": 47, "size": 0.22 }
   ]
 }

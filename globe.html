@@ -229,12 +229,14 @@ function infoPanelHtml(c){
       <div class="info-row"><span class="info-label">Region</span><span class="info-value">${escapeHtml(REGION_LABELS[c.region] || c.region)}${c.subregion ? ' · ' + escapeHtml(c.subregion) : ''}</span></div>
       <div class="info-row"><span class="info-label">Area</span><span class="info-value">${formatArea(c.area)}</span></div>
     </div>
+    ${c.territoryOf ? `<p class="info-note">Autonomous territory of ${escapeHtml(c.territoryOf)}, not a sovereign country.</p>` : ''}
     ${(c.population == null) ? `<p class="info-note">Population figure not available for this entity.</p>` : ''}
   `;
 }
 
 function capColor(feat){
   const code = feat.properties.code;
+  if(code === 'aq') return 'rgba(210, 225, 235, 0.35)'; // Antarctica: not a country, shown but not interactive
   if(code && code === selectedCode) return '#FFD34D';
   return 'rgba(110, 190, 120, 0.55)';
 }
@@ -304,17 +306,21 @@ let topCountriesByArea = [];
 
 function buildLabelPool(){
   const countryLabels = COUNTRIES.filter(c => c.lat != null && c.lng != null).map(c => ({
-    kind: 'country', text: (c.code || '').toUpperCase(), lat: c.lat, lng: c.lng,
+    kind: 'country', code: c.code, text: (c.code || '').toUpperCase(), lat: c.lat, lng: c.lng,
     size: 0.55, color: 'rgba(255,255,255,0.92)', area: c.area || 0
   }));
+  // Water/mountain labels carry their own hand-tuned "size" (data/globe-water-
+  // features.json) scaled to each feature's real-world extent, so "Caspian Sea"
+  // (small) renders much smaller than "Pacific Ocean" (enormous) instead of a
+  // one-size-fits-all label that spills off a small sea onto the land beside it.
   const oceanLabels = WATER_FEATURES.oceans.map(o => ({
-    kind: 'ocean', text: o.text, lat: o.lat, lng: o.lng, size: 0.9, color: 'rgba(140,195,255,0.9)'
+    kind: 'ocean', text: o.text, lat: o.lat, lng: o.lng, size: o.size || 0.7, color: 'rgba(140,195,255,0.9)'
   }));
   const waterLabels = [...WATER_FEATURES.seas, ...WATER_FEATURES.lakes].map(w => ({
-    kind: 'water', text: w.text, lat: w.lat, lng: w.lng, size: 0.45, color: 'rgba(140,195,255,0.85)'
+    kind: 'water', text: w.text, lat: w.lat, lng: w.lng, size: w.size || 0.3, color: 'rgba(140,195,255,0.85)'
   }));
   const mountainLabels = WATER_FEATURES.mountains.map(m => ({
-    kind: 'mountain', text: m.text, lat: m.lat, lng: m.lng, size: 0.45, color: 'rgba(214,180,140,0.9)'
+    kind: 'mountain', text: m.text, lat: m.lat, lng: m.lng, size: m.size || 0.25, color: 'rgba(214,180,140,0.9)'
   }));
   topCountriesByArea = [...COUNTRIES].filter(c => c.area).sort((a, b) => b.area - a.area).slice(0, 40).map(c => c.code);
   return { countryLabels, oceanLabels, waterLabels, mountainLabels };
@@ -378,6 +384,14 @@ function initGlobe(container){
     .labelAltitude(0.012)
     .labelResolution(2)
     .labelIncludeDot(d => d.kind !== 'country')
+    // Makes the country-code text itself a click target, not just the land
+    // underneath it - a country's label can sit over a sliver of its own
+    // territory (or spill slightly past it, e.g. small island nations), so
+    // without this you'd have to zoom in and hit the exact landmass instead
+    // of just tapping its code.
+    .onLabelClick(d => {
+      if(d.kind === 'country' && d.code && COUNTRIES_BY_CODE[d.code]) selectCountry(d.code);
+    })
     .onZoom(({ altitude }) => {
       currentAltitude = altitude;
       applyLabelsForAltitude(altitude);
