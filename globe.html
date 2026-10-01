@@ -357,11 +357,13 @@ function factFileHtml(c){
     row('Life expectancy', c.lifeExpectancy != null ? `${c.lifeExpectancy} years` : null),
     row('Literacy rate', c.literacyRate != null ? `${c.literacyRate}%` + (c.literacyNote ? ` <span class="info-sub">(${escapeHtml(c.literacyNote)})</span>` : c.literacyYear ? ` <span class="info-sub">(${c.literacyYear})</span>` : '') : null),
     row('Unemployment rate', c.unemploymentRate != null ? `${c.unemploymentRate}%` : null),
-    row('Internet usage', c.internetUsagePct != null ? `${c.internetUsagePct}% of population` : null)
+    row('Internet usage', c.internetUsagePct != null ? `${c.internetUsagePct}% of population` : null),
+    row('Electricity access', c.electricityAccessPct != null ? `${c.electricityAccessPct}% of population` : null),
+    row('Clean water access', c.waterAccessPct != null ? `${c.waterAccessPct}% of population` : null)
   ];
   const economyContent = economyRows.filter(Boolean).join('');
   const economySection = economyContent
-    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Happiness: World Happiness Report 2025 (avg 2022-24). Peace/safety: Global Peace Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. All change over time.</p></details>`
+    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Happiness: World Happiness Report 2025 (avg 2022-24). Peace/safety: Global Peace Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. Electricity access: World Bank/latest survey. Clean water access: WHO/UNICEF JMP, safely-managed-service definition (stricter than basic access, so some otherwise-developed countries show under 100%). All change over time.</p></details>`
     : '';
   if(!f){
     const bulkContent = bulkRows.filter(Boolean).join('');
