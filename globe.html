@@ -114,15 +114,6 @@
     font-family:'Space Mono', monospace;
     font-size:13px;
   }
-  .zoom-hint{
-    position:absolute;
-    bottom:10px; left:0; right:0;
-    text-align:center;
-    font-size:11px;
-    color:rgba(255,255,255,.55);
-    font-family:'Space Mono', monospace;
-    pointer-events:none;
-  }
   .info-panel{
     margin-top:16px;
     background:var(--card);
@@ -211,7 +202,6 @@
 <div class="wrap">
   <a class="back-link" href="index.html#geography-hub">← Back to Train Your Brain</a>
   <h1>Globe</h1>
-  <p class="sub">Drag to rotate, scroll or pinch to zoom, click any country — or search for one below. Countries are labeled by code (e.g. DE = Germany); click one for its full name, capital and more.</p>
   <div class="search-row">
     <input type="text" id="searchInput" class="search-input" placeholder="Search a country..." autocomplete="off">
     <div id="searchResults" class="search-results"></div>
@@ -219,7 +209,6 @@
   <div class="canvas-wrap">
     <div id="globeContainer" class="globe-container"></div>
     <div id="loadingMsg" class="loading">Loading globe…</div>
-    <div class="zoom-hint">zoom in for more labels</div>
   </div>
   <div id="infoPanel" class="info-panel info-empty">
     <p class="info-placeholder">Click a country on the globe, or search for one above.</p>
@@ -341,7 +330,7 @@ function formatGdp(millions){
 function factFileHtml(c){
   const f = FACTFILES[c.code];
   const bulkRows = [
-    row('Endonym', c.endonym && c.endonym !== c.name ? escapeHtml(c.endonym) : null),
+    row('Endonym', c.endonym && c.endonym !== c.name ? escapeHtml(c.endonym) + (c.endonymLatin ? ` <span class="info-sub">(${escapeHtml(c.endonymLatin)})</span>` : '') : null),
     row('Internet domain', c.tld ? escapeHtml(c.tld) : null),
     row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null),
     row('Head of state', c.headOfState ? escapeHtml(c.headOfState) : null),
