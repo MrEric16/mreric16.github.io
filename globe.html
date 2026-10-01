@@ -144,6 +144,62 @@
   .info-sub{ font-size:12px; color:var(--ink-soft); font-weight:400; }
   .info-note{ font-size:12px; color:var(--ink-soft); margin:10px 0 0; font-style:italic; }
   @media (max-width: 600px){ .canvas-wrap{ height:360px; } }
+  .ff-wrap{ margin-top:14px; }
+  .ff-section{
+    border-top:1px solid var(--line);
+    padding:10px 0;
+  }
+  .ff-section summary{
+    cursor:pointer;
+    font-family:'Baloo 2', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    color:var(--coral);
+    list-style:none;
+  }
+  .ff-section summary::-webkit-details-marker{ display:none; }
+  .ff-section summary::before{ content:'▸ '; }
+  .ff-section[open] summary::before{ content:'▾ '; }
+  .ff-grid{ margin-top:10px; }
+  .ff-timeline{ margin-top:6px; }
+  .ff-timeline-row{
+    display:flex;
+    gap:10px;
+    font-size:13px;
+    padding:5px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .ff-timeline-row:last-child{ border-bottom:none; }
+  .ff-timeline-year{
+    font-family:'Space Mono', monospace;
+    color:var(--gold);
+    font-weight:700;
+    flex-shrink:0;
+    min-width:52px;
+  }
+  .ff-figures{ margin-top:10px; font-size:14px; }
+  .ff-figures .info-label{ display:block; margin-bottom:4px; }
+  .ff-figures a, .ff-section a{ color:var(--coral); }
+  .ff-funfact{
+    margin-top:14px;
+    background:color-mix(in srgb, var(--gold) 12%, var(--card));
+    border-radius:12px;
+    padding:14px;
+  }
+  .ff-funfact-label{ font-family:'Baloo 2', sans-serif; font-weight:700; font-size:13px; color:var(--coral-dark); }
+  .ff-funfact p{ font-size:14px; margin:8px 0; line-height:1.5; }
+  .ff-funfact-btn{
+    border:none;
+    background:var(--coral);
+    color:#fff;
+    padding:7px 14px;
+    border-radius:20px;
+    font-family:'Nunito', sans-serif;
+    font-size:13px;
+    font-weight:700;
+    cursor:pointer;
+  }
+  .ff-funfact-btn:hover{ background:var(--coral-dark); }
 </style>
 </head>
 <body>
@@ -194,6 +250,8 @@ function escapeHtml(str){
 
 let COUNTRIES = [];
 let COUNTRIES_BY_CODE = {};
+let FACTFILES = {};
+let lastFunFactIndex = {};
 let WATER_FEATURES = { oceans: [], seas: [], lakes: [], mountains: [] };
 let geoFeatures = [];
 let globeInstance = null;
@@ -231,6 +289,135 @@ function infoPanelHtml(c){
     </div>
     ${c.territoryOf ? `<p class="info-note">Autonomous territory of ${escapeHtml(c.territoryOf)}, not a sovereign country.</p>` : ''}
     ${(c.population == null) ? `<p class="info-note">Population figure not available for this entity.</p>` : ''}
+    ${factFileHtml(c)}
+  `;
+}
+
+// ---------- Fact file ----------
+// A deeper, researched profile per country (data/globe-factfile.json), shown
+// as collapsible sections below the core info grid. Deliberately leaves out
+// fast-changing indexed stats (GDP, happiness/passport-index rankings, crime/
+// unemployment rates, military spend, head of government, etc.) - those need
+// a disclosed source and "as of" date to be trustworthy, and faking plausible
+// numbers for a teaching tool is worse than not showing them. This is a
+// rolling dataset, not yet complete for all 196 entries - a country without
+// one yet says so plainly rather than showing broken/empty sections.
+function row(label, value){
+  if(value == null || value === '') return '';
+  return `<div class="info-row"><span class="info-label">${escapeHtml(label)}</span><span class="info-value">${value}</span></div>`;
+}
+function wikiLink(obj){
+  if(!obj) return null;
+  const extra = obj.elevation ? ` (${escapeHtml(obj.elevation)})` : (obj.code ? ` (${escapeHtml(obj.code)})` : '');
+  return obj.wiki
+    ? `<a href="${escapeHtml(obj.wiki)}" target="_blank" rel="noopener">${escapeHtml(obj.name)}</a>${extra}`
+    : `${escapeHtml(obj.name)}${extra}`;
+}
+function wikiList(arr){
+  if(!arr || !arr.length) return null;
+  return arr.map(item => item.wiki
+    ? `<a href="${escapeHtml(item.wiki)}" target="_blank" rel="noopener">${escapeHtml(item.name)}</a>${item.industry ? ` <span class="info-sub">(${escapeHtml(item.industry)})</span>` : ''}`
+    : `${escapeHtml(item.name)}${item.industry ? ` <span class="info-sub">(${escapeHtml(item.industry)})</span>` : ''}`
+  ).join('<br>');
+}
+function section(title, rowsHtml){
+  const content = rowsHtml.filter(Boolean).join('');
+  if(!content) return '';
+  return `<details class="ff-section"><summary>${escapeHtml(title)}</summary><div class="info-grid ff-grid">${content}</div></details>`;
+}
+
+function factFileHtml(c){
+  const f = FACTFILES[c.code];
+  const bulkRows = [
+    row('Endonym', c.endonym && c.endonym !== c.name ? escapeHtml(c.endonym) : null),
+    row('Internet domain', c.tld ? escapeHtml(c.tld) : null),
+    row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null)
+  ];
+  if(!f){
+    const bulkContent = bulkRows.filter(Boolean).join('');
+    return `
+      <div class="ff-wrap">
+        ${bulkContent ? `<div class="info-grid ff-grid" style="margin-top:14px;">${bulkContent}</div>` : ''}
+        <p class="info-note" style="margin-top:12px;">Full fact file not researched yet for this country - more are being added in waves.</p>
+      </div>
+    `;
+  }
+  const gov = f.government || {};
+  const indep = f.independence
+    ? `${escapeHtml(f.independence.date)}${f.independence.from ? ' from ' + escapeHtml(f.independence.from) : ''}`
+    : 'No colonial independence on record';
+
+  const govSection = section('Government & Identity', [
+    ...bulkRows,
+    row('Government', gov.form ? escapeHtml(gov.form) : null),
+    row('National day', gov.nationalDay ? escapeHtml(gov.nationalDay) : null),
+    row('Drives on', f.drivesOn ? (f.drivesOn === 'left' ? 'Left' : 'Right') : null)
+  ]);
+
+  const historyRows = [
+    row('Independence', indep),
+    row('Earliest settlement', f.earliestSettlement ? escapeHtml(f.earliestSettlement) : null),
+    row('Former names', f.formerNames && f.formerNames.length ? f.formerNames.map(escapeHtml).join('; ') : null),
+    row('Former capitals', f.formerCapitals && f.formerCapitals.length ? f.formerCapitals.map(escapeHtml).join('; ') : null)
+  ];
+  let historyContent = historyRows.filter(Boolean).join('');
+  if(f.keyDates && f.keyDates.length){
+    historyContent += `<div class="ff-timeline">${f.keyDates.map(d => {
+      const year = d.year < 0 ? `${Math.abs(d.year)} BC` : d.year;
+      return `<div class="ff-timeline-row"><span class="ff-timeline-year">${year}</span><span>${escapeHtml(d.event)}</span></div>`;
+    }).join('')}</div>`;
+  }
+  if(f.historicalFigures && f.historicalFigures.length){
+    historyContent += `<div class="ff-figures"><span class="info-label">Historical figures</span><div>${wikiList(f.historicalFigures)}</div></div>`;
+  }
+  const historySection = historyContent ? `<details class="ff-section"><summary>History</summary><div class="ff-grid">${historyContent}</div></details>` : '';
+
+  const geoSection = section('Geography & Nature', [
+    row('Highest peak', wikiLink(f.highestPeak)),
+    row('Famous feature', wikiLink(f.famousFeature)),
+    row('Climate', f.climate ? escapeHtml(f.climate) : null),
+    row('Natural resources', f.naturalResources && f.naturalResources.length ? f.naturalResources.map(escapeHtml).join(', ') : null)
+  ]);
+
+  const cultureSection = section('Culture & Society', [
+    row('National animal', f.nationalAnimal ? escapeHtml(f.nationalAnimal) : null),
+    row('National sport', f.nationalSport ? escapeHtml(f.nationalSport) : null),
+    row('National dish', wikiLink(f.nationalDish)),
+    row('Major religions', f.majorReligions && f.majorReligions.length ? f.majorReligions.map(escapeHtml).join(', ') : null)
+  ]);
+
+  const landmarkRows = [
+    row('Largest company', wikiLink(f.largestCompany)),
+    row('Famous brands', wikiList(f.famousBrands)),
+    row('Busiest airport', f.busiestAirport ? `${escapeHtml(f.busiestAirport.name)}${f.busiestAirport.code ? ' (' + escapeHtml(f.busiestAirport.code) + ')' : ''}` : null),
+    row('Most visited city', f.mostVisitedCity ? escapeHtml(f.mostVisitedCity) : null)
+  ];
+  let landmarkContent = landmarkRows.filter(Boolean).join('');
+  if(f.unesco && f.unesco.length){
+    landmarkContent += `<div class="ff-figures"><span class="info-label">UNESCO World Heritage Sites</span><div>${wikiList(f.unesco)}</div></div>`;
+  }
+  if(f.engineeringProjects && f.engineeringProjects.length){
+    landmarkContent += `<div class="ff-figures"><span class="info-label">Famous engineering projects</span><div>${wikiList(f.engineeringProjects)}</div></div>`;
+  }
+  const landmarkSection = landmarkContent ? `<details class="ff-section"><summary>Landmarks & Achievements</summary><div class="ff-grid">${landmarkContent}</div></details>` : '';
+
+  const funFactBox = f.funFacts && f.funFacts.length ? funFactHtml(c.code) : '';
+
+  return `<div class="ff-wrap">${govSection}${historySection}${geoSection}${cultureSection}${landmarkSection}${funFactBox}</div>`;
+}
+
+function funFactHtml(code){
+  const facts = (FACTFILES[code] || {}).funFacts || [];
+  if(!facts.length) return '';
+  let idx = Math.floor(Math.random() * facts.length);
+  if(facts.length > 1 && idx === lastFunFactIndex[code]) idx = (idx + 1) % facts.length;
+  lastFunFactIndex[code] = idx;
+  return `
+    <div class="ff-funfact">
+      <span class="ff-funfact-label">✨ Fun fact</span>
+      <p>${escapeHtml(facts[idx])}</p>
+      <button class="ff-funfact-btn" data-action="factfile-shuffle" data-code="${escapeHtml(code)}" type="button">Another one →</button>
+    </div>
   `;
 }
 
@@ -412,6 +599,19 @@ function initGlobe(container){
 }
 
 function boot(){
+  // Fetched separately from the globe-critical data below - the fact file is
+  // a rolling, incomplete dataset, so a missing/broken file here should never
+  // stop the globe itself from loading.
+  fetch('data/globe-factfile.json').then(r => r.json()).then(data => { FACTFILES = data; }).catch(() => {});
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-action="factfile-shuffle"]');
+    if(!btn) return;
+    e.preventDefault();
+    const box = btn.closest('.ff-funfact');
+    if(box) box.outerHTML = funFactHtml(btn.dataset.code);
+  });
+
   Promise.all([
     fetch('data/globe-countries.json').then(r => r.json()),
     fetch('data/globe-countries.geo.json').then(r => r.json()),

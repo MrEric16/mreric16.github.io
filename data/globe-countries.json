@@ -11,7 +11,11 @@
     "lat": 38,
     "lng": -97,
     "subregion": "North America",
-    "area": 9372610
+    "area": 9372610,
+    "endonym": "United States",
+    "tld": ".us",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "United Kingdom",
@@ -21,11 +25,15 @@
     "language": "English",
     "population": 66460344,
     "currency": "British pound",
-    "currencySymbol": "\u00a3",
+    "currencySymbol": "£",
     "lat": 54,
     "lng": -2,
     "subregion": "Northern Europe",
-    "area": 242900
+    "area": 242900,
+    "endonym": "United Kingdom",
+    "tld": ".uk",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "France",
@@ -35,11 +43,15 @@
     "language": "French",
     "population": 66977107,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 46,
     "lng": 2,
     "subregion": "Western Europe",
-    "area": 551695
+    "area": 551695,
+    "endonym": "France",
+    "tld": ".fr",
+    "neighbours": 8,
+    "landlocked": false
   },
   {
     "name": "Germany",
@@ -49,11 +61,15 @@
     "language": "German",
     "population": 82905782,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 51,
     "lng": 9,
     "subregion": "Western Europe",
-    "area": 357114
+    "area": 357114,
+    "endonym": "Deutschland",
+    "tld": ".de",
+    "neighbours": 9,
+    "landlocked": false
   },
   {
     "name": "Italy",
@@ -63,11 +79,15 @@
     "language": "Italian",
     "population": 60421760,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 42.83333333,
     "lng": 12.83333333,
     "subregion": "Southern Europe",
-    "area": 301336
+    "area": 301336,
+    "endonym": "Italia",
+    "tld": ".it",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Spain",
@@ -77,11 +97,15 @@
     "language": "Spanish",
     "population": 46796540,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 40,
     "lng": -4,
     "subregion": "Southern Europe",
-    "area": 505992
+    "area": 505992,
+    "endonym": "España",
+    "tld": ".es",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Japan",
@@ -91,11 +115,15 @@
     "language": "Japanese",
     "population": 126529100,
     "currency": "Japanese yen",
-    "currencySymbol": "\u00a5",
+    "currencySymbol": "¥",
     "lat": 36,
     "lng": 138,
     "subregion": "Eastern Asia",
-    "area": 377930
+    "area": 377930,
+    "endonym": "日本",
+    "tld": ".jp",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "China",
@@ -105,11 +133,15 @@
     "language": "Mandarin",
     "population": 1392730000,
     "currency": "Chinese yuan",
-    "currencySymbol": "\u00a5",
+    "currencySymbol": "¥",
     "lat": 35,
     "lng": 105,
     "subregion": "Eastern Asia",
-    "area": 9706961
+    "area": 9706961,
+    "endonym": "中国",
+    "tld": ".cn",
+    "neighbours": 16,
+    "landlocked": false
   },
   {
     "name": "Canada",
@@ -126,13 +158,17 @@
     "lat": 60,
     "lng": -95,
     "subregion": "North America",
-    "area": 9984670
+    "area": 9984670,
+    "endonym": "Canada",
+    "tld": ".ca",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Brazil",
     "code": "br",
     "region": "americas",
-    "capital": "Bras\u00edlia",
+    "capital": "Brasília",
     "language": "Portuguese",
     "population": 209469333,
     "currency": "Brazilian real",
@@ -140,7 +176,11 @@
     "lat": -10,
     "lng": -55,
     "subregion": "South America",
-    "area": 8515767
+    "area": 8515767,
+    "endonym": "Brasil",
+    "tld": ".br",
+    "neighbours": 10,
+    "landlocked": false
   },
   {
     "name": "Russia",
@@ -150,11 +190,15 @@
     "language": "Russian",
     "population": 144478050,
     "currency": "Russian ruble",
-    "currencySymbol": "\u20bd",
+    "currencySymbol": "₽",
     "lat": 60,
     "lng": 100,
     "subregion": "Eastern Europe",
-    "area": 17098242
+    "area": 17098242,
+    "endonym": "Россия",
+    "tld": ".ru",
+    "neighbours": 14,
+    "landlocked": false
   },
   {
     "name": "Australia",
@@ -168,7 +212,11 @@
     "lat": -27,
     "lng": 133,
     "subregion": "Australia and New Zealand",
-    "area": 7692024
+    "area": 7692024,
+    "endonym": "Australia",
+    "tld": ".au",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "India",
@@ -184,11 +232,15 @@
     ],
     "population": 1352617328,
     "currency": "Indian rupee",
-    "currencySymbol": "\u20b9",
+    "currencySymbol": "₹",
     "lat": 20,
     "lng": 77,
     "subregion": "Southern Asia",
-    "area": 3287590
+    "area": 3287590,
+    "endonym": "India",
+    "tld": ".in",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Mexico",
@@ -202,7 +254,11 @@
     "lat": 23,
     "lng": -102,
     "subregion": "North America",
-    "area": 1964375
+    "area": 1964375,
+    "endonym": "México",
+    "tld": ".mx",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "South Korea",
@@ -212,11 +268,15 @@
     "language": "Korean",
     "population": 51606633,
     "currency": "South Korean won",
-    "currencySymbol": "\u20a9",
+    "currencySymbol": "₩",
     "lat": 37,
     "lng": 127.5,
     "subregion": "Eastern Asia",
-    "area": 100210
+    "area": 100210,
+    "endonym": "한국",
+    "tld": ".kr",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Switzerland",
@@ -235,7 +295,11 @@
     "lat": 47,
     "lng": 8,
     "subregion": "Western Europe",
-    "area": 41284
+    "area": 41284,
+    "endonym": "Suisse",
+    "tld": ".ch",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Sweden",
@@ -249,7 +313,11 @@
     "lat": 62,
     "lng": 15,
     "subregion": "Northern Europe",
-    "area": 450295
+    "area": 450295,
+    "endonym": "Sverige",
+    "tld": ".se",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "South Africa",
@@ -268,7 +336,11 @@
     "lat": -29,
     "lng": 24,
     "subregion": "Southern Africa",
-    "area": 1221037
+    "area": 1221037,
+    "endonym": "South Africa",
+    "tld": ".za",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Egypt",
@@ -278,11 +350,15 @@
     "language": "Arabic",
     "population": 98423595,
     "currency": "Egyptian pound",
-    "currencySymbol": "\u00a3",
+    "currencySymbol": "£",
     "lat": 27,
     "lng": 30,
     "subregion": "Northern Africa",
-    "area": 1002450
+    "area": 1002450,
+    "endonym": "مصر",
+    "tld": ".eg",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Turkey",
@@ -292,11 +368,15 @@
     "language": "Turkish",
     "population": 82319724,
     "currency": "Turkish lira",
-    "currencySymbol": "\u20ba",
+    "currencySymbol": "₺",
     "lat": 39,
     "lng": 35,
     "subregion": "Western Asia",
-    "area": 783562
+    "area": 783562,
+    "endonym": "Türkiye",
+    "tld": ".tr",
+    "neighbours": 8,
+    "landlocked": false
   },
   {
     "name": "Greece",
@@ -306,11 +386,15 @@
     "language": "Greek",
     "population": 10731726,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 39,
     "lng": 22,
     "subregion": "Southern Europe",
-    "area": 131990
+    "area": 131990,
+    "endonym": "Ελλάδα",
+    "tld": ".gr",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Portugal",
@@ -320,11 +404,15 @@
     "language": "Portuguese",
     "population": 10283822,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 39.5,
     "lng": -8,
     "subregion": "Southern Europe",
-    "area": 92090
+    "area": 92090,
+    "endonym": "Portugal",
+    "tld": ".pt",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Argentina",
@@ -338,7 +426,11 @@
     "lat": -34,
     "lng": -64,
     "subregion": "South America",
-    "area": 2780400
+    "area": 2780400,
+    "endonym": "Argentina",
+    "tld": ".ar",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Ireland",
@@ -351,11 +443,15 @@
     ],
     "population": 4867309,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 53,
     "lng": -8,
     "subregion": "Northern Europe",
-    "area": 70273
+    "area": 70273,
+    "endonym": "Ireland",
+    "tld": ".ie",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Netherlands",
@@ -365,11 +461,15 @@
     "language": "Dutch",
     "population": 17231624,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 52.5,
     "lng": 5.75,
     "subregion": "Western Europe",
-    "area": 41850
+    "area": 41850,
+    "endonym": "Nederland",
+    "tld": ".nl",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Norway",
@@ -383,7 +483,11 @@
     "lat": 62,
     "lng": 10,
     "subregion": "Northern Europe",
-    "area": 323802
+    "area": 323802,
+    "endonym": "Noreg",
+    "tld": ".no",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Poland",
@@ -392,12 +496,16 @@
     "capital": "Warsaw",
     "language": "Polish",
     "population": 37974750,
-    "currency": "Polish z\u0142oty",
-    "currencySymbol": "z\u0142",
+    "currency": "Polish złoty",
+    "currencySymbol": "zł",
     "lat": 52,
     "lng": 20,
     "subregion": "Central Europe",
-    "area": 312679
+    "area": 312679,
+    "endonym": "Polska",
+    "tld": ".pl",
+    "neighbours": 7,
+    "landlocked": false
   },
   {
     "name": "Belgium",
@@ -411,11 +519,15 @@
     ],
     "population": 11433256,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 50.83333333,
     "lng": 4,
     "subregion": "Western Europe",
-    "area": 30528
+    "area": 30528,
+    "endonym": "Belgien",
+    "tld": ".be",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Austria",
@@ -425,11 +537,15 @@
     "language": "German",
     "population": 8840521,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 47.33333333,
     "lng": 13.33333333,
     "subregion": "Central Europe",
-    "area": 83871
+    "area": 83871,
+    "endonym": "Österreich",
+    "tld": ".at",
+    "neighbours": 8,
+    "landlocked": true
   },
   {
     "name": "Denmark",
@@ -443,7 +559,11 @@
     "lat": 56,
     "lng": 10,
     "subregion": "Northern Europe",
-    "area": 43094
+    "area": 43094,
+    "endonym": "Danmark",
+    "tld": ".dk",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Finland",
@@ -456,11 +576,15 @@
     ],
     "population": 5515525,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 64,
     "lng": 26,
     "subregion": "Northern Europe",
-    "area": 338424
+    "area": 338424,
+    "endonym": "Suomi",
+    "tld": ".fi",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Ukraine",
@@ -473,11 +597,15 @@
     ],
     "population": 44622516,
     "currency": "Ukrainian hryvnia",
-    "currencySymbol": "\u20b4",
+    "currencySymbol": "₴",
     "lat": 49,
     "lng": 32,
     "subregion": "Eastern Europe",
-    "area": 603500
+    "area": 603500,
+    "endonym": "Україна",
+    "tld": ".ua",
+    "neighbours": 7,
+    "landlocked": false
   },
   {
     "name": "Israel",
@@ -490,11 +618,15 @@
     ],
     "population": 8882800,
     "currency": "Israeli new shekel",
-    "currencySymbol": "\u20aa",
+    "currencySymbol": "₪",
     "lat": 31.47,
     "lng": 35.13,
     "subregion": "Western Asia",
-    "area": 20770
+    "area": 20770,
+    "endonym": "إسرائيل",
+    "tld": ".il",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Saudi Arabia",
@@ -504,11 +636,15 @@
     "language": "Arabic",
     "population": 33699947,
     "currency": "Saudi riyal",
-    "currencySymbol": "\u0631.\u0633",
+    "currencySymbol": "ر.س",
     "lat": 25,
     "lng": 45,
     "subregion": "Western Asia",
-    "area": 2149690
+    "area": 2149690,
+    "endonym": "السعودية",
+    "tld": ".sa",
+    "neighbours": 7,
+    "landlocked": false
   },
   {
     "name": "United Arab Emirates",
@@ -518,11 +654,15 @@
     "language": "Arabic",
     "population": 9630959,
     "currency": "United Arab Emirates dirham",
-    "currencySymbol": "\u062f.\u0625",
+    "currencySymbol": "د.إ",
     "lat": 24,
     "lng": 54,
     "subregion": "Western Asia",
-    "area": 83600
+    "area": 83600,
+    "endonym": "الإمارات",
+    "tld": ".ae",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Thailand",
@@ -532,11 +672,15 @@
     "language": "Thai",
     "population": 69428524,
     "currency": "Thai baht",
-    "currencySymbol": "\u0e3f",
+    "currencySymbol": "฿",
     "lat": 15,
     "lng": 100,
     "subregion": "South-Eastern Asia",
-    "area": 513120
+    "area": 513120,
+    "endonym": "ประเทศไทย",
+    "tld": ".th",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Vietnam",
@@ -545,12 +689,16 @@
     "capital": "Hanoi",
     "language": "Vietnamese",
     "population": 95540395,
-    "currency": "Vietnamese \u0111\u1ed3ng",
-    "currencySymbol": "\u20ab",
+    "currency": "Vietnamese đồng",
+    "currencySymbol": "₫",
     "lat": 16.16666666,
     "lng": 107.83333333,
     "subregion": "South-Eastern Asia",
-    "area": 331212
+    "area": 331212,
+    "endonym": "Việt Nam",
+    "tld": ".vn",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Indonesia",
@@ -564,7 +712,11 @@
     "lat": -5,
     "lng": 120,
     "subregion": "South-Eastern Asia",
-    "area": 1904569
+    "area": 1904569,
+    "endonym": "Indonesia",
+    "tld": ".id",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Philippines",
@@ -577,11 +729,15 @@
     ],
     "population": 106651922,
     "currency": "Philippine peso",
-    "currencySymbol": "\u20b1",
+    "currencySymbol": "₱",
     "lat": 13,
     "lng": 122,
     "subregion": "South-Eastern Asia",
-    "area": 342353
+    "area": 342353,
+    "endonym": "Philippines",
+    "tld": ".ph",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Pakistan",
@@ -595,11 +751,15 @@
     ],
     "population": 212215030,
     "currency": "Pakistani rupee",
-    "currencySymbol": "\u20a8",
+    "currencySymbol": "₨",
     "lat": 30,
     "lng": 70,
     "subregion": "Southern Asia",
-    "area": 881912
+    "area": 881912,
+    "endonym": "Pakistan",
+    "tld": ".pk",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Nigeria",
@@ -614,11 +774,15 @@
     ],
     "population": 195874740,
     "currency": "Nigerian naira",
-    "currencySymbol": "\u20a6",
+    "currencySymbol": "₦",
     "lat": 10,
     "lng": 8,
     "subregion": "Western Africa",
-    "area": 923768
+    "area": 923768,
+    "endonym": "Nigeria",
+    "tld": ".ng",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Kenya",
@@ -635,7 +799,11 @@
     "lat": 1,
     "lng": 38,
     "subregion": "Eastern Africa",
-    "area": 580367
+    "area": 580367,
+    "endonym": "Kenya",
+    "tld": ".ke",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Morocco",
@@ -645,17 +813,21 @@
     "language": "Arabic",
     "population": 36029138,
     "currency": "Moroccan dirham",
-    "currencySymbol": "\u062f.\u0645.",
+    "currencySymbol": "د.م.",
     "lat": 32,
     "lng": -5,
     "subregion": "Northern Africa",
-    "area": 446550
+    "area": 446550,
+    "endonym": "المغرب",
+    "tld": ".ma",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Colombia",
     "code": "co",
     "region": "americas",
-    "capital": "Bogot\u00e1",
+    "capital": "Bogotá",
     "language": "Spanish",
     "population": 49648685,
     "currency": "Colombian peso",
@@ -663,7 +835,11 @@
     "lat": 4,
     "lng": -72,
     "subregion": "South America",
-    "area": 1141748
+    "area": 1141748,
+    "endonym": "Colombia",
+    "tld": ".co",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Venezuela",
@@ -672,12 +848,16 @@
     "capital": "Caracas",
     "language": "Spanish",
     "population": 28870195,
-    "currency": "Venezuelan bol\u00edvar soberano",
+    "currency": "Venezuelan bolívar soberano",
     "currencySymbol": "Bs.S.",
     "lat": 8,
     "lng": -66,
     "subregion": "South America",
-    "area": 916445
+    "area": 916445,
+    "endonym": "Venezuela",
+    "tld": ".ve",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Chile",
@@ -691,7 +871,11 @@
     "lat": -30,
     "lng": -71,
     "subregion": "South America",
-    "area": 756102
+    "area": 756102,
+    "endonym": "Chile",
+    "tld": ".cl",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Peru",
@@ -708,7 +892,11 @@
     "lat": -10,
     "lng": -76,
     "subregion": "South America",
-    "area": 1285216
+    "area": 1285216,
+    "endonym": "Piruw",
+    "tld": ".pe",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Cuba",
@@ -722,7 +910,11 @@
     "lat": 21.5,
     "lng": -80,
     "subregion": "Caribbean",
-    "area": 109884
+    "area": 109884,
+    "endonym": "Cuba",
+    "tld": ".cu",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "New Zealand",
@@ -736,21 +928,29 @@
     "lat": -41,
     "lng": 174,
     "subregion": "Australia and New Zealand",
-    "area": 270467
+    "area": 270467,
+    "endonym": "New Zealand",
+    "tld": ".nz",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Iceland",
     "code": "is",
     "region": "europe",
-    "capital": "Reykjav\u00edk",
+    "capital": "Reykjavík",
     "language": "Icelandic",
     "population": 352721,
-    "currency": "Icelandic kr\u00f3na",
+    "currency": "Icelandic króna",
     "currencySymbol": "kr",
     "lat": 65,
     "lng": -18,
     "subregion": "Northern Europe",
-    "area": 103000
+    "area": 103000,
+    "endonym": "Ísland",
+    "tld": ".is",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Czechia",
@@ -760,11 +960,15 @@
     "language": "Czech",
     "population": 10629928,
     "currency": "Czech koruna",
-    "currencySymbol": "K\u010d",
+    "currencySymbol": "Kč",
     "lat": 49.75,
     "lng": 15.5,
     "subregion": "Central Europe",
-    "area": 78865
+    "area": 78865,
+    "endonym": "Česko",
+    "tld": ".cz",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Hungary",
@@ -778,7 +982,11 @@
     "lat": 47,
     "lng": 20,
     "subregion": "Central Europe",
-    "area": 93028
+    "area": 93028,
+    "endonym": "Magyarország",
+    "tld": ".hu",
+    "neighbours": 7,
+    "landlocked": true
   },
   {
     "name": "Romania",
@@ -792,7 +1000,11 @@
     "lat": 46,
     "lng": 25,
     "subregion": "Southeast Europe",
-    "area": 238391
+    "area": 238391,
+    "endonym": "România",
+    "tld": ".ro",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Iran",
@@ -802,11 +1014,15 @@
     "language": "Persian",
     "population": 81800269,
     "currency": "Iranian rial",
-    "currencySymbol": "\ufdfc",
+    "currencySymbol": "﷼",
     "lat": 32,
     "lng": 53,
     "subregion": "Southern Asia",
-    "area": 1648195
+    "area": 1648195,
+    "endonym": "ایران",
+    "tld": ".ir",
+    "neighbours": 7,
+    "landlocked": false
   },
   {
     "name": "Iraq",
@@ -819,11 +1035,15 @@
     ],
     "population": 38433600,
     "currency": "Iraqi dinar",
-    "currencySymbol": "\u0639.\u062f",
+    "currencySymbol": "ع.د",
     "lat": 33,
     "lng": 44,
     "subregion": "Western Asia",
-    "area": 438317
+    "area": 438317,
+    "endonym": "العراق",
+    "tld": ".iq",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Singapore",
@@ -842,7 +1062,11 @@
     "lat": 1.36666666,
     "lng": 103.8,
     "subregion": "South-Eastern Asia",
-    "area": 710
+    "area": 710,
+    "endonym": "Singapore",
+    "tld": ".sg",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Malaysia",
@@ -861,7 +1085,11 @@
     "lat": 2.5,
     "lng": 112.5,
     "subregion": "South-Eastern Asia",
-    "area": 330803
+    "area": 330803,
+    "endonym": "Malaysia",
+    "tld": ".my",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Kazakhstan",
@@ -874,11 +1102,15 @@
     ],
     "population": 18272430,
     "currency": "Kazakhstani tenge",
-    "currencySymbol": "\u20b8",
+    "currencySymbol": "₸",
     "lat": 48,
     "lng": 68,
     "subregion": "Central Asia",
-    "area": 2724900
+    "area": 2724900,
+    "endonym": "Қазақстан",
+    "tld": ".kz",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Uzbekistan",
@@ -890,12 +1122,16 @@
       "Russian"
     ],
     "population": 32955400,
-    "currency": "Uzbekistani so\u02bbm",
+    "currency": "Uzbekistani soʻm",
     "currencySymbol": "so'm",
     "lat": 41,
     "lng": 64,
     "subregion": "Central Asia",
-    "area": 447400
+    "area": 447400,
+    "endonym": "Узбекистан",
+    "tld": ".uz",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Mongolia",
@@ -904,12 +1140,16 @@
     "capital": "Ulaanbaatar",
     "language": "Mongolian",
     "population": 3170208,
-    "currency": "Mongolian t\u00f6gr\u00f6g",
-    "currencySymbol": "\u20ae",
+    "currency": "Mongolian tögrög",
+    "currencySymbol": "₮",
     "lat": 46,
     "lng": 105,
     "subregion": "Eastern Asia",
-    "area": 1564110
+    "area": 1564110,
+    "endonym": "Монгол улс",
+    "tld": ".mn",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Nepal",
@@ -922,11 +1162,15 @@
     ],
     "population": 28087871,
     "currency": "Nepalese rupee",
-    "currencySymbol": "\u20a8",
+    "currencySymbol": "₨",
     "lat": 28,
     "lng": 84,
     "subregion": "Southern Asia",
-    "area": 147181
+    "area": 147181,
+    "endonym": "नेपाल",
+    "tld": ".np",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Sri Lanka",
@@ -939,11 +1183,15 @@
     ],
     "population": 21670000,
     "currency": "Sri Lankan rupee",
-    "currencySymbol": "Rs  \u0dbb\u0dd4",
+    "currencySymbol": "Rs  රු",
     "lat": 7,
     "lng": 81,
     "subregion": "Southern Asia",
-    "area": 65610
+    "area": 65610,
+    "endonym": "ශ්‍රී ලංකාව",
+    "tld": ".lk",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Bangladesh",
@@ -956,11 +1204,15 @@
     ],
     "population": 161356039,
     "currency": "Bangladeshi taka",
-    "currencySymbol": "\u09f3",
+    "currencySymbol": "৳",
     "lat": 24,
     "lng": 90,
     "subregion": "Southern Asia",
-    "area": 147570
+    "area": 147570,
+    "endonym": "বাংলাদেশ",
+    "tld": ".bd",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Myanmar",
@@ -977,7 +1229,11 @@
     "lat": 22,
     "lng": 98,
     "subregion": "South-Eastern Asia",
-    "area": 676578
+    "area": 676578,
+    "endonym": "မြန်မာ",
+    "tld": ".mm",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Cambodia",
@@ -987,11 +1243,15 @@
     "language": "Khmer",
     "population": 16249798,
     "currency": "Cambodian riel",
-    "currencySymbol": "\u17db",
+    "currencySymbol": "៛",
     "lat": 13,
     "lng": 105,
     "subregion": "South-Eastern Asia",
-    "area": 181035
+    "area": 181035,
+    "endonym": "Kâmpŭchéa",
+    "tld": ".kh",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Laos",
@@ -1001,11 +1261,15 @@
     "language": "Lao",
     "population": 7061507,
     "currency": "Lao kip",
-    "currencySymbol": "\u20ad",
+    "currencySymbol": "₭",
     "lat": 18,
     "lng": 105,
     "subregion": "South-Eastern Asia",
-    "area": 236800
+    "area": 236800,
+    "endonym": "ສປປລາວ",
+    "tld": ".la",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "North Korea",
@@ -1015,11 +1279,15 @@
     "language": "Korean",
     "population": 25549819,
     "currency": "North Korean won",
-    "currencySymbol": "\u20a9",
+    "currencySymbol": "₩",
     "lat": 40,
     "lng": 127,
     "subregion": "Eastern Asia",
-    "area": 120538
+    "area": 120538,
+    "endonym": "조선",
+    "tld": ".kp",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Taiwan",
@@ -1032,7 +1300,11 @@
     "lat": 23.5,
     "lng": 121,
     "subregion": "Eastern Asia",
-    "area": 36193
+    "area": 36193,
+    "endonym": "台灣",
+    "tld": ".tw",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Jordan",
@@ -1042,11 +1314,15 @@
     "language": "Arabic",
     "population": 9956011,
     "currency": "Jordanian dinar",
-    "currencySymbol": "\u062f.\u0627",
+    "currencySymbol": "د.ا",
     "lat": 31,
     "lng": 36,
     "subregion": "Western Asia",
-    "area": 89342
+    "area": 89342,
+    "endonym": "الأردن",
+    "tld": ".jo",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Lebanon",
@@ -1056,11 +1332,15 @@
     "language": "Arabic",
     "population": 6848925,
     "currency": "Lebanese pound",
-    "currencySymbol": "\u0644.\u0644",
+    "currencySymbol": "ل.ل",
     "lat": 33.83333333,
     "lng": 35.83333333,
     "subregion": "Western Asia",
-    "area": 10452
+    "area": 10452,
+    "endonym": "لبنان",
+    "tld": ".lb",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Syria",
@@ -1070,11 +1350,15 @@
     "language": "Arabic",
     "population": 16906283,
     "currency": "Syrian pound",
-    "currencySymbol": "\u00a3",
+    "currencySymbol": "£",
     "lat": 35,
     "lng": 38,
     "subregion": "Western Asia",
-    "area": 185180
+    "area": 185180,
+    "endonym": "سوريا",
+    "tld": ".sy",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Yemen",
@@ -1084,11 +1368,15 @@
     "language": "Arabic",
     "population": 28498687,
     "currency": "Yemeni rial",
-    "currencySymbol": "\ufdfc",
+    "currencySymbol": "﷼",
     "lat": 15,
     "lng": 48,
     "subregion": "Western Asia",
-    "area": 527968
+    "area": 527968,
+    "endonym": "اليمن",
+    "tld": ".ye",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Kuwait",
@@ -1098,11 +1386,15 @@
     "language": "Arabic",
     "population": 4137309,
     "currency": "Kuwaiti dinar",
-    "currencySymbol": "\u062f.\u0643",
+    "currencySymbol": "د.ك",
     "lat": 29.5,
     "lng": 45.75,
     "subregion": "Western Asia",
-    "area": 17818
+    "area": 17818,
+    "endonym": "الكويت",
+    "tld": ".kw",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Qatar",
@@ -1112,11 +1404,15 @@
     "language": "Arabic",
     "population": 2781677,
     "currency": "Qatari riyal",
-    "currencySymbol": "\u0631.\u0642",
+    "currencySymbol": "ر.ق",
     "lat": 25.5,
     "lng": 51.25,
     "subregion": "Western Asia",
-    "area": 11586
+    "area": 11586,
+    "endonym": "قطر",
+    "tld": ".qa",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Bahrain",
@@ -1126,11 +1422,15 @@
     "language": "Arabic",
     "population": 1569439,
     "currency": "Bahraini dinar",
-    "currencySymbol": ".\u062f.\u0628",
+    "currencySymbol": ".د.ب",
     "lat": 26,
     "lng": 50.55,
     "subregion": "Western Asia",
-    "area": 765
+    "area": 765,
+    "endonym": "البحرين",
+    "tld": ".bh",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Oman",
@@ -1140,11 +1440,15 @@
     "language": "Arabic",
     "population": 4829483,
     "currency": "Omani rial",
-    "currencySymbol": "\u0631.\u0639.",
+    "currencySymbol": "ر.ع.",
     "lat": 21,
     "lng": 57,
     "subregion": "Western Asia",
-    "area": 309500
+    "area": 309500,
+    "endonym": "عمان",
+    "tld": ".om",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Afghanistan",
@@ -1157,11 +1461,15 @@
     ],
     "population": 37172386,
     "currency": "Afghan afghani",
-    "currencySymbol": "\u060b",
+    "currencySymbol": "؋",
     "lat": 33,
     "lng": 65,
     "subregion": "Southern Asia",
-    "area": 652230
+    "area": 652230,
+    "endonym": "افغانستان",
+    "tld": ".af",
+    "neighbours": 6,
+    "landlocked": true
   },
   {
     "name": "Azerbaijan",
@@ -1174,11 +1482,15 @@
     ],
     "population": 9939800,
     "currency": "Azerbaijani manat",
-    "currencySymbol": "\u20bc",
+    "currencySymbol": "₼",
     "lat": 40.5,
     "lng": 47.5,
     "subregion": "Western Asia",
-    "area": 86600
+    "area": 86600,
+    "endonym": "Azərbaycan",
+    "tld": ".az",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Armenia",
@@ -1191,11 +1503,15 @@
     ],
     "population": 2951776,
     "currency": "Armenian dram",
-    "currencySymbol": "\u058f",
+    "currencySymbol": "֏",
     "lat": 40,
     "lng": 45,
     "subregion": "Western Asia",
-    "area": 29743
+    "area": 29743,
+    "endonym": "Հայաստան",
+    "tld": ".am",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Georgia",
@@ -1208,11 +1524,15 @@
     ],
     "population": 3726549,
     "currency": "lari",
-    "currencySymbol": "\u20be",
+    "currencySymbol": "₾",
     "lat": 42,
     "lng": 43.5,
     "subregion": "Western Asia",
-    "area": 69700
+    "area": 69700,
+    "endonym": "საქართველო",
+    "tld": ".ge",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Turkmenistan",
@@ -1229,7 +1549,11 @@
     "lat": 40,
     "lng": 60,
     "subregion": "Central Asia",
-    "area": 488100
+    "area": 488100,
+    "endonym": "Туркмения",
+    "tld": ".tm",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Tajikistan",
@@ -1242,11 +1566,15 @@
     ],
     "population": 9100837,
     "currency": "Tajikistani somoni",
-    "currencySymbol": "\u0405\u041c",
+    "currencySymbol": "ЅМ",
     "lat": 39,
     "lng": 71,
     "subregion": "Central Asia",
-    "area": 143100
+    "area": 143100,
+    "endonym": "Таджикистан",
+    "tld": ".tj",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Kyrgyzstan",
@@ -1259,11 +1587,15 @@
     ],
     "population": 6322800,
     "currency": "Kyrgyzstani som",
-    "currencySymbol": "\u0441",
+    "currencySymbol": "с",
     "lat": 41,
     "lng": 75,
     "subregion": "Central Asia",
-    "area": 199951
+    "area": 199951,
+    "endonym": "Кыргызстан",
+    "tld": ".kg",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Bhutan",
@@ -1280,24 +1612,32 @@
     "lat": 27.5,
     "lng": 90.5,
     "subregion": "Southern Asia",
-    "area": 38394
+    "area": 38394,
+    "endonym": "འབྲུག་ཡུལ་",
+    "tld": ".bt",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Maldives",
     "code": "mv",
     "region": "asia",
-    "capital": "Mal\u00e9",
+    "capital": "Malé",
     "language": "Dhivehi",
     "otherOfficial": [
       "English"
     ],
     "population": 515696,
     "currency": "Maldivian rufiyaa",
-    "currencySymbol": ".\u0783",
+    "currencySymbol": ".ރ",
     "lat": 3.25,
     "lng": 73,
     "subregion": "Southern Asia",
-    "area": 300
+    "area": 300,
+    "endonym": "ދިވެހިރާއްޖޭގެ",
+    "tld": ".mv",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Brunei",
@@ -1314,7 +1654,11 @@
     "lat": 4.5,
     "lng": 114.66666666,
     "subregion": "South-Eastern Asia",
-    "area": 5765
+    "area": 5765,
+    "endonym": "Negara Brunei Darussalam",
+    "tld": ".bn",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Timor-Leste",
@@ -1332,7 +1676,11 @@
     "lat": -8.83333333,
     "lng": 125.91666666,
     "subregion": "South-Eastern Asia",
-    "area": 14874
+    "area": 14874,
+    "endonym": "Timor-Leste",
+    "tld": ".tl",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Ghana",
@@ -1342,11 +1690,15 @@
     "language": "English",
     "population": 29767108,
     "currency": "Ghanaian cedi",
-    "currencySymbol": "\u20b5",
+    "currencySymbol": "₵",
     "lat": 8,
     "lng": -2,
     "subregion": "Western Africa",
-    "area": 238533
+    "area": 238533,
+    "endonym": "Ghana",
+    "tld": ".gh",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Ethiopia",
@@ -1360,7 +1712,11 @@
     "lat": 8,
     "lng": 38,
     "subregion": "Eastern Africa",
-    "area": 1104300
+    "area": 1104300,
+    "endonym": "ኢትዮጵያ",
+    "tld": ".et",
+    "neighbours": 6,
+    "landlocked": true
   },
   {
     "name": "Tanzania",
@@ -1377,7 +1733,11 @@
     "lat": -6,
     "lng": 35,
     "subregion": "Eastern Africa",
-    "area": 945087
+    "area": 945087,
+    "endonym": "Tanzania",
+    "tld": ".tz",
+    "neighbours": 8,
+    "landlocked": false
   },
   {
     "name": "Uganda",
@@ -1394,7 +1754,11 @@
     "lat": 1,
     "lng": 32,
     "subregion": "Eastern Africa",
-    "area": 241550
+    "area": 241550,
+    "endonym": "Uganda",
+    "tld": ".ug",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Algeria",
@@ -1404,11 +1768,15 @@
     "language": "Arabic",
     "population": 42228429,
     "currency": "Algerian dinar",
-    "currencySymbol": "\u062f.\u062c",
+    "currencySymbol": "د.ج",
     "lat": 28,
     "lng": 3,
     "subregion": "Northern Africa",
-    "area": 2381741
+    "area": 2381741,
+    "endonym": "الجزائر",
+    "tld": ".dz",
+    "neighbours": 7,
+    "landlocked": false
   },
   {
     "name": "Tunisia",
@@ -1418,11 +1786,15 @@
     "language": "Arabic",
     "population": 11565204,
     "currency": "Tunisian dinar",
-    "currencySymbol": "\u062f.\u062a",
+    "currencySymbol": "د.ت",
     "lat": 34,
     "lng": 9,
     "subregion": "Northern Africa",
-    "area": 163610
+    "area": 163610,
+    "endonym": "تونس",
+    "tld": ".tn",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Libya",
@@ -1432,11 +1804,15 @@
     "language": "Arabic",
     "population": 6678567,
     "currency": "Libyan dinar",
-    "currencySymbol": "\u0644.\u062f",
+    "currencySymbol": "ل.د",
     "lat": 25,
     "lng": 17,
     "subregion": "Northern Africa",
-    "area": 1759540
+    "area": 1759540,
+    "endonym": "ليبيا",
+    "tld": ".ly",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Sudan",
@@ -1453,7 +1829,11 @@
     "lat": 15,
     "lng": 30,
     "subregion": "Northern Africa",
-    "area": 1886068
+    "area": 1886068,
+    "endonym": "السودان",
+    "tld": ".sd",
+    "neighbours": 7,
+    "landlocked": false
   },
   {
     "name": "Senegal",
@@ -1467,7 +1847,11 @@
     "lat": 14,
     "lng": -14,
     "subregion": "Western Africa",
-    "area": 196722
+    "area": 196722,
+    "endonym": "Sénégal",
+    "tld": ".sn",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Mali",
@@ -1481,7 +1865,11 @@
     "lat": 17,
     "lng": -4,
     "subregion": "Western Africa",
-    "area": 1240192
+    "area": 1240192,
+    "endonym": "Mali",
+    "tld": ".ml",
+    "neighbours": 7,
+    "landlocked": true
   },
   {
     "name": "Guinea",
@@ -1495,7 +1883,11 @@
     "lat": 11,
     "lng": -10,
     "subregion": "Western Africa",
-    "area": 245857
+    "area": 245857,
+    "endonym": "Guinée",
+    "tld": ".gn",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Ivory Coast",
@@ -1509,13 +1901,17 @@
     "lat": 8,
     "lng": -5,
     "subregion": "Western Africa",
-    "area": 322463
+    "area": 322463,
+    "endonym": "Côte d'Ivoire",
+    "tld": ".ci",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Cameroon",
     "code": "cm",
     "region": "africa",
-    "capital": "Yaound\u00e9",
+    "capital": "Yaoundé",
     "language": "French",
     "otherOfficial": [
       "English"
@@ -1526,7 +1922,11 @@
     "lat": 6,
     "lng": 12,
     "subregion": "Middle Africa",
-    "area": 475442
+    "area": 475442,
+    "endonym": "Cameroon",
+    "tld": ".cm",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Zambia",
@@ -1540,7 +1940,11 @@
     "lat": -15,
     "lng": 30,
     "subregion": "Eastern Africa",
-    "area": 752612
+    "area": 752612,
+    "endonym": "Zambia",
+    "tld": ".zm",
+    "neighbours": 8,
+    "landlocked": true
   },
   {
     "name": "Zimbabwe",
@@ -1558,7 +1962,11 @@
     "lat": -20,
     "lng": 30,
     "subregion": "Eastern Africa",
-    "area": 390757
+    "area": 390757,
+    "endonym": "Zimbabwe",
+    "tld": ".zw",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Angola",
@@ -1572,7 +1980,11 @@
     "lat": -12.5,
     "lng": 18.5,
     "subregion": "Middle Africa",
-    "area": 1246700
+    "area": 1246700,
+    "endonym": "Angola",
+    "tld": ".ao",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Mozambique",
@@ -1589,7 +2001,11 @@
     "lat": -18.25,
     "lng": 35,
     "subregion": "Eastern Africa",
-    "area": 801590
+    "area": 801590,
+    "endonym": "Moçambique",
+    "tld": ".mz",
+    "neighbours": 6,
+    "landlocked": false
   },
   {
     "name": "Namibia",
@@ -1606,7 +2022,11 @@
     "lat": -22,
     "lng": 17,
     "subregion": "Southern Africa",
-    "area": 825615
+    "area": 825615,
+    "endonym": "Namibië",
+    "tld": ".na",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Botswana",
@@ -1623,7 +2043,11 @@
     "lat": -22,
     "lng": 24,
     "subregion": "Southern Africa",
-    "area": 582000
+    "area": 582000,
+    "endonym": "Botswana",
+    "tld": ".bw",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Rwanda",
@@ -1641,7 +2065,11 @@
     "lat": -2,
     "lng": 30,
     "subregion": "Eastern Africa",
-    "area": 26338
+    "area": 26338,
+    "endonym": "Rwanda",
+    "tld": ".rw",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Somalia",
@@ -1658,7 +2086,11 @@
     "lat": 10,
     "lng": 49,
     "subregion": "Eastern Africa",
-    "area": 637657
+    "area": 637657,
+    "endonym": "الصومال",
+    "tld": ".so",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Democratic Republic of the Congo",
@@ -1676,7 +2108,11 @@
     "lat": 0,
     "lng": 25,
     "subregion": "Middle Africa",
-    "area": 2344858
+    "area": 2344858,
+    "endonym": "RD Congo",
+    "tld": ".cd",
+    "neighbours": 9,
+    "landlocked": false
   },
   {
     "name": "Republic of the Congo",
@@ -1690,7 +2126,11 @@
     "lat": -1,
     "lng": 15,
     "subregion": "Middle Africa",
-    "area": 342000
+    "area": 342000,
+    "endonym": "République du Congo",
+    "tld": ".cg",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Panama",
@@ -1704,21 +2144,29 @@
     "lat": 9,
     "lng": -80,
     "subregion": "Central America",
-    "area": 75417
+    "area": 75417,
+    "endonym": "Panamá",
+    "tld": ".pa",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Costa Rica",
     "code": "cr",
     "region": "americas",
-    "capital": "San Jos\u00e9",
+    "capital": "San José",
     "language": "Spanish",
     "population": 4999441,
-    "currency": "Costa Rican col\u00f3n",
-    "currencySymbol": "\u20a1",
+    "currency": "Costa Rican colón",
+    "currencySymbol": "₡",
     "lat": 10,
     "lng": -84,
     "subregion": "Central America",
-    "area": 51100
+    "area": 51100,
+    "endonym": "Costa Rica",
+    "tld": ".cr",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Nicaragua",
@@ -1727,12 +2175,16 @@
     "capital": "Managua",
     "language": "Spanish",
     "population": 6465513,
-    "currency": "Nicaraguan c\u00f3rdoba",
+    "currency": "Nicaraguan córdoba",
     "currencySymbol": "C$",
     "lat": 13,
     "lng": -85,
     "subregion": "Central America",
-    "area": 130373
+    "area": 130373,
+    "endonym": "Nicaragua",
+    "tld": ".ni",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Honduras",
@@ -1746,7 +2198,11 @@
     "lat": 15,
     "lng": -86.5,
     "subregion": "Central America",
-    "area": 112492
+    "area": 112492,
+    "endonym": "Honduras",
+    "tld": ".hn",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "El Salvador",
@@ -1760,7 +2216,11 @@
     "lat": 13.83333333,
     "lng": -88.91666666,
     "subregion": "Central America",
-    "area": 21041
+    "area": 21041,
+    "endonym": "El Salvador",
+    "tld": ".sv",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Guatemala",
@@ -1774,7 +2234,11 @@
     "lat": 15.5,
     "lng": -90.25,
     "subregion": "Central America",
-    "area": 108889
+    "area": 108889,
+    "endonym": "Guatemala",
+    "tld": ".gt",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Ecuador",
@@ -1788,7 +2252,11 @@
     "lat": -2,
     "lng": -77.5,
     "subregion": "South America",
-    "area": 276841
+    "area": 276841,
+    "endonym": "Ecuador",
+    "tld": ".ec",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Bolivia",
@@ -1806,24 +2274,32 @@
     "lat": -17,
     "lng": -65,
     "subregion": "South America",
-    "area": 1098581
+    "area": 1098581,
+    "endonym": "Wuliwya",
+    "tld": ".bo",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Paraguay",
     "code": "py",
     "region": "americas",
-    "capital": "Asunci\u00f3n",
+    "capital": "Asunción",
     "language": "Spanish",
     "otherOfficial": [
       "Guarani"
     ],
     "population": 6956071,
-    "currency": "Paraguayan guaran\u00ed",
-    "currencySymbol": "\u20b2",
+    "currency": "Paraguayan guaraní",
+    "currencySymbol": "₲",
     "lat": -23,
     "lng": -58,
     "subregion": "South America",
-    "area": 406752
+    "area": 406752,
+    "endonym": "Paraguái",
+    "tld": ".py",
+    "neighbours": 3,
+    "landlocked": true
   },
   {
     "name": "Uruguay",
@@ -1837,7 +2313,11 @@
     "lat": -33,
     "lng": -56,
     "subregion": "South America",
-    "area": 181034
+    "area": 181034,
+    "endonym": "Uruguay",
+    "tld": ".uy",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Dominican Republic",
@@ -1851,7 +2331,11 @@
     "lat": 19,
     "lng": -70.66666666,
     "subregion": "Caribbean",
-    "area": 48671
+    "area": 48671,
+    "endonym": "República Dominicana",
+    "tld": ".do",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Haiti",
@@ -1865,7 +2349,11 @@
     "lat": 19,
     "lng": -72.41666666,
     "subregion": "Caribbean",
-    "area": 27750
+    "area": 27750,
+    "endonym": "Haïti",
+    "tld": ".ht",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Jamaica",
@@ -1879,7 +2367,11 @@
     "lat": 18.25,
     "lng": -77.5,
     "subregion": "Caribbean",
-    "area": 10991
+    "area": 10991,
+    "endonym": "Jamaica",
+    "tld": ".jm",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Slovakia",
@@ -1889,11 +2381,15 @@
     "language": "Slovak",
     "population": 5446771,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 48.66666666,
     "lng": 19.5,
     "subregion": "Central Europe",
-    "area": 49037
+    "area": 49037,
+    "endonym": "Slovensko",
+    "tld": ".sk",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Slovenia",
@@ -1903,11 +2399,15 @@
     "language": "Slovenian",
     "population": 2073894,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 46.11666666,
     "lng": 14.81666666,
     "subregion": "Central Europe",
-    "area": 20273
+    "area": 20273,
+    "endonym": "Slovenija",
+    "tld": ".si",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Croatia",
@@ -1917,11 +2417,15 @@
     "language": "Croatian",
     "population": 4087843,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 45.16666666,
     "lng": 15.5,
     "subregion": "Southeast Europe",
-    "area": 56594
+    "area": 56594,
+    "endonym": "Hrvatska",
+    "tld": ".hr",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Serbia",
@@ -1931,11 +2435,15 @@
     "language": "Serbian",
     "population": 6963764,
     "currency": "Serbian dinar",
-    "currencySymbol": "\u0434\u0438\u043d.",
+    "currencySymbol": "дин.",
     "lat": 44,
     "lng": 21,
     "subregion": "Southeast Europe",
-    "area": 88361
+    "area": 88361,
+    "endonym": "Србија",
+    "tld": ".rs",
+    "neighbours": 8,
+    "landlocked": true
   },
   {
     "name": "Bosnia and Herzegovina",
@@ -1953,7 +2461,11 @@
     "lat": 44,
     "lng": 18,
     "subregion": "Southeast Europe",
-    "area": 51209
+    "area": 51209,
+    "endonym": "Bosna i Hercegovina",
+    "tld": ".ba",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Bulgaria",
@@ -1963,11 +2475,15 @@
     "language": "Bulgarian",
     "population": 7025037,
     "currency": "Bulgarian lev",
-    "currencySymbol": "\u043b\u0432",
+    "currencySymbol": "лв",
     "lat": 43,
     "lng": 25,
     "subregion": "Southeast Europe",
-    "area": 110879
+    "area": 110879,
+    "endonym": "България",
+    "tld": ".bg",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "North Macedonia",
@@ -1981,7 +2497,11 @@
     "lat": 41.83333333,
     "lng": 22,
     "subregion": "Southeast Europe",
-    "area": 25713
+    "area": 25713,
+    "endonym": "Македонија",
+    "tld": ".mk",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Albania",
@@ -1995,7 +2515,11 @@
     "lat": 41,
     "lng": 20,
     "subregion": "Southeast Europe",
-    "area": 28748
+    "area": 28748,
+    "endonym": "Shqipëria",
+    "tld": ".al",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Montenegro",
@@ -2008,11 +2532,15 @@
     ],
     "population": 631219,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 42.5,
     "lng": 19.3,
     "subregion": "Southeast Europe",
-    "area": 13812
+    "area": 13812,
+    "endonym": "Црна Гора",
+    "tld": ".me",
+    "neighbours": 5,
+    "landlocked": false
   },
   {
     "name": "Kosovo",
@@ -2021,17 +2549,21 @@
     "capital": "Pristina",
     "language": "Albanian",
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 42.666667,
     "lng": 21.166667,
     "subregion": "Southeast Europe",
-    "area": 10908
+    "area": 10908,
+    "endonym": "Kosova",
+    "tld": ".xk",
+    "neighbours": 4,
+    "landlocked": true
   },
   {
     "name": "Moldova",
     "code": "md",
     "region": "europe",
-    "capital": "Chi\u0219in\u0103u",
+    "capital": "Chișinău",
     "language": "Romanian",
     "otherOfficial": [
       "Russian"
@@ -2042,7 +2574,11 @@
     "lat": 47,
     "lng": 29,
     "subregion": "Eastern Europe",
-    "area": 33846
+    "area": 33846,
+    "endonym": "Moldova",
+    "tld": ".md",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Belarus",
@@ -2059,7 +2595,11 @@
     "lat": 53,
     "lng": 28,
     "subregion": "Eastern Europe",
-    "area": 207600
+    "area": 207600,
+    "endonym": "Белару́сь",
+    "tld": ".by",
+    "neighbours": 5,
+    "landlocked": true
   },
   {
     "name": "Lithuania",
@@ -2069,11 +2609,15 @@
     "language": "Lithuanian",
     "population": 2801543,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 56,
     "lng": 24,
     "subregion": "Northern Europe",
-    "area": 65300
+    "area": 65300,
+    "endonym": "Lietuva",
+    "tld": ".lt",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Latvia",
@@ -2083,11 +2627,15 @@
     "language": "Latvian",
     "population": 1927174,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 57,
     "lng": 25,
     "subregion": "Northern Europe",
-    "area": 64559
+    "area": 64559,
+    "endonym": "Latvija",
+    "tld": ".lv",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Estonia",
@@ -2097,11 +2645,15 @@
     "language": "Estonian",
     "population": 1321977,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 59,
     "lng": 26,
     "subregion": "Northern Europe",
-    "area": 45227
+    "area": 45227,
+    "endonym": "Eesti",
+    "tld": ".ee",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Luxembourg",
@@ -2115,11 +2667,15 @@
     ],
     "population": 607950,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 49.75,
     "lng": 6.16666666,
     "subregion": "Western Europe",
-    "area": 2586
+    "area": 2586,
+    "endonym": "Luxemburg",
+    "tld": ".lu",
+    "neighbours": 3,
+    "landlocked": true
   },
   {
     "name": "Malta",
@@ -2132,11 +2688,15 @@
     ],
     "population": 484630,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 35.83333333,
     "lng": 14.58333333,
     "subregion": "Southern Europe",
-    "area": 316
+    "area": 316,
+    "endonym": "Malta",
+    "tld": ".mt",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Cyprus",
@@ -2149,11 +2709,15 @@
     ],
     "population": 1189265,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 35,
     "lng": 33,
     "subregion": "Southern Europe",
-    "area": 9251
+    "area": 9251,
+    "endonym": "Κύπρος",
+    "tld": ".cy",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Liechtenstein",
@@ -2167,7 +2731,11 @@
     "lat": 47.26666666,
     "lng": 9.53333333,
     "subregion": "Western Europe",
-    "area": 160
+    "area": 160,
+    "endonym": "Liechtenstein",
+    "tld": ".li",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Monaco",
@@ -2180,11 +2748,15 @@
     ],
     "population": 38682,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 43.73333333,
     "lng": 7.4,
     "subregion": "Western Europe",
-    "area": 2.02
+    "area": 2.02,
+    "endonym": "Monaco",
+    "tld": ".mc",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "San Marino",
@@ -2197,11 +2769,15 @@
     ],
     "population": 33785,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 43.76666666,
     "lng": 12.41666666,
     "subregion": "Southern Europe",
-    "area": 61
+    "area": 61,
+    "endonym": "San Marino",
+    "tld": ".sm",
+    "neighbours": 1,
+    "landlocked": true
   },
   {
     "name": "Andorra",
@@ -2215,11 +2791,15 @@
     ],
     "population": 77006,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 42.5,
     "lng": 1.5,
     "subregion": "Southern Europe",
-    "area": 468
+    "area": 468,
+    "endonym": "Andorra",
+    "tld": ".ad",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Vatican City",
@@ -2232,11 +2812,15 @@
     ],
     "population": 825,
     "currency": "Euro",
-    "currencySymbol": "\u20ac",
+    "currencySymbol": "€",
     "lat": 41.9,
     "lng": 12.45,
     "subregion": "Southern Europe",
-    "area": 0.44
+    "area": 0.44,
+    "endonym": "Vaticano",
+    "tld": ".va",
+    "neighbours": 1,
+    "landlocked": true
   },
   {
     "name": "Fiji",
@@ -2250,7 +2834,11 @@
     "lat": -18,
     "lng": 175,
     "subregion": "Melanesia",
-    "area": 18272
+    "area": 18272,
+    "endonym": "Fiji",
+    "tld": ".fj",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Papua New Guinea",
@@ -2264,7 +2852,11 @@
     "lat": -6,
     "lng": 147,
     "subregion": "Melanesia",
-    "area": 462840
+    "area": 462840,
+    "endonym": "Papua New Guinea",
+    "tld": ".pg",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Samoa",
@@ -2273,26 +2865,34 @@
     "capital": "Apia",
     "language": "Samoan",
     "population": 196130,
-    "currency": "Samoan t\u0101l\u0101",
+    "currency": "Samoan tālā",
     "currencySymbol": "T",
     "lat": -13.58333333,
     "lng": -172.33333333,
     "subregion": "Polynesia",
-    "area": 2842
+    "area": 2842,
+    "endonym": "Samoa",
+    "tld": ".ws",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Tonga",
     "code": "to",
     "region": "oceania",
-    "capital": "Nuku\u02bbalofa",
+    "capital": "Nukuʻalofa",
     "language": "Tongan",
     "population": 103197,
-    "currency": "Tongan pa\u02bbanga",
+    "currency": "Tongan paʻanga",
     "currencySymbol": "T$",
     "lat": -20,
     "lng": -175,
     "subregion": "Polynesia",
-    "area": 747
+    "area": 747,
+    "endonym": "Tonga",
+    "tld": ".to",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Vanuatu",
@@ -2310,7 +2910,11 @@
     "lat": -16,
     "lng": 167,
     "subregion": "Melanesia",
-    "area": 12189
+    "area": 12189,
+    "endonym": "Vanuatu",
+    "tld": ".vu",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Solomon Islands",
@@ -2324,7 +2928,11 @@
     "lat": -8,
     "lng": 159,
     "subregion": "Melanesia",
-    "area": 28896
+    "area": 28896,
+    "endonym": "Solomon Islands",
+    "tld": ".sb",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Kiribati",
@@ -2338,7 +2946,11 @@
     "lat": 1.41666666,
     "lng": 173,
     "subregion": "Micronesia",
-    "area": 811
+    "area": 811,
+    "endonym": "Kiribati",
+    "tld": ".ki",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Tuvalu",
@@ -2352,7 +2964,11 @@
     "lat": -8,
     "lng": 178,
     "subregion": "Polynesia",
-    "area": 26
+    "area": 26,
+    "endonym": "Tuvalu",
+    "tld": ".tv",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Nauru",
@@ -2366,7 +2982,11 @@
     "lat": -0.53333333,
     "lng": 166.91666666,
     "subregion": "Micronesia",
-    "area": 21
+    "area": 21,
+    "endonym": "Nauru",
+    "tld": ".nr",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Marshall Islands",
@@ -2380,7 +3000,11 @@
     "lat": 9,
     "lng": 168,
     "subregion": "Micronesia",
-    "area": 181
+    "area": 181,
+    "endonym": "Marshall Islands",
+    "tld": ".mh",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Palau",
@@ -2394,7 +3018,11 @@
     "lat": 7.5,
     "lng": 134.5,
     "subregion": "Micronesia",
-    "area": 459
+    "area": 459,
+    "endonym": "Palau",
+    "tld": ".pw",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Micronesia",
@@ -2408,7 +3036,11 @@
     "lat": 6.91666666,
     "lng": 158.25,
     "subregion": "Micronesia",
-    "area": 702
+    "area": 702,
+    "endonym": "Micronesia",
+    "tld": ".fm",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Trinidad and Tobago",
@@ -2422,7 +3054,11 @@
     "lat": 11,
     "lng": -61,
     "subregion": "Caribbean",
-    "area": 5130
+    "area": 5130,
+    "endonym": "Trinidad and Tobago",
+    "tld": ".tt",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Bahamas",
@@ -2436,7 +3072,11 @@
     "lat": 24.25,
     "lng": -76,
     "subregion": "Caribbean",
-    "area": 13943
+    "area": 13943,
+    "endonym": "Bahamas",
+    "tld": ".bs",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Barbados",
@@ -2450,7 +3090,11 @@
     "lat": 13.16666666,
     "lng": -59.53333333,
     "subregion": "Caribbean",
-    "area": 430
+    "area": 430,
+    "endonym": "Barbados",
+    "tld": ".bb",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Belize",
@@ -2464,7 +3108,11 @@
     "lat": 17.25,
     "lng": -88.75,
     "subregion": "Central America",
-    "area": 22966
+    "area": 22966,
+    "endonym": "Belize",
+    "tld": ".bz",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Guyana",
@@ -2478,7 +3126,11 @@
     "lat": 5,
     "lng": -59,
     "subregion": "South America",
-    "area": 214969
+    "area": 214969,
+    "endonym": "Guyana",
+    "tld": ".gy",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Suriname",
@@ -2492,7 +3144,11 @@
     "lat": 4,
     "lng": -56,
     "subregion": "South America",
-    "area": 163820
+    "area": 163820,
+    "endonym": "Suriname",
+    "tld": ".sr",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Grenada",
@@ -2506,7 +3162,11 @@
     "lat": 12.11666666,
     "lng": -61.66666666,
     "subregion": "Caribbean",
-    "area": 344
+    "area": 344,
+    "endonym": "Grenada",
+    "tld": ".gd",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Saint Lucia",
@@ -2520,7 +3180,11 @@
     "lat": 13.88333333,
     "lng": -60.96666666,
     "subregion": "Caribbean",
-    "area": 616
+    "area": 616,
+    "endonym": "Saint Lucia",
+    "tld": ".lc",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Saint Vincent and the Grenadines",
@@ -2534,7 +3198,11 @@
     "lat": 13.25,
     "lng": -61.2,
     "subregion": "Caribbean",
-    "area": 389
+    "area": 389,
+    "endonym": "Saint Vincent and the Grenadines",
+    "tld": ".vc",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Antigua and Barbuda",
@@ -2548,7 +3216,11 @@
     "lat": 17.05,
     "lng": -61.8,
     "subregion": "Caribbean",
-    "area": 442
+    "area": 442,
+    "endonym": "Antigua and Barbuda",
+    "tld": ".ag",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Dominica",
@@ -2562,7 +3234,11 @@
     "lat": 15.41666666,
     "lng": -61.33333333,
     "subregion": "Caribbean",
-    "area": 751
+    "area": 751,
+    "endonym": "Dominica",
+    "tld": ".dm",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Saint Kitts and Nevis",
@@ -2576,7 +3252,11 @@
     "lat": 17.33333333,
     "lng": -62.75,
     "subregion": "Caribbean",
-    "area": 261
+    "area": 261,
+    "endonym": "Saint Kitts and Nevis",
+    "tld": ".kn",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "South Sudan",
@@ -2589,11 +3269,15 @@
     ],
     "population": 10975920,
     "currency": "South Sudanese pound",
-    "currencySymbol": "\u00a3",
+    "currencySymbol": "£",
     "lat": 7,
     "lng": 30,
     "subregion": "Middle Africa",
-    "area": 619745
+    "area": 619745,
+    "endonym": "South Sudan",
+    "tld": ".ss",
+    "neighbours": 6,
+    "landlocked": true
   },
   {
     "name": "Chad",
@@ -2610,7 +3294,11 @@
     "lat": 15,
     "lng": 19,
     "subregion": "Middle Africa",
-    "area": 1284000
+    "area": 1284000,
+    "endonym": "تشاد",
+    "tld": ".td",
+    "neighbours": 6,
+    "landlocked": true
   },
   {
     "name": "Niger",
@@ -2624,7 +3312,11 @@
     "lat": 16,
     "lng": 8,
     "subregion": "Western Africa",
-    "area": 1267000
+    "area": 1267000,
+    "endonym": "Niger",
+    "tld": ".ne",
+    "neighbours": 7,
+    "landlocked": true
   },
   {
     "name": "Burkina Faso",
@@ -2638,7 +3330,11 @@
     "lat": 13,
     "lng": -2,
     "subregion": "Western Africa",
-    "area": 272967
+    "area": 272967,
+    "endonym": "Burkina Faso",
+    "tld": ".bf",
+    "neighbours": 6,
+    "landlocked": true
   },
   {
     "name": "Benin",
@@ -2652,13 +3348,17 @@
     "lat": 9.5,
     "lng": 2.25,
     "subregion": "Western Africa",
-    "area": 112622
+    "area": 112622,
+    "endonym": "Bénin",
+    "tld": ".bj",
+    "neighbours": 4,
+    "landlocked": false
   },
   {
     "name": "Togo",
     "code": "tg",
     "region": "africa",
-    "capital": "Lom\u00e9",
+    "capital": "Lomé",
     "language": "French",
     "population": 7889094,
     "currency": "West African CFA franc",
@@ -2666,7 +3366,11 @@
     "lat": 8,
     "lng": 1.16666666,
     "subregion": "Western Africa",
-    "area": 56785
+    "area": 56785,
+    "endonym": "Togo",
+    "tld": ".tg",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Sierra Leone",
@@ -2680,7 +3384,11 @@
     "lat": 8.5,
     "lng": -11.5,
     "subregion": "Western Africa",
-    "area": 71740
+    "area": 71740,
+    "endonym": "Sierra Leone",
+    "tld": ".sl",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Liberia",
@@ -2694,7 +3402,11 @@
     "lat": 6.5,
     "lng": -9.5,
     "subregion": "Western Africa",
-    "area": 111369
+    "area": 111369,
+    "endonym": "Liberia",
+    "tld": ".lr",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Gambia",
@@ -2708,7 +3420,11 @@
     "lat": 13.46666666,
     "lng": -16.56666666,
     "subregion": "Western Africa",
-    "area": 10689
+    "area": 10689,
+    "endonym": "Gambia",
+    "tld": ".gm",
+    "neighbours": 1,
+    "landlocked": false
   },
   {
     "name": "Guinea-Bissau",
@@ -2722,7 +3438,11 @@
     "lat": 12,
     "lng": -15,
     "subregion": "Western Africa",
-    "area": 36125
+    "area": 36125,
+    "endonym": "Guiné-Bissau",
+    "tld": ".gw",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Equatorial Guinea",
@@ -2736,7 +3456,11 @@
     "lat": 2,
     "lng": 10,
     "subregion": "Middle Africa",
-    "area": 28051
+    "area": 28051,
+    "endonym": "Guinée équatoriale",
+    "tld": ".gq",
+    "neighbours": 2,
+    "landlocked": false
   },
   {
     "name": "Gabon",
@@ -2750,7 +3474,11 @@
     "lat": -1,
     "lng": 11.75,
     "subregion": "Middle Africa",
-    "area": 267668
+    "area": 267668,
+    "endonym": "Gabon",
+    "tld": ".ga",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Central African Republic",
@@ -2764,7 +3492,11 @@
     "lat": 7,
     "lng": 21,
     "subregion": "Middle Africa",
-    "area": 622984
+    "area": 622984,
+    "endonym": "République centrafricaine",
+    "tld": ".cf",
+    "neighbours": 6,
+    "landlocked": true
   },
   {
     "name": "Djibouti",
@@ -2781,7 +3513,11 @@
     "lat": 11.5,
     "lng": 43,
     "subregion": "Eastern Africa",
-    "area": 23200
+    "area": 23200,
+    "endonym": "جيبوتي",
+    "tld": ".dj",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Eritrea",
@@ -2798,7 +3534,11 @@
     "lat": 15,
     "lng": 39,
     "subregion": "Eastern Africa",
-    "area": 117600
+    "area": 117600,
+    "endonym": "إريتريا",
+    "tld": ".er",
+    "neighbours": 3,
+    "landlocked": false
   },
   {
     "name": "Burundi",
@@ -2815,7 +3555,11 @@
     "lat": -3.5,
     "lng": 30,
     "subregion": "Eastern Africa",
-    "area": 27834
+    "area": 27834,
+    "endonym": "Burundi",
+    "tld": ".bi",
+    "neighbours": 3,
+    "landlocked": true
   },
   {
     "name": "Malawi",
@@ -2832,7 +3576,11 @@
     "lat": -13.5,
     "lng": 34,
     "subregion": "Eastern Africa",
-    "area": 118484
+    "area": 118484,
+    "endonym": "Malawi",
+    "tld": ".mw",
+    "neighbours": 3,
+    "landlocked": true
   },
   {
     "name": "Madagascar",
@@ -2846,7 +3594,11 @@
     "lat": -20,
     "lng": 47,
     "subregion": "Eastern Africa",
-    "area": 587041
+    "area": 587041,
+    "endonym": "Madagascar",
+    "tld": ".mg",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Mauritius",
@@ -2856,11 +3608,15 @@
     "language": "English",
     "population": 1265303,
     "currency": "Mauritian rupee",
-    "currencySymbol": "\u20a8",
+    "currencySymbol": "₨",
     "lat": -20.28333333,
     "lng": 57.55,
     "subregion": "Eastern Africa",
-    "area": 2040
+    "area": 2040,
+    "endonym": "Mauritius",
+    "tld": ".mu",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Seychelles",
@@ -2870,11 +3626,15 @@
     "language": "French",
     "population": 96762,
     "currency": "Seychellois rupee",
-    "currencySymbol": "\u20a8",
+    "currencySymbol": "₨",
     "lat": -4.58333333,
     "lng": 55.66666666,
     "subregion": "Eastern Africa",
-    "area": 452
+    "area": 452,
+    "endonym": "Sesel",
+    "tld": ".sc",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Comoros",
@@ -2892,7 +3652,11 @@
     "lat": -12.16666666,
     "lng": 44.25,
     "subregion": "Eastern Africa",
-    "area": 1862
+    "area": 1862,
+    "endonym": "جزر القمر",
+    "tld": ".km",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Cape Verde",
@@ -2906,21 +3670,29 @@
     "lat": 16,
     "lng": -24,
     "subregion": "Western Africa",
-    "area": 4033
+    "area": 4033,
+    "endonym": "Cabo Verde",
+    "tld": ".cv",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Sao Tome and Principe",
     "code": "st",
     "region": "africa",
-    "capital": "S\u00e3o Tom\u00e9",
+    "capital": "São Tomé",
     "language": "Portuguese",
     "population": 211028,
-    "currency": "S\u00e3o Tom\u00e9 and Pr\u00edncipe dobra",
+    "currency": "São Tomé and Príncipe dobra",
     "currencySymbol": "Db",
     "lat": 1,
     "lng": 7,
     "subregion": "Middle Africa",
-    "area": 964
+    "area": 964,
+    "endonym": "São Tomé e Príncipe",
+    "tld": ".st",
+    "neighbours": 0,
+    "landlocked": false
   },
   {
     "name": "Lesotho",
@@ -2937,7 +3709,11 @@
     "lat": -29.5,
     "lng": 28.5,
     "subregion": "Southern Africa",
-    "area": 30355
+    "area": 30355,
+    "endonym": "Lesotho",
+    "tld": ".ls",
+    "neighbours": 1,
+    "landlocked": true
   },
   {
     "name": "Eswatini",
@@ -2954,7 +3730,11 @@
     "lat": -26.5,
     "lng": 31.5,
     "subregion": "Southern Africa",
-    "area": 17364
+    "area": 17364,
+    "endonym": "Eswatini",
+    "tld": ".sz",
+    "neighbours": 2,
+    "landlocked": true
   },
   {
     "name": "Greenland",
@@ -2972,6 +3752,10 @@
     "lng": -40,
     "subregion": "North America",
     "area": 2166086,
-    "territoryOf": "Denmark"
+    "territoryOf": "Denmark",
+    "endonym": "Kalaallit Nunaat",
+    "tld": ".gl",
+    "neighbours": 0,
+    "landlocked": false
   }
 ]
