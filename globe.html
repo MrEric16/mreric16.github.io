@@ -350,11 +350,14 @@ function factFileHtml(c){
   const economyRows = [
     row('GDP (nominal)', c.gdpMillionUsd != null ? escapeHtml(formatGdp(c.gdpMillionUsd)) : null),
     row('Passport rank', c.passportRank != null ? `#${c.passportRank} of 195 <span class="info-sub">(${c.passportVisaFreeCount} visa-free/on-arrival destinations)</span>` : null),
-    row('Life expectancy', c.lifeExpectancy != null ? `${c.lifeExpectancy} years` : null)
+    row('Life expectancy', c.lifeExpectancy != null ? `${c.lifeExpectancy} years` : null),
+    row('Literacy rate', c.literacyRate != null ? `${c.literacyRate}%` + (c.literacyNote ? ` <span class="info-sub">(${escapeHtml(c.literacyNote)})</span>` : c.literacyYear ? ` <span class="info-sub">(${c.literacyYear})</span>` : '') : null),
+    row('Unemployment rate', c.unemploymentRate != null ? `${c.unemploymentRate}%` : null),
+    row('Internet usage', c.internetUsagePct != null ? `${c.internetUsagePct}% of population` : null)
   ];
   const economyContent = economyRows.filter(Boolean).join('');
   const economySection = economyContent
-    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Life expectancy: UN 2023 data. All change over time.</p></details>`
+    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Life expectancy: UN 2023. Literacy: UNESCO, year varies by country. Unemployment: CIA World Factbook/IMF. Internet usage: most recent survey year. All change over time.</p></details>`
     : '';
   if(!f){
     const bulkContent = bulkRows.filter(Boolean).join('');
