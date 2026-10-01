@@ -263,6 +263,12 @@ function formatArea(n){
   if(n == null) return '—';
   return n.toLocaleString('en-US') + ' km²';
 }
+function formatDensity(population, area){
+  if(population == null || !area) return null;
+  const perKm2 = population / area;
+  const rounded = perKm2 >= 100 ? Math.round(perKm2) : Math.round(perKm2 * 10) / 10;
+  return rounded.toLocaleString('en-US') + ' people/km²';
+}
 const REGION_LABELS = { americas: 'Americas', europe: 'Europe', asia: 'Asia', africa: 'Africa', oceania: 'Oceania' };
 
 function infoPanelHtml(c){
@@ -280,6 +286,9 @@ function infoPanelHtml(c){
       <div class="info-row"><span class="info-label">Population</span><span class="info-value">${formatPopulation(c.population)}</span></div>
       <div class="info-row"><span class="info-label">Region</span><span class="info-value">${escapeHtml(REGION_LABELS[c.region] || c.region)}${c.subregion ? ' · ' + escapeHtml(c.subregion) : ''}</span></div>
       <div class="info-row"><span class="info-label">Area</span><span class="info-value">${formatArea(c.area)}</span></div>
+      ${formatDensity(c.population, c.area) ? `<div class="info-row"><span class="info-label">Population density</span><span class="info-value">${formatDensity(c.population, c.area)}</span></div>` : ''}
+      ${c.callingCode ? `<div class="info-row"><span class="info-label">Calling code</span><span class="info-value">${escapeHtml(c.callingCode)}</span></div>` : ''}
+      ${c.timezone ? `<div class="info-row"><span class="info-label">Time zone</span><span class="info-value">${escapeHtml(c.timezone)}</span></div>` : ''}
     </div>
     ${c.territoryOf ? `<p class="info-note">Autonomous territory of ${escapeHtml(c.territoryOf)}, not a sovereign country.</p>` : ''}
     ${(c.population == null) ? `<p class="info-note">Population figure not available for this entity.</p>` : ''}

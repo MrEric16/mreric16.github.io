@@ -36,7 +36,9 @@
     "airQualityPm25": 6.91,
     "educationSpendGdpPct": 5.43,
     "healthSpendGdpPct": 17.2,
-    "headOfState": "President Donald Trump"
+    "headOfState": "President Donald Trump",
+    "callingCode": "+1",
+    "timezone": "UTC-10 to UTC-5"
   },
   {
     "name": "United Kingdom",
@@ -75,7 +77,9 @@
     "airQualityPm25": 8.28,
     "educationSpendGdpPct": 4.96,
     "healthSpendGdpPct": 11.1,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+44",
+    "timezone": "UTC+0"
   },
   {
     "name": "France",
@@ -114,7 +118,9 @@
     "airQualityPm25": 8.45,
     "educationSpendGdpPct": 5.43,
     "healthSpendGdpPct": 11.5,
-    "headOfState": "President Emmanuel Macron"
+    "headOfState": "President Emmanuel Macron",
+    "callingCode": "+33",
+    "timezone": "UTC+1"
   },
   {
     "name": "Germany",
@@ -153,7 +159,9 @@
     "airQualityPm25": 8.51,
     "educationSpendGdpPct": 4.54,
     "healthSpendGdpPct": 12.3,
-    "headOfState": "President Frank-Walter Steinmeier"
+    "headOfState": "President Frank-Walter Steinmeier",
+    "callingCode": "+49",
+    "timezone": "UTC+1"
   },
   {
     "name": "Italy",
@@ -192,7 +200,9 @@
     "airQualityPm25": 13.11,
     "educationSpendGdpPct": 4.22,
     "healthSpendGdpPct": 8.4,
-    "headOfState": "President Sergio Mattarella"
+    "headOfState": "President Sergio Mattarella",
+    "callingCode": "+39",
+    "timezone": "UTC+1"
   },
   {
     "name": "Spain",
@@ -231,7 +241,9 @@
     "airQualityPm25": 7.5,
     "educationSpendGdpPct": 4.32,
     "healthSpendGdpPct": 9.2,
-    "headOfState": "King Felipe VI"
+    "headOfState": "King Felipe VI",
+    "callingCode": "+34",
+    "timezone": "UTC+1"
   },
   {
     "name": "Japan",
@@ -271,7 +283,9 @@
     "educationSpendGdpPct": 3.24,
     "healthSpendGdpPct": 10.6,
     "headOfState": "Emperor Naruhito",
-    "endonymLatin": "Nihon"
+    "endonymLatin": "Nihon",
+    "callingCode": "+81",
+    "timezone": "UTC+9"
   },
   {
     "name": "China",
@@ -310,7 +324,9 @@
     "educationSpendGdpPct": 4.02,
     "healthSpendGdpPct": 5.2,
     "headOfState": "President Xi Jinping",
-    "endonymLatin": "Zhongguo"
+    "endonymLatin": "Zhongguo",
+    "callingCode": "+86",
+    "timezone": "UTC+8"
   },
   {
     "name": "Canada",
@@ -352,7 +368,9 @@
     "airQualityPm25": 6.04,
     "educationSpendGdpPct": 4.14,
     "healthSpendGdpPct": 11.3,
-    "headOfState": "King Charles III (Governor General Louise Arbour)"
+    "headOfState": "King Charles III (Governor General Louise Arbour)",
+    "callingCode": "+1",
+    "timezone": "UTC-8 to UTC-3:30"
   },
   {
     "name": "Brazil",
@@ -391,7 +409,9 @@
     "airQualityPm25": 12.06,
     "educationSpendGdpPct": 5.5,
     "healthSpendGdpPct": 9.4,
-    "headOfState": "President Luiz Inacio Lula da Silva"
+    "headOfState": "President Luiz Inacio Lula da Silva",
+    "callingCode": "+55",
+    "timezone": "UTC-5 to UTC-2"
   },
   {
     "name": "Russia",
@@ -431,7 +451,9 @@
     "educationSpendGdpPct": 4.05,
     "healthSpendGdpPct": 7.6,
     "headOfState": "President Vladimir Putin",
-    "endonymLatin": "Rossiya"
+    "endonymLatin": "Rossiya",
+    "callingCode": "+7",
+    "timezone": "UTC+2 to UTC+12"
   },
   {
     "name": "Australia",
@@ -469,7 +491,9 @@
     "airQualityPm25": 3.36,
     "educationSpendGdpPct": 5.21,
     "healthSpendGdpPct": 10.3,
-    "headOfState": "King Charles III (Governor-General Sam Mostyn)"
+    "headOfState": "King Charles III (Governor-General Sam Mostyn)",
+    "callingCode": "+61",
+    "timezone": "UTC+8 to UTC+10:30"
   },
   {
     "name": "India",
@@ -513,7 +537,9 @@
     "airQualityPm25": 41.39,
     "educationSpendGdpPct": 4.12,
     "healthSpendGdpPct": 3.3,
-    "headOfState": "President Droupadi Murmu"
+    "headOfState": "President Droupadi Murmu",
+    "callingCode": "+91",
+    "timezone": "UTC+5:30"
   },
   {
     "name": "Mexico",
@@ -552,7 +578,9 @@
     "airQualityPm25": 15.64,
     "educationSpendGdpPct": 4.25,
     "healthSpendGdpPct": 5.9,
-    "headOfState": "President Claudia Sheinbaum"
+    "headOfState": "President Claudia Sheinbaum",
+    "callingCode": "+52",
+    "timezone": "UTC-8 to UTC-5"
   },
   {
     "name": "South Korea",
@@ -592,7 +620,9 @@
     "educationSpendGdpPct": 4.87,
     "healthSpendGdpPct": 8.4,
     "headOfState": "President Lee Jae-myung",
-    "endonymLatin": "Hanguk"
+    "endonymLatin": "Hanguk",
+    "callingCode": "+82",
+    "timezone": "UTC+9"
   },
   {
     "name": "Switzerland",
@@ -636,7 +666,9 @@
     "airQualityPm25": 8.73,
     "educationSpendGdpPct": 4.89,
     "healthSpendGdpPct": 11.8,
-    "headOfState": "Federal Council (collective head of state, 7 members)"
+    "headOfState": "Federal Council (collective head of state, 7 members)",
+    "callingCode": "+41",
+    "timezone": "UTC+1"
   },
   {
     "name": "Sweden",
@@ -675,7 +707,9 @@
     "airQualityPm25": 4.86,
     "educationSpendGdpPct": 7.57,
     "healthSpendGdpPct": 11.3,
-    "headOfState": "King Carl XVI Gustaf"
+    "headOfState": "King Carl XVI Gustaf",
+    "callingCode": "+46",
+    "timezone": "UTC+1"
   },
   {
     "name": "South Africa",
@@ -718,7 +752,9 @@
     "airQualityPm25": 23.26,
     "educationSpendGdpPct": 6.15,
     "healthSpendGdpPct": 8.7,
-    "headOfState": "President Cyril Ramaphosa"
+    "headOfState": "President Cyril Ramaphosa",
+    "callingCode": "+27",
+    "timezone": "UTC+2"
   },
   {
     "name": "Egypt",
@@ -756,7 +792,9 @@
     "airQualityPm25": 19.16,
     "healthSpendGdpPct": 4.4,
     "headOfState": "President Abdel Fattah el-Sisi",
-    "endonymLatin": "Misr"
+    "endonymLatin": "Misr",
+    "callingCode": "+20",
+    "timezone": "UTC+2"
   },
   {
     "name": "Turkey",
@@ -794,7 +832,9 @@
     "airQualityPm25": 21.1,
     "educationSpendGdpPct": 2.61,
     "healthSpendGdpPct": 4.7,
-    "headOfState": "President Recep Tayyip Erdogan"
+    "headOfState": "President Recep Tayyip Erdogan",
+    "callingCode": "+90",
+    "timezone": "UTC+3"
   },
   {
     "name": "Greece",
@@ -831,7 +871,9 @@
     "educationSpendGdpPct": 4.08,
     "healthSpendGdpPct": 8.1,
     "headOfState": "President Konstantinos Tasoulas",
-    "endonymLatin": "Elláda"
+    "endonymLatin": "Elláda",
+    "callingCode": "+30",
+    "timezone": "UTC+2"
   },
   {
     "name": "Portugal",
@@ -870,7 +912,9 @@
     "airQualityPm25": 5.67,
     "educationSpendGdpPct": 4.78,
     "healthSpendGdpPct": 10.2,
-    "headOfState": "President Antonio Jose Seguro"
+    "headOfState": "President Antonio Jose Seguro",
+    "callingCode": "+351",
+    "timezone": "UTC+0"
   },
   {
     "name": "Argentina",
@@ -908,7 +952,9 @@
     "airQualityPm25": 12.44,
     "educationSpendGdpPct": 4.81,
     "healthSpendGdpPct": 10.4,
-    "headOfState": "President Javier Milei"
+    "headOfState": "President Javier Milei",
+    "callingCode": "+54",
+    "timezone": "UTC-3"
   },
   {
     "name": "Ireland",
@@ -950,7 +996,9 @@
     "airQualityPm25": 5.41,
     "educationSpendGdpPct": 3.01,
     "healthSpendGdpPct": 6.9,
-    "headOfState": "President Catherine Connolly"
+    "headOfState": "President Catherine Connolly",
+    "callingCode": "+353",
+    "timezone": "UTC+0"
   },
   {
     "name": "Netherlands",
@@ -989,7 +1037,9 @@
     "airQualityPm25": 8.49,
     "educationSpendGdpPct": 5.05,
     "healthSpendGdpPct": 10.0,
-    "headOfState": "King Willem-Alexander"
+    "headOfState": "King Willem-Alexander",
+    "callingCode": "+31",
+    "timezone": "UTC+1"
   },
   {
     "name": "Norway",
@@ -1028,7 +1078,9 @@
     "airQualityPm25": 4.88,
     "educationSpendGdpPct": 3.97,
     "healthSpendGdpPct": 9.7,
-    "headOfState": "King Haakon VIII"
+    "headOfState": "King Haakon VIII",
+    "callingCode": "+47",
+    "timezone": "UTC+1"
   },
   {
     "name": "Poland",
@@ -1067,7 +1119,9 @@
     "airQualityPm25": 14.09,
     "educationSpendGdpPct": 4.67,
     "healthSpendGdpPct": 8.1,
-    "headOfState": "President Karol Nawrocki"
+    "headOfState": "President Karol Nawrocki",
+    "callingCode": "+48",
+    "timezone": "UTC+1"
   },
   {
     "name": "Belgium",
@@ -1110,7 +1164,9 @@
     "airQualityPm25": 8.82,
     "educationSpendGdpPct": 6.36,
     "healthSpendGdpPct": 11.0,
-    "headOfState": "King Philippe"
+    "headOfState": "King Philippe",
+    "callingCode": "+32",
+    "timezone": "UTC+1"
   },
   {
     "name": "Austria",
@@ -1149,7 +1205,9 @@
     "airQualityPm25": 9.52,
     "educationSpendGdpPct": 4.77,
     "healthSpendGdpPct": 11.8,
-    "headOfState": "President Alexander Van der Bellen"
+    "headOfState": "President Alexander Van der Bellen",
+    "callingCode": "+43",
+    "timezone": "UTC+1"
   },
   {
     "name": "Denmark",
@@ -1188,7 +1246,9 @@
     "airQualityPm25": 7.08,
     "educationSpendGdpPct": 5.3,
     "healthSpendGdpPct": 9.4,
-    "headOfState": "King Frederik X"
+    "headOfState": "King Frederik X",
+    "callingCode": "+45",
+    "timezone": "UTC+1"
   },
   {
     "name": "Finland",
@@ -1230,7 +1290,9 @@
     "airQualityPm25": 4.37,
     "educationSpendGdpPct": 6.54,
     "healthSpendGdpPct": 10.6,
-    "headOfState": "President Alexander Stubb"
+    "headOfState": "President Alexander Stubb",
+    "callingCode": "+358",
+    "timezone": "UTC+2"
   },
   {
     "name": "Ukraine",
@@ -1272,7 +1334,9 @@
     "educationSpendGdpPct": 5.93,
     "healthSpendGdpPct": 8.2,
     "headOfState": "President Volodymyr Zelenskyy",
-    "endonymLatin": "Ukrayina"
+    "endonymLatin": "Ukrayina",
+    "callingCode": "+380",
+    "timezone": "UTC+2"
   },
   {
     "name": "Israel",
@@ -1315,7 +1379,9 @@
     "educationSpendGdpPct": 6.46,
     "healthSpendGdpPct": 7.6,
     "headOfState": "President Isaac Herzog",
-    "endonymLatin": "Yisra'el"
+    "endonymLatin": "Yisra'el",
+    "callingCode": "+972",
+    "timezone": "UTC+2"
   },
   {
     "name": "Saudi Arabia",
@@ -1354,7 +1420,9 @@
     "educationSpendGdpPct": 5.11,
     "healthSpendGdpPct": 5.5,
     "headOfState": "King Salman (Crown Prince Mohammed bin Salman)",
-    "endonymLatin": "As-Su'udiyyah"
+    "endonymLatin": "As-Su'udiyyah",
+    "callingCode": "+966",
+    "timezone": "UTC+3"
   },
   {
     "name": "United Arab Emirates",
@@ -1393,7 +1461,9 @@
     "educationSpendGdpPct": 3.89,
     "healthSpendGdpPct": 5.7,
     "headOfState": "President Mohamed bin Zayed Al Nahyan",
-    "endonymLatin": "Al-Imarat"
+    "endonymLatin": "Al-Imarat",
+    "callingCode": "+971",
+    "timezone": "UTC+4"
   },
   {
     "name": "Thailand",
@@ -1432,7 +1502,9 @@
     "educationSpendGdpPct": 2.52,
     "healthSpendGdpPct": 4.5,
     "headOfState": "King Vajiralongkorn",
-    "endonymLatin": "Prathet Thai"
+    "endonymLatin": "Prathet Thai",
+    "callingCode": "+66",
+    "timezone": "UTC+7"
   },
   {
     "name": "Vietnam",
@@ -1471,7 +1543,9 @@
     "airQualityPm25": 23.58,
     "educationSpendGdpPct": 2.89,
     "healthSpendGdpPct": 4.7,
-    "headOfState": "President To Lam"
+    "headOfState": "President To Lam",
+    "callingCode": "+84",
+    "timezone": "UTC+7"
   },
   {
     "name": "Indonesia",
@@ -1507,7 +1581,9 @@
     "airQualityPm25": 18.25,
     "educationSpendGdpPct": 1.28,
     "healthSpendGdpPct": 2.7,
-    "headOfState": "President Prabowo Subianto"
+    "headOfState": "President Prabowo Subianto",
+    "callingCode": "+62",
+    "timezone": "UTC+7 to UTC+9"
   },
   {
     "name": "Philippines",
@@ -1549,7 +1625,9 @@
     "airQualityPm25": 19.17,
     "educationSpendGdpPct": 3.62,
     "healthSpendGdpPct": 5.6,
-    "headOfState": "President Bongbong Marcos"
+    "headOfState": "President Bongbong Marcos",
+    "callingCode": "+63",
+    "timezone": "UTC+8"
   },
   {
     "name": "Pakistan",
@@ -1592,7 +1670,9 @@
     "airQualityPm25": 38.9,
     "educationSpendGdpPct": 1.87,
     "healthSpendGdpPct": 3.0,
-    "headOfState": "President Asif Ali Zardari"
+    "headOfState": "President Asif Ali Zardari",
+    "callingCode": "+92",
+    "timezone": "UTC+5"
   },
   {
     "name": "Nigeria",
@@ -1636,7 +1716,9 @@
     "airQualityPm25": 25.02,
     "educationSpendGdpPct": 0.35,
     "healthSpendGdpPct": 3.4,
-    "headOfState": "President Bola Tinubu"
+    "headOfState": "President Bola Tinubu",
+    "callingCode": "+234",
+    "timezone": "UTC+1"
   },
   {
     "name": "Kenya",
@@ -1677,7 +1759,9 @@
     "airQualityPm25": 16.47,
     "educationSpendGdpPct": 3.96,
     "healthSpendGdpPct": 4.3,
-    "headOfState": "President William Ruto"
+    "headOfState": "President William Ruto",
+    "callingCode": "+254",
+    "timezone": "UTC+3"
   },
   {
     "name": "Morocco",
@@ -1717,7 +1801,9 @@
     "educationSpendGdpPct": 6.02,
     "healthSpendGdpPct": 6.0,
     "headOfState": "King Mohammed VI",
-    "endonymLatin": "Al-Maghrib"
+    "endonymLatin": "Al-Maghrib",
+    "callingCode": "+212",
+    "timezone": "UTC+0"
   },
   {
     "name": "Colombia",
@@ -1755,7 +1841,9 @@
     "waterAccessPct": 73.86,
     "airQualityPm25": 16.23,
     "healthSpendGdpPct": 8.1,
-    "headOfState": "President Abelardo de la Espriella"
+    "headOfState": "President Abelardo de la Espriella",
+    "callingCode": "+57",
+    "timezone": "UTC-5"
   },
   {
     "name": "Venezuela",
@@ -1789,7 +1877,9 @@
     "electricityAccessPct": 98.3,
     "airQualityPm25": 11.96,
     "healthSpendGdpPct": 3.8,
-    "headOfState": "President Nicolas Maduro (Acting President Delcy Rodriguez)"
+    "headOfState": "President Nicolas Maduro (Acting President Delcy Rodriguez)",
+    "callingCode": "+58",
+    "timezone": "UTC-4"
   },
   {
     "name": "Chile",
@@ -1828,7 +1918,9 @@
     "airQualityPm25": 22.84,
     "educationSpendGdpPct": 5.0,
     "healthSpendGdpPct": 10.5,
-    "headOfState": "President Jose Antonio Kast"
+    "headOfState": "President Jose Antonio Kast",
+    "callingCode": "+56",
+    "timezone": "UTC-6 to UTC-3"
   },
   {
     "name": "Peru",
@@ -1870,7 +1962,9 @@
     "airQualityPm25": 25.48,
     "educationSpendGdpPct": 4.24,
     "healthSpendGdpPct": 5.6,
-    "headOfState": "President Keiko Fujimori"
+    "headOfState": "President Keiko Fujimori",
+    "callingCode": "+51",
+    "timezone": "UTC-5"
   },
   {
     "name": "Cuba",
@@ -1904,7 +1998,9 @@
     "airQualityPm25": 6.34,
     "educationSpendGdpPct": 9.39,
     "healthSpendGdpPct": 12.5,
-    "headOfState": "President Miguel Diaz-Canel"
+    "headOfState": "President Miguel Diaz-Canel",
+    "callingCode": "+53",
+    "timezone": "UTC-5"
   },
   {
     "name": "New Zealand",
@@ -1943,7 +2039,9 @@
     "airQualityPm25": 3.69,
     "educationSpendGdpPct": 5.23,
     "healthSpendGdpPct": 10.1,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+64",
+    "timezone": "UTC+12 to UTC+13"
   },
   {
     "name": "Iceland",
@@ -1982,7 +2080,9 @@
     "airQualityPm25": 2.9,
     "educationSpendGdpPct": 7.14,
     "healthSpendGdpPct": 9.0,
-    "headOfState": "President Halla Tomasdottir"
+    "headOfState": "President Halla Tomasdottir",
+    "callingCode": "+354",
+    "timezone": "UTC+0"
   },
   {
     "name": "Czechia",
@@ -2017,7 +2117,9 @@
     "airQualityPm25": 11.49,
     "educationSpendGdpPct": 4.3,
     "healthSpendGdpPct": 8.5,
-    "headOfState": "President Petr Pavel"
+    "headOfState": "President Petr Pavel",
+    "callingCode": "+420",
+    "timezone": "UTC+1"
   },
   {
     "name": "Hungary",
@@ -2056,7 +2158,9 @@
     "airQualityPm25": 11.93,
     "educationSpendGdpPct": 4.68,
     "healthSpendGdpPct": 6.5,
-    "headOfState": "President Andras Baka"
+    "headOfState": "President Andras Baka",
+    "callingCode": "+36",
+    "timezone": "UTC+1"
   },
   {
     "name": "Romania",
@@ -2095,7 +2199,9 @@
     "airQualityPm25": 13.67,
     "educationSpendGdpPct": 3.32,
     "healthSpendGdpPct": 5.7,
-    "headOfState": "President Nicusor Dan"
+    "headOfState": "President Nicusor Dan",
+    "callingCode": "+40",
+    "timezone": "UTC+2"
   },
   {
     "name": "Iran",
@@ -2135,7 +2241,9 @@
     "educationSpendGdpPct": 2.93,
     "healthSpendGdpPct": 5.3,
     "headOfState": "Supreme Leader Mojtaba Khamenei",
-    "endonymLatin": "Iran"
+    "endonymLatin": "Iran",
+    "callingCode": "+98",
+    "timezone": "UTC+3:30"
   },
   {
     "name": "Iraq",
@@ -2177,7 +2285,9 @@
     "airQualityPm25": 32.42,
     "healthSpendGdpPct": 5.1,
     "headOfState": "President Nizar Amidi",
-    "endonymLatin": "Al-'Iraq"
+    "endonymLatin": "Al-'Iraq",
+    "callingCode": "+964",
+    "timezone": "UTC+3"
   },
   {
     "name": "Singapore",
@@ -2221,7 +2331,9 @@
     "airQualityPm25": 13.89,
     "educationSpendGdpPct": 2.19,
     "healthSpendGdpPct": 6.1,
-    "headOfState": "President Tharman Shanmugaratnam"
+    "headOfState": "President Tharman Shanmugaratnam",
+    "callingCode": "+65",
+    "timezone": "UTC+8"
   },
   {
     "name": "Malaysia",
@@ -2265,7 +2377,9 @@
     "airQualityPm25": 13.31,
     "educationSpendGdpPct": 3.63,
     "healthSpendGdpPct": 4.1,
-    "headOfState": "King Ibrahim Iskandar"
+    "headOfState": "King Ibrahim Iskandar",
+    "callingCode": "+60",
+    "timezone": "UTC+8"
   },
   {
     "name": "Kazakhstan",
@@ -2308,7 +2422,9 @@
     "educationSpendGdpPct": 4.46,
     "healthSpendGdpPct": 3.8,
     "headOfState": "President Kassym-Jomart Tokayev",
-    "endonymLatin": "Qazaqstan"
+    "endonymLatin": "Qazaqstan",
+    "callingCode": "+7",
+    "timezone": "UTC+5 to UTC+6"
   },
   {
     "name": "Uzbekistan",
@@ -2351,7 +2467,9 @@
     "educationSpendGdpPct": 5.47,
     "healthSpendGdpPct": 6.7,
     "headOfState": "President Shavkat Mirziyoyev",
-    "endonymLatin": "O'zbekiston / Uzbekistan"
+    "endonymLatin": "O'zbekiston / Uzbekistan",
+    "callingCode": "+998",
+    "timezone": "UTC+5"
   },
   {
     "name": "Mongolia",
@@ -2391,7 +2509,9 @@
     "educationSpendGdpPct": 3.74,
     "healthSpendGdpPct": 4.9,
     "headOfState": "President Ukhnaagiin Khurelsukh",
-    "endonymLatin": "Mongol Uls"
+    "endonymLatin": "Mongol Uls",
+    "callingCode": "+976",
+    "timezone": "UTC+7 to UTC+8"
   },
   {
     "name": "Nepal",
@@ -2434,7 +2554,9 @@
     "educationSpendGdpPct": 3.68,
     "healthSpendGdpPct": 5.2,
     "headOfState": "President Ram Chandra Paudel",
-    "endonymLatin": "Nepal"
+    "endonymLatin": "Nepal",
+    "callingCode": "+977",
+    "timezone": "UTC+5:45"
   },
   {
     "name": "Sri Lanka",
@@ -2477,7 +2599,9 @@
     "educationSpendGdpPct": 1.83,
     "healthSpendGdpPct": 4.1,
     "headOfState": "President Anura Kumara Dissanayake",
-    "endonymLatin": "Shri Lanka"
+    "endonymLatin": "Shri Lanka",
+    "callingCode": "+94",
+    "timezone": "UTC+5:30"
   },
   {
     "name": "Bangladesh",
@@ -2520,7 +2644,9 @@
     "educationSpendGdpPct": 1.78,
     "healthSpendGdpPct": 2.6,
     "headOfState": "President Mirza Fakhrul Islam Alamgir",
-    "endonymLatin": "Bangladesh"
+    "endonymLatin": "Bangladesh",
+    "callingCode": "+880",
+    "timezone": "UTC+6"
   },
   {
     "name": "Myanmar",
@@ -2561,7 +2687,9 @@
     "airQualityPm25": 28.64,
     "healthSpendGdpPct": 4.6,
     "headOfState": "President Min Aung Hlaing",
-    "endonymLatin": "Myanma"
+    "endonymLatin": "Myanma",
+    "callingCode": "+95",
+    "timezone": "UTC+6:30"
   },
   {
     "name": "Cambodia",
@@ -2600,7 +2728,9 @@
     "airQualityPm25": 16.94,
     "educationSpendGdpPct": 2.95,
     "healthSpendGdpPct": 7.5,
-    "headOfState": "King Norodom Sihamoni"
+    "headOfState": "King Norodom Sihamoni",
+    "callingCode": "+855",
+    "timezone": "UTC+7"
   },
   {
     "name": "Laos",
@@ -2640,7 +2770,9 @@
     "educationSpendGdpPct": 1.23,
     "healthSpendGdpPct": 2.7,
     "headOfState": "President Thongloun Sisoulith",
-    "endonymLatin": "Sathalanalat Paxathipatai Paxaxon Lao (Lao PDR)"
+    "endonymLatin": "Sathalanalat Paxathipatai Paxaxon Lao (Lao PDR)",
+    "callingCode": "+856",
+    "timezone": "UTC+7"
   },
   {
     "name": "North Korea",
@@ -2673,7 +2805,9 @@
     "waterAccessPct": 66.53,
     "airQualityPm25": 18.6,
     "headOfState": "President of the State Affairs Commission Kim Jong Un",
-    "endonymLatin": "Joseon"
+    "endonymLatin": "Joseon",
+    "callingCode": "+850",
+    "timezone": "UTC+9"
   },
   {
     "name": "Taiwan",
@@ -2704,7 +2838,9 @@
     "happinessRankOf": 135,
     "peaceRankOf": 161,
     "airQualityPm25": 17.29,
-    "endonymLatin": "Taiwan"
+    "endonymLatin": "Taiwan",
+    "callingCode": "+886",
+    "timezone": "UTC+8"
   },
   {
     "name": "Jordan",
@@ -2744,7 +2880,9 @@
     "educationSpendGdpPct": 3.16,
     "healthSpendGdpPct": 7.5,
     "headOfState": "King Abdullah II",
-    "endonymLatin": "Al-Urdun"
+    "endonymLatin": "Al-Urdun",
+    "callingCode": "+962",
+    "timezone": "UTC+3"
   },
   {
     "name": "Lebanon",
@@ -2783,7 +2921,9 @@
     "educationSpendGdpPct": 1.67,
     "healthSpendGdpPct": 8.0,
     "headOfState": "President Joseph Aoun",
-    "endonymLatin": "Lubnan"
+    "endonymLatin": "Lubnan",
+    "callingCode": "+961",
+    "timezone": "UTC+2"
   },
   {
     "name": "Syria",
@@ -2818,7 +2958,9 @@
     "airQualityPm25": 22.82,
     "healthSpendGdpPct": 3.0,
     "headOfState": "President Ahmed al-Sharaa",
-    "endonymLatin": "Suriya"
+    "endonymLatin": "Suriya",
+    "callingCode": "+963",
+    "timezone": "UTC+3"
   },
   {
     "name": "Yemen",
@@ -2856,7 +2998,9 @@
     "airQualityPm25": 16.76,
     "healthSpendGdpPct": 4.8,
     "headOfState": "President of the Presidential Leadership Council Rashad al-Alimi",
-    "endonymLatin": "Al-Yaman"
+    "endonymLatin": "Al-Yaman",
+    "callingCode": "+967",
+    "timezone": "UTC+3"
   },
   {
     "name": "Kuwait",
@@ -2896,7 +3040,9 @@
     "educationSpendGdpPct": 5.03,
     "healthSpendGdpPct": 6.3,
     "headOfState": "Emir Mishal Al-Ahmad Al-Jaber Al-Sabah",
-    "endonymLatin": "Al-Kuwayt"
+    "endonymLatin": "Al-Kuwayt",
+    "callingCode": "+965",
+    "timezone": "UTC+3"
   },
   {
     "name": "Qatar",
@@ -2933,7 +3079,9 @@
     "educationSpendGdpPct": 3.23,
     "healthSpendGdpPct": 4.2,
     "headOfState": "Emir Tamim bin Hamad Al Thani",
-    "endonymLatin": "Qatar"
+    "endonymLatin": "Qatar",
+    "callingCode": "+974",
+    "timezone": "UTC+3"
   },
   {
     "name": "Bahrain",
@@ -2973,7 +3121,9 @@
     "educationSpendGdpPct": 1.99,
     "healthSpendGdpPct": 4.7,
     "headOfState": "King Hamad bin Isa Al Khalifa",
-    "endonymLatin": "Al-Bahrayn"
+    "endonymLatin": "Al-Bahrayn",
+    "callingCode": "+973",
+    "timezone": "UTC+3"
   },
   {
     "name": "Oman",
@@ -3013,7 +3163,9 @@
     "educationSpendGdpPct": 4.2,
     "healthSpendGdpPct": 5.3,
     "headOfState": "Sultan Haitham bin Tariq",
-    "endonymLatin": "'Uman"
+    "endonymLatin": "'Uman",
+    "callingCode": "+968",
+    "timezone": "UTC+4"
   },
   {
     "name": "Afghanistan",
@@ -3055,7 +3207,9 @@
     "airQualityPm25": 16.98,
     "healthSpendGdpPct": 16.8,
     "headOfState": "Supreme Leader Hibatullah Akhundzada",
-    "endonymLatin": "Afghanistan"
+    "endonymLatin": "Afghanistan",
+    "callingCode": "+93",
+    "timezone": "UTC+4:30"
   },
   {
     "name": "Azerbaijan",
@@ -3098,7 +3252,9 @@
     "educationSpendGdpPct": 3.58,
     "healthSpendGdpPct": 4.6,
     "headOfState": "President Ilham Aliyev",
-    "endonymLatin": "Azerbaycan"
+    "endonymLatin": "Azerbaycan",
+    "callingCode": "+994",
+    "timezone": "UTC+4"
   },
   {
     "name": "Armenia",
@@ -3138,7 +3294,9 @@
     "educationSpendGdpPct": 0.24,
     "healthSpendGdpPct": 12.2,
     "headOfState": "President Vahagn Khachaturyan",
-    "endonymLatin": "Hayastan"
+    "endonymLatin": "Hayastan",
+    "callingCode": "+374",
+    "timezone": "UTC+4"
   },
   {
     "name": "Georgia",
@@ -3181,7 +3339,9 @@
     "educationSpendGdpPct": 3.74,
     "healthSpendGdpPct": 7.6,
     "headOfState": "President Mikheil Kavelashvili",
-    "endonymLatin": "Sak'art'velo"
+    "endonymLatin": "Sak'art'velo",
+    "callingCode": "+995",
+    "timezone": "UTC+4"
   },
   {
     "name": "Turkmenistan",
@@ -3220,7 +3380,9 @@
     "educationSpendGdpPct": 2.75,
     "healthSpendGdpPct": 5.7,
     "headOfState": "President Serdar Berdimuhamedow",
-    "endonymLatin": "Turkmeniya"
+    "endonymLatin": "Turkmeniya",
+    "callingCode": "+993",
+    "timezone": "UTC+5"
   },
   {
     "name": "Tajikistan",
@@ -3260,7 +3422,9 @@
     "educationSpendGdpPct": 5.81,
     "healthSpendGdpPct": 8.2,
     "headOfState": "President Emomali Rahmon",
-    "endonymLatin": "Tojikiston"
+    "endonymLatin": "Tojikiston",
+    "callingCode": "+992",
+    "timezone": "UTC+5"
   },
   {
     "name": "Kyrgyzstan",
@@ -3303,7 +3467,9 @@
     "educationSpendGdpPct": 6.83,
     "healthSpendGdpPct": 5.3,
     "headOfState": "President Sadyr Japarov",
-    "endonymLatin": "Kyrgyzstan"
+    "endonymLatin": "Kyrgyzstan",
+    "callingCode": "+996",
+    "timezone": "UTC+6"
   },
   {
     "name": "Bhutan",
@@ -3343,7 +3509,9 @@
     "educationSpendGdpPct": 5.85,
     "healthSpendGdpPct": 4.4,
     "headOfState": "King Jigme Khesar Namgyel Wangchuck",
-    "endonymLatin": "Druk Yul"
+    "endonymLatin": "Druk Yul",
+    "callingCode": "+975",
+    "timezone": "UTC+6"
   },
   {
     "name": "Maldives",
@@ -3379,7 +3547,9 @@
     "educationSpendGdpPct": 5.17,
     "healthSpendGdpPct": 11.3,
     "headOfState": "President Mohamed Muizzu",
-    "endonymLatin": "Dhivehi Raajje"
+    "endonymLatin": "Dhivehi Raajje",
+    "callingCode": "+960",
+    "timezone": "UTC+5"
   },
   {
     "name": "Brunei",
@@ -3413,7 +3583,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 6.33,
     "healthSpendGdpPct": 2.4,
-    "headOfState": "Sultan Hassanal Bolkiah"
+    "headOfState": "Sultan Hassanal Bolkiah",
+    "callingCode": "+673",
+    "timezone": "UTC+8"
   },
   {
     "name": "Timor-Leste",
@@ -3450,7 +3622,9 @@
     "airQualityPm25": 10.96,
     "educationSpendGdpPct": 2.97,
     "healthSpendGdpPct": 9.9,
-    "headOfState": "President Jose Ramos-Horta"
+    "headOfState": "President Jose Ramos-Horta",
+    "callingCode": "+670",
+    "timezone": "UTC+9"
   },
   {
     "name": "Ghana",
@@ -3489,7 +3663,9 @@
     "airQualityPm25": 13.73,
     "educationSpendGdpPct": 2.91,
     "healthSpendGdpPct": 4.0,
-    "headOfState": "President John Mahama"
+    "headOfState": "President John Mahama",
+    "callingCode": "+233",
+    "timezone": "UTC+0"
   },
   {
     "name": "Ethiopia",
@@ -3529,7 +3705,9 @@
     "educationSpendGdpPct": 3.74,
     "healthSpendGdpPct": 3.5,
     "headOfState": "President Taye Atske Selassie",
-    "endonymLatin": "Ityop'iya"
+    "endonymLatin": "Ityop'iya",
+    "callingCode": "+251",
+    "timezone": "UTC+3"
   },
   {
     "name": "Tanzania",
@@ -3571,7 +3749,9 @@
     "airQualityPm25": 18.17,
     "educationSpendGdpPct": 3.26,
     "healthSpendGdpPct": 3.7,
-    "headOfState": "President Samia Suluhu Hassan"
+    "headOfState": "President Samia Suluhu Hassan",
+    "callingCode": "+255",
+    "timezone": "UTC+3"
   },
   {
     "name": "Uganda",
@@ -3613,7 +3793,9 @@
     "airQualityPm25": 27.81,
     "educationSpendGdpPct": 2.55,
     "healthSpendGdpPct": 4.0,
-    "headOfState": "President Yoweri Museveni"
+    "headOfState": "President Yoweri Museveni",
+    "callingCode": "+256",
+    "timezone": "UTC+3"
   },
   {
     "name": "Algeria",
@@ -3650,7 +3832,9 @@
     "educationSpendGdpPct": 5.61,
     "healthSpendGdpPct": 6.3,
     "headOfState": "President Abdelmadjid Tebboune",
-    "endonymLatin": "Al-Jaza'ir"
+    "endonymLatin": "Al-Jaza'ir",
+    "callingCode": "+213",
+    "timezone": "UTC+1"
   },
   {
     "name": "Tunisia",
@@ -3690,7 +3874,9 @@
     "educationSpendGdpPct": 6.73,
     "healthSpendGdpPct": 6.3,
     "headOfState": "President Kais Saied",
-    "endonymLatin": "Tunis"
+    "endonymLatin": "Tunis",
+    "callingCode": "+216",
+    "timezone": "UTC+1"
   },
   {
     "name": "Libya",
@@ -3728,7 +3914,9 @@
     "airQualityPm25": 8.89,
     "healthSpendGdpPct": 6.1,
     "headOfState": "Chairman of the Presidential Council Mohamed al-Menfi",
-    "endonymLatin": "Libiya"
+    "endonymLatin": "Libiya",
+    "callingCode": "+218",
+    "timezone": "UTC+2"
   },
   {
     "name": "Sudan",
@@ -3764,7 +3952,9 @@
     "airQualityPm25": 10.18,
     "healthSpendGdpPct": 3.0,
     "headOfState": "President of the Transitional Sovereignty Council Abdel Fattah al-Burhan",
-    "endonymLatin": "As-Sudan"
+    "endonymLatin": "As-Sudan",
+    "callingCode": "+249",
+    "timezone": "UTC+2"
   },
   {
     "name": "Senegal",
@@ -3803,7 +3993,9 @@
     "airQualityPm25": 5.67,
     "educationSpendGdpPct": 5.99,
     "healthSpendGdpPct": 5.2,
-    "headOfState": "President Bassirou Diomaye Faye"
+    "headOfState": "President Bassirou Diomaye Faye",
+    "callingCode": "+221",
+    "timezone": "UTC+0"
   },
   {
     "name": "Mali",
@@ -3841,7 +4033,9 @@
     "airQualityPm25": 6.63,
     "educationSpendGdpPct": 4.04,
     "healthSpendGdpPct": 4.3,
-    "headOfState": "President Assimi Goita"
+    "headOfState": "President Assimi Goita",
+    "callingCode": "+223",
+    "timezone": "UTC+0"
   },
   {
     "name": "Guinea",
@@ -3878,7 +4072,9 @@
     "airQualityPm25": 9.82,
     "educationSpendGdpPct": 1.99,
     "healthSpendGdpPct": 4.0,
-    "headOfState": "President Mamady Doumbouya"
+    "headOfState": "President Mamady Doumbouya",
+    "callingCode": "+224",
+    "timezone": "UTC+0"
   },
   {
     "name": "Ivory Coast",
@@ -3917,7 +4113,9 @@
     "airQualityPm25": 10.45,
     "educationSpendGdpPct": 3.43,
     "healthSpendGdpPct": 3.7,
-    "headOfState": "President Alassane Ouattara"
+    "headOfState": "President Alassane Ouattara",
+    "callingCode": "+225",
+    "timezone": "UTC+0"
   },
   {
     "name": "Cameroon",
@@ -3957,7 +4155,9 @@
     "airQualityPm25": 32.58,
     "educationSpendGdpPct": 2.62,
     "healthSpendGdpPct": 3.8,
-    "headOfState": "President Paul Biya"
+    "headOfState": "President Paul Biya",
+    "callingCode": "+237",
+    "timezone": "UTC+1"
   },
   {
     "name": "Zambia",
@@ -3995,7 +4195,9 @@
     "airQualityPm25": 22.18,
     "educationSpendGdpPct": 3.58,
     "healthSpendGdpPct": 5.6,
-    "headOfState": "President Hakainde Hichilema"
+    "headOfState": "President Hakainde Hichilema",
+    "callingCode": "+260",
+    "timezone": "UTC+2"
   },
   {
     "name": "Zimbabwe",
@@ -4037,7 +4239,9 @@
     "waterAccessPct": 26.52,
     "airQualityPm25": 15.97,
     "healthSpendGdpPct": 3.4,
-    "headOfState": "President Emmerson Mnangagwa"
+    "headOfState": "President Emmerson Mnangagwa",
+    "callingCode": "+263",
+    "timezone": "UTC+2"
   },
   {
     "name": "Angola",
@@ -4072,7 +4276,9 @@
     "airQualityPm25": 21.07,
     "educationSpendGdpPct": 2.33,
     "healthSpendGdpPct": 2.9,
-    "headOfState": "President Joao Lourenco"
+    "headOfState": "President Joao Lourenco",
+    "callingCode": "+244",
+    "timezone": "UTC+1"
   },
   {
     "name": "Mozambique",
@@ -4113,7 +4319,9 @@
     "airQualityPm25": 12.7,
     "educationSpendGdpPct": 6.16,
     "healthSpendGdpPct": 7.6,
-    "headOfState": "President Daniel Chapo"
+    "headOfState": "President Daniel Chapo",
+    "callingCode": "+258",
+    "timezone": "UTC+2"
   },
   {
     "name": "Namibia",
@@ -4154,7 +4362,9 @@
     "airQualityPm25": 14.49,
     "educationSpendGdpPct": 9.04,
     "healthSpendGdpPct": 8.9,
-    "headOfState": "President Netumbo Nandi-Ndaitwah"
+    "headOfState": "President Netumbo Nandi-Ndaitwah",
+    "callingCode": "+264",
+    "timezone": "UTC+2"
   },
   {
     "name": "Botswana",
@@ -4195,7 +4405,9 @@
     "airQualityPm25": 12.47,
     "educationSpendGdpPct": 8.06,
     "healthSpendGdpPct": 6.2,
-    "headOfState": "President Duma Boko"
+    "headOfState": "President Duma Boko",
+    "callingCode": "+267",
+    "timezone": "UTC+2"
   },
   {
     "name": "Rwanda",
@@ -4235,7 +4447,9 @@
     "airQualityPm25": 33.37,
     "educationSpendGdpPct": 4.92,
     "healthSpendGdpPct": 7.3,
-    "headOfState": "President Paul Kagame"
+    "headOfState": "President Paul Kagame",
+    "callingCode": "+250",
+    "timezone": "UTC+2"
   },
   {
     "name": "Somalia",
@@ -4273,7 +4487,9 @@
     "electricityAccessPct": 49.3,
     "airQualityPm25": 8.9,
     "headOfState": "President Hassan Sheikh Mohamud",
-    "endonymLatin": "As-Sumal"
+    "endonymLatin": "As-Sumal",
+    "callingCode": "+252",
+    "timezone": "UTC+3"
   },
   {
     "name": "Democratic Republic of the Congo",
@@ -4312,7 +4528,9 @@
     "airQualityPm25": 34.2,
     "educationSpendGdpPct": 3.0,
     "healthSpendGdpPct": 4.1,
-    "headOfState": "President Felix Tshisekedi"
+    "headOfState": "President Felix Tshisekedi",
+    "callingCode": "+243",
+    "timezone": "UTC+1 to UTC+2"
   },
   {
     "name": "Republic of the Congo",
@@ -4347,7 +4565,9 @@
     "airQualityPm25": 31.94,
     "educationSpendGdpPct": 2.95,
     "healthSpendGdpPct": 4.5,
-    "headOfState": "President Denis Sassou Nguesso"
+    "headOfState": "President Denis Sassou Nguesso",
+    "callingCode": "+242",
+    "timezone": "UTC+1"
   },
   {
     "name": "Panama",
@@ -4385,7 +4605,9 @@
     "airQualityPm25": 9.65,
     "educationSpendGdpPct": 3.37,
     "healthSpendGdpPct": 9.7,
-    "headOfState": "President Jose Raul Mulino"
+    "headOfState": "President Jose Raul Mulino",
+    "callingCode": "+507",
+    "timezone": "UTC-5"
   },
   {
     "name": "Costa Rica",
@@ -4424,7 +4646,9 @@
     "airQualityPm25": 12.63,
     "educationSpendGdpPct": 6.25,
     "healthSpendGdpPct": 6.8,
-    "headOfState": "President Laura Fernandez"
+    "headOfState": "President Laura Fernandez",
+    "callingCode": "+506",
+    "timezone": "UTC-6"
   },
   {
     "name": "Nicaragua",
@@ -4463,7 +4687,9 @@
     "airQualityPm25": 14.62,
     "educationSpendGdpPct": 3.79,
     "healthSpendGdpPct": 8.6,
-    "headOfState": "Co-President Daniel Ortega"
+    "headOfState": "Co-President Daniel Ortega",
+    "callingCode": "+505",
+    "timezone": "UTC-6"
   },
   {
     "name": "Honduras",
@@ -4502,7 +4728,9 @@
     "airQualityPm25": 24.52,
     "educationSpendGdpPct": 4.05,
     "healthSpendGdpPct": 9.0,
-    "headOfState": "President Nasry Asfura"
+    "headOfState": "President Nasry Asfura",
+    "callingCode": "+504",
+    "timezone": "UTC-6"
   },
   {
     "name": "El Salvador",
@@ -4540,7 +4768,9 @@
     "airQualityPm25": 27.43,
     "educationSpendGdpPct": 3.17,
     "healthSpendGdpPct": 9.9,
-    "headOfState": "President Nayib Bukele"
+    "headOfState": "President Nayib Bukele",
+    "callingCode": "+503",
+    "timezone": "UTC-6"
   },
   {
     "name": "Guatemala",
@@ -4579,7 +4809,9 @@
     "airQualityPm25": 25.13,
     "educationSpendGdpPct": 3.18,
     "healthSpendGdpPct": 6.5,
-    "headOfState": "President Bernardo Arevalo"
+    "headOfState": "President Bernardo Arevalo",
+    "callingCode": "+502",
+    "timezone": "UTC-6"
   },
   {
     "name": "Ecuador",
@@ -4618,7 +4850,9 @@
     "airQualityPm25": 18.32,
     "educationSpendGdpPct": 3.89,
     "healthSpendGdpPct": 8.5,
-    "headOfState": "President Daniel Noboa"
+    "headOfState": "President Daniel Noboa",
+    "callingCode": "+593",
+    "timezone": "UTC-6 to UTC-5"
   },
   {
     "name": "Bolivia",
@@ -4660,7 +4894,9 @@
     "airQualityPm25": 29.63,
     "educationSpendGdpPct": 7.58,
     "healthSpendGdpPct": 7.9,
-    "headOfState": "President Rodrigo Paz"
+    "headOfState": "President Rodrigo Paz",
+    "callingCode": "+591",
+    "timezone": "UTC-4"
   },
   {
     "name": "Paraguay",
@@ -4702,7 +4938,9 @@
     "airQualityPm25": 13.23,
     "educationSpendGdpPct": 3.41,
     "healthSpendGdpPct": 7.6,
-    "headOfState": "President Santiago Pena"
+    "headOfState": "President Santiago Pena",
+    "callingCode": "+595",
+    "timezone": "UTC-3"
   },
   {
     "name": "Uruguay",
@@ -4740,7 +4978,9 @@
     "airQualityPm25": 9.08,
     "educationSpendGdpPct": 4.51,
     "healthSpendGdpPct": 9.2,
-    "headOfState": "President Yamandu Orsi"
+    "headOfState": "President Yamandu Orsi",
+    "callingCode": "+598",
+    "timezone": "UTC-3"
   },
   {
     "name": "Dominican Republic",
@@ -4779,7 +5019,9 @@
     "airQualityPm25": 7.86,
     "educationSpendGdpPct": 3.94,
     "healthSpendGdpPct": 4.9,
-    "headOfState": "President Luis Abinader"
+    "headOfState": "President Luis Abinader",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Haiti",
@@ -4814,7 +5056,9 @@
     "airQualityPm25": 9.92,
     "educationSpendGdpPct": 1.27,
     "healthSpendGdpPct": 3.2,
-    "headOfState": "President (vacant)"
+    "headOfState": "President (vacant)",
+    "callingCode": "+509",
+    "timezone": "UTC-5"
   },
   {
     "name": "Jamaica",
@@ -4852,7 +5096,9 @@
     "airQualityPm25": 13.17,
     "educationSpendGdpPct": 5.65,
     "healthSpendGdpPct": 6.6,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+1",
+    "timezone": "UTC-5"
   },
   {
     "name": "Slovakia",
@@ -4889,7 +5135,9 @@
     "airQualityPm25": 12.1,
     "educationSpendGdpPct": 4.8,
     "healthSpendGdpPct": 8.4,
-    "headOfState": "President Peter Pellegrini"
+    "headOfState": "President Peter Pellegrini",
+    "callingCode": "+421",
+    "timezone": "UTC+1"
   },
   {
     "name": "Slovenia",
@@ -4928,7 +5176,9 @@
     "airQualityPm25": 12.32,
     "educationSpendGdpPct": 5.37,
     "healthSpendGdpPct": 9.9,
-    "headOfState": "President Natasa Pirc Musar"
+    "headOfState": "President Natasa Pirc Musar",
+    "callingCode": "+386",
+    "timezone": "UTC+1"
   },
   {
     "name": "Croatia",
@@ -4967,7 +5217,9 @@
     "airQualityPm25": 14.15,
     "educationSpendGdpPct": 4.06,
     "healthSpendGdpPct": 7.1,
-    "headOfState": "President Zoran Milanovic"
+    "headOfState": "President Zoran Milanovic",
+    "callingCode": "+385",
+    "timezone": "UTC+1"
   },
   {
     "name": "Serbia",
@@ -5007,7 +5259,9 @@
     "educationSpendGdpPct": 3.24,
     "healthSpendGdpPct": 8.7,
     "headOfState": "Acting President Ana Brnabic",
-    "endonymLatin": "Srbija"
+    "endonymLatin": "Srbija",
+    "callingCode": "+381",
+    "timezone": "UTC+1"
   },
   {
     "name": "Bosnia and Herzegovina",
@@ -5050,7 +5304,9 @@
     "airQualityPm25": 23.93,
     "educationSpendGdpPct": 4.14,
     "healthSpendGdpPct": 9.8,
-    "headOfState": "Tripartite Presidency (Becirovic, Cvijanovic, Komsic)"
+    "headOfState": "Tripartite Presidency (Becirovic, Cvijanovic, Komsic)",
+    "callingCode": "+387",
+    "timezone": "UTC+1"
   },
   {
     "name": "Bulgaria",
@@ -5087,7 +5343,9 @@
     "educationSpendGdpPct": 4.73,
     "healthSpendGdpPct": 7.9,
     "headOfState": "President Iliana Iotova",
-    "endonymLatin": "Balgariya"
+    "endonymLatin": "Balgariya",
+    "callingCode": "+359",
+    "timezone": "UTC+2"
   },
   {
     "name": "North Macedonia",
@@ -5123,7 +5381,9 @@
     "airQualityPm25": 19.02,
     "healthSpendGdpPct": 7.9,
     "headOfState": "President Gordana Siljanovska-Davkova",
-    "endonymLatin": "Makedonija"
+    "endonymLatin": "Makedonija",
+    "callingCode": "+389",
+    "timezone": "UTC+1"
   },
   {
     "name": "Albania",
@@ -5159,7 +5419,9 @@
     "airQualityPm25": 12.6,
     "educationSpendGdpPct": 2.74,
     "healthSpendGdpPct": 6.7,
-    "headOfState": "President Bajram Begaj"
+    "headOfState": "President Bajram Begaj",
+    "callingCode": "+355",
+    "timezone": "UTC+1"
   },
   {
     "name": "Montenegro",
@@ -5201,7 +5463,9 @@
     "airQualityPm25": 15.09,
     "healthSpendGdpPct": 11.4,
     "headOfState": "President Jakov Milatovic",
-    "endonymLatin": "Crna Gora"
+    "endonymLatin": "Crna Gora",
+    "callingCode": "+382",
+    "timezone": "UTC+1"
   },
   {
     "name": "Kosovo",
@@ -5230,7 +5494,9 @@
     "peaceRank": 54,
     "happinessRankOf": 135,
     "peaceRankOf": 161,
-    "electricityAccessPct": 100.0
+    "electricityAccessPct": 100.0,
+    "callingCode": "+383",
+    "timezone": "UTC+1"
   },
   {
     "name": "Moldova",
@@ -5272,7 +5538,9 @@
     "airQualityPm25": 11.49,
     "educationSpendGdpPct": 6.25,
     "healthSpendGdpPct": 6.8,
-    "headOfState": "President Maia Sandu"
+    "headOfState": "President Maia Sandu",
+    "callingCode": "+373",
+    "timezone": "UTC+2"
   },
   {
     "name": "Belarus",
@@ -5312,7 +5580,9 @@
     "educationSpendGdpPct": 4.95,
     "healthSpendGdpPct": 6.4,
     "headOfState": "President Alexander Lukashenko",
-    "endonymLatin": "Belarus'"
+    "endonymLatin": "Belarus'",
+    "callingCode": "+375",
+    "timezone": "UTC+3"
   },
   {
     "name": "Lithuania",
@@ -5351,7 +5621,9 @@
     "airQualityPm25": 9.53,
     "educationSpendGdpPct": 4.25,
     "healthSpendGdpPct": 7.6,
-    "headOfState": "President Gitanas Nauseda"
+    "headOfState": "President Gitanas Nauseda",
+    "callingCode": "+370",
+    "timezone": "UTC+2"
   },
   {
     "name": "Latvia",
@@ -5390,7 +5662,9 @@
     "airQualityPm25": 12.14,
     "educationSpendGdpPct": 4.62,
     "healthSpendGdpPct": 7.6,
-    "headOfState": "President Edgars Rinkevics"
+    "headOfState": "President Edgars Rinkevics",
+    "callingCode": "+371",
+    "timezone": "UTC+2"
   },
   {
     "name": "Estonia",
@@ -5429,7 +5703,9 @@
     "airQualityPm25": 5.61,
     "educationSpendGdpPct": 5.26,
     "healthSpendGdpPct": 7.8,
-    "headOfState": "President Alar Karis"
+    "headOfState": "President Alar Karis",
+    "callingCode": "+372",
+    "timezone": "UTC+2"
   },
   {
     "name": "Luxembourg",
@@ -5469,7 +5745,9 @@
     "airQualityPm25": 8.0,
     "educationSpendGdpPct": 4.7,
     "healthSpendGdpPct": 5.9,
-    "headOfState": "Grand Duke Guillaume V"
+    "headOfState": "Grand Duke Guillaume V",
+    "callingCode": "+352",
+    "timezone": "UTC+1"
   },
   {
     "name": "Malta",
@@ -5508,7 +5786,9 @@
     "airQualityPm25": 7.16,
     "educationSpendGdpPct": 5.36,
     "healthSpendGdpPct": 8.8,
-    "headOfState": "President Myriam Spiteri Debono"
+    "headOfState": "President Myriam Spiteri Debono",
+    "callingCode": "+356",
+    "timezone": "UTC+1"
   },
   {
     "name": "Cyprus",
@@ -5551,7 +5831,9 @@
     "educationSpendGdpPct": 5.24,
     "healthSpendGdpPct": 8.1,
     "headOfState": "President Nikos Christodoulides",
-    "endonymLatin": "Kypros"
+    "endonymLatin": "Kypros",
+    "callingCode": "+357",
+    "timezone": "UTC+2"
   },
   {
     "name": "Liechtenstein",
@@ -5578,7 +5860,9 @@
     "electricityAccessPct": 100.0,
     "waterAccessPct": 100.0,
     "airQualityPm25": 10.82,
-    "headOfState": "Prince Regnant Hans-Adam II"
+    "headOfState": "Prince Regnant Hans-Adam II",
+    "callingCode": "+423",
+    "timezone": "UTC+1"
   },
   {
     "name": "Monaco",
@@ -5609,7 +5893,9 @@
     "airQualityPm25": 9.9,
     "educationSpendGdpPct": 1.17,
     "healthSpendGdpPct": 1.7,
-    "headOfState": "Sovereign Prince Albert II"
+    "headOfState": "Sovereign Prince Albert II",
+    "callingCode": "+377",
+    "timezone": "UTC+1"
   },
   {
     "name": "San Marino",
@@ -5641,7 +5927,9 @@
     "airQualityPm25": 13.51,
     "educationSpendGdpPct": 3.43,
     "healthSpendGdpPct": 8.7,
-    "headOfState": "Captains Regent Alice Mina and Vladimiro Selva"
+    "headOfState": "Captains Regent Alice Mina and Vladimiro Selva",
+    "callingCode": "+378",
+    "timezone": "UTC+1"
   },
   {
     "name": "Andorra",
@@ -5675,7 +5963,9 @@
     "airQualityPm25": 8.72,
     "educationSpendGdpPct": 1.93,
     "healthSpendGdpPct": 9.1,
-    "headOfState": "Episcopal Co-prince Josep-Lluis Serrano Pentinat / French Co-prince Emmanuel Macron"
+    "headOfState": "Episcopal Co-prince Josep-Lluis Serrano Pentinat / French Co-prince Emmanuel Macron",
+    "callingCode": "+376",
+    "timezone": "UTC+1"
   },
   {
     "name": "Vatican City",
@@ -5702,7 +5992,9 @@
     "headOfGovernment": "President of the Governorate Raffaella Petrini",
     "internetUsagePct": 89.2,
     "airQualityPm25": 11.1,
-    "headOfState": "Pope Leo XIV"
+    "headOfState": "Pope Leo XIV",
+    "callingCode": "+379",
+    "timezone": "UTC+1"
   },
   {
     "name": "Fiji",
@@ -5732,7 +6024,9 @@
     "airQualityPm25": 3.23,
     "educationSpendGdpPct": 4.25,
     "healthSpendGdpPct": 3.7,
-    "headOfState": "President Naiqama Lalabalavu"
+    "headOfState": "President Naiqama Lalabalavu",
+    "callingCode": "+679",
+    "timezone": "UTC+12"
   },
   {
     "name": "Papua New Guinea",
@@ -5767,7 +6061,9 @@
     "airQualityPm25": 14.45,
     "educationSpendGdpPct": 1.35,
     "healthSpendGdpPct": 2.5,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+675",
+    "timezone": "UTC+10 to UTC+11"
   },
   {
     "name": "Samoa",
@@ -5799,7 +6095,9 @@
     "airQualityPm25": 1.69,
     "educationSpendGdpPct": 6.11,
     "healthSpendGdpPct": 5.3,
-    "headOfState": "O le Ao o le Malo Tuimalealiifano Vaaletoa Sualauvi II"
+    "headOfState": "O le Ao o le Malo Tuimalealiifano Vaaletoa Sualauvi II",
+    "callingCode": "+685",
+    "timezone": "UTC+13"
   },
   {
     "name": "Tonga",
@@ -5832,7 +6130,9 @@
     "airQualityPm25": 1.98,
     "educationSpendGdpPct": 5.15,
     "healthSpendGdpPct": 5.3,
-    "headOfState": "King Tupou VI"
+    "headOfState": "King Tupou VI",
+    "callingCode": "+676",
+    "timezone": "UTC+13"
   },
   {
     "name": "Vanuatu",
@@ -5867,7 +6167,9 @@
     "airQualityPm25": 5.12,
     "educationSpendGdpPct": 10.64,
     "healthSpendGdpPct": 4.0,
-    "headOfState": "President Nikenike Vurobaravu"
+    "headOfState": "President Nikenike Vurobaravu",
+    "callingCode": "+678",
+    "timezone": "UTC+11"
   },
   {
     "name": "Solomon Islands",
@@ -5898,7 +6200,9 @@
     "airQualityPm25": 7.02,
     "educationSpendGdpPct": 8.29,
     "healthSpendGdpPct": 4.4,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+677",
+    "timezone": "UTC+11"
   },
   {
     "name": "Kiribati",
@@ -5928,7 +6232,9 @@
     "airQualityPm25": 0.9,
     "educationSpendGdpPct": 16.4,
     "healthSpendGdpPct": 11.6,
-    "headOfState": "President Taneti Maamau"
+    "headOfState": "President Taneti Maamau",
+    "callingCode": "+686",
+    "timezone": "UTC+12 to UTC+14"
   },
   {
     "name": "Tuvalu",
@@ -5956,7 +6262,9 @@
     "airQualityPm25": 1.56,
     "educationSpendGdpPct": 12.85,
     "healthSpendGdpPct": 21.5,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+688",
+    "timezone": "UTC+12"
   },
   {
     "name": "Nauru",
@@ -5984,7 +6292,9 @@
     "airQualityPm25": 1.18,
     "educationSpendGdpPct": 7.81,
     "healthSpendGdpPct": 12.0,
-    "headOfState": "President David Adeang"
+    "headOfState": "President David Adeang",
+    "callingCode": "+674",
+    "timezone": "UTC+12"
   },
   {
     "name": "Marshall Islands",
@@ -6013,7 +6323,9 @@
     "airQualityPm25": 1.02,
     "educationSpendGdpPct": 7.54,
     "healthSpendGdpPct": 13.0,
-    "headOfState": "President Hilda Heine"
+    "headOfState": "President Hilda Heine",
+    "callingCode": "+692",
+    "timezone": "UTC+12"
   },
   {
     "name": "Palau",
@@ -6044,7 +6356,9 @@
     "airQualityPm25": 2.4,
     "educationSpendGdpPct": 3.44,
     "healthSpendGdpPct": 18.4,
-    "headOfState": "President Surangel Whipps Jr."
+    "headOfState": "President Surangel Whipps Jr.",
+    "callingCode": "+680",
+    "timezone": "UTC+9"
   },
   {
     "name": "Micronesia",
@@ -6070,7 +6384,9 @@
     "lifeExpectancy": 67.2,
     "educationSpendGdpPct": 10.54,
     "healthSpendGdpPct": 11.6,
-    "headOfState": "President Wesley Simina"
+    "headOfState": "President Wesley Simina",
+    "callingCode": "+691",
+    "timezone": "UTC+10 to UTC+11"
   },
   {
     "name": "Trinidad and Tobago",
@@ -6108,7 +6424,9 @@
     "airQualityPm25": 3.9,
     "educationSpendGdpPct": 2.88,
     "healthSpendGdpPct": 7.3,
-    "headOfState": "President Christine Kangaloo"
+    "headOfState": "President Christine Kangaloo",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Bahamas",
@@ -6138,7 +6456,9 @@
     "airQualityPm25": 3.11,
     "educationSpendGdpPct": 2.84,
     "healthSpendGdpPct": 7.6,
-    "headOfState": "King Charles III (Governor-General Cynthia A. Pratt)"
+    "headOfState": "King Charles III (Governor-General Cynthia A. Pratt)",
+    "callingCode": "+1",
+    "timezone": "UTC-5"
   },
   {
     "name": "Barbados",
@@ -6169,7 +6489,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 2.0,
     "healthSpendGdpPct": 7.2,
-    "headOfState": "President Jeffrey Bostic"
+    "headOfState": "President Jeffrey Bostic",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Belize",
@@ -6204,7 +6526,9 @@
     "airQualityPm25": 9.89,
     "educationSpendGdpPct": 4.26,
     "healthSpendGdpPct": 6.9,
-    "headOfState": "King Charles III (Governor-General Froyla Tzalam)"
+    "headOfState": "King Charles III (Governor-General Froyla Tzalam)",
+    "callingCode": "+501",
+    "timezone": "UTC-6"
   },
   {
     "name": "Guyana",
@@ -6238,7 +6562,9 @@
     "electricityAccessPct": 98.9,
     "airQualityPm25": 7.15,
     "healthSpendGdpPct": 5.5,
-    "headOfState": "President Irfaan Ali"
+    "headOfState": "President Irfaan Ali",
+    "callingCode": "+592",
+    "timezone": "UTC-4"
   },
   {
     "name": "Suriname",
@@ -6271,7 +6597,9 @@
     "airQualityPm25": 6.05,
     "educationSpendGdpPct": 2.87,
     "healthSpendGdpPct": 6.8,
-    "headOfState": "President Jennifer Geerlings-Simons"
+    "headOfState": "President Jennifer Geerlings-Simons",
+    "callingCode": "+597",
+    "timezone": "UTC-3"
   },
   {
     "name": "Grenada",
@@ -6302,7 +6630,9 @@
     "waterAccessPct": 87.12,
     "airQualityPm25": 2.19,
     "healthSpendGdpPct": 5.8,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Saint Lucia",
@@ -6331,7 +6661,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 2.02,
     "healthSpendGdpPct": 6.7,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Saint Vincent and the Grenadines",
@@ -6363,7 +6695,9 @@
     "airQualityPm25": 2.15,
     "educationSpendGdpPct": 7.21,
     "healthSpendGdpPct": 4.8,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Antigua and Barbuda",
@@ -6393,7 +6727,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 1.79,
     "healthSpendGdpPct": 5.6,
-    "headOfState": "King Charles III (Governor-General Rodney Williams)"
+    "headOfState": "King Charles III (Governor-General Rodney Williams)",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Dominica",
@@ -6421,7 +6757,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 2.34,
     "healthSpendGdpPct": 5.6,
-    "headOfState": "President Sylvanie Burton"
+    "headOfState": "President Sylvanie Burton",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "Saint Kitts and Nevis",
@@ -6448,7 +6786,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 2.4,
     "healthSpendGdpPct": 5.4,
-    "headOfState": "King Charles III"
+    "headOfState": "King Charles III",
+    "callingCode": "+1",
+    "timezone": "UTC-4"
   },
   {
     "name": "South Sudan",
@@ -6483,7 +6823,9 @@
     "electricityAccessPct": 7.1,
     "airQualityPm25": 15.97,
     "healthSpendGdpPct": 5.3,
-    "headOfState": "President Salva Kiir"
+    "headOfState": "President Salva Kiir",
+    "callingCode": "+211",
+    "timezone": "UTC+2"
   },
   {
     "name": "Chad",
@@ -6526,7 +6868,9 @@
     "educationSpendGdpPct": 2.54,
     "healthSpendGdpPct": 5.4,
     "headOfState": "President Mahamat Deby",
-    "endonymLatin": "Tshad"
+    "endonymLatin": "Tshad",
+    "callingCode": "+235",
+    "timezone": "UTC+1"
   },
   {
     "name": "Niger",
@@ -6564,7 +6908,9 @@
     "airQualityPm25": 10.56,
     "educationSpendGdpPct": 4.1,
     "healthSpendGdpPct": 6.2,
-    "headOfState": "Transitional President Abdourahamane Tiani"
+    "headOfState": "Transitional President Abdourahamane Tiani",
+    "callingCode": "+227",
+    "timezone": "UTC+1"
   },
   {
     "name": "Burkina Faso",
@@ -6602,7 +6948,9 @@
     "airQualityPm25": 8.66,
     "educationSpendGdpPct": 5.28,
     "healthSpendGdpPct": 6.7,
-    "headOfState": "Interim President Ibrahim Traore"
+    "headOfState": "Interim President Ibrahim Traore",
+    "callingCode": "+226",
+    "timezone": "UTC+0"
   },
   {
     "name": "Benin",
@@ -6640,7 +6988,9 @@
     "airQualityPm25": 17.31,
     "educationSpendGdpPct": 3.38,
     "healthSpendGdpPct": 2.6,
-    "headOfState": "President Romuald Wadagni"
+    "headOfState": "President Romuald Wadagni",
+    "callingCode": "+229",
+    "timezone": "UTC+1"
   },
   {
     "name": "Togo",
@@ -6679,7 +7029,9 @@
     "airQualityPm25": 15.64,
     "educationSpendGdpPct": 3.8,
     "healthSpendGdpPct": 6.0,
-    "headOfState": "President Jean-Lucien Savi de Tove"
+    "headOfState": "President Jean-Lucien Savi de Tove",
+    "callingCode": "+228",
+    "timezone": "UTC+0"
   },
   {
     "name": "Sierra Leone",
@@ -6718,7 +7070,9 @@
     "airQualityPm25": 9.87,
     "educationSpendGdpPct": 6.79,
     "healthSpendGdpPct": 8.8,
-    "headOfState": "President Julius Maada Bio"
+    "headOfState": "President Julius Maada Bio",
+    "callingCode": "+232",
+    "timezone": "UTC+0"
   },
   {
     "name": "Liberia",
@@ -6756,7 +7110,9 @@
     "airQualityPm25": 9.39,
     "educationSpendGdpPct": 2.28,
     "healthSpendGdpPct": 9.5,
-    "headOfState": "President Joseph Boakai"
+    "headOfState": "President Joseph Boakai",
+    "callingCode": "+231",
+    "timezone": "UTC+0"
   },
   {
     "name": "Gambia",
@@ -6795,7 +7151,9 @@
     "airQualityPm25": 6.86,
     "educationSpendGdpPct": 2.7,
     "healthSpendGdpPct": 2.6,
-    "headOfState": "President Adama Barrow"
+    "headOfState": "President Adama Barrow",
+    "callingCode": "+220",
+    "timezone": "UTC+0"
   },
   {
     "name": "Guinea-Bissau",
@@ -6829,7 +7187,9 @@
     "waterAccessPct": 23.87,
     "airQualityPm25": 7.94,
     "healthSpendGdpPct": 8.4,
-    "headOfState": "Transitional President Horta Inta-A Na Man"
+    "headOfState": "Transitional President Horta Inta-A Na Man",
+    "callingCode": "+245",
+    "timezone": "UTC+0"
   },
   {
     "name": "Equatorial Guinea",
@@ -6863,7 +7223,9 @@
     "electricityAccessPct": 66.8,
     "airQualityPm25": 32.87,
     "healthSpendGdpPct": 3.8,
-    "headOfState": "President Teodoro Obiang Nguema Mbasogo"
+    "headOfState": "President Teodoro Obiang Nguema Mbasogo",
+    "callingCode": "+240",
+    "timezone": "UTC+1"
   },
   {
     "name": "Gabon",
@@ -6901,7 +7263,9 @@
     "airQualityPm25": 25.65,
     "educationSpendGdpPct": 2.21,
     "healthSpendGdpPct": 3.4,
-    "headOfState": "President Brice Oligui Nguema"
+    "headOfState": "President Brice Oligui Nguema",
+    "callingCode": "+241",
+    "timezone": "UTC+1"
   },
   {
     "name": "Central African Republic",
@@ -6937,7 +7301,9 @@
     "airQualityPm25": 24.99,
     "educationSpendGdpPct": 2.12,
     "healthSpendGdpPct": 9.4,
-    "headOfState": "President Faustin-Archange Touadera"
+    "headOfState": "President Faustin-Archange Touadera",
+    "callingCode": "+236",
+    "timezone": "UTC+1"
   },
   {
     "name": "Djibouti",
@@ -6973,7 +7339,9 @@
     "airQualityPm25": 18.43,
     "healthSpendGdpPct": 2.0,
     "headOfState": "President Ismail Omar Guelleh",
-    "endonymLatin": "Jibuti"
+    "endonymLatin": "Jibuti",
+    "callingCode": "+253",
+    "timezone": "UTC+3"
   },
   {
     "name": "Eritrea",
@@ -7010,7 +7378,9 @@
     "airQualityPm25": 14.43,
     "healthSpendGdpPct": 4.1,
     "headOfState": "President Isaias Afwerki",
-    "endonymLatin": "Iritriya"
+    "endonymLatin": "Iritriya",
+    "callingCode": "+291",
+    "timezone": "UTC+3"
   },
   {
     "name": "Burundi",
@@ -7048,7 +7418,9 @@
     "airQualityPm25": 34.04,
     "educationSpendGdpPct": 4.82,
     "healthSpendGdpPct": 6.5,
-    "headOfState": "President Evariste Ndayishimiye"
+    "headOfState": "President Evariste Ndayishimiye",
+    "callingCode": "+257",
+    "timezone": "UTC+2"
   },
   {
     "name": "Malawi",
@@ -7089,7 +7461,9 @@
     "waterAccessPct": 17.76,
     "airQualityPm25": 17.61,
     "healthSpendGdpPct": 5.4,
-    "headOfState": "President Peter Mutharika"
+    "headOfState": "President Peter Mutharika",
+    "callingCode": "+265",
+    "timezone": "UTC+2"
   },
   {
     "name": "Madagascar",
@@ -7128,7 +7502,9 @@
     "airQualityPm25": 9.7,
     "educationSpendGdpPct": 3.14,
     "healthSpendGdpPct": 3.9,
-    "headOfState": "President Michael Randrianirina"
+    "headOfState": "President Michael Randrianirina",
+    "callingCode": "+261",
+    "timezone": "UTC+3"
   },
   {
     "name": "Mauritius",
@@ -7166,7 +7542,9 @@
     "airQualityPm25": 5.65,
     "educationSpendGdpPct": 4.57,
     "healthSpendGdpPct": 6.7,
-    "headOfState": "President Dharam Gokhool"
+    "headOfState": "President Dharam Gokhool",
+    "callingCode": "+230",
+    "timezone": "UTC+4"
   },
   {
     "name": "Seychelles",
@@ -7196,7 +7574,9 @@
     "electricityAccessPct": 100.0,
     "airQualityPm25": 4.96,
     "healthSpendGdpPct": 6.4,
-    "headOfState": "President Patrick Herminie"
+    "headOfState": "President Patrick Herminie",
+    "callingCode": "+248",
+    "timezone": "UTC+4"
   },
   {
     "name": "Comoros",
@@ -7236,7 +7616,9 @@
     "educationSpendGdpPct": 2.43,
     "healthSpendGdpPct": 5.3,
     "headOfState": "President Azali Assoumani",
-    "endonymLatin": "Juzur al-Qamar"
+    "endonymLatin": "Juzur al-Qamar",
+    "callingCode": "+269",
+    "timezone": "UTC+3"
   },
   {
     "name": "Cape Verde",
@@ -7268,7 +7650,9 @@
     "airQualityPm25": 2.18,
     "educationSpendGdpPct": 4.67,
     "healthSpendGdpPct": 6.0,
-    "headOfState": "President Jose Maria Neves"
+    "headOfState": "President Jose Maria Neves",
+    "callingCode": "+238",
+    "timezone": "UTC-1"
   },
   {
     "name": "Sao Tome and Principe",
@@ -7300,7 +7684,9 @@
     "airQualityPm25": 10.28,
     "educationSpendGdpPct": 5.16,
     "healthSpendGdpPct": 4.9,
-    "headOfState": "President Carlos Vila Nova"
+    "headOfState": "President Carlos Vila Nova",
+    "callingCode": "+239",
+    "timezone": "UTC+0"
   },
   {
     "name": "Lesotho",
@@ -7342,7 +7728,9 @@
     "airQualityPm25": 27.87,
     "educationSpendGdpPct": 6.69,
     "healthSpendGdpPct": 11.8,
-    "headOfState": "King Letsie III"
+    "headOfState": "King Letsie III",
+    "callingCode": "+266",
+    "timezone": "UTC+2"
   },
   {
     "name": "Eswatini",
@@ -7383,7 +7771,9 @@
     "airQualityPm25": 16.38,
     "educationSpendGdpPct": 6.31,
     "healthSpendGdpPct": 6.5,
-    "headOfState": "King Mswati III"
+    "headOfState": "King Mswati III",
+    "callingCode": "+268",
+    "timezone": "UTC+2"
   },
   {
     "name": "Greenland",
@@ -7409,6 +7799,8 @@
     "lifeExpectancy": 70.06,
     "electricityAccessPct": 100.0,
     "waterAccessPct": 96.74,
-    "airQualityPm25": 1.11
+    "airQualityPm25": 1.11,
+    "timezone": "UTC-4 to UTC-1",
+    "callingCode": "+299"
   }
 ]
