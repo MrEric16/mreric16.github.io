@@ -179,6 +179,12 @@
       "Samarkand was one of the great cities of the ancient Silk Road and later became the capital of Timur's empire.",
       "Uzbekistan is a major producer of natural gas and gold.",
       "Navruz, the Persian New Year celebrated at the spring equinox, is one of Uzbekistan's most important traditional holidays."
+    ],
+    "famousBrands": [
+      {
+        "name": "Artel",
+        "industry": "Electronics & Appliances"
+      }
     ]
   },
   "kz": {
@@ -312,6 +318,12 @@
       "Baikonur Cosmodrome is still used today to launch crewed missions to the International Space Station.",
       "The Caspian Sea, the world's largest inland body of water, borders western Kazakhstan.",
       "Kazakhstan is the ninth-largest country in the world by land area."
+    ],
+    "famousBrands": [
+      {
+        "name": "Air Astana",
+        "industry": "Aviation"
+      }
     ]
   },
   "tj": {
@@ -425,7 +437,8 @@
       "Lake Karakul, high in the Tajik Pamirs, sits in a crater believed to have been formed by a meteorite impact around 25 million years ago.",
       "Tajikistan's mountain rivers give it enormous hydropower potential, a key resource for its economy.",
       "The ruins of Penjikent, an ancient Silk Road city in Tajikistan, preserve remains of pre-Islamic Sogdian civilization and are sometimes called the 'Pompeii of Central Asia.'"
-    ]
+    ],
+    "famousBrands": []
   },
   "kg": {
     "government": {
@@ -542,7 +555,8 @@
       "Kyrgyzstan became independent from the Soviet Union in 1991.",
       "The Tian Shan mountain range, meaning 'Celestial Mountains,' covers much of Kyrgyzstan and is shared with China and Kazakhstan.",
       "Kumis, fermented mare's milk, is a traditional Kyrgyz drink with deep roots in nomadic life."
-    ]
+    ],
+    "famousBrands": []
   },
   "tm": {
     "government": {
@@ -649,7 +663,8 @@
       "The ancient Silk Road city of Merv, now in ruins in Turkmenistan, was once one of the largest cities in the world before being destroyed by the Mongols in the 13th century.",
       "Turkmenistan declared permanent neutrality, formally recognized by the United Nations in 1995, which remains a cornerstone of its foreign policy.",
       "Ashgabat's Alem Cultural and Entertainment Center houses a Guinness World Record holder for the largest indoor Ferris wheel."
-    ]
+    ],
+    "famousBrands": []
   },
   "us": {
     "government": {
@@ -828,6 +843,18 @@
       {
         "name": "Nike",
         "industry": "Sportswear"
+      },
+      {
+        "name": "Apple",
+        "industry": "Technology"
+      },
+      {
+        "name": "McDonald's",
+        "industry": "Fast Food"
+      },
+      {
+        "name": "Ford",
+        "industry": "Automotive"
       }
     ],
     "busiestAirport": {
@@ -1009,6 +1036,22 @@
       {
         "name": "Burberry",
         "industry": "Fashion"
+      },
+      {
+        "name": "Rolls-Royce",
+        "industry": "Automotive/Engineering"
+      },
+      {
+        "name": "HSBC",
+        "industry": "Banking"
+      },
+      {
+        "name": "BP",
+        "industry": "Energy"
+      },
+      {
+        "name": "Dyson",
+        "industry": "Consumer Technology"
       }
     ],
     "busiestAirport": {
@@ -1200,6 +1243,28 @@
       "The Moscow Metro is famed for its ornate, palace-like stations, many built with chandeliers, mosaics and marble.",
       "Oymyakon in Siberian Russia is considered one of the coldest permanently inhabited places on Earth.",
       "Matryoshka nesting dolls, Russia's iconic folk craft, were first made in the late 19th century, inspired by Japanese nesting figures."
+    ],
+    "famousBrands": [
+      {
+        "name": "Kaspersky Lab",
+        "industry": "Cybersecurity software"
+      },
+      {
+        "name": "Gazprom",
+        "industry": "Energy"
+      },
+      {
+        "name": "Lukoil",
+        "industry": "Oil & gas"
+      },
+      {
+        "name": "Aeroflot",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Sberbank",
+        "industry": "Banking"
+      }
     ]
   },
   "cn": {
@@ -1373,6 +1438,22 @@
       {
         "name": "Huawei",
         "industry": "Electronics"
+      },
+      {
+        "name": "Alibaba",
+        "industry": "E-commerce"
+      },
+      {
+        "name": "Lenovo",
+        "industry": "Computers"
+      },
+      {
+        "name": "BYD",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Tencent",
+        "industry": "Internet & technology"
       }
     ],
     "busiestAirport": {
@@ -1547,6 +1628,18 @@
       {
         "name": "Chanel",
         "industry": "Luxury fashion"
+      },
+      {
+        "name": "L'Oreal",
+        "industry": "Cosmetics"
+      },
+      {
+        "name": "Renault",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Danone",
+        "industry": "Food/Dairy"
       }
     ],
     "busiestAirport": {
@@ -1723,6 +1816,18 @@
       {
         "name": "Adidas",
         "industry": "Sportswear"
+      },
+      {
+        "name": "Siemens",
+        "industry": "Industrial/Electronics"
+      },
+      {
+        "name": "SAP",
+        "industry": "Software"
+      },
+      {
+        "name": "Bayer",
+        "industry": "Chemicals/Pharmaceuticals"
       }
     ],
     "busiestAirport": {
@@ -1912,6 +2017,18 @@
       {
         "name": "Nintendo",
         "industry": "Gaming"
+      },
+      {
+        "name": "Toyota",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Canon",
+        "industry": "Imaging/Electronics"
+      },
+      {
+        "name": "Uniqlo",
+        "industry": "Fashion retail"
       }
     ],
     "busiestAirport": {
@@ -2082,6 +2199,22 @@
       {
         "name": "Tata",
         "industry": "Conglomerate"
+      },
+      {
+        "name": "Infosys",
+        "industry": "Information Technology"
+      },
+      {
+        "name": "Bajaj",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Mahindra",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Reliance Industries",
+        "industry": "Conglomerate/Energy"
       }
     ],
     "busiestAirport": {
@@ -2232,6 +2365,18 @@
       {
         "name": "Emirates",
         "industry": "Aviation"
+      },
+      {
+        "name": "Etihad Airways",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Emaar Properties",
+        "industry": "Real Estate"
+      },
+      {
+        "name": "Jumeirah Group",
+        "industry": "Hospitality"
       }
     ],
     "busiestAirport": {
@@ -2420,6 +2565,28 @@
       "Turkish coffee preparation is recognized by UNESCO as part of the world's Intangible Cultural Heritage.",
       "About 3% of Turkey's territory lies in Europe (Thrace), with the rest in Asia (Anatolia), making it one of the world's few transcontinental countries.",
       "Ephesus, on Turkey's Aegean coast, was once one of the greatest cities of the ancient world and home to the Temple of Artemis, a Wonder of the Ancient World."
+    ],
+    "famousBrands": [
+      {
+        "name": "Turkish Airlines",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Beko",
+        "industry": "Home appliances"
+      },
+      {
+        "name": "Vestel",
+        "industry": "Consumer electronics"
+      },
+      {
+        "name": "Mavi",
+        "industry": "Apparel"
+      },
+      {
+        "name": "Ülker",
+        "industry": "Confectionery"
+      }
     ]
   },
   "sa": {
@@ -2573,6 +2740,28 @@
       "Saudi Arabia's Vision 2030 plan aims to diversify its economy away from oil, including giga-projects like the planned city of NEOM.",
       "Women in Saudi Arabia were granted the legal right to drive in 2018, ending a long-standing ban.",
       "The ancient Nabataean site of Hegra (Mada'in Salih) was Saudi Arabia's first UNESCO World Heritage Site, featuring monumental rock-cut tombs similar to Petra in Jordan."
+    ],
+    "famousBrands": [
+      {
+        "name": "Saudi Aramco",
+        "industry": "Energy"
+      },
+      {
+        "name": "Saudia",
+        "industry": "Aviation"
+      },
+      {
+        "name": "STC",
+        "industry": "Telecommunications"
+      },
+      {
+        "name": "Almarai",
+        "industry": "Food & beverage"
+      },
+      {
+        "name": "SABIC",
+        "industry": "Chemicals"
+      }
     ]
   },
   "ca": {
@@ -2730,6 +2919,18 @@
       },
       {
         "name": "Canada Goose",
+        "industry": "Apparel"
+      },
+      {
+        "name": "Shopify",
+        "industry": "E-commerce software"
+      },
+      {
+        "name": "Bombardier",
+        "industry": "Aerospace & transportation"
+      },
+      {
+        "name": "Lululemon",
         "industry": "Apparel"
       }
     ],
@@ -2893,6 +3094,18 @@
       {
         "name": "Bonds",
         "industry": "Apparel"
+      },
+      {
+        "name": "Cochlear",
+        "industry": "Medical Devices"
+      },
+      {
+        "name": "Canva",
+        "industry": "Software"
+      },
+      {
+        "name": "Aesop",
+        "industry": "Cosmetics"
       }
     ],
     "busiestAirport": {
@@ -3071,6 +3284,18 @@
       {
         "name": "Embraer",
         "industry": "Aerospace"
+      },
+      {
+        "name": "Natura",
+        "industry": "Cosmetics"
+      },
+      {
+        "name": "Petrobras",
+        "industry": "Energy"
+      },
+      {
+        "name": "Vale",
+        "industry": "Mining"
       }
     ],
     "busiestAirport": {
@@ -3259,6 +3484,18 @@
       {
         "name": "Bimbo",
         "industry": "Food"
+      },
+      {
+        "name": "Cemex",
+        "industry": "Construction materials"
+      },
+      {
+        "name": "América Móvil",
+        "industry": "Telecom"
+      },
+      {
+        "name": "Aeroméxico",
+        "industry": "Aviation"
       }
     ],
     "busiestAirport": {
@@ -3439,6 +3676,18 @@
       {
         "name": "Gucci",
         "industry": "Luxury fashion"
+      },
+      {
+        "name": "Barilla",
+        "industry": "Food"
+      },
+      {
+        "name": "Lavazza",
+        "industry": "Coffee"
+      },
+      {
+        "name": "Pirelli",
+        "industry": "Tires"
       }
     ],
     "busiestAirport": {
@@ -3625,6 +3874,18 @@
       {
         "name": "Iberia",
         "industry": "Aviation"
+      },
+      {
+        "name": "Santander",
+        "industry": "Banking"
+      },
+      {
+        "name": "Seat",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Repsol",
+        "industry": "Energy"
       }
     ],
     "busiestAirport": {
@@ -3806,7 +4067,12 @@
       "name": "Commercial International Bank",
       "wiki": "https://en.wikipedia.org/wiki/Commercial_International_Bank"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "EgyptAir",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Cairo International Airport",
       "code": "CAI"
@@ -3970,6 +4236,22 @@
       {
         "name": "MTN",
         "industry": "Telecommunications"
+      },
+      {
+        "name": "Nando's",
+        "industry": "Fast Food"
+      },
+      {
+        "name": "Shoprite",
+        "industry": "Retail"
+      },
+      {
+        "name": "De Beers",
+        "industry": "Diamonds & Mining"
+      },
+      {
+        "name": "South African Breweries (SAB)",
+        "industry": "Beverages"
       }
     ],
     "busiestAirport": {
@@ -4147,6 +4429,14 @@
       {
         "name": "LG",
         "industry": "Electronics"
+      },
+      {
+        "name": "Kia",
+        "industry": "Automotive"
+      },
+      {
+        "name": "SK Hynix",
+        "industry": "Semiconductors"
       }
     ],
     "busiestAirport": {
@@ -4298,6 +4588,18 @@
       {
         "name": "Indomie",
         "industry": "Food"
+      },
+      {
+        "name": "Gojek",
+        "industry": "Technology/Ride-Hailing"
+      },
+      {
+        "name": "Garuda Indonesia",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Kopiko",
+        "industry": "Confectionery"
       }
     ],
     "busiestAirport": {
@@ -4454,6 +4756,22 @@
       {
         "name": "Havanna",
         "industry": "Confectionery"
+      },
+      {
+        "name": "Arcor",
+        "industry": "Food & Confectionery"
+      },
+      {
+        "name": "Quilmes",
+        "industry": "Beverages"
+      },
+      {
+        "name": "YPF",
+        "industry": "Energy"
+      },
+      {
+        "name": "Aerolíneas Argentinas",
+        "industry": "Aviation"
       }
     ],
     "busiestAirport": {
@@ -4621,7 +4939,16 @@
       "name": "National Iranian Oil Company",
       "wiki": "https://en.wikipedia.org/wiki/National_Iranian_Oil_Company"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Iran Khodro",
+        "industry": "Automotive"
+      },
+      {
+        "name": "SAIPA",
+        "industry": "Automotive"
+      }
+    ],
     "busiestAirport": {
       "name": "Imam Khomeini International Airport",
       "code": "IKA"
@@ -4764,6 +5091,18 @@
       {
         "name": "Wix",
         "industry": "Technology"
+      },
+      {
+        "name": "Waze",
+        "industry": "Technology"
+      },
+      {
+        "name": "SodaStream",
+        "industry": "Consumer Goods"
+      },
+      {
+        "name": "Mobileye",
+        "industry": "Automotive Technology"
       }
     ],
     "busiestAirport": {
@@ -4922,6 +5261,22 @@
       {
         "name": "Dangote",
         "industry": "Cement/industrial"
+      },
+      {
+        "name": "Globacom",
+        "industry": "Telecom"
+      },
+      {
+        "name": "GTBank",
+        "industry": "Banking"
+      },
+      {
+        "name": "Flutterwave",
+        "industry": "Fintech"
+      },
+      {
+        "name": "Innoson Motors",
+        "industry": "Automotive"
       }
     ],
     "busiestAirport": {
@@ -5076,7 +5431,28 @@
       "name": "Oil and Gas Development Company",
       "wiki": "https://en.wikipedia.org/wiki/Oil_and_Gas_Development_Company"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Shan Foods",
+        "industry": "Food"
+      },
+      {
+        "name": "Khaadi",
+        "industry": "Fashion"
+      },
+      {
+        "name": "HBL",
+        "industry": "Banking"
+      },
+      {
+        "name": "PIA",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Engro",
+        "industry": "Industrial/Fertilizer"
+      }
+    ],
     "busiestAirport": {
       "name": "Jinnah International Airport",
       "code": "KHI"
@@ -5236,7 +5612,28 @@
       "name": "PTT Public Company Limited",
       "wiki": "https://en.wikipedia.org/wiki/PTT_Public_Company_Limited"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Krating Daeng (Red Bull)",
+        "industry": "Energy drinks"
+      },
+      {
+        "name": "Singha",
+        "industry": "Beer"
+      },
+      {
+        "name": "Charoen Pokphand Group (CP)",
+        "industry": "Agribusiness & food"
+      },
+      {
+        "name": "PTT",
+        "industry": "Oil & gas"
+      },
+      {
+        "name": "Siam Cement Group (SCG)",
+        "industry": "Building materials"
+      }
+    ],
     "busiestAirport": {
       "name": "Suvarnabhumi Airport",
       "code": "BKK"
@@ -5383,7 +5780,28 @@
       "name": "Vingroup",
       "wiki": "https://en.wikipedia.org/wiki/Vingroup"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Vinamilk",
+        "industry": "Dairy"
+      },
+      {
+        "name": "VinFast",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Trung Nguyen",
+        "industry": "Coffee"
+      },
+      {
+        "name": "Viettel",
+        "industry": "Telecommunications"
+      },
+      {
+        "name": "Saigon Beer (Sabeco)",
+        "industry": "Beverages"
+      }
+    ],
     "busiestAirport": {
       "name": "Tan Son Nhat International Airport",
       "code": "SGN"
@@ -5555,7 +5973,28 @@
       "name": "PKN Orlen",
       "wiki": "https://en.wikipedia.org/wiki/Orlen"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "CD Projekt",
+        "industry": "Video games"
+      },
+      {
+        "name": "LOT Polish Airlines",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Allegro",
+        "industry": "E-commerce"
+      },
+      {
+        "name": "Inglot",
+        "industry": "Cosmetics"
+      },
+      {
+        "name": "Żubrówka",
+        "industry": "Spirits"
+      }
+    ],
     "busiestAirport": {
       "name": "Warsaw Chopin Airport",
       "code": "WAW"
@@ -5720,6 +6159,18 @@
       {
         "name": "Philips",
         "industry": "Electronics"
+      },
+      {
+        "name": "Shell",
+        "industry": "Oil & gas"
+      },
+      {
+        "name": "ING",
+        "industry": "Banking"
+      },
+      {
+        "name": "ASML",
+        "industry": "Semiconductors"
       }
     ],
     "busiestAirport": {
@@ -5886,7 +6337,20 @@
       "name": "Coca-Cola HBC",
       "wiki": "https://en.wikipedia.org/wiki/Coca-Cola_HBC"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Fage",
+        "industry": "Dairy"
+      },
+      {
+        "name": "Korres",
+        "industry": "Cosmetics"
+      },
+      {
+        "name": "Aegean Airlines",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Athens International Airport",
       "code": "ATH"
@@ -6036,6 +6500,10 @@
       {
         "name": "Safaricom",
         "industry": "Telecommunications"
+      },
+      {
+        "name": "Kenya Airways",
+        "industry": "Aviation"
       }
     ],
     "busiestAirport": {
@@ -6351,7 +6819,12 @@
       "name": "Credicorp",
       "wiki": "https://en.wikipedia.org/wiki/Credicorp"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Inca Kola",
+        "industry": "Beverages"
+      }
+    ],
     "busiestAirport": {
       "name": "Jorge Chavez International Airport",
       "code": "LIM"
@@ -6494,6 +6967,10 @@
       {
         "name": "Juan Valdez",
         "industry": "Coffee"
+      },
+      {
+        "name": "Avianca",
+        "industry": "Airline"
       }
     ],
     "busiestAirport": {
@@ -6655,6 +7132,22 @@
       {
         "name": "Jollibee",
         "industry": "Fast food"
+      },
+      {
+        "name": "San Miguel Corporation",
+        "industry": "Beverages/Food"
+      },
+      {
+        "name": "Cebu Pacific",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Globe Telecom",
+        "industry": "Telecom"
+      },
+      {
+        "name": "Bench",
+        "industry": "Fashion"
       }
     ],
     "busiestAirport": {
@@ -6802,6 +7295,22 @@
       {
         "name": "AirAsia",
         "industry": "Aviation"
+      },
+      {
+        "name": "Petronas",
+        "industry": "Oil & gas"
+      },
+      {
+        "name": "Proton",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Genting Group",
+        "industry": "Hospitality/Gaming"
+      },
+      {
+        "name": "Maybank",
+        "industry": "Banking"
       }
     ],
     "busiestAirport": {
@@ -6942,6 +7451,22 @@
       {
         "name": "Singapore Airlines",
         "industry": "Aviation"
+      },
+      {
+        "name": "DBS Bank",
+        "industry": "Banking"
+      },
+      {
+        "name": "Grab",
+        "industry": "Technology"
+      },
+      {
+        "name": "Shopee",
+        "industry": "E-commerce"
+      },
+      {
+        "name": "Tiger Balm",
+        "industry": "Consumer goods"
       }
     ],
     "busiestAirport": {
@@ -7085,6 +7610,22 @@
       {
         "name": "Air New Zealand",
         "industry": "Aviation"
+      },
+      {
+        "name": "Fonterra",
+        "industry": "Dairy"
+      },
+      {
+        "name": "Zespri",
+        "industry": "Agriculture/Fruit"
+      },
+      {
+        "name": "Icebreaker",
+        "industry": "Apparel"
+      },
+      {
+        "name": "Xero",
+        "industry": "Software/Fintech"
       }
     ],
     "busiestAirport": {
@@ -7228,6 +7769,18 @@
       {
         "name": "Icelandair",
         "industry": "Aviation"
+      },
+      {
+        "name": "Marel",
+        "industry": "Food processing equipment"
+      },
+      {
+        "name": "Össur",
+        "industry": "Medical devices"
+      },
+      {
+        "name": "CCP Games",
+        "industry": "Video games"
       }
     ],
     "busiestAirport": {
@@ -7376,11 +7929,23 @@
     "famousBrands": [
       {
         "name": "Guinness",
-        "industry": "Beverages"
+        "industry": "Beverages (Brewing)"
       },
       {
         "name": "Ryanair",
         "industry": "Aviation"
+      },
+      {
+        "name": "Kerrygold",
+        "industry": "Dairy"
+      },
+      {
+        "name": "Jameson",
+        "industry": "Beverages (Whiskey)"
+      },
+      {
+        "name": "Primark",
+        "industry": "Retail/Fashion"
       }
     ],
     "busiestAirport": {
@@ -7545,6 +8110,14 @@
       {
         "name": "Spotify",
         "industry": "Technology"
+      },
+      {
+        "name": "Volvo",
+        "industry": "Automotive"
+      },
+      {
+        "name": "Ericsson",
+        "industry": "Telecommunications"
       }
     ],
     "busiestAirport": {
@@ -7696,7 +8269,24 @@
       "name": "Equinor",
       "wiki": "https://en.wikipedia.org/wiki/Equinor"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Equinor",
+        "industry": "Oil & gas"
+      },
+      {
+        "name": "Telenor",
+        "industry": "Telecom"
+      },
+      {
+        "name": "Jotun",
+        "industry": "Paints/coatings"
+      },
+      {
+        "name": "Norsk Hydro",
+        "industry": "Aluminum/industrial"
+      }
+    ],
     "busiestAirport": {
       "name": "Oslo Airport, Gardermoen",
       "code": "OSL"
@@ -7852,6 +8442,14 @@
       {
         "name": "Carlsberg",
         "industry": "Beverages"
+      },
+      {
+        "name": "Novo Nordisk",
+        "industry": "Pharmaceuticals"
+      },
+      {
+        "name": "Bang & Olufsen",
+        "industry": "Audio/Electronics"
       }
     ],
     "busiestAirport": {
@@ -7990,6 +8588,18 @@
       {
         "name": "Marimekko",
         "industry": "Design/fashion"
+      },
+      {
+        "name": "Rovio Entertainment",
+        "industry": "Gaming"
+      },
+      {
+        "name": "Supercell",
+        "industry": "Gaming"
+      },
+      {
+        "name": "Fazer",
+        "industry": "Confectionery"
       }
     ],
     "busiestAirport": {
@@ -8154,6 +8764,14 @@
       {
         "name": "Swatch",
         "industry": "Watches"
+      },
+      {
+        "name": "UBS",
+        "industry": "Banking"
+      },
+      {
+        "name": "Victorinox",
+        "industry": "Knives & tools"
       }
     ],
     "busiestAirport": {
@@ -8321,7 +8939,15 @@
       },
       {
         "name": "Swarovski",
-        "industry": "Crystal/jewelry"
+        "industry": "Crystal/Jewelry"
+      },
+      {
+        "name": "KTM",
+        "industry": "Motorcycles"
+      },
+      {
+        "name": "Manner",
+        "industry": "Confectionery"
       }
     ],
     "busiestAirport": {
@@ -8463,6 +9089,18 @@
       {
         "name": "Stella Artois",
         "industry": "Beverages"
+      },
+      {
+        "name": "Godiva",
+        "industry": "Confectionery"
+      },
+      {
+        "name": "Jupiler",
+        "industry": "Beverages"
+      },
+      {
+        "name": "Delvaux",
+        "industry": "Leather Goods"
       }
     ],
     "busiestAirport": {
@@ -8633,7 +9271,28 @@
       "name": "Galp Energia",
       "wiki": "https://en.wikipedia.org/wiki/Galp_Energia"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "TAP Air Portugal",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Super Bock",
+        "industry": "Beverages"
+      },
+      {
+        "name": "Vista Alegre",
+        "industry": "Porcelain & ceramics"
+      },
+      {
+        "name": "Delta Cafés",
+        "industry": "Coffee"
+      },
+      {
+        "name": "Parfois",
+        "industry": "Fashion accessories"
+      }
+    ],
     "busiestAirport": {
       "name": "Lisbon Airport",
       "code": "LIS"
@@ -8786,7 +9445,20 @@
       "name": "MOL Group",
       "wiki": "https://en.wikipedia.org/wiki/MOL_Group"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Herend Porcelain",
+        "industry": "Ceramics/Luxury Goods"
+      },
+      {
+        "name": "Zwack Unicum",
+        "industry": "Beverages (Spirits)"
+      },
+      {
+        "name": "Richter Gedeon",
+        "industry": "Pharmaceuticals"
+      }
+    ],
     "busiestAirport": {
       "name": "Budapest Ferenc Liszt International Airport",
       "code": "BUD"
@@ -8966,6 +9638,18 @@
       {
         "name": "Pilsner Urquell",
         "industry": "Beverages"
+      },
+      {
+        "name": "Bata",
+        "industry": "Footwear"
+      },
+      {
+        "name": "Budweiser Budvar",
+        "industry": "Beverages"
+      },
+      {
+        "name": "Avast",
+        "industry": "Software/Security"
       }
     ],
     "busiestAirport": {
@@ -9136,7 +9820,28 @@
       "name": "Naftogaz",
       "wiki": "https://en.wikipedia.org/wiki/Naftogaz"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Roshen",
+        "industry": "Confectionery"
+      },
+      {
+        "name": "Nova Poshta",
+        "industry": "Logistics"
+      },
+      {
+        "name": "Darnitsa",
+        "industry": "Pharmaceuticals"
+      },
+      {
+        "name": "Kyivstar",
+        "industry": "Telecommunications"
+      },
+      {
+        "name": "Chumak",
+        "industry": "Food Products"
+      }
+    ],
     "busiestAirport": {
       "name": "Boryspil International Airport",
       "code": "KBP"
@@ -9294,6 +9999,18 @@
       {
         "name": "Dacia",
         "industry": "Automotive"
+      },
+      {
+        "name": "Bitdefender",
+        "industry": "Cybersecurity software"
+      },
+      {
+        "name": "UiPath",
+        "industry": "Software"
+      },
+      {
+        "name": "eMAG",
+        "industry": "E-commerce"
       }
     ],
     "busiestAirport": {
@@ -9567,7 +10284,16 @@
       "name": "INA",
       "wiki": "https://en.wikipedia.org/wiki/INA_(company)"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Rimac Automobili",
+        "industry": "Automotive (Electric Hypercars)"
+      },
+      {
+        "name": "Podravka",
+        "industry": "Food"
+      }
+    ],
     "busiestAirport": {
       "name": "Zagreb Airport",
       "code": "ZAG"
@@ -9969,7 +10695,16 @@
       "name": "Petrol d.d.",
       "wiki": "https://en.wikipedia.org/wiki/Petrol_d.d."
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Krka",
+        "industry": "Pharmaceuticals"
+      },
+      {
+        "name": "Gorenje",
+        "industry": "Home appliances"
+      }
+    ],
     "busiestAirport": {
       "name": "Ljubljana Joze Pucnik Airport",
       "code": "LJU"
@@ -10118,7 +10853,16 @@
       "name": "Orlen Lietuva",
       "wiki": "https://en.wikipedia.org/wiki/Orlen_Lietuva"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Vinted",
+        "industry": "Online marketplace"
+      },
+      {
+        "name": "Teltonika",
+        "industry": "IoT/telecom devices"
+      }
+    ],
     "busiestAirport": {
       "name": "Vilnius Airport",
       "code": "VNO"
@@ -10259,7 +11003,16 @@
       "name": "Latvenergo",
       "wiki": "https://en.wikipedia.org/wiki/Latvenergo"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Riga Black Balsam",
+        "industry": "Liqueur"
+      },
+      {
+        "name": "Laima",
+        "industry": "Confectionery"
+      }
+    ],
     "busiestAirport": {
       "name": "Riga International Airport",
       "code": "RIX"
@@ -10424,7 +11177,28 @@
       "name": "OCP Group",
       "wiki": "https://en.wikipedia.org/wiki/OCP_Group"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Royal Air Maroc",
+        "industry": "Airline"
+      },
+      {
+        "name": "Maroc Telecom",
+        "industry": "Telecommunications"
+      },
+      {
+        "name": "OCP Group",
+        "industry": "Phosphates/Fertilizer"
+      },
+      {
+        "name": "Attijariwafa Bank",
+        "industry": "Banking"
+      },
+      {
+        "name": "Marjane",
+        "industry": "Retail"
+      }
+    ],
     "busiestAirport": {
       "name": "Mohammed V International Airport",
       "code": "CMN"
@@ -10556,7 +11330,12 @@
       "name": "Sonatrach",
       "wiki": "https://en.wikipedia.org/wiki/Sonatrach"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Sonatrach",
+        "industry": "Energy"
+      }
+    ],
     "busiestAirport": {
       "name": "Houari Boumediene Airport",
       "code": "ALG"
@@ -11083,7 +11862,12 @@
       "name": "Sonatel",
       "wiki": "https://en.wikipedia.org/wiki/Sonatel"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Air Senegal",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Blaise Diagne International Airport",
       "code": "DSS"
@@ -11453,7 +12237,16 @@
       "name": "Codelco",
       "wiki": "https://en.wikipedia.org/wiki/Codelco"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Concha y Toro",
+        "industry": "Wine"
+      },
+      {
+        "name": "LATAM Airlines",
+        "industry": "Airline"
+      }
+    ],
     "busiestAirport": {
       "name": "Arturo Merino Benitez International Airport",
       "code": "SCL"
@@ -11583,7 +12376,12 @@
       "name": "PDVSA",
       "wiki": "https://en.wikipedia.org/wiki/Petr%C3%B3leos_de_Venezuela"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Polar",
+        "industry": "Beverages & Food"
+      }
+    ],
     "busiestAirport": {
       "name": "Simon Bolivar International Airport",
       "code": "CCS"
@@ -12097,7 +12895,12 @@
       "name": "ANCAP",
       "wiki": "https://en.wikipedia.org/wiki/Administraci%C3%B3n_Nacional_de_Combustibles,_Alcohol_y_Portland"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Conaprole",
+        "industry": "Dairy"
+      }
+    ],
     "busiestAirport": {
       "name": "Carrasco International Airport",
       "code": "MVD"
@@ -12236,6 +13039,14 @@
       {
         "name": "Cohiba",
         "industry": "Cigars"
+      },
+      {
+        "name": "Montecristo",
+        "industry": "Cigars"
+      },
+      {
+        "name": "Havana Club",
+        "industry": "Rum"
       }
     ],
     "busiestAirport": {
@@ -12368,7 +13179,16 @@
       "name": "Grupo Popular",
       "wiki": "https://en.wikipedia.org/wiki/Dominican_Republic"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Brugal",
+        "industry": "Beverages (Rum)"
+      },
+      {
+        "name": "Presidente",
+        "industry": "Beverages (Beer)"
+      }
+    ],
     "busiestAirport": {
       "name": "Las Americas International Airport",
       "code": "SDQ"
@@ -12495,6 +13315,10 @@
       {
         "name": "Red Stripe",
         "industry": "Beverages"
+      },
+      {
+        "name": "Appleton Estate",
+        "industry": "Rum"
       }
     ],
     "busiestAirport": {
@@ -12734,6 +13558,18 @@
       {
         "name": "Qatar Airways",
         "industry": "Aviation"
+      },
+      {
+        "name": "Al Jazeera",
+        "industry": "Media"
+      },
+      {
+        "name": "Ooredoo",
+        "industry": "Telecommunications"
+      },
+      {
+        "name": "Qatar National Bank",
+        "industry": "Banking"
       }
     ],
     "busiestAirport": {
@@ -12846,7 +13682,16 @@
       "name": "Kuwait Petroleum Corporation",
       "wiki": "https://en.wikipedia.org/wiki/Kuwait_Petroleum_Corporation"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Zain",
+        "industry": "Telecommunications"
+      },
+      {
+        "name": "Kuwait Airways",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Kuwait International Airport",
       "code": "KWI"
@@ -12968,7 +13813,16 @@
       "name": "Bapco",
       "wiki": "https://en.wikipedia.org/wiki/Bahrain_Petroleum_Company"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Gulf Air",
+        "industry": "Aviation"
+      },
+      {
+        "name": "Alba (Aluminium Bahrain)",
+        "industry": "Industrial/Metals"
+      }
+    ],
     "busiestAirport": {
       "name": "Bahrain International Airport",
       "code": "BAH"
@@ -13091,7 +13945,12 @@
       "name": "Petroleum Development Oman",
       "wiki": "https://en.wikipedia.org/wiki/Petroleum_Development_Oman"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Oman Air",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Muscat International Airport",
       "code": "MCT"
@@ -13227,7 +14086,12 @@
       "name": "Arab Potash Company",
       "wiki": "https://en.wikipedia.org/wiki/Arab_Potash_Company"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Royal Jordanian",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Queen Alia International Airport",
       "code": "AMM"
@@ -13353,7 +14217,12 @@
       "name": "Bank Audi",
       "wiki": "https://en.wikipedia.org/wiki/Bank_Audi"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Middle East Airlines",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Rafic Hariri International Airport",
       "code": "BEY"
@@ -14100,7 +14969,12 @@
       "name": "MTN Uganda",
       "wiki": "https://en.wikipedia.org/wiki/Uganda"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Nile Breweries",
+        "industry": "Beverages"
+      }
+    ],
     "busiestAirport": {
       "name": "Entebbe International Airport",
       "code": "EBB"
@@ -15217,7 +16091,12 @@
       "name": "MTN Rwanda",
       "wiki": "https://en.wikipedia.org/wiki/Rwanda"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "RwandAir",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Kigali International Airport",
       "code": "KGL"
@@ -15371,6 +16250,10 @@
       {
         "name": "Gobi Cashmere",
         "industry": "Textiles"
+      },
+      {
+        "name": "APU Company",
+        "industry": "Beverages"
       }
     ],
     "busiestAirport": {
@@ -15803,6 +16686,10 @@
       {
         "name": "Dilmah",
         "industry": "Tea"
+      },
+      {
+        "name": "MAS Holdings",
+        "industry": "Apparel manufacturing"
       }
     ],
     "busiestAirport": {
@@ -15954,7 +16841,12 @@
       "name": "Myanmar Oil and Gas Enterprise",
       "wiki": "https://en.wikipedia.org/wiki/Myanmar"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Myanmar Beer",
+        "industry": "Beverages"
+      }
+    ],
     "busiestAirport": {
       "name": "Yangon International Airport",
       "code": "RGN"
@@ -16206,7 +17098,12 @@
       "name": "Electricite du Laos",
       "wiki": "https://en.wikipedia.org/wiki/Laos"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Beerlao",
+        "industry": "Beverages"
+      }
+    ],
     "busiestAirport": {
       "name": "Wattay International Airport",
       "code": "VTE"
@@ -17717,7 +18614,12 @@
       "name": "SOCAR",
       "wiki": "https://en.wikipedia.org/wiki/SOCAR"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "SOCAR",
+        "industry": "Energy"
+      }
+    ],
     "busiestAirport": {
       "name": "Heydar Aliyev International Airport",
       "code": "GYD"
@@ -17870,7 +18772,12 @@
       "name": "Zangezur Copper Molybdenum Combine",
       "wiki": "https://en.wikipedia.org/wiki/Armenia"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Ararat Brandy",
+        "industry": "Spirits"
+      }
+    ],
     "busiestAirport": {
       "name": "Zvartnots International Airport",
       "code": "EVN"
@@ -18012,7 +18919,12 @@
       "name": "Bank of Georgia",
       "wiki": "https://en.wikipedia.org/wiki/Bank_of_Georgia"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Borjomi",
+        "industry": "Beverages (Mineral Water)"
+      }
+    ],
     "busiestAirport": {
       "name": "Tbilisi International Airport",
       "code": "TBS"
@@ -18139,7 +19051,12 @@
       "name": "Panama Canal Authority",
       "wiki": "https://en.wikipedia.org/wiki/Panama_Canal_Authority"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Copa Airlines",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Tocumen International Airport",
       "code": "PTY"
@@ -18364,7 +19281,12 @@
       "name": "Cementos Progreso",
       "wiki": "https://en.wikipedia.org/wiki/Guatemala"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Pollo Campero",
+        "industry": "Fast Food"
+      }
+    ],
     "busiestAirport": {
       "name": "La Aurora International Airport",
       "code": "GUA"
@@ -19129,6 +20051,10 @@
       {
         "name": "MAZ (Minsk Automobile Plant)",
         "industry": "Trucks"
+      },
+      {
+        "name": "BelAZ",
+        "industry": "Heavy machinery"
       }
     ],
     "busiestAirport": {
@@ -19533,6 +20459,10 @@
       {
         "name": "Bolt",
         "industry": "Ride-hailing"
+      },
+      {
+        "name": "Wise",
+        "industry": "Fintech"
       }
     ],
     "busiestAirport": {
@@ -19648,7 +20578,16 @@
       "name": "Moldova Agroindbank",
       "wiki": "https://en.wikipedia.org/wiki/Moldova_Agroindbank"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Purcari",
+        "industry": "Wine"
+      },
+      {
+        "name": "Kvint",
+        "industry": "Brandy"
+      }
+    ],
     "busiestAirport": {
       "name": "Chișinău International Airport",
       "code": "KIV"
@@ -19770,7 +20709,12 @@
       "name": "Elektroprivreda Crne Gore",
       "wiki": "https://en.wikipedia.org/wiki/Elektroprivreda_Crne_Gore"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Nikšićko",
+        "industry": "Beer"
+      }
+    ],
     "busiestAirport": {
       "name": "Podgorica Airport",
       "code": "TGD"
@@ -19882,7 +20826,12 @@
       "name": "OKTA (Skopje refinery)",
       "wiki": "https://en.wikipedia.org/wiki/OKTA_(oil_refinery)"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Skopsko",
+        "industry": "Beer"
+      }
+    ],
     "busiestAirport": {
       "name": "Skopje International Airport",
       "code": "SKP"
@@ -20017,7 +20966,12 @@
       "name": "Bank of Valletta",
       "wiki": "https://en.wikipedia.org/wiki/Bank_of_Valletta"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Cisk",
+        "industry": "Beer"
+      }
+    ],
     "busiestAirport": {
       "name": "Malta International Airport",
       "code": "MLA"
@@ -20146,6 +21100,14 @@
       {
         "name": "SES",
         "industry": "Satellite operator"
+      },
+      {
+        "name": "RTL Group",
+        "industry": "Media"
+      },
+      {
+        "name": "Cargolux",
+        "industry": "Air cargo"
       }
     ],
     "busiestAirport": {
@@ -20369,6 +21331,18 @@
       {
         "name": "Hilti",
         "industry": "Power tools"
+      },
+      {
+        "name": "Ivoclar Vivadent",
+        "industry": "Dental products"
+      },
+      {
+        "name": "Neutrik",
+        "industry": "Audio/video connectors"
+      },
+      {
+        "name": "Hilcona",
+        "industry": "Food products"
       }
     ],
     "busiestAirport": {
@@ -20480,7 +21454,12 @@
       "name": "Société des Bains de Mer",
       "wiki": "https://en.wikipedia.org/wiki/Soci%C3%A9t%C3%A9_des_Bains_de_Mer_de_Monaco"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Société des Bains de Mer",
+        "industry": "Hospitality/Casino"
+      }
+    ],
     "busiestAirport": {
       "name": "No airport (helipad only; nearest: Nice Côte d'Azur)",
       "code": "N/A"
@@ -20924,6 +21903,14 @@
       {
         "name": "Giant Bicycles",
         "industry": "Bicycles"
+      },
+      {
+        "name": "Acer",
+        "industry": "Computers"
+      },
+      {
+        "name": "HTC",
+        "industry": "Smartphones"
       }
     ],
     "busiestAirport": {
@@ -22208,6 +23195,10 @@
       {
         "name": "Angostura",
         "industry": "Bitters and rum"
+      },
+      {
+        "name": "Carib",
+        "industry": "Beer"
       }
     ],
     "busiestAirport": {
@@ -25821,7 +26812,12 @@
       "name": "Seychelles Trading Company",
       "wiki": "https://en.wikipedia.org/wiki/Seychelles"
     },
-    "famousBrands": [],
+    "famousBrands": [
+      {
+        "name": "Air Seychelles",
+        "industry": "Aviation"
+      }
+    ],
     "busiestAirport": {
       "name": "Seychelles International Airport",
       "code": "SEZ"
