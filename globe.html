@@ -338,21 +338,23 @@ function factFileHtml(c){
   const bulkRows = [
     row('Endonym', c.endonym && c.endonym !== c.name ? escapeHtml(c.endonym) : null),
     row('Internet domain', c.tld ? escapeHtml(c.tld) : null),
-    row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null)
+    row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null),
+    row('Head of government', c.headOfGovernment ? escapeHtml(c.headOfGovernment) + ' <span class="info-sub">(as of Oct 2026 - changes often)</span>' : null)
   ];
-  // GDP and passport-index are the two indexed stats sourced in bulk for all
-  // 196 entries (IMF nominal GDP; Henley Passport Index visa-free count,
-  // rank computed by sorting that score) - every other indexed/volatile stat
-  // (crime, military spend, happiness index, etc.) is still left out rather
-  // than guessed. Both carry their source and year rather than being stated
-  // as plain fact, since they update annually.
+  // GDP, passport-index and life expectancy are the indexed stats sourced in
+  // bulk for all 196 entries - every other indexed/volatile stat (crime,
+  // military spend, happiness index, unemployment, literacy, etc.) is still
+  // left out rather than guessed. All carry their source and year rather
+  // than being stated as plain fact, since they update periodically - head
+  // of government especially, which is a live snapshot, not a stable fact.
   const economyRows = [
     row('GDP (nominal)', c.gdpMillionUsd != null ? escapeHtml(formatGdp(c.gdpMillionUsd)) : null),
-    row('Passport rank', c.passportRank != null ? `#${c.passportRank} of 195 <span class="info-sub">(${c.passportVisaFreeCount} visa-free/on-arrival destinations)</span>` : null)
+    row('Passport rank', c.passportRank != null ? `#${c.passportRank} of 195 <span class="info-sub">(${c.passportVisaFreeCount} visa-free/on-arrival destinations)</span>` : null),
+    row('Life expectancy', c.lifeExpectancy != null ? `${c.lifeExpectancy} years` : null)
   ];
   const economyContent = economyRows.filter(Boolean).join('');
   const economySection = economyContent
-    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Both change year to year.</p></details>`
+    ? `<details class="ff-section"><summary>Economy & Travel</summary><div class="info-grid ff-grid">${economyContent}</div><p class="info-note" style="margin-top:8px;">GDP: IMF nominal estimate, 2026. Passport rank: Henley Passport Index 2026. Life expectancy: UN 2023 data. All change over time.</p></details>`
     : '';
   if(!f){
     const bulkContent = bulkRows.filter(Boolean).join('');
