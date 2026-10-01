@@ -339,6 +339,7 @@ function factFileHtml(c){
     row('Endonym', c.endonym && c.endonym !== c.name ? escapeHtml(c.endonym) : null),
     row('Internet domain', c.tld ? escapeHtml(c.tld) : null),
     row('Neighbouring countries', c.neighbours != null ? String(c.neighbours) + (c.landlocked ? ' (landlocked)' : '') : null),
+    row('Head of state', c.headOfState ? escapeHtml(c.headOfState) + ' <span class="info-sub">(as of Oct 2026 - changes often)</span>' : null),
     row('Head of government', c.headOfGovernment ? escapeHtml(c.headOfGovernment) + ' <span class="info-sub">(as of Oct 2026 - changes often)</span>' : null)
   ];
   // GDP, passport-index, life expectancy, literacy, unemployment, internet
@@ -373,6 +374,7 @@ function factFileHtml(c){
     return `
       <div class="ff-wrap">
         ${bulkContent ? `<div class="info-grid ff-grid" style="margin-top:14px;">${bulkContent}</div>` : ''}
+        ${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:4px;">Head of state and head of government are different roles - in presidential republics they're usually the same person; in monarchies and many parliamentary systems they're not.</p>` : ''}
         ${economySection}
         <p class="info-note" style="margin-top:12px;">Full fact file not researched yet for this country - more are being added in waves.</p>
       </div>
@@ -383,12 +385,15 @@ function factFileHtml(c){
     ? `${escapeHtml(f.independence.date)}${f.independence.from ? ' from ' + escapeHtml(f.independence.from) : ''}`
     : 'No colonial independence on record';
 
-  const govSection = section('Government & Identity', [
+  const govRowsContent = [
     ...bulkRows,
     row('Government', gov.form ? escapeHtml(gov.form) : null),
     row('National day', gov.nationalDay ? escapeHtml(gov.nationalDay) : null),
     row('Drives on', f.drivesOn ? (f.drivesOn === 'left' ? 'Left' : 'Right') : null)
-  ]);
+  ].filter(Boolean).join('');
+  const govSection = govRowsContent
+    ? `<details class="ff-section"><summary>Government &amp; Identity</summary><div class="info-grid ff-grid">${govRowsContent}</div>${(c.headOfState || c.headOfGovernment) ? `<p class="info-note" style="margin-top:8px;">Head of state and head of government are different roles - in presidential republics they're usually the same person; in monarchies and many parliamentary systems they're not.</p>` : ''}</details>`
+    : '';
 
   const historyRows = [
     row('Independence', indep),
