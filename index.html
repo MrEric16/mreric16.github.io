@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261001114443">
+<meta name="app-build" content="20261001130401">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4607,6 +4607,51 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .tf-answer-btn.tf-false{ background:#EF4444; }
   .tf-answer-btn:disabled{ opacity:.5; }
 
+  /* - Globe - */
+  .globe-wrap{ max-width:720px; }
+  .globe-search-row{ position:relative; max-width:420px; margin:0 auto 16px; }
+  .globe-search-input{
+    width:100%; padding:12px 14px; border-radius:10px; border:2px solid var(--line);
+    background:var(--card); color:var(--ink); font-size:15px; font-family:'Nunito', sans-serif;
+  }
+  .globe-search-results{
+    display:none; position:absolute; left:0; right:0; top:calc(100% + 4px); z-index:5;
+    background:var(--card); border:1px solid var(--line); border-radius:10px;
+    box-shadow:0 8px 24px rgba(0,0,0,.18); max-height:280px; overflow-y:auto;
+  }
+  .globe-search-results.globe-search-results-open{ display:block; }
+  .globe-search-result{
+    display:block; width:100%; text-align:left; padding:10px 14px; border:none; background:none;
+    color:var(--ink); font-size:14px; font-family:'Nunito', sans-serif; cursor:pointer; touch-action:manipulation;
+  }
+  .globe-search-result:hover{ background:color-mix(in srgb, var(--gold) 10%, var(--card)); }
+  .globe-search-empty{ padding:10px 14px; font-size:13px; color:var(--ink-soft); }
+  .globe-canvas-wrap{
+    position:relative; width:100%; height:480px; border-radius:16px; overflow:hidden;
+    background:#000011; border:2px solid var(--line); margin-bottom:16px; touch-action:none;
+  }
+  .globe-container{ width:100%; height:100%; }
+  .globe-loading{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:14px; font-family:'Nunito', sans-serif; background:#000011; text-align:center; padding:0 20px;
+  }
+  .globe-info-panel{
+    border-radius:14px; border:1px solid var(--line); background:var(--card); padding:18px; min-height:60px;
+  }
+  .globe-info-empty{ display:flex; align-items:center; justify-content:center; }
+  .globe-info-placeholder{ font-size:14px; color:var(--ink-soft); text-align:center; margin:0; }
+  .globe-info-head{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+  .globe-info-flag{ width:32px; height:auto; border-radius:3px; display:block; }
+  .globe-info-head h3{ font-family:'Baloo 2', sans-serif; font-size:19px; margin:0; }
+  .globe-info-grid{ display:grid; gap:8px; }
+  .globe-info-row{ display:flex; justify-content:space-between; gap:10px; font-size:14px; padding:6px 0; border-bottom:1px solid var(--line); }
+  .globe-info-row:last-child{ border-bottom:none; }
+  .globe-info-label{ color:var(--ink-soft); font-weight:700; }
+  .globe-info-value{ text-align:right; }
+  .globe-info-sub{ font-size:12px; color:var(--ink-soft); font-weight:400; }
+  .globe-info-note{ font-size:12px; color:var(--ink-soft); margin:10px 0 0; font-style:italic; }
+  @media (max-width: 600px){ .globe-canvas-wrap{ height:360px; } }
+
   /* - Alias - */
   .alias-topbar{ display:flex; flex-wrap:wrap; justify-content:center; align-items:center; gap:8px; margin-bottom:14px; max-width:340px; margin-left:auto; margin-right:auto; }
   .alias-leaderboard-btn, .alias-end-btn, .alias-pause-btn{
@@ -6455,6 +6500,7 @@ const ICONS = {
   checkerboard: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="3" y="3" width="9" height="9" fill="currentColor" stroke="none"/><rect x="12" y="12" width="9" height="9" fill="currentColor" stroke="none"/></svg>`,
   fourInRow: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="7" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="11" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="19" cy="12" r="1.6" fill="currentColor" stroke="none"/></svg>`,
   tetromino: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="9" width="6" height="6" rx="1"/><rect x="9" y="9" width="6" height="6" rx="1"/><rect x="15" y="9" width="6" height="6" rx="1"/><rect x="9" y="3" width="6" height="6" rx="1"/></svg>`,
+  globeSpin: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><circle cx="12" cy="12" r="9"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="3.6" ry="9"/><path d="M3 12h18"/></svg>`,
 
 };
 function icon(name){ return ICONS[name] || ''; }
@@ -6534,6 +6580,7 @@ const DSURPRISE_GAME_TEASERS = {
   '#battleship-game': "Sink the fleet before they sink yours.",
   '#tetris-game': "Clear lines before the stack reaches the top.",
   '#alias-game': "Can you describe a word without saying it?",
+  '#globe-explorer': "Spin the globe - every country, capital, currency and language.",
 };
 function dsurpriseGameTeaser(url){
   return DSURPRISE_GAME_TEASERS[url] || "Give it a go.";
@@ -16020,6 +16067,241 @@ function wireAliasGame(app){
   }
 }
 
+const GLOBE_COUNTRIES = [{"name":"United States","code":"us","region":"americas","capital":"Washington, D.C.","language":"English","population":326687501,"currency":"United States dollar","currencySymbol":"$","lat":38,"lng":-97,"subregion":"North America","area":9372610},{"name":"United Kingdom","code":"gb","region":"europe","capital":"London","language":"English","population":66460344,"currency":"British pound","currencySymbol":"£","lat":54,"lng":-2,"subregion":"Northern Europe","area":242900},{"name":"France","code":"fr","region":"europe","capital":"Paris","language":"French","population":66977107,"currency":"Euro","currencySymbol":"€","lat":46,"lng":2,"subregion":"Western Europe","area":551695},{"name":"Germany","code":"de","region":"europe","capital":"Berlin","language":"German","population":82905782,"currency":"Euro","currencySymbol":"€","lat":51,"lng":9,"subregion":"Western Europe","area":357114},{"name":"Italy","code":"it","region":"europe","capital":"Rome","language":"Italian","population":60421760,"currency":"Euro","currencySymbol":"€","lat":42.83333333,"lng":12.83333333,"subregion":"Southern Europe","area":301336},{"name":"Spain","code":"es","region":"europe","capital":"Madrid","language":"Spanish","population":46796540,"currency":"Euro","currencySymbol":"€","lat":40,"lng":-4,"subregion":"Southern Europe","area":505992},{"name":"Japan","code":"jp","region":"asia","capital":"Tokyo","language":"Japanese","population":126529100,"currency":"Japanese yen","currencySymbol":"¥","lat":36,"lng":138,"subregion":"Eastern Asia","area":377930},{"name":"China","code":"cn","region":"asia","capital":"Beijing","language":"Mandarin","population":1392730000,"currency":"Chinese yuan","currencySymbol":"¥","lat":35,"lng":105,"subregion":"Eastern Asia","area":9706961},{"name":"Canada","code":"ca","region":"americas","capital":"Ottawa","language":"English","otherOfficial":["French"],"population":37057765,"currency":"Canadian dollar","currencySymbol":"$","lat":60,"lng":-95,"subregion":"North America","area":9984670},{"name":"Brazil","code":"br","region":"americas","capital":"Brasília","language":"Portuguese","population":209469333,"currency":"Brazilian real","currencySymbol":"R$","lat":-10,"lng":-55,"subregion":"South America","area":8515767},{"name":"Russia","code":"ru","region":"europe","capital":"Moscow","language":"Russian","population":144478050,"currency":"Russian ruble","currencySymbol":"₽","lat":60,"lng":100,"subregion":"Eastern Europe","area":17098242},{"name":"Australia","code":"au","region":"oceania","capital":"Canberra","language":"English","population":24982688,"currency":"Australian dollar","currencySymbol":"$","lat":-27,"lng":133,"subregion":"Australia and New Zealand","area":7692024},{"name":"India","code":"in","region":"asia","capital":"New Delhi","language":"Hindi","otherOfficial":["English","Bengali","Tamil","Urdu"],"population":1352617328,"currency":"Indian rupee","currencySymbol":"₹","lat":20,"lng":77,"subregion":"Southern Asia","area":3287590},{"name":"Mexico","code":"mx","region":"americas","capital":"Mexico City","language":"Spanish","population":126190788,"currency":"Mexican peso","currencySymbol":"$","lat":23,"lng":-102,"subregion":"North America","area":1964375},{"name":"South Korea","code":"kr","region":"asia","capital":"Seoul","language":"Korean","population":51606633,"currency":"South Korean won","currencySymbol":"₩","lat":37,"lng":127.5,"subregion":"Eastern Asia","area":100210},{"name":"Switzerland","code":"ch","region":"europe","capital":"Bern","language":"German","otherOfficial":["French","Italian","Romansh"],"population":8513227,"currency":"Swiss franc","currencySymbol":"Fr.","lat":47,"lng":8,"subregion":"Western Europe","area":41284},{"name":"Sweden","code":"se","region":"europe","capital":"Stockholm","language":"Swedish","population":10175214,"currency":"Swedish krona","currencySymbol":"kr","lat":62,"lng":15,"subregion":"Northern Europe","area":450295},{"name":"South Africa","code":"za","region":"africa","capital":"Pretoria","language":"Zulu","otherOfficial":["English","Afrikaans","Xhosa"],"population":57779622,"currency":"South African rand","currencySymbol":"R","lat":-29,"lng":24,"subregion":"Southern Africa","area":1221037},{"name":"Egypt","code":"eg","region":"africa","capital":"Cairo","language":"Arabic","population":98423595,"currency":"Egyptian pound","currencySymbol":"£","lat":27,"lng":30,"subregion":"Northern Africa","area":1002450},{"name":"Turkey","code":"tr","region":"asia","capital":"Ankara","language":"Turkish","population":82319724,"currency":"Turkish lira","currencySymbol":"₺","lat":39,"lng":35,"subregion":"Western Asia","area":783562},{"name":"Greece","code":"gr","region":"europe","capital":"Athens","language":"Greek","population":10731726,"currency":"Euro","currencySymbol":"€","lat":39,"lng":22,"subregion":"Southern Europe","area":131990},{"name":"Portugal","code":"pt","region":"europe","capital":"Lisbon","language":"Portuguese","population":10283822,"currency":"Euro","currencySymbol":"€","lat":39.5,"lng":-8,"subregion":"Southern Europe","area":92090},{"name":"Argentina","code":"ar","region":"americas","capital":"Buenos Aires","language":"Spanish","population":44494502,"currency":"Argentine peso","currencySymbol":"$","lat":-34,"lng":-64,"subregion":"South America","area":2780400},{"name":"Ireland","code":"ie","region":"europe","capital":"Dublin","language":"English","otherOfficial":["Irish"],"population":4867309,"currency":"Euro","currencySymbol":"€","lat":53,"lng":-8,"subregion":"Northern Europe","area":70273},{"name":"Netherlands","code":"nl","region":"europe","capital":"Amsterdam","language":"Dutch","population":17231624,"currency":"Euro","currencySymbol":"€","lat":52.5,"lng":5.75,"subregion":"Western Europe","area":41850},{"name":"Norway","code":"no","region":"europe","capital":"Oslo","language":"Norwegian","population":5311916,"currency":"Norwegian krone","currencySymbol":"kr","lat":62,"lng":10,"subregion":"Northern Europe","area":323802},{"name":"Poland","code":"pl","region":"europe","capital":"Warsaw","language":"Polish","population":37974750,"currency":"Polish złoty","currencySymbol":"zł","lat":52,"lng":20,"subregion":"Central Europe","area":312679},{"name":"Belgium","code":"be","region":"europe","capital":"Brussels","language":"Dutch","otherOfficial":["French","German"],"population":11433256,"currency":"Euro","currencySymbol":"€","lat":50.83333333,"lng":4,"subregion":"Western Europe","area":30528},{"name":"Austria","code":"at","region":"europe","capital":"Vienna","language":"German","population":8840521,"currency":"Euro","currencySymbol":"€","lat":47.33333333,"lng":13.33333333,"subregion":"Central Europe","area":83871},{"name":"Denmark","code":"dk","region":"europe","capital":"Copenhagen","language":"Danish","population":5793636,"currency":"Danish krone","currencySymbol":"kr","lat":56,"lng":10,"subregion":"Northern Europe","area":43094},{"name":"Finland","code":"fi","region":"europe","capital":"Helsinki","language":"Finnish","otherOfficial":["Swedish"],"population":5515525,"currency":"Euro","currencySymbol":"€","lat":64,"lng":26,"subregion":"Northern Europe","area":338424},{"name":"Ukraine","code":"ua","region":"europe","capital":"Kyiv","language":"Ukrainian","otherOfficial":["Russian"],"population":44622516,"currency":"Ukrainian hryvnia","currencySymbol":"₴","lat":49,"lng":32,"subregion":"Eastern Europe","area":603500},{"name":"Israel","code":"il","region":"asia","capital":"Jerusalem","language":"Hebrew","otherOfficial":["Arabic"],"population":8882800,"currency":"Israeli new shekel","currencySymbol":"₪","lat":31.47,"lng":35.13,"subregion":"Western Asia","area":20770},{"name":"Saudi Arabia","code":"sa","region":"asia","capital":"Riyadh","language":"Arabic","population":33699947,"currency":"Saudi riyal","currencySymbol":"ر.س","lat":25,"lng":45,"subregion":"Western Asia","area":2149690},{"name":"United Arab Emirates","code":"ae","region":"asia","capital":"Abu Dhabi","language":"Arabic","population":9630959,"currency":"United Arab Emirates dirham","currencySymbol":"د.إ","lat":24,"lng":54,"subregion":"Western Asia","area":83600},{"name":"Thailand","code":"th","region":"asia","capital":"Bangkok","language":"Thai","population":69428524,"currency":"Thai baht","currencySymbol":"฿","lat":15,"lng":100,"subregion":"South-Eastern Asia","area":513120},{"name":"Vietnam","code":"vn","region":"asia","capital":"Hanoi","language":"Vietnamese","population":95540395,"currency":"Vietnamese đồng","currencySymbol":"₫","lat":16.16666666,"lng":107.83333333,"subregion":"South-Eastern Asia","area":331212},{"name":"Indonesia","code":"id","region":"asia","capital":"Jakarta","language":"Indonesian","population":267663435,"currency":"Indonesian rupiah","currencySymbol":"Rp","lat":-5,"lng":120,"subregion":"South-Eastern Asia","area":1904569},{"name":"Philippines","code":"ph","region":"asia","capital":"Manila","language":"Filipino","otherOfficial":["English"],"population":106651922,"currency":"Philippine peso","currencySymbol":"₱","lat":13,"lng":122,"subregion":"South-Eastern Asia","area":342353},{"name":"Pakistan","code":"pk","region":"asia","capital":"Islamabad","language":"Urdu","otherOfficial":["English","Punjabi"],"population":212215030,"currency":"Pakistani rupee","currencySymbol":"₨","lat":30,"lng":70,"subregion":"Southern Asia","area":881912},{"name":"Nigeria","code":"ng","region":"africa","capital":"Abuja","language":"English","otherOfficial":["Hausa","Yoruba","Igbo"],"population":195874740,"currency":"Nigerian naira","currencySymbol":"₦","lat":10,"lng":8,"subregion":"Western Africa","area":923768},{"name":"Kenya","code":"ke","region":"africa","capital":"Nairobi","language":"Swahili","otherOfficial":["English"],"population":51393010,"currency":"Kenyan shilling","currencySymbol":"Sh","lat":1,"lng":38,"subregion":"Eastern Africa","area":580367},{"name":"Morocco","code":"ma","region":"africa","capital":"Rabat","language":"Arabic","population":36029138,"currency":"Moroccan dirham","currencySymbol":"د.م.","lat":32,"lng":-5,"subregion":"Northern Africa","area":446550},{"name":"Colombia","code":"co","region":"americas","capital":"Bogotá","language":"Spanish","population":49648685,"currency":"Colombian peso","currencySymbol":"$","lat":4,"lng":-72,"subregion":"South America","area":1141748},{"name":"Venezuela","code":"ve","region":"americas","capital":"Caracas","language":"Spanish","population":28870195,"currency":"Venezuelan bolívar soberano","currencySymbol":"Bs.S.","lat":8,"lng":-66,"subregion":"South America","area":916445},{"name":"Chile","code":"cl","region":"americas","capital":"Santiago","language":"Spanish","population":18729160,"currency":"Chilean peso","currencySymbol":"$","lat":-30,"lng":-71,"subregion":"South America","area":756102},{"name":"Peru","code":"pe","region":"americas","capital":"Lima","language":"Spanish","otherOfficial":["Quechua"],"population":31989256,"currency":"Peruvian sol","currencySymbol":"S/.","lat":-10,"lng":-76,"subregion":"South America","area":1285216},{"name":"Cuba","code":"cu","region":"americas","capital":"Havana","language":"Spanish","population":11338138,"currency":"Cuban convertible peso","currencySymbol":"$","lat":21.5,"lng":-80,"subregion":"Caribbean","area":109884},{"name":"New Zealand","code":"nz","region":"oceania","capital":"Wellington","language":"English","population":4841000,"currency":"New Zealand dollar","currencySymbol":"$","lat":-41,"lng":174,"subregion":"Australia and New Zealand","area":270467},{"name":"Iceland","code":"is","region":"europe","capital":"Reykjavík","language":"Icelandic","population":352721,"currency":"Icelandic króna","currencySymbol":"kr","lat":65,"lng":-18,"subregion":"Northern Europe","area":103000},{"name":"Czechia","code":"cz","region":"europe","capital":"Prague","language":"Czech","population":10629928,"currency":"Czech koruna","currencySymbol":"Kč","lat":49.75,"lng":15.5,"subregion":"Central Europe","area":78865},{"name":"Hungary","code":"hu","region":"europe","capital":"Budapest","language":"Hungarian","population":9775564,"currency":"Hungarian forint","currencySymbol":"Ft","lat":47,"lng":20,"subregion":"Central Europe","area":93028},{"name":"Romania","code":"ro","region":"europe","capital":"Bucharest","language":"Romanian","population":19466145,"currency":"Romanian leu","currencySymbol":"lei","lat":46,"lng":25,"subregion":"Southeast Europe","area":238391},{"name":"Iran","code":"ir","region":"asia","capital":"Tehran","language":"Persian","population":81800269,"currency":"Iranian rial","currencySymbol":"﷼","lat":32,"lng":53,"subregion":"Southern Asia","area":1648195},{"name":"Iraq","code":"iq","region":"asia","capital":"Baghdad","language":"Arabic","otherOfficial":["Kurdish"],"population":38433600,"currency":"Iraqi dinar","currencySymbol":"ع.د","lat":33,"lng":44,"subregion":"Western Asia","area":438317},{"name":"Singapore","code":"sg","region":"asia","capital":"Singapore","language":"English","otherOfficial":["Malay","Mandarin","Tamil"],"population":5638676,"currency":"Singapore dollar","currencySymbol":"$","lat":1.36666666,"lng":103.8,"subregion":"South-Eastern Asia","area":710},{"name":"Malaysia","code":"my","region":"asia","capital":"Kuala Lumpur","language":"Malay","otherOfficial":["English","Mandarin","Tamil"],"population":31528585,"currency":"Malaysian ringgit","currencySymbol":"RM","lat":2.5,"lng":112.5,"subregion":"South-Eastern Asia","area":330803},{"name":"Kazakhstan","code":"kz","region":"asia","capital":"Astana","language":"Kazakh","otherOfficial":["Russian"],"population":18272430,"currency":"Kazakhstani tenge","currencySymbol":"₸","lat":48,"lng":68,"subregion":"Central Asia","area":2724900},{"name":"Uzbekistan","code":"uz","region":"asia","capital":"Tashkent","language":"Uzbek","otherOfficial":["Russian"],"population":32955400,"currency":"Uzbekistani soʻm","currencySymbol":"so'm","lat":41,"lng":64,"subregion":"Central Asia","area":447400},{"name":"Mongolia","code":"mn","region":"asia","capital":"Ulaanbaatar","language":"Mongolian","population":3170208,"currency":"Mongolian tögrög","currencySymbol":"₮","lat":46,"lng":105,"subregion":"Eastern Asia","area":1564110},{"name":"Nepal","code":"np","region":"asia","capital":"Kathmandu","language":"Nepali","otherOfficial":["English"],"population":28087871,"currency":"Nepalese rupee","currencySymbol":"₨","lat":28,"lng":84,"subregion":"Southern Asia","area":147181},{"name":"Sri Lanka","code":"lk","region":"asia","capital":"Sri Jayawardenepura Kotte","language":"Sinhala","otherOfficial":["Tamil"],"population":21670000,"currency":"Sri Lankan rupee","currencySymbol":"Rs  රු","lat":7,"lng":81,"subregion":"Southern Asia","area":65610},{"name":"Bangladesh","code":"bd","region":"asia","capital":"Dhaka","language":"Bengali","otherOfficial":["English"],"population":161356039,"currency":"Bangladeshi taka","currencySymbol":"৳","lat":24,"lng":90,"subregion":"Southern Asia","area":147570},{"name":"Myanmar","code":"mm","region":"asia","capital":"Naypyidaw","language":"Burmese","otherOfficial":["English"],"population":53708395,"currency":"Burmese kyat","currencySymbol":"Ks","lat":22,"lng":98,"subregion":"South-Eastern Asia","area":676578},{"name":"Cambodia","code":"kh","region":"asia","capital":"Phnom Penh","language":"Khmer","population":16249798,"currency":"Cambodian riel","currencySymbol":"៛","lat":13,"lng":105,"subregion":"South-Eastern Asia","area":181035},{"name":"Laos","code":"la","region":"asia","capital":"Vientiane","language":"Lao","population":7061507,"currency":"Lao kip","currencySymbol":"₭","lat":18,"lng":105,"subregion":"South-Eastern Asia","area":236800},{"name":"North Korea","code":"kp","region":"asia","capital":"Pyongyang","language":"Korean","population":25549819,"currency":"North Korean won","currencySymbol":"₩","lat":40,"lng":127,"subregion":"Eastern Asia","area":120538},{"name":"Taiwan","code":"tw","region":"asia","capital":"Taipei","language":"Mandarin","currency":"New Taiwan dollar","currencySymbol":"$","lat":23.5,"lng":121,"subregion":"Eastern Asia","area":36193},{"name":"Jordan","code":"jo","region":"asia","capital":"Amman","language":"Arabic","population":9956011,"currency":"Jordanian dinar","currencySymbol":"د.ا","lat":31,"lng":36,"subregion":"Western Asia","area":89342},{"name":"Lebanon","code":"lb","region":"asia","capital":"Beirut","language":"Arabic","population":6848925,"currency":"Lebanese pound","currencySymbol":"ل.ل","lat":33.83333333,"lng":35.83333333,"subregion":"Western Asia","area":10452},{"name":"Syria","code":"sy","region":"asia","capital":"Damascus","language":"Arabic","population":16906283,"currency":"Syrian pound","currencySymbol":"£","lat":35,"lng":38,"subregion":"Western Asia","area":185180},{"name":"Yemen","code":"ye","region":"asia","capital":"Sana'a","language":"Arabic","population":28498687,"currency":"Yemeni rial","currencySymbol":"﷼","lat":15,"lng":48,"subregion":"Western Asia","area":527968},{"name":"Kuwait","code":"kw","region":"asia","capital":"Kuwait City","language":"Arabic","population":4137309,"currency":"Kuwaiti dinar","currencySymbol":"د.ك","lat":29.5,"lng":45.75,"subregion":"Western Asia","area":17818},{"name":"Qatar","code":"qa","region":"asia","capital":"Doha","language":"Arabic","population":2781677,"currency":"Qatari riyal","currencySymbol":"ر.ق","lat":25.5,"lng":51.25,"subregion":"Western Asia","area":11586},{"name":"Bahrain","code":"bh","region":"asia","capital":"Manama","language":"Arabic","population":1569439,"currency":"Bahraini dinar","currencySymbol":".د.ب","lat":26,"lng":50.55,"subregion":"Western Asia","area":765},{"name":"Oman","code":"om","region":"asia","capital":"Muscat","language":"Arabic","population":4829483,"currency":"Omani rial","currencySymbol":"ر.ع.","lat":21,"lng":57,"subregion":"Western Asia","area":309500},{"name":"Afghanistan","code":"af","region":"asia","capital":"Kabul","language":"Pashto","otherOfficial":["Dari"],"population":37172386,"currency":"Afghan afghani","currencySymbol":"؋","lat":33,"lng":65,"subregion":"Southern Asia","area":652230},{"name":"Azerbaijan","code":"az","region":"asia","capital":"Baku","language":"Azerbaijani","otherOfficial":["Russian"],"population":9939800,"currency":"Azerbaijani manat","currencySymbol":"₼","lat":40.5,"lng":47.5,"subregion":"Western Asia","area":86600},{"name":"Armenia","code":"am","region":"asia","capital":"Yerevan","language":"Armenian","otherOfficial":["Russian"],"population":2951776,"currency":"Armenian dram","currencySymbol":"֏","lat":40,"lng":45,"subregion":"Western Asia","area":29743},{"name":"Georgia","code":"ge","region":"asia","capital":"Tbilisi","language":"Georgian","otherOfficial":["Russian"],"population":3726549,"currency":"lari","currencySymbol":"₾","lat":42,"lng":43.5,"subregion":"Western Asia","area":69700},{"name":"Turkmenistan","code":"tm","region":"asia","capital":"Ashgabat","language":"Turkmen","otherOfficial":["Russian"],"population":5850908,"currency":"Turkmenistan manat","currencySymbol":"m","lat":40,"lng":60,"subregion":"Central Asia","area":488100},{"name":"Tajikistan","code":"tj","region":"asia","capital":"Dushanbe","language":"Tajik","otherOfficial":["Russian"],"population":9100837,"currency":"Tajikistani somoni","currencySymbol":"ЅМ","lat":39,"lng":71,"subregion":"Central Asia","area":143100},{"name":"Kyrgyzstan","code":"kg","region":"asia","capital":"Bishkek","language":"Kyrgyz","otherOfficial":["Russian"],"population":6322800,"currency":"Kyrgyzstani som","currencySymbol":"с","lat":41,"lng":75,"subregion":"Central Asia","area":199951},{"name":"Bhutan","code":"bt","region":"asia","capital":"Thimphu","language":"Dzongkha","otherOfficial":["Nepali"],"population":754394,"currency":"Bhutanese ngultrum","currencySymbol":"Nu.","lat":27.5,"lng":90.5,"subregion":"Southern Asia","area":38394},{"name":"Maldives","code":"mv","region":"asia","capital":"Malé","language":"Dhivehi","otherOfficial":["English"],"population":515696,"currency":"Maldivian rufiyaa","currencySymbol":".ރ","lat":3.25,"lng":73,"subregion":"Southern Asia","area":300},{"name":"Brunei","code":"bn","region":"asia","capital":"Bandar Seri Begawan","language":"Malay","otherOfficial":["English"],"population":428962,"currency":"Brunei dollar","currencySymbol":"$","lat":4.5,"lng":114.66666666,"subregion":"South-Eastern Asia","area":5765},{"name":"Timor-Leste","code":"tl","region":"asia","capital":"Dili","language":"Tetum","otherOfficial":["Portuguese","Indonesian"],"population":1267972,"currency":"United States dollar","currencySymbol":"$","lat":-8.83333333,"lng":125.91666666,"subregion":"South-Eastern Asia","area":14874},{"name":"Ghana","code":"gh","region":"africa","capital":"Accra","language":"English","population":29767108,"currency":"Ghanaian cedi","currencySymbol":"₵","lat":8,"lng":-2,"subregion":"Western Africa","area":238533},{"name":"Ethiopia","code":"et","region":"africa","capital":"Addis Ababa","language":"Amharic","population":109224559,"currency":"Ethiopian birr","currencySymbol":"Br","lat":8,"lng":38,"subregion":"Eastern Africa","area":1104300},{"name":"Tanzania","code":"tz","region":"africa","capital":"Dodoma","language":"Swahili","otherOfficial":["English"],"population":56318348,"currency":"Tanzanian shilling","currencySymbol":"Sh","lat":-6,"lng":35,"subregion":"Eastern Africa","area":945087},{"name":"Uganda","code":"ug","region":"africa","capital":"Kampala","language":"English","otherOfficial":["Swahili"],"population":42723139,"currency":"Ugandan shilling","currencySymbol":"Sh","lat":1,"lng":32,"subregion":"Eastern Africa","area":241550},{"name":"Algeria","code":"dz","region":"africa","capital":"Algiers","language":"Arabic","population":42228429,"currency":"Algerian dinar","currencySymbol":"د.ج","lat":28,"lng":3,"subregion":"Northern Africa","area":2381741},{"name":"Tunisia","code":"tn","region":"africa","capital":"Tunis","language":"Arabic","population":11565204,"currency":"Tunisian dinar","currencySymbol":"د.ت","lat":34,"lng":9,"subregion":"Northern Africa","area":163610},{"name":"Libya","code":"ly","region":"africa","capital":"Tripoli","language":"Arabic","population":6678567,"currency":"Libyan dinar","currencySymbol":"ل.د","lat":25,"lng":17,"subregion":"Northern Africa","area":1759540},{"name":"Sudan","code":"sd","region":"africa","capital":"Khartoum","language":"Arabic","otherOfficial":["English"],"population":41801533,"currency":"Sudanese pound","currencySymbol":"PT","lat":15,"lng":30,"subregion":"Northern Africa","area":1886068},{"name":"Senegal","code":"sn","region":"africa","capital":"Dakar","language":"French","population":15854360,"currency":"West African CFA franc","currencySymbol":"Fr","lat":14,"lng":-14,"subregion":"Western Africa","area":196722},{"name":"Mali","code":"ml","region":"africa","capital":"Bamako","language":"French","population":19077690,"currency":"West African CFA franc","currencySymbol":"Fr","lat":17,"lng":-4,"subregion":"Western Africa","area":1240192},{"name":"Guinea","code":"gn","region":"africa","capital":"Conakry","language":"French","population":12414318,"currency":"Guinean franc","currencySymbol":"Fr","lat":11,"lng":-10,"subregion":"Western Africa","area":245857},{"name":"Ivory Coast","code":"ci","region":"africa","capital":"Yamoussoukro","language":"French","population":25069229,"currency":"West African CFA franc","currencySymbol":"Fr","lat":8,"lng":-5,"subregion":"Western Africa","area":322463},{"name":"Cameroon","code":"cm","region":"africa","capital":"Yaoundé","language":"French","otherOfficial":["English"],"population":25216237,"currency":"Central African CFA franc","currencySymbol":"Fr","lat":6,"lng":12,"subregion":"Middle Africa","area":475442},{"name":"Zambia","code":"zm","region":"africa","capital":"Lusaka","language":"English","population":17351822,"currency":"Zambian kwacha","currencySymbol":"ZK","lat":-15,"lng":30,"subregion":"Eastern Africa","area":752612},{"name":"Zimbabwe","code":"zw","region":"africa","capital":"Harare","language":"English","otherOfficial":["Shona","Ndebele"],"population":14439018,"currency":"Botswana pula","currencySymbol":"P","lat":-20,"lng":30,"subregion":"Eastern Africa","area":390757},{"name":"Angola","code":"ao","region":"africa","capital":"Luanda","language":"Portuguese","population":30809762,"currency":"Angolan kwanza","currencySymbol":"Kz","lat":-12.5,"lng":18.5,"subregion":"Middle Africa","area":1246700},{"name":"Mozambique","code":"mz","region":"africa","capital":"Maputo","language":"Portuguese","otherOfficial":["Swahili"],"population":29495962,"currency":"Mozambican metical","currencySymbol":"MT","lat":-18.25,"lng":35,"subregion":"Eastern Africa","area":801590},{"name":"Namibia","code":"na","region":"africa","capital":"Windhoek","language":"English","otherOfficial":["Afrikaans"],"population":2448255,"currency":"Namibian dollar","currencySymbol":"$","lat":-22,"lng":17,"subregion":"Southern Africa","area":825615},{"name":"Botswana","code":"bw","region":"africa","capital":"Gaborone","language":"English","otherOfficial":["Setswana"],"population":2254126,"currency":"Botswana pula","currencySymbol":"P","lat":-22,"lng":24,"subregion":"Southern Africa","area":582000},{"name":"Rwanda","code":"rw","region":"africa","capital":"Kigali","language":"Kinyarwanda","otherOfficial":["French","English"],"population":12301939,"currency":"Rwandan franc","currencySymbol":"Fr","lat":-2,"lng":30,"subregion":"Eastern Africa","area":26338},{"name":"Somalia","code":"so","region":"africa","capital":"Mogadishu","language":"Somali","otherOfficial":["Arabic"],"population":15008154,"currency":"Somali shilling","currencySymbol":"Sh","lat":10,"lng":49,"subregion":"Eastern Africa","area":637657},{"name":"Democratic Republic of the Congo","code":"cd","region":"africa","capital":"Kinshasa","language":"French","otherOfficial":["Swahili","Lingala"],"population":84068091,"currency":"Congolese franc","currencySymbol":"FC","lat":0,"lng":25,"subregion":"Middle Africa","area":2344858},{"name":"Republic of the Congo","code":"cg","region":"africa","capital":"Brazzaville","language":"French","population":5244363,"currency":"Central African CFA franc","currencySymbol":"Fr","lat":-1,"lng":15,"subregion":"Middle Africa","area":342000},{"name":"Panama","code":"pa","region":"americas","capital":"Panama City","language":"Spanish","population":4176873,"currency":"Panamanian balboa","currencySymbol":"B/.","lat":9,"lng":-80,"subregion":"Central America","area":75417},{"name":"Costa Rica","code":"cr","region":"americas","capital":"San José","language":"Spanish","population":4999441,"currency":"Costa Rican colón","currencySymbol":"₡","lat":10,"lng":-84,"subregion":"Central America","area":51100},{"name":"Nicaragua","code":"ni","region":"americas","capital":"Managua","language":"Spanish","population":6465513,"currency":"Nicaraguan córdoba","currencySymbol":"C$","lat":13,"lng":-85,"subregion":"Central America","area":130373},{"name":"Honduras","code":"hn","region":"americas","capital":"Tegucigalpa","language":"Spanish","population":9587522,"currency":"Honduran lempira","currencySymbol":"L","lat":15,"lng":-86.5,"subregion":"Central America","area":112492},{"name":"El Salvador","code":"sv","region":"americas","capital":"San Salvador","language":"Spanish","population":6420744,"currency":"United States dollar","currencySymbol":"$","lat":13.83333333,"lng":-88.91666666,"subregion":"Central America","area":21041},{"name":"Guatemala","code":"gt","region":"americas","capital":"Guatemala City","language":"Spanish","population":17247807,"currency":"Guatemalan quetzal","currencySymbol":"Q","lat":15.5,"lng":-90.25,"subregion":"Central America","area":108889},{"name":"Ecuador","code":"ec","region":"americas","capital":"Quito","language":"Spanish","population":17084357,"currency":"United States dollar","currencySymbol":"$","lat":-2,"lng":-77.5,"subregion":"South America","area":276841},{"name":"Bolivia","code":"bo","region":"americas","capital":"Sucre","language":"Spanish","otherOfficial":["Quechua","Aymara"],"population":11353142,"currency":"Bolivian boliviano","currencySymbol":"Bs.","lat":-17,"lng":-65,"subregion":"South America","area":1098581},{"name":"Paraguay","code":"py","region":"americas","capital":"Asunción","language":"Spanish","otherOfficial":["Guarani"],"population":6956071,"currency":"Paraguayan guaraní","currencySymbol":"₲","lat":-23,"lng":-58,"subregion":"South America","area":406752},{"name":"Uruguay","code":"uy","region":"americas","capital":"Montevideo","language":"Spanish","population":3449299,"currency":"Uruguayan peso","currencySymbol":"$","lat":-33,"lng":-56,"subregion":"South America","area":181034},{"name":"Dominican Republic","code":"do","region":"americas","capital":"Santo Domingo","language":"Spanish","population":10627165,"currency":"Dominican peso","currencySymbol":"$","lat":19,"lng":-70.66666666,"subregion":"Caribbean","area":48671},{"name":"Haiti","code":"ht","region":"americas","capital":"Port-au-Prince","language":"French","population":11123176,"currency":"Haitian gourde","currencySymbol":"G","lat":19,"lng":-72.41666666,"subregion":"Caribbean","area":27750},{"name":"Jamaica","code":"jm","region":"americas","capital":"Kingston","language":"English","population":2934855,"currency":"Jamaican dollar","currencySymbol":"$","lat":18.25,"lng":-77.5,"subregion":"Caribbean","area":10991},{"name":"Slovakia","code":"sk","region":"europe","capital":"Bratislava","language":"Slovak","population":5446771,"currency":"Euro","currencySymbol":"€","lat":48.66666666,"lng":19.5,"subregion":"Central Europe","area":49037},{"name":"Slovenia","code":"si","region":"europe","capital":"Ljubljana","language":"Slovenian","population":2073894,"currency":"Euro","currencySymbol":"€","lat":46.11666666,"lng":14.81666666,"subregion":"Central Europe","area":20273},{"name":"Croatia","code":"hr","region":"europe","capital":"Zagreb","language":"Croatian","population":4087843,"currency":"Euro","currencySymbol":"€","lat":45.16666666,"lng":15.5,"subregion":"Southeast Europe","area":56594},{"name":"Serbia","code":"rs","region":"europe","capital":"Belgrade","language":"Serbian","population":6963764,"currency":"Serbian dinar","currencySymbol":"дин.","lat":44,"lng":21,"subregion":"Southeast Europe","area":88361},{"name":"Bosnia and Herzegovina","code":"ba","region":"europe","capital":"Sarajevo","language":"Bosnian","otherOfficial":["Croatian","Serbian"],"population":3323929,"currency":"Bosnia and Herzegovina convertible mark","currencySymbol":"KM","lat":44,"lng":18,"subregion":"Southeast Europe","area":51209},{"name":"Bulgaria","code":"bg","region":"europe","capital":"Sofia","language":"Bulgarian","population":7025037,"currency":"Bulgarian lev","currencySymbol":"лв","lat":43,"lng":25,"subregion":"Southeast Europe","area":110879},{"name":"North Macedonia","code":"mk","region":"europe","capital":"Skopje","language":"Macedonian","population":2084367,"currency":"denar","currencySymbol":"den","lat":41.83333333,"lng":22,"subregion":"Southeast Europe","area":25713},{"name":"Albania","code":"al","region":"europe","capital":"Tirana","language":"Albanian","population":2866376,"currency":"Albanian lek","currencySymbol":"L","lat":41,"lng":20,"subregion":"Southeast Europe","area":28748},{"name":"Montenegro","code":"me","region":"europe","capital":"Podgorica","language":"Montenegrin","otherOfficial":["Serbian"],"population":631219,"currency":"Euro","currencySymbol":"€","lat":42.5,"lng":19.3,"subregion":"Southeast Europe","area":13812},{"name":"Kosovo","code":"xk","region":"europe","capital":"Pristina","language":"Albanian","currency":"Euro","currencySymbol":"€","lat":42.666667,"lng":21.166667,"subregion":"Southeast Europe","area":10908},{"name":"Moldova","code":"md","region":"europe","capital":"Chișinău","language":"Romanian","otherOfficial":["Russian"],"population":2706049,"currency":"Moldovan leu","currencySymbol":"L","lat":47,"lng":29,"subregion":"Eastern Europe","area":33846},{"name":"Belarus","code":"by","region":"europe","capital":"Minsk","language":"Belarusian","otherOfficial":["Russian"],"population":9483499,"currency":"Belarusian ruble","currencySymbol":"Br","lat":53,"lng":28,"subregion":"Eastern Europe","area":207600},{"name":"Lithuania","code":"lt","region":"europe","capital":"Vilnius","language":"Lithuanian","population":2801543,"currency":"Euro","currencySymbol":"€","lat":56,"lng":24,"subregion":"Northern Europe","area":65300},{"name":"Latvia","code":"lv","region":"europe","capital":"Riga","language":"Latvian","population":1927174,"currency":"Euro","currencySymbol":"€","lat":57,"lng":25,"subregion":"Northern Europe","area":64559},{"name":"Estonia","code":"ee","region":"europe","capital":"Tallinn","language":"Estonian","population":1321977,"currency":"Euro","currencySymbol":"€","lat":59,"lng":26,"subregion":"Northern Europe","area":45227},{"name":"Luxembourg","code":"lu","region":"europe","capital":"Luxembourg City","language":"Luxembourgish","otherOfficial":["French","German"],"population":607950,"currency":"Euro","currencySymbol":"€","lat":49.75,"lng":6.16666666,"subregion":"Western Europe","area":2586},{"name":"Malta","code":"mt","region":"europe","capital":"Valletta","language":"Maltese","otherOfficial":["English"],"population":484630,"currency":"Euro","currencySymbol":"€","lat":35.83333333,"lng":14.58333333,"subregion":"Southern Europe","area":316},{"name":"Cyprus","code":"cy","region":"europe","capital":"Nicosia","language":"Greek","otherOfficial":["Turkish"],"population":1189265,"currency":"Euro","currencySymbol":"€","lat":35,"lng":33,"subregion":"Southern Europe","area":9251},{"name":"Liechtenstein","code":"li","region":"europe","capital":"Vaduz","language":"German","population":37910,"currency":"Swiss franc","currencySymbol":"Fr","lat":47.26666666,"lng":9.53333333,"subregion":"Western Europe","area":160},{"name":"Monaco","code":"mc","region":"europe","capital":"Monaco","language":"French","otherOfficial":["Italian"],"population":38682,"currency":"Euro","currencySymbol":"€","lat":43.73333333,"lng":7.4,"subregion":"Western Europe","area":2.02},{"name":"San Marino","code":"sm","region":"europe","capital":"San Marino","language":"Italian","otherOfficial":["Italian"],"population":33785,"currency":"Euro","currencySymbol":"€","lat":43.76666666,"lng":12.41666666,"subregion":"Southern Europe","area":61},{"name":"Andorra","code":"ad","region":"europe","capital":"Andorra la Vella","language":"Catalan","otherOfficial":["French","Spanish"],"population":77006,"currency":"Euro","currencySymbol":"€","lat":42.5,"lng":1.5,"subregion":"Southern Europe","area":468},{"name":"Vatican City","code":"va","region":"europe","capital":"Vatican City","language":"Italian","otherOfficial":["Latin"],"population":825,"currency":"Euro","currencySymbol":"€","lat":41.9,"lng":12.45,"subregion":"Southern Europe","area":0.44},{"name":"Fiji","code":"fj","region":"oceania","capital":"Suva","language":"English","population":883483,"currency":"Fijian dollar","currencySymbol":"$","lat":-18,"lng":175,"subregion":"Melanesia","area":18272},{"name":"Papua New Guinea","code":"pg","region":"oceania","capital":"Port Moresby","language":"English","population":8606316,"currency":"Papua New Guinean kina","currencySymbol":"K","lat":-6,"lng":147,"subregion":"Melanesia","area":462840},{"name":"Samoa","code":"ws","region":"oceania","capital":"Apia","language":"Samoan","population":196130,"currency":"Samoan tālā","currencySymbol":"T","lat":-13.58333333,"lng":-172.33333333,"subregion":"Polynesia","area":2842},{"name":"Tonga","code":"to","region":"oceania","capital":"Nukuʻalofa","language":"Tongan","population":103197,"currency":"Tongan paʻanga","currencySymbol":"T$","lat":-20,"lng":-175,"subregion":"Polynesia","area":747},{"name":"Vanuatu","code":"vu","region":"oceania","capital":"Port Vila","language":"Bislama","otherOfficial":["English","French"],"population":292680,"currency":"Vanuatu vatu","currencySymbol":"Vt","lat":-16,"lng":167,"subregion":"Melanesia","area":12189},{"name":"Solomon Islands","code":"sb","region":"oceania","capital":"Honiara","language":"English","population":652858,"currency":"Solomon Islands dollar","currencySymbol":"$","lat":-8,"lng":159,"subregion":"Melanesia","area":28896},{"name":"Kiribati","code":"ki","region":"oceania","capital":"South Tarawa","language":"Gilbertese","population":115847,"currency":"Australian dollar","currencySymbol":"$","lat":1.41666666,"lng":173,"subregion":"Micronesia","area":811},{"name":"Tuvalu","code":"tv","region":"oceania","capital":"Funafuti","language":"Tuvaluan","population":11508,"currency":"Australian dollar","currencySymbol":"$","lat":-8,"lng":178,"subregion":"Polynesia","area":26},{"name":"Nauru","code":"nr","region":"oceania","capital":"Yaren","language":"Nauruan","population":12704,"currency":"Australian dollar","currencySymbol":"$","lat":-0.53333333,"lng":166.91666666,"subregion":"Micronesia","area":21},{"name":"Marshall Islands","code":"mh","region":"oceania","capital":"Majuro","language":"Marshallese","population":58413,"currency":"United States dollar","currencySymbol":"$","lat":9,"lng":168,"subregion":"Micronesia","area":181},{"name":"Palau","code":"pw","region":"oceania","capital":"Ngerulmud","language":"Palauan","population":17907,"currency":"United States dollar","currencySymbol":"$","lat":7.5,"lng":134.5,"subregion":"Micronesia","area":459},{"name":"Micronesia","code":"fm","region":"oceania","capital":"Palikir","language":"English","population":112640,"currency":"United States dollar","currencySymbol":"$","lat":6.91666666,"lng":158.25,"subregion":"Micronesia","area":702},{"name":"Trinidad and Tobago","code":"tt","region":"americas","capital":"Port of Spain","language":"English","population":1389858,"currency":"Trinidad and Tobago dollar","currencySymbol":"$","lat":11,"lng":-61,"subregion":"Caribbean","area":5130},{"name":"Bahamas","code":"bs","region":"americas","capital":"Nassau","language":"English","population":385640,"currency":"Bahamian dollar","currencySymbol":"$","lat":24.25,"lng":-76,"subregion":"Caribbean","area":13943},{"name":"Barbados","code":"bb","region":"americas","capital":"Bridgetown","language":"English","population":286641,"currency":"Barbadian dollar","currencySymbol":"$","lat":13.16666666,"lng":-59.53333333,"subregion":"Caribbean","area":430},{"name":"Belize","code":"bz","region":"americas","capital":"Belmopan","language":"English","population":383071,"currency":"Belize dollar","currencySymbol":"$","lat":17.25,"lng":-88.75,"subregion":"Central America","area":22966},{"name":"Guyana","code":"gy","region":"americas","capital":"Georgetown","language":"English","population":779004,"currency":"Guyanese dollar","currencySymbol":"$","lat":5,"lng":-59,"subregion":"South America","area":214969},{"name":"Suriname","code":"sr","region":"americas","capital":"Paramaribo","language":"Dutch","population":575991,"currency":"Surinamese dollar","currencySymbol":"$","lat":4,"lng":-56,"subregion":"South America","area":163820},{"name":"Grenada","code":"gd","region":"americas","capital":"St. George's","language":"English","population":111454,"currency":"Eastern Caribbean dollar","currencySymbol":"$","lat":12.11666666,"lng":-61.66666666,"subregion":"Caribbean","area":344},{"name":"Saint Lucia","code":"lc","region":"americas","capital":"Castries","language":"English","population":181889,"currency":"Eastern Caribbean dollar","currencySymbol":"$","lat":13.88333333,"lng":-60.96666666,"subregion":"Caribbean","area":616},{"name":"Saint Vincent and the Grenadines","code":"vc","region":"americas","capital":"Kingstown","language":"English","population":110210,"currency":"Eastern Caribbean dollar","currencySymbol":"$","lat":13.25,"lng":-61.2,"subregion":"Caribbean","area":389},{"name":"Antigua and Barbuda","code":"ag","region":"americas","capital":"St. John's","language":"English","population":96286,"currency":"Eastern Caribbean dollar","currencySymbol":"$","lat":17.05,"lng":-61.8,"subregion":"Caribbean","area":442},{"name":"Dominica","code":"dm","region":"americas","capital":"Roseau","language":"English","population":71625,"currency":"Eastern Caribbean dollar","currencySymbol":"$","lat":15.41666666,"lng":-61.33333333,"subregion":"Caribbean","area":751},{"name":"Saint Kitts and Nevis","code":"kn","region":"americas","capital":"Basseterre","language":"English","population":52441,"currency":"Eastern Caribbean dollar","currencySymbol":"$","lat":17.33333333,"lng":-62.75,"subregion":"Caribbean","area":261},{"name":"South Sudan","code":"ss","region":"africa","capital":"Juba","language":"English","otherOfficial":["Arabic"],"population":10975920,"currency":"South Sudanese pound","currencySymbol":"£","lat":7,"lng":30,"subregion":"Middle Africa","area":619745},{"name":"Chad","code":"td","region":"africa","capital":"N'Djamena","language":"French","otherOfficial":["Arabic"],"population":15477751,"currency":"Central African CFA franc","currencySymbol":"Fr","lat":15,"lng":19,"subregion":"Middle Africa","area":1284000},{"name":"Niger","code":"ne","region":"africa","capital":"Niamey","language":"French","population":22442948,"currency":"West African CFA franc","currencySymbol":"Fr","lat":16,"lng":8,"subregion":"Western Africa","area":1267000},{"name":"Burkina Faso","code":"bf","region":"africa","capital":"Ouagadougou","language":"French","population":19751535,"currency":"West African CFA franc","currencySymbol":"Fr","lat":13,"lng":-2,"subregion":"Western Africa","area":272967},{"name":"Benin","code":"bj","region":"africa","capital":"Porto-Novo","language":"French","population":11485048,"currency":"West African CFA franc","currencySymbol":"Fr","lat":9.5,"lng":2.25,"subregion":"Western Africa","area":112622},{"name":"Togo","code":"tg","region":"africa","capital":"Lomé","language":"French","population":7889094,"currency":"West African CFA franc","currencySymbol":"Fr","lat":8,"lng":1.16666666,"subregion":"Western Africa","area":56785},{"name":"Sierra Leone","code":"sl","region":"africa","capital":"Freetown","language":"English","population":7650154,"currency":"Sierra Leonean leone","currencySymbol":"Le","lat":8.5,"lng":-11.5,"subregion":"Western Africa","area":71740},{"name":"Liberia","code":"lr","region":"africa","capital":"Monrovia","language":"English","population":4818977,"currency":"Liberian dollar","currencySymbol":"$","lat":6.5,"lng":-9.5,"subregion":"Western Africa","area":111369},{"name":"Gambia","code":"gm","region":"africa","capital":"Banjul","language":"English","population":2280102,"currency":"dalasi","currencySymbol":"D","lat":13.46666666,"lng":-16.56666666,"subregion":"Western Africa","area":10689},{"name":"Guinea-Bissau","code":"gw","region":"africa","capital":"Bissau","language":"Portuguese","population":1874309,"currency":"West African CFA franc","currencySymbol":"Fr","lat":12,"lng":-15,"subregion":"Western Africa","area":36125},{"name":"Equatorial Guinea","code":"gq","region":"africa","capital":"Ciudad de la Paz","language":"Spanish","population":1308974,"currency":"Central African CFA franc","currencySymbol":"Fr","lat":2,"lng":10,"subregion":"Middle Africa","area":28051},{"name":"Gabon","code":"ga","region":"africa","capital":"Libreville","language":"French","population":2119275,"currency":"Central African CFA franc","currencySymbol":"Fr","lat":-1,"lng":11.75,"subregion":"Middle Africa","area":267668},{"name":"Central African Republic","code":"cf","region":"africa","capital":"Bangui","language":"French","population":4666377,"currency":"Central African CFA franc","currencySymbol":"Fr","lat":7,"lng":21,"subregion":"Middle Africa","area":622984},{"name":"Djibouti","code":"dj","region":"africa","capital":"Djibouti City","language":"French","otherOfficial":["Arabic"],"population":958920,"currency":"Djiboutian franc","currencySymbol":"Fr","lat":11.5,"lng":43,"subregion":"Eastern Africa","area":23200},{"name":"Eritrea","code":"er","region":"africa","capital":"Asmara","language":"Tigrinya","otherOfficial":["Arabic"],"population":6213972,"currency":"Eritrean nakfa","currencySymbol":"Nfk","lat":15,"lng":39,"subregion":"Eastern Africa","area":117600},{"name":"Burundi","code":"bi","region":"africa","capital":"Gitega","language":"Kirundi","otherOfficial":["French"],"population":11175378,"currency":"Burundian franc","currencySymbol":"Fr","lat":-3.5,"lng":30,"subregion":"Eastern Africa","area":27834},{"name":"Malawi","code":"mw","region":"africa","capital":"Lilongwe","language":"Chichewa","otherOfficial":["English"],"population":18143315,"currency":"Malawian kwacha","currencySymbol":"MK","lat":-13.5,"lng":34,"subregion":"Eastern Africa","area":118484},{"name":"Madagascar","code":"mg","region":"africa","capital":"Antananarivo","language":"Malagasy","population":26262368,"currency":"Malagasy ariary","currencySymbol":"Ar","lat":-20,"lng":47,"subregion":"Eastern Africa","area":587041},{"name":"Mauritius","code":"mu","region":"africa","capital":"Port Louis","language":"English","population":1265303,"currency":"Mauritian rupee","currencySymbol":"₨","lat":-20.28333333,"lng":57.55,"subregion":"Eastern Africa","area":2040},{"name":"Seychelles","code":"sc","region":"africa","capital":"Victoria","language":"French","population":96762,"currency":"Seychellois rupee","currencySymbol":"₨","lat":-4.58333333,"lng":55.66666666,"subregion":"Eastern Africa","area":452},{"name":"Comoros","code":"km","region":"africa","capital":"Moroni","language":"Comorian","otherOfficial":["Arabic","French"],"population":832322,"currency":"Comorian franc","currencySymbol":"Fr","lat":-12.16666666,"lng":44.25,"subregion":"Eastern Africa","area":1862},{"name":"Cape Verde","code":"cv","region":"africa","capital":"Praia","language":"Portuguese","population":543767,"currency":"Cape Verdean escudo","currencySymbol":"Esc","lat":16,"lng":-24,"subregion":"Western Africa","area":4033},{"name":"Sao Tome and Principe","code":"st","region":"africa","capital":"São Tomé","language":"Portuguese","population":211028,"currency":"São Tomé and Príncipe dobra","currencySymbol":"Db","lat":1,"lng":7,"subregion":"Middle Africa","area":964},{"name":"Lesotho","code":"ls","region":"africa","capital":"Maseru","language":"Sesotho","otherOfficial":["English"],"population":2108132,"currency":"Lesotho loti","currencySymbol":"L","lat":-29.5,"lng":28.5,"subregion":"Southern Africa","area":30355},{"name":"Eswatini","code":"sz","region":"africa","capital":"Mbabane","language":"Swazi","otherOfficial":["English"],"population":1136191,"currency":"Swazi lilangeni","currencySymbol":"L","lat":-26.5,"lng":31.5,"subregion":"Southern Africa","area":17364}];
+// ============ Globe: a rotatable, zoomable, clickable 3D globe for exploring every
+// country's capital, currency, language, population, region and area - built with
+// globe.gl (a three.js wrapper) plus a GeoJSON country-boundary file in
+// data/globe-countries.geo.json. The globe.gl library and its earth textures load
+// lazily from jsdelivr/unpkg (same CDN pattern already used for Supabase/Chart.js in
+// <head>) only when this page is actually visited, so nobody pays for a ~1MB 3D
+// library on a page they never open. No ads, no tracking, no third-party embed -
+// just a rendering library, a public domain boundary dataset, and this site's own
+// data (merged from FLAG_COUNTRIES + LANGUAGE_COUNTRIES + a one-time npm-sourced
+// population/currency/coordinates pass).
+const GLOBE_COUNTRIES_BY_CODE = {};
+GLOBE_COUNTRIES.forEach(c => { GLOBE_COUNTRIES_BY_CODE[c.code] = c; });
+
+let globeInstance = null;
+let globeGeoFeatures = null;
+let globeSelectedCode = null;
+let globeScriptPromise = null;
+let globeGeoPromise = null;
+let globeResizeHandler = null;
+
+function globeLoadScript(){
+  if(window.Globe) return Promise.resolve();
+  if(globeScriptPromise) return globeScriptPromise;
+  globeScriptPromise = new Promise((resolve, reject) => {
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/globe.gl';
+    s.onload = () => resolve();
+    s.onerror = () => reject(new Error('globe.gl failed to load'));
+    document.head.appendChild(s);
+  });
+  return globeScriptPromise;
+}
+
+function globeLoadGeoJson(){
+  if(globeGeoFeatures) return Promise.resolve(globeGeoFeatures);
+  if(globeGeoPromise) return globeGeoPromise;
+  globeGeoPromise = fetch('data/globe-countries.geo.json')
+    .then(r => { if(!r.ok) throw new Error('geo fetch failed'); return r.json(); })
+    .then(geo => { globeGeoFeatures = geo.features; return globeGeoFeatures; });
+  return globeGeoPromise;
+}
+
+function globeFormatPopulation(n){
+  if(n == null) return '—';
+  if(n >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+  if(n >= 1e6) return (n / 1e6).toFixed(1) + 'M';
+  if(n >= 1e3) return (n / 1e3).toFixed(0) + 'K';
+  return String(n);
+}
+
+function globeFormatArea(n){
+  if(n == null) return '—';
+  return n.toLocaleString('en-US') + ' km²';
+}
+
+const GLOBE_REGION_LABELS = { americas: 'Americas', europe: 'Europe', asia: 'Asia', africa: 'Africa', oceania: 'Oceania' };
+
+function globeInfoPanelHtml(c){
+  if(!c){
+    return `<p class="globe-info-placeholder">Click a country on the globe, or search for one above.</p>`;
+  }
+  const otherLangs = c.otherOfficial && c.otherOfficial.length ? ` <span class="globe-info-sub">(also ${c.otherOfficial.map(escapeHtml).join(', ')})</span>` : '';
+  return `
+    <div class="globe-info-head">
+      <img class="globe-info-flag" src="https://flagcdn.com/w80/${escapeHtml(c.code)}.png" alt="" onerror="this.style.display='none'">
+      <h3>${escapeHtml(c.name)}</h3>
+    </div>
+    <div class="globe-info-grid">
+      <div class="globe-info-row"><span class="globe-info-label">Capital</span><span class="globe-info-value">${escapeHtml(c.capital || '—')}</span></div>
+      <div class="globe-info-row"><span class="globe-info-label">Currency</span><span class="globe-info-value">${c.currency ? `${escapeHtml(c.currency)}${c.currencySymbol ? ' (' + escapeHtml(c.currencySymbol) + ')' : ''}` : '—'}</span></div>
+      <div class="globe-info-row"><span class="globe-info-label">Language</span><span class="globe-info-value">${escapeHtml(c.language || '—')}${otherLangs}</span></div>
+      <div class="globe-info-row"><span class="globe-info-label">Population</span><span class="globe-info-value">${globeFormatPopulation(c.population)}</span></div>
+      <div class="globe-info-row"><span class="globe-info-label">Region</span><span class="globe-info-value">${escapeHtml(GLOBE_REGION_LABELS[c.region] || c.region)}${c.subregion ? ' · ' + escapeHtml(c.subregion) : ''}</span></div>
+      <div class="globe-info-row"><span class="globe-info-label">Area</span><span class="globe-info-value">${globeFormatArea(c.area)}</span></div>
+    </div>
+    ${(c.population == null) ? `<p class="globe-info-note">Population figure not available for this entity.</p>` : ''}
+  `;
+}
+
+function globeSelectCountry(code, flyTo){
+  const c = GLOBE_COUNTRIES_BY_CODE[code];
+  if(!c) return;
+  globeSelectedCode = code;
+  const panel = document.getElementById('globeInfoPanel');
+  if(panel){
+    panel.innerHTML = globeInfoPanelHtml(c);
+    panel.classList.remove('globe-info-empty');
+  }
+  const searchInput = document.getElementById('globeSearchInput');
+  if(searchInput) searchInput.value = '';
+  const results = document.getElementById('globeSearchResults');
+  if(results){ results.innerHTML = ''; results.classList.remove('globe-search-results-open'); }
+  if(globeInstance && globeGeoFeatures){
+    // Reassigning polygonsData with a fresh array reference forces globe.gl to
+    // re-evaluate polygonCapColor for every feature, so the new selection highlight
+    // actually shows up (same accessor function, new data reference => redraw).
+    globeInstance.polygonsData([...globeGeoFeatures]);
+    if(flyTo !== false && c.lat != null && c.lng != null){
+      globeInstance.pointOfView({ lat: c.lat, lng: c.lng, altitude: 1.6 }, 1200);
+    }
+  }
+}
+
+function globeSearchRun(query){
+  const results = document.getElementById('globeSearchResults');
+  if(!results) return;
+  const q = query.trim().toLowerCase();
+  if(!q){ results.innerHTML = ''; results.classList.remove('globe-search-results-open'); return; }
+  const matches = GLOBE_COUNTRIES.filter(c => c.name.toLowerCase().includes(q)).slice(0, 8);
+  if(!matches.length){
+    results.innerHTML = `<div class="globe-search-empty">No country found.</div>`;
+    results.classList.add('globe-search-results-open');
+    return;
+  }
+  results.innerHTML = matches.map(c => `<button class="globe-search-result" data-action="globe-search-select" data-code="${escapeHtml(c.code)}">${escapeHtml(c.name)}</button>`).join('');
+  results.classList.add('globe-search-results-open');
+}
+
+function globeCapColor(feat){
+  const code = feat.properties.code;
+  if(code && code === globeSelectedCode) return '#FFD34D';
+  return 'rgba(110, 190, 120, 0.55)';
+}
+
+function globeInit(container){
+  globeInstance = new Globe(container, { animateIn: true })
+    .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
+    .bumpImageUrl('https://unpkg.com/three-globe/example/img/earth-topology.png')
+    .backgroundColor('rgba(0,0,0,0)')
+    .width(container.clientWidth)
+    .height(480)
+    .polygonsData(globeGeoFeatures)
+    .polygonCapColor(globeCapColor)
+    .polygonSideColor(() => 'rgba(60,60,60,0.25)')
+    .polygonStrokeColor(() => 'rgba(20,20,20,0.5)')
+    .polygonAltitude(0.01)
+    .polygonLabel(feat => {
+      const info = GLOBE_COUNTRIES_BY_CODE[feat.properties.code];
+      return info ? info.name : feat.properties.name;
+    })
+    .onPolygonClick(feat => {
+      const code = feat.properties.code;
+      if(code && GLOBE_COUNTRIES_BY_CODE[code]) globeSelectCountry(code);
+    })
+    .onPolygonHover(hoverD => { if(globeInstance) globeInstance.controls().autoRotate = !hoverD; });
+  globeInstance.controls().autoRotate = true;
+  globeInstance.controls().autoRotateSpeed = 0.4;
+  // Stop the idle auto-rotate for good the first time someone actually takes the
+  // controls - keeps it from fighting a mid-drag rotation.
+  globeInstance.controls().addEventListener('start', () => { globeInstance.controls().autoRotate = false; });
+  globeInstance.pointOfView({ lat: 20, lng: 20, altitude: 2.4 }, 0);
+
+  globeResizeHandler = () => {
+    if(!globeInstance) return;
+    const wrap = document.getElementById('globeContainer');
+    if(wrap) globeInstance.width(wrap.clientWidth);
+  };
+  window.addEventListener('resize', globeResizeHandler);
+}
+
+function globeExplorerCleanup(){
+  if(globeResizeHandler){
+    window.removeEventListener('resize', globeResizeHandler);
+    globeResizeHandler = null;
+  }
+  if(globeInstance){
+    try{ globeInstance.pauseAnimation(); }catch(e){}
+    try{ if(typeof globeInstance._destructor === 'function') globeInstance._destructor(); }catch(e){}
+    globeInstance = null;
+  }
+  globeSelectedCode = null;
+}
+
+function viewGlobeExplorer(){
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap globe-wrap">
+        <div class="section-head"><span class="emoji">${icon('globeSpin')}</span><h2>Globe</h2></div>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:14px; text-align:center;">Drag to rotate, scroll or pinch to zoom, click any country - or search for one below.</p>
+        <div class="globe-search-row">
+          <input type="text" id="globeSearchInput" class="globe-search-input" placeholder="Search a country..." autocomplete="off">
+          <div id="globeSearchResults" class="globe-search-results"></div>
+        </div>
+        <div class="globe-canvas-wrap">
+          <div id="globeContainer" class="globe-container"></div>
+          <div id="globeLoadingMsg" class="globe-loading">Loading globe…</div>
+        </div>
+        <div id="globeInfoPanel" class="globe-info-panel globe-info-empty">
+          <p class="globe-info-placeholder">Click a country on the globe, or search for one above.</p>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function wireGlobeExplorer(app){
+  const container = document.getElementById('globeContainer');
+  const loadingEl = document.getElementById('globeLoadingMsg');
+  if(!container) return;
+  // Guards against a stray double-wire (shouldn't happen given the route-away
+  // cleanup, but re-entering with a live instance would otherwise leak a second
+  // WebGL context into the old, now-detached canvas).
+  if(globeInstance){ globeExplorerCleanup(); }
+
+  Promise.all([globeLoadScript(), globeLoadGeoJson()]).then(() => {
+    if(!document.getElementById('globeContainer')) return; // navigated away mid-load
+    if(loadingEl) loadingEl.style.display = 'none';
+    globeInit(container);
+  }).catch(() => {
+    if(loadingEl) loadingEl.textContent = 'Could not load the globe - check your connection and try again.';
+  });
+
+  const searchInput = document.getElementById('globeSearchInput');
+  if(searchInput){
+    searchInput.addEventListener('input', (e) => globeSearchRun(e.target.value));
+    searchInput.addEventListener('focus', (e) => { if(e.target.value) globeSearchRun(e.target.value); });
+    searchInput.addEventListener('blur', () => {
+      setTimeout(() => {
+        const results = document.getElementById('globeSearchResults');
+        if(results) results.classList.remove('globe-search-results-open');
+      }, 150);
+    });
+    searchInput.addEventListener('keydown', (e) => {
+      if(e.key !== 'Enter') return;
+      const q = e.target.value.trim().toLowerCase();
+      if(!q) return;
+      const match = GLOBE_COUNTRIES.find(c => c.name.toLowerCase().includes(q));
+      if(match) globeSelectCountry(match.code);
+    });
+  }
+}
+
+
 const GEOGRAPHY_HUB_TILES = [
   { name: "Guess the Flag", emoji: icon('globe'), url: "#flag-game", internal: true },
   { name: "Capital Cities", emoji: icon('compass2'), url: "#capital-game", internal: true },
@@ -16052,6 +16334,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Battleship", emoji: icon('ship'), url: "#battleship-game", internal: true },
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
   { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
+  { name: "Globe", emoji: icon('globeSpin'), url: "#globe-explorer", internal: true },
   geoHubExternalTile("GeoGuessr"),
   geoHubExternalTile("OpenGuessr"),
 ].filter(Boolean);
@@ -31238,6 +31521,12 @@ document.addEventListener('click', (e) => {
     aliasPlayAgain();
     return;
   }
+  const globeSearchResultBtn = e.target.closest('[data-action="globe-search-select"]');
+  if(globeSearchResultBtn){
+    e.preventDefault();
+    globeSelectCountry(globeSearchResultBtn.dataset.code);
+    return;
+  }
   const xwordStartBtn = e.target.closest('[data-action="xword-start"]');
   if(xwordStartBtn){
     e.preventDefault();
@@ -31476,6 +31765,8 @@ function renderRoute(opts){
     html = viewGeographyHub();
   } else if(parts[0] === 'alias-game'){
     html = viewAliasGame();
+  } else if(parts[0] === 'globe-explorer'){
+    html = viewGlobeExplorer();
   } else if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){
     html = viewIrregularVerbsPractice();
   } else if(parts[0] === 'irregular-verbs' && parts[1]){
@@ -31629,6 +31920,7 @@ function renderRoute(opts){
     btSaveState(TETRIS_STATE_KEY, tetrisState);
   }
   if(parts[0] !== 'alias-game'){ aliasClearTick(); }
+  if(parts[0] !== 'globe-explorer'){ globeExplorerCleanup(); }
   if(parts[0] === 'arcade' && parts[1]){ wireArcade(parts[1]); }
   if(parts[0] === 'bt-checkers' && parts[1] && parts[2]){
     wireBtGame('checkers');
@@ -31638,6 +31930,7 @@ function renderRoute(opts){
     wireBtGame('corners');
   }
   if(parts[0] === 'alias-game'){ wireAliasGame(app); }
+  if(parts[0] === 'globe-explorer'){ wireGlobeExplorer(app); }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
   if(parts[0] === 'install'){ wireInstallPage(); }
