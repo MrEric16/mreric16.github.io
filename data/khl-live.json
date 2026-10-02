@@ -1,6 +1,18 @@
 {
-  "generatedAt": "2026-10-02T12:58:33.326169+00:00",
+  "generatedAt": "2026-10-02T22:26:23.151474+00:00",
   "standings": [
+    {
+      "team": "Metallurg Mg",
+      "played": 19,
+      "won": 12,
+      "otWon": 7,
+      "soWon": 1,
+      "soLost": 1,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 36,
+      "points": 41
+    },
     {
       "team": "Lokomotiv",
       "played": 18,
@@ -12,18 +24,6 @@
       "lost": 0,
       "gf": 27,
       "points": 40
-    },
-    {
-      "team": "Metallurg Mg",
-      "played": 17,
-      "won": 11,
-      "otWon": 6,
-      "soWon": 1,
-      "soLost": 1,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 34,
-      "points": 37
     },
     {
       "team": "CSKA",
@@ -39,27 +39,27 @@
     },
     {
       "team": "Neftekhimik",
-      "played": 15,
-      "won": 11,
+      "played": 16,
+      "won": 12,
       "otWon": 7,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 37,
-      "points": 36
+      "gf": 41,
+      "points": 38
     },
     {
       "team": "Ak Bars",
       "played": 15,
-      "won": 11,
+      "won": 12,
       "otWon": 3,
       "soWon": 2,
       "soLost": 2,
       "otLost": 1,
       "lost": 0,
-      "gf": 29,
-      "points": 35
+      "gf": 31,
+      "points": 37
     },
     {
       "team": "Torpedo",
@@ -88,13 +88,37 @@
     {
       "team": "Salavat Yulaev",
       "played": 13,
-      "won": 10,
+      "won": 11,
       "otWon": 6,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 33,
+      "gf": 35,
+      "points": 34
+    },
+    {
+      "team": "Barys",
+      "played": 12,
+      "won": 11,
+      "otWon": 5,
+      "soWon": 1,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 43,
+      "points": 34
+    },
+    {
+      "team": "Avtomobilist",
+      "played": 12,
+      "won": 11,
+      "otWon": 5,
+      "soWon": 0,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 30,
       "points": 32
     },
     {
@@ -112,14 +136,14 @@
     {
       "team": "Spartak",
       "played": 11,
-      "won": 10,
+      "won": 11,
       "otWon": 5,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
       "gf": 26,
-      "points": 30
+      "points": 32
     },
     {
       "team": "Dynamo Msk",
@@ -134,30 +158,6 @@
       "points": 32
     },
     {
-      "team": "Barys",
-      "played": 10,
-      "won": 10,
-      "otWon": 5,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 38,
-      "points": 30
-    },
-    {
-      "team": "Avtomobilist",
-      "played": 10,
-      "won": 10,
-      "otWon": 4,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 27,
-      "points": 28
-    },
-    {
       "team": "Severstal",
       "played": 10,
       "won": 10,
@@ -168,6 +168,18 @@
       "lost": 0,
       "gf": 19,
       "points": 29
+    },
+    {
+      "team": "Traktor",
+      "played": 10,
+      "won": 10,
+      "otWon": 3,
+      "soWon": 2,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 22,
+      "points": 30
     },
     {
       "team": "Dinamo Mn",
@@ -182,28 +194,40 @@
       "points": 28
     },
     {
+      "team": "Avangard",
+      "played": 10,
+      "won": 10,
+      "otWon": 2,
+      "soWon": 3,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 20,
+      "points": 30
+    },
+    {
       "team": "Amur",
       "played": 9,
-      "won": 9,
+      "won": 10,
       "otWon": 4,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
       "gf": 15,
-      "points": 26
+      "points": 28
     },
     {
-      "team": "Traktor",
+      "team": "Sibir",
       "played": 8,
-      "won": 9,
-      "otWon": 2,
-      "soWon": 2,
+      "won": 11,
+      "otWon": 3,
+      "soWon": 0,
       "soLost": 0,
-      "otLost": 0,
+      "otLost": 2,
       "lost": 0,
-      "gf": 19,
-      "points": 26
+      "gf": 22,
+      "points": 30
     },
     {
       "team": "Admiral",
@@ -218,40 +242,16 @@
       "points": 27
     },
     {
-      "team": "Avangard",
-      "played": 8,
-      "won": 9,
-      "otWon": 1,
-      "soWon": 3,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 16,
-      "points": 26
-    },
-    {
-      "team": "Sibir",
-      "played": 6,
-      "won": 10,
-      "otWon": 2,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 2,
-      "lost": 0,
-      "gf": 18,
-      "points": 26
-    },
-    {
       "team": "Lada",
       "played": 5,
-      "won": 11,
+      "won": 12,
       "otWon": 1,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 20,
-      "points": 24
+      "gf": 21,
+      "points": 26
     },
     {
       "team": "HC Sochi",
