@@ -3744,7 +3744,15 @@ function initGlobe(container){
     .polygonsData(geoFeatures)
     .polygonCapColor(capColor)
     .polygonSideColor(() => 'rgba(60,60,60,0.25)')
-    .polygonStrokeColor(() => 'rgba(20,20,20,0.5)')
+    // Ukraine is a MultiPolygon (mainland + Crimea, drawn as separate pieces since
+    // they don't share an edge at this dataset's resolution around the Kerch Strait)
+    // - a flat stroke color draws a visible seam around Crimea, making it read as its
+    // own territory rather than part of Ukraine. Matching Ukraine's own stroke to its
+    // own fill hides that internal seam without touching any other border: every real
+    // international border is drawn twice (once by each neighboring country's own
+    // polygon ring), so Ukraine-Russia/Ukraine-Moldova/etc. still show via the
+    // neighbor's line even with Ukraine's own line blended away.
+    .polygonStrokeColor(feat => feat.properties.code === 'ua' ? capColor(feat) : 'rgba(20,20,20,0.5)')
     .polygonAltitude(0.01)
     .onPolygonClick(feat => {
       const code = feat.properties.code;
