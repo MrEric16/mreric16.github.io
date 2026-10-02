@@ -1,28 +1,6 @@
 {
-  "generatedAt": "2026-10-02T10:49:34.026651Z",
+  "generatedAt": "2026-10-02T16:26:47.956087Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/toulouse-vs-lyon/77zC4MY8N0wHO9oiOAM87",
-      "date": "2026-08-22",
-      "home": "Toulouse",
-      "away": "Lyon",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "N. Nartey",
-          "minute": 68
-        },
-        {
-          "scorer": "M. Fofana",
-          "minute": 85
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/nice-vs-lorient/WZy4F4-o6d6kZEhq0FYb8",
       "date": "2026-08-22",
@@ -7732,6 +7710,24 @@
       ],
       "awayGoals": [],
       "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-cremonese/v_wWtjNuN7ql3j_bZEI7b",
+      "date": "2026-10-02",
+      "home": "Juventus",
+      "away": "Cremonese",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "F. Bonazzoli",
+          "minute": 12
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
