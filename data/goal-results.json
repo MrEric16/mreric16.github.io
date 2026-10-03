@@ -1,19 +1,6 @@
 {
-  "generatedAt": "2026-10-03T18:46:07.507203Z",
+  "generatedAt": "2026-10-03T21:55:57.190671Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/nice-vs-lorient/WZy4F4-o6d6kZEhq0FYb8",
-      "date": "2026-08-22",
-      "home": "Nice",
-      "away": "Lorient",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/troyes-vs-paris-fc/-BfuNBH0A7o1laiOtGt69",
       "date": "2026-08-22",
@@ -7728,11 +7715,23 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I",
+      "date": "2026-10-03",
+      "home": "Inter",
+      "away": "Lumezzane",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "inter-milan"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
-    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I": 2
+    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2
   }
 }
