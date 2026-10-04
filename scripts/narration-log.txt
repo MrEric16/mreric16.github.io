@@ -1,0 +1,4 @@
+ERROR: TTS request failed: HTTP 400
+{"status":"error","error_code":"LANGUAGE_NOT_ENABLED_IN_REGION","message":"Language 'auto' has not been enabled in this region. Please contact support to request access.","language":"auto","region":"us-west-2"}
+[generate_voice_narration] slug=ikea-effect voice_id=voice_AQH6kCXwOc model=lightning_v3.1 chars=1793
+GENERATE_FAILED_SEE_LOG
