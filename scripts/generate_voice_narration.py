@@ -34,7 +34,11 @@ import urllib.request
 import urllib.error
 
 API_URL = "https://api.smallest.ai/waves/v1/tts"
-DEFAULT_MODEL = "lightning_v3.1"
+# NOTE: cloned voices are pinned to the model pool they were cloned onto
+# (see the voiceId's modelIds in a GET /waves/v1/voice-cloning response).
+# Mr Eric's "Lounge" voices all came back modelIds=["lightning-v3.1-pro"],
+# so lightning_v3.1_pro is the correct default here, not the base pool.
+DEFAULT_MODEL = "lightning_v3.1_pro"
 
 
 def main():
