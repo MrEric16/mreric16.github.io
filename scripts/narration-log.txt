@@ -1,4 +1,2 @@
-ERROR: TTS request failed: HTTP 400
-{"status":"error","error_code":"LANGUAGE_NOT_ENABLED_IN_REGION","message":"Language 'en' has not been enabled in this region. Please contact support to request access.","language":"en","region":"us-west-2"}
-[generate_voice_narration] slug=ikea-effect voice_id=voice_AQH6kCXwOc model=lightning_v3.1 chars=1793
-GENERATE_FAILED_SEE_LOG
+[generate_voice_narration] slug=ikea-effect voice_id=voice_AQH6kCXwOc model=lightning_v3.1_pro chars=1793
+[generate_voice_narration] wrote data/audio/ikea-effect.mp3 (1743306 bytes)
