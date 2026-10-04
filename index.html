@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004155748">
+<meta name="app-build" content="20261004165231">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5676,13 +5676,16 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .solo-video-frame iframe{ width:100%; height:100%; border:none; }
   .solo-video-caption{ text-align:center; font-size:13.5px; color:var(--ink-soft); font-weight:600; margin-top:12px; line-height:1.5; }
 
-  /* - Two-player challenge system: reuses the existing site-presence Supabase channel
+  /* - Multi-player challenge system: reuses the existing site-presence Supabase channel
      (already tracked, see initLiveUserCounter) for both presence AND broadcast - one
-     channel subscription handles both jobs rather than opening a second one. Strictly
-     capped at exactly 2 users online, never more, per explicit instruction - the
-     challenge entry point on the footer only appears when currentSitePresenceCount is
-     exactly 2, and a 3rd person joining doesn't get any challenge UI at all, by design,
-     not as an oversight. */
+     channel subscription handles both jobs rather than opening a second one. Originally
+     strictly capped at exactly 2 users; extended 2026-10-04 to any number of people on
+     site at once - a challenge goes out to every OTHER FREE (not already mid-game)
+     person simultaneously, and whoever accepts first plays (see getFreeOpponentKeys/
+     trackBusyState/sendChallenge/handleChallengeAccepted/handleChallengeTaken/
+     handleChallengeTooLate near the challenge JS). This also means two people can
+     challenge each other while a separate game between two OTHER people is already
+     live, since busy players are excluded on everyone's client automatically. */
   /* Daily Surprise - a small, dismissible editorial teaser card, deliberately
      distinct from the game-challenge overlay above: lighter backdrop, no game
      chrome, styled like a card that "appeared to tempt", not a game prompt.
@@ -7756,9 +7759,11 @@ function initLiveUserCounter(){
 
   channel
     .on('presence', { event: 'sync' }, render)
-    .on('broadcast', { event: 'challenge' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingChallenge(payload); })
+    .on('broadcast', { event: 'challenge' }, ({ payload }) => { if(payload.targets && payload.targets.includes(presenceKey)) handleIncomingChallenge(payload); })
     .on('broadcast', { event: 'challenge_accept' }, ({ payload }) => { if(payload.to === presenceKey) handleChallengeAccepted(payload); })
     .on('broadcast', { event: 'challenge_reject' }, ({ payload }) => { if(payload.to === presenceKey) handleChallengeRejected(payload); })
+    .on('broadcast', { event: 'challenge_taken' }, ({ payload }) => { if(payload.to === presenceKey) handleChallengeTaken(payload); })
+    .on('broadcast', { event: 'challenge_too_late' }, ({ payload }) => { if(payload.to === presenceKey) handleChallengeTooLate(payload); })
     .on('broadcast', { event: 'game_move' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingMove(payload); })
     .on('broadcast', { event: 'game_forfeit' }, ({ payload }) => { if(payload.to === presenceKey) handleOpponentForfeit(payload); })
     .on('broadcast', { event: 'rematch_request' }, ({ payload }) => { if(payload.to === presenceKey) handleRematchRequest(payload); })
@@ -7771,7 +7776,7 @@ function initLiveUserCounter(){
     .on('broadcast', { event: 'tug_ready' }, ({ payload }) => { if(payload.to === presenceKey) handleIncomingTugReady(payload); })
     .subscribe(async (status) => {
       if(status === 'SUBSCRIBED'){
-        await channel.track({ online_at: new Date().toISOString() });
+        await channel.track({ online_at: new Date().toISOString(), busy: false });
       }
       // CHANNEL_ERROR / TIMED_OUT / CLOSED: leave the footer blank rather than showing
       // a stale or made-up number.
@@ -7780,13 +7785,31 @@ function initLiveUserCounter(){
   initGameChallenge(channel, presenceKey);
 }
 
-// ===== Two-player challenge system =====
+// ===== Multi-player challenge system =====
 // Reuses the site-presence channel above for both presence AND broadcast messaging -
-// one subscription does both jobs. Strictly capped at exactly 2 users online, never
-// more: the footer click handler below only opens the challenge picker when
-// currentSitePresenceCount === 2, and there is no lobby/picker for choosing WHICH
-// person to challenge, since with exactly 2 people there's only ever one other person
-// it could be. A 30-second timeout applies in two separate places, both ending in
+// one subscription does both jobs. Originally capped at exactly 2 users (no lobby/
+// picker for choosing WHOM to challenge, since there was only ever one other person).
+// Extended 2026-10-04 (Mr Eric: "make it possible with 3/4 players too - both others
+// receive the invite, whoever clicks first plays") to work with any number of people
+// on the site:
+// - A challenge still goes out as one broadcast, but now addressed to every FREE
+//   (not already in a game) other presence key via payload.targets, not a single
+//   payload.to. Every free person gets the same toast at the same time.
+// - Whoever accepts first wins the slot. The sender (the only one who can authoritatively
+//   decide "first") keeps the real list of who was invited in sentChallenge.targets, and
+//   on the first accept it fires challenge_taken at every other invited key so their
+//   toast clears instead of offering a slot that's already gone. If a second accept
+//   still arrives after that (a genuine race), the sender replies challenge_too_late to
+//   that specific person so their client backs out of the game screen it optimistically
+//   opened, rather than sitting there waiting for moves that will never come.
+// - "Busy" (already in an active game) is tracked as a field on each person's own
+//   presence state (see trackBusyState below, called from startGame/clearActiveGameState)
+//   and synced to everyone automatically by Supabase Presence - this is what lets two
+//   OTHER free people challenge each other while a game between two others is already
+//   live: getFreeOpponentKeys() filters busy people out, so a 3rd/4th player challenging
+//   never targets someone mid-game, and the footer/picker refuse to open at all for
+//   someone who is themselves already busy.
+// A 30-second timeout applies in two separate places, both ending in
 // forfeit: (1) an unanswered challenge auto-rejects itself after 30s (treated the same
 // as an explicit reject), (2) once a game is underway, each player runs their own
 // 30-second per-turn timer and self-reports a forfeit if it expires on their turn -
@@ -7796,8 +7819,10 @@ function initLiveUserCounter(){
 // against.
 let gameChannel = null;
 let myPresenceKey = null;
-let pendingChallenge = null;   // { from, game, timer } - an incoming challenge awaiting my response
-let sentChallenge = null;      // { to, game, timer } - a challenge I sent awaiting their response
+let pendingChallenge = null;   // { from, game, challengeId, timer } - an incoming challenge awaiting my response
+let sentChallenge = null;      // { targets, game, challengeId, timer } - a challenge I sent, still awaiting
+                                // a response from whichever of `targets` hasn't answered yet (targets shrinks
+                                // as people reject; the challenge is only fully dead once it's empty)
 let activeGameType = null;     // 'tic-tac-toe' | 'connect-4' | null - which game (if any) is live
 let ttt = null;                // active tic-tac-toe game state, or null
 let c4 = null;                 // active Connect 4 game state, or null
@@ -7876,6 +7901,7 @@ function clearActiveGameState(){
   else if(activeGameType === 'battleship') mpBattleship = null;
   else if(activeGameType === 'tug-of-war') tug = null;
   activeGameType = null;
+  trackBusyState(false);
 }
 function timerElId(){
   if(activeGameType === 'tic-tac-toe') return 'tttTimer';
@@ -7892,11 +7918,33 @@ function initGameChallenge(channel, presenceKey){
   myPresenceKey = presenceKey;
 }
 
-function getOpponentKey(){
-  if(!gameChannel) return null;
+// Every other presence key that is NOT currently in a game (their own tracked presence
+// metadata says busy:false/absent). This is what lets 3rd/4th players challenge each
+// other while a game between two others is already live - a busy person never shows
+// up here, on anyone's client, because Supabase Presence syncs the busy flag to
+// everyone the moment trackBusyState() changes it.
+function getFreeOpponentKeys(){
+  if(!gameChannel) return [];
   const state = gameChannel.presenceState();
-  const keys = Object.keys(state).filter(k => k !== myPresenceKey);
-  return keys.length === 1 ? keys[0] : null;
+  return Object.keys(state).filter(k => {
+    if(k === myPresenceKey) return false;
+    const metas = state[k] || [];
+    return !metas.some(m => m && m.busy);
+  });
+}
+
+function amIBusy(){
+  return !!activeGameType;
+}
+
+// Re-tracks this tab's own presence with an updated busy flag, called from startGame
+// (busy:true) and clearActiveGameState (busy:false). Presence track() REPLACES the
+// whole payload for this key, not a merge, so online_at is re-sent every time too -
+// it's purely informational and nothing else reads it, so a fresh timestamp each call
+// costs nothing.
+function trackBusyState(busy){
+  if(!gameChannel) return;
+  gameChannel.track({ online_at: new Date().toISOString(), busy });
 }
 
 function closeAnyGameOverlay(){
@@ -7904,17 +7952,28 @@ function closeAnyGameOverlay(){
 }
 
 function openChallengePicker(){
-  if(currentSitePresenceCount !== 2) return;
-  const opp = getOpponentKey();
-  if(!opp) return;
+  // Can't challenge anyone while I'm already mid-game myself.
+  if(amIBusy()) return;
+  const freeOpponents = getFreeOpponentKeys();
+  if(freeOpponents.length === 0){
+    // Either alone, or everyone else currently on the site is already mid-game.
+    showGamePopup(currentSitePresenceCount > 1
+      ? 'Everyone else is already playing a game right now.'
+      : "There's no one else here to challenge right now.");
+    return;
+  }
   logEvent('view', 'challenge-picker');
   const overlay = document.createElement('div');
   overlay.className = 'challenge-overlay';
+  // With exactly one other free person it plays like before ("the other user"); with
+  // several, the invite goes out to all of them at once and whoever accepts first plays.
+  const headline = freeOpponents.length === 1 ? 'Challenge the other user' : `Challenge the room (${freeOpponents.length} available)`;
+  const sub = freeOpponents.length === 1 ? 'Pick a game to send a challenge.' : 'Pick a game - everyone free will get the invite, first to accept plays.';
   overlay.innerHTML = `
     <div class="challenge-card">
       <button class="challenge-close" data-action="close-challenge-overlay" aria-label="Close">×</button>
-      <h2>Challenge the other user</h2>
-      <div class="sub">Pick a game to send a challenge.</div>
+      <h2>${escapeHtml(headline)}</h2>
+      <div class="sub">${escapeHtml(sub)}</div>
       <div class="sport-hub-grid">
         ${CHALLENGE_GAMES.map(g => `<button class="sport-hub-tile" data-action="send-challenge" data-game="${g.id}" style="border:none; width:100%;"><span class="name"><span class="hub-icon">${g.emoji}</span> ${escapeHtml(g.name)}</span></button>`).join('')}
       </div>
@@ -7924,11 +7983,12 @@ function openChallengePicker(){
 }
 
 function sendChallenge(gameId){
-  const opp = getOpponentKey();
-  if(!opp) { closeAnyGameOverlay(); return; }
-  gameChannel.send({ type:'broadcast', event:'challenge', payload:{ to:opp, from:myPresenceKey, game:gameId } });
+  const targets = getFreeOpponentKeys();
+  if(targets.length === 0){ closeAnyGameOverlay(); return; }
+  const challengeId = Math.random().toString(36).slice(2) + Date.now().toString(36);
+  gameChannel.send({ type:'broadcast', event:'challenge', payload:{ targets, from:myPresenceKey, game:gameId, challengeId } });
   sentChallenge = {
-    to: opp, game: gameId,
+    targets, game: gameId, challengeId,
     timer: setTimeout(() => {
       sentChallenge = null;
       closeAnyGameOverlay();
@@ -7936,6 +7996,9 @@ function sendChallenge(gameId){
     }, CHALLENGE_TIMEOUT_MS)
   };
   const gameName = (CHALLENGE_GAMES.find(g => g.id === gameId) || {}).name || 'the game';
+  const waitingSub = targets.length === 1
+    ? `You challenged them to ${escapeHtml(gameName)}.`
+    : `You challenged ${targets.length} people to ${escapeHtml(gameName)} - whoever accepts first plays.`;
   document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
   const overlay = document.createElement('div');
   overlay.className = 'challenge-overlay';
@@ -7945,7 +8008,7 @@ function sendChallenge(gameId){
       <div class="challenge-waiting">
         <div class="spinner"></div>
         <div class="msg">Waiting for a response…</div>
-        <div class="sub">You challenged them to ${escapeHtml(gameName)}.</div>
+        <div class="sub">${waitingSub}</div>
         <button class="cancel-btn" data-action="cancel-sent-challenge">Cancel challenge</button>
       </div>
     </div>
@@ -7956,7 +8019,11 @@ function sendChallenge(gameId){
 function cancelSentChallenge(){
   if(sentChallenge){
     clearTimeout(sentChallenge.timer);
-    gameChannel.send({ type:'broadcast', event:'challenge_reject', payload:{ to:sentChallenge.to, silent:true } });
+    // Tell every invited person it's off, not just one - they're all still waiting
+    // on the same toast until this goes out.
+    sentChallenge.targets.forEach(k => {
+      gameChannel.send({ type:'broadcast', event:'challenge_taken', payload:{ to:k, challengeId:sentChallenge.challengeId } });
+    });
     sentChallenge = null;
   }
   closeAnyGameOverlay();
@@ -7964,17 +8031,17 @@ function cancelSentChallenge(){
 
 function handleIncomingChallenge(payload){
   // Only one challenge can be pending at a time - if one somehow arrives while another
-  // is already showing (a genuine race, given exactly 2 users this should be rare),
-  // the newest one simply replaces the old toast rather than stacking.
+  // is already showing (a genuine race, more likely now with 3+ people on site at
+  // once), the newest one simply replaces the old toast rather than stacking.
   if(pendingChallenge) clearTimeout(pendingChallenge.timer);
   document.querySelectorAll('.challenge-toast').forEach(el => el.remove());
 
-  const { from, game } = payload;
+  const { from, game, challengeId } = payload;
   const gameName = (CHALLENGE_GAMES.find(g => g.id === game) || {}).name || 'a game';
   pendingChallenge = {
-    from, game,
+    from, game, challengeId,
     timer: setTimeout(() => {
-      gameChannel.send({ type:'broadcast', event:'challenge_reject', payload:{ to:from, silent:true } });
+      gameChannel.send({ type:'broadcast', event:'challenge_reject', payload:{ to:from, from:myPresenceKey, challengeId, silent:true } });
       pendingChallenge = null;
       document.querySelectorAll('.challenge-toast').forEach(el => el.remove());
     }, CHALLENGE_TIMEOUT_MS)
@@ -7996,26 +8063,40 @@ function handleIncomingChallenge(payload){
 function acceptChallenge(){
   if(!pendingChallenge) return;
   clearTimeout(pendingChallenge.timer);
-  const { from, game } = pendingChallenge;
-  gameChannel.send({ type:'broadcast', event:'challenge_accept', payload:{ to:from, from:myPresenceKey, game } });
+  const { from, game, challengeId } = pendingChallenge;
+  gameChannel.send({ type:'broadcast', event:'challenge_accept', payload:{ to:from, from:myPresenceKey, game, challengeId } });
   pendingChallenge = null;
   document.querySelectorAll('.challenge-toast').forEach(el => el.remove());
+  // Optimistically start the game now - if someone else actually got there first (a
+  // genuine race with 3+ people), handleChallengeTooLate below backs this out again.
   startGame(game, from, false);
 }
 
 function rejectChallenge(){
   if(!pendingChallenge) return;
   clearTimeout(pendingChallenge.timer);
-  const { from } = pendingChallenge;
-  gameChannel.send({ type:'broadcast', event:'challenge_reject', payload:{ to:from } });
+  const { from, challengeId } = pendingChallenge;
+  gameChannel.send({ type:'broadcast', event:'challenge_reject', payload:{ to:from, from:myPresenceKey, challengeId } });
   pendingChallenge = null;
   document.querySelectorAll('.challenge-toast').forEach(el => el.remove());
 }
 
 function handleChallengeAccepted(payload){
-  if(!sentChallenge) return;
+  const { game, from, challengeId } = payload;
+  // Not mine, or a late duplicate of a challenge I already resolved (someone else's
+  // accept already arrived and I've moved on) - tell this acceptor they were too slow
+  // so their client, which already optimistically opened a game board, backs out of it
+  // instead of sitting there forever waiting for moves from a game that isn't happening.
+  if(!sentChallenge || sentChallenge.challengeId !== challengeId){
+    gameChannel.send({ type:'broadcast', event:'challenge_too_late', payload:{ to:from } });
+    return;
+  }
   clearTimeout(sentChallenge.timer);
-  const { game, from } = payload;
+  // First accept wins. Tell everyone else who was invited to this same challenge it's
+  // no longer available, so their toast clears instead of offering a dead slot.
+  sentChallenge.targets.filter(k => k !== from).forEach(k => {
+    gameChannel.send({ type:'broadcast', event:'challenge_taken', payload:{ to:k, challengeId } });
+  });
   sentChallenge = null;
   closeAnyGameOverlay();
   startGame(game, from, true);
@@ -8023,10 +8104,36 @@ function handleChallengeAccepted(payload){
 
 function handleChallengeRejected(payload){
   if(!sentChallenge) return;
+  if(payload.challengeId && payload.challengeId !== sentChallenge.challengeId) return;
+  // One person declining (or timing out) doesn't kill the whole challenge when it went
+  // out to several people - only drop it once nobody invited is left pending.
+  if(payload.from) sentChallenge.targets = sentChallenge.targets.filter(k => k !== payload.from);
+  if(sentChallenge.targets.length > 0) return;
   clearTimeout(sentChallenge.timer);
   sentChallenge = null;
   closeAnyGameOverlay();
   if(!payload.silent) showGamePopup('Challenge rejected');
+}
+
+// Reached by everyone who was invited to a challenge except whoever accepted it first
+// (or everyone, if the sender cancelled before anyone answered) - see
+// handleChallengeAccepted and cancelSentChallenge.
+function handleChallengeTaken(payload){
+  if(!pendingChallenge || pendingChallenge.challengeId !== payload.challengeId) return;
+  clearTimeout(pendingChallenge.timer);
+  pendingChallenge = null;
+  document.querySelectorAll('.challenge-toast').forEach(el => el.remove());
+  showGamePopup('That challenge is no longer available.');
+}
+
+// Reached only by someone who clicked Accept a moment too late - the sender had
+// already started the game with whoever accepted first. Back out of the game screen
+// acceptChallenge optimistically opened, rather than leaving them stuck waiting.
+function handleChallengeTooLate(){
+  clearTurnTimer();
+  clearActiveGameState();
+  closeAnyGameOverlay();
+  showGamePopup('Someone else accepted that challenge first.');
 }
 
 function showGamePopup(msg, opts){
@@ -8219,6 +8326,9 @@ function startGame(gameId, opponentKey, iGoFirst){
   closeAnyGameOverlay();
   logEvent('view', 'challenge-game/' + gameId);
   activeGameType = gameId;
+  // Mark myself busy in presence so a 3rd/4th person's challenge picker correctly
+  // excludes me while this game is live - see getFreeOpponentKeys().
+  trackBusyState(true);
   if(gameId === 'tic-tac-toe'){
     ttt = {
       board: Array(9).fill(null),
@@ -30979,7 +31089,9 @@ document.addEventListener('click', (e) => {
     e.preventDefault();
     if(currentSitePresenceCount === 1){
       showSoloComfortVideo();
-    } else if(currentSitePresenceCount === 2){
+    } else if(currentSitePresenceCount >= 2){
+      // openChallengePicker itself handles "I'm busy" and "everyone else is busy"
+      // (3/4-player case where a game is already live between two others).
       openChallengePicker();
     }
     return;
