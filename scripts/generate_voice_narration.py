@@ -44,6 +44,7 @@ def main():
     parser.add_argument("--model", default=DEFAULT_MODEL, help=f"TTS model/pool (default: {DEFAULT_MODEL}); must match the pool the voice was cloned onto")
     parser.add_argument("--speed", type=float, default=1.0, help="playback speed, 0.5-2.0 (default 1.0)")
     parser.add_argument("--sample-rate", type=int, default=44100, choices=[8000, 16000, 24000, 44100])
+    parser.add_argument("--language", default="en", help="ISO 639-1 language code (default: en). Some accounts/regions reject the API's own 'auto' default.")
     args = parser.parse_args()
 
     api_key = os.environ.get("SMALLEST_AI_API_KEY")
@@ -72,6 +73,7 @@ def main():
         "sample_rate": args.sample_rate,
         "speed": args.speed,
         "output_format": "mp3",
+        "language": args.language,
     }
     import json
     data = json.dumps(body).encode("utf-8")
