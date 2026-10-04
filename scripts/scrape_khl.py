@@ -308,6 +308,29 @@ def fetch_liveresult_matches(page, url):
             start = datetime(year, month, day, hour, minute, tzinfo=timezone(timedelta(hours=5))) \
                 .strftime("%Y-%m-%dT%H:%M:00+05:00")
 
+            # Real incident (2026-10-04): Mr Eric caught liveresult.ru showing "07:30"
+            # (parsed from the page's own literal text, confirmed via direct re-fetch --
+            # not a parsing bug) for Sibir v Salavat Yulaev on 2026-10-07, while the
+            # actual kickoff -- cross-checked against Sibir's own home-arena ticket page
+            # (19:30 Novosibirsk local, i.e. 17:30 Tashkent) and the official KHL app
+            # screenshot Mr Eric sent (17:30) -- was 17:30. No clean timezone-arithmetic
+            # explanation reconciles 07:30 with 17:30 (not a Moscow/Novosibirsk/UTC
+            # offset -- those are all 2-7h, not ~10h), so this looks like liveresult.ru's
+            # own listed time having gone stale/wrong for this fixture specifically
+            # (its source data lagging a schedule change), not a bug in this script's
+            # parsing or the +05:00 labeling. That one instance was hand-verified and
+            # patched directly in data/khl-live.json. Real KHL games are never played at
+            # 06:00-11:00 local (even the earliest weekend matinees start early
+            # afternoon) -- so flag any match that lands in that window loudly rather
+            # than silently trust it, since this incident shows liveresult.ru *can*
+            # serve a wrong clock time with no parsing error to catch it.
+            if 0 <= hour < 12:
+                log(f"SUSPICIOUS TIME: {home_name} v {away_name} on {start} -- hour "
+                    f"{hour:02d}:{minute:02d} is before noon, which real KHL games are "
+                    f"never scheduled at. liveresult.ru's listed time may be stale/wrong "
+                    f"(confirmed happened once already, 2026-10-04) -- verify against "
+                    f"khl.ru or the home team's own site before trusting this.")
+
             entry = {"home": home_name, "away": away_name, "start": start}
             if score_m:
                 entry["homeScore"] = int(score_m.group(1))
