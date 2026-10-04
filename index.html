@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004141041">
+<meta name="app-build" content="20261004150454">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4115,7 +4115,10 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .carousel-slide[data-pos="0"]{ transform:translateY(0) scale(1); z-index:3; box-shadow:0 8px 20px rgba(0,0,0,.2); }
   .carousel-slide[data-pos="1"]{ transform:translateY(8px) scale(.965); z-index:2; opacity:.72; }
   .carousel-slide[data-pos="2"]{ transform:translateY(15px) scale(.93); z-index:1; opacity:.45; }
-  .carousel-slide[data-pos="3"], .carousel-slide[data-pos="4"], .carousel-slide[data-pos="5"], .carousel-slide[data-pos="6"]{
+  /* Any position beyond the top 3 is fully hidden - was a hardcoded list of exactly
+     data-pos 3-6 (fine for the 8-slide Extras carousel, but the 13-card club carousel
+     added 2026-10-04 needs positions up to 12). A :not() rule covers any slide count. */
+  .carousel-slide:not([data-pos="0"]):not([data-pos="1"]):not([data-pos="2"]){
     transform:translateY(15px) scale(.93); z-index:0; opacity:0; pointer-events:none;
   }
   @media (max-width:639px){
@@ -4236,8 +4239,6 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     border-radius:6px;
     margin-right:10px;
   }
-  .sports-card #nextFixtureText,
-  .sports-card #arsenalCountdown{ color:#fff; }
   .sports-header{
     display:flex;
     align-items:center;
@@ -4253,6 +4254,38 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .sports-header .name{font-weight:800; font-size:17px;}
   .sports-header .sub{font-size:12px; color:var(--ink-soft); font-weight:600;}
 
+  /* - Club carousel cards (2026-10-04) - every club besides Arsenal is a swipeable
+     card here only, no dedicated tile/page anywhere else (explicit scope limit).
+     Deliberately NOT reusing .sports-card: that class carries ~10 site-theme override
+     blocks hardcoding Arsenal's own palette (grep ".sports-card" across the theme
+     rules above to see them), which would fight a different club's colors on every
+     themed background. .club-card is untouched by any of those, and takes its colors
+     entirely from inline CSS custom properties set per-card at render time instead of
+     a hardcoded hex per class, so one rule block covers all 13 clubs. */
+  .club-card{
+    background:var(--club-bg, #222);
+    border:2px solid var(--club-border, #fff);
+    border-radius:20px;
+    padding:14px 20px;
+    box-shadow:0 3px 0 rgba(0,0,0,.12);
+    color:var(--club-fg, #fff);
+    display:block;
+  }
+  .club-card .sports-header .crest{ background:#fff; border-radius:50%; padding:6px; }
+  .club-card .sports-header .name{ color:var(--club-fg, #fff); }
+  .club-card .sports-header .sub{ color:var(--club-fg, #fff); opacity:.85; }
+  .club-card .next-fixture{ background:rgba(255,255,255,.12); border:1px solid var(--club-border, rgba(255,255,255,.4)); }
+  .club-card .next-fixture-row + .next-fixture-row{ border-top:1px solid var(--club-border, rgba(255,255,255,.4)); }
+  .club-card .next-fixture .label{
+    color:var(--club-label-fg, #fff);
+    background:var(--club-label-bg, rgba(0,0,0,.35));
+    display:inline-block; padding:2px 8px; border-radius:6px; margin-right:10px;
+  }
+  .club-card .next-fixture-text, .club-card .club-countdown{ color:var(--club-fg, #fff); }
+  .club-card .club-open-link{
+    display:inline-block; margin-top:10px; font-size:12px; font-weight:800;
+    color:var(--club-fg, #fff); text-decoration:underline; opacity:.9;
+  }
 
   .next-fixture{
     background:var(--cream-2);
@@ -16890,7 +16923,7 @@ async function loadLiveSportsData(){
         // client-side calls to football-data.org that used to ship the API key in
         // plain text in this file's source, and also meant every visitor's browser
         // shared the same rate limit against football-data.org directly.
-        const fresh = { day: today, fetchedAt: Date.now(), leagues: {}, matches: {}, dataAges: {}, arsenalFixture: null, arsenalResults: [] };
+        const fresh = { day: today, fetchedAt: Date.now(), leagues: {}, matches: {}, dataAges: {}, arsenalFixture: null, arsenalResults: [], clubFixtures: {} };
         try{
           const res = await fetch('./data/football-live.json', { cache: 'no-store' });
           if(!res.ok) throw new Error('bad response '+res.status);
@@ -16940,6 +16973,20 @@ async function loadLiveSportsData(){
           fresh.arsenalResults = (live.arsenalFinishedMatches || [])
             .sort((a,b) => new Date(b.utcDate) - new Date(a.utcDate))
             .map(matchToRow);
+
+          // Home-screen club carousel (2026-10-04): next-fixture/last-result for the
+          // other football-data.org-covered clubs, keyed exactly as scripts/fetch_football_data.py's
+          // TARGET_CLUBS writes them (clubFixtures[key] = {nextFixture, lastResult}, each
+          // either a trimmed match object or null if unresolved/not found that run).
+          if(live.clubFixtures){
+            Object.keys(live.clubFixtures).forEach(key => {
+              const entry = live.clubFixtures[key] || {};
+              fresh.clubFixtures[key] = {
+                nextFixture: entry.nextFixture ? matchToRow(entry.nextFixture) : null,
+                lastResult: entry.lastResult ? matchToRow(entry.lastResult) : null,
+              };
+            });
+          }
         }catch(e){ /* static data file unavailable or malformed - cache stays as-is */ }
 
         // Uzbekistan Super League - separate JSON, separate scraper, separate try/catch so a
@@ -17029,8 +17076,15 @@ async function loadLiveSportsData(){
   // Patch whichever bit of the currently-visible page depends on this data.
   const tablesEl = document.getElementById('leagueTablesContainer');
   if(tablesEl) tablesEl.innerHTML = SPORTS_LEAGUES.map(leagueTableHtml).join('');
-  const fixtureEl = document.getElementById('nextFixtureText');
-  if(fixtureEl) fixtureEl.innerHTML = arsenalFixtureShortText();
+  // Every club card lives in the DOM at once (stacked carousel, not just whichever is on
+  // top), so patch all 13 rather than a single Arsenal-only element - was the only one
+  // that existed before this card had 12 siblings.
+  CLUB_REGISTRY.forEach(entry => {
+    const fEl = document.getElementById(`clubFixtureText-${entry.key}`);
+    if(fEl) fEl.innerHTML = clubFixtureLineHtml(entry);
+    const rEl = document.getElementById(`clubResultText-${entry.key}`);
+    if(rEl) rEl.innerHTML = clubResultLineHtml(entry);
+  });
   const driftEl = document.getElementById('arsenalDriftWarning');
   if(driftEl) driftEl.innerHTML = arsenalDriftWarningHtml();
   const leagueDetailEl = document.getElementById('leagueDetailContainer');
@@ -20089,6 +20143,141 @@ function wireExtrasCarousel(container){
       advanceTo(i);
     });
   });
+}
+
+// Club carousel (2026-10-04) - same stacked-card swipe/tap/dots mechanism as
+// wireExtrasCarousel above, copied rather than shared because this one adds something
+// that one never had: the current top card's position is saved to localStorage and
+// restored on every future visit (Mr Eric: "save whatever position user leaves his
+// card on"). Order is persisted as an array of club KEYS, not slide indices, so it
+// stays correct even if CLUB_REGISTRY's order or length ever changes later - a stale
+// saved index array could point at the wrong card entirely, a key array just silently
+// drops anything no longer present and keeps the rest in their saved relative order.
+const CLUB_CAROUSEL_ORDER_KEY = 'clubCarouselOrder';
+function wireClubCarousel(container){
+  const wrap = container.querySelector('#clubCarousel');
+  const dotsWrap = container.querySelector('#clubDots');
+  if(!wrap || !dotsWrap) return;
+  const slides = [...wrap.querySelectorAll('.carousel-slide')];
+  const dots = [...dotsWrap.querySelectorAll('.carousel-dot')];
+  const keyToIdx = {};
+  slides.forEach((s, i) => { keyToIdx[s.dataset.club] = i; });
+
+  let order = slides.map((_, i) => i); // order[0] is the slide index currently on top
+  try{
+    const savedKeys = JSON.parse(localStorage.getItem(CLUB_CAROUSEL_ORDER_KEY));
+    if(Array.isArray(savedKeys) && savedKeys.length){
+      const savedOrder = savedKeys.map(k => keyToIdx[k]).filter(i => i !== undefined);
+      // Only trust it if every current slide is accounted for exactly once - a partial
+      // or corrupt save falls back to the default (Arsenal-first) order instead of
+      // silently hiding cards or crashing on a missing index.
+      const complete = savedOrder.length === slides.length && new Set(savedOrder).size === slides.length;
+      if(complete) order = savedOrder;
+    }
+  }catch(e){}
+
+  function persistOrder(){
+    try{ localStorage.setItem(CLUB_CAROUSEL_ORDER_KEY, JSON.stringify(order.map(i => slides[i].dataset.club))); }catch(e){}
+  }
+  function render(){
+    order.forEach((slideIdx, pos) => { slides[slideIdx].dataset.pos = pos; });
+    dots.forEach((d, i) => d.classList.toggle('active', i === order[0]));
+  }
+  const SETTLE_MS = 360;
+  let locked = false, lockTimer = null;
+  function lockBriefly(){
+    locked = true;
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(()=>{ locked = false; }, SETTLE_MS);
+  }
+  function advanceOne(){ if(locked) return; order.push(order.shift()); render(); persistOrder(); lockBriefly(); }
+  function retreatOne(){ if(locked) return; order.unshift(order.pop()); render(); persistOrder(); lockBriefly(); }
+  function advanceTo(targetIdx){
+    if(locked) return;
+    while(order[0] !== targetIdx){ order.push(order.shift()); }
+    render();
+    persistOrder();
+    lockBriefly();
+  }
+
+  let startX = 0, startY = 0, dragging = false, isHorizontalSwipe = false, swipeJustHandled = false;
+  let swipeFlagTimer = null;
+  function pointOf(e){ return e.changedTouches ? e.changedTouches[0] : e; }
+  function onDown(e){
+    if(locked) return;
+    if(e.target.closest('a') || e.target.closest('.club-open-link')) return;
+    dragging = true; isHorizontalSwipe = false;
+    const p = pointOf(e);
+    startX = p.clientX; startY = p.clientY;
+  }
+  function onMove(e){
+    if(!dragging) return;
+    const p = pointOf(e);
+    const dx = p.clientX - startX, dy = p.clientY - startY;
+    if(!isHorizontalSwipe && Math.abs(dx) > 10 && Math.abs(dx) > Math.abs(dy)){
+      isHorizontalSwipe = true;
+    }
+    if(isHorizontalSwipe){
+      e.preventDefault();
+      const topSlide = slides[order[0]];
+      topSlide.style.transition = 'none';
+      topSlide.style.transform = `translateX(${dx}px) rotate(${dx*0.03}deg)`;
+      topSlide.style.opacity = String(Math.max(0.4, 1 - Math.abs(dx)/300));
+    }
+  }
+  function onUp(e){
+    if(!dragging) return;
+    dragging = false;
+    const p = pointOf(e);
+    const dx = p.clientX - startX;
+    const topSlide = slides[order[0]];
+    topSlide.style.transition = '';
+    topSlide.style.transform = '';
+    topSlide.style.opacity = '';
+    if(isHorizontalSwipe){
+      swipeJustHandled = true;
+      clearTimeout(swipeFlagTimer);
+      swipeFlagTimer = setTimeout(()=>{ swipeJustHandled = false; }, 400);
+      if(Math.abs(dx) > 40){
+        if(dx < 0) advanceOne(); else retreatOne();
+      }
+    }
+    isHorizontalSwipe = false;
+  }
+  function onCancel(){
+    if(!dragging) return;
+    dragging = false;
+    const topSlide = slides[order[0]];
+    topSlide.style.transition = '';
+    topSlide.style.transform = '';
+    topSlide.style.opacity = '';
+    isHorizontalSwipe = false;
+  }
+  wrap.addEventListener('pointercancel', onCancel);
+  wrap.addEventListener('pointerdown', onDown);
+  wrap.addEventListener('pointermove', onMove);
+  wrap.addEventListener('pointerup', onUp);
+  wrap.addEventListener('pointerleave', onUp);
+
+  wrap.addEventListener('click', (e)=>{
+    if(swipeJustHandled){ swipeJustHandled = false; clearTimeout(swipeFlagTimer); return; }
+    if(e.target.closest('.club-open-link')) return; // let "View Arsenal ->" work normally
+    if(e.target.closest('a')) return;
+    const rect = wrap.getBoundingClientRect();
+    const tapX = e.clientX - rect.left;
+    if(tapX < rect.width / 2) retreatOne(); else advanceOne();
+  });
+
+  dots.forEach((d, i) => {
+    d.addEventListener('click', (e)=>{
+      e.stopPropagation();
+      advanceTo(i);
+    });
+  });
+
+  render(); // apply the restored (or default) order immediately - without this the
+  // first paint always shows data-pos exactly as the server-rendered markup had it
+  // (Arsenal on top) even when a saved order says otherwise, until the next gesture.
 }
 function viewPlaySingle(videoId){
   const v = WATCH_VIDEOS.find(x => x.videoId === videoId);
@@ -29379,22 +29568,209 @@ function viewSports(){
 function arsenalDriftWarningHtml(){
   return ARSENAL_FIXTURE_DRIFT ? `<div style="background:#B00020; color:#fff; font-size:11px; font-weight:700; padding:5px 10px; border-radius:8px; margin:0 0 8px;">⚠ Fixture data mismatch detected — fallback date disagrees with live data. Told Mr Eric to check ARSENAL_FIXTURES.</div>` : '';
 }
-function sportsHtml(){
+
+/* - Home-screen club carousel (2026-10-04) -
+   Replaces the old Arsenal-only hero card with 13 swipeable cards (same stacked-card
+   mechanism as #extrasCarousel - see wireExtrasCarousel - plus new localStorage position
+   persistence that carousel never had). Arsenal is first/default; HC Sibir is last, per
+   Mr Eric's explicit ordering ("scroll left from Arsenal to reach Sibir, right from Sibir
+   back to Arsenal"). EXPLICIT SCOPE LIMIT (Mr Eric, twice): Arsenal stays the only club
+   with a dedicated page/tile anywhere else in the app - every other club here is a
+   carousel card ONLY, nothing added to the Sports hub or anywhere else.
+   dataType decides where a card's fixture/result rows come from:
+     'arsenal'  - the existing dedicated Arsenal functions (API + goal.com + hand-typed
+                  fallbacks already merged by arsenalAllResults()/getNextArsenalFixture()).
+     'football' - window._sportsCache.clubFixtures[apiKey], populated by the new
+                  TARGET_CLUBS block in scripts/fetch_football_data.py (dynamic team-id
+                  resolution from standings data already being fetched, not a hardcoded
+                  team id - see collect_team_ids()/resolve_target_club_ids() there).
+     'uz'       - window._sportsCache.matches.UZ (data/uz-league-live.json), matched by name.
+     'khl'      - window._sportsCache.matches.KHL (data/khl-live.json), matched by name. */
+const CLUB_REGISTRY = [
+  { key:'arsenal', name:'Arsenal', short:'Arsenal', sub:'Home of the Premier League Champions',
+    crest:'https://download.logo.wine/logo/Arsenal_F.C./Arsenal_F.C.-Logo.wine.png',
+    bg:'#DB0007', border:'#9C824A', fg:'#fff', labelBg:'#023474', labelFg:'#9C824A',
+    dataType:'arsenal', egg:'arsenal', openHref:'#arsenal' },
+  { key:'man_utd', name:'Manchester United', short:'Man Utd', sub:'Old Trafford',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Manchester United FC crest.svg',
+    bg:'#DA291C', border:'#FBE122', fg:'#fff', labelBg:'#000', labelFg:'#FBE122',
+    dataType:'football', apiKey:'man_utd', nameMatch:['manchester united','man utd','man united'] },
+  { key:'liverpool', name:'Liverpool', short:'Liverpool', sub:'Anfield',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Liverpool FC.svg',
+    bg:'#C8102E', border:'#F6EB61', fg:'#fff', labelBg:'#00285E', labelFg:'#F6EB61',
+    dataType:'football', apiKey:'liverpool', nameMatch:['liverpool'] },
+  { key:'chelsea', name:'Chelsea', short:'Chelsea', sub:'Stamford Bridge',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Chelsea FC.svg',
+    bg:'#034694', border:'#EE242C', fg:'#fff', labelBg:'#EE242C', labelFg:'#fff',
+    dataType:'football', apiKey:'chelsea', nameMatch:['chelsea'] },
+  { key:'man_city', name:'Manchester City', short:'Man City', sub:'Etihad Stadium',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Manchester City FC badge.svg',
+    bg:'#6CABDD', border:'#1C2C5B', fg:'#1C2C5B', labelBg:'#1C2C5B', labelFg:'#6CABDD',
+    dataType:'football', apiKey:'man_city', nameMatch:['manchester city','man city'] },
+  { key:'tottenham', name:'Tottenham Hotspur', short:'Tottenham', sub:'Tottenham Hotspur Stadium',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Tottenham Hotspur.svg',
+    bg:'#132257', border:'#fff', fg:'#fff', labelBg:'#fff', labelFg:'#132257',
+    dataType:'football', apiKey:'tottenham', nameMatch:['tottenham'] },
+  { key:'real_madrid', name:'Real Madrid', short:'Real Madrid', sub:'Santiago Bernabéu',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Real Madrid CF.svg',
+    bg:'#00529F', border:'#FEBE10', fg:'#fff', labelBg:'#FEBE10', labelFg:'#00529F',
+    dataType:'football', apiKey:'real_madrid', nameMatch:['real madrid'] },
+  { key:'barcelona', name:'FC Barcelona', short:'Barcelona', sub:'Camp Nou',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/FC Barcelona (crest).svg',
+    bg:'#004D98', border:'#A50044', fg:'#fff', labelBg:'#A50044', labelFg:'#fff',
+    dataType:'football', apiKey:'barcelona', nameMatch:['barcelona','barça','fc barcelona'] },
+  { key:'psg', name:'Paris Saint-Germain', short:'PSG', sub:'Parc des Princes',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/Paris Saint-Germain F.C..svg',
+    bg:'#004170', border:'#DA291C', fg:'#fff', labelBg:'#DA291C', labelFg:'#fff',
+    dataType:'football', apiKey:'psg', nameMatch:['paris saint-germain','paris saint germain','psg'] },
+  { key:'bayern', name:'Bayern Munich', short:'Bayern', sub:'Allianz Arena',
+    crest:'https://en.wikipedia.org/wiki/Special:FilePath/FC Bayern München logo (2017).svg',
+    bg:'#DC052D', border:'#0066B2', fg:'#fff', labelBg:'#0066B2', labelFg:'#fff',
+    dataType:'football', apiKey:'bayern', nameMatch:['bayern münchen','bayern munich','fc bayern'] },
+  { key:'pakhtakor', name:'Pakhtakor Tashkent', short:'Pakhtakor', sub:"Uzbekistan Super League",
+    crest:'https://vectorseek.com/wp-content/uploads/2025/05/Pakhtakor-Tashkent-FK-Logo-PNG-SVG-Vector.png',
+    bg:'#1C3F94', border:'#fff', fg:'#fff', labelBg:'#fff', labelFg:'#1C3F94',
+    dataType:'uz', nameMatch:['pakhtakor'] },
+  { key:'bunyodkor', name:'Bunyodkor Tashkent', short:'Bunyodkor', sub:"Uzbekistan Super League",
+    crest:'https://vectorseek.com/wp-content/uploads/2023/07/Fc-Bunyodkor-Logo-Vector.jpg',
+    bg:'#FFD500', border:'#000', fg:'#1a1a1a', labelBg:'#000', labelFg:'#FFD500',
+    dataType:'uz', nameMatch:['bunyodkor'] },
+  { key:'sibir', name:'HC Sibir Novosibirsk', short:'Sibir', sub:'KHL',
+    crest:'https://logotyp.us/file/sibir.svg',
+    bg:'#0C2340', border:'#fff', fg:'#fff', labelBg:'#fff', labelFg:'#0C2340',
+    dataType:'khl', nameMatch:['sibir'] },
+];
+
+// Generic "is this row's home side OUR club" test, shared by every non-Arsenal data
+// type (football/uz/khl all land here as the same {home,away,...} row shape - football
+// via matchToRow(), uz via uzMatchToRow(), khl already shaped that way in the scraper).
+// REAL BUG FOUND testing live Bundesliga data (2026-10-04): football-data.org's
+// shortName for Bayern is the bare word "Bayern" - SHORTER than every nameMatch variant
+// here ("bayern münchen", "bayern munich", "fc bayern"), so a one-directional
+// haystack.includes(variant) check never matched it, silently treating Bayern's own
+// home fixtures as an away fixture against itself ("Bayern v Bayern"). Matching now
+// checks both directions - the stored haystack containing the variant (handles a long
+// name like "Manchester United FC"), OR the variant containing the haystack (handles a
+// short one like "Bayern") - with a 4-char floor on the short side so a tiny fragment
+// ("psg" inside some unrelated longer name) can't produce a false match.
+function nameLooselyMatches(haystack, variant){
+  if(!haystack || !variant) return false;
+  if(haystack.includes(variant)) return true;
+  return haystack.length >= 4 && variant.includes(haystack);
+}
+function clubRowIsHome(entry, row){
+  const home = (row.home || '').toLowerCase();
+  return (entry.nameMatch || []).some(v => nameLooselyMatches(home, v));
+}
+function clubRowIsMine(entry, row){
+  const home = (row.home || '').toLowerCase(), away = (row.away || '').toLowerCase();
+  return (entry.nameMatch || []).some(v => nameLooselyMatches(home, v) || nameLooselyMatches(away, v));
+}
+// Turns a raw {home,away,homeScore,awayScore,start,finished} row into the same
+// {title, venue, start, homeScore, awayScore} shape the Arsenal card has always shown.
+function clubRowDisplay(entry, row){
+  if(!row) return null;
+  const isHome = clubRowIsHome(entry, row);
+  const opponent = isHome ? row.away : row.home;
+  return {
+    title: isHome ? `${entry.short} v ${opponent}` : `${opponent} v ${entry.short}`,
+    venue: isHome ? '(Home)' : '(Away)',
+    start: row.start, finished: row.finished,
+    homeScore: row.homeScore, awayScore: row.awayScore, isHome,
+  };
+}
+function clubNextFixtureInfo(entry){
+  if(entry.dataType === 'arsenal'){
+    const f = getNextArsenalFixture();
+    return f ? { title: f.title, venue: f.venue, start: f.start } : null;
+  }
+  if(entry.dataType === 'football'){
+    const cf = window._sportsCache && window._sportsCache.clubFixtures && window._sportsCache.clubFixtures[entry.apiKey];
+    const row = cf && cf.nextFixture;
+    return row ? clubRowDisplay(entry, row) : null;
+  }
+  // uz / khl: pull straight from the already-normalized fixtures list for that league,
+  // same window._sportsCache.matches[...] every league table/fixtures page already reads.
+  const leagueKey = entry.dataType === 'uz' ? 'UZ' : 'KHL';
+  const rows = (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[leagueKey] && window._sportsCache.matches[leagueKey].fixtures) || [];
+  const now = new Date();
+  const mine = rows.filter(r => clubRowIsMine(entry, r)).map(r => ({ ...r, dateObj: new Date(r.start) })).filter(r => r.dateObj > now).sort((a,b) => a.dateObj - b.dateObj);
+  return mine[0] ? clubRowDisplay(entry, mine[0]) : null;
+}
+function clubPrevResultInfo(entry){
+  if(entry.dataType === 'arsenal'){
+    const r = arsenalAllResults()[0];
+    return r ? clubRowDisplay({ ...entry, nameMatch:['arsenal'] }, r) : null;
+  }
+  if(entry.dataType === 'football'){
+    const cf = window._sportsCache && window._sportsCache.clubFixtures && window._sportsCache.clubFixtures[entry.apiKey];
+    const row = cf && cf.lastResult;
+    return row ? clubRowDisplay(entry, row) : null;
+  }
+  const leagueKey = entry.dataType === 'uz' ? 'UZ' : 'KHL';
+  const rows = (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[leagueKey] && window._sportsCache.matches[leagueKey].results) || [];
+  const mine = rows.filter(r => clubRowIsMine(entry, r) && r.finished).map(r => ({ ...r, dateObj: new Date(r.start) })).sort((a,b) => b.dateObj - a.dateObj);
+  return mine[0] ? clubRowDisplay(entry, mine[0]) : null;
+}
+function clubFixtureLineHtml(entry){
+  const f = clubNextFixtureInfo(entry);
+  if(!f) return 'No fixtures currently loaded.';
+  return formatTashkentDate(f.start) + (f.venue ? ` ${f.venue}` : '') + ` — ${f.title}`;
+}
+function clubResultLineHtml(entry){
+  const r = clubPrevResultInfo(entry);
+  if(!r || r.homeScore == null) return 'No previous result loaded yet.';
+  const ourScore = r.isHome ? r.homeScore : r.awayScore;
+  const theirScore = r.isHome ? r.awayScore : r.homeScore;
+  return `${r.title} (${ourScore}-${theirScore}) — ${formatTashkentDate(r.start)}`;
+}
+function updateClubCountdowns(){
+  CLUB_REGISTRY.forEach(entry => {
+    const el = document.getElementById(`clubCountdown-${entry.key}`);
+    if(!el) return;
+    const f = clubNextFixtureInfo(entry);
+    if(!f){ el.textContent = '-:-:-:-'; return; }
+    const target = new Date(f.start);
+    let diff = Math.max(0, target - new Date());
+    const dd = Math.floor(diff / 86400000); diff -= dd*86400000;
+    const hh = Math.floor(diff / 3600000); diff -= hh*3600000;
+    const mm = Math.floor(diff / 60000); diff -= mm*60000;
+    const ss = Math.floor(diff / 1000);
+    el.textContent = `${pad(dd)}:${pad(hh)}:${pad(mm)}:${pad(ss)}`;
+  });
+}
+function clubCardHtml(entry, pos){
+  const style = `--club-bg:${entry.bg}; --club-border:${entry.border}; --club-fg:${entry.fg}; --club-label-bg:${entry.labelBg}; --club-label-fg:${entry.labelFg};`;
+  const eggAttr = entry.egg ? `easter-egg-trigger" data-egg="${entry.egg}` : '';
+  const driftRow = entry.dataType === 'arsenal' ? `<div id="arsenalDriftWarning">${arsenalDriftWarningHtml()}</div>` : '';
+  const resultRow = clubResultLineHtml(entry);
+  const openLink = entry.openHref ? `<a class="club-open-link" href="${entry.openHref}">View ${entry.short} →</a>` : '';
   return `
-    <a class="sports-card" href="#arsenal" style="display:block; text-decoration:none; color:inherit;">
+    <div class="carousel-slide club-card" data-pos="${pos}" data-club="${entry.key}" style="${style}">
       <div class="sports-header">
-        <div class="crest easter-egg-trigger" data-egg="arsenal" style="cursor:pointer;"><img src="https://download.logo.wine/logo/Arsenal_F.C./Arsenal_F.C.-Logo.wine.png" alt="Arsenal FC crest" style="width:100%;height:100%;object-fit:contain;"></div>
+        <div class="crest ${eggAttr}" style="${entry.egg ? 'cursor:pointer;' : ''}"><img src="${entry.crest}" alt="${escapeHtml(entry.name)} crest" style="width:100%;height:100%;object-fit:contain;" loading="lazy" onerror="this.style.display='none'"></div>
         <div>
-          <div class="name">${teamNameHtml('Arsenal', false, true)}</div>
-          <div class="sub">Home of the Premier League Champions</div>
+          <div class="name">${teamNameHtml ? teamNameHtml(entry.name, false, !!entry.egg) : escapeHtml(entry.name)}</div>
+          <div class="sub">${escapeHtml(entry.sub || '')}</div>
         </div>
       </div>
-      <div id="arsenalDriftWarning">${arsenalDriftWarningHtml()}</div>
+      ${driftRow}
       <div class="next-fixture next-fixture-combined">
-        <div class="next-fixture-row"><span class="label">Next up</span><span id="nextFixtureText">${arsenalFixtureShortText()}</span></div>
-        <div class="next-fixture-row"><span class="label">Starts in</span><span id="arsenalCountdown">-:-:-:-</span></div>
+        <div class="next-fixture-row"><span class="label">Next up</span><span class="next-fixture-text" id="clubFixtureText-${entry.key}">${clubFixtureLineHtml(entry)}</span></div>
+        <div class="next-fixture-row"><span class="label">Starts in</span><span class="club-countdown" id="clubCountdown-${entry.key}">-:-:-:-</span></div>
+        <div class="next-fixture-row"><span class="label">Previous result</span><span class="next-fixture-text" id="clubResultText-${entry.key}">${resultRow}</span></div>
       </div>
-    </a>`;
+      ${openLink}
+    </div>`;
+}
+function sportsHtml(){
+  return `
+    <div class="carousel-wrap" id="clubCarousel">
+      ${CLUB_REGISTRY.map((entry, i) => clubCardHtml(entry, i)).join('')}
+    </div>
+    <div class="carousel-dots" id="clubDots">
+      ${CLUB_REGISTRY.map((entry, i) => `<span class="carousel-dot${i===0?' active':''}" data-idx="${i}"></span>`).join('')}
+    </div>`;
 }
 
 function studentsHtml(){
@@ -31689,7 +32065,7 @@ function renderRoute(opts){
   if(parts[0] === 'ask-mr-eric'){ loadAnsweredQuestions(); showAskQuestionOverlay(); }
   if(parts[0] === 'my-stats'){ submitStatsSnapshot(); renderComparisonBox(); }
   if(parts[0] === 'events-virtual'){ loadVirtualEvents(); }
-  if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireExtrasCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
+  if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
   if(parts[0] === 'sports' && parts[1] === 'tables'){ loadLiveSportsData(); }
   if(parts[0] === 'arsenal'){ loadLiveSportsData(); loadGoalResults(); }
   if(parts[0] === 'sports' && parts[1] === 'league' && parts[2]){ loadLiveSportsData(); loadGoalResults(); }
@@ -33009,19 +33385,10 @@ function updateWeekendCountdown(){
   el.textContent = `${pad(dd)}:${pad(hh)}:${pad(mm)}:${pad(ss)}`;
 }
 
-function updateArsenalCountdown(){
-  const el = document.getElementById('arsenalCountdown');
-  if(!el) return;
-  const f = getNextArsenalFixture();
-  if(!f){ el.textContent = '-:-:-:-'; return; }
-  const target = new Date(f.start);
-  let diff = Math.max(0, target - new Date());
-  const dd = Math.floor(diff / 86400000); diff -= dd*86400000;
-  const hh = Math.floor(diff / 3600000); diff -= hh*3600000;
-  const mm = Math.floor(diff / 60000); diff -= mm*60000;
-  const ss = Math.floor(diff / 1000);
-  el.textContent = `${pad(dd)}:${pad(hh)}:${pad(mm)}:${pad(ss)}`;
-}
+// updateArsenalCountdown (single-element version) replaced 2026-10-04 by
+// updateClubCountdowns() above, which loops CLUB_REGISTRY and updates whichever of the
+// 13 cards' #clubCountdown-<key> elements exist - Arsenal included, same logic, just
+// keyed generically instead of one hardcoded id.
 
 /* - Wow-factor batch: card tilt-on-touch - */
 (function(){
@@ -33568,7 +33935,7 @@ updateWeekendCountdown();
 wireClockTapCycling();
 setInterval(updateClock, 1000);
 setInterval(updateWeekendCountdown, 1000);
-setInterval(updateArsenalCountdown, 1000);
+setInterval(updateClubCountdowns, 1000);
 setInterval(updateSudokuTimer, 1000);
 
 (function(){
