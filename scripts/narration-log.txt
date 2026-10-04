@@ -1,2 +1,2 @@
-[generate_voice_narration] slug=ikea-effect voice_id=voice_AQH6kCXwOc model=lightning_v3.1_pro chars=1793
-[generate_voice_narration] wrote data/audio/ikea-effect.mp3 (1743306 bytes)
+[generate_voice_narration] ffmpeg not found -- skipping de-ess, using raw output
+[generate_voice_narration] slug=ikea-effect voice_id=voice_HH320qdw7x model=lightning_v3.1_pro chars=1793
