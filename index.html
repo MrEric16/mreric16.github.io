@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004151459">
+<meta name="app-build" content="20261004151843">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -29738,14 +29738,21 @@ function clubPrevResultInfo(entry){
 function clubFixtureLineHtml(entry){
   const f = clubNextFixtureInfo(entry);
   if(!f) return 'No fixtures currently loaded.';
-  return formatTashkentDate(f.start) + (f.venue ? ` ${f.venue}` : '') + ` — ${f.title}`;
+  // (Home)/(Away) dropped 2026-10-04 (Mr Eric: "team vs format makes it obvious") -
+  // f.title is already home-team-first, away-team-second, so the venue tag was redundant.
+  return `${formatTashkentDate(f.start)} — ${f.title}`;
 }
 function clubResultLineHtml(entry){
   const r = clubPrevResultInfo(entry);
   if(!r || r.homeScore == null) return 'No previous result loaded yet.';
-  const ourScore = r.isHome ? r.homeScore : r.awayScore;
-  const theirScore = r.isHome ? r.awayScore : r.homeScore;
-  return `${r.title} (${ourScore}-${theirScore}) — ${formatTashkentDate(r.start)}`;
+  // "Team1 X - Y Team2" (Mr Eric, 2026-10-04: "Brighton 3 - 0 Arsenal for example") -
+  // r.title is already "<home team> v <away team>" (clubRowDisplay puts the actual home
+  // side first regardless of which side is OUR club), so splitting on " v " and
+  // dropping the score in between both the (Home)/(Away) tag and the old "(X-Y)"
+  // parenthetical in one move - r.homeScore/r.awayScore are the real home/away scores,
+  // not "our score" vs "their score".
+  const [homeTeam, awayTeam] = r.title.split(' v ');
+  return `${homeTeam} ${r.homeScore} - ${r.awayScore} ${awayTeam} — ${formatTashkentDate(r.start)}`;
 }
 function updateClubCountdowns(){
   CLUB_REGISTRY.forEach(entry => {
