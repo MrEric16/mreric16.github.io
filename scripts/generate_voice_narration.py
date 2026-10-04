@@ -29,6 +29,7 @@ never logged.
 """
 import argparse
 import os
+import subprocess
 import sys
 import urllib.request
 import urllib.error
@@ -49,6 +50,7 @@ def main():
     parser.add_argument("--speed", type=float, default=1.0, help="playback speed, 0.5-2.0 (default 1.0)")
     parser.add_argument("--sample-rate", type=int, default=44100, choices=[8000, 16000, 24000, 44100])
     parser.add_argument("--language", default="en", help="ISO 639-1 language code (default: en). Some accounts/regions reject the API's own 'auto' default.")
+    parser.add_argument("--no-deess", action="store_true", help="skip the de-essing EQ pass (raw TTS output has harsh/lisp-y S and SH sounds on this clone)")
     args = parser.parse_args()
 
     api_key = os.environ.get("SMALLEST_AI_API_KEY")
@@ -111,10 +113,44 @@ def main():
     out_dir = os.path.join("data", "audio")
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, f"{args.slug}.mp3")
-    with open(out_path, "wb") as f:
+    raw_path = os.path.join(out_dir, f"{args.slug}.raw.mp3")
+
+    with open(raw_path, "wb") as f:
         f.write(audio_bytes)
 
-    print(f"[generate_voice_narration] wrote {out_path} ({len(audio_bytes)} bytes)")
+    if args.no_deess:
+        os.replace(raw_path, out_path)
+        print(f"[generate_voice_narration] wrote {out_path} ({len(audio_bytes)} bytes, no de-ess)")
+        return
+
+    # This voice clone (recorded on a phone mic) produces noticeably harsh,
+    # almost lisp-y S/SH sibilants in raw TTS output. Rather than re-record
+    # the clone samples, tame it with a static de-essing EQ: two moderate
+    # cuts centered on the sibilance band (~5.5kHz and ~8kHz), gentle enough
+    # that it doesn't dull the voice, narrow enough that it doesn't eat
+    # normal consonant clarity. Tune the two `g=` (gain, dB) values here if
+    # a render still sounds harsh or starts sounding muffled.
+    deess_filter = (
+        "equalizer=f=5500:width_type=o:width=1.5:g=-6,"
+        "equalizer=f=8000:width_type=o:width=1.5:g=-4"
+    )
+    try:
+        subprocess.run(
+            ["ffmpeg", "-y", "-i", raw_path, "-af", deess_filter, "-q:a", "2", out_path],
+            check=True, capture_output=True, text=True,
+        )
+    except FileNotFoundError:
+        print("[generate_voice_narration] ffmpeg not found -- skipping de-ess, using raw output", file=sys.stderr)
+        os.replace(raw_path, out_path)
+        return
+    except subprocess.CalledProcessError as e:
+        print(f"[generate_voice_narration] ffmpeg de-ess failed, using raw output:\n{e.stderr}", file=sys.stderr)
+        os.replace(raw_path, out_path)
+        return
+
+    os.remove(raw_path)
+    final_size = os.path.getsize(out_path)
+    print(f"[generate_voice_narration] wrote {out_path} ({final_size} bytes, de-essed)")
 
 
 if __name__ == "__main__":
