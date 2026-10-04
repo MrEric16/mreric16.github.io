@@ -51,9 +51,6 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs River Plate on 2025-06-25
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Fluminense on 2025-06-30
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Bologna vs Inter on 2025-12-19
-[goal-scraper] WARNING: Inter scored 2 but 0 scorers were parsed for https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I
-[goal-scraper] [inter-milan] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Inter 2-0 Lumezzane: https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I
-[goal-scraper] [inter-milan] Added: Inter 2-0 Lumezzane
 [goal-scraper] [ac-milan] Found 11 finished-match links
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Ssc Napoli vs Ac Milan on 2025-12-18
 [goal-scraper] [psg] Found 19 finished-match links
@@ -90,6 +87,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 1
+[goal-scraper] TOTAL new results added this run: 0
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM']
 [goal-scraper] Wrote data/goal-results.json
