@@ -3400,6 +3400,7 @@ function formatArea(n){
 function formatDensity(population, area){
   if(population == null || !area) return null;
   const perKm2 = population / area;
+  if(perKm2 < 0.1) return (perKm2 < 0.01 ? '<0.01' : perKm2.toFixed(2)) + ' people/km²';
   const rounded = perKm2 >= 100 ? Math.round(perKm2) : Math.round(perKm2 * 10) / 10;
   return rounded.toLocaleString('en-US') + ' people/km²';
 }
