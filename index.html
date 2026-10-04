@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004134824">
+<meta name="app-build" content="20261004141041">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -17081,12 +17081,29 @@ function arsenalAllResults(){
       // it. Converting the fixture's start to a real UTC date before comparing fixes
       // that for every future evening friendly too, not just this one.
       const fixtureMatch = ARSENAL_FIXTURES.find(f => new Date(f.start).toISOString().slice(0,10) === d.date);
+      // Real bug, found 2026-10-04: when there's no fixtureMatch AND goal.com gave no
+      // parseable date (d.date === null - a known ~20-30% gap, see the comment on
+      // findGoalResultDetail), this used to fall through to the template literal
+      // `${d.date}T12:00:00+05:00`, which with d.date===null silently produces the STRING
+      // "nullT12:00:00+05:00" - not an error at this line, but an unparseable date that
+      // later blew up with "RangeError: Invalid time value" the moment anything called
+      // .toISOString() on it (findGoalResultDetail, the sort below). That crash killed the
+      // results refresh for the ENTIRE Arsenal page, every single visit, from both tiles
+      // that link to #arsenal (home page card and the Sports hub's Arsenal tile) - which is
+      // exactly the "nothing happens when I tap it" Mr Eric reported. The real-world trigger
+      // was the Ipswich Town v Arsenal Carabao Cup match: goal.com's own category field
+      // mislabels it "arsenal-friendlies" (it isn't a friendly) and gives it date:null, and
+      // ARSENAL_CUP_RESULTS already has this exact match with the correct hand-typed date -
+      // so when there's truly no usable date here, the right move is to drop this duplicate
+      // entry, not synthesize a broken one. null is filtered out below.
+      if(!fixtureMatch && !d.date) return null;
       return {
         home: d.home, away: d.away, homeScore: d.ftHome, awayScore: d.ftAway,
         start: fixtureMatch ? fixtureMatch.start : `${d.date}T12:00:00+05:00`,
         finished: true,
       };
-    });
+    })
+    .filter(Boolean);
   const staticFriendly = ARSENAL_FRIENDLY_RESULTS.map(m => ({
     home: m.home, away: m.away, homeScore: m.homeScore, awayScore: m.awayScore,
     start: m.start, finished: true,
@@ -17157,7 +17174,14 @@ async function loadGoalResults(){
 
 function findGoalResultDetail(m){
   if(!m.start) return null;
-  const dateStr = new Date(m.start).toISOString().slice(0,10);
+  // Defense in depth on top of the arsenalAllResults() fix above: m.start can come from
+  // several merged sources (live API data, static fallbacks, goal.com), so never trust
+  // that a non-empty string is actually a parseable date here too - an Invalid Date's
+  // .toISOString() throws (not returns a falsy value), and that throw was what actually
+  // took down the whole Arsenal results render.
+  const startDate = new Date(m.start);
+  if(isNaN(startDate.getTime())) return null;
+  const dateStr = startDate.toISOString().slice(0,10);
   const norm = s => (s||'').toLowerCase().trim();
   const namesMatch = d => {
     const dh = norm(d.home), da = norm(d.away), mh = norm(m.home), ma = norm(m.away);
