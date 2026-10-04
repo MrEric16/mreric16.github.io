@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004153028">
+<meta name="app-build" content="20261004154609">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4296,6 +4296,17 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     display:inline-block; padding:2px 8px; border-radius:6px; margin-right:10px;
   }
   .club-card .next-fixture-text, .club-card .club-countdown{ color:var(--club-fg, #fff); }
+  /* Mr Eric, 2026-10-04: the fixture/result line was wrapping onto a second line for
+     longer matchups ("11 Oct, 20:30 - Liverpool v Man" / "City") - he wants it ONE line,
+     always, never leaking onto a second. .label above is display:block, so the pill
+     already sits on its own row and the value already starts flush-left beneath it
+     (same left edge) - the only thing missing was stopping the value itself from
+     wrapping. display:block (own full-width row) + nowrap + ellipsis guarantees a
+     single line for every club, even a very long matchup truncates with "..." instead
+     of wrapping, rather than needing per-club text-shortening logic. */
+  .club-card .next-fixture-text{
+    display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
   .club-card .club-open-link{
     display:inline-block; margin-top:10px; font-size:12px; font-weight:800;
     color:var(--club-fg, #fff); text-decoration:underline; opacity:.9;
