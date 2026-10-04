@@ -31,6 +31,18 @@ jobs:
         with:
           python-version: '3.11'
 
+      - name: Diagnose -- list voices and their language/model tags
+        env:
+          SMALLEST_AI_API_KEY: ${{ secrets.SMALLEST_AI_API_KEY }}
+        run: |
+          echo "--- lightning_v3.1 voices ---" > scripts/narration-voices-debug.txt
+          curl -s -H "Authorization: Bearer $SMALLEST_AI_API_KEY" "https://api.smallest.ai/waves/v1/lightning-v3.1/get_voices" >> scripts/narration-voices-debug.txt
+          echo "" >> scripts/narration-voices-debug.txt
+          echo "--- lightning_v3.1_pro voices ---" >> scripts/narration-voices-debug.txt
+          curl -s -H "Authorization: Bearer $SMALLEST_AI_API_KEY" "https://api.smallest.ai/waves/v1/lightning-v3.1-pro/get_voices" >> scripts/narration-voices-debug.txt
+          echo "" >> scripts/narration-voices-debug.txt
+          cat scripts/narration-voices-debug.txt
+
       - name: Generate narration audio
         env:
           SMALLEST_AI_API_KEY: ${{ secrets.SMALLEST_AI_API_KEY }}
@@ -46,7 +58,7 @@ jobs:
         run: |
           git config user.name "narration-bot"
           git config user.email "actions@github.com"
-          git add scripts/narration-log.txt || true
+          git add scripts/narration-log.txt scripts/narration-voices-debug.txt || true
           [ -f "data/audio/${{ inputs.slug }}.mp3" ] && git add "data/audio/${{ inputs.slug }}.mp3" || true
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Narration run: ${{ inputs.slug }}"
           git pull --rebase --autostash origin main || true
