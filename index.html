@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004154609">
+<meta name="app-build" content="20261004154847">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4304,7 +4304,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
      wrapping. display:block (own full-width row) + nowrap + ellipsis guarantees a
      single line for every club, even a very long matchup truncates with "..." instead
      of wrapping, rather than needing per-club text-shortening logic. */
-  .club-card .next-fixture-text{
+  .club-card .next-fixture-text, .club-card .club-countdown{
     display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
   }
   .club-card .club-open-link{
@@ -29777,7 +29777,12 @@ function clubResultLineHtml(entry){
   // Date/time dropped from this line 2026-10-04 (Mr Eric: "just keep score there") -
   // score only, no trailing date.
   const [homeTeam, awayTeam] = r.title.split(' v ');
-  return `${homeTeam} ${r.homeScore} - ${r.awayScore} ${awayTeam}`;
+  // Mr Eric, 2026-10-04: "whenever Tottenham lose, make it say LOL at the end of the
+  // result" - Tottenham-specific, not a generic loss indicator for every club. A loss
+  // for Tottenham is r.isHome+homeScore<awayScore, or away+awayScore<homeScore.
+  const tottenhamLost = entry.key === 'tottenham' &&
+    ((r.isHome && r.homeScore < r.awayScore) || (!r.isHome && r.awayScore < r.homeScore));
+  return `${homeTeam} ${r.homeScore} - ${r.awayScore} ${awayTeam}${tottenhamLost ? ' LOL' : ''}`;
 }
 function updateClubCountdowns(){
   CLUB_REGISTRY.forEach(entry => {
