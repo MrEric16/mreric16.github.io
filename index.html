@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004152540">
+<meta name="app-build" content="20261004153028">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -29658,11 +29658,22 @@ const CLUB_REGISTRY = [
     crest:'https://vectorseek.com/wp-content/uploads/2023/07/Fc-Bunyodkor-Logo-Vector.jpg',
     bg:'#FFD500', border:'#000', fg:'#1a1a1a', labelBg:'#000', labelFg:'#FFD500',
     dataType:'uz', nameMatch:['bunyodkor'] },
+  { key:'al_nasr', name:'Al Nasr SC', short:'Al Nasr', sub:'UAE Pro League',
+    crest:'https://r2.thesportsdb.com/images/media/team/badge/oy1zwv1753982526.png',
+    bg:'#0033A0', border:'#fff', fg:'#fff', labelBg:'#fff', labelFg:'#0033A0',
+    dataType:'uae', nameMatch:['al nasr'] },
   { key:'sibir', name:'HC Sibir Novosibirsk', short:'Sibir', sub:'KHL',
     crest:'https://logotyp.us/file/sibir.svg', crestScale:1.9,
     bg:'#0C2340', border:'#fff', fg:'#fff', labelBg:'#fff', labelFg:'#0C2340',
     dataType:'khl', nameMatch:['sibir'] },
 ];
+
+// Which window._sportsCache.matches[...] key each non-Arsenal/non-football dataType
+// reads from - every one of these leagues is already fetched and normalized to the
+// same {home,away,homeScore,awayScore,start,finished} row shape for the existing
+// league-table/fixtures pages, so a club card here is just a name-filtered view onto
+// data that's already live, not a new data source.
+const CLUB_LEAGUE_KEY = { uz:'UZ', khl:'KHL', uae:'UAE' };
 
 // Generic "is this row's home side OUR club" test, shared by every non-Arsenal data
 // type (football/uz/khl all land here as the same {home,away,...} row shape - football
@@ -29712,9 +29723,10 @@ function clubNextFixtureInfo(entry){
     const row = cf && cf.nextFixture;
     return row ? clubRowDisplay(entry, row) : null;
   }
-  // uz / khl: pull straight from the already-normalized fixtures list for that league,
-  // same window._sportsCache.matches[...] every league table/fixtures page already reads.
-  const leagueKey = entry.dataType === 'uz' ? 'UZ' : 'KHL';
+  // uz / khl / uae: pull straight from the already-normalized fixtures list for that
+  // league, same window._sportsCache.matches[...] every league table/fixtures page
+  // already reads.
+  const leagueKey = CLUB_LEAGUE_KEY[entry.dataType];
   const rows = (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[leagueKey] && window._sportsCache.matches[leagueKey].fixtures) || [];
   const now = new Date();
   const mine = rows.filter(r => clubRowIsMine(entry, r)).map(r => ({ ...r, dateObj: new Date(r.start) })).filter(r => r.dateObj > now).sort((a,b) => a.dateObj - b.dateObj);
@@ -29730,7 +29742,7 @@ function clubPrevResultInfo(entry){
     const row = cf && cf.lastResult;
     return row ? clubRowDisplay(entry, row) : null;
   }
-  const leagueKey = entry.dataType === 'uz' ? 'UZ' : 'KHL';
+  const leagueKey = CLUB_LEAGUE_KEY[entry.dataType];
   const rows = (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[leagueKey] && window._sportsCache.matches[leagueKey].results) || [];
   const mine = rows.filter(r => clubRowIsMine(entry, r) && r.finished).map(r => ({ ...r, dateObj: new Date(r.start) })).sort((a,b) => b.dateObj - a.dateObj);
   return mine[0] ? clubRowDisplay(entry, mine[0]) : null;
