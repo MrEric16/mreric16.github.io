@@ -240,8 +240,19 @@ def liveresult_team_name(slug):
 
 
 def fetch_liveresult_matches(page, url):
+    # wait_until defaults to "load", which blocks until every subresource on the page
+    # finishes - ads and trackers included. Confirmed as the actual failure (not a
+    # liveresult.ru outage or block): every run from 2026-09-30 22:28 UTC through
+    # 2026-10-04 12:41 UTC (4 straight days, every single scheduled run) timed out here
+    # at exactly 30000ms with "waiting until load", silently wiping fixtures/results to
+    # empty each time while standings kept scraping fine from a different site - and a
+    # plain fetch of the same URL outside Playwright returned full, current results
+    # immediately. "domcontentloaded" fires once the page's own HTML/DOM is parsed,
+    # without waiting on ad/tracker network activity that may never fully settle, and
+    # is what this page's match data actually needs. Timeout also bumped 30s -> 45s as
+    # a safety margin, not as the real fix.
     try:
-        page.goto(url, timeout=30000)
+        page.goto(url, timeout=45000, wait_until="domcontentloaded")
         page.wait_for_timeout(3000)
         html = page.content()
     except Exception as e:
@@ -363,6 +374,31 @@ def main():
         if key not in seen:
             seen.add(key)
             deduped_fixtures.append(m)
+
+    # Safety net added after a real incident: the liveresult.ru fetch silently timed
+    # out on every run for 4 straight days (2026-09-30 22:28 UTC to 2026-10-04 12:41
+    # UTC), and each run happily overwrote a previously-good 646+ fixtures/results
+    # dataset with empty lists because nothing ever compared the new scrape against
+    # what was already on disk. If BOTH fixtures and results come back empty but the
+    # existing file on disk has real data in either, that's a scrape failure, not a
+    # genuine empty season - keep the previous fixtures/results rather than wiping them,
+    # and say so loudly in the log so a real schedule gap (e.g. off-season) is never
+    # mistaken for this.
+    if not deduped_fixtures and not deduped_results:
+        try:
+            with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+                previous = json.load(f)
+            prev_fixtures = previous.get("fixtures", [])
+            prev_results = previous.get("results", [])
+            if prev_fixtures or prev_results:
+                log(f"WARNING: liveresult scrape returned 0 fixtures/0 results but "
+                    f"existing file has {len(prev_fixtures)} fixtures/{len(prev_results)} "
+                    f"results - keeping existing fixtures/results instead of overwriting "
+                    f"with empty (this is very likely a scrape failure, not a real gap)")
+                deduped_fixtures = prev_fixtures
+                deduped_results = prev_results
+        except (FileNotFoundError, json.JSONDecodeError):
+            pass
 
     output = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
