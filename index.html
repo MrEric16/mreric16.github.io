@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004185805">
+<meta name="app-build" content="20261004191338">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7528,6 +7528,7 @@ const NARRATION_AUDIO = {
   "https://thedecisionlab.com/biases/ikea-effect": "data/audio/ikea-effect.mp3",
   "https://waitbutwhy.com/2013/10/why-procrastinators-procrastinate.html": "data/audio/why-procrastinators-procrastinate.mp3",
   "https://www.bbc.com/future/article/20260921-what-general-anaesthetic-reveals-about-our-brains": "data/audio/general-anaesthetic-brains.mp3",
+  "https://www.mentalfloss.com/language/words/interesting-etymologies-everyday-words": "data/audio/interesting-etymologies.mp3",
 };
 
 // Arsenal fixtures - synced from Eric's Arsenal FC calendar subscription. Auto-advances
@@ -18765,6 +18766,16 @@ function toggleBookmark(item){
 // the first, rather than stacking playback. The triggering button's own
 // state (icon/text/class) drives the UI; we don't maintain a separate
 // "now playing" model beyond that.
+//
+// Media Session integration (navigator.mediaSession) is what makes this keep
+// playing with the phone locked and show real lock-screen / notification-
+// shade controls (title, play/pause, stop) instead of just being a page tab
+// that dies the moment the screen turns off. This is standard web platform
+// API, not a hack - every major mobile browser (iOS Safari 15+, Chrome on
+// Android) honours it for an <audio> element that's actually playing. The
+// one thing this can't do anything about is the OS killing a backgrounded
+// browser tab after a long time for memory reasons - no website can prevent
+// that, same as it'd apply to any other audio site.
 let _narrationAudio = null;
 let _narrationBtn = null;
 function resetListenBtn(btn){
@@ -18772,11 +18783,32 @@ function resetListenBtn(btn){
   btn.classList.remove('playing');
   btn.innerHTML = `${ICONS.volume}<span>Listen</span>`;
 }
+function setupNarrationMediaSession(title, btn){
+  if(!('mediaSession' in navigator)) return;
+  navigator.mediaSession.metadata = new MediaMetadata({
+    title: title,
+    artist: "Mr Eric's Lounge",
+    album: 'Narrated Articles',
+  });
+  navigator.mediaSession.playbackState = 'playing';
+  navigator.mediaSession.setActionHandler('play', ()=>{
+    if(_narrationAudio) _narrationAudio.play();
+  });
+  navigator.mediaSession.setActionHandler('pause', ()=>{
+    if(_narrationAudio) _narrationAudio.pause();
+  });
+  navigator.mediaSession.setActionHandler('stop', ()=>{
+    if(_narrationAudio){ _narrationAudio.pause(); _narrationAudio.currentTime = 0; }
+    resetListenBtn(btn);
+  });
+}
 function toggleNarration(btn){
   const src = btn.dataset.src;
+  const title = btn.dataset.title || 'Narrated article';
   if(_narrationBtn === btn && _narrationAudio && !_narrationAudio.paused){
     _narrationAudio.pause();
     resetListenBtn(btn);
+    if('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
     return;
   }
   if(_narrationAudio){
@@ -18785,14 +18817,23 @@ function toggleNarration(btn){
   }
   _narrationAudio = new Audio(src);
   _narrationBtn = btn;
+  _narrationAudio.addEventListener('play', ()=>{
+    btn.classList.add('playing');
+    btn.innerHTML = `${ICONS.pauseCircle}<span>Playing</span>`;
+    if('mediaSession' in navigator) navigator.mediaSession.playbackState = 'playing';
+  });
+  _narrationAudio.addEventListener('pause', ()=>{
+    btn.classList.remove('playing');
+    btn.innerHTML = `${ICONS.volume}<span>Listen</span>`;
+    if('mediaSession' in navigator) navigator.mediaSession.playbackState = 'paused';
+  });
   _narrationAudio.addEventListener('ended', ()=> resetListenBtn(btn));
   _narrationAudio.addEventListener('error', ()=>{
     resetListenBtn(btn);
     btn.title = "Couldn't play narration - try again later";
   });
+  setupNarrationMediaSession(title, btn);
   _narrationAudio.play().catch(()=> resetListenBtn(btn));
-  btn.classList.add('playing');
-  btn.innerHTML = `${ICONS.pauseCircle}<span>Playing</span>`;
 }
 
 /* - Share - */
@@ -21205,7 +21246,12 @@ function wireSearch(container){
       results.innerHTML = pageResultsHtml(gameResults);
       return;
     }
-    const articleMatches = DISPATCHES.filter(a => a.headline.toLowerCase().includes(q));
+    // "listen" is a special-case query (not a literal headline search): it surfaces
+    // every article that has a narrated version, regardless of what's actually in the
+    // headline, so students can find all the audio content in one place.
+    const articleMatches = q.includes('listen')
+      ? DISPATCHES.filter(a => NARRATION_AUDIO[a.url])
+      : DISPATCHES.filter(a => a.headline.toLowerCase().includes(q));
     const videoMatches = WATCH_VIDEOS.filter(v => v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q));
     const exploreMatches = EXPLORE_SITES.filter(s => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
     // Brain Train games (GEOGRAPHY_HUB_TILES) - internal:true only, since the external
@@ -21270,7 +21316,8 @@ function wireSearch(container){
       html += gameResultsHtml(gameMatches);
     }
     if(articleMatches.length > 0){
-      html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('newspaper')}</span><h2>Articles</h2></div>`;
+      const isListenSearch = q.includes('listen');
+      html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon(isListenSearch?'volume':'newspaper')}</span><h2>${isListenSearch?'Listen':'Articles'}</h2></div>`;
       html += dispatchListHtml(articleMatches);
     }
     if(videoMatches.length > 0){
