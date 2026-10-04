@@ -37,6 +37,32 @@ OUTPUT_PATH = "data/football-live.json"
 
 REQUEST_DELAY_SECONDS = 7
 
+# 2026-10-04: the home-screen club carousel needs the same "next fixture + last result"
+# data Arsenal already gets, for 9 more clubs. Rather than hardcoding each club's
+# football-data.org team ID by hand - a real, confirmed risk: an AI research pass on this
+# came back with one ID (PSG, 524) it could only single-source and flagged as unverified,
+# and a silently wrong ID would show a COMPLETELY WRONG CLUB's fixtures in production with
+# no error at all - this resolves every ID dynamically from data already being fetched.
+# The standings response for each of the 6 competitions already includes team id + name +
+# shortName + tla for every team in it (process_standings() was just discarding the id
+# before); capturing that as a byproduct costs zero extra API calls, and matching by name
+# means a wrong/changed football-data.org ID can never silently point at the wrong team -
+# a name that stops matching just logs a clear failure instead of mis-resolving.
+# Match strings are deliberately permissive (checked case-insensitively against name,
+# shortName AND the 3-letter tla) since football-data.org's naming isn't fully consistent
+# across competitions (e.g. "FC Bayern München" vs "Bayern Munich").
+TARGET_CLUBS = {
+    "man_utd":   ["manchester united", "man united", "man utd", "manutd"],
+    "liverpool": ["liverpool"],
+    "chelsea":   ["chelsea"],
+    "man_city":  ["manchester city", "man city"],
+    "tottenham": ["tottenham"],
+    "real_madrid": ["real madrid"],
+    "barcelona": ["barcelona", "fc barcelona", "barça"],
+    "psg":       ["paris saint-germain", "paris saint germain", "psg"],
+    "bayern":    ["bayern münchen", "bayern munich", "fc bayern"],
+}
+
 
 def log(msg):
     print(f"[football-fetch] {msg}", flush=True)
@@ -164,6 +190,52 @@ def process_standings(data):
     ]
 
 
+def collect_team_ids(data, registry):
+    """Side-channel extraction, alongside process_standings() - pulls {id, name,
+    shortName, tla} for every team seen in a competition's raw standings response into
+    `registry` (keyed by id, so the same team appearing in multiple competitions - e.g. a
+    club in both its domestic league and the Champions League - just overwrites with the
+    same data rather than duplicating). Runs even when process_standings() itself returns
+    None (season not started/finished) - team identity data is valid regardless of whether
+    the season's table is currently trustworthy to display."""
+    total_table = next((s for s in data.get("standings", []) if s.get("type") == "TOTAL"), None)
+    if not total_table or not total_table.get("table"):
+        return
+    for row in total_table["table"]:
+        team = row.get("team") or {}
+        tid = team.get("id")
+        if tid is None:
+            continue
+        registry[tid] = {
+            "id": tid,
+            "name": (team.get("name") or "").lower(),
+            "shortName": (team.get("shortName") or "").lower(),
+            "tla": (team.get("tla") or "").lower(),
+        }
+
+
+def resolve_target_club_ids(registry):
+    """Matches TARGET_CLUBS' name variants against the collected registry. Logs - loudly,
+    not silently - any club that couldn't be resolved, so a genuine mismatch (name format
+    changed, club not in any of the 6 fetched competitions this run) is visible in the log
+    rather than quietly producing no data."""
+    resolved = {}
+    for key, variants in TARGET_CLUBS.items():
+        match = None
+        for team in registry.values():
+            haystacks = [team["name"], team["shortName"], team["tla"]]
+            if any(v in h for v in variants for h in haystacks if h):
+                match = team["id"]
+                break
+        if match is None:
+            log(f"WARNING: could not resolve team id for '{key}' (tried {variants}) - "
+                f"not present in any of this run's {len(registry)} known teams. Its card "
+                f"will show no fixture data until this resolves (e.g. once its league's "
+                f"standings are fetched successfully).")
+        resolved[key] = match
+    return resolved
+
+
 def main():
     if not API_KEY:
         log("FATAL: FOOTBALL_DATA_API_KEY environment variable not set.")
@@ -175,13 +247,16 @@ def main():
         "matches": {},
         "arsenalNextFixture": None,
         "arsenalFinishedMatches": [],
+        "clubFixtures": {},
     }
 
+    team_registry = {}
     for code in LEAGUE_CODES:
         try:
             data = get(f"{BASE}/competitions/{code}/standings")
             season_debug = data.get("season") or {}
             log(f"standings[{code}]: raw season field = {season_debug}")
+            collect_team_ids(data, team_registry)
             trimmed = process_standings(data)
             if trimmed:
                 output["standings"][code] = trimmed
@@ -216,6 +291,34 @@ def main():
         log(f"arsenalFinishedMatches: OK ({len(output['arsenalFinishedMatches'])} matches)")
     except Exception as e:
         log(f"arsenalFinishedMatches: FAILED ({e})")
+    time.sleep(REQUEST_DELAY_SECONDS)
+
+    # Home-screen club carousel (2026-10-04): same next-fixture/last-result shape Arsenal
+    # gets, for the other 9 football-data.org-covered clubs. limit=1 on FINISHED (not
+    # Arsenal's 15) since the carousel card only ever shows ONE previous result, not a
+    # scrollable history - no reason to spend extra API calls/payload on rows nothing reads.
+    club_ids = resolve_target_club_ids(team_registry)
+    for key, team_id in club_ids.items():
+        if team_id is None:
+            output["clubFixtures"][key] = {"nextFixture": None, "lastResult": None}
+            continue
+        entry = {"nextFixture": None, "lastResult": None}
+        try:
+            data = get(f"{BASE}/teams/{team_id}/matches?status=SCHEDULED&limit=1")
+            matches = data.get("matches", [])
+            entry["nextFixture"] = trim_match(matches[0]) if matches else None
+        except Exception as e:
+            log(f"clubFixtures[{key}].nextFixture: FAILED ({e})")
+        time.sleep(REQUEST_DELAY_SECONDS)
+        try:
+            data = get(f"{BASE}/teams/{team_id}/matches?status=FINISHED&limit=1")
+            matches = data.get("matches", [])
+            entry["lastResult"] = trim_match(matches[0]) if matches else None
+        except Exception as e:
+            log(f"clubFixtures[{key}].lastResult: FAILED ({e})")
+        time.sleep(REQUEST_DELAY_SECONDS)
+        output["clubFixtures"][key] = entry
+        log(f"clubFixtures[{key}] (team id {team_id}): OK")
 
     os.makedirs("data", exist_ok=True)
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
