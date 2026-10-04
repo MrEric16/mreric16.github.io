@@ -2,12 +2,16 @@ name: Fetch football-data.org (server-side, key never exposed)
 
 on:
   schedule:
-    - cron: '*/30 * * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
 permissions:
   contents: write
   actions: write
+
+concurrency:
+  group: football-fetch
+  cancel-in-progress: false
 
 jobs:
   fetch:
@@ -43,12 +47,14 @@ jobs:
       # This is exactly what happened to uz-league-fetch.yml on 2026-08-14: its 03:13 UTC
       # daily run simply never fired, no failure logged, nothing -- the only sign was stale
       # data on the live site. Rather than trust a single daily cron to always fire, this
-      # step piggybacks on football-fetch's own reliable 30-minute schedule (lightweight:
+      # step piggybacks on football-fetch's own reliable 15-minute schedule (lightweight:
       # `pip install requests` only, no browser install, negligible extra cost) to check
-      # uz-league-live.json's age every 30 minutes and force-trigger uz-league-fetch.yml if
-      # it's gone stale. Worst case with this in place: UZ league data is never more than
-      # ~20h45m stale (20h threshold + up to 30min for the next watchdog tick to catch it),
-      # regardless of whether uz-league-fetch.yml's own direct schedule fires that day.
+      # uz-league-live.json's age every 15 minutes and force-trigger uz-league-fetch.yml if
+      # it's gone stale. uz-league-fetch.yml now also runs on its own 15-minute schedule
+      # directly (tightened 2026-10-04, same as every other club-tile scraper), so this
+      # watchdog's job is now just a backstop for a missed/skipped cron tick, not the
+      # primary refresh path -- threshold tightened from 20h to 1h to match. Worst case
+      # with this in place: UZ league data is never more than ~1h15m stale.
       - name: Watchdog -- force a UZ league refresh if it's gone stale
         if: always()
         env:
@@ -58,7 +64,7 @@ jobs:
           import json, os, urllib.request
           from datetime import datetime, timezone
 
-          THRESHOLD_HOURS = 20
+          THRESHOLD_HOURS = 1
 
           try:
               with open('data/uz-league-live.json', encoding='utf-8') as f:
@@ -98,7 +104,8 @@ jobs:
       # to anyone) and was fixed in that same session -- but a code fix alone doesn't prevent
       # a *future* breakage (e.g. worldfootball.net changing its markup again) from going
       # silent again the same way. This closes that gap the same way the UZ watchdog already
-      # does for its scraper.
+      # does for its scraper. Threshold tightened 2026-10-04 to match uae-league-fetch.yml's
+      # own schedule now also running every 15 minutes directly.
       - name: Watchdog -- force a UAE league refresh if it's gone stale
         if: always()
         env:
@@ -108,7 +115,7 @@ jobs:
           import json, os, urllib.request
           from datetime import datetime, timezone
 
-          THRESHOLD_HOURS = 20
+          THRESHOLD_HOURS = 1
 
           try:
               with open('data/uae-league-live.json', encoding='utf-8') as f:

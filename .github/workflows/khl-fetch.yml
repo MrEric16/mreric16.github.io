@@ -1,13 +1,17 @@
-name: Fetch KHL (every 6 hours)
+name: Fetch KHL (every 15 minutes)
 
 on:
   schedule:
-    - cron: '30 */6 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
 permissions:
   contents: write
   actions: write
+
+concurrency:
+  group: khl-fetch
+  cancel-in-progress: false
 
 jobs:
   fetch:

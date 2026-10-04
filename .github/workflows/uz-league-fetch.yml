@@ -1,13 +1,17 @@
-name: Fetch Uzbekistan Super League (daily, flashscore)
+name: Fetch Uzbekistan Super League (every 15 minutes, flashscore)
 
 on:
   schedule:
-    - cron: '13 3,11,19 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch: {}
 
 permissions:
   contents: write
   actions: write
+
+concurrency:
+  group: uz-league-fetch
+  cancel-in-progress: false
 
 jobs:
   fetch:
