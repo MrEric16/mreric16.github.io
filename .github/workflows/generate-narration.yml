@@ -1,0 +1,58 @@
+name: Generate voice narration (manual, reviewed-script only)
+
+# Manual-only on purpose. Narration scripts are reviewed and approved by
+# Mr Eric before they're ever recorded (standing rule, not yet automatic).
+# This workflow never runs on a schedule -- it only runs when explicitly
+# dispatched with the slug of an already-approved script sitting in
+# scripts/narration_scripts/<slug>.txt.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: 'Narration slug (matches scripts/narration_scripts/<slug>.txt)'
+        required: true
+        type: string
+      voice_id:
+        description: 'smallest.ai cloned voice id'
+        required: true
+        default: 'voice_AQH6kCXwOc'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  narrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Generate narration audio
+        env:
+          SMALLEST_AI_API_KEY: ${{ secrets.SMALLEST_AI_API_KEY }}
+        run: |
+          python3 scripts/generate_voice_narration.py \
+            --slug "${{ inputs.slug }}" \
+            --voice-id "${{ inputs.voice_id }}"
+
+      - name: Commit audio
+        run: |
+          git config user.name "narration-bot"
+          git config user.email "actions@github.com"
+          git add "data/audio/${{ inputs.slug }}.mp3"
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Add narration audio: ${{ inputs.slug }}"
+          git pull --rebase --autostash origin main || true
+          git push
+
+      - name: Trigger Pages redeploy
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/pages.yml/dispatches" \
+            -d '{"ref":"main"}'
