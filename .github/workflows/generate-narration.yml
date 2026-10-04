@@ -35,11 +35,8 @@ jobs:
         env:
           SMALLEST_AI_API_KEY: ${{ secrets.SMALLEST_AI_API_KEY }}
         run: |
-          echo "--- lightning_v3.1 voices ---" > scripts/narration-voices-debug.txt
-          curl -s -H "Authorization: Bearer $SMALLEST_AI_API_KEY" "https://api.smallest.ai/waves/v1/lightning-v3.1/get_voices" >> scripts/narration-voices-debug.txt
-          echo "" >> scripts/narration-voices-debug.txt
-          echo "--- lightning_v3.1_pro voices ---" >> scripts/narration-voices-debug.txt
-          curl -s -H "Authorization: Bearer $SMALLEST_AI_API_KEY" "https://api.smallest.ai/waves/v1/lightning-v3.1-pro/get_voices" >> scripts/narration-voices-debug.txt
+          echo "--- my cloned voices (GET /waves/v1/voice-cloning) ---" > scripts/narration-voices-debug.txt
+          curl -s -H "Authorization: Bearer $SMALLEST_AI_API_KEY" "https://api.smallest.ai/waves/v1/voice-cloning" >> scripts/narration-voices-debug.txt
           echo "" >> scripts/narration-voices-debug.txt
           cat scripts/narration-voices-debug.txt
 
