@@ -15,7 +15,7 @@ on:
       voice_id:
         description: 'smallest.ai cloned voice id'
         required: true
-        default: 'voice_AQH6kCXwOc'
+        default: 'voice_Zsg8S79cGB'
         type: string
 
 permissions:
