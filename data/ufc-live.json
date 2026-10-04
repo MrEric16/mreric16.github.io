@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T09:18:54.638832+00:00",
+  "generatedAt": "2026-10-04T09:58:49.223268+00:00",
   "scheduled": [
     {
       "name": "UFC Fight Night 295",
@@ -11,7 +11,8 @@
       "name": "UFC 335",
       "date_text": "Dec 12, 2026",
       "venue": "T-Mobile Arena",
-      "location": "Las Vegas,Nevada, U.S."
+      "location": "Las Vegas,Nevada, U.S.",
+      "start_tashkent": "2026-12-13T07:00:00+05:00"
     },
     {
       "name": "UFC Fight Night: Procházka vs. Stirling",
@@ -61,16 +62,15 @@
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S.",
       "start_tashkent": "2026-10-11T05:00:00+05:00"
-    },
+    }
+  ],
+  "past": [
     {
       "name": "UFC 332: Silva vs. Wang",
       "date_text": "Oct 3, 2026",
       "venue": "Delta Center",
-      "location": "Salt Lake City,Utah, U.S.",
-      "start_tashkent": "2026-10-04T05:00:00+05:00"
-    }
-  ],
-  "past": [
+      "location": "Salt Lake City,Utah, U.S."
+    },
     {
       "name": "UFC Fight Night: Rosas Jr. vs. Barcelos",
       "date_text": "Sep 26, 2026",
@@ -162,13 +162,6 @@
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S.",
       "result": "Manel Kape def. Kyoji Horiguchi (TKO, R3 2:42)"
-    },
-    {
-      "name": "UFC Freedom 250",
-      "date_text": "Jun 14, 2026",
-      "venue": "White House",
-      "location": "Washington, D.C., U.S.",
-      "result": "Justin Gaethje def. Ilia Topuria (TKO - corner stoppage, R4)"
     }
   ]
 }
