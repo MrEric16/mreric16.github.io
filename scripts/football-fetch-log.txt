@@ -18,4 +18,13 @@
 [football-fetch] matches[CL]: OK (trimmed from 144 to 18 fixtures + 15 results)
 [football-fetch] arsenalNextFixture: OK
 [football-fetch] arsenalFinishedMatches: OK (6 matches)
-[football-fetch] Wrote data/football-live.json (137.2 KB)
+[football-fetch] clubFixtures[man_utd] (team id 66): OK
+[football-fetch] clubFixtures[liverpool] (team id 64): OK
+[football-fetch] clubFixtures[chelsea] (team id 61): OK
+[football-fetch] clubFixtures[man_city] (team id 65): OK
+[football-fetch] clubFixtures[tottenham] (team id 73): OK
+[football-fetch] clubFixtures[real_madrid] (team id 86): OK
+[football-fetch] clubFixtures[barcelona] (team id 81): OK
+[football-fetch] clubFixtures[psg] (team id 524): OK
+[football-fetch] clubFixtures[bayern] (team id 5): OK
+[football-fetch] Wrote data/football-live.json (150.2 KB)
