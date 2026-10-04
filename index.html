@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261004154847">
+<meta name="app-build" content="20261004155748">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -437,27 +437,12 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-ihl:not(.dark-mode) .books-tile *{
     color:#304EA0 !important;
   }
-  /* Arsenal font: Mr Eric asked for the actual font from arsenal.com. That's Agency FB
-     (confirmed via a professional Arsenal brand-guidelines write-up - their official
-     brand typeface since the 2002 rebrand), but it's a commercial Monotype font with no
-     free web-embedding license, unlike the Soviet theme's Propaganda font which was
-     explicitly free for commercial use. Using Oswald instead - a free, open-license
-     Google Font specifically cited (by multiple type foundries independently) as one of
-     the closest free substitutes for Agency FB's bold-condensed look, and better suited
-     to on-screen UI text than Agency FB's original print/display design. Loaded once via
-     @import, applied to all three Arsenal themes (arsenal, arsenal2, darsenal). Unlike
-     Propaganda, Oswald ships real light/regular/bold weights, so no font-weight override
-     is needed here - existing bold/700 declarations elsewhere in the site render as
-     Oswald's own real bold, not a synthesized fake one. */
-  @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
-  body.usertheme-arsenal:not(.dark-mode),
-  body.usertheme-arsenal:not(.dark-mode) *,
-  body.usertheme-arsenal2:not(.dark-mode),
-  body.usertheme-arsenal2:not(.dark-mode) *,
-  body.dark-mode.usertheme-darsenal,
-  body.dark-mode.usertheme-darsenal *{
-    font-family:'Oswald','Impact',sans-serif !important;
-  }
+  /* Arsenal font reverted 2026-10-04 (Mr Eric: "I really don't like this font" - back
+     to the site's normal Nunito/Baloo 2, same as Bauhaus/Nebula/Soviet/etc). Previously
+     this theme block loaded Oswald via @import and force-applied it to all three
+     Arsenal themes (arsenal, arsenal2, darsenal) as a free substitute for Arsenal's real
+     Agency FB brand font - removed outright rather than left dormant, since nothing else
+     on the site uses Oswald. */
   /* Arsenal - Mr Eric's own pick, real crest colors he supplied (red #ec0024, crimson
      #ce0041, navy #113476, gold #99824c, off-white #fefefe). First pass was too subtle -
      just threaded the four accents through the normal --coral/--gold/--teal slots, which
@@ -17109,6 +17094,16 @@ async function loadLiveSportsData(){
     if(fEl) fEl.innerHTML = clubFixtureLineHtml(entry);
     const rEl = document.getElementById(`clubResultText-${entry.key}`);
     if(rEl) rEl.innerHTML = clubResultLineHtml(entry);
+    // Arsenal's card can change color here too (home/away kit reskin) - live data
+    // loads AFTER first paint, so the initial render may have used the static fallback
+    // fixture's venue; re-apply once the real one is in.
+    if(entry.dataType === 'arsenal'){
+      const cardEl = document.querySelector(`.carousel-slide[data-club="${entry.key}"]`);
+      if(cardEl){
+        const c = clubCardColors(entry);
+        cardEl.style.cssText += `--club-bg:${c.bg}; --club-border:${c.border}; --club-fg:${c.fg}; --club-label-bg:${c.labelBg}; --club-label-fg:${c.labelFg};`;
+      }
+    }
   });
   const driftEl = document.getElementById('arsenalDriftWarning');
   if(driftEl) driftEl.innerHTML = arsenalDriftWarningHtml();
@@ -29799,8 +29794,22 @@ function updateClubCountdowns(){
     el.textContent = `${pad(dd)}:${pad(hh)}:${pad(mm)}:${pad(ss)}`;
   });
 }
+// Arsenal card reskins to the away kit (Arsenal2 theme's navy/gold/crimson - see
+// usertheme-arsenal2, c1:'#2E375D' c2:'#C9A542') whenever Arsenal's next fixture is
+// away, and stays the normal home red otherwise (Mr Eric, 2026-10-04). Every other
+// club keeps its fixed registry colors - this swap is Arsenal-only.
+function clubCardColors(entry){
+  if(entry.dataType === 'arsenal'){
+    const f = getNextArsenalFixture();
+    if(f && f.venue === '(Away)'){
+      return { bg:'#2E375D', border:'#C9A542', fg:'#fff', labelBg:'#BB2C38', labelFg:'#C9A542' };
+    }
+  }
+  return { bg:entry.bg, border:entry.border, fg:entry.fg, labelBg:entry.labelBg, labelFg:entry.labelFg };
+}
 function clubCardHtml(entry, pos){
-  const style = `--club-bg:${entry.bg}; --club-border:${entry.border}; --club-fg:${entry.fg}; --club-label-bg:${entry.labelBg}; --club-label-fg:${entry.labelFg};`;
+  const c = clubCardColors(entry);
+  const style = `--club-bg:${c.bg}; --club-border:${c.border}; --club-fg:${c.fg}; --club-label-bg:${c.labelBg}; --club-label-fg:${c.labelFg};`;
   const eggAttr = entry.egg ? `easter-egg-trigger" data-egg="${entry.egg}` : '';
   const driftRow = entry.dataType === 'arsenal' ? `<div id="arsenalDriftWarning">${arsenalDriftWarningHtml()}</div>` : '';
   const resultRow = clubResultLineHtml(entry);
