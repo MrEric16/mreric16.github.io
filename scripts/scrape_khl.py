@@ -182,6 +182,35 @@ def parse_standings(html):
 # possible.
 LIVERESULT_RESULTS_URL = "https://www.liveresult.ru/hockey/Kontinental-Hockey-League/results"
 LIVERESULT_SCHEDULE_URL = "https://www.liveresult.ru/hockey/Kontinental-Hockey-League/scheduled"
+
+# Hand-verified corrections for specific fixtures where liveresult.ru's own listed
+# time was confirmed wrong against independent sources (see the real-incident
+# comment above the "SUSPICIOUS TIME" check in fetch_liveresult_matches). Keyed by
+# (home, away, "YYYY-MM-DD") so this survives re-scrapes indefinitely -- without
+# this, the very next scheduled run would silently re-scrape liveresult.ru's own
+# (still wrong, since the site itself hasn't fixed it) time and undo the fix.
+# Add a new entry here any time a fixture's time is hand-verified against an
+# authoritative source (the home team's own site/arena, khl.ru, the official app)
+# and found to disagree with what liveresult.ru shows.
+KNOWN_TIME_CORRECTIONS = {
+    # 2026-10-04: liveresult.ru showed 07:30, confirmed actual kickoff is 17:30
+    # Tashkent (19:30 Novosibirsk local, per Sibir's own home-arena ticket page,
+    # matching the official KHL app).
+    ("Sibir", "Salavat Yulaev", "2026-10-07"): "2026-10-07T17:30:00+05:00",
+}
+
+
+def apply_known_time_corrections(matches):
+    for m in matches:
+        date_part = m["start"][:10]
+        key = (m["home"], m["away"], date_part)
+        correct_start = KNOWN_TIME_CORRECTIONS.get(key)
+        if correct_start and m["start"] != correct_start:
+            log(f"applying hand-verified time correction: {m['home']} v {m['away']} "
+                f"on {date_part} -- liveresult said {m['start']}, overriding to "
+                f"{correct_start}")
+            m["start"] = correct_start
+    return matches
 # 2026-09-06: switched from Flashscore/365scores (both dead ends - 365scores served
 # stale prior-season data, Flashscore's date text couldn't be reliably isolated per
 # match after seven diagnostic rounds) to liveresult.ru, suggested directly by Mr Eric.
@@ -398,6 +427,14 @@ def main():
             seen.add(key)
             deduped_fixtures.append(m)
 
+    try:
+        with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+            previous = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        previous = {}
+    prev_fixtures = previous.get("fixtures", [])
+    prev_results = previous.get("results", [])
+
     # Safety net added after a real incident: the liveresult.ru fetch silently timed
     # out on every run for 4 straight days (2026-09-30 22:28 UTC to 2026-10-04 12:41
     # UTC), and each run happily overwrote a previously-good 646+ fixtures/results
@@ -408,20 +445,40 @@ def main():
     # and say so loudly in the log so a real schedule gap (e.g. off-season) is never
     # mistaken for this.
     if not deduped_fixtures and not deduped_results:
-        try:
-            with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
-                previous = json.load(f)
-            prev_fixtures = previous.get("fixtures", [])
-            prev_results = previous.get("results", [])
-            if prev_fixtures or prev_results:
-                log(f"WARNING: liveresult scrape returned 0 fixtures/0 results but "
-                    f"existing file has {len(prev_fixtures)} fixtures/{len(prev_results)} "
-                    f"results - keeping existing fixtures/results instead of overwriting "
-                    f"with empty (this is very likely a scrape failure, not a real gap)")
-                deduped_fixtures = prev_fixtures
-                deduped_results = prev_results
-        except (FileNotFoundError, json.JSONDecodeError):
-            pass
+        if prev_fixtures or prev_results:
+            log(f"WARNING: liveresult scrape returned 0 fixtures/0 results but "
+                f"existing file has {len(prev_fixtures)} fixtures/{len(prev_results)} "
+                f"results - keeping existing fixtures/results instead of overwriting "
+                f"with empty (this is very likely a scrape failure, not a real gap)")
+            deduped_fixtures = prev_fixtures
+            deduped_results = prev_results
+    else:
+        # Second real-incident-driven safety net (2026-10-04, the Sibir v Salavat
+        # Yulaev case): liveresult.ru can serve a wrong time for ONE fixture while
+        # everything else on the page scrapes fine, so the "both empty" check above
+        # never catches it. If this run's time for a given fixture is suspicious
+        # (before noon - see the per-match check earlier) AND the previous good file
+        # already had a non-suspicious time for that same fixture, trust the
+        # previous value instead of downgrading a known-good time to a bad one.
+        # KNOWN_TIME_CORRECTIONS (applied below) handles the one fixture that's
+        # already been hand-verified; this handles any *other* fixture liveresult.ru
+        # might do the same thing to before anyone catches and hand-verifies it.
+        prev_by_key = {(m["home"], m["away"], m["start"][:10]): m["start"]
+                       for m in prev_fixtures + prev_results}
+        for m in deduped_fixtures + deduped_results:
+            hour = int(m["start"][11:13])
+            if 0 <= hour < 12:
+                prev_start = prev_by_key.get((m["home"], m["away"], m["start"][:10]))
+                if prev_start and int(prev_start[11:13]) >= 12:
+                    log(f"WARNING: {m['home']} v {m['away']} on {m['start'][:10]} "
+                        f"scraped as {m['start']} (suspicious pre-noon time) but the "
+                        f"existing file already had {prev_start} for this fixture - "
+                        f"keeping the existing time instead of downgrading to the "
+                        f"suspicious one")
+                    m["start"] = prev_start
+
+    deduped_fixtures = apply_known_time_corrections(deduped_fixtures)
+    deduped_results = apply_known_time_corrections(deduped_results)
 
     output = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),

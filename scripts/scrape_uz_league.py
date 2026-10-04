@@ -35,6 +35,26 @@ def log(msg):
     print(f"[uz-league] {msg}", flush=True)
 
 
+_PREVIOUS_OUTPUT = {}
+
+
+def guard_against_empty_scrape(field, new_value):
+    """If this run scraped zero rows for `field` but the existing file on disk
+    already has real rows there, keep the existing rows instead of wiping them
+    with an empty list -- a failed/blocked scrape should never erase good data.
+    See the real-incident comment in main() for why this exists."""
+    if new_value:
+        return new_value
+    previous = _PREVIOUS_OUTPUT.get(field) or []
+    if previous:
+        log(f"WARNING: scrape returned 0 {field} but existing file has "
+            f"{len(previous)} {field} -- keeping existing {field} instead of "
+            f"overwriting with empty (this is very likely a scrape failure, "
+            f"not a real gap)")
+        return previous
+    return new_value
+
+
 def scrape_standings(page):
     log("loading standings page...")
     page.goto(STANDINGS_URL, wait_until="networkidle", timeout=45000)
@@ -123,7 +143,32 @@ def scrape_matches(page, url, label):
     return matches
 
 
+def _load_previous_output():
+    try:
+        with open(OUTPUT_PATH, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return {}
+
+
 def main():
+    # Real incident (2026-10-04): this scraper ran clean every ~6-7 hours for two
+    # straight months (16 teams, 20 results every single time since mid-August) --
+    # then one single run came back with 0 teams and 0 results (fixtures still
+    # worked fine), and nothing stopped that empty result from overwriting two
+    # months of good data. Pakhtakor and Bunyodkor's "Previous result" cards went
+    # blank because of one transient flashscore hiccup, not because the site or
+    # the season actually ran out of data. scrape_khl.py already learned this
+    # exact lesson (liveresult.ru timing out for 4 days straight silently wiped
+    # fixtures/results) and guards against it; this scraper never got the same
+    # guard. _load_previous_output() + guard_against_empty_scrape() below port
+    # that same protection here: if a scrape for ANY of teams/results/fixtures
+    # comes back empty while the existing file on disk already has real rows for
+    # that same field, keep the existing rows instead of wiping them, and log
+    # loudly so a real failure is still visible in the Action's log output.
+    global _PREVIOUS_OUTPUT
+    _PREVIOUS_OUTPUT = _load_previous_output()
+
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
@@ -146,6 +191,12 @@ def main():
         fixtures = scrape_matches(page, FIXTURES_URL, "fixtures")
 
         browser.close()
+
+    teams, results, fixtures = (
+        guard_against_empty_scrape("teams", teams),
+        guard_against_empty_scrape("results", results),
+        guard_against_empty_scrape("fixtures", fixtures),
+    )
 
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
