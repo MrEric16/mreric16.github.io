@@ -193,21 +193,63 @@ def parse_matches(soup):
 
     return matches
 
-def main():
+CF_MARKERS = ("Just a moment", "challenges.cloudflare.com")
+MAX_ATTEMPTS = 5
+
+
+def fetch_page_html():
+    """Cloudflare challenges this scraper on most runs (datacenter IP), but not all --
+    in practice roughly one run in three used to get through. Instead of one 14s try per
+    run, make several independent attempts, each with a fresh browser (fresh fingerprint,
+    cookies, and challenge), a less automation-looking launch, and a longer wait for the
+    JS challenge to clear. Returns the first page that is not a challenge page, else None."""
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            with sync_playwright() as p:
+                browser = p.chromium.launch(args=["--disable-blink-features=AutomationControlled"])
+                context = browser.new_context(
+                    user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+                    viewport={"width": 1366, "height": 768},
+                    locale="en-US",
+                )
+                context.add_init_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+                page = context.new_page()
+                page.goto(URL, timeout=60000, wait_until="domcontentloaded")
+                text = ""
+                for _ in range(6):  # up to ~30s for the challenge to clear itself
+                    page.wait_for_timeout(5000)
+                    text = page.content()
+                    if not any(m in text for m in CF_MARKERS):
+                        break
+                browser.close()
+            if any(m in text for m in CF_MARKERS):
+                log(f"attempt {attempt}/{MAX_ATTEMPTS}: still a Cloudflare challenge page")
+                continue
+            log(f"attempt {attempt}/{MAX_ATTEMPTS}: got a real page")
+            return text
+        except Exception as e:
+            log(f"attempt {attempt}/{MAX_ATTEMPTS}: fetch failed: {e}")
+    return None
+
+
+def existing_has_data():
     try:
-        with sync_playwright() as p:
-            browser = p.chromium.launch()
-            page = browser.new_page(user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36")
-            page.goto(URL, timeout=45000, wait_until="domcontentloaded")
-            page.wait_for_timeout(8000)
-            text = page.content()
-            if "Just a moment" in text or "challenges.cloudflare.com" in text:
-                log("still showing Cloudflare challenge after 8s wait, trying one more wait")
-                page.wait_for_timeout(6000)
-                text = page.content()
-            browser.close()
-    except Exception as e:
-        log(f"fetch failed: {e}")
+        with open(OUTPUT_PATH, encoding="utf-8") as f:
+            d = json.load(f)
+        return bool(d.get("standings") or d.get("fixtures") or d.get("results"))
+    except Exception:
+        return False
+
+
+def main():
+    text = fetch_page_html()
+    if text is None:
+        # Never replace good data with nothing. A blocked run used to write an empty file,
+        # which blanked the Al Nasr / UAE tiles until a later run happened to get through.
+        if existing_has_data():
+            log("all attempts blocked -- KEEPING last good data/uae-league-live.json untouched")
+        else:
+            log("all attempts blocked and no previous good data exists -- nothing written")
         return
 
     log(f"captured {len(text)} chars")
@@ -228,6 +270,10 @@ def main():
     fixtures = [m for m in matches if not m.get("finished")]
     results = [m for m in matches if m.get("finished")]
     log(f"{len(fixtures)} fixture(s), {len(results)} result(s)")
+
+    if not standings and not matches and existing_has_data():
+        log("parsed nothing from a non-challenge page -- KEEPING last good data untouched")
+        return
 
     output = {
         "generatedAt": datetime.now(timezone.utc).isoformat(),
