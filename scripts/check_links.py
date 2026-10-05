@@ -45,6 +45,19 @@ def norm(u):
     p = urllib.parse.urlparse(u)
     return (p.netloc.lower().replace("www.", ""), p.path.rstrip("/"))
 
+def wayback(url):
+    """Does the Internet Archive hold a successful (200) capture of this exact URL?"""
+    try:
+        j = requests.get("https://archive.org/wayback/available",
+                         params={"url": url}, timeout=30).json()
+        c = j.get("archived_snapshots", {}).get("closest")
+        if c and c.get("available"):
+            return f'{c.get("status")} {c.get("timestamp")}'
+        # no capture of exact URL
+        return "none"
+    except Exception as ex:
+        return f"error {type(ex).__name__}"
+
 def check(e):
     url = e["url"]
     r = {"headline": e["headline"], "url": url, "status": None, "final_url": "",
@@ -57,6 +70,10 @@ def check(e):
     r["status"], r["final_url"] = resp.status_code, resp.url
     if resp.status_code in (403, 429, 503):
         r["verdict"], r["note"] = "BLOCKED", f"HTTP {resp.status_code}"
+        r["wayback"] = wayback(url)
+        if r["wayback"].startswith("200"):
+            r["verdict"] = "ARCHIVED_OK"
+            r["note"] += " (site blocks us; Internet Archive holds a 200 capture)"
         return r
     if resp.status_code >= 400:
         r["verdict"], r["note"] = "DEAD", f"HTTP {resp.status_code}"
