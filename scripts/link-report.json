@@ -1,11 +1,11 @@
 {
- "generated": "2026-10-05T03:02:07Z",
+ "generated": "2026-10-05T03:04:21Z",
  "summary": {
-  "MISMATCH": 41,
-  "OK": 208,
+  "MISMATCH": 42,
+  "OK": 210,
   "BLOCKED": 43,
-  "DEAD": 3,
-  "REDIRECT": 11
+  "DEAD": 2,
+  "REDIRECT": 9
  },
  "results": [
   {
@@ -1510,13 +1510,13 @@
   },
   {
    "headline": "Why Plastic Recycling Is Difficult",
-   "url": "https://education.nationalgeographic.org/resource/whopping-91-percent-plastic-isnt-recycled/",
-   "status": 404,
-   "final_url": "https://education.nationalgeographic.org/resource/whopping-91-percent-plastic-isnt-recycled/",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.nationalgeographic.com/environment/article/why-recycling-plastic-doesnt-always-get-recycled",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/environment/article/why-recycling-plastic-doesnt-always-get-recycled",
+   "canonical": "https://www.nationalgeographic.com/environment/article/why-recycling-plastic-doesnt-always-get-recycled",
+   "title": "Why only a tiny fraction of your plastic actually gets recycled",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.33 (served title unrelated to headline)"
   },
   {
    "headline": "What Is Climate?",
@@ -2721,22 +2721,22 @@
   {
    "headline": "Why Do Prices Change?",
    "url": "https://www.economicshelp.org/blog/12136/economics/price-mechanism/",
-   "status": 200,
-   "final_url": "https://www.economicshelp.org/blog/12133/economics/uk-social-security-budget/",
-   "canonical": "https://www.economicshelp.org/blog/12133/economics/uk-social-security-budget/",
-   "title": "UK Social security budget - Economics Help",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "status": 202,
+   "final_url": "https://www.economicshelp.org/blog/12136/economics/price-mechanism/",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
   },
   {
    "headline": "What Is Opportunity Cost?",
    "url": "https://www.economicshelp.org/blog/11979/economics/opportunity-cost/",
-   "status": 200,
-   "final_url": "https://www.economicshelp.org/blog/11977/oil/dutch-disease/",
-   "canonical": "https://www.economicshelp.org/blog/11977/oil/dutch-disease/",
-   "title": "Dutch Disease - Economics Help",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "status": 202,
+   "final_url": "https://www.economicshelp.org/blog/11979/economics/opportunity-cost/",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
   },
   {
    "headline": "The 17th-Century Language that Divided Everything in the Universe into 40 Categories",
