@@ -1,2 +1,3 @@
-[generate_voice_narration] ffmpeg not found -- skipping de-ess, using raw output
-[generate_voice_narration] slug=industrial-revolution voice_id=voice_pW2XqACvWA model=lightning_v3.1_pro chars=4346
+[generate_voice_narration] provider=elevenlabs slug=voice-sample-eleven voice_id=hpp4J3VqNfWAUOO0d1Us model=eleven_multilingual_v2 chars=1793
+[generate_voice_narration] elevenlabs chunk 1/1 ok (1793 chars)
+[generate_voice_narration] wrote data/audio/voice-sample-eleven.mp3 (1747949 bytes, 1 chunk(s), no post-processing)
