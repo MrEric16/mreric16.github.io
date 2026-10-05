@@ -1,11 +1,11 @@
 {
- "generated": "2026-10-05T02:58:22Z",
+ "generated": "2026-10-05T03:02:07Z",
  "summary": {
-  "MISMATCH": 35,
-  "OK": 179,
+  "MISMATCH": 41,
+  "OK": 208,
   "BLOCKED": 43,
-  "DEAD": 15,
-  "REDIRECT": 36
+  "DEAD": 3,
+  "REDIRECT": 11
  },
  "results": [
   {
@@ -1399,16 +1399,6 @@
    "note": "title overlap 0.50"
   },
   {
-   "headline": "Parkinson's Law",
-   "url": "https://jamesclear.com/parkinsons-law",
-   "status": 404,
-   "final_url": "https://jamesclear.com/parkinsons-law",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
-  },
-  {
    "headline": "Growth Mindset",
    "url": "https://www.mindsetworks.com/science/",
    "status": null,
@@ -1480,13 +1470,13 @@
   },
   {
    "headline": "How QR Codes Work",
-   "url": "https://www.scienceabc.com/innovation/how-do-qr-codes-work.html",
-   "status": 404,
-   "final_url": "https://www.scienceabc.com/innovation/how-do-qr-codes-work.html",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.scienceabc.com/innovation/whats-qr-code-how-its-different-from-barcode",
+   "status": 200,
+   "final_url": "https://www.scienceabc.com/innovation/whats-qr-code-how-its-different-from-barcode",
+   "canonical": "https://www.scienceabc.com/innovation/whats-qr-code-how-its-different-from-barcode",
+   "title": "What",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.00 (served title unrelated to headline)"
   },
   {
    "headline": "Why the Sky Is Blue",
@@ -1520,9 +1510,9 @@
   },
   {
    "headline": "Why Plastic Recycling Is Difficult",
-   "url": "https://education.nationalgeographic.org/resource/recycling-isnt-all-its-cracked-be/",
+   "url": "https://education.nationalgeographic.org/resource/whopping-91-percent-plastic-isnt-recycled/",
    "status": 404,
-   "final_url": "https://education.nationalgeographic.org/resource/recycling-isnt-all-its-cracked-be/",
+   "final_url": "https://education.nationalgeographic.org/resource/whopping-91-percent-plastic-isnt-recycled/",
    "canonical": "",
    "title": "",
    "verdict": "DEAD",
@@ -1530,13 +1520,13 @@
   },
   {
    "headline": "What Is Climate?",
-   "url": "https://education.nationalgeographic.org/resource/climate/",
-   "status": 404,
-   "final_url": "https://education.nationalgeographic.org/resource/climate/",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://education.nationalgeographic.org/resource/all-about-climate/",
+   "status": 200,
+   "final_url": "https://education.nationalgeographic.org/resource/all-about-climate/",
+   "canonical": "https://education.nationalgeographic.org/resource/all-about-climate",
+   "title": "All About Climate",
+   "verdict": "OK",
+   "note": "title overlap 0.50"
   },
   {
    "headline": "Design Principles",
@@ -1617,16 +1607,6 @@
    "title": "",
    "verdict": "BLOCKED",
    "note": "HTTP 403"
-  },
-  {
-   "headline": "The Science of Exercise",
-   "url": "https://www.bbc.com/future/article/20220119-how-exercise-affects-the-body-and-brain",
-   "status": 404,
-   "final_url": "https://www.bbc.com/future/article/20220119-how-exercise-affects-the-body-and-brain",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
   },
   {
    "headline": "Rule of Law",
@@ -1830,13 +1810,13 @@
   },
   {
    "headline": "How Companies Make Money",
-   "url": "https://www.investopedia.com/terms/b/business-model.asp",
-   "status": 404,
-   "final_url": "https://www.investopedia.com/terms/b/business-model.asp",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.investopedia.com/terms/b/businessmodel.asp",
+   "status": 200,
+   "final_url": "https://www.investopedia.com/terms/b/businessmodel.asp",
+   "canonical": "https://www.investopedia.com/terms/b/businessmodel.asp",
+   "title": "Business Model: Definition and 13 Examples",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.00 (served title unrelated to headline)"
   },
   {
    "headline": "The Marketing Mix (4 Ps)",
@@ -1960,13 +1940,13 @@
   },
   {
    "headline": "Why Athletes Need Recovery",
-   "url": "https://www.sleepfoundation.org/physical-health/athletes-and-sleep",
-   "status": 404,
-   "final_url": "https://www.sleepfoundation.org/physical-health/athletes-and-sleep",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.sleepfoundation.org/physical-activity/athletic-performance-and-sleep",
+   "status": 200,
+   "final_url": "https://www.sleepfoundation.org/physical-activity/athletic-performance-and-sleep",
+   "canonical": "https://www.sleepfoundation.org/physical-activity/athletic-performance-and-sleep",
+   "title": "Athletes and Sleep",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.33 (served title unrelated to headline)"
   },
   {
    "headline": "How the Human Heart Works",
@@ -1981,22 +1961,22 @@
   {
    "headline": "The math behind why cargo planes have no windows",
    "url": "https://simpleflying.com/cargo-aircraft-fun-facts-list/",
-   "status": null,
-   "final_url": "",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "network error: ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+   "status": 200,
+   "final_url": "https://simpleflying.com/cargo-aircraft-fun-facts-list/",
+   "canonical": "https://simpleflying.com/cargo-aircraft-fun-facts-list/",
+   "title": "5 Fun Facts You Didn't Know About Cargo Aircraft",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.17 (served title unrelated to headline)"
   },
   {
    "headline": "10 things about flying that never come up at the gate",
    "url": "https://simpleflying.com/airplanes-flying-10-interesting-unknown-facts/",
-   "status": null,
-   "final_url": "",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "network error: ConnectionError: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+   "status": 200,
+   "final_url": "https://simpleflying.com/airplanes-flying-10-interesting-unknown-facts/",
+   "canonical": "https://simpleflying.com/airplanes-flying-10-interesting-unknown-facts/",
+   "title": "10 Interesting Facts About Aviation That You Might Not Know",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.29 (served title unrelated to headline)"
   },
   {
    "headline": "The gift shop is not an accident",
@@ -2220,253 +2200,253 @@
   },
   {
    "headline": "How a Fragile Insect Living 100 Million Years Ago Becomes a Fossil",
-   "url": "https://www.smithsonianmag.com/science-nature/how-a-fragile-insect-living-100-million-years-ago-becomes-a-fossil-180985584/",
+   "url": "https://www.smithsonianmag.com/science-nature/how-a-fragile-insect-living-100-million-years-ago-becomes-a-fossil-180986127/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/look-up-for-a-dazzling-view-of-jupiter-this-weekend-as-it-shines-its-brightest-of-the-year-180985584/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/look-up-for-a-dazzling-view-of-jupiter-this-weekend-as-it-shines-its-brightest-of-the-year-180985584/",
-   "title": "Look Up for a Dazzling View of Jupiter This Weekend as It Shines Its Brightest of the Year",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/how-a-fragile-insect-living-100-million-years-ago-becomes-a-fossil-180986127/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/how-a-fragile-insect-living-100-million-years-ago-becomes-a-fossil-180986127/",
+   "title": "How a Fragile Insect Living 100 Million Years Ago Becomes a Fossil",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Can Electro-Agriculture Revolutionize the Way We Grow Food?",
-   "url": "https://www.smithsonianmag.com/science-nature/can-electro-agriculture-revolutionize-the-way-we-grow-food-180985576/",
+   "url": "https://www.smithsonianmag.com/innovation/can-electro-agriculture-revolutionize-the-way-we-grow-food-180986120/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/see-inside-notre-dame-cathedral-in-these-breathtaking-images-of-its-newly-unveiled-interior-180985576/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/see-inside-notre-dame-cathedral-in-these-breathtaking-images-of-its-newly-unveiled-interior-180985576/",
-   "title": "See Inside Notre-Dame Cathedral in These Breathtaking Images of Its Newly Unveiled Interior",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/innovation/can-electro-agriculture-revolutionize-the-way-we-grow-food-180986120/",
+   "canonical": "https://www.smithsonianmag.com/innovation/can-electro-agriculture-revolutionize-the-way-we-grow-food-180986120/",
+   "title": "Can Electro-Agriculture Revolutionize the Way We Grow Food?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "A Brief and Amazing History of Our Search for Life in the Clouds",
-   "url": "https://www.smithsonianmag.com/science-nature/a-brief-and-amazing-history-of-our-search-for-life-in-the-clouds-180985570/",
+   "url": "https://www.smithsonianmag.com/science-nature/a-brief-and-amazing-history-of-our-search-for-life-in-the-clouds-180985981/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/x-rays-reveal-a-tiny-19th-century-beetle-embedded-in-a-paul-gauguin-painting-180985570/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/x-rays-reveal-a-tiny-19th-century-beetle-embedded-in-a-paul-gauguin-painting-180985570/",
-   "title": "X-Rays Reveal a Tiny 19th-Century Beetle Embedded in a Paul Gauguin Painting",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/a-brief-and-amazing-history-of-our-search-for-life-in-the-clouds-180985981/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/a-brief-and-amazing-history-of-our-search-for-life-in-the-clouds-180985981/",
+   "title": "A Brief and Amazing History of Our Search for Life in the Clouds",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Why Does Laughter Have Such a Strange Power Over Us?",
-   "url": "https://www.smithsonianmag.com/science-nature/why-does-laughter-have-such-a-strange-power-over-us-180985518/",
+   "url": "https://www.smithsonianmag.com/science-nature/why-does-laughter-have-such-a-strange-power-over-us-180985999/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/check-out-the-highest-resolution-images-ever-captured-of-the-suns-entire-surface-180985518/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/check-out-the-highest-resolution-images-ever-captured-of-the-suns-entire-surface-180985518/",
-   "title": "Check Out the Highest-Resolution Images Ever Captured of the Sun's Entire Surface",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/why-does-laughter-have-such-a-strange-power-over-us-180985999/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/why-does-laughter-have-such-a-strange-power-over-us-180985999/",
+   "title": "Why Does Laughter Have Such a Strange Power Over Us?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Researchers Create Rechargeable, Glow-in-the-Dark Succulents",
-   "url": "https://www.smithsonianmag.com/science-nature/researchers-create-rechargeable-glow-in-the-dark-succulents-180986065/",
+   "url": "https://www.smithsonianmag.com/smart-news/researchers-create-rechargeable-glow-in-the-dark-succulents-180987265/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/why-were-these-women-buried-with-more-than-270000-beads-180986065/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/why-were-these-women-buried-with-more-than-270000-beads-180986065/",
-   "title": "Why Were These Women Buried With More Than 270,000 Beads?",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/researchers-create-rechargeable-glow-in-the-dark-succulents-180987265/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/researchers-create-rechargeable-glow-in-the-dark-succulents-180987265/",
+   "title": "Researchers Create Rechargeable, Glow-in-the-Dark Succulents",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "A Record-Breaking Ghost Particle From Outer Space Made a Splash of Light",
-   "url": "https://www.smithsonianmag.com/science-nature/a-record-breaking-ghost-particle-from-outer-space-made-a-splash-of-light-180986175/",
+   "url": "https://www.smithsonianmag.com/smart-news/a-record-breaking-ghost-particle-from-outer-space-made-a-splash-of-light-in-the-mediterranean-180986062/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/human-ancestors-were-making-bone-tools-one-million-years-earlier-than-previously-thought-180986175/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/human-ancestors-were-making-bone-tools-one-million-years-earlier-than-previously-thought-180986175/",
-   "title": "Human Ancestors Were Making Bone Tools One Million Years Earlier Than Previously Thought",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/a-record-breaking-ghost-particle-from-outer-space-made-a-splash-of-light-in-the-mediterranean-180986062/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/a-record-breaking-ghost-particle-from-outer-space-made-a-splash-of-light-in-the-mediterranean-180986062/",
+   "title": "A Record-Breaking 'Ghost Particle' From Outer Space Made a Splash of Light in the Mediterranean",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Scientists Say They've Discovered a New Color",
-   "url": "https://www.smithsonianmag.com/science-nature/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986278/",
+   "url": "https://www.smithsonianmag.com/smart-news/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986473/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/science-nature/the-swarm-of-people-intent-on-saving-our-bees-180986278/",
-   "canonical": "https://www.smithsonianmag.com/science-nature/the-swarm-of-people-intent-on-saving-our-bees-180986278/",
-   "title": "The Swarm of People Intent on Saving Our Bees",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986473/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986473/",
+   "title": "Scientists Say They've Discovered a New Color\u2014an 'Unprecedented' Hue Only Ever Seen by Five People",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "How Well Did the Mysterious Antikythera Mechanism Actually Work?",
-   "url": "https://www.smithsonianmag.com/science-nature/how-well-did-the-mysterious-antikythera-mechanism-actually-work-180986169/",
+   "url": "https://www.smithsonianmag.com/smart-news/how-well-did-the-mysterious-antikythera-mechanism-actually-work-180986451/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/scientists-hope-this-tool-could-identify-tiny-fossils-on-mars-revealing-hints-to-potential-early-life-on-the-planet-180986169/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/scientists-hope-this-tool-could-identify-tiny-fossils-on-mars-revealing-hints-to-potential-early-life-on-the-planet-180986169/",
-   "title": "Scientists Hope This Tool Could Identify Tiny Fossils on Mars, Revealing Hints to Potential Early Life on the Planet",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/how-well-did-the-mysterious-antikythera-mechanism-actually-work-180986451/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/how-well-did-the-mysterious-antikythera-mechanism-actually-work-180986451/",
+   "title": "How Well Did the Mysterious Antikythera Mechanism Actually Work?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "This Record-Breaking Robot Can Solve a Rubik's Cube Faster Than You Can Blink",
-   "url": "https://www.smithsonianmag.com/innovation/this-record-breaking-robot-can-solve-a-rubiks-cube-faster-than-you-can-blink-180985850/",
+   "url": "https://www.smithsonianmag.com/smart-news/this-record-setting-robot-can-solve-a-rubiks-cube-faster-than-you-can-blink-180986669/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/history/how-the-nations-first-madam-secretary-fought-to-save-jewish-refugees-fleeing-from-nazi-germany-180985850/",
-   "canonical": "https://www.smithsonianmag.com/history/how-the-nations-first-madam-secretary-fought-to-save-jewish-refugees-fleeing-from-nazi-germany-180985850/",
-   "title": "How the Nation's First 'Madam Secretary' Fought to Save Jewish Refugees Fleeing From Nazi Germany",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/this-record-setting-robot-can-solve-a-rubiks-cube-faster-than-you-can-blink-180986669/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/this-record-setting-robot-can-solve-a-rubiks-cube-faster-than-you-can-blink-180986669/",
+   "title": "This Record-Setting Robot Can Solve a Rubik's Cube Faster Than You Can Blink",
+   "verdict": "OK",
+   "note": "title overlap 0.90"
   },
   {
    "headline": "How Underwater Archaeology Brings Secrets to the Surface",
-   "url": "https://www.smithsonianmag.com/history/how-underwater-archaeology-brings-secrets-to-the-surface-from-lost-shipwrecks-to-submerged-cities-180986583/",
+   "url": "https://www.smithsonianmag.com/history/how-underwater-archaeology-brings-secrets-to-the-surface-from-lost-shipwrecks-to-submerged-cities-180986950/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/american-schools-have-been-feeding-children-for-more-than-100-years-heres-how-the-school-lunch-has-changed-180986583/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/american-schools-have-been-feeding-children-for-more-than-100-years-heres-how-the-school-lunch-has-changed-180986583/",
-   "title": "American Schools Have Been Feeding Children for More Than 100 Years. Here's How the School Lunch Has Changed",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/history/how-underwater-archaeology-brings-secrets-to-the-surface-from-lost-shipwrecks-to-submerged-cities-180986950/",
+   "canonical": "https://www.smithsonianmag.com/history/how-underwater-archaeology-brings-secrets-to-the-surface-from-lost-shipwrecks-to-submerged-cities-180986950/",
+   "title": "How Underwater Archaeology Brings Secrets to the Surface, From Lost Shipwrecks to Submerged Cities",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Were Humans in Thailand Getting High Off Betel Nuts 4,000 Years Ago?",
-   "url": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180986810/",
+   "url": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180987090/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/arts-culture/see-stunning-photo-new-york-city-above-1932-180986810/",
-   "canonical": "https://www.smithsonianmag.com/arts-culture/see-stunning-photo-new-york-city-above-1932-180986810/",
-   "title": "See a Stunning Photo of New York City From Above in 1932",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180987090/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180987090/",
+   "title": "Were Humans in Thailand Getting High Off Betel Nuts 4,000 Years Ago?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Five Unusual Ways People Used Lead\u2014and Suffered For It",
-   "url": "https://www.smithsonianmag.com/science-nature/five-unusual-ways-people-used-lead-and-suffered-for-it-180984946/",
+   "url": "https://www.smithsonianmag.com/science-nature/five-unusual-ways-people-used-lead-180985961/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/two-ancient-wells-discovered-in-england-suggest-even-the-romans-used-trial-and-error-180984946/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/two-ancient-wells-discovered-in-england-suggest-even-the-romans-used-trial-and-error-180984946/",
-   "title": "Two Ancient Wells Discovered in England Suggest Even the Romans Used Trial and Error",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/five-unusual-ways-people-used-lead-180985961/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/five-unusual-ways-people-used-lead-180985961/",
+   "title": "Five Unusual Ways People Used Lead\u2014and Suffered For It",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "What 'Lucy' Has Taught Scientists in the 50 Years Since Her Discovery",
-   "url": "https://www.smithsonianmag.com/science-nature/what-lucy-one-of-the-worlds-most-important-fossils-has-taught-scientists-in-the-50-years-since-her-discovery-180985438/",
+   "url": "https://www.smithsonianmag.com/smithsonian-institution/what-lucy-one-of-the-worlds-most-important-fossils-has-taught-scientists-in-the-50-years-since-her-discovery-180985541/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/science-nature/andes-translucent-glass-frogs-need-be-seen-saved-180985438/",
-   "canonical": "https://www.smithsonianmag.com/science-nature/andes-translucent-glass-frogs-need-be-seen-saved-180985438/",
-   "title": "The Andes\u2019 Translucent Glass Frogs Need to Be Seen to Be Saved",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smithsonian-institution/what-lucy-one-of-the-worlds-most-important-fossils-has-taught-scientists-in-the-50-years-since-her-discovery-180985541/",
+   "canonical": "https://www.smithsonianmag.com/smithsonian-institution/what-lucy-one-of-the-worlds-most-important-fossils-has-taught-scientists-in-the-50-years-since-her-discovery-180985541/",
+   "title": "What 'Lucy,' One of the World's Most Important Fossils, Has Taught Scientists in the 50 Years Since Her Discovery",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Enhanced Brain Implant Translates Stroke Survivor's Thoughts Into Nearly Instant Speech",
-   "url": "https://www.smithsonianmag.com/innovation/enhanced-brain-implant-translates-stroke-survivors-thoughts-into-nearly-instant-speech-180984993/",
+   "url": "https://www.smithsonianmag.com/smart-news/enhanced-brain-implant-translates-stroke-survivors-thoughts-into-nearly-instant-speech-using-artificial-intelligence-180986347/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/fossils-capturing-a-sea-cows-violent-end-shed-light-on-prehistoric-food-chains-180984993/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/fossils-capturing-a-sea-cows-violent-end-shed-light-on-prehistoric-food-chains-180984993/",
-   "title": "Fossils Capturing a Sea Cow's Violent End Shed Light on Prehistoric Food Chains",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/enhanced-brain-implant-translates-stroke-survivors-thoughts-into-nearly-instant-speech-using-artificial-intelligence-180986347/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/enhanced-brain-implant-translates-stroke-survivors-thoughts-into-nearly-instant-speech-using-artificial-intelligence-180986347/",
+   "title": "Enhanced Brain Implant Translates Stroke Survivor's Thoughts Into Nearly Instant Speech Using Artificial Intelligence",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "High-Tech Imaging Allows Researchers to Read Handwritten Medieval Tales",
-   "url": "https://www.smithsonianmag.com/innovation/high-tech-imaging-allows-researchers-to-read-handwritten-medieval-arthurian-tales-hidden-in-the-binding-of-a-property-record-180984988/",
+   "url": "https://www.smithsonianmag.com/smart-news/high-tech-imaging-allows-researchers-to-read-handwritten-medieval-arthurian-tales-hidden-in-the-binding-of-a-property-record-180986345/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smithsonian-institution/after-nigerian-independence-one-renowned-artist-made-jesus-a-west-african-savior-in-his-vibrant-work-180984988/",
-   "canonical": "https://www.smithsonianmag.com/smithsonian-institution/after-nigerian-independence-one-renowned-artist-made-jesus-a-west-african-savior-in-his-vibrant-work-180984988/",
-   "title": "After Nigerian Independence, One Renowned Artist Made Jesus a West African Savior in His Vibrant Work",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/high-tech-imaging-allows-researchers-to-read-handwritten-medieval-arthurian-tales-hidden-in-the-binding-of-a-property-record-180986345/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/high-tech-imaging-allows-researchers-to-read-handwritten-medieval-arthurian-tales-hidden-in-the-binding-of-a-property-record-180986345/",
+   "title": "High-Tech Imaging Allows Researchers to Read Handwritten Medieval Arthurian Tales Hidden in the Binding of a Property Record",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "First Orbital Rocket Launched From Western Europe Crashes Into Sea",
-   "url": "https://www.smithsonianmag.com/innovation/first-orbital-rocket-launched-from-western-europe-crashes-into-sea-after-roughly-30-second-flight-180984982/",
+   "url": "https://www.smithsonianmag.com/smart-news/first-orbital-rocket-launched-from-western-europe-crashes-into-sea-after-roughly-30-second-flight-180986338/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/miners-unearth-a-mummified-woolly-rhino-in-siberia-with-an-intact-horn-and-soft-tissue-180984982/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/miners-unearth-a-mummified-woolly-rhino-in-siberia-with-an-intact-horn-and-soft-tissue-180984982/",
-   "title": "Miners Unearth a Mummified Woolly Rhino in Siberia, With an Intact Horn and Soft Tissue",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/first-orbital-rocket-launched-from-western-europe-crashes-into-sea-after-roughly-30-second-flight-180986338/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/first-orbital-rocket-launched-from-western-europe-crashes-into-sea-after-roughly-30-second-flight-180986338/",
+   "title": "First Orbital Rocket Launched From Western Europe Crashes Into Sea After Roughly 30-Second Flight",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "How a New AI Model Could Decode Dolphin Chatter",
-   "url": "https://www.smithsonianmag.com/innovation/google-is-training-a-new-ai-model-to-decode-dolphin-chatter-and-potentially-talk-back-180985212/",
+   "url": "https://www.smithsonianmag.com/smart-news/google-is-training-a-new-ai-model-to-decode-dolphin-chatter-and-potentially-talk-back-180986434/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/travel/six-lodge-to-lodge-hikes-that-will-have-you-falling-in-love-with-slow-travel-180985212/",
-   "canonical": "https://www.smithsonianmag.com/travel/six-lodge-to-lodge-hikes-that-will-have-you-falling-in-love-with-slow-travel-180985212/",
-   "title": "Six Lodge-to-Lodge Hikes That Will Have You Falling in Love With Slow Travel",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/google-is-training-a-new-ai-model-to-decode-dolphin-chatter-and-potentially-talk-back-180986434/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/google-is-training-a-new-ai-model-to-decode-dolphin-chatter-and-potentially-talk-back-180986434/",
+   "title": "Google Is Training a New A.I. Model to Decode Dolphin Chatter\u2014and Potentially Talk Back",
+   "verdict": "OK",
+   "note": "title overlap 0.80"
   },
   {
    "headline": "Humanoid Robots Just Raced Alongside Human Runners",
-   "url": "https://www.smithsonianmag.com/innovation/humanoid-robots-just-raced-alongside-human-runners-in-a-world-first-half-marathon-180985160/",
+   "url": "https://www.smithsonianmag.com/smart-news/humanoid-robots-just-raced-alongside-human-runners-in-a-world-first-half-marathon-heres-how-it-went-180986469/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/hours-after-the-protesters-who-thew-soup-at-a-van-gogh-were-sentenced-three-more-activists-repeated-the-stunt-180985160/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/hours-after-the-protesters-who-thew-soup-at-a-van-gogh-were-sentenced-three-more-activists-repeated-the-stunt-180985160/",
-   "title": "Hours After the Protesters Who Threw Soup at a van Gogh Were Sentenced, Three More Activists Repeated the Stunt",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/humanoid-robots-just-raced-alongside-human-runners-in-a-world-first-half-marathon-heres-how-it-went-180986469/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/humanoid-robots-just-raced-alongside-human-runners-in-a-world-first-half-marathon-heres-how-it-went-180986469/",
+   "title": "Humanoid Robots Just Raced Alongside Human Runners in a World-First Half-Marathon. Here's How It Went",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "NASA Engineers Revive Long-Dormant Thrusters on Voyager 1",
-   "url": "https://www.smithsonianmag.com/innovation/nasa-engineers-revive-long-dormant-thrusters-on-voyager-1-the-farthest-spacecraft-from-earth-in-a-miracle-save-180985317/",
+   "url": "https://www.smithsonianmag.com/smart-news/nasa-engineers-revive-long-dormant-thrusters-on-voyager-1-the-farthest-spacecraft-from-earth-in-a-miracle-save-180986649/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/history/these-rare-artifacts-tell-medieval-womens-stories-in-their-own-words-180985317/",
-   "canonical": "https://www.smithsonianmag.com/history/these-rare-artifacts-tell-medieval-womens-stories-in-their-own-words-180985317/",
-   "title": "These Rare Artifacts Tell Medieval Women's Stories in Their Own Words",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/nasa-engineers-revive-long-dormant-thrusters-on-voyager-1-the-farthest-spacecraft-from-earth-in-a-miracle-save-180986649/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/nasa-engineers-revive-long-dormant-thrusters-on-voyager-1-the-farthest-spacecraft-from-earth-in-a-miracle-save-180986649/",
+   "title": "NASA Engineers Revive Long-Dormant Thrusters on Voyager 1, the Farthest Spacecraft From Earth, in a 'Miracle Save'",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "A.I. Data Centers and Their Environmental Impact",
-   "url": "https://www.smithsonianmag.com/innovation/ai-is-on-the-rise-and-so-is-the-environmental-impact-of-the-data-centers-that-drive-it-180986061/",
+   "url": "https://www.smithsonianmag.com/science-nature/with-ai-on-the-rise-what-will-be-the-environmental-impacts-of-data-centers-180987379/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/artists-sign-open-letter-protesting-christies-upcoming-all-ai-art-auction-180986061/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/artists-sign-open-letter-protesting-christies-upcoming-all-ai-art-auction-180986061/",
-   "title": "Artists Sign Open Letter Protesting Christie's Upcoming All-A.I. Art Auction",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/with-ai-on-the-rise-what-will-be-the-environmental-impacts-of-data-centers-180987379/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/with-ai-on-the-rise-what-will-be-the-environmental-impacts-of-data-centers-180987379/",
+   "title": "A.I. Is on the Rise, and So Is the Environmental Impact of the Data Centers That Drive It",
+   "verdict": "OK",
+   "note": "title overlap 0.80"
   },
   {
    "headline": "A Little-Known Photographer Captured the First Clear Image of a Total Solar Eclipse",
-   "url": "https://www.smithsonianmag.com/science-nature/a-little-known-photographer-captured-the-first-clear-image-of-a-total-solar-eclipse-175-years-ago-180987094/",
+   "url": "https://www.smithsonianmag.com/science-nature/a-little-known-photographer-captured-the-first-clear-image-of-a-total-solar-eclipse-175-years-ago-today-these-celestial-events-still-reveal-the-mysteries-of-the-sun-180989208/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/gorgeous-hidden-animal-tattoos-discovered-on-a-more-than-2000-year-old-ice-mummy-by-using-digital-imaging-180987094/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/gorgeous-hidden-animal-tattoos-discovered-on-a-more-than-2000-year-old-ice-mummy-by-using-digital-imaging-180987094/",
-   "title": "Gorgeous, Hidden Animal Tattoos Discovered on a More Than 2,000-Year-Old 'Ice Mummy' by Using Digital Imaging",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/a-little-known-photographer-captured-the-first-clear-image-of-a-total-solar-eclipse-175-years-ago-today-these-celestial-events-still-reveal-the-mysteries-of-the-sun-180989208/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/a-little-known-photographer-captured-the-first-clear-image-of-a-total-solar-eclipse-175-years-ago-today-these-celestial-events-still-reveal-the-mysteries-of-the-sun-180989208/",
+   "title": "A Little-Known Photographer Captured the First Clear Image of a Total Solar Eclipse 175 Years Ago. Today, These Celestial Events Still Reveal the Mysteries of the Sun",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Researchers Thought It Was Just a Fortress. It Turned Out to Be a Lost Zapotec City",
-   "url": "https://www.smithsonianmag.com/history/researchers-thought-it-was-just-a-fortress-it-turned-out-to-be-a-lost-zapotec-city-180985144/",
+   "url": "https://www.smithsonianmag.com/smart-news/researchers-thought-it-was-just-a-fortress-it-turned-out-to-be-a-lost-zapotec-city-180986076/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/earth-is-on-the-brink-of-breaching-a-seventh-of-nine-planetary-boundaries-that-support-life-180985144/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/earth-is-on-the-brink-of-breaching-a-seventh-of-nine-planetary-boundaries-that-support-life-180985144/",
-   "title": "Earth Is on the Brink of Breaching a Seventh of Nine 'Planetary Boundaries' That Support Life",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/researchers-thought-it-was-just-a-fortress-it-turned-out-to-be-a-lost-zapotec-city-180986076/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/researchers-thought-it-was-just-a-fortress-it-turned-out-to-be-a-lost-zapotec-city-180986076/",
+   "title": "Researchers Thought It Was Just a Fortress. It Turned Out to Be a Lost Zapotec City",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "These Ancient Scrolls Were a 2,000-Year Mystery",
-   "url": "https://www.smithsonianmag.com/history/these-ancient-scrolls-have-been-a-tantalizing-mystery-for-2000-years-researchers-just-deciphered-a-title-for-the-first-time-180985844/",
+   "url": "https://www.smithsonianmag.com/smart-news/these-ancient-scrolls-have-been-a-tantalizing-mystery-for-2000-years-researchers-just-deciphered-a-title-for-the-first-time-180986639/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smithsonian-institution/nineteen-new-and-revamped-smithsonian-shows-to-see-in-2025-plus-one-bonus-that-will-make-you-go-wild-for-nature-180985844/",
-   "canonical": "https://www.smithsonianmag.com/smithsonian-institution/nineteen-new-and-revamped-smithsonian-shows-to-see-in-2025-plus-one-bonus-that-will-make-you-go-wild-for-nature-180985844/",
-   "title": "Nineteen New and Revamped Smithsonian Shows to See in 2025\u2014Plus One Bonus That Will Make You Go Wild for Nature",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/these-ancient-scrolls-have-been-a-tantalizing-mystery-for-2000-years-researchers-just-deciphered-a-title-for-the-first-time-180986639/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/these-ancient-scrolls-have-been-a-tantalizing-mystery-for-2000-years-researchers-just-deciphered-a-title-for-the-first-time-180986639/",
+   "title": "These Ancient Scrolls Have Been a Tantalizing Mystery for 2,000 Years. Researchers Just Deciphered a Title for the First Time",
+   "verdict": "OK",
+   "note": "title overlap 0.67"
   },
   {
    "headline": "The Joys of Discovering the Roman Underground",
-   "url": "https://www.smithsonianmag.com/history/the-joys-of-discovering-the-roman-underground-from-the-colosseum-to-whats-beneath-the-trevi-fountain-180985654/",
+   "url": "https://www.smithsonianmag.com/travel/the-joys-of-discovering-the-roman-underground-from-the-colosseum-to-whats-beneath-the-trevi-foundation-180986626/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/scientists-unlock-the-secrets-of-crocodile-skin-and-its-irregular-mystifying-patterns-180985654/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/scientists-unlock-the-secrets-of-crocodile-skin-and-its-irregular-mystifying-patterns-180985654/",
-   "title": "Scientists Unlock the Secrets of Crocodile Skin and Its Irregular, Mystifying Patterns",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/travel/the-joys-of-discovering-the-roman-underground-from-the-colosseum-to-whats-beneath-the-trevi-foundation-180986626/",
+   "canonical": "https://www.smithsonianmag.com/travel/the-joys-of-discovering-the-roman-underground-from-the-colosseum-to-whats-beneath-the-trevi-foundation-180986626/",
+   "title": "The Joys of Discovering the Roman Underground, From the Colosseum to What\u2019s Beneath the Trevi Foundation",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "How a Deadly Circus Fire Led to Lasting Safety Reforms",
-   "url": "https://www.smithsonianmag.com/history/how-a-deadly-circus-fire-on-the-day-the-clowns-cried-traumatized-a-community-and-led-to-lasting-safety-reforms-180985954/",
+   "url": "https://www.smithsonianmag.com/history/how-a-deadly-circus-fire-on-the-day-the-clowns-cried-traumatized-a-community-and-led-to-lasting-safety-reforms-180986888/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/history/mystery-worlds-oldest-writing-system-remained-unsolved-until-four-scholars-raced-decipher-it-180985954/",
-   "canonical": "https://www.smithsonianmag.com/history/mystery-worlds-oldest-writing-system-remained-unsolved-until-four-scholars-raced-decipher-it-180985954/",
-   "title": "The Mystery of the World's Oldest Writing System Remained Unsolved Until Four Competitive Scholars Raced to Decipher It",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/history/how-a-deadly-circus-fire-on-the-day-the-clowns-cried-traumatized-a-community-and-led-to-lasting-safety-reforms-180986888/",
+   "canonical": "https://www.smithsonianmag.com/history/how-a-deadly-circus-fire-on-the-day-the-clowns-cried-traumatized-a-community-and-led-to-lasting-safety-reforms-180986888/",
+   "title": "How a Deadly Circus Fire on the 'Day the Clowns Cried' Traumatized a Community\u2014and Led to Lasting Safety Reforms",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "The Mysterious History of the Great Wall's Sticky Rice Mortar",
@@ -2480,13 +2460,13 @@
   },
   {
    "headline": "The Hero Who Convinced Ornithologists to Stop Shooting Rare Birds",
-   "url": "https://www.smithsonianmag.com/science-nature/the-hero-who-convinced-his-fellow-ornithologists-of-the-obvious-stop-shooting-rare-birds-and-watch-them-instead-180985182/",
+   "url": "https://www.smithsonianmag.com/science-nature/hero-convinced-fellow-ornithologists-obvious-stop-shooting-birds-watch-them-instead-180985445/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/coyotes-might-make-puppy-eyes-suggesting-the-facial-expression-evolved-for-more-than-just-cuteness-180985182/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/coyotes-might-make-puppy-eyes-suggesting-the-facial-expression-evolved-for-more-than-just-cuteness-180985182/",
-   "title": "Coyotes Might Make 'Puppy Eyes,' Suggesting the Facial Expression Evolved for More Than Just Cuteness",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/science-nature/hero-convinced-fellow-ornithologists-obvious-stop-shooting-birds-watch-them-instead-180985445/",
+   "canonical": "https://www.smithsonianmag.com/science-nature/hero-convinced-fellow-ornithologists-obvious-stop-shooting-birds-watch-them-instead-180985445/",
+   "title": "The Hero Who Convinced His Fellow Ornithologists of the Obvious: Stop Shooting Rare Birds and Watch Them Instead",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "The Pyramid of Djoser Was Designed by the World's First Multi-Genius",
@@ -2520,53 +2500,53 @@
   },
   {
    "headline": "What's the Fastest Language in the World?",
-   "url": "https://www.atlasobscura.com/articles/whats-the-fastest-language-in-the-world",
-   "status": 404,
-   "final_url": "https://www.atlasobscura.com/404",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.atlasobscura.com/articles/worlds-fastest-language",
+   "status": 200,
+   "final_url": "https://www.atlasobscura.com/articles/worlds-fastest-language",
+   "canonical": "http://www.atlasobscura.com/articles/worlds-fastest-language",
+   "title": "What",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.25 (served title unrelated to headline)"
   },
   {
    "headline": "The U.S. Thinks It's Harder to Learn Polish or Greek Than Swahili or Malay",
-   "url": "https://www.atlasobscura.com/articles/the-us-thinks-its-harder-to-learn-polish-or-greek-than-swahili-or-malay",
-   "status": 404,
-   "final_url": "https://www.atlasobscura.com/404",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.atlasobscura.com/articles/language-difficulty-map",
+   "status": 200,
+   "final_url": "https://www.atlasobscura.com/articles/language-difficulty-map",
+   "canonical": "http://www.atlasobscura.com/articles/language-difficulty-map",
+   "title": "The U.S. Thinks It\u2019s Harder to Learn Polish or Greek Than Swahili or Malay",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "How Loanwords and Calques Are Reshaping Miami English",
-   "url": "https://www.atlasobscura.com/articles/make-a-party-as-a-new-english-dialect-emerges-in-south-florida",
-   "status": 404,
-   "final_url": "https://www.atlasobscura.com/404",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.atlasobscura.com/articles/miami-south-florida-spanglish-dialect",
+   "status": 200,
+   "final_url": "https://www.atlasobscura.com/articles/miami-south-florida-spanglish-dialect",
+   "canonical": "http://www.atlasobscura.com/articles/miami-south-florida-spanglish-dialect",
+   "title": "Miami and South Florida Are Home to a New English Dialect",
+   "verdict": "OK",
+   "note": "title overlap 0.40"
   },
   {
    "headline": "Mysterious Writing System From Easter Island May Be Completely Unique",
-   "url": "https://www.atlasobscura.com/articles/rongorongo-writing-system-easter-island",
-   "status": 404,
-   "final_url": "https://www.atlasobscura.com/404",
-   "canonical": "",
-   "title": "",
-   "verdict": "DEAD",
-   "note": "HTTP 404"
+   "url": "https://www.atlasobscura.com/articles/easter-island-rongorongo-discovery",
+   "status": 200,
+   "final_url": "https://www.atlasobscura.com/articles/easter-island-rongorongo-discovery",
+   "canonical": "http://www.atlasobscura.com/articles/easter-island-rongorongo-discovery",
+   "title": "Mysterious Writing System From Easter Island May Be Completely Unique",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "Could We Send a Superlight Spacecraft to a Theoretical Nearby Black Hole?",
-   "url": "https://www.smithsonianmag.com/science-nature/could-we-send-a-superlight-spacecraft-to-a-theoretical-nearby-black-hole-180986081/",
+   "url": "https://www.smithsonianmag.com/smart-news/this-is-how-an-astrophysicist-thinks-we-could-send-a-superlight-spacecraft-to-a-theoretical-nearby-black-hole-180987134/",
    "status": 200,
-   "final_url": "https://www.smithsonianmag.com/smart-news/the-getty-museum-acquires-its-first-ai-generated-artwork-180986081/",
-   "canonical": "https://www.smithsonianmag.com/smart-news/the-getty-museum-acquires-its-first-ai-generated-artwork-180986081/",
-   "title": "The Getty Museum Acquires Its First A.I.-Generated Artwork",
-   "verdict": "REDIRECT",
-   "note": "final URL differs from requested"
+   "final_url": "https://www.smithsonianmag.com/smart-news/this-is-how-an-astrophysicist-thinks-we-could-send-a-superlight-spacecraft-to-a-theoretical-nearby-black-hole-180987134/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/this-is-how-an-astrophysicist-thinks-we-could-send-a-superlight-spacecraft-to-a-theoretical-nearby-black-hole-180987134/",
+   "title": "Could We Send a Superlight Spacecraft to a Theoretical Nearby Black Hole?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
   },
   {
    "headline": "How Airplane Black Boxes Work",
@@ -2741,22 +2721,22 @@
   {
    "headline": "Why Do Prices Change?",
    "url": "https://www.economicshelp.org/blog/12136/economics/price-mechanism/",
-   "status": 202,
-   "final_url": "https://www.economicshelp.org/blog/12136/economics/price-mechanism/",
-   "canonical": "",
-   "title": "",
-   "verdict": "OK",
-   "note": "title overlap 0.00"
+   "status": 200,
+   "final_url": "https://www.economicshelp.org/blog/12133/economics/uk-social-security-budget/",
+   "canonical": "https://www.economicshelp.org/blog/12133/economics/uk-social-security-budget/",
+   "title": "UK Social security budget - Economics Help",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
   },
   {
    "headline": "What Is Opportunity Cost?",
    "url": "https://www.economicshelp.org/blog/11979/economics/opportunity-cost/",
-   "status": 202,
-   "final_url": "https://www.economicshelp.org/blog/11979/economics/opportunity-cost/",
-   "canonical": "",
-   "title": "",
-   "verdict": "OK",
-   "note": "title overlap 0.00"
+   "status": 200,
+   "final_url": "https://www.economicshelp.org/blog/11977/oil/dutch-disease/",
+   "canonical": "https://www.economicshelp.org/blog/11977/oil/dutch-disease/",
+   "title": "Dutch Disease - Economics Help",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
   },
   {
    "headline": "The 17th-Century Language that Divided Everything in the Universe into 40 Categories",
