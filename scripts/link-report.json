@@ -1,9 +1,10 @@
 {
- "generated": "2026-10-05T03:04:21Z",
+ "generated": "2026-10-05T03:09:12Z",
  "summary": {
   "MISMATCH": 42,
   "OK": 210,
-  "BLOCKED": 43,
+  "ARCHIVED_OK": 25,
+  "BLOCKED": 18,
   "DEAD": 2,
   "REDIRECT": 9
  },
@@ -745,8 +746,9 @@
    "final_url": "https://www.britannica.com/money/Big-Mac-index",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260907173546"
   },
   {
    "headline": "Is Inequality Inevitable?",
@@ -935,8 +937,9 @@
    "final_url": "https://www.britannica.com/event/Brown-v-Board-of-Education-of-Topeka",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260929080724"
   },
   {
    "headline": "When Franklin Roosevelt Clashed With the Supreme Court - and Lost",
@@ -955,8 +958,9 @@
    "final_url": "https://www.britannica.com/summary/Miranda-v-Arizona",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20251006022257"
   },
   {
    "headline": "Marbury v. Madison - Background, Summary, and Significance",
@@ -966,7 +970,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "What Were the Nuremberg Trials?",
@@ -986,7 +991,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "McDonald's: History, Ray Kroc, & Famous Menu Items",
@@ -996,7 +1002,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Nike, Inc.: History, Logo, Headquarters, & Facts",
@@ -1006,7 +1013,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Amazon: E-commerce, Amazon Web Services, History, & Facts",
@@ -1015,8 +1023,9 @@
    "final_url": "https://www.britannica.com/money/Amazoncom",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260927085233"
   },
   {
    "headline": "IKEA: Home Furnishings & Design",
@@ -1026,7 +1035,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Starbucks: Description, History, & Facts",
@@ -1035,8 +1045,9 @@
    "final_url": "https://www.britannica.com/money/Starbucks",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261003021121"
   },
   {
    "headline": "This Old Experiment With Mice Led to Bleak Predictions for Humanity's Future",
@@ -1055,8 +1066,9 @@
    "final_url": "https://www.britannica.com/science/Milgram-experiment",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260921165121"
   },
   {
    "headline": "Sticky Rice Mortar, the View From Space, and More Fun Facts About China's Great Wall",
@@ -1175,8 +1187,9 @@
    "final_url": "https://www.britannica.com/topic/Bauhaus",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260914025505"
   },
   {
    "headline": "Cellphones Were Created to Untether Us. Then They Got Smart and Evolved Into an Omnipotent Appendage",
@@ -1205,8 +1218,9 @@
    "final_url": "https://www.britannica.com/topic/ARPANET",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260914164113"
   },
   {
    "headline": "The Pioneers of Video Game Technology Are About to Become the Stuff of History",
@@ -1225,8 +1239,9 @@
    "final_url": "https://www.britannica.com/list/influential-computer-programming-languages",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20250701130402"
   },
   {
    "headline": "Ada Lovelace: The First Computer Programmer",
@@ -1235,8 +1250,9 @@
    "final_url": "https://www.britannica.com/story/ada-lovelace-the-first-computer-programmer",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260924032657"
   },
   {
    "headline": "Grace Under Pressure",
@@ -1355,8 +1371,9 @@
    "final_url": "https://www.britannica.com/science/forgetting",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20250826070005"
   },
   {
    "headline": "Why Do We Laugh?",
@@ -1365,8 +1382,9 @@
    "final_url": "https://www.britannica.com/topic/laughter",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260705202721"
   },
   {
    "headline": "Flow State",
@@ -1386,7 +1404,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 429"
+   "note": "HTTP 429",
+   "wayback": "none"
   },
   {
    "headline": "Why Habits Matter",
@@ -1415,8 +1434,9 @@
    "final_url": "https://www.britannica.com/technology/GPS",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260716151813"
   },
   {
    "headline": "Moore's Law",
@@ -1425,8 +1445,9 @@
    "final_url": "https://www.britannica.com/technology/Moores-law",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261001140543"
   },
   {
    "headline": "A Brief History of the Internet",
@@ -1435,8 +1456,9 @@
    "final_url": "https://www.britannica.com/technology/Internet",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260930194253"
   },
   {
    "headline": "Website Security Basics",
@@ -1485,8 +1507,9 @@
    "final_url": "https://www.britannica.com/story/why-is-the-sky-blue",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260629010243"
   },
   {
    "headline": "Why Ice Floats",
@@ -1496,7 +1519,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "What Is Dark Matter?",
@@ -1596,7 +1620,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Printing Press",
@@ -1606,7 +1631,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Rule of Law",
@@ -1615,8 +1641,9 @@
    "final_url": "https://www.britannica.com/topic/rule-of-law",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260913101810"
   },
   {
    "headline": "Common Law",
@@ -1625,8 +1652,9 @@
    "final_url": "https://www.britannica.com/topic/common-law",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261004155053"
   },
   {
    "headline": "Civil Law",
@@ -1636,7 +1664,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Intellectual Property",
@@ -1655,8 +1684,9 @@
    "final_url": "https://www.britannica.com/topic/diplomacy",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261004032820"
   },
   {
    "headline": "United Nations: What It Does",
@@ -1725,8 +1755,9 @@
    "final_url": "https://www.britannica.com/science/binary-number-system",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260721154335"
   },
   {
    "headline": "What Is an Algorithm?",
@@ -1735,8 +1766,9 @@
    "final_url": "https://www.britannica.com/science/algorithm",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261001061716"
   },
   {
    "headline": "Gestalt Principles",
@@ -1786,7 +1818,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Industrial Revolution",
@@ -1796,7 +1829,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "History of Vaccines",
@@ -1846,7 +1880,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Inflation Explained",
@@ -1855,8 +1890,9 @@
    "final_url": "https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/Inflation",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260509105436"
   },
   {
    "headline": "What Is a Recession?",
@@ -1875,8 +1911,9 @@
    "final_url": "https://www.britannica.com/money/invisible-hand",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260908233028"
   },
   {
    "headline": "Behavioral Economics",
@@ -1916,7 +1953,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "The Science of Reaction Time",
@@ -1926,7 +1964,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "How the Brain Controls Movement",
@@ -1956,7 +1995,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "The math behind why cargo planes have no windows",
@@ -2915,8 +2955,9 @@
    "final_url": "https://www.open.edu/openlearn/science-maths-technology/it-everyday-life/altformat-printable",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20210115155449"
   },
   {
    "headline": "History of Reading: Finding Evidence and Reading the Past",
@@ -2925,8 +2966,9 @@
    "final_url": "https://www.open.edu/openlearn/history-the-arts/history-reading-tutorial-1-finding-evidence-reading-the-past/altformat-printable",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20230321165309"
   },
   {
    "headline": "Understanding Science: What We Cannot Know \u2014 Space",
@@ -2936,7 +2978,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Introducing Engineering",
@@ -2946,7 +2989,8 @@
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
-   "note": "HTTP 403"
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "The Art and Science of Making a Believable Sci-Fi Spaceship",
