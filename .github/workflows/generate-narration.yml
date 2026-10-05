@@ -13,8 +13,9 @@ on:
         required: true
         type: string
       voice_id:
-        description: 'Voice ID (ElevenLabs: Voices > your voice > copy ID. smallest.ai: voice_xxxx)'
+        description: 'Voice ID. Default is the ElevenLabs voice Mr Eric chose on 2026-10-05 (eleven3). Only override to test another voice.'
         required: true
+        default: 'vA86gNSOveXJlcH1HsHW'
         type: string
       provider:
         description: 'TTS provider'
