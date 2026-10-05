@@ -1,0 +1,40 @@
+name: Check article links (manual audit)
+
+# Manual-only. Fetches every URL in index.html's DISPATCHES array from a GitHub
+# runner (open internet), and writes scripts/link-report.json. Report only --
+# it never edits index.html or redeploys the site.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install requests
+        run: pip install requests
+
+      - name: Audit links
+        run: |
+          python3 scripts/check_links.py > scripts/link-check-log.txt 2>&1 || echo "CHECK_FAILED_SEE_LOG" >> scripts/link-check-log.txt
+          cat scripts/link-check-log.txt
+
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "link-audit-bot"
+          git config user.email "actions@github.com"
+          git add scripts/link-report.json scripts/link-check-log.txt || true
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Link audit report"
+          for i in 1 2 3; do
+            git pull --rebase origin main -q && git push -q && break
+            sleep 3
+          done
