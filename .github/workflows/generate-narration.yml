@@ -13,9 +13,21 @@ on:
         required: true
         type: string
       voice_id:
-        description: 'smallest.ai cloned voice id'
+        description: 'Voice ID (ElevenLabs: Voices > your voice > copy ID. smallest.ai: voice_xxxx)'
         required: true
-        default: 'voice_pW2XqACvWA'
+        type: string
+      provider:
+        description: 'TTS provider'
+        required: true
+        default: 'elevenlabs'
+        type: choice
+        options:
+          - elevenlabs
+          - smallest
+      model:
+        description: 'Optional model override (blank = provider default; ElevenLabs default eleven_multilingual_v2)'
+        required: false
+        default: ''
         type: string
 
 permissions:
@@ -32,6 +44,7 @@ jobs:
           python-version: '3.11'
 
       - name: Diagnose -- list voices and their language/model tags
+        if: ${{ inputs.provider == 'smallest' }}
         env:
           SMALLEST_AI_API_KEY: ${{ secrets.SMALLEST_AI_API_KEY }}
         run: |
@@ -43,10 +56,16 @@ jobs:
       - name: Generate narration audio
         env:
           SMALLEST_AI_API_KEY: ${{ secrets.SMALLEST_AI_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          MODEL_OVERRIDE: ${{ inputs.model }}
         run: |
+          EXTRA=""
+          [ -n "$MODEL_OVERRIDE" ] && EXTRA="--model $MODEL_OVERRIDE"
           python3 scripts/generate_voice_narration.py \
+            --provider "${{ inputs.provider }}" \
             --slug "${{ inputs.slug }}" \
             --voice-id "${{ inputs.voice_id }}" \
+            $EXTRA \
             > scripts/narration-log.txt 2>&1 || echo "GENERATE_FAILED_SEE_LOG" >> scripts/narration-log.txt
           cat scripts/narration-log.txt
 
@@ -55,11 +74,14 @@ jobs:
         run: |
           git config user.name "narration-bot"
           git config user.email "actions@github.com"
-          git add scripts/narration-log.txt scripts/narration-voices-debug.txt || true
+          git add scripts/narration-log.txt || true
+          [ -f scripts/narration-voices-debug.txt ] && git add scripts/narration-voices-debug.txt || true
           [ -f "data/audio/${{ inputs.slug }}.mp3" ] && git add "data/audio/${{ inputs.slug }}.mp3" || true
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Narration run: ${{ inputs.slug }}"
-          git pull --rebase --autostash origin main || true
-          git push
+          for i in 1 2 3 4; do
+            git pull --rebase --autostash origin main -q && git push -q && break
+            echo "push attempt $i lost a race, retrying"; sleep 4
+          done
 
       - name: Fail the job if generation failed
         run: |
