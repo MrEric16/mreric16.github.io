@@ -1,0 +1,23 @@
+name: Audit videos (manual)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - run: python3 scripts/audit_videos.py
+      - name: Commit report
+        if: always()
+        run: |
+          git config user.name "link-audit-bot"
+          git config user.email "actions@github.com"
+          git add scripts/video-audit.json
+          git diff --cached --quiet && echo none || git commit -m "Video audit report"
+          for i in 1 2 3; do git pull --rebase origin main -q && git push -q && break; sleep 3; done
