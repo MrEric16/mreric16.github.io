@@ -100,10 +100,18 @@ def main():
     today = dt.datetime.utcnow().strftime("%Y%m%d")
     results, seen = [], set()
     for code, slug in LEAGUES.items():
-        try:
-            data = get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={START}-{today}&limit=500")
-        except Exception as e:
-            print(code, "FAILED", e); continue
+        events = []
+        d0 = dt.datetime.strptime(START, "%Y%m%d")
+        d_end = dt.datetime.utcnow()
+        while d0 <= d_end:
+            d1 = min(d0 + dt.timedelta(days=6), d_end)
+            rng = f"{d0:%Y%m%d}-{d1:%Y%m%d}" if d1 > d0 else f"{d0:%Y%m%d}"
+            try:
+                events += get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={rng}").get("events", [])
+            except Exception as e:
+                print(code, rng, "FAILED", e)
+            d0 = d1 + dt.timedelta(days=1)
+        data = {"events": events}
         n = 0
         for ev in data.get("events", []):
             try:
