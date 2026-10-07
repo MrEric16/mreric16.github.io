@@ -3,16 +3,24 @@
 Writes data/espn-goals.json in the same shape as goal-results.json entries.
 Team names are canonicalised to the names football-live.json uses so the client's
 name matching hits."""
-import json, re, sys, datetime as dt, urllib.request, urllib.error
+import json, re, sys, unicodedata, difflib, datetime as dt, urllib.request, urllib.error
 
 LEAGUES = {"PL": "eng.1", "PD": "esp.1", "BL1": "ger.1", "SA": "ita.1", "FL1": "fra.1", "CL": "uefa.champions"}
 START = "20260801"
 OUT = "data/espn-goals.json"
 ALIAS = {"man": "manchester", "utd": "united", "spurs": "tottenham", "wolves": "wolverhampton",
-         "psg": "paris", "saint": "saint", "germain": "germain", "internazionale": "inter"}
+         "internazionale": "inter"}
+# ESPN displayName (lowercase, unaccented) -> football-data shortName, applied first
+OVERRIDE = {"paris saint-germain": "PSG", "paris saint germain": "PSG", "barcelona": "Barça", "fc cologne": "1. FC Köln",
+            "hamburg sv": "HSV", "borussia monchengladbach": "M'gladbach", "shakhtar donetsk": "Shaktar",
+            "bayern munich": "Bayern", "atletico madrid": "Atleti", "inter milan": "Inter", "internazionale": "Inter", "real madrid": "Real Madrid"}
 STOP = {"fc", "afc", "cf", "ac", "as", "sc", "the", "and", "&", "de", "of", "ssc", "fk", "club", "calcio", "1", "04"}
 
+def unacc(s):
+    return "".join(c for c in unicodedata.normalize("NFKD", s or "") if not unicodedata.combining(c))
+
 def toks(s):
+    s = unacc(s)
     s = re.sub(r"[^a-z0-9 ]", " ", (s or "").lower().replace("&", " "))
     out = set()
     for t in s.split():
@@ -55,14 +63,25 @@ KNOWN = known_names()
 KT = {n: toks(n) for n in KNOWN}
 
 def canon(espn_name):
+    key = unacc(espn_name).lower().strip()
+    if key in OVERRIDE and OVERRIDE[key] in KNOWN: return OVERRIDE[key]
+    for n in KNOWN:
+        if unacc(n).lower() == key: return n
     t = toks(espn_name)
     best, score = None, 0
     for n, kt in KT.items():
         if not kt or not t: continue
         inter = len(t & kt)
-        if inter and inter / max(len(kt), 1) >= 0.5 and inter > score:
+        # symmetric: both sides must be mostly covered, so "Paris Saint-Germain" can never
+        # collapse onto "Paris FC" and vice versa
+        if inter and (inter == len(kt) or (inter / len(kt) >= 0.6 and inter / len(t) >= 0.6)) and inter > score:
             best, score = n, inter
-    return best or espn_name
+    if best: return best
+    close = difflib.get_close_matches(key, [unacc(n).lower() for n in KNOWN], n=1, cutoff=0.82)
+    if close:
+        for n in KNOWN:
+            if unacc(n).lower() == close[0]: return n
+    return espn_name
 
 def minute(clock):
     """Returns (display, sortkey, first_half). display is int or "45+2" style string."""
