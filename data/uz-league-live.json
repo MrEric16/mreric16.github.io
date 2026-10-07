@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-07T09:22:45.426250Z",
+  "generatedAt": "2026-10-07T16:52:27.875167Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
-      "pld": 22,
+      "pld": 23,
       "w": 16,
-      "d": 3,
+      "d": 4,
       "l": 3,
-      "gf": 50,
-      "ga": 17,
-      "pts": 51
+      "gf": 52,
+      "ga": 19,
+      "pts": 52
     },
     {
       "name": "Pakhtakor",
@@ -133,13 +133,13 @@
     },
     {
       "name": "Xorazm Urganch",
-      "pld": 22,
+      "pld": 23,
       "w": 5,
-      "d": 6,
+      "d": 7,
       "l": 11,
-      "gf": 18,
-      "ga": 32,
-      "pts": 21
+      "gf": 20,
+      "ga": 34,
+      "pts": 22
     },
     {
       "name": "Kokand 1912",
@@ -163,6 +163,13 @@
     }
   ],
   "results": [
+    {
+      "home": "Neftchi Fargona",
+      "away": "Xorazm Urganch",
+      "raw_time": "07.10. 14:00",
+      "homeScore": 2,
+      "awayScore": 2
+    },
     {
       "home": "Xorazm Urganch",
       "away": "Qizilqum",
@@ -295,21 +302,9 @@
       "raw_time": "05.09. 13:00",
       "homeScore": 5,
       "awayScore": 2
-    },
-    {
-      "home": "Pakhtakor",
-      "away": "Andijan",
-      "raw_time": "04.09. 15:15",
-      "homeScore": 3,
-      "awayScore": 0
     }
   ],
   "fixtures": [
-    {
-      "home": "Neftchi Fargona",
-      "away": "Xorazm Urganch",
-      "raw_time": "07.10. 14:00"
-    },
     {
       "home": "Kokand 1912",
       "away": "Mashal Muborak",
@@ -404,6 +399,11 @@
       "home": "Pakhtakor",
       "away": "Neftchi Fargona",
       "raw_time": "23.10. 15:00"
+    },
+    {
+      "home": "Nasaf Qarshi",
+      "away": "Sogdiana",
+      "raw_time": "24.10. 15:00"
     }
   ]
 }
