@@ -1,25 +1,55 @@
-Traceback (most recent call last):
-  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/discover_events.py", line 59, in <module>
-    with cf.ThreadPoolExecutor(8) as ex: out=list(ex.map(crawl,SEEDS))
-                                             ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 619, in result_iterator
-    yield _result_or_cancel(fs.pop())
-          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 317, in _result_or_cancel
-    return fut.result(timeout)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 449, in result
-    return self.__get_result()
-           ^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/thread.py", line 58, in run
-    result = self.fn(*self.args, **self.kwargs)
-             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/discover_events.py", line 41, in crawl
-    for e in jsonld(page): res.append(norm(e,final))
-                                      ^^^^^^^^^^^^^
-  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/discover_events.py", line 35, in norm
-    "price":price,"loc":(loc.get("name") if isinstance(loc,dict) else str(loc))[:60] if loc else "", "url":ev.get("url") or page_url,
-                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
-TypeError: 'NoneType' object is not subscriptable
+seeds 54 events 154
+200 4 9 https://www.seti.org/events/
+200 0 6 https://intrepidmuseum.org/virtual-astro-live-november-15
+200 0 2 https://events.perimeterinstitute.ca/
+200 0 40 https://www.rmg.co.uk/whats-on/online
+403 0 0 https://rmg.co.uk/whats-on/online/tour-night-sky-live
+None 0 0 https://www.ri.ac.uk/events/
+200 1 3 https://royalsociety.org/science-events-and-lectures/
+200 0 0 https://www.planetary.org/events
+404 0 0 https://www.esa.int/Newsroom/Events
+404 0 0 https://science.nasa.gov/get-involved/events/
+None 0 0 https://www.nationalgeographic.org/society/events/
+403 0 0 https://www.si.edu/events
+403 0 0 https://www.si.edu/spotlight/virtual-events
+403 0 0 https://airandspace.si.edu/events
+403 0 0 https://www.loc.gov/events/
+200 0 40 https://www.archives.gov/calendar
+403 0 0 https://www.britishmuseum.org/whats-on
+200 0 3 https://www.gresham.ac.uk/whats-on
+200 0 11 https://www.rgs.org/events
+405 0 0 https://www.eventbrite.com/d/online/free--science/
+405 0 0 https://www.eventbrite.com/d/online/free--education/
+405 0 0 https://www.eventbrite.com/d/online/free--technology/
+405 0 0 https://www.eventbrite.com/d/online/free--history/
+405 0 0 https://www.eventbrite.com/d/online/free--language/
+405 0 0 https://www.eventbrite.com/d/online/free--business/
+403 0 0 https://events.humanitix.com/code-savvy-s-virtual-code-explorers-octob
+200 0 6 https://www.burkemuseum.org/calendar/ask-archaeologist-live-webinar
+200 142 40 https://www.archaeological.org/events/category/international-archaeolo
+None 0 0 https://takeielts.britishcouncil.org/take-ielts/prepare/free-webinars
+200 0 23 https://www.lms.ac.uk/lms-gresham-lecture-2026-colva-roney-dougal
+200 1 1 https://www.discovereconomics.co.uk/events/res-annual-public-lecture-2
+200 0 14 https://www.computerhistory.org/events/
+200 6 8 https://www.cern.ch/events
+200 0 2 https://home.cern/events
+404 0 0 https://www.nasa.gov/nasa-stem-engagement/
+200 0 4 https://www.nasa.gov/learning-resources/
+200 0 1 https://hackclub.com/
+404 0 0 https://www.coursera.org/events
+200 0 0 https://www.khanacademy.org/
+403 0 0 https://www.sciencemuseum.org.uk/see-and-do/online
+200 0 1 https://www.nhm.ac.uk/events/
+404 0 0 https://www.nhm.ac.uk/take-part/live-events.html
+405 0 0 https://www.exploratorium.edu/visit/calendar
+403 0 0 https://www.amnh.org/calendar
+404 0 0 https://www.noaa.gov/events
+200 0 1 https://oceanexplorer.noaa.gov/
+200 0 0 https://nautiluslive.org/
+202 0 0 https://www.nsf.gov/events
+None 0 0 https://www.worldscience.org/events/
+None 0 0 https://www.britishcouncil.org/events
+None 0 0 https://learnenglish.britishcouncil.org/
+200 0 0 https://www.oxfordowl.co.uk/
+404 0 0 https://www.ted.com/events
+None 0 0 https://www.tedxsaintpetersburg.com/
