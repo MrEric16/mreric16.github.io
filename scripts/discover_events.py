@@ -32,8 +32,8 @@ def norm(ev,page_url):
     if isinstance(loc,list): loc=loc[0] if loc else {}
     org=ev.get("organizer"); org=org[0] if isinstance(org,list) and org else org
     return {"name":ev.get("name"),"start":str(ev.get("startDate") or "")[:25],"mode":str(ev.get("eventAttendanceMode") or "").split("/")[-1],
-      "price":price,"loc":(loc.get("name") if isinstance(loc,dict) else str(loc))[:60] if loc else "", "url":ev.get("url") or page_url,
-      "org":(org.get("name") if isinstance(org,dict) else org) , "desc":html.unescape(re.sub("<[^>]+>"," ",str(ev.get("description") or "")))[:200], "page":page_url}
+      "price":price,"loc":str((loc.get("name") or loc.get("@type") or "") if isinstance(loc,dict) else loc or "")[:60], "url":ev.get("url") or page_url,
+      "org":(org.get("name") if isinstance(org,dict) else str(org or "")), "desc":html.unescape(re.sub("<[^>]+>"," ",str(ev.get("description") or "")))[:200], "page":page_url}
 def crawl(seed):
     res=[]; sc,final,page=get(seed)
     rec={"seed":seed,"status":sc,"final":final,"events":[],"sublinks":0}
@@ -56,7 +56,10 @@ def crawl(seed):
         seen.add(k);ev.append(r)
     rec["events"]=ev
     return rec
-with cf.ThreadPoolExecutor(8) as ex: out=list(ex.map(crawl,SEEDS))
+def safe(s):
+    try: return crawl(s)
+    except Exception as e: return {"seed":s,"status":"ERR "+type(e).__name__+" "+str(e)[:80],"events":[],"sublinks":0}
+with cf.ThreadPoolExecutor(8) as ex: out=list(ex.map(safe,SEEDS))
 json.dump(out,open("scripts/event-discovery.json","w"),indent=1)
 tot=sum(len(o["events"]) for o in out);print("seeds",len(out),"events",tot)
 for o in out: print(o["status"],len(o["events"]),o["sublinks"],o["seed"][:70])
