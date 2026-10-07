@@ -14,16 +14,23 @@ def one(r):
         if oe.status_code==200:
             j=oe.json(); o["real_title"]=j.get("title"); o["channel"]=j.get("author_name")
     except Exception as e: o["oembed"]=type(e).__name__
-    try:
-        ib=requests.post("https://www.youtube.com/youtubei/v1/player?prettyPrint=false",json={"videoId":v,"context":{"client":{"clientName":"TVHTML5_SIMPLY_EMBEDDED_PLAYER","clientVersion":"2.0","hl":"en"},"thirdParty":{"embedUrl":"https://mreric16.github.io/"}},"contentCheckOk":True,"racyCheckOk":True},headers={**H,"Content-Type":"application/json"},timeout=25)
-        j=ib.json(); vd=j.get("videoDetails",{}); pl=j.get("playabilityStatus",{})
-        o["ib_status"]=pl.get("status"); o["ib_reason"]=(pl.get("reason") or "")[:80]
-        if vd:
-            o["secs"]=int(vd.get("lengthSeconds",0) or 0); o["views"]=int(vd.get("viewCount",0) or 0); o["channel"]=vd.get("author") or o.get("channel"); o["live"]=vd.get("isLiveContent")
-            o["kw"]=(vd.get("keywords") or [])[:6]
-        mf=j.get("microformat",{}).get("playerMicroformatRenderer",{})
-        o["pub"]=(mf.get("publishDate") or "")[:10]; o["cat"]=mf.get("category")
-    except Exception as e: o["ib_status"]=type(e).__name__
+    CL=[("ANDROID_VR",{"clientName":"ANDROID_VR","clientVersion":"1.57.29","deviceMake":"Oculus","deviceModel":"Quest 3","androidSdkVersion":32,"osName":"Android","osVersion":"12L","hl":"en"},"com.google.android.apps.youtube.vr.oculus/1.57.29 (Linux; U; Android 12L; eureka-user Build/SQ3A.220605.009.A1) gzip"),
+        ("WEB_EMBEDDED_PLAYER",{"clientName":"WEB_EMBEDDED_PLAYER","clientVersion":"1.20240723.01.00","hl":"en"},H["User-Agent"]),
+        ("IOS",{"clientName":"IOS","clientVersion":"19.45.4","deviceMake":"Apple","deviceModel":"iPhone16,2","osName":"iPhone","osVersion":"18.1.0.22B83","hl":"en"},"com.google.ios.youtube/19.45.4 (iPhone16,2; U; CPU iOS 18_1_0 like Mac OS X;)")]
+    o["ib_tried"]=[]
+    for nm,cl,ua in CL:
+        try:
+            ib=requests.post("https://www.youtube.com/youtubei/v1/player?prettyPrint=false",json={"videoId":v,"context":{"client":cl,"thirdParty":{"embedUrl":"https://mreric16.github.io/"}},"contentCheckOk":True,"racyCheckOk":True},headers={"User-Agent":ua,"Content-Type":"application/json","Accept-Language":"en"},timeout=25)
+            j=ib.json(); vd=j.get("videoDetails",{}); pl=j.get("playabilityStatus",{})
+            o["ib_tried"].append(nm+":"+str(pl.get("status")))
+            if pl.get("status")=="OK" and vd:
+                o["ib_status"]="OK"; o["ib_client"]=nm
+                o["secs"]=int(vd.get("lengthSeconds",0) or 0); o["views"]=int(vd.get("viewCount",0) or 0); o["channel"]=vd.get("author") or o.get("channel"); o["live"]=vd.get("isLiveContent")
+                mf=j.get("microformat",{}).get("playerMicroformatRenderer",{})
+                o["pub"]=(mf.get("publishDate") or "")[:10]; o["cat"]=mf.get("category"); o["embed_ok"]=mf.get("embed") is not None
+                break
+            else: o["ib_status"]=pl.get("status"); o["ib_reason"]=(pl.get("reason") or "")[:60]
+        except Exception as e: o["ib_tried"].append(nm+":"+type(e).__name__)
     try:
         w=requests.get(f"https://www.youtube.com/watch?v={v}",headers=H,timeout=25)
         p=pr(w.text)
