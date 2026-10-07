@@ -112,7 +112,6 @@ def probe():
             print("PROBE FAIL", e)
 
 def main():
-    probe()
     today = dt.datetime.utcnow().strftime("%Y%m%d")
     results, seen = [], set()
     for code, slug in LEAGUES.items():
@@ -120,8 +119,8 @@ def main():
         d0 = dt.datetime.strptime(START, "%Y%m%d")
         d_end = dt.datetime.utcnow()
         while d0 <= d_end:
-            d1 = min(d0 + dt.timedelta(days=6), d_end)
-            rng = f"{d0:%Y%m%d}-{d1:%Y%m%d}" if d1 > d0 else f"{d0:%Y%m%d}"
+            d1 = d0
+            rng = f"{d0:%Y%m%d}"
             try:
                 events += get(f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={rng}").get("events", [])
             except Exception as e:
