@@ -3,7 +3,7 @@
 Writes data/espn-goals.json in the same shape as goal-results.json entries.
 Team names are canonicalised to the names football-live.json uses so the client's
 name matching hits."""
-import json, re, sys, datetime as dt, urllib.request
+import json, re, sys, datetime as dt, urllib.request, urllib.error
 
 LEAGUES = {"PL": "eng.1", "PD": "esp.1", "BL1": "ger.1", "SA": "ita.1", "FL1": "fra.1", "CL": "uefa.champions"}
 START = "20260801"
@@ -22,8 +22,12 @@ def toks(s):
 
 def get(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urllib.request.urlopen(req, timeout=30) as r:
-        return json.load(r)
+    try:
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return json.load(r)
+    except urllib.error.HTTPError as e:
+        body = e.read()[:300].decode("utf-8", "replace")
+        raise RuntimeError(f"HTTP {e.code} {url} :: {body}")
 
 def known_names():
     names = set()
@@ -96,7 +100,19 @@ def parse(ev, code):
             "ftHome": ftH, "ftAway": ftA, "homeGoals": hg, "awayGoals": ag, "competition": code,
             "complete": len(hg) == ftH and len(ag) == ftA}
 
+def probe():
+    for u in ["https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
+              "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20250921",
+              "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+              "https://site.web.api.espn.com/apis/v2/sports/soccer/eng.1/scoreboard?dates=20260919",
+              "https://www.espn.com/soccer/scoreboard/_/league/eng.1/date/20260919"]:
+        try:
+            r = get(u); print("PROBE OK", u, str(r)[:200])
+        except Exception as e:
+            print("PROBE FAIL", e)
+
 def main():
+    probe()
     today = dt.datetime.utcnow().strftime("%Y%m%d")
     results, seen = [], set()
     for code, slug in LEAGUES.items():
