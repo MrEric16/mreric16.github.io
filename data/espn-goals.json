@@ -1,13 +1,14 @@
 {
- "generatedAt": "2026-10-07T23:04:08.547583Z",
+ "generatedAt": "2026-10-07T23:07:00.579967Z",
  "results": [
   {
    "url": "espn:401879276",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:00Z",
    "home": "Bournemouth",
    "away": "Liverpool",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -23,10 +24,11 @@
   {
    "url": "espn:401879273",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:00Z",
    "home": "Leeds United",
    "away": "Crystal Palace",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -37,10 +39,11 @@
   {
    "url": "espn:401879272",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:00Z",
    "home": "Man City",
    "away": "Sunderland",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 2,
    "ftHome": 5,
    "ftAway": 3,
    "homeGoals": [
@@ -85,33 +88,36 @@
   {
    "url": "espn:401878777",
    "date": "2026-09-20",
+   "utc": "2026-09-20T15:30Z",
    "home": "Fulham",
    "away": "Man United",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
-   "homeGoals": [],
-   "awayGoals": [
+   "homeGoals": [
     {
      "scorer": "L. Martínez (og)",
      "minute": 63
-    },
+    }
+   ],
+   "awayGoals": [
     {
      "scorer": "M. Cunha",
      "minute": 89
     }
    ],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882861",
    "date": "2026-09-20",
+   "utc": "2026-09-20T12:00Z",
    "home": "Getafe",
    "away": "Málaga",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -127,10 +133,11 @@
   {
    "url": "espn:401882865",
    "date": "2026-09-20",
+   "utc": "2026-09-20T14:15Z",
    "home": "Real Madrid",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -155,10 +162,11 @@
   {
    "url": "espn:401882863",
    "date": "2026-09-20",
+   "utc": "2026-09-20T16:30Z",
    "home": "Deportivo",
    "away": "Real Betis",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -179,10 +187,11 @@
   {
    "url": "espn:401882857",
    "date": "2026-09-20",
+   "utc": "2026-09-20T16:30Z",
    "home": "Villarreal",
    "away": "Levante",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
@@ -211,16 +220,21 @@
   {
    "url": "espn:401882858",
    "date": "2026-09-20",
+   "utc": "2026-09-20T19:00Z",
    "home": "Valencia",
    "away": "Real Sociedad",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
     {
      "scorer": "A. Mayol",
      "minute": 57
+    },
+    {
+     "scorer": "L. Beitia (og)",
+     "minute": 84
     }
    ],
    "awayGoals": [
@@ -233,24 +247,21 @@
      "minute": 75
     },
     {
-     "scorer": "L. Beitia (og)",
-     "minute": 84
-    },
-    {
      "scorer": "A. Barrenetxea",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401884788",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:30Z",
    "home": "Leverkusen",
    "away": "RB Leipzig",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -270,10 +281,11 @@
   {
    "url": "espn:401884783",
    "date": "2026-09-20",
+   "utc": "2026-09-20T15:30Z",
    "home": "Schalke",
    "away": "Elversberg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -284,10 +296,11 @@
   {
    "url": "espn:401884782",
    "date": "2026-09-20",
+   "utc": "2026-09-20T17:30Z",
    "home": "SC Paderborn",
    "away": "Hoffenheim",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
@@ -316,10 +329,11 @@
   {
    "url": "espn:401874934",
    "date": "2026-09-20",
+   "utc": "2026-09-20T10:30Z",
    "home": "Fiorentina",
    "away": "Napoli",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -340,10 +354,11 @@
   {
    "url": "espn:401874752",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:00Z",
    "home": "Frosinone",
    "away": "Como 1907",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -353,7 +368,7 @@
     },
     {
      "scorer": "G. Kvernadze",
-     "minute": 48
+     "minute": "45+3"
     }
    ],
    "awayGoals": [],
@@ -363,10 +378,11 @@
   {
    "url": "espn:401874801",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:00Z",
    "home": "Parma",
    "away": "Genoa",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -391,10 +407,11 @@
   {
    "url": "espn:401874757",
    "date": "2026-09-20",
+   "utc": "2026-09-20T16:00Z",
    "home": "Juventus",
    "away": "Atalanta",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -414,10 +431,11 @@
   {
    "url": "espn:401874944",
    "date": "2026-09-20",
+   "utc": "2026-09-20T18:45Z",
    "home": "Milan",
    "away": "Lecce",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -441,41 +459,47 @@
   {
    "url": "espn:401876456",
    "date": "2026-09-20",
+   "utc": "2026-09-20T13:00Z",
    "home": "Auxerre",
    "away": "Brest",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
     {
      "scorer": "C. Archer",
      "minute": 46
-    }
-   ],
-   "awayGoals": [
-    {
-     "scorer": "P. Mboup",
-     "minute": 23
     },
     {
      "scorer": "R. Le Guen (og)",
      "minute": 83
     }
    ],
+   "awayGoals": [
+    {
+     "scorer": "P. Mboup",
+     "minute": 23
+    }
+   ],
    "competition": "FL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401876452",
    "date": "2026-09-20",
+   "utc": "2026-09-20T15:15Z",
    "home": "Nice",
    "away": "Lille",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
+    {
+     "scorer": "N. Ngoy (og)",
+     "minute": 22
+    },
     {
      "scorer": "M. Amoura",
      "minute": 67
@@ -483,24 +507,21 @@
    ],
    "awayGoals": [
     {
-     "scorer": "N. Ngoy (og)",
-     "minute": 22
-    },
-    {
      "scorer": "A. Ueda",
      "minute": 79
     }
    ],
    "competition": "FL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401876449",
    "date": "2026-09-20",
+   "utc": "2026-09-20T18:45Z",
    "home": "Marseille",
-   "away": "PSG",
-   "htHome": null,
-   "htAway": null,
+   "away": "Paris FC",
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -525,10 +546,11 @@
   {
    "url": "espn:401879269",
    "date": "2026-09-19",
+   "utc": "2026-09-19T11:30Z",
    "home": "Tottenham",
    "away": "Aston Villa",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -538,13 +560,13 @@
     },
     {
      "scorer": "J. van Hecke",
-     "minute": 98
+     "minute": "90+8"
     }
    ],
    "awayGoals": [
     {
      "scorer": "J. Manzambi",
-     "minute": 49
+     "minute": "45+4"
     },
     {
      "scorer": "N. Jackson",
@@ -561,10 +583,11 @@
   {
    "url": "espn:401879274",
    "date": "2026-09-19",
+   "utc": "2026-09-19T14:00Z",
    "home": "Brighton Hove",
    "away": "Arsenal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -588,10 +611,11 @@
   {
    "url": "espn:401878778",
    "date": "2026-09-19",
+   "utc": "2026-09-19T14:00Z",
    "home": "Everton",
    "away": "Ipswich Town",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -607,10 +631,11 @@
   {
    "url": "espn:401879271",
    "date": "2026-09-19",
+   "utc": "2026-09-19T14:00Z",
    "home": "Newcastle",
    "away": "Hull City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -635,10 +660,11 @@
   {
    "url": "espn:401879270",
    "date": "2026-09-19",
+   "utc": "2026-09-19T16:30Z",
    "home": "Nottingham",
    "away": "Coventry City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -654,10 +680,11 @@
   {
    "url": "espn:401882860",
    "date": "2026-09-19",
+   "utc": "2026-09-19T12:00Z",
    "home": "Osasuna",
    "away": "Rayo Vallecano",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -678,10 +705,11 @@
   {
    "url": "espn:401882866",
    "date": "2026-09-19",
+   "utc": "2026-09-19T14:15Z",
    "home": "Athletic",
    "away": "Alavés",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -692,10 +720,11 @@
   {
    "url": "espn:401882864",
    "date": "2026-09-19",
+   "utc": "2026-09-19T16:30Z",
    "home": "Celta",
    "away": "Santander",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 0,
    "homeGoals": [
@@ -717,7 +746,7 @@
     },
     {
      "scorer": "P. Durán",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "awayGoals": [],
@@ -727,10 +756,11 @@
   {
    "url": "espn:401882859",
    "date": "2026-09-19",
+   "utc": "2026-09-19T19:00Z",
    "home": "Sevilla FC",
    "away": "Barcelona",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
@@ -759,10 +789,11 @@
   {
    "url": "espn:401884786",
    "date": "2026-09-19",
-   "home": "M'gladbach",
+   "utc": "2026-09-19T13:30Z",
+   "home": "Málaga",
    "away": "Mainz",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 3,
    "ftAway": 4,
    "homeGoals": [
@@ -776,7 +807,7 @@
     },
     {
      "scorer": "S. Machino (pen)",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "awayGoals": [
@@ -786,7 +817,7 @@
     },
     {
      "scorer": "S. Becker",
-     "minute": 46
+     "minute": "45+1"
     },
     {
      "scorer": "E. Martel",
@@ -803,10 +834,11 @@
   {
    "url": "espn:401884787",
    "date": "2026-09-19",
+   "utc": "2026-09-19T13:30Z",
    "home": "Frankfurt",
    "away": "Freiburg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -835,10 +867,11 @@
   {
    "url": "espn:401884785",
    "date": "2026-09-19",
+   "utc": "2026-09-19T13:30Z",
    "home": "Hamburg SV",
    "away": "FC Cologne",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -863,10 +896,11 @@
   {
    "url": "espn:401884784",
    "date": "2026-09-19",
+   "utc": "2026-09-19T13:30Z",
    "home": "Bremen",
    "away": "Augsburg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -880,7 +914,7 @@
     },
     {
      "scorer": "M. Weiser",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "awayGoals": [
@@ -899,10 +933,11 @@
   {
    "url": "espn:401884789",
    "date": "2026-09-19",
+   "utc": "2026-09-19T16:30Z",
    "home": "Stuttgart",
    "away": "Dortmund",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -918,10 +953,11 @@
   {
    "url": "espn:401874767",
    "date": "2026-09-19",
+   "utc": "2026-09-19T13:00Z",
    "home": "Bologna",
    "away": "Torino",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -942,10 +978,11 @@
   {
    "url": "espn:401874964",
    "date": "2026-09-19",
+   "utc": "2026-09-19T13:00Z",
    "home": "Udinese",
    "away": "Cagliari",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -961,10 +998,11 @@
   {
    "url": "espn:401874753",
    "date": "2026-09-19",
+   "utc": "2026-09-19T16:00Z",
    "home": "Roma",
    "away": "Inter",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -993,10 +1031,11 @@
   {
    "url": "espn:401874956",
    "date": "2026-09-19",
+   "utc": "2026-09-19T18:45Z",
    "home": "Venezia FC",
    "away": "Lazio",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -1016,10 +1055,11 @@
   {
    "url": "espn:401876451",
    "date": "2026-09-19",
-   "home": "PSG",
+   "utc": "2026-09-19T15:15Z",
+   "home": "Paris FC",
    "away": "Strasbourg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -1030,23 +1070,25 @@
     {
      "scorer": "P. Pagis",
      "minute": 57
-    },
+    }
+   ],
+   "awayGoals": [
     {
      "scorer": "M. Mbow (og)",
      "minute": 88
     }
    ],
-   "awayGoals": [],
    "competition": "FL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401876457",
    "date": "2026-09-19",
+   "utc": "2026-09-19T18:45Z",
    "home": "Angers SCO",
    "away": "Troyes",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -1066,10 +1108,11 @@
   {
    "url": "espn:401876455",
    "date": "2026-09-19",
+   "utc": "2026-09-19T18:45Z",
    "home": "Le Mans",
    "away": "Lorient",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -1094,10 +1137,11 @@
   {
    "url": "espn:401876454",
    "date": "2026-09-19",
+   "utc": "2026-09-19T18:45Z",
    "home": "Olympique Lyon",
    "away": "Stade Rennais",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -1125,10 +1169,11 @@
   {
    "url": "espn:401876450",
    "date": "2026-09-19",
+   "utc": "2026-09-19T18:45Z",
    "home": "Toulouse",
    "away": "Le Havre",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -1161,10 +1206,11 @@
   {
    "url": "espn:401879275",
    "date": "2026-09-18",
+   "utc": "2026-09-18T19:00Z",
    "home": "Brentford",
    "away": "Chelsea",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -1178,7 +1224,7 @@
     },
     {
      "scorer": "F. Carvalho",
-     "minute": 94
+     "minute": "90+4"
     }
    ],
    "awayGoals": [],
@@ -1188,13 +1234,19 @@
   {
    "url": "espn:401882862",
    "date": "2026-09-18",
+   "utc": "2026-09-18T19:00Z",
    "home": "Espanyol",
    "away": "Elche",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 3,
-   "homeGoals": [],
+   "homeGoals": [
+    {
+     "scorer": "V. Chust (og)",
+     "minute": 72
+    }
+   ],
    "awayGoals": [
     {
      "scorer": "F. Niño",
@@ -1205,24 +1257,21 @@
      "minute": 29
     },
     {
-     "scorer": "V. Chust (og)",
-     "minute": 72
-    },
-    {
      "scorer": "G. Valera",
      "minute": 78
     }
    ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401884790",
    "date": "2026-09-18",
+   "utc": "2026-09-18T18:30Z",
    "home": "Bayern",
    "away": "Union Berlin",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 7,
    "ftAway": 0,
    "homeGoals": [
@@ -1262,10 +1311,11 @@
   {
    "url": "espn:401874756",
    "date": "2026-09-18",
+   "utc": "2026-09-18T18:45Z",
    "home": "Monza",
    "away": "Sassuolo",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -1290,38 +1340,40 @@
   {
    "url": "espn:401876453",
    "date": "2026-09-18",
+   "utc": "2026-09-18T18:45Z",
    "home": "Monaco",
    "away": "RC Lens",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
     {
      "scorer": "P. Brunner",
      "minute": 32
-    }
-   ],
-   "awayGoals": [
-    {
-     "scorer": "M. Udol",
-     "minute": 57
     },
     {
      "scorer": "J. Gradit (og)",
      "minute": 84
     }
    ],
+   "awayGoals": [
+    {
+     "scorer": "M. Udol",
+     "minute": 57
+    }
+   ],
    "competition": "FL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882874",
    "date": "2026-09-17",
+   "utc": "2026-09-17T17:00Z",
    "home": "Real Betis",
    "away": "Getafe",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -1337,10 +1389,11 @@
   {
    "url": "espn:401882869",
    "date": "2026-09-17",
+   "utc": "2026-09-17T19:30Z",
    "home": "Málaga",
    "away": "Villarreal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
@@ -1356,7 +1409,7 @@
     },
     {
      "scorer": "P. Gueye",
-     "minute": 47
+     "minute": "45+2"
     },
     {
      "scorer": "P. Gueye (pen)",
@@ -1369,10 +1422,11 @@
   {
    "url": "espn:401882875",
    "date": "2026-09-16",
+   "utc": "2026-09-16T17:00Z",
    "home": "Real Madrid",
    "away": "Osasuna",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -1400,10 +1454,11 @@
   {
    "url": "espn:401882873",
    "date": "2026-09-16",
+   "utc": "2026-09-16T17:00Z",
    "home": "Deportivo",
    "away": "Sevilla FC",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -1419,10 +1474,11 @@
   {
    "url": "espn:401882871",
    "date": "2026-09-16",
+   "utc": "2026-09-16T19:30Z",
    "home": "Barcelona",
    "away": "Santander",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 4,
+   "htAway": 1,
    "ftHome": 7,
    "ftAway": 2,
    "homeGoals": [
@@ -1433,6 +1489,10 @@
     {
      "scorer": "Raphinha (pen)",
      "minute": 25
+    },
+    {
+     "scorer": "A. Villalibre (og)",
+     "minute": 36
     },
     {
      "scorer": "Raphinha",
@@ -1457,24 +1517,21 @@
      "minute": 30
     },
     {
-     "scorer": "A. Villalibre (og)",
-     "minute": 36
-    },
-    {
      "scorer": "Y. Zabiri",
      "minute": 65
     }
    ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882868",
    "date": "2026-09-15",
+   "utc": "2026-09-15T17:00Z",
    "home": "Rayo Vallecano",
    "away": "Espanyol",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -1499,10 +1556,11 @@
   {
    "url": "espn:401882876",
    "date": "2026-09-15",
+   "utc": "2026-09-15T18:00Z",
    "home": "Alavés",
    "away": "Valencia",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -1518,17 +1576,14 @@
   {
    "url": "espn:401882872",
    "date": "2026-09-15",
+   "utc": "2026-09-15T19:30Z",
    "home": "Elche",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
-    {
-     "scorer": "M. Dituro (og)",
-     "minute": 25
-    },
     {
      "scorer": "A. Osorio",
      "minute": 71
@@ -1540,34 +1595,43 @@
    ],
    "awayGoals": [
     {
+     "scorer": "M. Dituro (og)",
+     "minute": 25
+    },
+    {
      "scorer": "K. Mbappé",
      "minute": 33
     },
     {
      "scorer": "C. Espí",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401879280",
    "date": "2026-09-14",
+   "utc": "2026-09-14T19:00Z",
    "home": "Leeds United",
    "away": "Newcastle",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
+    {
+     "scorer": "L. Miley (og)",
+     "minute": 32
+    },
     {
      "scorer": "J. Bogle",
      "minute": 34
     },
     {
      "scorer": "D. Calvert-Lewin",
-     "minute": 46
+     "minute": "45+1"
     },
     {
      "scorer": "N. Okafor",
@@ -1576,24 +1640,21 @@
    ],
    "awayGoals": [
     {
-     "scorer": "L. Miley (og)",
-     "minute": 32
-    },
-    {
      "scorer": "B. Touré",
      "minute": 90
     }
    ],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882877",
    "date": "2026-09-14",
+   "utc": "2026-09-14T19:00Z",
    "home": "Villarreal",
    "away": "Real Betis",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -1618,10 +1679,11 @@
   {
    "url": "espn:401874933",
    "date": "2026-09-14",
+   "utc": "2026-09-14T16:30Z",
    "home": "Como 1907",
    "away": "Parma",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -1637,7 +1699,7 @@
    "awayGoals": [
     {
      "scorer": "J. Romero",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "competition": "SA",
@@ -1646,10 +1708,11 @@
   {
    "url": "espn:401874950",
    "date": "2026-09-14",
+   "utc": "2026-09-14T16:30Z",
    "home": "Torino",
    "away": "Roma",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -1660,7 +1723,7 @@
     },
     {
      "scorer": "N. Pisilli",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "competition": "SA",
@@ -1669,10 +1732,11 @@
   {
    "url": "espn:401874966",
    "date": "2026-09-14",
+   "utc": "2026-09-14T18:45Z",
    "home": "Inter",
    "away": "Udinese",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 2,
    "ftHome": 5,
    "ftAway": 3,
    "homeGoals": [
@@ -1717,10 +1781,11 @@
   {
    "url": "espn:401879282",
    "date": "2026-09-13",
+   "utc": "2026-09-13T13:00Z",
    "home": "Coventry City",
    "away": "Brighton Hove",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 5,
    "homeGoals": [],
@@ -1743,7 +1808,7 @@
     },
     {
      "scorer": "Y. Ayari",
-     "minute": 94
+     "minute": "90+4"
     }
    ],
    "competition": "PL",
@@ -1752,10 +1817,11 @@
   {
    "url": "espn:401879278",
    "date": "2026-09-13",
+   "utc": "2026-09-13T15:30Z",
    "home": "Man United",
    "away": "Man City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -1771,10 +1837,11 @@
   {
    "url": "espn:401882885",
    "date": "2026-09-13",
+   "utc": "2026-09-13T12:00Z",
    "home": "Celta",
    "away": "Málaga",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -1795,10 +1862,11 @@
   {
    "url": "espn:401882883",
    "date": "2026-09-13",
+   "utc": "2026-09-13T14:15Z",
    "home": "Levante",
    "away": "Barcelona",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 4,
    "homeGoals": [
@@ -1826,7 +1894,7 @@
     },
     {
      "scorer": "K. Adeyemi",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "competition": "PD",
@@ -1835,10 +1903,11 @@
   {
    "url": "espn:401882884",
    "date": "2026-09-13",
+   "utc": "2026-09-13T16:30Z",
    "home": "Getafe",
    "away": "Deportivo",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -1859,10 +1928,11 @@
   {
    "url": "espn:401882879",
    "date": "2026-09-13",
+   "utc": "2026-09-13T19:00Z",
    "home": "Real Sociedad",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 3,
    "homeGoals": [],
@@ -1877,7 +1947,7 @@
     },
     {
      "scorer": "G. Simeone",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "competition": "PD",
@@ -1886,10 +1956,11 @@
   {
    "url": "espn:401884798",
    "date": "2026-09-13",
+   "utc": "2026-09-13T13:30Z",
    "home": "RB Leipzig",
    "away": "Hamburg SV",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 0,
    "homeGoals": [
@@ -1921,10 +1992,11 @@
   {
    "url": "espn:401884791",
    "date": "2026-09-13",
+   "utc": "2026-09-13T15:30Z",
    "home": "Elversberg",
    "away": "Bayern",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -1949,10 +2021,11 @@
   {
    "url": "espn:401874936",
    "date": "2026-09-13",
+   "utc": "2026-09-13T13:00Z",
    "home": "Lecce",
    "away": "Monza",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -1985,10 +2058,11 @@
   {
    "url": "espn:401874792",
    "date": "2026-09-13",
+   "utc": "2026-09-13T16:00Z",
    "home": "Napoli",
    "away": "Bologna",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -2004,10 +2078,11 @@
   {
    "url": "espn:401874750",
    "date": "2026-09-13",
+   "utc": "2026-09-13T18:45Z",
    "home": "Sassuolo",
    "away": "Juventus",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -2021,7 +2096,7 @@
     },
     {
      "scorer": "V. Adzic",
-     "minute": 94
+     "minute": "90+4"
     }
    ],
    "awayGoals": [
@@ -2031,7 +2106,7 @@
     },
     {
      "scorer": "E. Zhegrova",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "SA",
@@ -2040,10 +2115,11 @@
   {
    "url": "espn:401876462",
    "date": "2026-09-13",
+   "utc": "2026-09-13T13:00Z",
    "home": "Lille",
    "away": "Troyes",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -2053,7 +2129,7 @@
     },
     {
      "scorer": "E. Mbappé",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "awayGoals": [],
@@ -2063,10 +2139,11 @@
   {
    "url": "espn:401876463",
    "date": "2026-09-13",
+   "utc": "2026-09-13T15:15Z",
    "home": "Le Mans",
    "away": "RC Lens",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -2082,7 +2159,7 @@
    "awayGoals": [
     {
      "scorer": "A. Sima",
-     "minute": 47
+     "minute": "45+2"
     },
     {
      "scorer": "F. Ivanovic",
@@ -2095,10 +2172,11 @@
   {
    "url": "espn:401876465",
    "date": "2026-09-13",
+   "utc": "2026-09-13T18:45Z",
    "home": "Brest",
-   "away": "PSG",
-   "htHome": null,
-   "htAway": null,
+   "away": "Paris FC",
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -2114,10 +2192,11 @@
   {
    "url": "espn:401879285",
    "date": "2026-09-12",
+   "utc": "2026-09-12T14:00Z",
    "home": "Bournemouth",
    "away": "Brentford",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -2146,10 +2225,11 @@
   {
    "url": "espn:401879284",
    "date": "2026-09-12",
+   "utc": "2026-09-12T14:00Z",
    "home": "Aston Villa",
    "away": "Nottingham",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -2174,10 +2254,11 @@
   {
    "url": "espn:401879283",
    "date": "2026-09-12",
+   "utc": "2026-09-12T14:00Z",
    "home": "Chelsea",
    "away": "Hull City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -2206,10 +2287,11 @@
   {
    "url": "espn:401879281",
    "date": "2026-09-12",
+   "utc": "2026-09-12T14:00Z",
    "home": "Crystal Palace",
    "away": "Ipswich Town",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -2242,10 +2324,11 @@
   {
    "url": "espn:401879279",
    "date": "2026-09-12",
+   "utc": "2026-09-12T14:00Z",
    "home": "Liverpool",
    "away": "Fulham",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -2256,10 +2339,11 @@
   {
    "url": "espn:401879277",
    "date": "2026-09-12",
+   "utc": "2026-09-12T16:30Z",
    "home": "Tottenham",
    "away": "Everton",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -2270,10 +2354,11 @@
   {
    "url": "espn:401878779",
    "date": "2026-09-12",
+   "utc": "2026-09-12T19:00Z",
    "home": "Sunderland",
    "away": "Arsenal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -2284,7 +2369,7 @@
     },
     {
      "scorer": "B. Saka (pen)",
-     "minute": 97
+     "minute": "90+7"
     }
    ],
    "competition": "PL",
@@ -2293,10 +2378,11 @@
   {
    "url": "espn:401882881",
    "date": "2026-09-12",
+   "utc": "2026-09-12T12:00Z",
    "home": "Santander",
    "away": "Alavés",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -2321,10 +2407,11 @@
   {
    "url": "espn:401882882",
    "date": "2026-09-12",
+   "utc": "2026-09-12T14:15Z",
    "home": "Osasuna",
    "away": "Espanyol",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -2344,10 +2431,11 @@
   {
    "url": "espn:401882886",
    "date": "2026-09-12",
+   "utc": "2026-09-12T16:30Z",
    "home": "Athletic",
    "away": "Elche",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -2368,10 +2456,11 @@
   {
    "url": "espn:401882880",
    "date": "2026-09-12",
+   "utc": "2026-09-12T19:00Z",
    "home": "Real Madrid",
    "away": "Rayo Vallecano",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
@@ -2389,7 +2478,7 @@
     },
     {
      "scorer": "K. Mbappé",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "awayGoals": [
@@ -2404,10 +2493,11 @@
   {
    "url": "espn:401884799",
    "date": "2026-09-12",
+   "utc": "2026-09-12T13:30Z",
    "home": "Dortmund",
    "away": "SC Paderborn",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -2431,10 +2521,11 @@
   {
    "url": "espn:401884795",
    "date": "2026-09-12",
+   "utc": "2026-09-12T13:30Z",
    "home": "Augsburg",
    "away": "Leverkusen",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -2463,10 +2554,11 @@
   {
    "url": "espn:401884794",
    "date": "2026-09-12",
+   "utc": "2026-09-12T13:30Z",
    "home": "Mainz",
    "away": "Frankfurt",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
@@ -2482,7 +2574,7 @@
     },
     {
      "scorer": "J. Burkardt",
-     "minute": 46
+     "minute": "45+1"
     },
     {
      "scorer": "C. Uzun",
@@ -2495,10 +2587,11 @@
   {
    "url": "espn:401884796",
    "date": "2026-09-12",
+   "utc": "2026-09-12T13:30Z",
    "home": "Freiburg",
-   "away": "M'gladbach",
-   "htHome": null,
-   "htAway": null,
+   "away": "Málaga",
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 0,
    "homeGoals": [
@@ -2530,10 +2623,11 @@
   {
    "url": "espn:401884797",
    "date": "2026-09-12",
+   "utc": "2026-09-12T13:30Z",
    "home": "Hoffenheim",
    "away": "Stuttgart",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -2558,10 +2652,11 @@
   {
    "url": "espn:401884792",
    "date": "2026-09-12",
+   "utc": "2026-09-12T16:30Z",
    "home": "FC Cologne",
    "away": "Bremen",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -2582,10 +2677,11 @@
   {
    "url": "espn:401874991",
    "date": "2026-09-12",
+   "utc": "2026-09-12T13:00Z",
    "home": "Genoa",
    "away": "Frosinone",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -2606,10 +2702,11 @@
   {
    "url": "espn:401874941",
    "date": "2026-09-12",
+   "utc": "2026-09-12T16:00Z",
    "home": "Lazio",
    "away": "Milan",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -2638,10 +2735,11 @@
   {
    "url": "espn:401874979",
    "date": "2026-09-12",
+   "utc": "2026-09-12T18:45Z",
    "home": "Atalanta",
    "away": "Cagliari",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -2666,33 +2764,36 @@
   {
    "url": "espn:401876458",
    "date": "2026-09-12",
+   "utc": "2026-09-12T15:15Z",
    "home": "Strasbourg",
    "away": "Monaco",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
-   "homeGoals": [],
-   "awayGoals": [
+   "homeGoals": [
     {
      "scorer": "S. Sané (og)",
      "minute": 52
-    },
+    }
+   ],
+   "awayGoals": [
     {
      "scorer": "P. Brunner",
      "minute": 71
     }
    ],
    "competition": "FL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401876466",
    "date": "2026-09-12",
+   "utc": "2026-09-12T18:45Z",
    "home": "Auxerre",
    "away": "Nice",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -2708,10 +2809,11 @@
   {
    "url": "espn:401876464",
    "date": "2026-09-12",
+   "utc": "2026-09-12T18:45Z",
    "home": "Le Havre",
    "away": "Angers SCO",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -2722,10 +2824,11 @@
   {
    "url": "espn:401876461",
    "date": "2026-09-12",
+   "utc": "2026-09-12T18:45Z",
    "home": "Lorient",
    "away": "Toulouse",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -2754,10 +2857,11 @@
   {
    "url": "espn:401876460",
    "date": "2026-09-12",
-   "home": "PSG",
+   "utc": "2026-09-12T18:45Z",
+   "home": "Paris FC",
    "away": "Olympique Lyon",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -2768,10 +2872,11 @@
   {
    "url": "espn:401882878",
    "date": "2026-09-11",
+   "utc": "2026-09-11T19:00Z",
    "home": "Sevilla FC",
    "away": "Valencia",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -2787,16 +2892,17 @@
   {
    "url": "espn:401884793",
    "date": "2026-09-11",
+   "utc": "2026-09-11T18:30Z",
    "home": "Union Berlin",
    "away": "Schalke",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
     {
      "scorer": "T. Skarke",
-     "minute": 96
+     "minute": "90+6"
     }
    ],
    "awayGoals": [
@@ -2810,7 +2916,7 @@
     },
     {
      "scorer": "M. Wöber",
-     "minute": 103
+     "minute": "90+13"
     }
    ],
    "competition": "BL1",
@@ -2819,10 +2925,11 @@
   {
    "url": "espn:401874759",
    "date": "2026-09-11",
+   "utc": "2026-09-11T18:45Z",
    "home": "Venezia FC",
    "away": "Fiorentina",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 4,
    "homeGoals": [
@@ -2859,10 +2966,11 @@
   {
    "url": "espn:401876459",
    "date": "2026-09-11",
+   "utc": "2026-09-11T18:45Z",
    "home": "Stade Rennais",
    "away": "Marseille",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -2878,10 +2986,11 @@
   {
    "url": "espn:401915444",
    "date": "2026-09-10",
+   "utc": "2026-09-10T16:45Z",
    "home": "Fenerbahce",
    "away": "Roma",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -2902,10 +3011,11 @@
   {
    "url": "espn:401915422",
    "date": "2026-09-10",
+   "utc": "2026-09-10T16:45Z",
    "home": "PSV",
    "away": "Shakhtar Donetsk",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -2917,7 +3027,7 @@
    "awayGoals": [
     {
      "scorer": "G. Mendoza",
-     "minute": 46
+     "minute": "45+1"
     }
    ],
    "competition": "CL",
@@ -2926,10 +3036,11 @@
   {
    "url": "espn:401915443",
    "date": "2026-09-10",
+   "utc": "2026-09-10T19:00Z",
    "home": "Bayern",
    "away": "Bodø/Glimt",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 0,
    "homeGoals": [
@@ -2951,7 +3062,7 @@
     },
     {
      "scorer": "M. Olise",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "awayGoals": [],
@@ -2961,10 +3072,11 @@
   {
    "url": "espn:401915441",
    "date": "2026-09-10",
+   "utc": "2026-09-10T19:00Z",
    "home": "Como 1907",
    "away": "RB Leipzig",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
@@ -2997,10 +3109,11 @@
   {
    "url": "espn:401915442",
    "date": "2026-09-10",
+   "utc": "2026-09-10T19:00Z",
    "home": "Man United",
    "away": "Sabah FK",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -3028,10 +3141,11 @@
   {
    "url": "espn:401915440",
    "date": "2026-09-10",
+   "utc": "2026-09-10T19:00Z",
    "home": "Slavia Praha",
    "away": "RC Lens",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -3051,11 +3165,11 @@
     },
     {
      "scorer": "F. Thauvin",
-     "minute": 91
+     "minute": "90+1"
     },
     {
      "scorer": "R. Aguilar",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "competition": "CL",
@@ -3064,10 +3178,11 @@
   {
    "url": "espn:401915424",
    "date": "2026-09-09",
+   "utc": "2026-09-09T16:45Z",
    "home": "Barcelona",
    "away": "Feyenoord",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 1,
    "homeGoals": [
@@ -3104,10 +3219,11 @@
   {
    "url": "espn:401915448",
    "date": "2026-09-09",
+   "utc": "2026-09-09T16:45Z",
    "home": "Stuttgart",
    "away": "Viking",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
@@ -3136,10 +3252,11 @@
   {
    "url": "espn:401915446",
    "date": "2026-09-09",
+   "utc": "2026-09-09T19:00Z",
    "home": "Liverpool",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -3164,10 +3281,11 @@
   {
    "url": "espn:401915423",
    "date": "2026-09-09",
+   "utc": "2026-09-09T19:00Z",
    "home": "Napoli",
    "away": "Arsenal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -3183,10 +3301,11 @@
   {
    "url": "espn:401915445",
    "date": "2026-09-09",
-   "home": "PSG",
+   "utc": "2026-09-09T19:00Z",
+   "home": "Paris FC",
    "away": "Sl. Bratislava",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 6,
    "ftAway": 1,
    "homeGoals": [
@@ -3227,17 +3346,14 @@
   {
    "url": "espn:401915447",
    "date": "2026-09-09",
+   "utc": "2026-09-09T19:00Z",
    "home": "Sporting CP",
    "away": "Galatasaray",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
-    {
-     "scorer": "G. Inácio (og)",
-     "minute": 5
-    },
     {
      "scorer": "G. Catamo",
      "minute": 27
@@ -3251,17 +3367,23 @@
      "minute": 63
     }
    ],
-   "awayGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "G. Inácio (og)",
+     "minute": 5
+    }
+   ],
    "competition": "CL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401915452",
    "date": "2026-09-08",
+   "utc": "2026-09-08T16:45Z",
    "home": "PAE AEK",
    "away": "LASK",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -3277,10 +3399,11 @@
   {
    "url": "espn:401915426",
    "date": "2026-09-08",
+   "utc": "2026-09-08T16:45Z",
    "home": "Club Brugge",
    "away": "Aston Villa",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 3,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -3313,13 +3436,18 @@
   {
    "url": "espn:401915449",
    "date": "2026-09-08",
+   "utc": "2026-09-08T19:00Z",
    "home": "Dortmund",
    "away": "Villarreal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
+    {
+     "scorer": "R. Veiga (og)",
+     "minute": 53
+    },
     {
      "scorer": "S. Guirassy",
      "minute": 80
@@ -3327,20 +3455,16 @@
     {
      "scorer": "S. Guirassy (pen)",
      "minute": 85
-    },
-    {
-     "scorer": "S. Guirassy (og)",
-     "minute": 93
     }
    ],
    "awayGoals": [
     {
-     "scorer": "R. Veiga (og)",
-     "minute": 53
-    },
-    {
      "scorer": "S. Mouriño",
      "minute": 66
+    },
+    {
+     "scorer": "S. Guirassy (og)",
+     "minute": "90+3"
     }
    ],
    "competition": "CL",
@@ -3349,10 +3473,11 @@
   {
    "url": "espn:401915425",
    "date": "2026-09-08",
+   "utc": "2026-09-08T19:00Z",
    "home": "Porto",
    "away": "Man City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -3363,7 +3488,7 @@
     },
     {
      "scorer": "E. Haaland",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "CL",
@@ -3372,10 +3497,11 @@
   {
    "url": "espn:401915450",
    "date": "2026-09-08",
+   "utc": "2026-09-08T19:00Z",
    "home": "Lille",
    "away": "Real Betis",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -3408,10 +3534,11 @@
   {
    "url": "espn:401915451",
    "date": "2026-09-08",
+   "utc": "2026-09-08T19:00Z",
    "home": "Real Madrid",
    "away": "Inter",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -3436,10 +3563,11 @@
   {
    "url": "espn:401882891",
    "date": "2026-09-07",
+   "utc": "2026-09-07T17:00Z",
    "home": "Getafe",
    "away": "Celta",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -3460,10 +3588,11 @@
   {
    "url": "espn:401882893",
    "date": "2026-09-07",
+   "utc": "2026-09-07T19:30Z",
    "home": "Elche",
    "away": "Real Sociedad",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -3496,10 +3625,11 @@
   {
    "url": "espn:401874943",
    "date": "2026-09-07",
+   "utc": "2026-09-07T16:30Z",
    "home": "Cagliari",
    "away": "Lecce",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -3515,10 +3645,11 @@
   {
    "url": "espn:401874962",
    "date": "2026-09-07",
+   "utc": "2026-09-07T18:45Z",
    "home": "Udinese",
    "away": "Lazio",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -3543,10 +3674,11 @@
   {
    "url": "espn:401879291",
    "date": "2026-09-06",
+   "utc": "2026-09-06T13:00Z",
    "home": "Everton",
    "away": "Man United",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -3556,7 +3688,7 @@
     },
     {
      "scorer": "A. Maitland-Niles",
-     "minute": 96
+     "minute": "90+6"
     }
    ],
    "awayGoals": [
@@ -3575,10 +3707,11 @@
   {
    "url": "espn:401879292",
    "date": "2026-09-06",
+   "utc": "2026-09-06T15:30Z",
    "home": "Arsenal",
    "away": "Chelsea",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -3603,10 +3736,11 @@
   {
    "url": "espn:401882888",
    "date": "2026-09-06",
+   "utc": "2026-09-06T14:15Z",
    "home": "Valencia",
    "away": "Barcelona",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 5,
    "homeGoals": [],
@@ -3638,10 +3772,11 @@
   {
    "url": "espn:401882896",
    "date": "2026-09-06",
+   "utc": "2026-09-06T16:30Z",
    "home": "Alavés",
    "away": "Osasuna",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 2,
    "homeGoals": [
@@ -3682,10 +3817,11 @@
   {
    "url": "espn:401882890",
    "date": "2026-09-06",
+   "utc": "2026-09-06T16:30Z",
    "home": "Málaga",
    "away": "Levante",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -3696,16 +3832,17 @@
   {
    "url": "espn:401882892",
    "date": "2026-09-06",
+   "utc": "2026-09-06T19:00Z",
    "home": "Espanyol",
    "away": "Sevilla FC",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
     {
      "scorer": "M. Fernández",
-     "minute": 98
+     "minute": "90+8"
     }
    ],
    "awayGoals": [
@@ -3720,10 +3857,11 @@
   {
    "url": "espn:401884803",
    "date": "2026-09-06",
+   "utc": "2026-09-06T13:30Z",
    "home": "Hamburg SV",
    "away": "Mainz",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 5,
    "homeGoals": [],
@@ -3746,7 +3884,7 @@
     },
     {
      "scorer": "R. Königsdörffer",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "BL1",
@@ -3755,23 +3893,24 @@
   {
    "url": "espn:401884805",
    "date": "2026-09-06",
+   "utc": "2026-09-06T15:30Z",
    "home": "Frankfurt",
    "away": "Augsburg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 4,
    "homeGoals": [
     {
      "scorer": "J. Burkardt",
      "minute": 6
-    },
-    {
-     "scorer": "E. Baum (og)",
-     "minute": 46
     }
    ],
    "awayGoals": [
+    {
+     "scorer": "E. Baum (og)",
+     "minute": 46
+    },
     {
      "scorer": "R. Fellhauer",
      "minute": 47
@@ -3786,15 +3925,16 @@
     }
    ],
    "competition": "BL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401874768",
    "date": "2026-09-06",
+   "utc": "2026-09-06T13:00Z",
    "home": "Frosinone",
    "away": "Venezia FC",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -3827,10 +3967,11 @@
   {
    "url": "espn:401874987",
    "date": "2026-09-06",
+   "utc": "2026-09-06T13:00Z",
    "home": "Parma",
    "away": "Monza",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -3851,10 +3992,11 @@
   {
    "url": "espn:401874751",
    "date": "2026-09-06",
+   "utc": "2026-09-06T16:00Z",
    "home": "Bologna",
    "away": "Sassuolo",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -3864,7 +4006,7 @@
     },
     {
      "scorer": "A. Dovbyk",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "awayGoals": [
@@ -3883,16 +4025,17 @@
   {
    "url": "espn:401874954",
    "date": "2026-09-06",
+   "utc": "2026-09-06T18:45Z",
    "home": "Juventus",
    "away": "Milan",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
     {
      "scorer": "F. Gatti",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "awayGoals": [
@@ -3907,10 +4050,11 @@
   {
    "url": "espn:401876467",
    "date": "2026-09-06",
+   "utc": "2026-09-06T13:00Z",
    "home": "Troyes",
    "away": "Strasbourg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 6,
    "homeGoals": [
@@ -3920,7 +4064,7 @@
     },
     {
      "scorer": "J. Le Douaron",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "awayGoals": [
@@ -3946,7 +4090,7 @@
     },
     {
      "scorer": "C. Harder",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "competition": "FL1",
@@ -3955,17 +4099,14 @@
   {
    "url": "espn:401876475",
    "date": "2026-09-06",
+   "utc": "2026-09-06T15:15Z",
    "home": "Angers SCO",
    "away": "Stade Rennais",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
-    {
-     "scorer": "J. Lefort (og)",
-     "minute": 17
-    },
     {
      "scorer": "C. Arcus",
      "minute": 35
@@ -3975,18 +4116,23 @@
     {
      "scorer": "P. Frankowski",
      "minute": 9
+    },
+    {
+     "scorer": "J. Lefort (og)",
+     "minute": 17
     }
    ],
    "competition": "FL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401876471",
    "date": "2026-09-06",
+   "utc": "2026-09-06T18:45Z",
    "home": "Marseille",
-   "away": "PSG",
-   "htHome": null,
-   "htAway": null,
+   "away": "Paris FC",
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -4019,17 +4165,14 @@
   {
    "url": "espn:401879286",
    "date": "2026-09-05",
+   "utc": "2026-09-05T11:30Z",
    "home": "Newcastle",
    "away": "Bournemouth",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
-    {
-     "scorer": "M. Thiaw (og)",
-     "minute": 35
-    },
     {
      "scorer": "H. Barnes",
      "minute": 37
@@ -4043,18 +4186,23 @@
     {
      "scorer": "M. Tavernier",
      "minute": 9
+    },
+    {
+     "scorer": "M. Thiaw (og)",
+     "minute": 35
     }
    ],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401879311",
    "date": "2026-09-05",
+   "utc": "2026-09-05T14:00Z",
    "home": "Brentford",
    "away": "Sunderland",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -4075,10 +4223,11 @@
   {
    "url": "espn:401879290",
    "date": "2026-09-05",
+   "utc": "2026-09-05T14:00Z",
    "home": "Brighton Hove",
    "away": "Leeds United",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -4099,10 +4248,11 @@
   {
    "url": "espn:401879289",
    "date": "2026-09-05",
+   "utc": "2026-09-05T14:00Z",
    "home": "Fulham",
    "away": "Crystal Palace",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -4135,10 +4285,11 @@
   {
    "url": "espn:401879287",
    "date": "2026-09-05",
+   "utc": "2026-09-05T14:00Z",
    "home": "Man City",
    "away": "Coventry City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -4154,10 +4305,11 @@
   {
    "url": "espn:401878780",
    "date": "2026-09-05",
+   "utc": "2026-09-05T14:00Z",
    "home": "Nottingham",
    "away": "Tottenham",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -4168,10 +4320,11 @@
   {
    "url": "espn:401878781",
    "date": "2026-09-05",
+   "utc": "2026-09-05T16:30Z",
    "home": "Hull City",
    "away": "Aston Villa",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -4182,10 +4335,11 @@
   {
    "url": "espn:401882895",
    "date": "2026-09-05",
+   "utc": "2026-09-05T14:15Z",
    "home": "Athletic",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -4209,10 +4363,11 @@
   {
    "url": "espn:401882889",
    "date": "2026-09-05",
+   "utc": "2026-09-05T16:30Z",
    "home": "Rayo Vallecano",
    "away": "Santander",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 2,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -4245,26 +4400,27 @@
   {
    "url": "espn:401882887",
    "date": "2026-09-05",
+   "utc": "2026-09-05T19:00Z",
    "home": "Villarreal",
    "away": "Deportivo",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
     {
      "scorer": "N. Pépé",
      "minute": 19
+    },
+    {
+     "scorer": "A. Traoré (og)",
+     "minute": 76
     }
    ],
    "awayGoals": [
     {
      "scorer": "L. Cruz",
      "minute": 43
-    },
-    {
-     "scorer": "A. Traoré (og)",
-     "minute": 76
     },
     {
      "scorer": "Z. Eddahchouri",
@@ -4276,15 +4432,16 @@
     }
    ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401884806",
    "date": "2026-09-05",
+   "utc": "2026-09-05T13:30Z",
    "home": "Leverkusen",
    "away": "Union Berlin",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -4312,10 +4469,11 @@
   {
    "url": "espn:401884804",
    "date": "2026-09-05",
-   "home": "M'gladbach",
+   "utc": "2026-09-05T13:30Z",
+   "home": "Málaga",
    "away": "Elversberg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 4,
    "homeGoals": [
@@ -4347,7 +4505,7 @@
     },
     {
      "scorer": "M. Krattenmacher",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "competition": "BL1",
@@ -4356,10 +4514,11 @@
   {
    "url": "espn:401884800",
    "date": "2026-09-05",
+   "utc": "2026-09-05T13:30Z",
    "home": "SC Paderborn",
    "away": "Freiburg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -4375,10 +4534,11 @@
   {
    "url": "espn:401884807",
    "date": "2026-09-05",
+   "utc": "2026-09-05T13:30Z",
    "home": "Hoffenheim",
    "away": "Dortmund",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -4389,10 +4549,6 @@
     {
      "scorer": "T. Lemperle",
      "minute": 54
-    },
-    {
-     "scorer": "A. Hajdari (og)",
-     "minute": 86
     }
    ],
    "awayGoals": [
@@ -4403,18 +4559,23 @@
     {
      "scorer": "F. Silva",
      "minute": 66
+    },
+    {
+     "scorer": "A. Hajdari (og)",
+     "minute": 86
     }
    ],
    "competition": "BL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401884802",
    "date": "2026-09-05",
+   "utc": "2026-09-05T13:30Z",
    "home": "Bremen",
    "away": "RB Leipzig",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
@@ -4434,7 +4595,7 @@
    "awayGoals": [
     {
      "scorer": "R. Baku",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "competition": "BL1",
@@ -4443,10 +4604,11 @@
   {
    "url": "espn:401884801",
    "date": "2026-09-05",
+   "utc": "2026-09-05T16:30Z",
    "home": "Schalke",
    "away": "Bayern",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -4457,10 +4619,11 @@
   {
    "url": "espn:401874939",
    "date": "2026-09-05",
+   "utc": "2026-09-05T13:00Z",
    "home": "Fiorentina",
    "away": "Torino",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -4485,10 +4648,11 @@
   {
    "url": "espn:401874937",
    "date": "2026-09-05",
+   "utc": "2026-09-05T16:00Z",
    "home": "Inter",
    "away": "Napoli",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -4502,7 +4666,7 @@
     },
     {
      "scorer": "L. Martínez",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "awayGoals": [
@@ -4521,10 +4685,11 @@
   {
    "url": "espn:401874781",
    "date": "2026-09-05",
+   "utc": "2026-09-05T18:45Z",
    "home": "Roma",
    "away": "Atalanta",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -4534,7 +4699,7 @@
     },
     {
      "scorer": "M. Soulè",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "awayGoals": [
@@ -4549,10 +4714,11 @@
   {
    "url": "espn:401876473",
    "date": "2026-09-05",
+   "utc": "2026-09-05T15:15Z",
    "home": "RC Lens",
    "away": "Lorient",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -4568,10 +4734,11 @@
   {
    "url": "espn:401876474",
    "date": "2026-09-05",
+   "utc": "2026-09-05T18:45Z",
    "home": "Le Havre",
    "away": "Brest",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -4596,10 +4763,11 @@
   {
    "url": "espn:401876470",
    "date": "2026-09-05",
+   "utc": "2026-09-05T18:45Z",
    "home": "Nice",
    "away": "Le Mans",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -4620,10 +4788,11 @@
   {
    "url": "espn:401879288",
    "date": "2026-09-04",
+   "utc": "2026-09-04T19:00Z",
    "home": "Ipswich Town",
    "away": "Liverpool",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -4643,10 +4812,11 @@
   {
    "url": "espn:401882894",
    "date": "2026-09-04",
+   "utc": "2026-09-04T19:00Z",
    "home": "Real Betis",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -4662,10 +4832,11 @@
   {
    "url": "espn:401884808",
    "date": "2026-09-04",
+   "utc": "2026-09-04T18:30Z",
    "home": "Stuttgart",
    "away": "FC Cologne",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
@@ -4698,10 +4869,11 @@
   {
    "url": "espn:401874744",
    "date": "2026-09-04",
+   "utc": "2026-09-04T18:45Z",
    "home": "Genoa",
    "away": "Como 1907",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 3,
    "ftHome": 1,
    "ftAway": 4,
    "homeGoals": [
@@ -4734,10 +4906,11 @@
   {
    "url": "espn:401876472",
    "date": "2026-09-04",
+   "utc": "2026-09-04T17:00Z",
    "home": "Olympique Lyon",
    "away": "Auxerre",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
@@ -4766,10 +4939,11 @@
   {
    "url": "espn:401876469",
    "date": "2026-09-04",
-   "home": "PSG",
+   "utc": "2026-09-04T19:05Z",
+   "home": "Paris FC",
    "away": "Monaco",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -4794,10 +4968,11 @@
   {
    "url": "espn:401882867",
    "date": "2026-09-03",
+   "utc": "2026-09-03T19:00Z",
    "home": "Real Sociedad",
    "away": "Celta",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -4808,10 +4983,11 @@
   {
    "url": "espn:401876468",
    "date": "2026-09-03",
+   "utc": "2026-09-03T18:45Z",
    "home": "Toulouse",
    "away": "Lille",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -4827,10 +5003,11 @@
   {
    "url": "espn:401879295",
    "date": "2026-08-31",
+   "utc": "2026-08-31T19:00Z",
    "home": "Aston Villa",
    "away": "Arsenal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -4846,16 +5023,17 @@
   {
    "url": "espn:401882901",
    "date": "2026-08-31",
+   "utc": "2026-08-31T17:30Z",
    "home": "Osasuna",
    "away": "Getafe",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
     {
      "scorer": "A. Budimir (pen)",
-     "minute": 47
+     "minute": "45+2"
     }
    ],
    "awayGoals": [],
@@ -4865,10 +5043,11 @@
   {
    "url": "espn:401882903",
    "date": "2026-08-31",
+   "utc": "2026-08-31T19:30Z",
    "home": "Barcelona",
    "away": "Rayo Vallecano",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 5,
    "ftAway": 2,
    "homeGoals": [
@@ -4879,6 +5058,10 @@
     {
      "scorer": "L. Yamal",
      "minute": 21
+    },
+    {
+     "scorer": "F. Lejeune (og)",
+     "minute": 51
     },
     {
      "scorer": "Raphinha",
@@ -4895,24 +5078,21 @@
      "minute": 12
     },
     {
-     "scorer": "F. Lejeune (og)",
-     "minute": 51
-    },
-    {
      "scorer": "S. Camello",
      "minute": 59
     }
    ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401874945",
    "date": "2026-08-31",
+   "utc": "2026-08-31T16:30Z",
    "home": "Lecce",
    "away": "Roma",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 3,
    "ftHome": 0,
    "ftAway": 4,
    "homeGoals": [],
@@ -4940,16 +5120,17 @@
   {
    "url": "espn:401874970",
    "date": "2026-08-31",
+   "utc": "2026-08-31T18:45Z",
    "home": "Atalanta",
    "away": "Bologna",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
     {
      "scorer": "L. Samardzic",
-     "minute": 96
+     "minute": "90+6"
     }
    ],
    "awayGoals": [],
@@ -4959,10 +5140,11 @@
   {
    "url": "espn:401879317",
    "date": "2026-08-30",
+   "utc": "2026-08-30T13:00Z",
    "home": "Chelsea",
    "away": "Brighton Hove",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 1,
    "ftHome": 4,
    "ftAway": 3,
    "homeGoals": [
@@ -4979,10 +5161,6 @@
      "minute": 32
     },
     {
-     "scorer": "João Pedro (og)",
-     "minute": 63
-    },
-    {
      "scorer": "C. Palmer",
      "minute": 74
     }
@@ -4993,20 +5171,25 @@
      "minute": 35
     },
     {
+     "scorer": "João Pedro (og)",
+     "minute": 63
+    },
+    {
      "scorer": "P. Gross",
-     "minute": 96
+     "minute": "90+6"
     }
    ],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401879315",
    "date": "2026-08-30",
+   "utc": "2026-08-30T13:00Z",
    "home": "Leeds United",
    "away": "Brentford",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -5027,10 +5210,11 @@
   {
    "url": "espn:401879313",
    "date": "2026-08-30",
+   "utc": "2026-08-30T13:00Z",
    "home": "Sunderland",
    "away": "Fulham",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -5046,16 +5230,21 @@
   {
    "url": "espn:401879293",
    "date": "2026-08-30",
+   "utc": "2026-08-30T15:30Z",
    "home": "Man United",
    "away": "Ipswich Town",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 5,
    "ftAway": 2,
    "homeGoals": [
     {
      "scorer": "B. Fernandes",
      "minute": 40
+    },
+    {
+     "scorer": "J. Greaves (og)",
+     "minute": 56
     },
     {
      "scorer": "B. Fernandes (pen)",
@@ -5076,24 +5265,21 @@
      "minute": 29
     },
     {
-     "scorer": "J. Greaves (og)",
-     "minute": 56
-    },
-    {
      "scorer": "C. Akpom",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882899",
    "date": "2026-08-30",
+   "utc": "2026-08-30T15:00Z",
    "home": "Real Madrid",
    "away": "Málaga",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -5102,62 +5288,63 @@
      "minute": 19
     },
     {
+     "scorer": "A. Herrero (og)",
+     "minute": 26
+    },
+    {
      "scorer": "K. Mbappé",
      "minute": 30
     },
     {
      "scorer": "A. Güler",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
-   "awayGoals": [
-    {
-     "scorer": "A. Herrero (og)",
-     "minute": 26
-    }
-   ],
+   "awayGoals": [],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882904",
    "date": "2026-08-30",
+   "utc": "2026-08-30T17:30Z",
    "home": "Deportivo",
    "away": "Valencia",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 1,
    "homeGoals": [
-    {
-     "scorer": "P. Aubameyang",
-     "minute": 17
-    }
-   ],
-   "awayGoals": [
     {
      "scorer": "C. Tárrega (og)",
      "minute": 13
     },
     {
-     "scorer": "U. Sadiq",
-     "minute": 26
+     "scorer": "P. Aubameyang",
+     "minute": 17
     },
     {
      "scorer": "M. Diakhaby (og)",
      "minute": 59
     }
    ],
+   "awayGoals": [
+    {
+     "scorer": "U. Sadiq",
+     "minute": 26
+    }
+   ],
    "competition": "PD",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882905",
    "date": "2026-08-30",
+   "utc": "2026-08-30T19:30Z",
    "home": "Celta",
    "away": "Athletic",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -5177,10 +5364,11 @@
   {
    "url": "espn:401884814",
    "date": "2026-08-30",
+   "utc": "2026-08-30T13:30Z",
    "home": "Freiburg",
    "away": "Bremen",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
@@ -5213,10 +5401,11 @@
   {
    "url": "espn:401884813",
    "date": "2026-08-30",
+   "utc": "2026-08-30T15:30Z",
    "home": "Augsburg",
    "away": "Schalke",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -5230,7 +5419,7 @@
     },
     {
      "scorer": "R. Ribeiro",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "awayGoals": [],
@@ -5240,10 +5429,11 @@
   {
    "url": "espn:401874755",
    "date": "2026-08-30",
+   "utc": "2026-08-30T16:30Z",
    "home": "Napoli",
    "away": "Como 1907",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -5268,10 +5458,11 @@
   {
    "url": "espn:401874938",
    "date": "2026-08-30",
+   "utc": "2026-08-30T18:45Z",
    "home": "Cagliari",
    "away": "Inter",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -5287,10 +5478,11 @@
   {
    "url": "espn:401874742",
    "date": "2026-08-30",
+   "utc": "2026-08-30T18:45Z",
    "home": "Lazio",
    "away": "Genoa",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -5306,10 +5498,11 @@
   {
    "url": "espn:401876479",
    "date": "2026-08-30",
-   "home": "PSG",
+   "utc": "2026-08-30T13:00Z",
+   "home": "Paris FC",
    "away": "Nice",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -5333,10 +5526,11 @@
   {
    "url": "espn:401876478",
    "date": "2026-08-30",
+   "utc": "2026-08-30T15:15Z",
    "home": "Stade Rennais",
    "away": "Le Mans",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -5350,7 +5544,7 @@
     },
     {
      "scorer": "E. Lepaul (pen)",
-     "minute": 96
+     "minute": "90+6"
     }
    ],
    "awayGoals": [
@@ -5369,10 +5563,11 @@
   {
    "url": "espn:401876480",
    "date": "2026-08-30",
+   "utc": "2026-08-30T18:45Z",
    "home": "Monaco",
    "away": "Marseille",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -5392,10 +5587,11 @@
   {
    "url": "espn:401879314",
    "date": "2026-08-29",
+   "utc": "2026-08-29T11:30Z",
    "home": "Liverpool",
    "away": "Nottingham",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -5424,10 +5620,11 @@
   {
    "url": "espn:401879296",
    "date": "2026-08-29",
+   "utc": "2026-08-29T14:00Z",
    "home": "Bournemouth",
    "away": "Everton",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -5439,7 +5636,7 @@
    "awayGoals": [
     {
      "scorer": "J. Tarkowski",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "PL",
@@ -5448,10 +5645,11 @@
   {
    "url": "espn:401879316",
    "date": "2026-08-29",
+   "utc": "2026-08-29T14:00Z",
    "home": "Coventry City",
    "away": "Hull City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -5467,10 +5665,11 @@
   {
    "url": "espn:401879312",
    "date": "2026-08-29",
+   "utc": "2026-08-29T16:30Z",
    "home": "Tottenham",
    "away": "Newcastle",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -5490,10 +5689,11 @@
   {
    "url": "espn:401882902",
    "date": "2026-08-29",
+   "utc": "2026-08-29T15:00Z",
    "home": "Levante",
    "away": "Real Betis",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 2,
    "ftHome": 5,
    "ftAway": 2,
    "homeGoals": [
@@ -5503,7 +5703,7 @@
     },
     {
      "scorer": "E. Bardeli",
-     "minute": 46
+     "minute": "45+1"
     },
     {
      "scorer": "R. Brugué",
@@ -5515,7 +5715,7 @@
     },
     {
      "scorer": "J. Olasagasti",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "awayGoals": [
@@ -5525,7 +5725,7 @@
     },
     {
      "scorer": "R. Riquelme",
-     "minute": 49
+     "minute": "45+4"
     }
    ],
    "competition": "PD",
@@ -5534,10 +5734,11 @@
   {
    "url": "espn:401882898",
    "date": "2026-08-29",
+   "utc": "2026-08-29T17:00Z",
    "home": "Real Sociedad",
    "away": "Espanyol",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -5562,10 +5763,11 @@
   {
    "url": "espn:401882897",
    "date": "2026-08-29",
+   "utc": "2026-08-29T19:30Z",
    "home": "Sevilla FC",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 3,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
@@ -5594,10 +5796,11 @@
   {
    "url": "espn:401884811",
    "date": "2026-08-29",
+   "utc": "2026-08-29T13:30Z",
    "home": "Union Berlin",
    "away": "Frankfurt",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 3,
    "ftAway": 3,
    "homeGoals": [
@@ -5611,7 +5814,7 @@
     },
     {
      "scorer": "T. Skarke",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "awayGoals": [
@@ -5634,10 +5837,11 @@
   {
    "url": "espn:401884810",
    "date": "2026-08-29",
+   "utc": "2026-08-29T13:30Z",
    "home": "FC Cologne",
    "away": "Hoffenheim",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -5670,10 +5874,11 @@
   {
    "url": "espn:401884812",
    "date": "2026-08-29",
+   "utc": "2026-08-29T13:30Z",
    "home": "Mainz",
    "away": "SC Paderborn",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -5684,10 +5889,11 @@
   {
    "url": "espn:401884815",
    "date": "2026-08-29",
+   "utc": "2026-08-29T13:30Z",
    "home": "RB Leipzig",
-   "away": "M'gladbach",
-   "htHome": null,
-   "htAway": null,
+   "away": "Málaga",
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -5711,10 +5917,11 @@
   {
    "url": "espn:401884809",
    "date": "2026-08-29",
+   "utc": "2026-08-29T13:30Z",
    "home": "Elversberg",
    "away": "Leverkusen",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -5738,7 +5945,7 @@
     },
     {
      "scorer": "C. Kofane",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "competition": "BL1",
@@ -5747,34 +5954,35 @@
   {
    "url": "espn:401884816",
    "date": "2026-08-29",
+   "utc": "2026-08-29T16:30Z",
    "home": "Dortmund",
    "away": "Hamburg SV",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
     {
      "scorer": "S. Guirassy",
      "minute": 9
-    }
-   ],
-   "awayGoals": [
+    },
     {
      "scorer": "S. Bornauw (og)",
-     "minute": 46
+     "minute": "45+1"
     }
    ],
+   "awayGoals": [],
    "competition": "BL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401874942",
    "date": "2026-08-29",
+   "utc": "2026-08-29T16:30Z",
    "home": "Fiorentina",
    "away": "Frosinone",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 3,
    "homeGoals": [],
@@ -5798,10 +6006,11 @@
   {
    "url": "espn:401874749",
    "date": "2026-08-29",
+   "utc": "2026-08-29T16:30Z",
    "home": "Monza",
    "away": "Udinese",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 3,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -5825,7 +6034,7 @@
     },
     {
      "scorer": "J. Ekkelenkamp",
-     "minute": 48
+     "minute": "45+3"
     }
    ],
    "competition": "SA",
@@ -5834,10 +6043,11 @@
   {
    "url": "espn:401874743",
    "date": "2026-08-29",
+   "utc": "2026-08-29T16:30Z",
    "home": "Sassuolo",
    "away": "Torino",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -5853,7 +6063,7 @@
    "awayGoals": [
     {
      "scorer": "P. Comuzzo",
-     "minute": 47
+     "minute": "45+2"
     }
    ],
    "competition": "SA",
@@ -5862,10 +6072,11 @@
   {
    "url": "espn:401874746",
    "date": "2026-08-29",
+   "utc": "2026-08-29T18:45Z",
    "home": "Juventus",
    "away": "Parma",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -5885,10 +6096,11 @@
   {
    "url": "espn:401876477",
    "date": "2026-08-29",
+   "utc": "2026-08-29T15:15Z",
    "home": "Strasbourg",
    "away": "RC Lens",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -5913,10 +6125,11 @@
   {
    "url": "espn:401876484",
    "date": "2026-08-29",
+   "utc": "2026-08-29T18:45Z",
    "home": "Auxerre",
    "away": "Angers SCO",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
@@ -5945,10 +6158,11 @@
   {
    "url": "espn:401876483",
    "date": "2026-08-29",
+   "utc": "2026-08-29T18:45Z",
    "home": "Brest",
    "away": "Toulouse",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -5958,7 +6172,7 @@
     },
     {
      "scorer": "L. Ajorque",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "awayGoals": [
@@ -5977,10 +6191,11 @@
   {
    "url": "espn:401876482",
    "date": "2026-08-29",
+   "utc": "2026-08-29T18:45Z",
    "home": "Lorient",
    "away": "Troyes",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -6005,10 +6220,11 @@
   {
    "url": "espn:401876481",
    "date": "2026-08-29",
+   "utc": "2026-08-29T18:45Z",
    "home": "Olympique Lyon",
    "away": "Le Havre",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -6029,13 +6245,19 @@
   {
    "url": "espn:401879294",
    "date": "2026-08-28",
+   "utc": "2026-08-28T19:00Z",
    "home": "Crystal Palace",
    "away": "Man City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 4,
-   "homeGoals": [],
+   "homeGoals": [
+    {
+     "scorer": "G. Donnarumma (og)",
+     "minute": 56
+    }
+   ],
    "awayGoals": [
     {
      "scorer": "E. Haaland",
@@ -6044,10 +6266,6 @@
     {
      "scorer": "R. Cherki",
      "minute": 54
-    },
-    {
-     "scorer": "G. Donnarumma (og)",
-     "minute": 56
     },
     {
      "scorer": "R. Cherki",
@@ -6059,15 +6277,16 @@
     }
    ],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401882900",
    "date": "2026-08-28",
+   "utc": "2026-08-28T17:00Z",
    "home": "Santander",
    "away": "Elche",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 3,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 2,
    "homeGoals": [
@@ -6100,10 +6319,11 @@
   {
    "url": "espn:401882906",
    "date": "2026-08-28",
+   "utc": "2026-08-28T19:30Z",
    "home": "Alavés",
    "away": "Villarreal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -6119,10 +6339,11 @@
   {
    "url": "espn:401884817",
    "date": "2026-08-28",
+   "utc": "2026-08-28T18:30Z",
    "home": "Bayern",
    "away": "Stuttgart",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 1,
    "homeGoals": [
@@ -6135,58 +6356,59 @@
      "minute": 55
     },
     {
+     "scorer": "J. Vagnoman (og)",
+     "minute": 57
+    },
+    {
      "scorer": "A. Pavlovic",
      "minute": 82
     },
     {
      "scorer": "L. Díaz",
-     "minute": 92
+     "minute": "90+2"
     }
    ],
    "awayGoals": [
     {
      "scorer": "J. Vagnoman",
      "minute": 52
-    },
-    {
-     "scorer": "J. Vagnoman (og)",
-     "minute": 57
     }
    ],
    "competition": "BL1",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401874758",
    "date": "2026-08-28",
+   "utc": "2026-08-28T18:45Z",
    "home": "Milan",
    "away": "Venezia FC",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
     {
      "scorer": "G. Ramos",
      "minute": 69
-    }
-   ],
-   "awayGoals": [
+    },
     {
      "scorer": "R. Halhal (og)",
      "minute": 89
     }
    ],
+   "awayGoals": [],
    "competition": "SA",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401876476",
    "date": "2026-08-28",
+   "utc": "2026-08-28T19:00Z",
    "home": "Lille",
-   "away": "PSG",
-   "htHome": null,
-   "htAway": null,
+   "away": "Paris FC",
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -6202,11 +6424,11 @@
    "awayGoals": [
     {
      "scorer": "Vitinha",
-     "minute": 91
+     "minute": "90+1"
     },
     {
      "scorer": "Marquinhos",
-     "minute": 95
+     "minute": "90+5"
     }
    ],
    "competition": "FL1",
@@ -6215,10 +6437,11 @@
   {
    "url": "espn:401882924",
    "date": "2026-08-27",
+   "utc": "2026-08-27T18:30Z",
    "home": "Celta",
    "away": "Osasuna",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -6243,10 +6466,11 @@
   {
    "url": "espn:401882921",
    "date": "2026-08-27",
+   "utc": "2026-08-27T19:00Z",
    "home": "Barcelona",
    "away": "Athletic",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -6266,10 +6490,11 @@
   {
    "url": "espn:401882919",
    "date": "2026-08-26",
+   "utc": "2026-08-26T19:00Z",
    "home": "Real Madrid",
    "away": "Real Sociedad",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
@@ -6302,10 +6527,11 @@
   {
    "url": "espn:401882917",
    "date": "2026-08-25",
+   "utc": "2026-08-25T19:00Z",
    "home": "Valencia",
    "away": "Real Betis",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -6321,10 +6547,11 @@
   {
    "url": "espn:401879318",
    "date": "2026-08-24",
+   "utc": "2026-08-24T19:00Z",
    "home": "Fulham",
    "away": "Chelsea",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 3,
    "homeGoals": [
@@ -6357,10 +6584,11 @@
   {
    "url": "espn:401882909",
    "date": "2026-08-24",
+   "utc": "2026-08-24T17:30Z",
    "home": "Osasuna",
    "away": "Levante",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -6371,10 +6599,11 @@
   {
    "url": "espn:401882910",
    "date": "2026-08-24",
+   "utc": "2026-08-24T19:30Z",
    "home": "Málaga",
    "away": "Deportivo",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -6395,10 +6624,11 @@
   {
    "url": "espn:401874927",
    "date": "2026-08-24",
+   "utc": "2026-08-24T16:30Z",
    "home": "Bologna",
    "away": "Lazio",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -6414,10 +6644,11 @@
   {
    "url": "espn:401874928",
    "date": "2026-08-24",
+   "utc": "2026-08-24T18:45Z",
    "home": "Roma",
    "away": "Fiorentina",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -6445,13 +6676,18 @@
   {
    "url": "espn:401879297",
    "date": "2026-08-23",
+   "utc": "2026-08-23T13:00Z",
    "home": "Brighton Hove",
    "away": "Aston Villa",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 4,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
+    {
+     "scorer": "V. Lindelöf (og)",
+     "minute": 8
+    },
     {
      "scorer": "M. De Cuyper",
      "minute": 18
@@ -6465,22 +6701,18 @@
      "minute": 31
     }
    ],
-   "awayGoals": [
-    {
-     "scorer": "V. Lindelöf (og)",
-     "minute": 8
-    }
-   ],
+   "awayGoals": [],
    "competition": "PL",
-   "complete": false
+   "complete": true
   },
   {
    "url": "espn:401879320",
    "date": "2026-08-23",
+   "utc": "2026-08-23T13:00Z",
    "home": "Man City",
    "away": "Bournemouth",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -6490,7 +6722,7 @@
     },
     {
      "scorer": "J. Gvardiol",
-     "minute": 91
+     "minute": "90+1"
     }
    ],
    "awayGoals": [
@@ -6505,10 +6737,11 @@
   {
    "url": "espn:401879319",
    "date": "2026-08-23",
+   "utc": "2026-08-23T15:30Z",
    "home": "Newcastle",
    "away": "Liverpool",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -6528,7 +6761,7 @@
     },
     {
      "scorer": "D. Szoboszlai (pen)",
-     "minute": 99
+     "minute": "90+9"
     }
    ],
    "competition": "PL",
@@ -6537,10 +6770,11 @@
   {
    "url": "espn:401882915",
    "date": "2026-08-23",
+   "utc": "2026-08-23T15:00Z",
    "home": "Real Madrid",
    "away": "Villarreal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -6569,10 +6803,11 @@
   {
    "url": "espn:401882911",
    "date": "2026-08-23",
+   "utc": "2026-08-23T17:30Z",
    "home": "Getafe",
    "away": "Santander",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -6588,10 +6823,11 @@
   {
    "url": "espn:401882913",
    "date": "2026-08-23",
+   "utc": "2026-08-23T19:30Z",
    "home": "Elche",
    "away": "Barcelona",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 5,
    "homeGoals": [],
@@ -6602,7 +6838,7 @@
     },
     {
      "scorer": "K. Adeyemi",
-     "minute": 48
+     "minute": "45+3"
     },
     {
      "scorer": "Raphinha",
@@ -6623,10 +6859,11 @@
   {
    "url": "espn:401874930",
    "date": "2026-08-23",
+   "utc": "2026-08-23T16:30Z",
    "home": "Frosinone",
    "away": "Juventus",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -6642,10 +6879,11 @@
   {
    "url": "espn:401874946",
    "date": "2026-08-23",
+   "utc": "2026-08-23T16:30Z",
    "home": "Venezia FC",
    "away": "Lecce",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -6665,10 +6903,11 @@
   {
    "url": "espn:401874748",
    "date": "2026-08-23",
+   "utc": "2026-08-23T18:45Z",
    "home": "Atalanta",
    "away": "Sassuolo",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -6693,16 +6932,17 @@
   {
    "url": "espn:401874932",
    "date": "2026-08-23",
+   "utc": "2026-08-23T18:45Z",
    "home": "Torino",
    "away": "Milan",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
     {
      "scorer": "C. Adams",
-     "minute": 93
+     "minute": "90+3"
     }
    ],
    "awayGoals": [
@@ -6721,10 +6961,11 @@
   {
    "url": "espn:401876493",
    "date": "2026-08-23",
+   "utc": "2026-08-23T13:00Z",
    "home": "Angers SCO",
    "away": "Lille",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 2,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -6744,10 +6985,11 @@
   {
    "url": "espn:401876492",
    "date": "2026-08-23",
+   "utc": "2026-08-23T15:15Z",
    "home": "Le Havre",
    "away": "Monaco",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -6763,10 +7005,11 @@
   {
    "url": "espn:401876487",
    "date": "2026-08-23",
+   "utc": "2026-08-23T18:45Z",
    "home": "Stade Rennais",
-   "away": "PSG",
-   "htHome": null,
-   "htAway": null,
+   "away": "Paris FC",
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -6795,10 +7038,11 @@
   {
    "url": "espn:401879322",
    "date": "2026-08-22",
+   "utc": "2026-08-22T11:30Z",
    "home": "Hull City",
    "away": "Man United",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -6818,10 +7062,11 @@
   {
    "url": "espn:401879300",
    "date": "2026-08-22",
+   "utc": "2026-08-22T14:00Z",
    "home": "Everton",
    "away": "Crystal Palace",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -6841,10 +7086,11 @@
   {
    "url": "espn:401879299",
    "date": "2026-08-22",
+   "utc": "2026-08-22T14:00Z",
    "home": "Ipswich Town",
    "away": "Sunderland",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -6869,10 +7115,11 @@
   {
    "url": "espn:401879298",
    "date": "2026-08-22",
+   "utc": "2026-08-22T14:00Z",
    "home": "Nottingham",
    "away": "Leeds United",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -6888,10 +7135,11 @@
   {
    "url": "espn:401879321",
    "date": "2026-08-22",
+   "utc": "2026-08-22T16:30Z",
    "home": "Brentford",
    "away": "Tottenham",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -6915,10 +7163,11 @@
   {
    "url": "espn:401882916",
    "date": "2026-08-22",
+   "utc": "2026-08-22T15:00Z",
    "home": "Athletic",
    "away": "Sevilla FC",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 3,
    "homeGoals": [
@@ -6947,10 +7196,11 @@
   {
    "url": "espn:401882907",
    "date": "2026-08-22",
+   "utc": "2026-08-22T17:30Z",
    "home": "Valencia",
    "away": "Celta",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -6961,10 +7211,11 @@
   {
    "url": "espn:401882912",
    "date": "2026-08-22",
+   "utc": "2026-08-22T19:30Z",
    "home": "Espanyol",
    "away": "Real Madrid",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 1,
    "ftAway": 2,
    "homeGoals": [
@@ -6989,10 +7240,11 @@
   {
    "url": "espn:401874931",
    "date": "2026-08-22",
+   "utc": "2026-08-22T16:30Z",
    "home": "Inter",
    "away": "Monza",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 4,
    "ftAway": 1,
    "homeGoals": [
@@ -7025,10 +7277,11 @@
   {
    "url": "espn:401874745",
    "date": "2026-08-22",
+   "utc": "2026-08-22T16:30Z",
    "home": "Udinese",
    "away": "Como 1907",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -7049,10 +7302,11 @@
   {
    "url": "espn:401874929",
    "date": "2026-08-22",
+   "utc": "2026-08-22T18:45Z",
    "home": "Genoa",
    "away": "Napoli",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -7072,10 +7326,11 @@
   {
    "url": "espn:401874747",
    "date": "2026-08-22",
+   "utc": "2026-08-22T18:45Z",
    "home": "Parma",
    "away": "Cagliari",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 1,
    "homeGoals": [],
@@ -7091,10 +7346,11 @@
   {
    "url": "espn:401876490",
    "date": "2026-08-22",
+   "utc": "2026-08-22T15:15Z",
    "home": "RC Lens",
    "away": "Auxerre",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 5,
    "ftAway": 2,
    "homeGoals": [
@@ -7135,16 +7391,17 @@
   {
    "url": "espn:401876491",
    "date": "2026-08-22",
+   "utc": "2026-08-22T18:45Z",
    "home": "Le Mans",
    "away": "Brest",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
     {
      "scorer": "D. Guèye",
-     "minute": 47
+     "minute": "45+2"
     },
     {
      "scorer": "L. Mafouta",
@@ -7167,10 +7424,11 @@
   {
    "url": "espn:401876488",
    "date": "2026-08-22",
+   "utc": "2026-08-22T18:45Z",
    "home": "Nice",
    "away": "Lorient",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -7181,10 +7439,11 @@
   {
    "url": "espn:401876486",
    "date": "2026-08-22",
+   "utc": "2026-08-22T18:45Z",
    "home": "Toulouse",
    "away": "Olympique Lyon",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 2,
    "homeGoals": [],
@@ -7204,10 +7463,11 @@
   {
    "url": "espn:401876485",
    "date": "2026-08-22",
+   "utc": "2026-08-22T18:45Z",
    "home": "Troyes",
-   "away": "PSG",
-   "htHome": null,
-   "htAway": null,
+   "away": "Paris FC",
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 0,
    "ftAway": 0,
    "homeGoals": [],
@@ -7218,10 +7478,11 @@
   {
    "url": "espn:401879301",
    "date": "2026-08-21",
+   "utc": "2026-08-21T19:00Z",
    "home": "Arsenal",
    "away": "Coventry City",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -7245,10 +7506,11 @@
   {
    "url": "espn:401882914",
    "date": "2026-08-21",
+   "utc": "2026-08-21T19:00Z",
    "home": "Real Betis",
    "away": "Real Sociedad",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 0,
    "homeGoals": [
@@ -7264,10 +7526,11 @@
   {
    "url": "espn:401876489",
    "date": "2026-08-21",
+   "utc": "2026-08-21T18:45Z",
    "home": "Marseille",
    "away": "Strasbourg",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 4,
    "ftAway": 0,
    "homeGoals": [
@@ -7285,7 +7548,7 @@
     },
     {
      "scorer": "P. Højbjerg",
-     "minute": 96
+     "minute": "90+6"
     }
    ],
    "awayGoals": [],
@@ -7295,10 +7558,11 @@
   {
    "url": "espn:401882908",
    "date": "2026-08-20",
+   "utc": "2026-08-20T19:00Z",
    "home": "Rayo Vallecano",
    "away": "Alavés",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -7319,10 +7583,11 @@
   {
    "url": "espn:401882925",
    "date": "2026-08-19",
+   "utc": "2026-08-19T19:00Z",
    "home": "Real Madrid",
    "away": "Málaga",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 2,
    "ftAway": 0,
    "homeGoals": [
@@ -7342,10 +7607,11 @@
   {
    "url": "espn:401882923",
    "date": "2026-08-17",
+   "utc": "2026-08-17T19:00Z",
    "home": "Deportivo",
    "away": "Elche",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 1,
+   "htAway": 0,
    "ftHome": 1,
    "ftAway": 1,
    "homeGoals": [
@@ -7366,10 +7632,11 @@
   {
    "url": "espn:401882920",
    "date": "2026-08-16",
+   "utc": "2026-08-16T15:00Z",
    "home": "Santander",
    "away": "Villarreal",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 2,
    "ftHome": 2,
    "ftAway": 2,
    "homeGoals": [
@@ -7389,7 +7656,7 @@
     },
     {
      "scorer": "N. Pépé",
-     "minute": 46
+     "minute": "45+1"
     }
    ],
    "competition": "PD",
@@ -7398,10 +7665,11 @@
   {
    "url": "espn:401882922",
    "date": "2026-08-16",
+   "utc": "2026-08-16T17:00Z",
    "home": "Espanyol",
    "away": "Levante",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 2,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -7425,10 +7693,11 @@
   {
    "url": "espn:401882926",
    "date": "2026-08-15",
+   "utc": "2026-08-15T17:30Z",
    "home": "Alavés",
    "away": "Getafe",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 0,
    "ftHome": 3,
    "ftAway": 0,
    "homeGoals": [
@@ -7438,11 +7707,11 @@
     },
     {
      "scorer": "M. Díaz",
-     "minute": 91
+     "minute": "90+1"
     },
     {
      "scorer": "M. Rodriguez",
-     "minute": 94
+     "minute": "90+4"
     }
    ],
    "awayGoals": [],
@@ -7452,10 +7721,11 @@
   {
    "url": "espn:401882918",
    "date": "2026-08-15",
+   "utc": "2026-08-15T19:30Z",
    "home": "Sevilla FC",
    "away": "Rayo Vallecano",
-   "htHome": null,
-   "htAway": null,
+   "htHome": 0,
+   "htAway": 1,
    "ftHome": 2,
    "ftAway": 1,
    "homeGoals": [
@@ -7465,7 +7735,7 @@
     },
     {
      "scorer": "Peque (pen)",
-     "minute": 97
+     "minute": "90+7"
     }
    ],
    "awayGoals": [
