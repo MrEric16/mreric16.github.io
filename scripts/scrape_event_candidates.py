@@ -164,7 +164,7 @@ MONTHS = {
 # zero.
 NASA_TODAY_PATTERN = re.compile(r"\bToday\b[^\d]*?(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?", re.IGNORECASE)
 NASA_DATE_TIME_PATTERN = re.compile(
-    r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\b[^\d]{0,20}?(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?",
+    r"\b([A-Za-z]{3,9})\.?\s+(\d{1,2})\b(?:,?\s*(\d{4}))?[^\d]{0,20}?(\d{1,2})(?::(\d{2}))?\s*([ap])\.?m\.?",
     re.IGNORECASE,
 )
 
@@ -175,23 +175,23 @@ def _parse_nasa_card_datetime(card_text, now):
     if m:
         hour_12, minute, meridiem = m.groups()
         minute = int(minute) if minute else 0
-        return now.date(), f"{hour_12}:{minute:02d} {meridiem.upper()}M"
+        return now.date(), f"{hour_12}:{minute:02d} {meridiem.upper()}M ET"
 
     m = NASA_DATE_TIME_PATTERN.search(card_text)
     if m:
-        month_name, day, hour_12, minute, meridiem = m.groups()
+        month_name, day, year_text, hour_12, minute, meridiem = m.groups()
         month = MONTHS.get(month_name.lower())
         if not month:
             return None, None
         minute = int(minute) if minute else 0
-        year = now.year
+        year = int(year_text) if year_text else now.year
         try:
             candidate_date = datetime(year, month, int(day)).date()
         except ValueError:
             return None, None
-        if candidate_date < now.date():
+        if candidate_date < now.date() and not year_text:
             candidate_date = datetime(year + 1, month, int(day)).date()
-        return candidate_date, f"{hour_12}:{minute:02d} {meridiem.upper()}M"
+        return candidate_date, f"{hour_12}:{minute:02d} {meridiem.upper()}M ET"
 
     return None, None
 
