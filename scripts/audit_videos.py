@@ -15,6 +15,16 @@ def one(r):
             j=oe.json(); o["real_title"]=j.get("title"); o["channel"]=j.get("author_name")
     except Exception as e: o["oembed"]=type(e).__name__
     try:
+        ib=requests.post("https://www.youtube.com/youtubei/v1/player?prettyPrint=false",json={"videoId":v,"context":{"client":{"clientName":"TVHTML5_SIMPLY_EMBEDDED_PLAYER","clientVersion":"2.0","hl":"en"},"thirdParty":{"embedUrl":"https://mreric16.github.io/"}},"contentCheckOk":True,"racyCheckOk":True},headers={**H,"Content-Type":"application/json"},timeout=25)
+        j=ib.json(); vd=j.get("videoDetails",{}); pl=j.get("playabilityStatus",{})
+        o["ib_status"]=pl.get("status"); o["ib_reason"]=(pl.get("reason") or "")[:80]
+        if vd:
+            o["secs"]=int(vd.get("lengthSeconds",0) or 0); o["views"]=int(vd.get("viewCount",0) or 0); o["channel"]=vd.get("author") or o.get("channel"); o["live"]=vd.get("isLiveContent")
+            o["kw"]=(vd.get("keywords") or [])[:6]
+        mf=j.get("microformat",{}).get("playerMicroformatRenderer",{})
+        o["pub"]=(mf.get("publishDate") or "")[:10]; o["cat"]=mf.get("category")
+    except Exception as e: o["ib_status"]=type(e).__name__
+    try:
         w=requests.get(f"https://www.youtube.com/watch?v={v}",headers=H,timeout=25)
         p=pr(w.text)
         if p:
@@ -32,4 +42,4 @@ def one(r):
 with cf.ThreadPoolExecutor(10) as ex: out=list(ex.map(one,rows))
 json.dump(out,open("scripts/video-audit.json","w"),indent=1)
 from collections import Counter
-print(Counter(o.get("playable") for o in out), Counter(o.get("oembed") for o in out))
+print(Counter(o.get("ib_status") for o in out), Counter(o.get("playable") for o in out), Counter(o.get("oembed") for o in out))
