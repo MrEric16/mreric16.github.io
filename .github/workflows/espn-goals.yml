@@ -24,7 +24,8 @@ jobs:
         run: |
           git config user.name "espn-goals-bot"
           git config user.email "actions@github.com"
-          git add data/espn-goals.json scripts/espn-last-run-log.txt || true
+          git add scripts/espn-last-run-log.txt || true
+          git add data/espn-goals.json || true
           git diff --cached --quiet && echo "No changes" || git commit -m "Auto-update ESPN goal detail"
           git pull --rebase --autostash origin main || true
           git push
