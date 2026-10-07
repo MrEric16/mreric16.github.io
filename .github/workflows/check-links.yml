@@ -5,6 +5,11 @@ name: Check article links (manual audit)
 # it never edits index.html or redeploys the site.
 on:
   workflow_dispatch:
+    inputs:
+      candidates:
+        description: Path to a candidates JSON to check instead of DISPATCHES (blank = audit DISPATCHES)
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -24,6 +29,7 @@ jobs:
 
       - name: Audit links
         run: |
+          if [ -n "${{ inputs.candidates }}" ]; then export CANDIDATES="${{ inputs.candidates }}"; export REPORT_OUT=scripts/candidates-report.json; fi
           python3 scripts/check_links.py > scripts/link-check-log.txt 2>&1 || echo "CHECK_FAILED_SEE_LOG" >> scripts/link-check-log.txt
           cat scripts/link-check-log.txt
 
@@ -32,7 +38,7 @@ jobs:
         run: |
           git config user.name "link-audit-bot"
           git config user.email "actions@github.com"
-          git add scripts/link-report.json scripts/link-check-log.txt || true
+          git add scripts/link-report.json scripts/candidates-report.json scripts/link-check-log.txt 2>/dev/null || true
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Link audit report"
           for i in 1 2 3; do
             git pull --rebase origin main -q && git push -q && break

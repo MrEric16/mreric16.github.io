@@ -10,7 +10,7 @@ status, final URL, the page's canonical/og:url and og:title/<title>. Then flag:
   OK        - loads and matches
 Writes scripts/link-report.json. Read-only against the sites; no index.html edits.
 """
-import json, re, sys, time, html, urllib.parse
+import json, os, re, sys, time, html, urllib.parse
 from concurrent.futures import ThreadPoolExecutor
 import requests
 
@@ -20,6 +20,10 @@ HDRS = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml",
         "Accept-Language": "en-US,en;q=0.9"}
 
 def load_entries():
+    # CANDIDATES=<path> checks a JSON list of {headline,url,faculty} instead of DISPATCHES
+    import os
+    if os.environ.get("CANDIDATES"):
+        return json.load(open(os.environ["CANDIDATES"], encoding="utf-8"))
     src = open("index.html", encoding="utf-8").read()
     body = re.search(r"const DISPATCHES\s*=\s*\[(.*?)\n\];", src, re.S).group(1)
     pat = (r'\{\s*headline:"((?:[^"\\]|\\.)*)",\s*url:"([^"]+)",\s*faculty:"([^"]+)"')
@@ -114,7 +118,7 @@ def main():
     print("SUMMARY", json.dumps(counts))
     json.dump({"generated": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
                "summary": counts, "results": results},
-              open("scripts/link-report.json", "w"), indent=1)
+              open(os.environ.get("REPORT_OUT", "scripts/link-report.json"), "w"), indent=1)
 
 if __name__ == "__main__":
     main()
