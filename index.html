@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261007225152">
+<meta name="app-build" content="20261007231028">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -17063,7 +17063,7 @@ const LEAGUE_DETAIL_META = {
   UAE: { name: "UAE Pro League", flag: flagIcon('uae') },
 };
 const ARSENAL_TEAM_ID = 57;
-const SPORTS_CACHE_KEY = "sportsLiveCache_v6"; // bumped from v5 - fixed UAE fixtures/results
+const SPORTS_CACHE_KEY = "sportsLiveCache_v7"; // bumped from v5 - fixed UAE fixtures/results
 // being empty, fixed results ordering, and patched the missing Tottenham-Newcastle result on
 // 2026-08-31, but none of that reaches a browser that already cached the old (broken)
 // snapshot under v5 - the cache gate below is purely time-based and has no way to know the
@@ -17161,6 +17161,8 @@ function matchToRow(m){
     start: utcToTashkentISOString(m.utcDate),
     finished: m.status === 'FINISHED',
     matchday: m.matchday || null,
+    htHome: m.score && m.score.halfTime && m.score.halfTime.home != null ? m.score.halfTime.home : null,
+    htAway: m.score && m.score.halfTime && m.score.halfTime.away != null ? m.score.halfTime.away : null,
   };
 }
 
@@ -17442,6 +17444,17 @@ async function loadLiveSportsData(){
 //                   doesn't cover these at all, and unlike friendlies, goal.com's scraper
 //                   isn't guaranteed to have picked a given cup result up yet either, so
 //                   this is a genuine manual-entry fallback, not just a safety net.
+// Full-season finished matches from data/espn-goals.json as plain result rows, so league
+// pages and the Arsenal page list EVERY played match (football-data's feed only hands over
+// the last ~15 per league) and each one can open its scorer popup.
+function espnResultRows(pred){
+  return GOAL_RESULTS.filter(d => typeof d.url === 'string' && d.url.indexOf('espn:') === 0 && d.utc && pred(d)).map(d => ({
+    home: d.home, away: d.away, homeScore: d.ftHome, awayScore: d.ftAway,
+    start: utcToTashkentISOString(d.utc), finished: true,
+    htHome: d.htHome, htAway: d.htAway,
+  }));
+}
+
 function arsenalAllResults(){
   const live = (window._sportsCache && window._sportsCache.arsenalResults) || [];
   const goalFriendly = GOAL_RESULTS
@@ -17489,7 +17502,7 @@ function arsenalAllResults(){
   }));
   const seen = new Set();
   const merged = [];
-  [...live, ...goalFriendly, ...staticFriendly, ...staticCup].forEach(m => {
+  [...live, ...espnResultRows(d => d.home === 'Arsenal' || d.away === 'Arsenal'), ...goalFriendly, ...staticFriendly, ...staticCup].forEach(m => {
     const key = `${m.home}|${m.away}|${m.start.slice(0,10)}`;
     if(seen.has(key)) return;
     seen.add(key);
@@ -17510,6 +17523,15 @@ async function loadGoalResults(){
     if(!res.ok) throw new Error('fetch failed');
     const data = await res.json();
     GOAL_RESULTS = data.results || [];
+    // Second source: ESPN (data/espn-goals.json, scripts/fetch_espn_goals.py) covers every
+    // finished PL/La Liga/Bundesliga/Serie A/Ligue 1/CL match of the season with scorer,
+    // minute and HT. goal.com's scraper only sees recent matches and misses some outright,
+    // so it is kept as the fallback rather than the primary. Failure here must never break
+    // the goal.com data, hence its own try/catch.
+    try{
+      const r2 = await fetch('./data/espn-goals.json', { cache: 'no-store' });
+      if(r2.ok){ const d2 = await r2.json(); GOAL_RESULTS = GOAL_RESULTS.concat(d2.results || []); }
+    }catch(e){}
     goalResultsLoaded = true;
   }catch(e){ GOAL_RESULTS = []; }
   // Re-render whichever results list is actually on screen, using the SAME
@@ -17531,7 +17553,7 @@ async function loadGoalResults(){
     const cache = window._sportsCache;
     const staticLeague = meta ? SPORTS_LEAGUES.find(l => l.name === meta.name) : null;
     const matches = (cache && cache.matches && cache.matches[code]) || { results: [] };
-    results = mergeMatchLists(matches.results, (staticLeague && staticLeague.results) || []);
+    results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
   }
   if(results !== null){
     // The "2" badge next to "Results" in the summary header is a sibling of this
@@ -17549,11 +17571,9 @@ async function loadGoalResults(){
 
 function findGoalResultDetail(m){
   if(!m.start) return null;
-  // Defense in depth on top of the arsenalAllResults() fix above: m.start can come from
-  // several merged sources (live API data, static fallbacks, goal.com), so never trust
-  // that a non-empty string is actually a parseable date here too - an Invalid Date's
-  // .toISOString() throws (not returns a falsy value), and that throw was what actually
-  // took down the whole Arsenal results render.
+  // m.start can come from several merged sources, so never trust that a non-empty string
+  // is a parseable date - an Invalid Date's .toISOString() throws, which once took down
+  // the whole Arsenal results render.
   const startDate = new Date(m.start);
   if(isNaN(startDate.getTime())) return null;
   const dateStr = startDate.toISOString().slice(0,10);
@@ -17562,30 +17582,29 @@ function findGoalResultDetail(m){
     const dh = norm(d.home), da = norm(d.away), mh = norm(m.home), ma = norm(m.away);
     return (dh.includes(mh) || mh.includes(dh)) && (da.includes(ma) || ma.includes(da));
   };
-  // Primary: exact date + team names, as before - highest confidence when it hits.
-  const exact = GOAL_RESULTS.find(d => d.date === dateStr && namesMatch(d));
-  if(exact) return exact;
-  // Fallback: real data showed ~20-30% of goal.com's own league-page match reports
-  // don't expose a parseable date on their page at all (date: null), which silently
-  // blocked every one of those results from ever showing a scorer popup, however good
-  // their scorer data was. Team names + the actual final score is a strong enough
-  // signature on its own (a specific pair of teams finishing at a specific scoreline is
-  // very unlikely to collide with a different real match), and sidesteps needing a
-  // reliable date from goal.com entirely for this fallback path. Only used when the
-  // requested match has both scores known (m.homeScore/m.awayScore set).
-  if(m.homeScore == null || m.awayScore == null) return null;
-  const scoreMatch = GOAL_RESULTS.find(d =>
-    namesMatch(d) && d.ftHome === m.homeScore && d.ftAway === m.awayScore
-  );
-  if(scoreMatch) return scoreMatch;
-  // Last resort: ARSENAL_CUP_RESULTS' own hand-typed scorer detail (see its definition -
-  // goal.com hadn't scraped this result at all yet as of when it was added), matched the
-  // same team-names+score way as the fallback above. Uses ftHome/ftAway (not
-  // homeScore/awayScore) since that's the field naming this returned object needs to
-  // match GOAL_RESULTS' shape for the popup renderer downstream.
-  return ARSENAL_CUP_RESULTS.find(d =>
-    namesMatch(d) && d.ftHome === m.homeScore && d.ftAway === m.awayScore
-  ) || null;
+  const hasScore = m.homeScore != null && m.awayScore != null;
+  const scoreOk = d => !hasScore || (d.ftHome === m.homeScore && d.ftAway === m.awayScore);
+  // Gather every candidate from every source, then pick the BEST one: a record whose
+  // goal lists add up to the final score beats one with gaps (goal.com often parses only
+  // some scorers), and any record beats none. Matching: names + score, and the date when
+  // the record has one (goal.com gives date:null for ~20-30% of its pages).
+  const dayOk = d => !d.date || Math.abs(new Date(d.date + 'T00:00:00Z') - new Date(dateStr + 'T00:00:00Z')) <= 86400000 * (hasScore ? 1 : 0);
+  let cands = GOAL_RESULTS.filter(d => namesMatch(d) && scoreOk(d) && dayOk(d));
+  // ARSENAL_CUP_RESULTS: hand-typed fallback, same shape, same matching.
+  if(hasScore) cands = cands.concat(ARSENAL_CUP_RESULTS.filter(d => namesMatch(d) && d.ftHome === m.homeScore && d.ftAway === m.awayScore));
+  if(!cands.length) return null;
+  const rank = d => {
+    const full = d.homeGoals.length === d.ftHome && d.awayGoals.length === d.ftAway;
+    return (full ? 1000 : 0) + d.homeGoals.length + d.awayGoals.length + (d.htHome != null ? 1 : 0) + (d.date === dateStr ? 500 : 0);
+  };
+  cands.sort((x,y) => rank(y) - rank(x));
+  const best = Object.assign({}, cands[0]);
+  // If the best record has no HT, borrow it from any other candidate that has one.
+  if(best.htHome == null){
+    const withHt = cands.find(d => d.htHome != null);
+    if(withHt){ best.htHome = withHt.htHome; best.htAway = withHt.htAway; }
+  }
+  return best;
 }
 
 function resultsWithDetailHtml(results, isArsenal){
@@ -17593,7 +17612,15 @@ function resultsWithDetailHtml(results, isArsenal){
     return '<div id="resultsDetailContainer" class="empty-card">Nothing here yet - check back once the season\'s under way.</div>';
   }
   const items = results.map(m => {
-    const detail = findGoalResultDetail(m);
+    let detail = findGoalResultDetail(m);
+    // Every finished result is tappable. With no scorer record at all, open the popup
+    // anyway with the score (and HT if the feed supplied it) and an honest
+    // "Goal detail unavailable" instead of a dead row.
+    if(!detail && m.homeScore != null && m.awayScore != null){
+      detail = { home: m.home, away: m.away, ftHome: m.homeScore, ftAway: m.awayScore,
+        htHome: m.htHome != null ? m.htHome : null, htAway: m.htAway != null ? m.htAway : null,
+        homeGoals: [], awayGoals: [] };
+    }
     // Detail travels WITH the row via a data attribute rather than through a shared
     // window-level array+index. The old approach (window._goalDetailLookup[idx]) broke
     // in practice: the Arsenal hub and every league-detail page render into the exact
@@ -17798,7 +17825,7 @@ function leagueDetailBodyHtml(code){
   // they were appearing in the "Fixtures" list alongside the correct current gameweek.
   const fixtures = mergeMatchLists(matches.fixtures, (staticLeague && staticLeague.fixtures) || [])
     .filter(m => new Date(m.start) >= new Date());
-  let results = mergeMatchLists(matches.results, (staticLeague && staticLeague.results) || []);
+  let results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
   if(code === 'CL'){
     // Champions League has a long summer gap between seasons (final in late May, next
     // season's League Phase doesn't start until September) - without this, "Results" would

@@ -13,7 +13,7 @@ ALIAS = {"man": "manchester", "utd": "united", "spurs": "tottenham", "wolves": "
 # ESPN displayName (lowercase, unaccented) -> football-data shortName, applied first
 OVERRIDE = {"paris saint-germain": "PSG", "paris saint germain": "PSG", "barcelona": "Barça", "fc cologne": "1. FC Köln",
             "hamburg sv": "HSV", "borussia monchengladbach": "M'gladbach", "shakhtar donetsk": "Shaktar",
-            "bayern munich": "Bayern", "atletico madrid": "Atleti", "inter milan": "Inter", "internazionale": "Inter", "real madrid": "Real Madrid"}
+            "bayern munich": "Bayern", "slavia prague": "Slavia Praha", "lens": "RC Lens", "racing club de lens": "RC Lens", "atletico madrid": "Atleti", "inter milan": "Inter", "internazionale": "Inter", "real madrid": "Real Madrid"}
 STOP = {"fc", "afc", "cf", "ac", "as", "sc", "the", "and", "&", "de", "of", "ssc", "fk", "club", "calcio", "1", "04"}
 
 def unacc(s):
