@@ -65,9 +65,12 @@ def canon(espn_name):
     return best or espn_name
 
 def minute(clock):
-    m = re.match(r"(\d+)'?(?:\+(\d+))?", (clock or "").strip())
-    if not m: return None
-    return int(m.group(1)) + (int(m.group(2)) if m.group(2) else 0)
+    """Returns (display, sortkey, first_half). display is int or "45+2" style string."""
+    m = re.match(r"(\d+)'?\s*(?:\+\s*(\d+))?", (clock or "").strip())
+    if not m: return None, 9999, None
+    base = int(m.group(1)); extra = int(m.group(2)) if m.group(2) else 0
+    disp = f"{base}+{extra}" if extra else base
+    return disp, base * 100 + extra, base <= 45
 
 def parse(ev, code):
     comp = ev["competitions"][0]
@@ -87,18 +90,41 @@ def parse(ev, code):
         txt = d.get("type", {}).get("text", "")
         if d.get("ownGoal") or "Own" in txt: name += " (og)"
         elif d.get("penaltyKick") or "Penalty" in txt: name += " (pen)"
-        g = {"scorer": name, "minute": minute(d.get("clock", {}).get("displayValue"))}
+        disp, key, first = minute(d.get("clock", {}).get("displayValue"))
+        g = {"scorer": name, "minute": disp, "_k": key, "_h1": first}
         # for an own goal ESPN lists the team of the player who scored it; credit the other side
         tid = d.get("team", {}).get("id")
-        home_side = (tid == hid)
-        if "(og)" in name: home_side = not home_side
+        home_side = (tid == hid)  # ESPN already credits an own goal to the benefiting team
         (hg if home_side else ag).append(g)
-    hg.sort(key=lambda x: (x["minute"] is None, x["minute"])); ag.sort(key=lambda x: (x["minute"] is None, x["minute"]))
+    hg.sort(key=lambda x: x["_k"]); ag.sort(key=lambda x: x["_k"])
     ftH, ftA = int(h["score"]), int(a["score"])
-    return {"url": f"espn:{ev['id']}", "date": ev["date"][:10], "home": canon(h["team"]["displayName"]),
-            "away": canon(a["team"]["displayName"]), "htHome": ls(h), "htAway": ls(a),
+    complete = len(hg) == ftH and len(ag) == ftA
+    ht_h = sum(1 for g in hg if g["_h1"]) if complete else None
+    ht_a = sum(1 for g in ag if g["_h1"]) if complete else None
+    for g in hg + ag:
+        g.pop("_k", None); g.pop("_h1", None)
+    return {"url": f"espn:{ev['id']}", "date": ev["date"][:10], "utc": ev["date"], "home": canon(h["team"]["displayName"]),
+            "away": canon(a["team"]["displayName"]), "htHome": ht_h, "htAway": ht_a,
             "ftHome": ftH, "ftAway": ftA, "homeGoals": hg, "awayGoals": ag, "competition": code,
-            "complete": len(hg) == ftH and len(ag) == ftA}
+            "complete": complete}
+
+def fill_ht(results):
+    """For matches where goal detail is incomplete, take HT from football-data's halfTime."""
+    try:
+        f = json.load(open("data/football-live.json"))
+    except Exception:
+        return
+    ms = []
+    for lg in f.get("matches", {}).values(): ms += lg.get("results", [])
+    ms += f.get("arsenalFinishedMatches", [])
+    for r in results:
+        if r["htHome"] is not None: continue
+        for m in ms:
+            sc = m.get("score", {})
+            ft, ht = sc.get("fullTime", {}), sc.get("halfTime", {})
+            if ht.get("home") is None: continue
+            if m["utcDate"][:10] == r["date"] and m["homeTeam"]["shortName"] == r["home"] and m["awayTeam"]["shortName"] == r["away"] and ft.get("home") == r["ftHome"]:
+                r["htHome"], r["htAway"] = ht["home"], ht["away"]; break
 
 def probe():
     for u in ["https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard",
@@ -136,6 +162,7 @@ def main():
             if r and r["url"] not in seen:
                 seen.add(r["url"]); results.append(r); n += 1
         print(code, "events", len(data.get("events", [])), "finished", n)
+    fill_ht(results)
     bad = [r for r in results if not r["complete"]]
     print("total", len(results), "incomplete", len(bad))
     for r in bad[:20]: print(" incomplete:", r["date"], r["home"], r["ftHome"], r["ftAway"], r["away"], len(r["homeGoals"]), len(r["awayGoals"]))
