@@ -18,6 +18,10 @@ def one(i):
     r["buttons"]=low.count("<button"); r["scripts"]=low.count("<script"); r["iframes"]=low.count("<iframe"); r["svg"]=low.count("<svg")
     t=txt(p); r["text_len"]=len(t); r["snippet"]=t[:240]
     g=GATE.findall(t[:60000]); r["gate"]=sorted({x[0].lower() for x in g})[:5]
+    ctx=[]
+    for m in list(GATE.finditer(t[:60000]))[:4]:
+        ctx.append(t[max(0,m.start()-110):m.end()+110])
+    r["ctx"]=ctx
     return r
 with cf.ThreadPoolExecutor(12) as ex: out=list(ex.map(one,range(len(rows))))
 json.dump(out,open("scripts/instruments-audit.json","w"),indent=1)
