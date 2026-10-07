@@ -12,12 +12,12 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests
-      - run: python3 scripts/discover_events.py | tee scripts/event-discovery-log.txt
+      - run: python3 scripts/discover_events.py > scripts/event-discovery-log.txt 2>&1 || true
       - name: Commit report
         if: always()
         run: |
           git config user.name "link-audit-bot"
           git config user.email "actions@github.com"
-          git add scripts/event-discovery.json scripts/event-discovery-log.txt
+          git add scripts/event-discovery-log.txt; git add scripts/event-discovery.json || true
           git diff --cached --quiet && echo none || git commit -m "Event discovery report"
           for i in 1 2 3; do git pull --rebase origin main -q && git push -q && break; sleep 3; done
