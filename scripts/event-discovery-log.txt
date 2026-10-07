@@ -1,0 +1,25 @@
+Traceback (most recent call last):
+  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/discover_events.py", line 59, in <module>
+    with cf.ThreadPoolExecutor(8) as ex: out=list(ex.map(crawl,SEEDS))
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/discover_events.py", line 41, in crawl
+    for e in jsonld(page): res.append(norm(e,final))
+                                      ^^^^^^^^^^^^^
+  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/discover_events.py", line 35, in norm
+    "price":price,"loc":(loc.get("name") if isinstance(loc,dict) else str(loc))[:60] if loc else "", "url":ev.get("url") or page_url,
+                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+TypeError: 'NoneType' object is not subscriptable
