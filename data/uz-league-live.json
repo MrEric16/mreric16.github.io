@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-09T15:14:39.587747Z",
+  "generatedAt": "2026-10-09T20:10:02.538493Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -13,13 +13,13 @@
     },
     {
       "name": "Pakhtakor",
-      "pld": 22,
-      "w": 14,
+      "pld": 23,
+      "w": 15,
       "d": 7,
       "l": 1,
-      "gf": 39,
-      "ga": 20,
-      "pts": 49
+      "gf": 42,
+      "ga": 21,
+      "pts": 52
     },
     {
       "name": "Navbahor Namangan",
@@ -30,6 +30,26 @@
       "gf": 39,
       "ga": 21,
       "pts": 44
+    },
+    {
+      "name": "Nasaf Qarshi",
+      "pld": 23,
+      "w": 10,
+      "d": 7,
+      "l": 6,
+      "gf": 35,
+      "ga": 22,
+      "pts": 37
+    },
+    {
+      "name": "Buxoro",
+      "pld": 23,
+      "w": 11,
+      "d": 4,
+      "l": 8,
+      "gf": 35,
+      "ga": 31,
+      "pts": 37
     },
     {
       "name": "Lok. Tashkent",
@@ -52,43 +72,23 @@
       "pts": 35
     },
     {
-      "name": "Nasaf Qarshi",
-      "pld": 22,
-      "w": 9,
-      "d": 7,
-      "l": 6,
-      "gf": 33,
-      "ga": 21,
-      "pts": 34
-    },
-    {
-      "name": "Buxoro",
-      "pld": 22,
-      "w": 10,
-      "d": 4,
-      "l": 8,
-      "gf": 32,
-      "ga": 29,
-      "pts": 34
-    },
-    {
       "name": "Din. Samarkand",
-      "pld": 22,
+      "pld": 23,
       "w": 8,
       "d": 6,
-      "l": 8,
-      "gf": 33,
-      "ga": 34,
+      "l": 9,
+      "gf": 34,
+      "ga": 36,
       "pts": 30
     },
     {
       "name": "Andijan",
-      "pld": 22,
+      "pld": 23,
       "w": 9,
       "d": 3,
-      "l": 10,
-      "gf": 27,
-      "ga": 28,
+      "l": 11,
+      "gf": 29,
+      "ga": 31,
       "pts": 30
     },
     {
@@ -122,14 +122,14 @@
       "pts": 26
     },
     {
-      "name": "Bunyodkor",
-      "pld": 22,
-      "w": 7,
-      "d": 1,
-      "l": 14,
+      "name": "Kokand 1912",
+      "pld": 23,
+      "w": 5,
+      "d": 8,
+      "l": 10,
       "gf": 22,
-      "ga": 36,
-      "pts": 22
+      "ga": 30,
+      "pts": 23
     },
     {
       "name": "Xorazm Urganch",
@@ -142,27 +142,55 @@
       "pts": 22
     },
     {
-      "name": "Kokand 1912",
-      "pld": 22,
-      "w": 4,
-      "d": 8,
-      "l": 10,
-      "gf": 19,
-      "ga": 30,
-      "pts": 20
+      "name": "Bunyodkor",
+      "pld": 23,
+      "w": 7,
+      "d": 1,
+      "l": 15,
+      "gf": 23,
+      "ga": 39,
+      "pts": 22
     },
     {
       "name": "Mashal Muborak",
-      "pld": 22,
+      "pld": 23,
       "w": 1,
       "d": 1,
-      "l": 20,
+      "l": 21,
       "gf": 11,
-      "ga": 44,
+      "ga": 47,
       "pts": 4
     }
   ],
   "results": [
+    {
+      "home": "Nasaf Qarshi",
+      "away": "Din. Samarkand",
+      "raw_time": "09.10. 14:30",
+      "homeScore": 2,
+      "awayScore": 1
+    },
+    {
+      "home": "Buxoro",
+      "away": "Andijan",
+      "raw_time": "09.10. 14:00",
+      "homeScore": 3,
+      "awayScore": 2
+    },
+    {
+      "home": "Pakhtakor",
+      "away": "Bunyodkor",
+      "raw_time": "09.10. 14:00",
+      "homeScore": 3,
+      "awayScore": 1
+    },
+    {
+      "home": "Kokand 1912",
+      "away": "Mashal Muborak",
+      "raw_time": "09.10. 13:30",
+      "homeScore": 3,
+      "awayScore": 0
+    },
     {
       "home": "Neftchi Fargona",
       "away": "Xorazm Urganch",
@@ -274,34 +302,6 @@
       "raw_time": "09.09. 14:00",
       "homeScore": 2,
       "awayScore": 1
-    },
-    {
-      "home": "OKMK",
-      "away": "Pakhtakor",
-      "raw_time": "09.09. 13:30",
-      "homeScore": 1,
-      "awayScore": 3
-    },
-    {
-      "home": "Qizilqum",
-      "away": "Buxoro",
-      "raw_time": "05.09. 15:15",
-      "homeScore": 3,
-      "awayScore": 2
-    },
-    {
-      "home": "Kokand 1912",
-      "away": "Din. Samarkand",
-      "raw_time": "05.09. 13:00",
-      "homeScore": 1,
-      "awayScore": 1
-    },
-    {
-      "home": "Sogdiana",
-      "away": "Mashal Muborak",
-      "raw_time": "05.09. 13:00",
-      "homeScore": 5,
-      "awayScore": 2
     }
   ],
   "fixtures": [
