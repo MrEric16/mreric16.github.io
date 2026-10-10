@@ -1,12 +1,9 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 0 finished-match links
 [goal-scraper] [PD] Found 1 finished-match links
-[goal-scraper] [PD] Added: Malaga 1-1 Espanyol
 [goal-scraper] [BL1] Found 1 finished-match links
-[goal-scraper] [BL1] Added: Borussia Dortmund 2-2 Werder Bremen
 [goal-scraper] [SA] Found 0 finished-match links
 [goal-scraper] [FL1] Found 1 finished-match links
-[goal-scraper] [FL1] Added: Lens 2-1 Lyon
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 21 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -21,6 +18,7 @@
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Borussia Dortmund on 2025-07-05
 [goal-scraper] WARNING: Paris Saint Germain scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/paris-saint-germain-vs-real-madrid/RVrkKipgJEh4W5S0K4NnS
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Paris Saint Germain vs Real Madrid on 2025-07-09
+[goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Espanyol vs Real Madrid on 2026-08-22
 [goal-scraper] [barcelona] Found 14 finished-match links
 [goal-scraper] [bayern-munich] Found 21 finished-match links
 [goal-scraper] WARNING: Bayern Munich scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
@@ -78,6 +76,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 3
+[goal-scraper] TOTAL new results added this run: 0
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM']
 [goal-scraper] Wrote data/goal-results.json
