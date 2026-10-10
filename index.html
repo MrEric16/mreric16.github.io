@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010182848">
+<meta name="app-build" content="20261010182948">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -15880,7 +15880,6 @@ function btClearState(key){
 // playable). Board DOM is rebuilt only after a committed move, never mid-drag.
 const SOL_STATE_KEY = 'btSolitaireState_v1';
 let solitaireState = null;
-let solUndo = [];
 let solDrag = null;
 const SOL_BEST_KEY = 'btSolitaireBest_v1';
 let solTicker = null;
@@ -15992,7 +15991,6 @@ function solitaireStart(draw){
     draw: d, stock: deck.slice(k), waste: [], found: [[], [], [], []], tab: tab,
     moves: 0, elapsed: 0, runStart: 0, over: false, newBest: null,
   };
-  solUndo = [];
   solStopTicker();
   btSaveState(SOL_STATE_KEY, solitaireState);
   renderRoute();
@@ -16009,7 +16007,6 @@ function solitaireNew(){
   solStopTicker();
   btClearState(SOL_STATE_KEY);
   solitaireState = null;
-  solUndo = [];
   renderRoute();
 }
 
@@ -16046,7 +16043,7 @@ function solitairePlayingHtml(){
     <section style="padding-top:14px;">
       <div class="sol-bar">
         <span>${SOL_MODES[s.draw]} · <span id="sol-time">${solFmtTime(solElapsed())}</span> · Moves: <span id="sol-moves">${s.moves}</span></span>
-        <span class="sol-bar-btns"><button class="sol-undo-btn" data-action="solitaire-new">New game</button><button class="sol-undo-btn" data-action="solitaire-undo">Undo</button></span>
+        <span class="sol-bar-btns"><button class="sol-undo-btn" data-action="solitaire-new">New game</button></span>
       </div>
       <div id="sol-root" class="sol-wrap"></div>
     </section>
@@ -16192,8 +16189,6 @@ function solCanDrop(src, target){
 
 function solCommit(src, target){
   const s = solitaireState;
-  solUndo.push(JSON.stringify(s));
-  if(solUndo.length > 80) solUndo.shift();
   if(src.type === 'stock'){
     const n = Math.min(s.draw, s.stock.length);
     for(let i = 0; i < n; i += 1){
@@ -16224,17 +16219,6 @@ function solCommit(src, target){
     s.newBest = solRecordBest(s.draw, s.elapsed, s.moves + 0);
   }
   if(s.over) btSaveState(SOL_STATE_KEY, s); else solPersist();
-  solRender();
-}
-
-function solitaireUndoMove(){
-  if(!solitaireState || solitaireState.over || !solUndo.length) return;
-  const keepEl = solElapsed();
-  const prev = JSON.parse(solUndo.pop());
-  prev.elapsed = keepEl;
-  prev.runStart = solitaireState.runStart ? Date.now() : 0;
-  solitaireState = prev;
-  solPersist();
   solRender();
 }
 
@@ -32728,12 +32712,6 @@ document.addEventListener('click', (e) => {
     solitaireNew();
     return;
   }
-  const solUndoBtn = e.target.closest('[data-action="solitaire-undo"]');
-  if(solUndoBtn){
-    e.preventDefault();
-    solitaireUndoMove();
-    return;
-  }
   const hanoiQuitBtn = e.target.closest('[data-action="hanoi-quit"]');
   if(hanoiQuitBtn){
     e.preventDefault();
@@ -33371,7 +33349,7 @@ function renderRoute(opts){
   }
   if(parts[0] === 'alias-game'){ wireAliasGame(app); }
   if(parts[0] === 'solitaire-game'){ wireSolitaireGame(app); if(solitaireState){ solitaireState.runStart = 0; if(!solitaireState.over) solResume(); } }
-  if(parts[0] !== 'solitaire-game'){ solPause(); solEndDrag(); solUndo = []; if(solitaireState){ solitaireState = null; } }
+  if(parts[0] !== 'solitaire-game'){ solPause(); solEndDrag(); if(solitaireState){ solitaireState = null; } }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
   if(parts[0] === 'install'){ wireInstallPage(); }
