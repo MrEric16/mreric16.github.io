@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T12:23:45.026036Z",
+  "generatedAt": "2026-10-10T17:27:55.261478Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -93,13 +93,13 @@
     },
     {
       "name": "Qizilqum",
-      "pld": 22,
+      "pld": 23,
       "w": 9,
-      "d": 2,
+      "d": 3,
       "l": 11,
       "gf": 23,
       "ga": 30,
-      "pts": 29
+      "pts": 30
     },
     {
       "name": "Sogdiana",
@@ -113,13 +113,13 @@
     },
     {
       "name": "Termez Surkhon",
-      "pld": 22,
+      "pld": 23,
       "w": 7,
-      "d": 5,
+      "d": 6,
       "l": 10,
       "gf": 19,
       "ga": 28,
-      "pts": 26
+      "pts": 27
     },
     {
       "name": "Kokand 1912",
@@ -163,6 +163,13 @@
     }
   ],
   "results": [
+    {
+      "home": "Qizilqum",
+      "away": "Termez Surkhon",
+      "raw_time": "10.10. 13:00",
+      "homeScore": 0,
+      "awayScore": 0
+    },
     {
       "home": "Nasaf Qarshi",
       "away": "Din. Samarkand",
@@ -295,21 +302,9 @@
       "raw_time": "09.09. 15:00",
       "homeScore": 3,
       "awayScore": 0
-    },
-    {
-      "home": "Neftchi Fargona",
-      "away": "Termez Surkhon",
-      "raw_time": "09.09. 14:00",
-      "homeScore": 2,
-      "awayScore": 1
     }
   ],
   "fixtures": [
-    {
-      "home": "Qizilqum",
-      "away": "Termez Surkhon",
-      "raw_time": "10.10. 13:00"
-    },
     {
       "home": "OKMK",
       "away": "Navbahor Namangan",
@@ -404,6 +399,11 @@
       "home": "Xorazm Urganch",
       "away": "Navbahor Namangan",
       "raw_time": "26.10. 16:00"
+    },
+    {
+      "home": "Neftchi Fargona",
+      "away": "Bunyodkor",
+      "raw_time": "29.10. 16:00"
     }
   ]
 }
