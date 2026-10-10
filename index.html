@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010184826">
+<meta name="app-build" content="20261010224649">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -6577,6 +6577,7 @@ const ICONS = {
   chatBubble: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4 5h16v11H9l-4 4v-4H4V5Z"/></svg>`,
   mathSymbols: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M6 5v7M2.5 8.5h7"/><path d="M14 8h8M14 14h8"/></svg>`,
   spade: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M12 3c3.2 4.2 7.5 6.2 7.5 10a3.9 3.9 0 0 1-7.5 1.6A3.9 3.9 0 0 1 4.5 13C4.5 9.200 8.800 7.200 12 3Z"/><path d="M12 14.500V21M9 21h6"/></svg>`,
+  gamepad: `<svg width="20" height="20" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="2" y="7" width="20" height="11" rx="5"/><path d="M7 10v5M4.500 12.500h5"/><circle cx="16" cy="11" r="1"/><circle cx="18.500" cy="14" r="1"/></svg>`,
   crown: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M3 18 2 7l6 5 4-7 4 7 6-5-1 11Z"/><path d="M3 21h18"/></svg>`,
   cardFlip: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="6" width="12" height="15" rx="2"/><rect x="9" y="3" width="12" height="15" rx="2"/></svg>`,
   landmass: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4.5 14.5c-1-3 1-6 4-6 1-3 4.5-4.2 6.5-2 2.8 0 4.7 2.2 3.6 4.8 2 1 2 3.9-.7 5-1 1.9-4 2-6 1-2.8 1-6.4-.7-7.4-2.8Z"/></svg>`,
@@ -21896,6 +21897,23 @@ function wireRandomVideoButton(container){
 // not a design/coding tool. Those faculties are useful, they just don't fit the button.
 const DO_SOMETHING_EXCLUDED_FACS = ['design', 'psychology', 'technology', 'it'];
 
+// "Play something": a random Train Your Brain game. Only tiles that live inside the
+// Lounge qualify, so the external GeoGuessr and OpenGuessr links are never picked. Never
+// the same game twice in a row.
+let lastRandomGameUrl = null;
+function wireRandomGameButton(container){
+  const btn = container.querySelector('#randomGameBtn');
+  if(!btn) return;
+  btn.addEventListener('click', () => {
+    let pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && !/^https?:/i.test(t.url));
+    if(pool.length > 1) pool = pool.filter(t => t.url !== lastRandomGameUrl);
+    if(!pool.length) return;
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    lastRandomGameUrl = pick.url;
+    if(pick.url.charAt(0) === '#') location.hash = pick.url;
+    else location.href = pick.url;
+  });
+}
 function wireRandomExploreButton(container){
   const btn = container.querySelector('#randomExploreBtn');
   if(!btn) return;
@@ -32462,6 +32480,13 @@ function viewHome(){
           <div class="sub">Jump straight to a random powerful website</div>
         </div>
       </button>
+      <button class="random-tile" id="randomGameBtn" style="margin-top:12px;">
+        <span class="icon">${icon('gamepad')}</span>
+        <div>
+          <div class="title">Play something</div>
+          <div class="sub">Jump straight to a random brain game</div>
+        </div>
+      </button>
     </section>
 
     <section>
@@ -34058,7 +34083,7 @@ function renderRoute(opts){
   if(parts[0] === 'ask-mr-eric'){ loadAnsweredQuestions(); showAskQuestionOverlay(); }
   if(parts[0] === 'my-stats'){ submitStatsSnapshot(); renderComparisonBox(); }
   if(parts[0] === 'events-virtual'){ loadVirtualEvents(); }
-  if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
+  if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireRandomGameButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
   if(parts[0] === 'sports' && parts[1] === 'tables'){ loadLiveSportsData(); }
   if(parts[0] === 'arsenal'){ loadLiveSportsData(); loadGoalResults(); }
   if(parts[0] === 'sports' && parts[1] === 'league' && parts[2]){ loadLiveSportsData(); loadGoalResults(); }
