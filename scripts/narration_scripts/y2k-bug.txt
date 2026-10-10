@@ -1,0 +1,21 @@
+This article is about the Y2K bug. Perhaps you have heard of it. Some people say it was a big joke, and nothing happened. But the real story is more interesting. Nothing happened because many people worked very hard.
+
+Let's go back to the late 1990s. Computers were already everywhere. But they were not like the computers of today. In the 1970s, 1980s, and early 1990s, memory was very small. Even a powerful computer might have only a few megabytes. That is tiny compared with an ordinary computer today.
+
+Because there was so little space, programmers tried to save every bit of memory. One thing they saved was the date. They did not write the year as four numbers. They wrote only two. So 1980 became just "80." That used less memory, and it worked well.
+
+But there was a danger. What happens when the year 1999 turns into the year 2000? The two numbers "99" would become "00." And the computer would think the year was 1900, not 2000.
+
+That might sound like a small problem. But think about how many things use dates. Banks use dates to work out interest. Programs use dates to know when something has expired. Navigation programs use dates to find their position. People were afraid that many systems would fail at the same time. Power stations, phone networks, banks, and hospital records could all stop working. The leader of the United States said in a speech in 1998 that this was not a summer movie where you can close your eyes during the scary parts.
+
+So the world got to work. It was a huge job. Programmers had to find the old programs and rewrite them. The best fix was to store the year with four numbers. But some machines did not have enough memory for that. In those cases, programmers used a trick. They told the computer that the years from "00" to "50" meant the 2000s, and the years from "51" to "99" meant the 1900s.
+
+The hardest problems were in machines where the date was part of the hardware itself. The only answer was to replace the machine. Experts say the world spent about three hundred billion dollars on getting ready.
+
+Then midnight came, and almost nothing went wrong. A few small problems appeared, and that was all. Soon, many people said it had all been a big fuss about nothing.
+
+But that was a mistake. Some countries did very little, and they did fine. But they were protected by the repairs made in other places, because the fixes were shared around the world. Tests and code reviews showed that, without all that work, the damage would have been much worse. In other words, the plan worked, and that is why it looked unnecessary.
+
+And the story is not finished. Some old systems still use the rule about "50," so we may meet a similar problem in the year 2050. There is another one in 2038. Many computers count time in seconds from the year 1970, and the number they use will run out in 2038.
+
+But experts know about these problems. Most of those systems will be replaced long before that. The lesson is simple, and it is an old saying. A stitch in time saves nine.
