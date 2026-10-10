@@ -1,9 +1,12 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 0 finished-match links
-[goal-scraper] [PD] Found 0 finished-match links
-[goal-scraper] [BL1] Found 0 finished-match links
+[goal-scraper] [PD] Found 1 finished-match links
+[goal-scraper] [PD] Added: Malaga 1-1 Espanyol
+[goal-scraper] [BL1] Found 1 finished-match links
+[goal-scraper] [BL1] Added: Borussia Dortmund 2-2 Werder Bremen
 [goal-scraper] [SA] Found 0 finished-match links
-[goal-scraper] [FL1] Found 0 finished-match links
+[goal-scraper] [FL1] Found 1 finished-match links
+[goal-scraper] [FL1] Added: Lens 2-1 Lyon
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 21 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -59,7 +62,7 @@
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Rennes on 2026-02-03
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Toulouse on 2026-03-04
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Yamoussoukro Fc vs Marseille on 2026-07-17
-[goal-scraper] [dortmund] Found 18 finished-match links
+[goal-scraper] [dortmund] Found 19 finished-match links
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fluminense vs Borussia Dortmund on 2025-06-17
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Mamelodi Sundowns Fc vs Borussia Dortmund on 2025-06-21
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Ulsan Hd Fc on 2025-06-25
@@ -75,6 +78,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 0
+[goal-scraper] TOTAL new results added this run: 3
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM']
 [goal-scraper] Wrote data/goal-results.json

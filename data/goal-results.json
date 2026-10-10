@@ -1,77 +1,6 @@
 {
-  "generatedAt": "2026-10-09T20:12:19.566293Z",
+  "generatedAt": "2026-10-10T00:10:00.801500Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/troyes-vs-paris-fc/-BfuNBH0A7o1laiOtGt69",
-      "date": "2026-08-22",
-      "home": "Troyes",
-      "away": "Paris Fc",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/le-mans-vs-brest/iTWxqdd3Gh-3B-HHhzbEV",
-      "date": "2026-08-22",
-      "home": "Le Mans",
-      "away": "Brest",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "D. Gueye",
-          "minute": 45
-        },
-        {
-          "scorer": "L. Mafouta",
-          "minute": 55
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Del Castillo",
-          "minute": 31
-        },
-        {
-          "scorer": "K. Doumbia",
-          "minute": 62
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/espanyol-vs-real-madrid/bKJ579FbGUXB1ohQ-SEjG",
-      "date": "2026-08-22",
-      "home": "Espanyol",
-      "away": "Real Madrid",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "A. Calatrava",
-          "minute": 30
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Bellingham",
-          "minute": 9
-        },
-        {
-          "scorer": "C. Espi",
-          "minute": 90
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/manchester-city-vs-afc-bournemouth/4rC4egs_prZjITrHSfEWD",
       "date": "2026-08-23",
@@ -7728,6 +7657,87 @@
       "homeGoals": [],
       "awayGoals": [],
       "competition": "inter-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/malaga-vs-espanyol/vxqW21bvXZbHhu-88aRyW",
+      "date": "2026-10-09",
+      "home": "Malaga",
+      "away": "Espanyol",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Nino",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "B. Zaragoza",
+          "minute": 13
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/666xO0ZoCB0tVEA6-BGtP",
+      "date": "2026-10-09",
+      "home": "Borussia Dortmund",
+      "away": "Werder Bremen",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "D. Svensson",
+          "minute": 80
+        },
+        {
+          "scorer": "N. Schlotterbeck",
+          "minute": 85
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Reis",
+          "minute": 88
+        },
+        {
+          "scorer": "N. Fuellkrug",
+          "minute": 90
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lens-vs-lyon/tqzt-rj97nXTFi0KO8OiP",
+      "date": "2026-10-09",
+      "home": "Lens",
+      "away": "Lyon",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "F. Sotoca",
+          "minute": 36
+        },
+        {
+          "scorer": "M. Udol",
+          "minute": 76
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "K. Merah",
+          "minute": 85
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
