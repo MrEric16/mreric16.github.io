@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010182638">
+<meta name="app-build" content="20261010182848">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4982,7 +4982,6 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .sol-col{ position:relative; border-radius:7px; }
   .sol-ph{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Space Mono', monospace; font-weight:700; color:var(--line); font-size:calc(var(--sol-cw) * 0.4); }
   .sol-recycle{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:var(--ink-soft); font-size:calc(var(--sol-cw) * 0.5); }
-  .sol-hot{ outline:3px solid var(--coral); outline-offset:1px; background:color-mix(in srgb, var(--coral) 12%, transparent); }
   .sol-ghosted{ opacity:.25; }
   .sol-card{
     position:absolute; width:var(--sol-cw); height:var(--sol-ch); box-sizing:border-box; border-radius:7px;
@@ -16248,7 +16247,6 @@ function solEndDrag(){
   const root = document.getElementById('sol-root');
   if(root){
     root.querySelectorAll('.sol-ghosted').forEach(e => e.classList.remove('sol-ghosted'));
-    root.querySelectorAll('.sol-hot').forEach(e => e.classList.remove('sol-hot'));
   }
   solDrag = null;
 }
@@ -16304,9 +16302,7 @@ function solMoveGhost(e){
   d.gx = x; d.gy = y;
   const root = document.getElementById('sol-root');
   const best = solPickTarget(root, e.clientX, e.clientY);
-  root.querySelectorAll('.sol-hot').forEach(el => el.classList.remove('sol-hot'));
   d.target = best ? best.dataset.pile : null;
-  if(best) best.classList.add('sol-hot');
 }
 
 function solPickTarget(root, px, py){
