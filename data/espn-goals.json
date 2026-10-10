@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-10T17:31:35.581729Z",
+ "generatedAt": "2026-10-10T20:48:53.542096Z",
  "results": [
   {
    "url": "espn:401879268",
@@ -158,6 +158,31 @@
    "complete": true
   },
   {
+   "url": "espn:401878773",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T16:30Z",
+   "home": "Man United",
+   "away": "Tottenham",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "B. Mbeumo",
+     "minute": 73
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Solanke",
+     "minute": "90+2"
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
    "url": "espn:401882856",
    "date": "2026-10-10",
    "utc": "2026-10-10T14:15Z",
@@ -183,6 +208,34 @@
      "minute": 87
     }
    ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882853",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T16:30Z",
+   "home": "Barça",
+   "away": "Getafe",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Gordon",
+     "minute": 2
+    },
+    {
+     "scorer": "G. Jesus",
+     "minute": 30
+    },
+    {
+     "scorer": "J. Koundé",
+     "minute": 73
+    }
+   ],
+   "awayGoals": [],
    "competition": "PD",
    "complete": true
   },
@@ -346,6 +399,46 @@
    "complete": true
   },
   {
+   "url": "espn:401884780",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T16:30Z",
+   "home": "RB Leipzig",
+   "away": "Frankfurt",
+   "htHome": 4,
+   "htAway": 0,
+   "ftHome": 6,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "E. Banzuzi",
+     "minute": 1
+    },
+    {
+     "scorer": "C. Nkunku",
+     "minute": 5
+    },
+    {
+     "scorer": "C. Nkunku",
+     "minute": 41
+    },
+    {
+     "scorer": "C. Nkunku",
+     "minute": 44
+    },
+    {
+     "scorer": "A. Nusa",
+     "minute": 54
+    },
+    {
+     "scorer": "T. Gomis",
+     "minute": 89
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
    "url": "espn:401874947",
    "date": "2026-10-10",
    "utc": "2026-10-10T13:00Z",
@@ -375,6 +468,62 @@
    "complete": true
   },
   {
+   "url": "espn:401875021",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T16:00Z",
+   "home": "Inter",
+   "away": "Parma",
+   "htHome": 3,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "P. Sucic",
+     "minute": 13
+    },
+    {
+     "scorer": "H. Çalhanoglu (pen)",
+     "minute": 18
+    },
+    {
+     "scorer": "M. Thuram",
+     "minute": 31
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874754",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T18:45Z",
+   "home": "Napoli",
+   "away": "Frosinone",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "K. De Bruyne (pen)",
+     "minute": 29
+    },
+    {
+     "scorer": "N. Lang",
+     "minute": 32
+    },
+    {
+     "scorer": "K. De Bruyne",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876446",
    "date": "2026-10-10",
    "utc": "2026-10-10T15:15Z",
@@ -391,6 +540,133 @@
     }
    ],
    "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876444",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T18:45Z",
+   "home": "Monaco",
+   "away": "Toulouse",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "E. Diop",
+     "minute": 29
+    },
+    {
+     "scorer": "M. Abline",
+     "minute": 38
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "C. Tengstedt (pen)",
+     "minute": 48
+    },
+    {
+     "scorer": "S. Oppong",
+     "minute": 59
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876448",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T18:45Z",
+   "home": "Brest",
+   "away": "Angers",
+   "htHome": 4,
+   "htAway": 0,
+   "ftHome": 5,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "L. Ajorque",
+     "minute": 9
+    },
+    {
+     "scorer": "L. Tousart",
+     "minute": 17
+    },
+    {
+     "scorer": "K. Lala (pen)",
+     "minute": 30
+    },
+    {
+     "scorer": "M. Baldé",
+     "minute": 45
+    },
+    {
+     "scorer": "P. Mboup",
+     "minute": 54
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "P. Peter",
+     "minute": 47
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876445",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T18:45Z",
+   "home": "Lorient",
+   "away": "Paris FC",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "G. Bernardeau",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876442",
+   "date": "2026-10-10",
+   "utc": "2026-10-10T18:45Z",
+   "home": "PSG",
+   "away": "Le Mans",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "L. Beraldo (pen)",
+     "minute": 19
+    },
+    {
+     "scorer": "K. Kvaratskhelia",
+     "minute": 61
+    },
+    {
+     "scorer": "M. Akliouche",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "L. Mafouta",
+     "minute": 54
+    }
+   ],
    "competition": "FL1",
    "complete": true
   },
