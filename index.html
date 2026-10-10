@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010180501">
+<meta name="app-build" content="20261010181355">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4995,10 +4995,16 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     background:repeating-linear-gradient(45deg, var(--teal) 0 5px, color-mix(in srgb, var(--teal) 70%, #000) 5px 10px);
     border:2px solid #fff; cursor:default;
   }
-  .sol-slot[data-pile="stock"] .sol-card.down{ cursor:grab; touch-action:none; }
+  .sol-slot[data-pile="stock"] .sol-card.down{ cursor:pointer; touch-action:none; }
+  .sol-slot[data-pile="stock"]{ cursor:pointer; touch-action:none; }
   .sol-rk{ position:absolute; left:4px; top:2px; font-size:calc(var(--sol-cw) * 0.3); line-height:1.1; }
-  .sol-st{ position:absolute; left:4px; top:calc(var(--sol-cw) * 0.32); font-size:calc(var(--sol-cw) * 0.24); line-height:1; }
+  .sol-st{ position:absolute; left:4px; top:calc(var(--sol-cw) * 0.46); font-size:calc(var(--sol-cw) * 0.24); line-height:1; }
   .sol-big{ position:absolute; right:4px; bottom:2px; font-size:calc(var(--sol-cw) * 0.5); line-height:1; }
+  .sol-ace .sol-big{ right:auto; bottom:auto; left:50%; top:50%; transform:translate(-50%,-50%); font-size:calc(var(--sol-cw) * 0.85); }
+  .sol-panel{ position:absolute; left:calc(var(--sol-cw) * 0.32); right:calc(var(--sol-cw) * 0.07); top:calc(var(--sol-cw) * 0.12); bottom:calc(var(--sol-cw) * 0.12); border:1.5px solid currentColor; border-radius:4px; background:color-mix(in srgb, currentColor 10%, #fff); display:flex; flex-direction:column; align-items:center; justify-content:space-around; overflow:hidden; }
+  .sol-panel svg{ width:78%; height:auto; max-height:56%; fill:currentColor; }
+  .sol-panel i{ font-style:normal; font-size:calc(var(--sol-cw) * 0.3); line-height:1; }
+  .sol-panel .sol-flip{ transform:rotate(180deg); }
   .sol-ghost{ position:fixed; z-index:100000; pointer-events:none; width:var(--sol-cw); transform:scale(1.05); transform-origin:0 0; filter:drop-shadow(0 6px 10px rgba(0,0,0,.35)); }
   .sol-ghost .sol-card{ cursor:grabbing; }
   .sol-hint{ text-align:center; font-size:12px; color:var(--ink-soft); margin-top:14px; line-height:1.5; }
@@ -15957,6 +15963,10 @@ function solRecordBest(draw, ms, moves){
   try{ localStorage.setItem(SOL_BEST_KEY, JSON.stringify(all)); }catch(e){}
   return res;
 }
+function solBestRow(draw){
+  const b = solBestLoad()[draw];
+  return (b && b.ms) ? '<div class="sol-best">' + solBestText(draw) + '</div>' : '';
+}
 function solBestText(draw){
   const b = solBestLoad()[draw];
   if(!b || !b.ms) return 'no wins yet';
@@ -16027,14 +16037,14 @@ function solitaireIntroHtml(){
     <section style="padding-top:14px;">
       <div class="fg-wrap">
         <div class="section-head"><span class="emoji">${icon('spade')}</span><h2>Solitaire</h2></div>
-        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px;">Klondike, with one rule: <b>tapping does nothing</b>. Every move is a drag, including dealing from the stock. Build the four foundations up from Ace to King. Difficulty is how many cards the stock deals at once.</p>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px;">Klondike, with one rule: <b>no tapping cards</b>. Every move is a drag. The only tap is on the stock pile to deal. Build the four foundations up from Ace to King. Difficulty is how many cards the stock deals at once.</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <button class="fg-start-btn" data-action="solitaire-start" data-draw="1">Easy · deal 1 card</button>
-          <div class="sol-best">${solBestText(1)}</div>
+          ${solBestRow(1)}
           <button class="fg-start-btn" data-action="solitaire-start" data-draw="2">Medium · deal 2 cards</button>
-          <div class="sol-best">${solBestText(2)}</div>
+          ${solBestRow(2)}
           <button class="fg-start-btn" data-action="solitaire-start" data-draw="3">Hard · deal 3 cards</button>
-          <div class="sol-best">${solBestText(3)}</div>
+          ${solBestRow(3)}
         </div>
       </div>
     </section>
@@ -16045,14 +16055,12 @@ function solitairePlayingHtml(){
   const s = solitaireState;
   return `
     <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
-    <button class="back-link bt-quit-btn" data-action="solitaire-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="sol-bar">
         <span>${SOL_MODES[s.draw]} · <span id="sol-time">${solFmtTime(solElapsed())}</span> · Moves: <span id="sol-moves">${s.moves}</span></span>
-        <span class="sol-bar-btns"><button class="sol-undo-btn" data-action="solitaire-new">New</button><button class="sol-undo-btn" data-action="solitaire-undo">Undo</button></span>
+        <span class="sol-bar-btns"><button class="sol-undo-btn" data-action="solitaire-new">New game</button><button class="sol-undo-btn" data-action="solitaire-undo">Undo</button></span>
       </div>
       <div id="sol-root" class="sol-wrap"></div>
-      <p class="sol-hint">${solBestText(s.draw)}. Timer pauses when you leave or close the app. Drag only. Deal by dragging the stock onto the waste. When the stock is empty, drag the waste top onto it.</p>
     </section>
   `;
 }
@@ -16065,11 +16073,26 @@ function solMetrics(root){
   return { gap: gap, cw: cw, ch: ch, offUp: Math.round(ch * 0.3), offDown: Math.round(ch * 0.14), fan: Math.round(cw * 0.34) };
 }
 
+const SOL_FACE_SVG = {
+  // King: tall three-point crown with a cross
+  13: '<svg viewBox="0 0 40 40"><path d="M5 31 L3 12 L13 21 L20 7 L27 21 L37 12 L35 31 Z"/><rect x="5" y="33" width="30" height="4" rx="1"/><rect x="18.5" y="0" width="3" height="7"/><rect x="16" y="2" width="8" height="2.5"/></svg>',
+  // Queen: rounded tiara with pearls
+  12: '<svg viewBox="0 0 40 40"><path d="M6 32 C3 20 6 12 10 12 C13 12 15 17 20 17 C25 17 27 12 30 12 C34 12 37 20 34 32 Z"/><circle cx="10" cy="9" r="3"/><circle cx="20" cy="12" r="3"/><circle cx="30" cy="9" r="3"/><rect x="6" y="34" width="28" height="4" rx="2"/></svg>',
+  // Jack: feathered cap
+  11: '<svg viewBox="0 0 40 40"><path d="M4 30 C4 16 14 10 24 12 C30 13 33 18 35 24 L37 30 Z"/><path d="M22 12 C26 4 34 2 38 3 C34 6 33 12 28 16 Z"/><rect x="3" y="32" width="34" height="4" rx="2"/></svg>',
+};
+
 function solCardHtml(c, pile, idx, left, top){
   const pos = `left:${left}px; top:${top}px;`;
   if(!c.up) return `<div class="sol-card down" data-pile="${pile}" data-idx="${idx}" style="${pos}"></div>`;
   const g = SOL_GLYPH[c.s];
-  return `<div class="sol-card up ${solRed(c) ? 'red' : 'blk'}" data-pile="${pile}" data-idx="${idx}" style="${pos}"><span class="sol-rk">${SOL_RANK[c.r]}</span><span class="sol-st">${g}</span><span class="sol-big">${g}</span></div>`;
+  const col = solRed(c) ? 'red' : 'blk';
+  const head = `<span class="sol-rk">${SOL_RANK[c.r]}</span><span class="sol-st">${g}</span>`;
+  if(c.r >= 11){
+    return `<div class="sol-card up sol-face ${col}" data-pile="${pile}" data-idx="${idx}" style="${pos}">${head}<div class="sol-panel"><i>${g}</i>${SOL_FACE_SVG[c.r]}<i class="sol-flip">${g}</i></div></div>`;
+  }
+  const extra = c.r === 1 ? ' sol-ace' : '';
+  return `<div class="sol-card up${extra} ${col}" data-pile="${pile}" data-idx="${idx}" style="${pos}">${head}<span class="sol-big">${g}</span></div>`;
 }
 
 function solRender(){
@@ -16137,7 +16160,10 @@ function solDragSource(el){
   if(!s || s.over) return null;
   const pile = el.dataset.pile;
   if(pile === 'stock'){
-    if(!s.stock.length) return null;
+    if(!s.stock.length){
+      if(!s.waste.length) return null;
+      return { type: 'recycle', pile: 'stock', idx: -1, cards: [] };
+    }
     return { type: 'stock', pile: 'stock', idx: -1, cards: [] };
   }
   if(!el.classList.contains('up')) return null;
@@ -16191,7 +16217,7 @@ function solCommit(src, target){
     for(let i = 0; i < n; i += 1){
       const c = s.stock.pop(); c.up = true; s.waste.push(c);
     }
-  } else if(target === 'stock'){
+  } else if(src.type === 'recycle' || target === 'stock'){
     while(s.waste.length){
       const c = s.waste.pop(); c.up = false; s.stock.push(c);
     }
@@ -16324,6 +16350,7 @@ function solOnMove(e){
   if(!d.started){
     const dx = e.clientX - d.startX, dy = e.clientY - d.startY;
     if(dx * dx + dy * dy < 36) return;
+    if(d.src.type === 'recycle') return;
     solBeginDrag(e);
     return;
   }
@@ -16338,8 +16365,10 @@ function solOnUp(e){
   const src = d.src;
   const target = d.target;
   solEndDrag();
-  // A press with no drag does nothing at all - that is the whole point of this game.
+  // Only the stock reacts to a tap (deal / recycle). Every other press does nothing.
   if(started && target && solCanDrop(src, target)) solCommit(src, target);
+  else if(!started && src.type === 'stock') solCommit(src, 'waste');
+  else if(!started && src.type === 'recycle') solCommit(src, 'stock');
 }
 
 function solOnCancel(e){
