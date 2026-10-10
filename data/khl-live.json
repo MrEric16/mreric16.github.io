@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T09:02:09.486776+00:00",
+  "generatedAt": "2026-10-10T15:20:00.000777+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -86,6 +86,18 @@
       "points": 43
     },
     {
+      "team": "Barys",
+      "played": 16,
+      "won": 13,
+      "otWon": 6,
+      "soWon": 1,
+      "soLost": 1,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 52,
+      "points": 41
+    },
+    {
       "team": "Severstal",
       "played": 16,
       "won": 13,
@@ -170,28 +182,28 @@
       "points": 38
     },
     {
-      "team": "Barys",
-      "played": 14,
-      "won": 12,
-      "otWon": 5,
+      "team": "Admiral",
+      "played": 13,
+      "won": 14,
+      "otWon": 3,
       "soWon": 1,
       "soLost": 1,
-      "otLost": 0,
+      "otLost": 3,
       "lost": 0,
-      "gf": 47,
-      "points": 37
+      "gf": 35,
+      "points": 40
     },
     {
       "team": "Avangard",
       "played": 12,
-      "won": 12,
+      "won": 13,
       "otWon": 3,
       "soWon": 3,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 21,
-      "points": 36
+      "gf": 22,
+      "points": 38
     },
     {
       "team": "Dynamo Msk",
@@ -206,52 +218,40 @@
       "points": 39
     },
     {
-      "team": "Admiral",
+      "team": "Sibir",
       "played": 11,
-      "won": 13,
-      "otWon": 3,
+      "won": 14,
+      "otWon": 4,
       "soWon": 0,
-      "soLost": 1,
-      "otLost": 3,
+      "soLost": 0,
+      "otLost": 2,
       "lost": 0,
-      "gf": 31,
-      "points": 36
+      "gf": 30,
+      "points": 38
     },
     {
       "team": "Traktor",
       "played": 10,
-      "won": 12,
+      "won": 13,
       "otWon": 3,
       "soWon": 2,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 23,
-      "points": 34
-    },
-    {
-      "team": "Sibir",
-      "played": 9,
-      "won": 13,
-      "otWon": 3,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 2,
-      "lost": 0,
-      "gf": 28,
-      "points": 34
+      "gf": 24,
+      "points": 36
     },
     {
       "team": "Lada",
-      "played": 5,
-      "won": 13,
+      "played": 6,
+      "won": 14,
       "otWon": 1,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 21,
-      "points": 28
+      "gf": 24,
+      "points": 30
     },
     {
       "team": "HC Sochi",
@@ -267,26 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Traktor",
-      "away": "Sibir",
-      "start": "2026-10-10T15:00:00+05:00"
-    },
-    {
-      "home": "Barys",
-      "away": "Avangard",
-      "start": "2026-10-10T15:00:00+05:00"
-    },
-    {
-      "home": "Ak Bars",
-      "away": "Severstal",
-      "start": "2026-10-10T15:00:00+05:00"
-    },
-    {
-      "home": "Lokomotiv",
-      "away": "Dynamo Minsk",
-      "start": "2026-10-10T15:00:00+05:00"
-    },
     {
       "home": "Dynamo Msk",
       "away": "SKA",
@@ -328,23 +308,8 @@
       "start": "2026-10-13T12:00:00+05:00"
     },
     {
-      "home": "Severstal",
-      "away": "SKA",
-      "start": "2026-10-13T12:00:00+05:00"
-    },
-    {
-      "home": "Torpedo",
-      "away": "HC Sochi",
-      "start": "2026-10-14T15:00:00+05:00"
-    },
-    {
-      "home": "Barys",
-      "away": "Avtomobilist",
-      "start": "2026-10-14T15:00:00+05:00"
-    },
-    {
-      "home": "Dragons",
-      "away": "Traktor",
+      "home": "Amur",
+      "away": "Spartak",
       "start": "2026-10-14T15:00:00+05:00"
     },
     {
@@ -353,8 +318,8 @@
       "start": "2026-10-14T15:00:00+05:00"
     },
     {
-      "home": "Amur",
-      "away": "Spartak",
+      "home": "Barys",
+      "away": "Avtomobilist",
       "start": "2026-10-14T15:00:00+05:00"
     },
     {
@@ -363,14 +328,14 @@
       "start": "2026-10-14T15:00:00+05:00"
     },
     {
+      "home": "Dragons",
+      "away": "Traktor",
+      "start": "2026-10-14T15:00:00+05:00"
+    },
+    {
       "home": "CSKA",
       "away": "Dynamo Msk",
       "start": "2026-10-14T12:30:00+05:00"
-    },
-    {
-      "home": "Severstal",
-      "away": "Lokomotiv",
-      "start": "2026-10-15T15:00:00+05:00"
     },
     {
       "home": "Lada",
@@ -378,8 +343,13 @@
       "start": "2026-10-15T15:00:00+05:00"
     },
     {
-      "home": "Neftekhimik",
-      "away": "Traktor",
+      "home": "Severstal",
+      "away": "Lokomotiv",
+      "start": "2026-10-15T15:00:00+05:00"
+    },
+    {
+      "home": "Admiral",
+      "away": "Spartak",
       "start": "2026-10-16T15:00:00+05:00"
     },
     {
@@ -388,18 +358,18 @@
       "start": "2026-10-16T15:00:00+05:00"
     },
     {
-      "home": "Admiral",
-      "away": "Spartak",
-      "start": "2026-10-16T15:00:00+05:00"
-    },
-    {
-      "home": "Dragons",
-      "away": "Ak Bars",
+      "home": "Neftekhimik",
+      "away": "Traktor",
       "start": "2026-10-16T15:00:00+05:00"
     },
     {
       "home": "Torpedo",
       "away": "Dynamo Msk",
+      "start": "2026-10-16T15:00:00+05:00"
+    },
+    {
+      "home": "Dragons",
+      "away": "Ak Bars",
       "start": "2026-10-16T15:00:00+05:00"
     },
     {
@@ -3289,6 +3259,30 @@
     }
   ],
   "results": [
+    {
+      "home": "Barys",
+      "away": "Avangard",
+      "start": "2026-10-10T15:00:00+05:00",
+      "homeScore": 5,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Traktor",
+      "away": "Sibir",
+      "start": "2026-10-10T15:00:00+05:00",
+      "homeScore": 1,
+      "awayScore": 2,
+      "finished": true
+    },
+    {
+      "home": "Admiral",
+      "away": "Lada",
+      "start": "2026-10-10T00:00:00+05:00",
+      "homeScore": 4,
+      "awayScore": 3,
+      "finished": true
+    },
     {
       "home": "HC Sochi",
       "away": "Spartak",
