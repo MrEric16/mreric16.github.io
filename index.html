@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010184355">
+<meta name="app-build" content="20261010184826">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5026,7 +5026,6 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .dk-pair{ position:relative; width:calc(var(--tcw) + 16px); height:calc(var(--tcw) * 1.4545 + 18px); }
   .dk-pair .dk-card{ position:absolute; left:0; top:0; }
   .dk-pair .dk-card.def{ left:16px; top:18px; cursor:default; }
-  .dk-status{ text-align:center; font-weight:800; font-size:14px; min-height:20px; color:var(--ink); }
   .dk-btns{ display:flex; gap:10px; justify-content:center; min-height:42px; }
   .dk-btn{ border:none; border-radius:999px; padding:10px 24px; font-weight:800; font-size:14px; cursor:pointer; background:var(--coral); color:#fff; font-family:'Nunito', sans-serif; }
   .dk-btn.alt{ background:color-mix(in srgb, var(--coral) 16%, transparent); color:var(--coral); }
@@ -16705,20 +16704,6 @@ function dkCardEl(c, w, extraCls, attrs, style){
 function dkBackEl(w, style){
   return `<div class="dk-card back" style="--w:${w}px; ${style || ''}"></div>`;
 }
-function dkStatusText(g){
-  const st = g.st, me = g.mySeat;
-  if(st.winner !== null) return st.winner === me ? 'You threw away your last card!' : 'Opponent is out of cards.';
-  const actor = dkActor(st);
-  if(actor === me){
-    if(me === st.attacker){
-      if(st.table.length === 0) return 'Your attack';
-      if(st.taking) return 'Opponent takes. Throw in more or tap Done';
-      return 'Add a card or tap Done';
-    }
-    return 'Your defence';
-  }
-  return actor === st.attacker ? 'Opponent is attacking' : 'Opponent is defending';
-}
 function dkBoardHtml(g, W){
   const st = g.st, me = g.mySeat, opp = 1 - me;
   const cw = Math.min(66, Math.floor(W / 6.1));
@@ -16762,7 +16747,7 @@ function dkBoardHtml(g, W){
       btns += '<button class="dk-btn" data-dk="done">Done</button>';
     }
   }
-  const status = `<div class="dk-status">${dkStatusText(g)}</div><div class="dk-btns">${btns}</div>`;
+  const status = `<div class="dk-btns">${btns}</div>`;
 
   // my hand, rows of up to 9 cards, overlapped to fit
   const mine = dkSortedHand(st, me);
