@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010225202">
+<meta name="app-build" content="20261010225854">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -3719,6 +3719,16 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .sport-hub-tile:hover{transform:translateY(-2px); box-shadow:0 6px 0 rgba(58,42,30,.1);}
   .sport-hub-tile .name{font-weight:700; font-size:15px; line-height:1.25; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
   .hub-icon{display:inline-flex; align-items:center; justify-content:center;}
+  /* Train Your Brain category colours. Beats the per theme tile styles via specificity
+     plus important, so the grouping reads the same in every theme and in dark mode. */
+  html body .sport-hub-grid .sport-hub-tile[data-cat], html body .sport-hub-grid .sport-hub-tile[data-cat] *{ color:#fff !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat]{ border:none !important; box-shadow:0 3px 0 rgba(0,0,0,.22) !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#2F9E6E !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#7C5CC4 !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#2F7DD1 !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#B7740A !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#C4453B !important; }
+  html body .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#C74A8E !important; }
 
   /* - Feed - */
   .day-badge{
@@ -17736,6 +17746,29 @@ const GEOGRAPHY_HUB_TILES = [
   geoHubExternalTile("OpenGuessr"),
 ].filter(Boolean);
 
+// Train Your Brain tiles are grouped and colour coded by kind of game. The categories are
+// never named anywhere in the app, the colour alone carries the grouping. Order here is
+// the order the groups appear in the grid.
+const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
+const GEO_HUB_CATS = {
+  word: ['#wordle-game', '#anagram-game', '#hangman-game', '#nerdle-game', '#xword-game', '#alias-game'],
+  language: ['#idiom-match-game', '#antonym-match-game', '#language-game', '#phrase-lang-game', '#irregular-verbs'],
+  geo: ['#flag-game', '#capital-game', '#currency-game', '#silhouette-game', 'globe.html', 'GeoGuessr', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
+  puzzle: ['#odd-one-out-game', '#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
+  board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],
+  card: ['#solitaire-game', '#durak-game'],
+};
+(function(){
+  const rank = {};
+  GEO_HUB_CAT_ORDER.forEach(cat => { GEO_HUB_CATS[cat].forEach((key, i) => { rank[key] = { cat: cat, pos: GEO_HUB_CAT_ORDER.indexOf(cat) * 100 + i }; }); });
+  GEOGRAPHY_HUB_TILES.forEach(t => {
+    const r = rank[t.url] || rank[t.name];
+    t.cat = r ? r.cat : 'puzzle';
+    t.pos = r ? r.pos : 999;
+  });
+  GEOGRAPHY_HUB_TILES.sort((a, b) => a.pos - b.pos);
+})();
+
 function viewGeographyHub(){
   return `
     <a class="back-link" href="#">← Back to Mr Eric's Lounge</a>
@@ -31423,7 +31456,8 @@ function leagueTableHtml(league){
 
 function sportsTileHtml(t){
   const attrs = t.internal ? '' : ' target="_blank" rel="noopener"';
-  return `<a class="sport-hub-tile" href="${t.url}"${attrs}>
+  const cat = t.cat ? ` data-cat="${t.cat}"` : '';
+  return `<a class="sport-hub-tile" href="${t.url}"${attrs}${cat}>
     <span class="name"><span class="hub-icon">${t.emoji}</span> ${escapeHtml(t.name)}</span>
   </a>`;
 }
