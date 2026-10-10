@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010224649">
+<meta name="app-build" content="20261010225005">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -21898,14 +21898,15 @@ function wireRandomVideoButton(container){
 const DO_SOMETHING_EXCLUDED_FACS = ['design', 'psychology', 'technology', 'it'];
 
 // "Play something": a random Train Your Brain game. Only tiles that live inside the
-// Lounge qualify, so the external GeoGuessr and OpenGuessr links are never picked. Never
+// Lounge qualify (hash routes only), so GeoGuessr, OpenGuessr and the Globe page are never
+// picked, and neither is the Irregular Verbs reference hub since it is not a game. Never
 // the same game twice in a row.
 let lastRandomGameUrl = null;
 function wireRandomGameButton(container){
   const btn = container.querySelector('#randomGameBtn');
   if(!btn) return;
   btn.addEventListener('click', () => {
-    let pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && !/^https?:/i.test(t.url));
+    let pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && t.url.charAt(0) === '#' && t.url !== '#irregular-verbs');
     if(pool.length > 1) pool = pool.filter(t => t.url !== lastRandomGameUrl);
     if(!pool.length) return;
     const pick = pool[Math.floor(Math.random() * pool.length)];
