@@ -1,6 +1,93 @@
 {
- "generatedAt": "2026-10-09T20:10:28.939896Z",
+ "generatedAt": "2026-10-10T00:07:29.718227Z",
  "results": [
+  {
+   "url": "espn:401882851",
+   "date": "2026-10-09",
+   "utc": "2026-10-09T19:00Z",
+   "home": "Málaga",
+   "away": "Espanyol",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "A. Niño",
+     "minute": "90+3"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "B. Zaragoza",
+     "minute": 13
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884781",
+   "date": "2026-10-09",
+   "utc": "2026-10-09T18:30Z",
+   "home": "Dortmund",
+   "away": "Bremen",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "D. Svensson",
+     "minute": 80
+    },
+    {
+     "scorer": "N. Schlotterbeck",
+     "minute": 85
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "L. Reis",
+     "minute": 88
+    },
+    {
+     "scorer": "N. Füllkrug",
+     "minute": "90+2"
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876447",
+   "date": "2026-10-09",
+   "utc": "2026-10-09T18:45Z",
+   "home": "RC Lens",
+   "away": "Lyon",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "F. Sotoca",
+     "minute": 36
+    },
+    {
+     "scorer": "M. Udol",
+     "minute": 76
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "K. Merah",
+     "minute": 85
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401879276",
    "date": "2026-09-20",
