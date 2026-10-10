@@ -1,3 +1,4 @@
-[generate_voice_narration] provider=elevenlabs slug=waitomo-glowworm-caves voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=2256
-[generate_voice_narration] elevenlabs chunk 1/1 ok (2256 chars)
-[generate_voice_narration] wrote data/audio/waitomo-glowworm-caves.mp3 (2209376 bytes, 1 chunk(s), no post-processing)
+[generate_voice_narration] provider=elevenlabs slug=voyager-around-the-world voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=4969
+[generate_voice_narration] elevenlabs chunk 1/2 ok (4204 chars)
+[generate_voice_narration] elevenlabs chunk 2/2 ok (763 chars)
+[generate_voice_narration] wrote data/audio/voyager-around-the-world.mp3 (4906928 bytes, 2 chunk(s), no post-processing)
