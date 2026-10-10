@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010182948">
+<meta name="app-build" content="20261010184355">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5001,6 +5001,43 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .sol-win-box{ text-align:center; padding:24px; }
   .sol-win-box h2{ margin:0 0 6px; }
 
+  .dk-wrap{ max-width:520px; margin:0 auto; font-family:'Nunito', sans-serif; }
+  .dk-opt-label{ font-weight:800; font-size:13px; color:var(--ink-soft); margin:14px 0 6px; }
+  .dk-opt-row{ display:flex; gap:8px; }
+  .dk-opt{ flex:1; border:2px solid var(--line); background:var(--card); color:var(--ink); border-radius:12px; padding:12px 6px; font-weight:800; font-size:14px; cursor:pointer; font-family:'Nunito', sans-serif; }
+  .dk-opt.on{ border-color:var(--coral); background:color-mix(in srgb, var(--coral) 14%, transparent); color:var(--coral); }
+  .dk-rec{ text-align:center; font-size:13px; color:var(--ink-soft); margin-top:12px; line-height:1.6; font-weight:700; }
+  .dk-board{ display:flex; flex-direction:column; gap:10px; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; touch-action:manipulation; }
+  .dk-wait{ text-align:center; padding:50px 0; color:var(--ink-soft); font-weight:700; }
+  .dk-card{ flex:none; width:var(--w); height:calc(var(--w) * 1.4545); background-size:100% 100%; background-repeat:no-repeat; border-radius:6px; box-shadow:0 1px 3px rgba(0,0,0,.4); cursor:pointer; transition:transform .12s; }
+  .dk-card.back{ background:repeating-linear-gradient(45deg, var(--teal) 0 4px, color-mix(in srgb, var(--teal) 70%, #000) 4px 8px); border:2px solid #fff; box-sizing:border-box; cursor:default; }
+  .dk-card.sel{ transform:translateY(-14px); }
+  .dk-top{ display:flex; align-items:center; gap:10px; }
+  .dk-talon{ display:flex; align-items:center; flex:none; }
+  .dk-stack{ position:relative; z-index:1; }
+  .dk-count{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-weight:800; font-size:14px; text-shadow:0 1px 3px rgba(0,0,0,.6); }
+  .dk-trump{ position:relative; flex:none; width:calc(var(--ow) * 1.4545); height:var(--ow); margin-left:calc(var(--ow) * -0.35); }
+  .dk-trump .dk-card{ position:absolute; left:calc((var(--ow) * 1.4545 - var(--ow)) / 2); top:calc((var(--ow) - var(--ow) * 1.4545) / 2); transform:rotate(90deg); cursor:default; }
+  .dk-trump.dim{ margin-left:0; opacity:.55; }
+  .dk-opp{ position:relative; flex:1; }
+  .dk-opp .dk-card{ position:absolute; top:0; }
+  .dk-badge{ position:absolute; right:0; top:50%; transform:translateY(-50%); background:var(--coral); color:#fff; font-weight:800; font-size:13px; padding:3px 9px; border-radius:999px; z-index:5; }
+  .dk-table{ display:grid; grid-template-columns:repeat(3, 1fr); gap:8px 4px; justify-items:center; align-content:start; min-height:calc(var(--tcw) * 1.4545 + 28px); padding:6px 0; border-radius:14px; background:color-mix(in srgb, var(--ink) 5%, transparent); }
+  .dk-pair{ position:relative; width:calc(var(--tcw) + 16px); height:calc(var(--tcw) * 1.4545 + 18px); }
+  .dk-pair .dk-card{ position:absolute; left:0; top:0; }
+  .dk-pair .dk-card.def{ left:16px; top:18px; cursor:default; }
+  .dk-status{ text-align:center; font-weight:800; font-size:14px; min-height:20px; color:var(--ink); }
+  .dk-btns{ display:flex; gap:10px; justify-content:center; min-height:42px; }
+  .dk-btn{ border:none; border-radius:999px; padding:10px 24px; font-weight:800; font-size:14px; cursor:pointer; background:var(--coral); color:#fff; font-family:'Nunito', sans-serif; }
+  .dk-btn.alt{ background:color-mix(in srgb, var(--coral) 16%, transparent); color:var(--coral); }
+  .dk-hand{ display:flex; flex-direction:column; gap:6px; align-items:center; padding-top:8px; }
+  .dk-hand-row{ display:flex; justify-content:center; }
+  .dk-result{ margin-top:14px; text-align:center; padding:16px; border-radius:14px; background:var(--card); border:2px solid var(--line); }
+  .dk-result h2{ margin:0 0 6px; }
+  .dk-overlay{ padding:8px; }
+  .dk-overlay .challenge-card{ padding:12px; margin-top:8px; }
+  .dk-mp-btns{ display:flex; justify-content:center; gap:12px; align-items:center; }
+  .dk-mp-btns .ttt-exit-btn, .dk-mp-btns .game-chat-btn{ margin:10px 0 0 0; }
   .lo-grid{
     display:grid; gap:6px; width:100%; max-width:360px; margin:0 auto;
     background:var(--line); border-radius:10px; padding:8px; box-sizing:border-box;
@@ -6541,6 +6578,7 @@ const ICONS = {
   chatBubble: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4 5h16v11H9l-4 4v-4H4V5Z"/></svg>`,
   mathSymbols: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M6 5v7M2.5 8.5h7"/><path d="M14 8h8M14 14h8"/></svg>`,
   spade: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M12 3c3.2 4.2 7.5 6.2 7.5 10a3.9 3.9 0 0 1-7.5 1.6A3.9 3.9 0 0 1 4.5 13C4.5 9.200 8.800 7.200 12 3Z"/><path d="M12 14.500V21M9 21h6"/></svg>`,
+  crown: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M3 18 2 7l6 5 4-7 4 7 6-5-1 11Z"/><path d="M3 21h18"/></svg>`,
   cardFlip: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="6" width="12" height="15" rx="2"/><rect x="9" y="3" width="12" height="15" rx="2"/></svg>`,
   landmass: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4.5 14.5c-1-3 1-6 4-6 1-3 4.5-4.2 6.5-2 2.8 0 4.7 2.2 3.6 4.8 2 1 2 3.9-.7 5-1 1.9-4 2-6 1-2.8 1-6.4-.7-7.4-2.8Z"/></svg>`,
   numberGrid: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="3" width="18" height="18" rx="1.2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>`,
@@ -6630,6 +6668,7 @@ const DSURPRISE_GAME_TEASERS = {
   '#tetris-game': "Clear lines before the stack reaches the top.",
   '#alias-game': "Can you describe a word without saying it?",
   '#solitaire-game': "Klondike where tapping does nothing. Drag or nothing.",
+  '#durak-game': "Beat every attack or take the cards. First out wins.",
 };
 function dsurpriseGameTeaser(url){
   return DSURPRISE_GAME_TEASERS[url] || "Give it a go.";
@@ -8095,6 +8134,7 @@ const TURN_TIMEOUT_MS_BY_GAME = {
   'chess': 30000,
   'corners': 20000,
   'battleship': 20000,
+  'durak': 30000,
 };
 // Tug of War has no turns (both players tap simultaneously) so it doesn't use
 // TURN_TIMEOUT_MS_BY_GAME at all - see TUG_ROUND_MS/startTugRound below instead,
@@ -8119,6 +8159,7 @@ const CHALLENGE_GAMES = [
   { id:'chess', name:'Chess', emoji:'♟️' },
   { id:'corners', name:'Corners', emoji:'🔺' },
   { id:'battleship', name:'Battleship', emoji:'🚢' },
+  { id:'durak', name:'Durak (24 cards)', emoji:'🃏' },
   { id:'tug-of-war', name:'Tug of War', emoji:'🪢' },
 ];
 
@@ -8133,6 +8174,7 @@ function activeGameState(){
   if(activeGameType === 'chess') return mpChess;
   if(activeGameType === 'corners') return mpCorners;
   if(activeGameType === 'battleship') return mpBattleship;
+  if(activeGameType === 'durak') return dkMp;
   if(activeGameType === 'tug-of-war') return tug;
   return null;
 }
@@ -8151,6 +8193,7 @@ function clearActiveGameState(){
   else if(activeGameType === 'chess') mpChess = null;
   else if(activeGameType === 'corners'){ mpCorners = null; setCornersNoZoom(false); }
   else if(activeGameType === 'battleship') mpBattleship = null;
+  else if(activeGameType === 'durak') dkMp = null;
   else if(activeGameType === 'tug-of-war') tug = null;
   activeGameType = null;
   trackBusyState(false);
@@ -8161,6 +8204,7 @@ function timerElId(){
   if(activeGameType === 'chess') return 'chessTimer';
   if(activeGameType === 'corners') return 'cornersTimer';
   if(activeGameType === 'battleship') return 'battleshipTimer';
+  if(activeGameType === 'durak') return 'durakTimer';
   if(activeGameType === 'tug-of-war') return 'tugTimer';
   return 'ckTimer';
 }
@@ -8699,6 +8743,8 @@ function startGame(gameId, opponentKey, iGoFirst){
     };
     renderBattleshipOverlay();
     startTurnTimer();
+  } else if(gameId === 'durak'){
+    dkMpStart(opponentKey, iGoFirst);
   } else if(gameId === 'tug-of-war'){
     // No turns at all here (both players tap simultaneously), so this does NOT call
     // startTurnTimer() - it calls its own startTugRound() instead, and only once a
@@ -8838,6 +8884,7 @@ function makeTttMove(idx){
 // broadcast handler (registered in initLiveUserCounter) calls this one name
 // regardless of which game is live, so it needs to know where to send the payload.
 function handleIncomingMove(payload){
+  if(payload.dk){ handleIncomingDurak(payload); return; }
   if(activeGameType === 'tic-tac-toe') handleIncomingTttMove(payload);
   else if(activeGameType === 'connect-4') handleIncomingC4Move(payload);
   else if(activeGameType === 'checkers' || activeGameType === 'checkers-kamikaze') handleIncomingCkMove(payload);
@@ -16380,6 +16427,661 @@ function wireSolitaireGame(app){
   window.addEventListener('resize', onResize);
 }
 
+// ===== Durak =====
+// One pure rules engine (dk*) drives BOTH the Brain Train game (vs computer) and the
+// multiplayer challenge. Every action, from a tap, from the computer, or from the other
+// player's device, goes through dkApply, which refuses anything illegal. There is no code
+// path that changes a hand or the table without passing dkCheck first.
+//
+// Rules as built: 2 players, 6 cards each, bottom card of the talon sets trump. Lowest
+// trump attacks first. Attacker leads a card, defender beats it (same suit higher, or a
+// trump over a non trump, or a higher trump) or takes. With throw-in on, the attacker
+// may add cards whose rank is already on the table, up to 6 cards and never more than
+// the defender held at the start of the bout. With passing on, a defender facing only
+// unbeaten cards of one rank may add a card of that rank and pass the attack back.
+// No draws exist: the first player to empty their hand once the talon is gone wins.
+// Play is strictly sequential: one action at a time, by whoever dkActor says.
+const DK_SUIT_L = ['S', 'H', 'D', 'C'];
+const DK_SP_KEY = 'btDurakState_v1';
+const DK_SET_KEY = 'btDurakSettings_v1';
+const DK_STATS_KEY = 'btDurakStats_v1';
+const DK_MP_OPTS = { size: 24, passing: false, throwIn: true };
+let dkSp = null;            // Brain Train game: { mode:'sp', st, mySeat, sel, aiTimer, finished }
+let dkMp = null;            // multiplayer game, same shape plus opponentKey and timer fields
+let dkPendingSync = null;   // a sync that arrived before my own startGame ran
+
+function dkRankName(r){ return r === 11 ? 'J' : r === 12 ? 'Q' : r === 13 ? 'K' : r === 14 ? 'A' : String(r); }
+function dkImg(c){ return 'img/cards/' + dkRankName(c.r) + DK_SUIT_L[c.s] + '.webp'; }
+function dkId(c){ return c.s * 20 + c.r; }
+function dkRng(seed){
+  let a = seed >>> 0;
+  return function(){
+    a = (a + 0x6D2B79F5) >>> 0;
+    let t = a;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function dkNewState(opts, seed, defaultStarter){
+  const o = { size: opts.size === 24 ? 24 : 36, passing: !!opts.passing, throwIn: opts.throwIn !== false };
+  const minR = o.size === 24 ? 9 : 6;
+  const deck = [];
+  for(let s = 0; s < 4; s += 1) for(let r = minR; r <= 14; r += 1) deck.push({ s: s, r: r });
+  const rnd = dkRng(seed);
+  for(let i = deck.length - 1; i > 0; i -= 1){
+    const j = Math.floor(rnd() * (i + 1));
+    const t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+  }
+  const hands = [[], []];
+  for(let k = 0; k < 6; k += 1){ hands[0].push(deck.pop()); hands[1].push(deck.pop()); }
+  const trumpCard = { s: deck[0].s, r: deck[0].r };
+  const trump = trumpCard.s;
+  const low = [99, 99];
+  for(let seat = 0; seat < 2; seat += 1){
+    hands[seat].forEach(c => { if(c.s === trump && c.r < low[seat]) low[seat] = c.r; });
+  }
+  const attacker = low[0] === low[1] ? (defaultStarter ? 1 : 0) : (low[0] < low[1] ? 0 : 1);
+  const st = {
+    opts: o, trump: trump, trumpCard: trumpCard, deck: deck, hands: hands,
+    attacker: attacker, table: [], taking: false, limit: 0,
+    winner: null, outAt: [null, null], tick: 0, n: 0, discarded: 0, lastTaken: false,
+  };
+  st.limit = Math.min(6, hands[1 - attacker].length);
+  return st;
+}
+
+function dkDef(st){ return 1 - st.attacker; }
+function dkUndefended(st){
+  const a = [];
+  st.table.forEach((p, i) => { if(!p.d) a.push(i); });
+  return a;
+}
+// Who is allowed to act right now. Exactly one seat, or -1 when the game is over.
+function dkActor(st){
+  if(st.winner !== null) return -1;
+  if(st.taking) return st.attacker;
+  if(dkUndefended(st).length) return dkDef(st);
+  return st.attacker;
+}
+function dkBeats(d, a, trump){
+  if(d.s === a.s) return d.r > a.r;
+  return d.s === trump && a.s !== trump;
+}
+function dkTableRanks(st){
+  const set = {};
+  st.table.forEach(p => { set[p.a.r] = 1; if(p.d) set[p.d.r] = 1; });
+  return set;
+}
+function dkCanAddCard(st, c){
+  return st.opts.throwIn && st.table.length > 0 && st.table.length < st.limit && !!dkTableRanks(st)[c.r];
+}
+function dkCanAdd(st){
+  return st.hands[st.attacker].some(c => dkCanAddCard(st, c));
+}
+function dkFind(hand, id){
+  for(let i = 0; i < hand.length; i += 1){ if(dkId(hand[i]) === id) return i; }
+  return -1;
+}
+
+// Returns '' when the action is legal for this seat right now, otherwise the reason.
+function dkCheck(st, seat, act){
+  if(!act || st.winner !== null) return 'over';
+  if(seat !== dkActor(st)) return 'not your turn';
+  const hand = st.hands[seat];
+  if(act.t === 'attack'){
+    if(seat !== st.attacker) return 'role';
+    const i = dkFind(hand, act.c);
+    if(i < 0) return 'no card';
+    if(st.table.length === 0) return '';
+    return dkCanAddCard(st, hand[i]) ? '' : 'illegal add';
+  }
+  if(act.t === 'defend'){
+    if(seat !== dkDef(st) || st.taking) return 'role';
+    const p = st.table[act.a];
+    if(!p || p.d) return 'bad target';
+    const i = dkFind(hand, act.c);
+    if(i < 0) return 'no card';
+    return dkBeats(hand[i], p.a, st.trump) ? '' : 'does not beat';
+  }
+  if(act.t === 'pass'){
+    if(!st.opts.passing || seat !== dkDef(st) || st.taking) return 'no pass';
+    if(st.table.length === 0 || st.table.some(p => p.d)) return 'already defended';
+    const i = dkFind(hand, act.c);
+    if(i < 0) return 'no card';
+    if(hand[i].r !== st.table[0].a.r) return 'rank';
+    const n = st.table.length + 1;
+    if(n > 6 || st.hands[st.attacker].length < n) return 'cannot pass';
+    return '';
+  }
+  if(act.t === 'take'){
+    if(seat !== dkDef(st) || st.taking) return 'role';
+    return dkUndefended(st).length ? '' : 'nothing to take';
+  }
+  if(act.t === 'done'){
+    if(seat !== st.attacker) return 'role';
+    if(st.table.length === 0) return 'empty table';
+    if(!st.taking && dkUndefended(st).length) return 'undefended';
+    return '';
+  }
+  return 'unknown';
+}
+
+function dkNoteOut(st, seat){
+  if(st.hands[seat].length === 0 && st.outAt[seat] === null){ st.tick += 1; st.outAt[seat] = st.tick; }
+}
+// First player to throw away their last card wins, and only once the talon is gone.
+// If somehow two hands are empty together, whoever emptied first wins. No draws.
+function dkCheckWin(st){
+  if(st.winner !== null || st.deck.length > 0) return;
+  const empty = [];
+  for(let seat = 0; seat < 2; seat += 1){ if(st.hands[seat].length === 0) empty.push(seat); }
+  if(!empty.length) return;
+  if(empty.length === 1){ st.winner = empty[0]; return; }
+  st.winner = (st.outAt[0] || 0) <= (st.outAt[1] || 0) ? 0 : 1;
+}
+
+function dkEndBout(st, taken){
+  const att = st.attacker, def = 1 - att;
+  if(taken){
+    st.table.forEach(p => { st.hands[def].push(p.a); if(p.d) st.hands[def].push(p.d); });
+  } else {
+    st.discarded += st.table.length * 2;
+  }
+  st.table = [];
+  st.taking = false;
+  [att, def].forEach(seat => {
+    while(st.hands[seat].length < 6 && st.deck.length) st.hands[seat].push(st.deck.pop());
+  });
+  if(!taken) st.attacker = def;
+  for(let seat = 0; seat < 2; seat += 1){
+    if(st.hands[seat].length > 0) st.outAt[seat] = null;
+    else dkNoteOut(st, seat);
+  }
+  st.limit = Math.min(6, st.hands[1 - st.attacker].length);
+  st.lastTaken = taken;
+  dkCheckWin(st);
+}
+
+// After every action: check for a winner, and close the bout automatically when the
+// attacker has nothing legal left to add (so nobody is asked a pointless question).
+function dkSettle(st){
+  dkCheckWin(st);
+  if(st.winner !== null) return;
+  if(dkActor(st) === st.attacker && st.table.length > 0 && (st.taking || dkUndefended(st).length === 0)){
+    if(!dkCanAdd(st)) dkEndBout(st, st.taking);
+  }
+}
+
+function dkApply(st, seat, act){
+  const why = dkCheck(st, seat, act);
+  if(why) return { ok: false, why: why };
+  const hand = st.hands[seat];
+  if(act.t === 'attack'){
+    const c = hand.splice(dkFind(hand, act.c), 1)[0];
+    st.table.push({ a: c, d: null });
+    dkNoteOut(st, seat);
+  } else if(act.t === 'defend'){
+    const c = hand.splice(dkFind(hand, act.c), 1)[0];
+    st.table[act.a].d = c;
+    dkNoteOut(st, seat);
+  } else if(act.t === 'pass'){
+    const c = hand.splice(dkFind(hand, act.c), 1)[0];
+    st.table.push({ a: c, d: null });
+    dkNoteOut(st, seat);
+    st.attacker = seat;
+    st.limit = Math.min(6, st.hands[1 - seat].length);
+  } else if(act.t === 'take'){
+    st.taking = true;
+  } else if(act.t === 'done'){
+    dkEndBout(st, st.taking);
+  }
+  st.n += 1;
+  dkSettle(st);
+  return { ok: true };
+}
+
+// Every legal action for a seat, used by the computer as a safety net.
+function dkAllLegal(st, seat){
+  const out = [];
+  const hand = st.hands[seat];
+  hand.forEach(c => {
+    const id = dkId(c);
+    const tries = [{ t: 'attack', c: id }, { t: 'pass', c: id }];
+    st.table.forEach((p, i) => tries.push({ t: 'defend', a: i, c: id }));
+    tries.forEach(a => { if(!dkCheck(st, seat, a)) out.push(a); });
+  });
+  [{ t: 'take' }, { t: 'done' }].forEach(a => { if(!dkCheck(st, seat, a)) out.push(a); });
+  return out;
+}
+
+// Computer opponent. Plays cheap cards first, saves trumps, and only ever returns an
+// action that dkCheck accepts (the caller verifies, and falls back to dkAllLegal).
+function dkAiPick(st, seat){
+  if(dkActor(st) !== seat) return null;
+  const hand = st.hands[seat], T = st.trump;
+  const cost = c => (c.s === T ? 100 : 0) + c.r;
+  const byCost = (a, b) => cost(a) - cost(b);
+  if(seat === st.attacker){
+    if(st.table.length === 0){
+      const lead = hand.slice().sort(byCost)[0];
+      return { t: 'attack', c: dkId(lead) };
+    }
+    const adds = hand.filter(c => dkCanAddCard(st, c)).sort(byCost);
+    if(adds.length){
+      const c = adds[0];
+      if(c.s !== T && (st.taking || c.r <= 11 || st.deck.length === 0)) return { t: 'attack', c: dkId(c) };
+    }
+    return { t: 'done' };
+  }
+  if(st.opts.passing){
+    const passes = hand.filter(c => c.s !== T && !dkCheck(st, seat, { t: 'pass', c: dkId(c) })).sort(byCost);
+    // Not every time: two computers passing the same sevens back and forth would never end.
+    if(passes.length && Math.random() < 0.5) return { t: 'pass', c: dkId(passes[0]) };
+  }
+  const und = dkUndefended(st);
+  const target = und[0];
+  const atk = st.table[target].a;
+  const beaters = hand.filter(c => dkBeats(c, atk, T)).sort(byCost);
+  if(!beaters.length) return { t: 'take' };
+  const best = beaters[0];
+  if(best.s === T && atk.s !== T && atk.r <= 10 && st.deck.length > 2) return { t: 'take' };
+  return { t: 'defend', a: target, c: dkId(best) };
+}
+
+// ===== shared rendering =====
+function dkSortedHand(st, seat){
+  return st.hands[seat].slice().sort((a, b) => {
+    const ta = a.s === st.trump ? 1 : 0, tb = b.s === st.trump ? 1 : 0;
+    if(ta !== tb) return ta - tb;
+    if(a.s !== b.s) return a.s - b.s;
+    return a.r - b.r;
+  });
+}
+function dkCardEl(c, w, extraCls, attrs, style){
+  return `<div class="dk-card ${extraCls || ''}" ${attrs || ''} style="--w:${w}px; background-image:url('${dkImg(c)}'); ${style || ''}"></div>`;
+}
+function dkBackEl(w, style){
+  return `<div class="dk-card back" style="--w:${w}px; ${style || ''}"></div>`;
+}
+function dkStatusText(g){
+  const st = g.st, me = g.mySeat;
+  if(st.winner !== null) return st.winner === me ? 'You threw away your last card!' : 'Opponent is out of cards.';
+  const actor = dkActor(st);
+  if(actor === me){
+    if(me === st.attacker){
+      if(st.table.length === 0) return 'Your attack';
+      if(st.taking) return 'Opponent takes. Throw in more or tap Done';
+      return 'Add a card or tap Done';
+    }
+    return 'Your defence';
+  }
+  return actor === st.attacker ? 'Opponent is attacking' : 'Opponent is defending';
+}
+function dkBoardHtml(g, W){
+  const st = g.st, me = g.mySeat, opp = 1 - me;
+  const cw = Math.min(66, Math.floor(W / 6.1));
+  const tcw = Math.min(84, Math.floor(W * 0.22));
+  const ow = Math.min(40, Math.floor(W / 9));
+  const oh = Math.round(ow * 1.4545);
+  const actor = dkActor(st);
+  const myTurn = actor === me && st.winner === null;
+  const iAttack = me === st.attacker;
+
+  // top row: talon + trump, then the opponent's fan
+  const talonW = ow + Math.round(oh * 0.65) + 6;
+  const avail = Math.max(60, W - talonW - 14);
+  const on = st.hands[opp].length;
+  const step = on > 1 ? Math.min(ow * 0.62, (avail - ow) / (on - 1)) : 0;
+  let oppFan = '';
+  for(let i = 0; i < on; i += 1) oppFan += dkBackEl(ow, `left:${Math.round(i * step)}px;`);
+  let talon = '';
+  if(st.deck.length){
+    talon = `<div class="dk-stack" style="--ow:${ow}px;">${dkBackEl(ow, '')}<div class="dk-count">${st.deck.length}</div></div>`;
+  }
+  const trumpCls = st.deck.length ? '' : 'dim';
+  const trumpEl = `<div class="dk-trump ${trumpCls}" style="--ow:${ow}px;">${dkCardEl(st.trumpCard, ow, '', '', '')}</div>`;
+  const top = `<div class="dk-top" style="--ow:${ow}px;"><div class="dk-talon">${talon}${trumpEl}</div><div class="dk-opp" style="height:${oh}px;">${oppFan}<div class="dk-badge">${on}</div></div></div>`;
+
+  // table
+  let pairs = '';
+  st.table.forEach((p, i) => {
+    const slotAttr = `data-dk="slot" data-idx="${i}"`;
+    pairs += `<div class="dk-pair" style="--tcw:${tcw}px;">${dkCardEl(p.a, tcw, '', slotAttr, '')}${p.d ? dkCardEl(p.d, tcw, 'def', '', '') : ''}</div>`;
+  });
+  const table = `<div class="dk-table" style="--tcw:${tcw}px;">${pairs}</div>`;
+
+  // status + buttons (only buttons that are available in principle for the current turn)
+  let btns = '';
+  if(myTurn){
+    if(!iAttack){
+      btns += '<button class="dk-btn" data-dk="take">Take</button>';
+      if(st.opts.passing && st.table.length && !st.table.some(p => p.d)) btns += '<button class="dk-btn alt" data-dk="pass">Pass</button>';
+    } else if(st.table.length && (st.taking || !dkUndefended(st).length)){
+      btns += '<button class="dk-btn" data-dk="done">Done</button>';
+    }
+  }
+  const status = `<div class="dk-status">${dkStatusText(g)}</div><div class="dk-btns">${btns}</div>`;
+
+  // my hand, rows of up to 9 cards, overlapped to fit
+  const mine = dkSortedHand(st, me);
+  const perRow = 9;
+  let rows = '';
+  for(let r = 0; r < mine.length; r += perRow){
+    const row = mine.slice(r, r + perRow);
+    const need = row.length * cw;
+    const ov = row.length > 1 && need > W - 8 ? Math.ceil((need - (W - 8)) / (row.length - 1)) : 0;
+    const cells = row.map((c, i) => {
+      const sel = g.sel === dkId(c) ? 'sel' : '';
+      return dkCardEl(c, cw, sel, `data-dk="card" data-id="${dkId(c)}"`, i ? `margin-left:${-ov}px;` : '');
+    }).join('');
+    rows += `<div class="dk-hand-row">${cells}</div>`;
+  }
+  const hand = `<div class="dk-hand">${rows}</div>`;
+  return top + table + status + hand;
+}
+function dkRender(g){
+  if(!g) return;
+  const root = document.getElementById(g.mode === 'mp' ? 'dk-mp-root' : 'dk-sp-root');
+  if(!root) return;
+  if(!g.st){ root.innerHTML = '<div class="dk-wait">Dealing...</div>'; return; }
+  const W = Math.max(280, root.clientWidth || 340);
+  let html = `<div class="dk-board">${dkBoardHtml(g, W)}</div>`;
+  if(g.mode === 'sp' && g.st.winner !== null){
+    const won = g.st.winner === g.mySeat;
+    const s = dkStatsLoad();
+    html += `<div class="dk-result"><h2>${won ? 'You win!' : 'You lose'}</h2><div class="dk-rec">${won ? 'You were first to run out of cards.' : 'The computer ran out of cards first.'}<br>Record: ${s.w} won, ${s.l} lost</div><div class="dk-btns"><button class="dk-btn" data-dk="again">Play again</button><button class="dk-btn alt" data-dk="new">Change settings</button></div></div>`;
+  }
+  root.innerHTML = html;
+}
+
+// ===== settings and stats =====
+function dkSettingsLoad(){
+  try{
+    const o = JSON.parse(localStorage.getItem(DK_SET_KEY) || '{}') || {};
+    return { size: o.size === 24 ? 24 : 36, passing: !!o.passing, throwIn: o.throwIn !== false };
+  }catch(e){ return { size: 36, passing: false, throwIn: true }; }
+}
+function dkSettingsSave(o){ try{ localStorage.setItem(DK_SET_KEY, JSON.stringify(o)); }catch(e){} }
+function dkStatsLoad(){
+  try{
+    const o = JSON.parse(localStorage.getItem(DK_STATS_KEY) || '{}') || {};
+    return { w: o.w | 0, l: o.l | 0 };
+  }catch(e){ return { w: 0, l: 0 }; }
+}
+function dkStatsAdd(won){
+  const s = dkStatsLoad();
+  if(won) s.w += 1; else s.l += 1;
+  try{ localStorage.setItem(DK_STATS_KEY, JSON.stringify(s)); }catch(e){}
+}
+
+// ===== Brain Train (vs computer) =====
+function viewDurakGame(){
+  if(!dkSp){
+    const saved = btLoadState(DK_SP_KEY);
+    if(saved && saved.st && saved.st.winner === null){
+      dkSp = { mode: 'sp', st: saved.st, mySeat: 0, sel: null, aiTimer: null, finished: false };
+    }
+  }
+  if(!dkSp) return dkIntroHtml();
+  return dkPlayingHtml();
+}
+function dkOptRow(label, key, choices, cur){
+  const btns = choices.map(ch => `<button class="dk-opt ${String(ch.val) === String(cur) ? 'on' : ''}" data-dk="set" data-key="${key}" data-val="${ch.val}">${ch.text}</button>`).join('');
+  return `<div class="dk-opt-label">${label}</div><div class="dk-opt-row">${btns}</div>`;
+}
+function dkIntroHtml(){
+  const o = dkSettingsLoad();
+  const s = dkStatsLoad();
+  const rec = (s.w + s.l) ? `<div class="dk-rec">Record: ${s.w} won, ${s.l} lost</div>` : '';
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap dk-wrap">
+        <div class="section-head"><span class="emoji">${icon('crown')}</span><h2>Durak</h2></div>
+        ${dkOptRow('Deck', 'size', [{ val: 36, text: '36 cards' }, { val: 24, text: '24 cards' }], o.size)}
+        ${dkOptRow('Throw-in', 'throwIn', [{ val: 1, text: 'On' }, { val: 0, text: 'Off' }], o.throwIn ? 1 : 0)}
+        ${dkOptRow('Passing', 'passing', [{ val: 0, text: 'Off' }, { val: 1, text: 'On' }], o.passing ? 1 : 0)}
+        <button class="fg-start-btn" data-dk="start" style="margin-top:18px; width:100%;">Play</button>
+        ${rec}
+      </div>
+    </section>
+  `;
+}
+function dkPlayingHtml(){
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <button class="back-link bt-quit-btn" data-dk="new" style="margin-left:14px;">New game</button>
+    <section style="padding-top:10px;">
+      <div class="dk-wrap"><div id="dk-sp-root"></div></div>
+    </section>
+  `;
+}
+function dkStartSp(){
+  const o = dkSettingsLoad();
+  const seed = (Math.random() * 4294967296) >>> 0;
+  const st = dkNewState(o, seed, Math.random() < 0.5 ? 1 : 0);
+  dkSp = { mode: 'sp', st: st, mySeat: 0, sel: null, aiTimer: null, finished: false };
+  btSaveState(DK_SP_KEY, { st: st });
+  renderRoute();
+}
+function dkSpDrop(){
+  if(dkSp && dkSp.aiTimer) clearTimeout(dkSp.aiTimer);
+  dkSp = null;
+  btClearState(DK_SP_KEY);
+}
+function wireDurakGame(){
+  if(!dkSp) return;
+  dkRender(dkSp);
+  dkAiKick(dkSp);
+}
+function dkSpAfter(g){
+  g.sel = null;
+  if(g.st.winner !== null){
+    if(!g.finished){ g.finished = true; dkStatsAdd(g.st.winner === g.mySeat); }
+    btClearState(DK_SP_KEY);
+    dkRender(g);
+    return;
+  }
+  btSaveState(DK_SP_KEY, { st: g.st });
+  dkRender(g);
+  dkAiKick(g);
+}
+function dkAiKick(g){
+  if(g.aiTimer){ clearTimeout(g.aiTimer); g.aiTimer = null; }
+  const st = g.st;
+  const aiSeat = 1 - g.mySeat;
+  if(st.winner !== null || dkActor(st) !== aiSeat) return;
+  g.aiTimer = setTimeout(() => {
+    g.aiTimer = null;
+    if(dkSp !== g || !document.getElementById('dk-sp-root')) return;
+    if(dkActor(st) !== aiSeat || st.winner !== null) return;
+    let act = dkAiPick(st, aiSeat);
+    if(!act || dkCheck(st, aiSeat, act)){
+      const all = dkAllLegal(st, aiSeat);
+      act = all.length ? all[0] : null;
+    }
+    if(!act) return;
+    const r = dkApply(st, aiSeat, act);
+    if(r.ok) dkSpAfter(g);
+  }, 700 + Math.floor(Math.random() * 500));
+}
+
+// ===== tap handling (both modes) =====
+function dkDo(g, act){
+  const n = g.st.n;
+  const r = dkApply(g.st, g.mySeat, act);
+  if(!r.ok) return false;
+  g.sel = null;
+  if(g.mode === 'sp'){ dkSpAfter(g); return true; }
+  g.log.push(act);
+  gameChannel.send({ type: 'broadcast', event: 'game_move', payload: { to: g.opponentKey, from: myPresenceKey, dk: 'act', n: n, act: act } });
+  dkMpAfter();
+  return true;
+}
+function dkHandleTap(el){
+  const k = el.dataset.dk;
+  if(k === 'start'){ dkStartSp(); return; }
+  if(k === 'set'){
+    const o = dkSettingsLoad();
+    const key = el.dataset.key;
+    if(key === 'size') o.size = parseInt(el.dataset.val, 10) === 24 ? 24 : 36;
+    else o[key] = el.dataset.val === '1';
+    dkSettingsSave(o);
+    renderRoute();
+    return;
+  }
+  if(k === 'new'){
+    const live = dkSp && dkSp.st && dkSp.st.winner === null;
+    if(live && !confirm('Abandon this game?')) return;
+    dkSpDrop();
+    renderRoute();
+    return;
+  }
+  if(k === 'again'){ dkSpDrop(); dkStartSp(); return; }
+  if(k === 'exit'){ confirmExitGame(); return; }
+  const g = el.closest('#dk-mp-root') ? dkMp : dkSp;
+  if(!g || !g.st || g.st.winner !== null) return;
+  const st = g.st, me = g.mySeat;
+  if(dkActor(st) !== me) return;
+  if(k === 'card'){
+    const id = parseInt(el.dataset.id, 10);
+    if(me === st.attacker){ dkDo(g, { t: 'attack', c: id }); return; }
+    const und = dkUndefended(st);
+    if(!st.opts.passing && und.length === 1){ dkDo(g, { t: 'defend', a: und[0], c: id }); return; }
+    g.sel = g.sel === id ? null : id;
+    dkRender(g);
+    return;
+  }
+  if(k === 'slot'){
+    if(g.sel === null || g.sel === undefined || me === st.attacker) return;
+    dkDo(g, { t: 'defend', a: parseInt(el.dataset.idx, 10), c: g.sel });
+    return;
+  }
+  if(k === 'take'){ dkDo(g, { t: 'take' }); return; }
+  if(k === 'pass'){
+    if(g.sel === null || g.sel === undefined) return;
+    dkDo(g, { t: 'pass', c: g.sel });
+    return;
+  }
+  if(k === 'done'){ dkDo(g, { t: 'done' }); return; }
+}
+
+// ===== multiplayer =====
+function renderDurakOverlay(){
+  document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+  const overlay = document.createElement('div');
+  overlay.className = 'challenge-overlay dk-overlay';
+  overlay.id = 'durakOverlay';
+  overlay.innerHTML = `
+    <div class="challenge-card">
+      <div class="ttt-status" id="durakStatus">Durak, 24 cards</div>
+      <div class="ttt-timer" id="durakTimer"></div>
+      <div class="dk-wrap"><div id="dk-mp-root"></div></div>
+      <div class="dk-mp-btns">
+        <button class="ttt-exit-btn" data-dk="exit">Exit game</button>
+        <button class="game-chat-btn" data-action="open-game-chat">💬 Chat</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+  dkRender(dkMp);
+}
+function dkMpStart(opponentKey, iGoFirst){
+  dkMp = {
+    mode: 'mp', st: null, seed: 0, log: [], mySeat: iGoFirst ? 0 : 1, opponentKey: opponentKey,
+    iWentFirst: iGoFirst, myTurn: false, sel: null,
+    turnTimer: null, turnDeadline: null, tickInterval: null,
+  };
+  renderDurakOverlay();
+  if(iGoFirst){
+    const seed = (Math.random() * 4294967296) >>> 0;
+    dkMp.seed = seed;
+    dkMp.st = dkNewState(DK_MP_OPTS, seed, 0);
+    dkSyncSend();
+    dkMpAfter();
+  } else if(dkPendingSync && dkPendingSync.from === opponentKey && Date.now() - dkPendingSync.at < 30000){
+    const p = dkPendingSync;
+    dkPendingSync = null;
+    dkMpAdopt(p);
+    gameChannel.send({ type: 'broadcast', event: 'game_move', payload: { to: opponentKey, from: myPresenceKey, dk: 'hello' } });
+  } else {
+    dkPendingSync = null;
+    gameChannel.send({ type: 'broadcast', event: 'game_move', payload: { to: opponentKey, from: myPresenceKey, dk: 'hello' } });
+  }
+}
+function dkSyncSend(){
+  if(!dkMp || !dkMp.st) return;
+  gameChannel.send({ type: 'broadcast', event: 'game_move', payload: { to: dkMp.opponentKey, from: myPresenceKey, dk: 'sync', seed: dkMp.seed, log: dkMp.log } });
+}
+// Rebuild the whole game from the shared seed plus the action log, re-checking every
+// action with the rules engine. A log containing anything illegal is rejected outright.
+function dkMpAdopt(p){
+  const st = dkNewState(DK_MP_OPTS, p.seed, 0);
+  const log = Array.isArray(p.log) ? p.log : [];
+  for(let i = 0; i < log.length; i += 1){
+    const actor = dkActor(st);
+    if(actor < 0 || !dkApply(st, actor, log[i]).ok) return false;
+  }
+  if(dkMp.st && dkMp.st.n >= st.n) return false;
+  dkMp.seed = p.seed;
+  dkMp.st = st;
+  dkMp.log = log.slice();
+  dkMp.sel = null;
+  dkMpAfter();
+  return true;
+}
+function dkMpAfter(){
+  const g = dkMp;
+  if(!g || !g.st) return;
+  g.myTurn = dkActor(g.st) === g.mySeat;
+  dkRender(g);
+  if(g.st.winner !== null){ dkMpFinish(); return; }
+  startTurnTimer();
+}
+function dkMpFinish(){
+  const g = dkMp;
+  if(!g) return;
+  clearTurnTimer();
+  const won = g.st.winner === g.mySeat;
+  const msg = won ? 'You won! 🎉 You were first out of cards.' : 'You lost. Opponent ran out of cards first.';
+  setTimeout(() => {
+    if(dkMp !== g) return;
+    clearActiveGameState();
+    document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+    showGamePopup(msg, { offerRematch: true });
+  }, 1600);
+}
+function handleIncomingDurak(p){
+  if(p.dk === 'sync'){
+    if(!dkMp || dkMp.opponentKey !== p.from){ dkPendingSync = { from: p.from, seed: p.seed, log: p.log, at: Date.now() }; return; }
+    dkMpAdopt(p);
+    return;
+  }
+  if(!dkMp || dkMp.opponentKey !== p.from) return;
+  if(p.dk === 'hello'){ dkSyncSend(); return; }
+  if(p.dk === 'act'){
+    const g = dkMp;
+    if(!g.st) return;
+    if(p.n > g.st.n){
+      gameChannel.send({ type: 'broadcast', event: 'game_move', payload: { to: g.opponentKey, from: myPresenceKey, dk: 'hello' } });
+      return;
+    }
+    if(p.n < g.st.n) return;
+    const r = dkApply(g.st, 1 - g.mySeat, p.act);
+    if(!r.ok){
+      clearTurnTimer();
+      clearActiveGameState();
+      document.querySelectorAll('.challenge-overlay').forEach(el => el.remove());
+      showGamePopup('Opponent sent an illegal move. You win.', { offerRematch: true });
+      return;
+    }
+    g.log.push(p.act);
+    dkMpAfter();
+  }
+}
+
 // - Alias (word description game) -
 // Pass-and-play party game: a team describes a word on screen without saying it while
 // everyone else guesses out loud. 120 seconds per team's turn, as many correct guesses
@@ -17042,6 +17744,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
   { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
   { name: "Solitaire", emoji: icon('spade'), url: "#solitaire-game", internal: true },
+  { name: "Durak", emoji: icon('crown'), url: "#durak-game", internal: true },
   { name: "Globe", emoji: icon('globeSpin'), url: "globe.html", internal: false },
   geoHubExternalTile("GeoGuessr"),
   geoHubExternalTile("OpenGuessr"),
@@ -32694,6 +33397,12 @@ document.addEventListener('click', (e) => {
     lightsOutTapCell(parseInt(loCellBtn.dataset.row, 10), parseInt(loCellBtn.dataset.col, 10));
     return;
   }
+  const dkTapEl = e.target.closest('[data-dk]');
+  if(dkTapEl){
+    e.preventDefault();
+    dkHandleTap(dkTapEl);
+    return;
+  }
   const solStartBtn = e.target.closest('[data-action="solitaire-start"]');
   if(solStartBtn){
     e.preventDefault();
@@ -33182,6 +33891,8 @@ function renderRoute(opts){
     html = viewXwordGame();
   } else if(parts[0] === 'geography-hub'){
     html = viewGeographyHub();
+  } else if(parts[0] === 'durak-game'){
+    html = viewDurakGame();
   } else if(parts[0] === 'solitaire-game'){
     html = viewSolitaireGame();
   } else if(parts[0] === 'alias-game'){
@@ -33348,6 +34059,8 @@ function renderRoute(opts){
     wireBtGame('corners');
   }
   if(parts[0] === 'alias-game'){ wireAliasGame(app); }
+  if(parts[0] === 'durak-game'){ wireDurakGame(); }
+  if(parts[0] !== 'durak-game' && dkSp){ if(dkSp.aiTimer) clearTimeout(dkSp.aiTimer); dkSp = null; }
   if(parts[0] === 'solitaire-game'){ wireSolitaireGame(app); if(solitaireState){ solitaireState.runStart = 0; if(!solitaireState.over) solResume(); } }
   if(parts[0] !== 'solitaire-game'){ solPause(); solEndDrag(); if(solitaireState){ solitaireState = null; } }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
