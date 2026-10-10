@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010175431">
+<meta name="app-build" content="20261010180501">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4970,6 +4970,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
 
   /* - Solitaire (drag only) - */
   .sol-bar{ display:flex; justify-content:space-between; align-items:center; max-width:560px; margin:0 auto 10px; font-family:'Space Mono', monospace; font-size:13px; color:var(--ink-soft); }
+  .sol-bar-btns{ display:flex; gap:8px; }
+  .sol-best{ font-size:12.5px; color:var(--ink-soft); margin:0 0 12px; font-family:'Space Mono', monospace; line-height:1.6; }
+  .sol-newbest{ color:var(--coral); font-weight:800; margin:4px 0 12px; }
   .sol-undo-btn{ border:none; background:color-mix(in srgb, var(--coral) 16%, transparent); color:var(--coral); font-family:'Nunito', sans-serif; font-weight:800; font-size:13px; padding:7px 16px; border-radius:999px; cursor:pointer; }
   .sol-wrap{ position:relative; max-width:560px; margin:0 auto; user-select:none; -webkit-user-select:none; -webkit-touch-callout:none; }
   .sol-top, .sol-tab{ display:grid; grid-template-columns:repeat(7, var(--sol-cw)); column-gap:var(--sol-gap); justify-content:space-between; }
@@ -15884,6 +15887,81 @@ const SOL_STATE_KEY = 'btSolitaireState_v1';
 let solitaireState = null;
 let solUndo = [];
 let solDrag = null;
+const SOL_BEST_KEY = 'btSolitaireBest_v1';
+let solTicker = null;
+let solTickN = 0;
+
+function solElapsed(){
+  const s = solitaireState;
+  if(!s) return 0;
+  return (s.elapsed || 0) + (s.runStart ? Math.max(0, Date.now() - s.runStart) : 0);
+}
+function solFmtTime(ms){
+  const secs = Math.max(0, Math.floor(ms / 1000));
+  const h = Math.floor(secs / 3600);
+  const mm = String(Math.floor((secs % 3600) / 60)).padStart(h ? 2 : 1, '0');
+  const ss = String(secs % 60).padStart(2, '0');
+  return (h ? h + ':' : '') + mm + ':' + ss;
+}
+function solPersist(){
+  const s = solitaireState;
+  if(!s) return;
+  const copy = JSON.parse(JSON.stringify(s));
+  copy.elapsed = solElapsed();
+  copy.runStart = 0;
+  btSaveState(SOL_STATE_KEY, copy);
+}
+function solStopTicker(){
+  if(solTicker){ clearInterval(solTicker); solTicker = null; }
+}
+function solPause(){
+  const s = solitaireState;
+  solStopTicker();
+  if(!s) return;
+  if(s.runStart){
+    s.elapsed = (s.elapsed || 0) + Math.max(0, Date.now() - s.runStart);
+    s.runStart = 0;
+  }
+  if(!s.over) btSaveState(SOL_STATE_KEY, s);
+}
+function solResume(){
+  const s = solitaireState;
+  if(!s || s.over || s.runStart) { if(s && !s.over && !solTicker) solStartTicker(); return; }
+  s.runStart = Date.now();
+  solStartTicker();
+}
+function solStartTicker(){
+  solStopTicker();
+  solTickN = 0;
+  solTicker = setInterval(() => {
+    const el = document.getElementById('sol-time');
+    if(!el || !solitaireState){ solStopTicker(); return; }
+    el.textContent = solFmtTime(solElapsed());
+    solTickN += 1;
+    if(solTickN % 5 === 0) solPersist();
+  }, 1000);
+}
+function solBestLoad(){
+  try{
+    const o = JSON.parse(localStorage.getItem(SOL_BEST_KEY) || '{}');
+    return (o && typeof o === 'object') ? o : {};
+  }catch(e){ return {}; }
+}
+function solRecordBest(draw, ms, moves){
+  const all = solBestLoad();
+  const cur = all[draw] || {};
+  const res = { time: false, moves: false };
+  if(!cur.ms || ms < cur.ms){ cur.ms = ms; res.time = true; }
+  if(!cur.moves || moves < cur.moves){ cur.moves = moves; res.moves = true; }
+  all[draw] = cur;
+  try{ localStorage.setItem(SOL_BEST_KEY, JSON.stringify(all)); }catch(e){}
+  return res;
+}
+function solBestText(draw){
+  const b = solBestLoad()[draw];
+  if(!b || !b.ms) return 'no wins yet';
+  return 'best ' + solFmtTime(b.ms) + ' · fewest ' + b.moves + ' moves';
+}
 const SOL_GLYPH = ['♠', '♥', '♦', '♣'];
 const SOL_RANK = ['', 'A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 const SOL_MODES = { 1: 'Easy', 2: 'Medium', 3: 'Hard' };
@@ -15913,22 +15991,32 @@ function solitaireStart(draw){
   }
   solitaireState = {
     draw: d, stock: deck.slice(k), waste: [], found: [[], [], [], []], tab: tab,
-    moves: 0, startTime: Date.now(), endTime: 0, over: false,
+    moves: 0, elapsed: 0, runStart: 0, over: false, newBest: null,
   };
   solUndo = [];
+  solStopTicker();
   btSaveState(SOL_STATE_KEY, solitaireState);
   renderRoute();
 }
 
 function solitaireQuit(){
+  solPause();
+  solEndDrag();
+  location.hash = '#geography-hub';
+}
+
+function solitaireNew(){
+  if(solitaireState && !solitaireState.over && !confirm('Abandon this game and start a new one?')) return;
+  solStopTicker();
   btClearState(SOL_STATE_KEY);
   solitaireState = null;
   solUndo = [];
-  location.hash = '#geography-hub';
+  renderRoute();
 }
 
 function viewSolitaireGame(){
   if(!solitaireState) solitaireState = btLoadState(SOL_STATE_KEY);
+  if(solitaireState){ solitaireState.runStart = 0; if(typeof solitaireState.elapsed !== 'number') solitaireState.elapsed = 0; }
   if(!solitaireState) return solitaireIntroHtml();
   return solitairePlayingHtml();
 }
@@ -15942,8 +16030,11 @@ function solitaireIntroHtml(){
         <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:16px;">Klondike, with one rule: <b>tapping does nothing</b>. Every move is a drag, including dealing from the stock. Build the four foundations up from Ace to King. Difficulty is how many cards the stock deals at once.</p>
         <div style="display:flex; flex-direction:column; gap:10px;">
           <button class="fg-start-btn" data-action="solitaire-start" data-draw="1">Easy · deal 1 card</button>
+          <div class="sol-best">${solBestText(1)}</div>
           <button class="fg-start-btn" data-action="solitaire-start" data-draw="2">Medium · deal 2 cards</button>
+          <div class="sol-best">${solBestText(2)}</div>
           <button class="fg-start-btn" data-action="solitaire-start" data-draw="3">Hard · deal 3 cards</button>
+          <div class="sol-best">${solBestText(3)}</div>
         </div>
       </div>
     </section>
@@ -15957,11 +16048,11 @@ function solitairePlayingHtml(){
     <button class="back-link bt-quit-btn" data-action="solitaire-quit" style="margin-left:14px;">Quit</button>
     <section style="padding-top:14px;">
       <div class="sol-bar">
-        <span>${SOL_MODES[s.draw]} · Moves: <span id="sol-moves">${s.moves}</span></span>
-        <button class="sol-undo-btn" data-action="solitaire-undo">Undo</button>
+        <span>${SOL_MODES[s.draw]} · <span id="sol-time">${solFmtTime(solElapsed())}</span> · Moves: <span id="sol-moves">${s.moves}</span></span>
+        <span class="sol-bar-btns"><button class="sol-undo-btn" data-action="solitaire-new">New</button><button class="sol-undo-btn" data-action="solitaire-undo">Undo</button></span>
       </div>
       <div id="sol-root" class="sol-wrap"></div>
-      <p class="sol-hint">Drag only. Deal by dragging the stock onto the waste. When the stock is empty, drag the waste top onto it.</p>
+      <p class="sol-hint">${solBestText(s.draw)}. Timer pauses when you leave or close the app. Drag only. Deal by dragging the stock onto the waste. When the stock is empty, drag the waste top onto it.</p>
     </section>
   `;
 }
@@ -16024,10 +16115,9 @@ function solRender(){
   }
   let win = '';
   if(s.over){
-    const secs = Math.max(0, Math.floor(((s.endTime || Date.now()) - s.startTime) / 1000));
-    const mm = String(Math.floor(secs / 60)).padStart(2, '0');
-    const ss = String(secs % 60).padStart(2, '0');
-    win = `<div class="sol-win"><div class="sol-win-box"><h2>Solved!</h2><p>${s.moves} moves · ${mm}:${ss}</p><button class="fg-start-btn" data-action="solitaire-start" data-draw="${s.draw}">Play Again</button></div></div>`;
+    const nb = s.newBest || {};
+    const nbHtml = (nb.time ? '<div class="sol-newbest">New best time!</div>' : '') + (nb.moves ? '<div class="sol-newbest">New fewest moves!</div>' : '');
+    win = `<div class="sol-win"><div class="sol-win-box"><h2>Solved!</h2><p>${s.moves} moves · ${solFmtTime(s.elapsed || 0)}</p>${nbHtml}<div class="sol-best">${SOL_MODES[s.draw]}: ${solBestText(s.draw)}</div><button class="fg-start-btn" data-action="solitaire-start" data-draw="${s.draw}">Play Again</button></div></div>`;
   }
   root.innerHTML = `
     <div class="sol-top">
@@ -16119,17 +16209,24 @@ function solCommit(src, target){
   }
   s.moves += 1;
   if(s.found.every(f => f.length === 13)){
+    s.elapsed = solElapsed();
+    s.runStart = 0;
     s.over = true;
-    s.endTime = Date.now();
+    solStopTicker();
+    s.newBest = solRecordBest(s.draw, s.elapsed, s.moves + 0);
   }
-  btSaveState(SOL_STATE_KEY, s);
+  if(s.over) btSaveState(SOL_STATE_KEY, s); else solPersist();
   solRender();
 }
 
 function solitaireUndoMove(){
   if(!solitaireState || solitaireState.over || !solUndo.length) return;
-  solitaireState = JSON.parse(solUndo.pop());
-  btSaveState(SOL_STATE_KEY, solitaireState);
+  const keepEl = solElapsed();
+  const prev = JSON.parse(solUndo.pop());
+  prev.elapsed = keepEl;
+  prev.runStart = solitaireState.runStart ? Date.now() : 0;
+  solitaireState = prev;
+  solPersist();
   solRender();
 }
 
@@ -16248,6 +16345,14 @@ function solOnUp(e){
 function solOnCancel(e){
   if(solDrag && e.pointerId === solDrag.pointerId) solEndDrag();
 }
+
+document.addEventListener('visibilitychange', () => {
+  if(!solitaireState || solitaireState.over) return;
+  if(document.hidden) solPause();
+  else if(document.getElementById('sol-root')) solResume();
+});
+window.addEventListener('pagehide', () => { if(solitaireState && !solitaireState.over) solPause(); });
+window.addEventListener('blur', () => { if(solitaireState && !solitaireState.over && document.hidden) solPause(); });
 
 function wireSolitaireGame(app){
   const root = document.getElementById('sol-root');
@@ -32608,6 +32713,12 @@ document.addEventListener('click', (e) => {
     solitaireQuit();
     return;
   }
+  const solNewBtn = e.target.closest('[data-action="solitaire-new"]');
+  if(solNewBtn){
+    e.preventDefault();
+    solitaireNew();
+    return;
+  }
   const solUndoBtn = e.target.closest('[data-action="solitaire-undo"]');
   if(solUndoBtn){
     e.preventDefault();
@@ -33250,8 +33361,8 @@ function renderRoute(opts){
     wireBtGame('corners');
   }
   if(parts[0] === 'alias-game'){ wireAliasGame(app); }
-  if(parts[0] === 'solitaire-game'){ wireSolitaireGame(app); }
-  if(parts[0] !== 'solitaire-game'){ solEndDrag(); solUndo = []; if(solitaireState){ solitaireState = null; } }
+  if(parts[0] === 'solitaire-game'){ wireSolitaireGame(app); if(solitaireState){ solitaireState.runStart = 0; if(!solitaireState.over) solResume(); } }
+  if(parts[0] !== 'solitaire-game'){ solPause(); solEndDrag(); solUndo = []; if(solitaireState){ solitaireState = null; } }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
   if(parts[0] === 'install'){ wireInstallPage(); }
