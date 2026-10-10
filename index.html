@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261010225854">
+<meta name="app-build" content="20261010230411">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -3719,16 +3719,129 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .sport-hub-tile:hover{transform:translateY(-2px); box-shadow:0 6px 0 rgba(58,42,30,.1);}
   .sport-hub-tile .name{font-weight:700; font-size:15px; line-height:1.25; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
   .hub-icon{display:inline-flex; align-items:center; justify-content:center;}
-  /* Train Your Brain category colours. Beats the per theme tile styles via specificity
-     plus important, so the grouping reads the same in every theme and in dark mode. */
-  html body .sport-hub-grid .sport-hub-tile[data-cat], html body .sport-hub-grid .sport-hub-tile[data-cat] *{ color:#fff !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat]{ border:none !important; box-shadow:0 3px 0 rgba(0,0,0,.22) !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#2F9E6E !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#7C5CC4 !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#2F7DD1 !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#B7740A !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#C4453B !important; }
-  html body .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#C74A8E !important; }
+  /* Train Your Brain category colours for painted themes. Same source as the domain tiles:
+     each theme's own four domain colours plus two more from the same family. Default and
+     unpainted themes use the faculty tints inline instead (see sportsTileHtml). */
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#113476 !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#99824C !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#0B0B0B !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#CE0041 !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#555B61 !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#EC0024 !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#7E1A4D !important; }
+  body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-arsenal:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#2E375D !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#7C6E50 !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#BB2C38 !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#1B2033 !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#C9A542 !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#74324A !important; }
+  body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-arsenal2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#7D5D46 !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#07093B !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#246249 !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#FFFFFF !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#6A6B89 !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#D39E68 !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#163642 !important; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-uzbekistan2:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #AE352F !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #363636 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px), #CE8682 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #A54200 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px), #868686 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #6B1D1D !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#914334 !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#B1A47C !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#0B0B0B !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#C5510B !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#FFFFFF !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#7D6824 !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#98576A !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#FFFFFF !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#DC976D !important; }
+  body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#1C9A40 !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#0B0B0B !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#0A3D18 !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#66E08D !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#0F5C24 !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#00CC41 !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#6F9D7C !important; }
+  body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#3D0A66 !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#005F6B !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#8B0A50 !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#FFFFFF !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#1E3468 !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#A05A32 !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#FFFFFF !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#8B6CA3 !important; }
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-nebula:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#4E80F0 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#CCFF00 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#FF00C8 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#00FFE1 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#9D00FF !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#FFFFFF !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#B48080 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#0056A4 !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#D4141E !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#F4EDE0 !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#1A1A1A !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#FFD100 !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#8E8E8E !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#99824C !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="word"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#EC0024 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="language"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#CCC0A5 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#CE0041 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#FEFEFE !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="board"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#F57F91 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="card"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
 
   /* - Feed - */
   .day-badge{
@@ -17749,6 +17862,7 @@ const GEOGRAPHY_HUB_TILES = [
 // Train Your Brain tiles are grouped and colour coded by kind of game. The categories are
 // never named anywhere in the app, the colour alone carries the grouping. Order here is
 // the order the groups appear in the grid.
+const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzzle: 'sport', board: 'languages', card: 'aviation' };
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#nerdle-game', '#xword-game', '#alias-game'],
@@ -31457,8 +31571,13 @@ function leagueTableHtml(league){
 function sportsTileHtml(t){
   const attrs = t.internal ? '' : ' target="_blank" rel="noopener"';
   const cat = t.cat ? ` data-cat="${t.cat}"` : '';
-  return `<a class="sport-hub-tile" href="${t.url}"${attrs}${cat}>
-    <span class="name"><span class="hub-icon">${t.emoji}</span> ${escapeHtml(t.name)}</span>
+  // Default look copies the domain tiles: a soft tint of one faculty colour per category,
+  // with a matching icon colour. Painted themes override this with their own palettes.
+  const fac = t.cat ? FAC_MAP[GEO_CAT_FAC[t.cat]] : null;
+  const tint = fac ? ` style="background:${hexToRgba(fac.hex, 0.14)}"` : '';
+  const iconStyle = fac ? ` style="color:${fac.color}"` : '';
+  return `<a class="sport-hub-tile" href="${t.url}"${attrs}${cat}${tint}>
+    <span class="name"><span class="hub-icon"${iconStyle}>${t.emoji}</span> ${escapeHtml(t.name)}</span>
   </a>`;
 }
 function arsenalFixtureRows(){
