@@ -1,6 +1,259 @@
 {
- "generatedAt": "2026-10-11T10:11:33.178869Z",
+ "generatedAt": "2026-10-11T16:22:40.701071Z",
  "results": [
+  {
+   "url": "espn:401879266",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T13:00Z",
+   "home": "Crystal Palace",
+   "away": "Nottingham",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "D. Kamada",
+     "minute": 41
+    },
+    {
+     "scorer": "J. Lerma",
+     "minute": "45+4"
+    },
+    {
+     "scorer": "Y. Pino",
+     "minute": 59
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Ndoye",
+     "minute": 3
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878774",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T13:00Z",
+   "home": "Hull City",
+   "away": "Everton",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "J. Gelhardt",
+     "minute": 48
+    },
+    {
+     "scorer": "M. Belloumi",
+     "minute": 74
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "K. Dewsbury-Hall",
+     "minute": 55
+    },
+    {
+     "scorer": "T. Barry",
+     "minute": 68
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882854",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T12:00Z",
+   "home": "Elche",
+   "away": "Celta",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882847",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T14:15Z",
+   "home": "Real Sociedad",
+   "away": "Deportivo",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "J. Martín",
+     "minute": 29
+    },
+    {
+     "scorer": "A. Zakharyan",
+     "minute": 34
+    },
+    {
+     "scorer": "G. Guedes",
+     "minute": 54
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Soriano Carreno",
+     "minute": 61
+    },
+    {
+     "scorer": "Y. Hernández (pen)",
+     "minute": 69
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884774",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T13:30Z",
+   "home": "1. FC Köln",
+   "away": "M'gladbach",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "Í. Jóhannesson",
+     "minute": 26
+    },
+    {
+     "scorer": "S. El Mala",
+     "minute": 67
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Scally",
+     "minute": 39
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401874940",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T10:30Z",
+   "home": "Como",
+   "away": "Roma",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874951",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T13:00Z",
+   "home": "Lazio",
+   "away": "Monza",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "N. Tavares",
+     "minute": 3
+    },
+    {
+     "scorer": "G. Isaksen",
+     "minute": 23
+    },
+    {
+     "scorer": "A. Pinamonti",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Goglichidze",
+     "minute": 46
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874776",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T13:00Z",
+   "home": "Lecce",
+   "away": "Bologna",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "A. Ahmed",
+     "minute": 64
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Orsolini",
+     "minute": 17
+    },
+    {
+     "scorer": "J. Enem",
+     "minute": 75
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876443",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T13:00Z",
+   "home": "Nice",
+   "away": "Strasbourg",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "P. Diop (og)",
+     "minute": "45+2"
+    },
+    {
+     "scorer": "J. Clauss",
+     "minute": 81
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Essugo",
+     "minute": 41
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401879268",
    "date": "2026-10-10",
