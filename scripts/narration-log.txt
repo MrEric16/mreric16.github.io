@@ -1,3 +1,5 @@
-[generate_voice_narration] provider=elevenlabs slug=pompeii-graffiti voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=3618
-[generate_voice_narration] elevenlabs chunk 1/1 ok (3618 chars)
-[generate_voice_narration] wrote data/audio/pompeii-graffiti.mp3 (3898349 bytes, 1 chunk(s), no post-processing)
+ERROR: ElevenLabs request failed: HTTP 401
+{"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 40000. You have 1043 credits remaining, while 1185 credits are required for this request.","status":"quota_exceeded","request_id":"490e0d01fa2d70e3a97acf4c4b3bad5c"}}
+  -> API key rejected: check the ELEVENLABS_API_KEY secret (and that the key has Text to Speech permission).
+[generate_voice_narration] provider=elevenlabs slug=silk-road-rome voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=2963
+GENERATE_FAILED_SEE_LOG
