@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-11T11:38:31.478466Z",
+  "generatedAt": "2026-10-11T16:48:54.417669Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -23,13 +23,23 @@
     },
     {
       "name": "Navbahor Namangan",
-      "pld": 22,
+      "pld": 23,
       "w": 13,
-      "d": 5,
+      "d": 6,
       "l": 4,
+      "gf": 41,
+      "ga": 23,
+      "pts": 45
+    },
+    {
+      "name": "Lok. Tashkent",
+      "pld": 23,
+      "w": 11,
+      "d": 5,
+      "l": 7,
       "gf": 39,
-      "ga": 21,
-      "pts": 44
+      "ga": 30,
+      "pts": 38
     },
     {
       "name": "Nasaf Qarshi",
@@ -52,24 +62,14 @@
       "pts": 37
     },
     {
-      "name": "Lok. Tashkent",
-      "pld": 22,
-      "w": 10,
-      "d": 5,
-      "l": 7,
-      "gf": 36,
-      "ga": 28,
-      "pts": 35
-    },
-    {
       "name": "OKMK",
-      "pld": 22,
+      "pld": 23,
       "w": 10,
-      "d": 5,
+      "d": 6,
       "l": 7,
-      "gf": 31,
-      "ga": 29,
-      "pts": 35
+      "gf": 33,
+      "ga": 31,
+      "pts": 36
     },
     {
       "name": "Din. Samarkand",
@@ -103,12 +103,12 @@
     },
     {
       "name": "Sogdiana",
-      "pld": 22,
+      "pld": 23,
       "w": 8,
       "d": 4,
-      "l": 10,
-      "gf": 38,
-      "ga": 43,
+      "l": 11,
+      "gf": 40,
+      "ga": 46,
       "pts": 28
     },
     {
@@ -163,6 +163,20 @@
     }
   ],
   "results": [
+    {
+      "home": "OKMK",
+      "away": "Navbahor Namangan",
+      "raw_time": "11.10. 11:00",
+      "homeScore": 2,
+      "awayScore": 2
+    },
+    {
+      "home": "Sogdiana",
+      "away": "Lok. Tashkent",
+      "raw_time": "11.10. 11:00",
+      "homeScore": 2,
+      "awayScore": 3
+    },
     {
       "home": "Qizilqum",
       "away": "Termez Surkhon",
@@ -288,20 +302,6 @@
       "raw_time": "10.09. 14:00",
       "homeScore": 2,
       "awayScore": 1
-    },
-    {
-      "home": "Din. Samarkand",
-      "away": "Qizilqum",
-      "raw_time": "10.09. 14:00",
-      "homeScore": 1,
-      "awayScore": 0
-    },
-    {
-      "home": "Nasaf Qarshi",
-      "away": "Bunyodkor",
-      "raw_time": "09.09. 15:00",
-      "homeScore": 3,
-      "awayScore": 0
     }
   ],
   "fixtures": [
