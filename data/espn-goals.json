@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-11T20:25:59.342585Z",
+ "generatedAt": "2026-10-11T23:47:13.014637Z",
  "results": [
   {
    "url": "espn:401879266",
@@ -193,6 +193,39 @@
    "complete": true
   },
   {
+   "url": "espn:401882850",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T19:00Z",
+   "home": "Santander",
+   "away": "Valencia",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "Y. Zabiri",
+     "minute": 32
+    },
+    {
+     "scorer": "I. Martín",
+     "minute": 47
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Raba",
+     "minute": 2
+    },
+    {
+     "scorer": "D. Otorbi",
+     "minute": 65
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
    "url": "espn:401884774",
    "date": "2026-10-11",
    "utc": "2026-10-11T13:30Z",
@@ -353,6 +386,31 @@
    "complete": true
   },
   {
+   "url": "espn:401874764",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T18:45Z",
+   "home": "Cagliari",
+   "away": "Juventus",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "D. Maldini",
+     "minute": 20
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Kolo Muani",
+     "minute": 81
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876443",
    "date": "2026-10-11",
    "utc": "2026-10-11T13:00Z",
@@ -413,6 +471,30 @@
     {
      "scorer": "C. Archer",
      "minute": 25
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876440",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T18:45Z",
+   "home": "Troyes",
+   "away": "Marseille",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "A. Harit",
+     "minute": 50
+    },
+    {
+     "scorer": "H. Abdelli (pen)",
+     "minute": "90+8"
     }
    ],
    "competition": "FL1",
