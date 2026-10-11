@@ -1,121 +1,6 @@
 {
-  "generatedAt": "2026-10-11T18:14:32.125992Z",
+  "generatedAt": "2026-10-11T22:13:34.240919Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/union-berlin-vs-eintracht-frankfurt/id2qrGNmUt-aipCpwy9QL",
-      "date": "2026-08-29",
-      "home": "Union Berlin",
-      "away": "Eintracht Frankfurt",
-      "htHome": 1,
-      "htAway": 2,
-      "ftHome": 3,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "E. Latte Lath",
-          "minute": 3
-        },
-        {
-          "scorer": "L. Querfeld",
-          "minute": 79
-        },
-        {
-          "scorer": "T. Skarke",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "Y. Ebnoutalib",
-          "minute": 10
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/juventus-vs-parma-calcio-1913/Wfw7rDhiHN5HZREJ8Bu5u",
-      "date": "2026-08-29",
-      "home": "Juventus",
-      "away": "Parma Calcio 1913",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "N. Gonzalez",
-          "minute": 62
-        },
-        {
-          "scorer": "T. Koopmeiners",
-          "minute": 88
-        }
-      ],
-      "awayGoals": [],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/brest-vs-toulouse/CpqwHCtlpoevn-cEcqEhX",
-      "date": "2026-08-29",
-      "home": "Brest",
-      "away": "Toulouse",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "K. Doumbia",
-          "minute": 18
-        },
-        {
-          "scorer": "L. Ajorque",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Russell-Rowe",
-          "minute": 9
-        },
-        {
-          "scorer": "C. Tape",
-          "minute": 62
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/auxerre-vs-angers/QA6OpCTNtvLWeFvb8Q1b5",
-      "date": "2026-08-29",
-      "home": "Auxerre",
-      "away": "Angers",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "R. Lascary",
-          "minute": 35
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. van den Boomen",
-          "minute": 5
-        },
-        {
-          "scorer": "H. Djibirin",
-          "minute": 70
-        },
-        {
-          "scorer": "A. El Ouazzani",
-          "minute": 78
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/lyon-vs-le-havre/O2rC1haIQFBvdPIihFoSK",
       "date": "2026-08-29",
@@ -7794,11 +7679,110 @@
         }
       ],
       "competition": "psg"
+    },
+    {
+      "url": "https://www.goal.com/en/match/racing-santander-vs-valencia/1aQ7-YvD48YdmeT11t8VL",
+      "date": "2026-10-11",
+      "home": "Racing Santander",
+      "away": "Valencia",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "Y. Zabiri",
+          "minute": 32
+        },
+        {
+          "scorer": "I. Martin",
+          "minute": 47
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Raba",
+          "minute": 2
+        },
+        {
+          "scorer": "D. Otorbi",
+          "minute": 65
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/cagliari-vs-juventus/BnqMIHh6-5oE_1AtAr2DJ",
+      "date": "2026-10-11",
+      "home": "Cagliari",
+      "away": "Juventus",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "D. Maldini",
+          "minute": 20
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "R. Kolo Muani",
+          "minute": 81
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/troyes-vs-marseille/8r5qPqcZEKg4EUAr-i-1z",
+      "date": "2026-10-11",
+      "home": "Troyes",
+      "away": "Marseille",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "A. Harit",
+          "minute": 50
+        },
+        {
+          "scorer": "H. Abdelli",
+          "minute": 90
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-hamburger-sv/cFx0KFq3-sLf4uqLCWtFg",
+      "date": "2026-08-29",
+      "home": "Borussia Dortmund",
+      "away": "Hamburger Sv",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "S. Guirassy",
+          "minute": 9
+        },
+        {
+          "scorer": "G. Konstantelias",
+          "minute": 45
+        }
+      ],
+      "awayGoals": [],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 1
+    "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
+    "https://www.goal.com/en/match/real-betis-vs-osasuna/GmtMNpPk6m6ccBXqGTnQm": 1
   }
 }
