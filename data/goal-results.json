@@ -1,91 +1,6 @@
 {
-  "generatedAt": "2026-10-11T06:06:16.352697Z",
+  "generatedAt": "2026-10-11T13:12:56.587941Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lille-vs-paris-saint-germain/mDvRFib4yo0xdbhVO4XuL",
-      "date": "2026-08-28",
-      "home": "Lille",
-      "away": "Paris Saint Germain",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "H. Haraldsson",
-          "minute": 21
-        },
-        {
-          "scorer": "D. Bakwa",
-          "minute": 84
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "Vitinha",
-          "minute": 90
-        },
-        {
-          "scorer": "Marquinhos",
-          "minute": 90
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/crystal-palace-vs-manchester-city/6-LKGToi0MqfUS5JdI1Ec",
-      "date": "2026-08-28",
-      "home": "Crystal Palace",
-      "away": "Manchester City",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "G. Donnarumma",
-          "minute": 56
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "E. Haaland",
-          "minute": 17
-        },
-        {
-          "scorer": "R. Cherki",
-          "minute": 54
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/racing-santander-vs-elche/K9y5Gvave_g3kk5oWJdCA",
-      "date": "2026-08-28",
-      "home": "Racing Santander",
-      "away": "Elche",
-      "htHome": 3,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "Y. Zabiri",
-          "minute": 15
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. Sangare",
-          "minute": 78
-        },
-        {
-          "scorer": "F. Nino",
-          "minute": 79
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/liverpool-vs-nottingham-forest/HNNxDy4m_518eAnWUGsx2",
       "date": "2026-08-29",
@@ -7786,6 +7701,80 @@
       ],
       "awayGoals": [],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/como-vs-roma/MxCD5JiW5oJjNJHTsfOyw",
+      "date": "2026-10-11",
+      "home": "Como",
+      "away": "Roma",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/bayern-munich-vs-vfb-stuttgart/aiH82_BfqmnEErWTw6eqd",
+      "date": "2026-08-28",
+      "home": "Bayern Munich",
+      "away": "Vfb Stuttgart",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "D. Upamecano",
+          "minute": 21
+        },
+        {
+          "scorer": "M. Olise",
+          "minute": 55
+        },
+        {
+          "scorer": "J. Vagnoman",
+          "minute": 58
+        },
+        {
+          "scorer": "A. Pavlovic",
+          "minute": 82
+        },
+        {
+          "scorer": "L. Diaz",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Vagnoman",
+          "minute": 52
+        }
+      ],
+      "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ac-milan-vs-venezia/wp3-igTHQzS7fx7UcH28w",
+      "date": "2026-08-28",
+      "home": "Ac Milan",
+      "away": "Venezia",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "G. Ramos",
+          "minute": 69
+        },
+        {
+          "scorer": "R. Halhal",
+          "minute": 89
+        }
+      ],
+      "awayGoals": [],
+      "competition": "ac-milan"
     }
   ],
   "scorerParseRetryCounts": {

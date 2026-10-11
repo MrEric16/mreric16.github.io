@@ -2,13 +2,8 @@
 [goal-scraper] [PL] Found 6 finished-match links
 [goal-scraper] [PD] Found 4 finished-match links
 [goal-scraper] [BL1] Found 7 finished-match links
-[goal-scraper] WARNING: Rb Leipzig scored 6 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo
-[goal-scraper] [BL1] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Rb Leipzig 6-0 Eintracht Frankfurt: https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo
-[goal-scraper] [BL1] Added: Rb Leipzig 6-0 Eintracht Frankfurt
-[goal-scraper] [SA] Found 3 finished-match links
-[goal-scraper] WARNING: Ssc Napoli scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB
-[goal-scraper] [SA] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Ssc Napoli 3-0 Frosinone: https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB
-[goal-scraper] [SA] Added: Ssc Napoli 3-0 Frosinone
+[goal-scraper] [SA] Found 4 finished-match links
+[goal-scraper] [SA] Added: Como 0-0 Roma
 [goal-scraper] [FL1] Found 6 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 22 finished-match links
@@ -46,6 +41,7 @@
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Paris Saint Germain vs Bayern Munich on 2025-07-05
 [goal-scraper] WARNING: Bayern Munich scored 5 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/salzburg-vs-bayern-munich/5HnHv_H00CkUM5w0_F4_S
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Salzburg vs Bayern Munich on 2026-01-06
+[goal-scraper] [bayern-munich] Added: Bayern Munich 5-1 Vfb Stuttgart
 [goal-scraper] [inter-milan] Found 17 finished-match links
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Monterrey vs Inter on 2025-06-17
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Urawa Red Diamonds on 2025-06-21
@@ -53,6 +49,7 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Fluminense on 2025-06-30
 [goal-scraper] [ac-milan] Found 10 finished-match links
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Torino vs Ac Milan on 2026-08-23
+[goal-scraper] [ac-milan] Added: Ac Milan 2-0 Venezia
 [goal-scraper] [psg] Found 20 finished-match links
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Atletico Madrid on 2025-06-15
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Botafogo Rj on 2025-06-19
@@ -80,7 +77,7 @@
 [goal-scraper] WARNING: Borussia Dortmund scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/borussia-dortmund-vs-monterrey/UFMDj_-1r2womLuAYX338
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Monterrey on 2025-07-01
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Oberhausen vs Borussia Dortmund on 2026-07-18
-[goal-scraper] [roma] Found 12 finished-match links
+[goal-scraper] [roma] Found 13 finished-match links
 [goal-scraper] WARNING: Roma scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/roma-vs-fiorentina/2sJvO24_g2D6Mpsty7WoU
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Fiorentina on 2026-08-24
 [goal-scraper] [juventus] Found 17 finished-match links
@@ -92,6 +89,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 2
+[goal-scraper] TOTAL new results added this run: 3
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM']
 [goal-scraper] Wrote data/goal-results.json
