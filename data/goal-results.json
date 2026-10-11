@@ -1,316 +1,6 @@
 {
-  "generatedAt": "2026-10-11T13:12:56.587941Z",
+  "generatedAt": "2026-10-11T18:14:32.125992Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/liverpool-vs-nottingham-forest/HNNxDy4m_518eAnWUGsx2",
-      "date": "2026-08-29",
-      "home": "Liverpool",
-      "away": "Nottingham Forest",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "A. Isak",
-          "minute": 60
-        },
-        {
-          "scorer": "V. Munoz",
-          "minute": 82
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "D. Ndoye",
-          "minute": 24
-        },
-        {
-          "scorer": "M. Gibbs-White",
-          "minute": 70
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/mainz-05-vs-paderborn/2AyRzFcZasGBIkz1NlwPd",
-      "date": "2026-08-29",
-      "home": "Mainz 05",
-      "away": "Paderborn",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/rb-leipzig-vs-borussia-moenchengladbach/eiXQh9Ej_6ctKkh6SK8QG",
-      "date": "2026-08-29",
-      "home": "Rb Leipzig",
-      "away": "Borussia Moenchengladbach",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "R. Baku",
-          "minute": 26
-        },
-        {
-          "scorer": "A. Nusa",
-          "minute": 49
-        },
-        {
-          "scorer": "R. Reitz",
-          "minute": 66
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/elversberg-vs-bayer-leverkusen/P8zpedznKlKG9bjtOF1Bu",
-      "date": "2026-08-29",
-      "home": "Elversberg",
-      "away": "Bayer Leverkusen",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "L. Petkov",
-          "minute": 8
-        },
-        {
-          "scorer": "C. Campbell",
-          "minute": 9
-        },
-        {
-          "scorer": "D. Mokwa",
-          "minute": 46
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "P. Schick",
-          "minute": 77
-        },
-        {
-          "scorer": "C. Kofane",
-          "minute": 90
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/coventry-city-vs-hull-city/K-9PrWmSTqyMQlgpgR5fR",
-      "date": "2026-08-29",
-      "home": "Coventry City",
-      "away": "Hull City",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "L. Millar",
-          "minute": 82
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/afc-bournemouth-vs-everton/c1f2VNiNlhuXMgxz3BJ6f",
-      "date": "2026-08-29",
-      "home": "Afc Bournemouth",
-      "away": "Everton",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Scott",
-          "minute": 41
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Tarkowski",
-          "minute": 90
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/tottenham-hotspur-vs-newcastle-united/dIH_OG1d7K2JWLNiaGxsh",
-      "date": "2026-08-29",
-      "home": "Tottenham Hotspur",
-      "away": "Newcastle United",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "A. Elanga",
-          "minute": 62
-        },
-        {
-          "scorer": "Y. Wissa",
-          "minute": 72
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/real-sociedad-vs-espanyol/dVmkAUryFuO9Rxb74vPEF",
-      "date": "2026-08-29",
-      "home": "Real Sociedad",
-      "away": "Espanyol",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Barrenetxea",
-          "minute": 4
-        },
-        {
-          "scorer": "O. Oskarsson",
-          "minute": 61
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Fernandez",
-          "minute": 45
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-hamburger-sv/cFx0KFq3-sLf4uqLCWtFg",
-      "date": "2026-08-29",
-      "home": "Borussia Dortmund",
-      "away": "Hamburger Sv",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "S. Guirassy",
-          "minute": 9
-        },
-        {
-          "scorer": "G. Konstantelias",
-          "minute": 45
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/monza-vs-udinese/arnNb5dyqrBttkoS7DChU",
-      "date": "2026-08-29",
-      "home": "Monza",
-      "away": "Udinese",
-      "htHome": 1,
-      "htAway": 3,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "A. Colpani",
-          "minute": 37
-        },
-        {
-          "scorer": "G. Varela",
-          "minute": 63
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Piotrowski",
-          "minute": 32
-        },
-        {
-          "scorer": "H. Kamara",
-          "minute": 45
-        },
-        {
-          "scorer": "J. Ekkelenkamp",
-          "minute": 45
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/sassuolo-vs-torino/ronYuZ6d7ipx6b-QYVgMe",
-      "date": "2026-08-29",
-      "home": "Sassuolo",
-      "away": "Torino",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "C. Volpato",
-          "minute": 32
-        },
-        {
-          "scorer": "D. Berardi",
-          "minute": 78
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "P. Comuzzo",
-          "minute": 45
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/fc-koeln-vs-hoffenheim/FtIn9VP0kVKhlv_NEBHEc",
-      "date": "2026-08-29",
-      "home": "Fc Koeln",
-      "away": "Hoffenheim",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 3,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "S. El Mala",
-          "minute": 51
-        },
-        {
-          "scorer": "T. Dallinga",
-          "minute": 72
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Daghim",
-          "minute": 27
-        },
-        {
-          "scorer": "O. Kabak",
-          "minute": 67
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/union-berlin-vs-eintracht-frankfurt/id2qrGNmUt-aipCpwy9QL",
       "date": "2026-08-29",
@@ -7775,10 +7465,340 @@
       ],
       "awayGoals": [],
       "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/hull-city-vs-everton/oAEjmfoe76gensqRDEPbP",
+      "date": "2026-10-11",
+      "home": "Hull City",
+      "away": "Everton",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "J. Gelhardt",
+          "minute": 48
+        },
+        {
+          "scorer": "M. Belloumi",
+          "minute": 74
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "K. Dewsbury-Hall",
+          "minute": 55
+        },
+        {
+          "scorer": "T. Barry",
+          "minute": 68
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/crystal-palace-vs-nottingham-forest/VuQE6wTUtMSkIQWPP9t1h",
+      "date": "2026-10-11",
+      "home": "Crystal Palace",
+      "away": "Nottingham Forest",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "D. Kamada",
+          "minute": 41
+        },
+        {
+          "scorer": "J. Lerma",
+          "minute": 45
+        },
+        {
+          "scorer": "Y. Pino",
+          "minute": 59
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Ndoye",
+          "minute": 3
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/liverpool-vs-manchester-city/g37Ny3yw-CgQMBeIv7ntl",
+      "date": "2026-10-11",
+      "home": "Liverpool",
+      "away": "Manchester City",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 3,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "E. Haaland",
+          "minute": 65
+        },
+        {
+          "scorer": "J. Doku",
+          "minute": 68
+        },
+        {
+          "scorer": "R. Cherki",
+          "minute": 78
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/elche-vs-celta-vigo/dATE23CSDhdSFShjebgCd",
+      "date": "2026-10-11",
+      "home": "Elche",
+      "away": "Celta Vigo",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-sociedad-vs-deportivo-de-a-coruna/uTXzU_4vmAMChdMPhBjqc",
+      "date": "2026-10-11",
+      "home": "Real Sociedad",
+      "away": "Deportivo De A Coruna",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "J. Martin",
+          "minute": 29
+        },
+        {
+          "scorer": "A. Zakharyan",
+          "minute": 34
+        },
+        {
+          "scorer": "G. Guedes",
+          "minute": 54
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Soriano",
+          "minute": 61
+        },
+        {
+          "scorer": "Y. Hernandez",
+          "minute": 69
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/fc-koeln-vs-borussia-moenchengladbach/_XzHXSdmPQmNfRdxFhzCI",
+      "date": "2026-10-11",
+      "home": "Fc Koeln",
+      "away": "Borussia Moenchengladbach",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "I. Bergmann Johannesson",
+          "minute": 26
+        },
+        {
+          "scorer": "S. El Mala",
+          "minute": 67
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Scally",
+          "minute": 39
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/freiburg-vs-schalke-04/iXoOC7OM0s1A8txl2StdI",
+      "date": "2026-10-11",
+      "home": "Freiburg",
+      "away": "Schalke 04",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "M. Eggestein",
+          "minute": 10
+        },
+        {
+          "scorer": "K. Goto",
+          "minute": 85
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Gantenbein",
+          "minute": 30
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lazio-vs-monza/NDd_8YtNCvgvH_8b6xnj3",
+      "date": "2026-10-11",
+      "home": "Lazio",
+      "away": "Monza",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "N. Tavares",
+          "minute": 3
+        },
+        {
+          "scorer": "G. Isaksen",
+          "minute": 23
+        },
+        {
+          "scorer": "A. Pinamonti",
+          "minute": 88
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Goglichidze",
+          "minute": 46
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lecce-vs-bologna/pWexfaYs7nx5uwoDPM9kN",
+      "date": "2026-10-11",
+      "home": "Lecce",
+      "away": "Bologna",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "A. Fatah",
+          "minute": 64
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "R. Orsolini",
+          "minute": 17
+        },
+        {
+          "scorer": "J. Enem",
+          "minute": 75
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sassuolo-vs-ac-milan/ItrJLmwj6Ppdcx79TPOua",
+      "date": "2026-10-11",
+      "home": "Sassuolo",
+      "away": "Ac Milan",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "C. Odenthal",
+          "minute": 68
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Rabiot",
+          "minute": 63
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/nice-vs-strasbourg/pYQfmf_uAH4sBgRDP-l5n",
+      "date": "2026-10-11",
+      "home": "Nice",
+      "away": "Strasbourg",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "P. Demba Diop",
+          "minute": 45
+        },
+        {
+          "scorer": "J. Clauss",
+          "minute": 81
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Essugo",
+          "minute": 41
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lille-vs-paris-saint-germain/mDvRFib4yo0xdbhVO4XuL",
+      "date": "2026-08-28",
+      "home": "Lille",
+      "away": "Paris Saint Germain",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "H. Haraldsson",
+          "minute": 21
+        },
+        {
+          "scorer": "D. Bakwa",
+          "minute": 84
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "Vitinha",
+          "minute": 90
+        },
+        {
+          "scorer": "Marquinhos",
+          "minute": 90
+        }
+      ],
+      "competition": "psg"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
-    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2
+    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
+    "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 1
   }
 }
