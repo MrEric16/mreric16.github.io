@@ -1,69 +1,6 @@
 {
-  "generatedAt": "2026-10-10T20:58:32.947430Z",
+  "generatedAt": "2026-10-11T00:05:37.292039Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/valencia-vs-real-betis/CFmpU0-bFYoZnkoL7kkvJ",
-      "date": "2026-08-25",
-      "home": "Valencia",
-      "away": "Real Betis",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "P. Garcia",
-          "minute": 83
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn",
-      "date": "2026-08-26",
-      "home": "Real Madrid",
-      "away": "Real Sociedad",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "K. Mbappe",
-          "minute": 40
-        },
-        {
-          "scorer": "Vinicius Junior",
-          "minute": 68
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "L. Sucic",
-          "minute": 44
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/deportivo-alaves-vs-villarreal/vFhSY0hwaPwTCdAhZc-gS",
-      "date": "2026-08-28",
-      "home": "Deportivo Alaves",
-      "away": "Villarreal",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "L. Boye",
-          "minute": 31
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/bayern-munich-vs-vfb-stuttgart/aiH82_BfqmnEErWTw6eqd",
       "date": "2026-08-28",
@@ -7770,14 +7707,100 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/chelsea-vs-afc-bournemouth/3EETeCwtE2waw1U3wGNfx",
+      "date": "2026-10-10",
+      "home": "Chelsea",
+      "away": "Afc Bournemouth",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "J. Henderson",
+          "minute": 2
+        },
+        {
+          "scorer": "M. Rogers",
+          "minute": 3
+        },
+        {
+          "scorer": "J. Pedro",
+          "minute": 46
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "Evanilson",
+          "minute": 51
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-madrid-vs-villarreal/JxN9BAJU0NNXvnYbNUOlt",
+      "date": "2026-10-10",
+      "home": "Real Madrid",
+      "away": "Villarreal",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "Y. Diomande",
+          "minute": 62
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/mainz-05-vs-bayer-leverkusen/194M9kHlhxVvu5vh1qSzt",
+      "date": "2026-10-10",
+      "home": "Mainz 05",
+      "away": "Bayer Leverkusen",
+      "htHome": 2,
+      "htAway": 2,
+      "ftHome": 3,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "A. Caci",
+          "minute": 33
+        },
+        {
+          "scorer": "B. Hollerbach",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "R. Andrich",
+          "minute": 5
+        },
+        {
+          "scorer": "P. Schick",
+          "minute": 9
+        },
+        {
+          "scorer": "J. Quansah",
+          "minute": 55
+        },
+        {
+          "scorer": "M. Diaby",
+          "minute": 65
+        }
+      ],
+      "competition": "BL1"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/chelsea-vs-afc-bournemouth/3EETeCwtE2waw1U3wGNfx": 2,
-    "https://www.goal.com/en/match/mainz-05-vs-bayer-leverkusen/194M9kHlhxVvu5vh1qSzt": 2,
-    "https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo": 1,
-    "https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB": 1
+    "https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo": 2,
+    "https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB": 2
   }
 }
