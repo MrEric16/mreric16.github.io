@@ -1,19 +1,14 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 6 finished-match links
-[goal-scraper] WARNING: Chelsea scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/chelsea-vs-afc-bournemouth/3EETeCwtE2waw1U3wGNfx
-[goal-scraper] [PL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Chelsea 5-1 Afc Bournemouth: https://www.goal.com/en/match/chelsea-vs-afc-bournemouth/3EETeCwtE2waw1U3wGNfx
-[goal-scraper] [PL] Added: Chelsea 5-1 Afc Bournemouth
 [goal-scraper] [PD] Found 4 finished-match links
-[goal-scraper] [PD] Added: Real Madrid 1-0 Villarreal
 [goal-scraper] [BL1] Found 7 finished-match links
-[goal-scraper] WARNING: Mainz 05 scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/mainz-05-vs-bayer-leverkusen/194M9kHlhxVvu5vh1qSzt
-[goal-scraper] [BL1] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Mainz 05 3-4 Bayer Leverkusen: https://www.goal.com/en/match/mainz-05-vs-bayer-leverkusen/194M9kHlhxVvu5vh1qSzt
-[goal-scraper] [BL1] Added: Mainz 05 3-4 Bayer Leverkusen
 [goal-scraper] WARNING: Rb Leipzig scored 6 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo
-[goal-scraper] [BL1] SCORER PARSE FAILED (attempt 2/3) for Rb Leipzig 6-0 Eintracht Frankfurt -- NOT committing, will retry next run: https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo
+[goal-scraper] [BL1] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Rb Leipzig 6-0 Eintracht Frankfurt: https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo
+[goal-scraper] [BL1] Added: Rb Leipzig 6-0 Eintracht Frankfurt
 [goal-scraper] [SA] Found 3 finished-match links
 [goal-scraper] WARNING: Ssc Napoli scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB
-[goal-scraper] [SA] SCORER PARSE FAILED (attempt 2/3) for Ssc Napoli 3-0 Frosinone -- NOT committing, will retry next run: https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB
+[goal-scraper] [SA] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Ssc Napoli 3-0 Frosinone: https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB
+[goal-scraper] [SA] Added: Ssc Napoli 3-0 Frosinone
 [goal-scraper] [FL1] Found 6 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 22 finished-match links
@@ -30,6 +25,8 @@
 [goal-scraper] WARNING: Paris Saint Germain scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/paris-saint-germain-vs-real-madrid/RVrkKipgJEh4W5S0K4NnS
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Paris Saint Germain vs Real Madrid on 2025-07-09
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Espanyol vs Real Madrid on 2026-08-22
+[goal-scraper] WARNING: Real Madrid scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn
+[goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Real Sociedad on 2026-08-26
 [goal-scraper] [barcelona] Found 15 finished-match links
 [goal-scraper] WARNING: Barcelona scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/elche-vs-barcelona/2FnxuiygSUUuJoTZpwnve
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Elche vs Barcelona on 2026-08-23
@@ -95,6 +92,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 3
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo', 'https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB']
+[goal-scraper] TOTAL new results added this run: 2
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM']
 [goal-scraper] Wrote data/goal-results.json

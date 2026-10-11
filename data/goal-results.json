@@ -1,67 +1,6 @@
 {
-  "generatedAt": "2026-10-11T00:05:37.292039Z",
+  "generatedAt": "2026-10-11T06:06:16.352697Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/bayern-munich-vs-vfb-stuttgart/aiH82_BfqmnEErWTw6eqd",
-      "date": "2026-08-28",
-      "home": "Bayern Munich",
-      "away": "Vfb Stuttgart",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 5,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "D. Upamecano",
-          "minute": 21
-        },
-        {
-          "scorer": "M. Olise",
-          "minute": 55
-        },
-        {
-          "scorer": "J. Vagnoman",
-          "minute": 58
-        },
-        {
-          "scorer": "A. Pavlovic",
-          "minute": 82
-        },
-        {
-          "scorer": "L. Diaz",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Vagnoman",
-          "minute": 52
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/ac-milan-vs-venezia/wp3-igTHQzS7fx7UcH28w",
-      "date": "2026-08-28",
-      "home": "Ac Milan",
-      "away": "Venezia",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "G. Ramos",
-          "minute": 69
-        },
-        {
-          "scorer": "R. Halhal",
-          "minute": 89
-        }
-      ],
-      "awayGoals": [],
-      "competition": "SA"
-    },
     {
       "url": "https://www.goal.com/en/match/lille-vs-paris-saint-germain/mDvRFib4yo0xdbhVO4XuL",
       "date": "2026-08-28",
@@ -7795,12 +7734,62 @@
         }
       ],
       "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo",
+      "date": "2026-10-10",
+      "home": "Rb Leipzig",
+      "away": "Eintracht Frankfurt",
+      "htHome": 4,
+      "htAway": 0,
+      "ftHome": 6,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "E. Banzuzi",
+          "minute": 1
+        },
+        {
+          "scorer": "C. Nkunku",
+          "minute": 5
+        },
+        {
+          "scorer": "A. Nusa",
+          "minute": 54
+        },
+        {
+          "scorer": "T. Gomis",
+          "minute": 89
+        }
+      ],
+      "awayGoals": [],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB",
+      "date": "2026-10-10",
+      "home": "Ssc Napoli",
+      "away": "Frosinone",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "K. De Bruyne",
+          "minute": 29
+        },
+        {
+          "scorer": "N. Lang",
+          "minute": 32
+        }
+      ],
+      "awayGoals": [],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
-    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/rb-leipzig-vs-eintracht-frankfurt/Hf8-VmPWju090JkSzblZo": 2,
-    "https://www.goal.com/en/match/ssc-napoli-vs-frosinone/kAjc6GPqGw49rQ7asGpkB": 2
+    "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2
   }
 }
