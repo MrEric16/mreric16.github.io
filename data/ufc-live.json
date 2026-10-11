@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-10T10:01:47.698573+00:00",
+  "generatedAt": "2026-10-11T10:11:54.363285+00:00",
   "scheduled": [
     {
       "name": "UFC Fight Night 296",
@@ -11,7 +11,8 @@
       "name": "UFC 335: Oliveira vs. Lopes",
       "date_text": "Dec 12, 2026",
       "venue": "T-Mobile Arena",
-      "location": "Las Vegas,Nevada, U.S."
+      "location": "Las Vegas,Nevada, U.S.",
+      "start_tashkent": "2026-12-13T07:00:00+05:00"
     },
     {
       "name": "UFC Fight Night 295",
@@ -60,16 +61,15 @@
       "venue": "Rogers Place",
       "location": "Edmonton, Alberta, Canada",
       "start_tashkent": "2026-10-18T05:00:00+05:00"
-    },
+    }
+  ],
+  "past": [
     {
       "name": "UFC Fight Night: Allen vs. Duncan",
       "date_text": "Oct 10, 2026",
       "venue": "Meta Apex",
-      "location": "Las Vegas,Nevada, U.S.",
-      "start_tashkent": "2026-10-11T05:00:00+05:00"
-    }
-  ],
-  "past": [
+      "location": "Las Vegas,Nevada, U.S."
+    },
     {
       "name": "UFC 332: Silva vs. Wang",
       "date_text": "Oct 3, 2026",
@@ -160,13 +160,6 @@
       "venue": "National Gymnastics Arena",
       "location": "Baku, Azerbaijan",
       "result": "Rafael Fiziev def. Manuel Torres (KO, R2 0:15)"
-    },
-    {
-      "name": "UFC Fight Night: Kape vs. Horiguchi",
-      "date_text": "Jun 20, 2026",
-      "venue": "Meta Apex",
-      "location": "Las Vegas,Nevada, U.S.",
-      "result": "Manel Kape def. Kyoji Horiguchi (TKO, R3 2:42)"
     }
   ]
 }
