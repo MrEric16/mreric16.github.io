@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-11T16:22:40.701071Z",
+ "generatedAt": "2026-10-11T20:25:59.342585Z",
  "results": [
   {
    "url": "espn:401879266",
@@ -68,6 +68,34 @@
    "complete": true
   },
   {
+   "url": "espn:401879264",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T15:30Z",
+   "home": "Liverpool",
+   "away": "Man City",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "E. Haaland",
+     "minute": 65
+    },
+    {
+     "scorer": "J. Doku",
+     "minute": 68
+    },
+    {
+     "scorer": "R. Cherki",
+     "minute": 78
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
    "url": "espn:401882854",
    "date": "2026-10-11",
    "utc": "2026-10-11T12:00Z",
@@ -120,6 +148,51 @@
    "complete": true
   },
   {
+   "url": "espn:401882855",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T16:30Z",
+   "home": "Real Betis",
+   "away": "Osasuna",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 5,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "Isco (pen)",
+     "minute": 10
+    },
+    {
+     "scorer": "A. Ezzalzouli",
+     "minute": 31
+    },
+    {
+     "scorer": "A. Budimir (og)",
+     "minute": 48
+    },
+    {
+     "scorer": "Isco",
+     "minute": 67
+    },
+    {
+     "scorer": "J. Morante",
+     "minute": "90+6"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Budimir",
+     "minute": 51
+    },
+    {
+     "scorer": "R. García",
+     "minute": 56
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
    "url": "espn:401884774",
    "date": "2026-10-11",
    "utc": "2026-10-11T13:30Z",
@@ -143,6 +216,35 @@
     {
      "scorer": "J. Scally",
      "minute": 39
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884778",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T15:30Z",
+   "home": "Freiburg",
+   "away": "Schalke",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Eggestein",
+     "minute": 10
+    },
+    {
+     "scorer": "K. Goto",
+     "minute": 85
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "K. Karaman",
+     "minute": 30
     }
    ],
    "competition": "BL1",
@@ -226,6 +328,31 @@
    "complete": true
   },
   {
+   "url": "espn:401874789",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T16:00Z",
+   "home": "Sassuolo",
+   "away": "Milan",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "C. Odenthal",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Rabiot",
+     "minute": 63
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876443",
    "date": "2026-10-11",
    "utc": "2026-10-11T13:00Z",
@@ -249,6 +376,43 @@
     {
      "scorer": "D. Essugo",
      "minute": 41
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876441",
+   "date": "2026-10-11",
+   "utc": "2026-10-11T15:15Z",
+   "home": "Stade Rennais",
+   "away": "Auxerre",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Lepaul",
+     "minute": 15
+    },
+    {
+     "scorer": "A. Thomasson",
+     "minute": 53
+    },
+    {
+     "scorer": "B. Dia",
+     "minute": "90+2"
+    },
+    {
+     "scorer": "B. Dia",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "C. Archer",
+     "minute": 25
     }
    ],
    "competition": "FL1",
