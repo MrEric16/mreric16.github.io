@@ -1,33 +1,6 @@
 {
-  "generatedAt": "2026-10-12T01:28:57.299807Z",
+  "generatedAt": "2026-10-12T07:46:33.987608Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lorient-vs-troyes/rBlibcHzV51JNshurfeu9",
-      "date": "2026-08-29",
-      "home": "Lorient",
-      "away": "Troyes",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "J. Makengo",
-          "minute": 51
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Ripart",
-          "minute": 29
-        },
-        {
-          "scorer": "L. Maronnier",
-          "minute": 38
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/levante-vs-real-betis/upw1H4oVuYH7YTFH7xKcr",
       "date": "2026-08-29",
@@ -7776,12 +7749,50 @@
       ],
       "awayGoals": [],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-betis-vs-osasuna/GmtMNpPk6m6ccBXqGTnQm",
+      "date": "2026-10-11",
+      "home": "Real Betis",
+      "away": "Osasuna",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "Isco",
+          "minute": 10
+        },
+        {
+          "scorer": "A. Ezzalzouli",
+          "minute": 31
+        },
+        {
+          "scorer": "A. Budimir",
+          "minute": 48
+        },
+        {
+          "scorer": "J. Morante",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Budimir",
+          "minute": 51
+        },
+        {
+          "scorer": "R. Garcia",
+          "minute": 56
+        }
+      ],
+      "competition": "PD"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
-    "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
-    "https://www.goal.com/en/match/real-betis-vs-osasuna/GmtMNpPk6m6ccBXqGTnQm": 2
+    "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2
   }
 }
