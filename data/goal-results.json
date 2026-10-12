@@ -1,29 +1,6 @@
 {
-  "generatedAt": "2026-10-11T22:13:34.240919Z",
+  "generatedAt": "2026-10-12T01:28:57.299807Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lyon-vs-le-havre/O2rC1haIQFBvdPIihFoSK",
-      "date": "2026-08-29",
-      "home": "Lyon",
-      "away": "Le Havre",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "I. Openda",
-          "minute": 87
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Samatta",
-          "minute": 74
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/lorient-vs-troyes/rBlibcHzV51JNshurfeu9",
       "date": "2026-08-29",
@@ -7777,12 +7754,34 @@
       ],
       "awayGoals": [],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-parma-calcio-1913/Wfw7rDhiHN5HZREJ8Bu5u",
+      "date": "2026-08-29",
+      "home": "Juventus",
+      "away": "Parma Calcio 1913",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "N. Gonzalez",
+          "minute": 62
+        },
+        {
+          "scorer": "T. Koopmeiners",
+          "minute": 88
+        }
+      ],
+      "awayGoals": [],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
     "https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y": 2,
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
     "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
-    "https://www.goal.com/en/match/real-betis-vs-osasuna/GmtMNpPk6m6ccBXqGTnQm": 1
+    "https://www.goal.com/en/match/real-betis-vs-osasuna/GmtMNpPk6m6ccBXqGTnQm": 2
   }
 }
