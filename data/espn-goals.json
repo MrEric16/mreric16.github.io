@@ -1,6 +1,84 @@
 {
- "generatedAt": "2026-10-12T19:54:52.621760Z",
+ "generatedAt": "2026-10-13T01:42:58.758379Z",
  "results": [
+  {
+   "url": "espn:401879267",
+   "date": "2026-10-12",
+   "utc": "2026-10-12T19:00Z",
+   "home": "Coventry City",
+   "away": "Newcastle",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Rudoni (pen)",
+     "minute": 6
+    },
+    {
+     "scorer": "S. Cherif",
+     "minute": 48
+    },
+    {
+     "scorer": "E. Simms",
+     "minute": 81
+    },
+    {
+     "scorer": "S. Mfuni",
+     "minute": 86
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Botman",
+     "minute": 70
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882852",
+   "date": "2026-10-12",
+   "utc": "2026-10-12T19:00Z",
+   "home": "Levante",
+   "away": "Sevilla FC",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "I. Romero",
+     "minute": 57
+    },
+    {
+     "scorer": "A. de la Fuente",
+     "minute": "90+2"
+    },
+    {
+     "scorer": "I. Ndukwe",
+     "minute": "90+10"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Ure",
+     "minute": 13
+    },
+    {
+     "scorer": "F. Correia",
+     "minute": 54
+    },
+    {
+     "scorer": "I. Romero",
+     "minute": "90+5"
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
   {
    "url": "espn:401875005",
    "date": "2026-10-12",
@@ -29,6 +107,35 @@
     {
      "scorer": "A. Hainaut",
      "minute": 37
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874763",
+   "date": "2026-10-12",
+   "utc": "2026-10-12T18:45Z",
+   "home": "Torino",
+   "away": "Udinese",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "D. Bragança",
+     "minute": 36
+    },
+    {
+     "scorer": "S. Kulenovic",
+     "minute": 67
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Ekkelenkamp",
+     "minute": 43
     }
    ],
    "competition": "SA",
