@@ -1,51 +1,6 @@
 {
-  "generatedAt": "2026-10-13T12:23:57.082872Z",
+  "generatedAt": "2026-10-13T19:25:20.590606Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/sevilla-vs-atletico-madrid/_seK0ylxMUwag4mPVn_nk",
-      "date": "2026-08-29",
-      "home": "Sevilla",
-      "away": "Atletico Madrid",
-      "htHome": 0,
-      "htAway": 3,
-      "ftHome": 1,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "M. Sierra",
-          "minute": 66
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Baena",
-          "minute": 4
-        },
-        {
-          "scorer": "A. Lookman",
-          "minute": 26
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/sunderland-vs-fulham/_qwFz-yMxo7RJo1DeAaVp",
-      "date": "2026-08-30",
-      "home": "Sunderland",
-      "away": "Fulham",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "W. Isidor",
-          "minute": 75
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/leeds-united-vs-brentford/sPgTQHHhXxw87XeDMO3UF",
       "date": "2026-08-30",
@@ -7805,6 +7760,50 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sabah-fk-vs-slavia-prague/m3iiQiE7Hnd1N5LiOm5FP",
+      "date": "2026-10-13",
+      "home": "Sabah Fk",
+      "away": "Slavia Prague",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "K. Parris",
+          "minute": 49
+        },
+        {
+          "scorer": "J. Mickels",
+          "minute": 88
+        }
+      ],
+      "awayGoals": [],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lens-vs-sporting-cp/lZz4y5w9KxnTWoMq-6yCU",
+      "date": "2026-10-13",
+      "home": "Lens",
+      "away": "Sporting Cp",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "L. Suarez",
+          "minute": 22
+        },
+        {
+          "scorer": "I. Doumbia",
+          "minute": 74
+        }
+      ],
+      "competition": "CL"
     }
   ],
   "scorerParseRetryCounts": {
