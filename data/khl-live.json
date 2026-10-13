@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T11:43:23.867026+00:00",
+  "generatedAt": "2026-10-13T18:31:41.454533+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -38,6 +38,18 @@
       "points": 48
     },
     {
+      "team": "Severstal",
+      "played": 20,
+      "won": 15,
+      "otWon": 8,
+      "soWon": 1,
+      "soLost": 0,
+      "otLost": 1,
+      "lost": 0,
+      "gf": 35,
+      "points": 49
+    },
+    {
       "team": "Torpedo",
       "played": 19,
       "won": 14,
@@ -60,18 +72,6 @@
       "lost": 0,
       "gf": 47,
       "points": 46
-    },
-    {
-      "team": "Severstal",
-      "played": 18,
-      "won": 14,
-      "otWon": 7,
-      "soWon": 1,
-      "soLost": 0,
-      "otLost": 1,
-      "lost": 0,
-      "gf": 33,
-      "points": 45
     },
     {
       "team": "Amur",
@@ -124,14 +124,14 @@
     {
       "team": "SKA",
       "played": 17,
-      "won": 13,
+      "won": 14,
       "otWon": 5,
       "soWon": 2,
       "soLost": 1,
       "otLost": 0,
       "lost": 0,
       "gf": 47,
-      "points": 41
+      "points": 43
     },
     {
       "team": "Spartak",
@@ -267,11 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Severstal",
-      "away": "SKA",
-      "start": "2026-10-13T17:00:00+05:00"
-    },
     {
       "home": "Amur",
       "away": "Spartak",
@@ -3224,6 +3219,14 @@
     }
   ],
   "results": [
+    {
+      "home": "Severstal",
+      "away": "SKA",
+      "start": "2026-10-13T17:00:00+05:00",
+      "homeScore": 2,
+      "awayScore": 0,
+      "finished": true
+    },
     {
       "home": "Dragons",
       "away": "Dynamo Minsk",
