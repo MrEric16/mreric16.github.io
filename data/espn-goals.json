@@ -1,6 +1,282 @@
 {
- "generatedAt": "2026-10-13T16:34:07.167214Z",
+ "generatedAt": "2026-10-13T21:39:01.834659Z",
  "results": [
+  {
+   "url": "espn:401915418",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T16:45Z",
+   "home": "RC Lens",
+   "away": "Sporting CP",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "L. Suárez",
+     "minute": 22
+    },
+    {
+     "scorer": "I. Doumbia",
+     "minute": 74
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915436",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T16:45Z",
+   "home": "Sabah FK",
+   "away": "Slavia Praha",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "K. Parris",
+     "minute": 49
+    },
+    {
+     "scorer": "J. Mickels",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915417",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "Arsenal",
+   "away": "Lille",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. Timber",
+     "minute": 64
+    },
+    {
+     "scorer": "E. Eze",
+     "minute": 67
+    },
+    {
+     "scorer": "B. Saka",
+     "minute": 71
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915412",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "Atleti",
+   "away": "Man United",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "P. Barrios",
+     "minute": 1
+    },
+    {
+     "scorer": "A. Lookman",
+     "minute": 79
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915435",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "Galatasaray",
+   "away": "Barça",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "A. Batrakov",
+     "minute": 28
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Cancelo",
+     "minute": 43
+    },
+    {
+     "scorer": "F. López",
+     "minute": 50
+    },
+    {
+     "scorer": "A. Gordon",
+     "minute": 53
+    },
+    {
+     "scorer": "K. Adeyemi",
+     "minute": 65
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915413",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "Inter",
+   "away": "Club Brugge",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "L. Martínez",
+     "minute": 44
+    },
+    {
+     "scorer": "L. Martínez",
+     "minute": 81
+    },
+    {
+     "scorer": "A. Bonny",
+     "minute": "90+3"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Tresoldi (pen)",
+     "minute": 30
+    },
+    {
+     "scorer": "N. Tresoldi",
+     "minute": 63
+    },
+    {
+     "scorer": "N. Tresoldi",
+     "minute": 74
+    },
+    {
+     "scorer": "R. Vermant",
+     "minute": 87
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915434",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "RB Leipzig",
+   "away": "PSV",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "B. Gruda",
+     "minute": 75
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915411",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "Viking",
+   "away": "Bayern",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "G. Stensness",
+     "minute": 2
+    },
+    {
+     "scorer": "P. Christiansen",
+     "minute": 38
+    },
+    {
+     "scorer": "H. Haugen",
+     "minute": 90
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "H. Kane (pen)",
+     "minute": 54
+    },
+    {
+     "scorer": "H. Kane",
+     "minute": 60
+    },
+    {
+     "scorer": "L. Díaz",
+     "minute": 71
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915410",
+   "date": "2026-10-13",
+   "utc": "2026-10-13T19:00Z",
+   "home": "Villarreal",
+   "away": "Napoli",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "G. Mikautadze",
+     "minute": 23
+    },
+    {
+     "scorer": "S. Mouriño",
+     "minute": 26
+    },
+    {
+     "scorer": "T. Oluwaseyi",
+     "minute": 86
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Rrahmani",
+     "minute": 8
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
   {
    "url": "espn:401879267",
    "date": "2026-10-12",
