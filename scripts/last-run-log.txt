@@ -1,23 +1,24 @@
-[scrape] Run started. Today (Tashkent): 2026-10-13  Window end: 2026-10-27
+[scrape] Run started. Today (Tashkent): 2026-10-14  Window end: 2026-10-28
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-10-13: 21 new event URLs discovered
-[scrape] calendar 2026-10-14: 4 new event URLs discovered
-[scrape] calendar 2026-10-15: 6 new event URLs discovered
+[scrape] calendar 2026-10-14: 18 new event URLs discovered
+[scrape] calendar 2026-10-15: 7 new event URLs discovered
 [scrape] calendar 2026-10-16: 11 new event URLs discovered
 [scrape] calendar 2026-10-17: 24 new event URLs discovered
 [scrape] calendar 2026-10-18: 10 new event URLs discovered
 [scrape] calendar 2026-10-19: 2 new event URLs discovered
-[scrape] calendar 2026-10-20: 3 new event URLs discovered
+[scrape] calendar 2026-10-20: 4 new event URLs discovered
 [scrape] calendar 2026-10-21: 4 new event URLs discovered
 [scrape] calendar 2026-10-22: 7 new event URLs discovered
-[scrape] exhibitions listing page (supplementary): FAILED to load (Page.goto: Timeout 30000ms exceeded.
-Call log:
-  - navigating to "https://www.afisha.uz/ru/exhibitions", waiting until "networkidle"
-)
-[scrape] calendar discovery complete: 92 unique event URLs to check
-[scrape] Translation failed for 'Концерт национальной музыки Meros Navola': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] calendar 2026-10-23: 7 new event URLs discovered
+[scrape] exhibitions listing: EXCLUDED '/ru/exhibitions/2026/07/02/tiff-2026' on link text 'Международная туристическая выставка «Туризм по Шелковому пути — 2026»\nс 25 по 2'
+[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 22 total exhibition links seen on page
+[scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
+[scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
+[scrape] calendar discovery complete: 103 unique event URLs to check
+[scrape] Translation failed for 'Вердиана': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Шоу «Легенда о любви» в Самарканде': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Фотовыставка Ермолая Солженицына «Фактур': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Торговая выставка China Central Asia': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка книжной графики Кыдырбая Нажимо': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка Apparel Sourcing Tashkent 2026': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка Texworld Tashkent 2026': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
@@ -29,17 +30,11 @@ Call log:
 [scrape] Translation failed for 'Выставка Мохамеда Беншалала': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка Hikmah в CCA Tashkent': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] Translation failed for 'Выставка Зураба Церетели «Больше, чем жи': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Спектакль-променад «Говорит Ташкент»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Премьера спектакля «Кабала святош»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Химическое шоу в Jungle Family Club': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Лекция «Автостопом по Австралии и Новой ': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Книжный клуб «Читаем по-человечески»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Вердиана': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] Translation failed for 'Торговая выставка China Central Asia': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Трагикомического фарса «Баба Шанель»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Спектакль-променад «Говорит Ташкент»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Моцарт. «Хаффнер»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Концерт BACH: New Vision камерного оркес': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Выставка Зураба Церетели «Больше, чем жи': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Спектакль Sizsiz o‘tmas kunlari': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Трагедия «Гамлет»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Zero Waste Fashion Festival': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
@@ -86,6 +81,7 @@ Call log:
 [scrape] Translation failed for 'Строительная выставка UzStroyExpo-2026': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'UzEnergyExpo-2026': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Спектакль Shaddod ona': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Химическое шоу в Jungle Family Club': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Концерт «Время классики»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Выставка Comtrux Tashkent 2026': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Спектакль «Свободный аукцион имени Серге': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
@@ -97,15 +93,29 @@ Call log:
 [scrape] Translation failed for 'Спектакль «Открытый урок»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Литературная композиция «Пушкин. Последн': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
 [scrape] Translation failed for 'Спектакль «Подпольные девочки»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
-[scrape] calendar detail pass complete: 285 events kept from 92 pages checked
+[scrape] Translation failed for 'Гастрономические ужины с шеф-поваром': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Литературно-музыкальная программа «Лирик': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Выставка Eurasian Construction Technolog': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Спектакль «Потерянные» в театре-студии «': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Комедия «Крошка»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for 'Премьера спектакля «Эй, беляш»': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape] Translation failed for '«По женской линии»: в пространстве Zanma': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape] Translation failed for 'Бесплатно в музей: в Узбекистане стартов': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape] Translation failed for 'Узбекистан представит современное ремесл': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape] Translation failed for 'Эстетика многослойности: в Ташкенте откр': Server Error: You made too many requests to the server.According to google, you are allowed to make 5 requests per secondand up to 200k requests per day. You can wait and try again later oryou can try the translate_batch function
+[scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape] calendar detail pass complete: 288 events kept from 103 pages checked
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 21 events kept
-[scrape] iticket.uz cat=theatre: 27 events kept
+[scrape] iticket.uz cat=concert: 22 events kept
+[scrape] iticket.uz cat=theatre: 14 events kept
 [scrape] iticket.uz cat=exhibition: 0 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
 [scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 333  |  after dedup: 307
+[scrape] TOTAL before dedup: 324  |  after dedup: 297
 [scrape] Wrote data/events-tashkent.json
