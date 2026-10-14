@@ -1,14 +1,24 @@
 {
- "generated": "2026-10-05T03:09:12Z",
+ "generated": "2026-10-14T17:26:27Z",
  "summary": {
-  "MISMATCH": 42,
-  "OK": 210,
-  "ARCHIVED_OK": 25,
-  "BLOCKED": 18,
+  "MISMATCH": 51,
+  "OK": 341,
+  "ARCHIVED_OK": 31,
+  "BLOCKED": 25,
   "DEAD": 2,
-  "REDIRECT": 9
+  "REDIRECT": 15
  },
  "results": [
+  {
+   "headline": "World's oldest shipwreck, and maybe a floating cheese churn",
+   "url": "https://www.turkiyetoday.com/culture/worlds-oldest-shipwreck-uncovered-off-turkiyes-mediterranean-coast-3230269",
+   "status": 200,
+   "final_url": "https://www.turkiyetoday.com/culture/worlds-oldest-shipwreck-uncovered-off-turkiyes-mediterranean-coast-3230269",
+   "canonical": "https://www.turkiyetoday.com/culture/worlds-oldest-shipwreck-uncovered-off-turkiyes-mediterranean-coast-3230269",
+   "title": "World",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.14 (served title unrelated to headline)"
+  },
   {
    "headline": "10 homes smarter than your architect",
    "url": "https://www.bbc.com/culture/article/20260721-10-of-japans-most-cleverly-designed-homes",
@@ -212,32 +222,35 @@
   {
    "headline": "Lego creates giant World Cup trophy from 1.3 million bricks",
    "url": "https://www.dezeen.com/2026/07/09/lego-giant-world-cup-trophy/",
-   "status": 200,
+   "status": 403,
    "final_url": "https://www.dezeen.com/2026/07/09/lego-giant-world-cup-trophy/",
-   "canonical": "https://www.dezeen.com/2026/07/09/lego-giant-world-cup-trophy/",
-   "title": "Lego creates giant World Cup trophy from 1.3 million bricks",
-   "verdict": "OK",
-   "note": "title overlap 1.00"
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260714132759"
   },
   {
    "headline": "MAD adds trio of 'cloud buildings' to Tencent headquarters in Shenzhen",
    "url": "https://www.dezeen.com/2026/07/02/mad-tengyun-center-tencent-headquarters-shenzhen/",
-   "status": 200,
+   "status": 403,
    "final_url": "https://www.dezeen.com/2026/07/02/mad-tengyun-center-tencent-headquarters-shenzhen/",
-   "canonical": "https://www.dezeen.com/2026/07/02/mad-tengyun-center-tencent-headquarters-shenzhen/",
-   "title": "MAD adds trio of volumes to Tencent headquarters in Shenzhen",
-   "verdict": "OK",
-   "note": "title overlap 0.71"
+   "canonical": "",
+   "title": "",
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Bugatti designs porcelain-clad sports car informed by Enzo Mari vase",
    "url": "https://www.dezeen.com/2026/07/07/bugatti-porcelain-clad-sports-car-enzo-mari-vase/",
-   "status": 200,
+   "status": 403,
    "final_url": "https://www.dezeen.com/2026/07/07/bugatti-porcelain-clad-sports-car-enzo-mari-vase/",
-   "canonical": "https://www.dezeen.com/2026/07/07/bugatti-porcelain-clad-sports-car-enzo-mari-vase/",
-   "title": "Bugatti designs porcelain-clad sports car informed by Enzo Mari vase",
-   "verdict": "OK",
-   "note": "title overlap 1.00"
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260714132904"
   },
   {
    "headline": "Honey-Making Stingless Bees in the Peruvian Amazon Become the First Insects to Gain Legal Rights",
@@ -422,35 +435,38 @@
   {
    "headline": "Snap Specs bring rich augmented reality to smart glasses",
    "url": "https://www.dezeen.com/2026/06/18/snap-specs-smart-glasses-augmented-reality/",
-   "status": 200,
+   "status": 403,
    "final_url": "https://www.dezeen.com/2026/06/18/snap-specs-smart-glasses-augmented-reality/",
-   "canonical": "https://www.dezeen.com/2026/06/18/snap-specs-smart-glasses-augmented-reality/",
-   "title": "Snap Specs combine smart glasses with rich augmented reality",
-   "verdict": "OK",
-   "note": "title overlap 0.88"
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260810091306"
   },
   {
    "headline": "Google and Samsung launch AI-powered Intelligent Eyewear",
    "url": "https://www.dezeen.com/2026/05/20/google-samsung-intelligent-eyewear/",
-   "status": 200,
+   "status": 403,
    "final_url": "https://www.dezeen.com/2026/05/20/google-samsung-intelligent-eyewear/",
-   "canonical": "https://www.dezeen.com/2026/05/20/google-samsung-intelligent-eyewear/",
-   "title": "Google and Samsung launch AI-powered Intelligent Eyewear",
-   "verdict": "OK",
-   "note": "title overlap 1.00"
+   "canonical": "",
+   "title": "",
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Team Repair's adult STEM kit shows how to fix your phone",
    "url": "https://www.dezeen.com/2026/05/07/repair-kit-for-grown-ups-team-repair/",
-   "status": 200,
+   "status": 403,
    "final_url": "https://www.dezeen.com/2026/05/07/repair-kit-for-grown-ups-team-repair/",
-   "canonical": "https://www.dezeen.com/2026/05/07/repair-kit-for-grown-ups-team-repair/",
-   "title": "Team Repair's adult STEM kit shows how to fix your phone",
-   "verdict": "OK",
-   "note": "title overlap 1.00"
+   "canonical": "",
+   "title": "",
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
-   "headline": "The weirdest things that mess up wi-fi \u2013 and how to improve your signal",
+   "headline": "The weirdest things that mess up wi-fi - and how to improve your signal",
    "url": "https://www.bbc.com/future/article/20260708-the-weirdest-things-that-mess-up-your-wifi",
    "status": 200,
    "final_url": "https://www.bbc.com/future/article/20260708-the-weirdest-things-that-mess-up-your-wifi",
@@ -746,9 +762,9 @@
    "final_url": "https://www.britannica.com/money/Big-Mac-index",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260907173546"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Is Inequality Inevitable?",
@@ -969,9 +985,9 @@
    "final_url": "https://www.britannica.com/event/Marbury-v-Madison",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260908074709"
   },
   {
    "headline": "What Were the Nuremberg Trials?",
@@ -1001,9 +1017,9 @@
    "final_url": "https://www.britannica.com/money/McDonalds",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261004215428"
   },
   {
    "headline": "Nike, Inc.: History, Logo, Headquarters, & Facts",
@@ -1012,9 +1028,9 @@
    "final_url": "https://www.britannica.com/money/Nike-Inc",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261001041630"
   },
   {
    "headline": "Amazon: E-commerce, Amazon Web Services, History, & Facts",
@@ -1023,9 +1039,9 @@
    "final_url": "https://www.britannica.com/money/Amazoncom",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260927085233"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "IKEA: Home Furnishings & Design",
@@ -1034,9 +1050,9 @@
    "final_url": "https://www.britannica.com/money/IKEA",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261001074619"
   },
   {
    "headline": "Starbucks: Description, History, & Facts",
@@ -1045,9 +1061,9 @@
    "final_url": "https://www.britannica.com/money/Starbucks",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20261003021121"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "This Old Experiment With Mice Led to Bleak Predictions for Humanity's Future",
@@ -1189,7 +1205,7 @@
    "title": "",
    "verdict": "ARCHIVED_OK",
    "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260914025505"
+   "wayback": "200 20261011062902"
   },
   {
    "headline": "Cellphones Were Created to Untether Us. Then They Got Smart and Evolved Into an Omnipotent Appendage",
@@ -1220,7 +1236,7 @@
    "title": "",
    "verdict": "ARCHIVED_OK",
    "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260914164113"
+   "wayback": "200 20261007105037"
   },
   {
    "headline": "The Pioneers of Video Game Technology Are About to Become the Stuff of History",
@@ -1239,9 +1255,9 @@
    "final_url": "https://www.britannica.com/list/influential-computer-programming-languages",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20250701130402"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Ada Lovelace: The First Computer Programmer",
@@ -1252,7 +1268,7 @@
    "title": "",
    "verdict": "ARCHIVED_OK",
    "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260924032657"
+   "wayback": "200 20261009000149"
   },
   {
    "headline": "Grace Under Pressure",
@@ -1382,9 +1398,9 @@
    "final_url": "https://www.britannica.com/topic/laughter",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260705202721"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Flow State",
@@ -1434,9 +1450,9 @@
    "final_url": "https://www.britannica.com/technology/GPS",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260716151813"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Moore's Law",
@@ -1445,9 +1461,9 @@
    "final_url": "https://www.britannica.com/technology/Moores-law",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20261001140543"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "A Brief History of the Internet",
@@ -1456,9 +1472,9 @@
    "final_url": "https://www.britannica.com/technology/Internet",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260930194253"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Website Security Basics",
@@ -1518,9 +1534,9 @@
    "final_url": "https://www.britannica.com/science/water",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261011123516"
   },
   {
    "headline": "What Is Dark Matter?",
@@ -1557,13 +1573,13 @@
    "url": "https://www.interaction-design.org/literature/topics/design-principles",
    "status": 200,
    "final_url": "https://ixdf.org/literature/topics/design-principles",
-   "canonical": "https://ixdf.org/literature/topics/design-principles?page=2",
-   "title": "What are the Principles of Design? \u2014 updated 2026 - Page 2",
+   "canonical": "https://ixdf.org/literature/topics/design-principles",
+   "title": "What are the Principles of Design? \u2014 updated 2026",
    "verdict": "REDIRECT",
    "note": "final URL differs from requested"
   },
   {
-   "headline": "Color Theory Basics",
+   "headline": "Colour Theory Basics",
    "url": "https://www.interaction-design.org/literature/topics/color-theory",
    "status": 200,
    "final_url": "https://ixdf.org/literature/topics/color-theory",
@@ -1614,14 +1630,14 @@
   },
   {
    "headline": "The Silk Road",
-   "url": "https://www.britannica.com/topic/Silk-Road-trade-route-Eurasia",
+   "url": "https://kids.britannica.com/students/article/Silk-Road/438135",
    "status": 403,
-   "final_url": "https://www.britannica.com/topic/Silk-Road-trade-route-Eurasia",
+   "final_url": "https://kids.britannica.com/students/article/Silk-Road/438135",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20250819222117"
   },
   {
    "headline": "Printing Press",
@@ -1643,7 +1659,7 @@
    "title": "",
    "verdict": "ARCHIVED_OK",
    "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260913101810"
+   "wayback": "200 20261009215641"
   },
   {
    "headline": "Common Law",
@@ -1652,20 +1668,20 @@
    "final_url": "https://www.britannica.com/topic/common-law",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20261004155053"
-  },
-  {
-   "headline": "Civil Law",
-   "url": "https://www.britannica.com/topic/civil-law",
-   "status": 403,
-   "final_url": "https://www.britannica.com/topic/civil-law",
-   "canonical": "",
-   "title": "",
    "verdict": "BLOCKED",
    "note": "HTTP 403",
    "wayback": "none"
+  },
+  {
+   "headline": "Civil Law",
+   "url": "https://www.britannica.com/topic/civil-law-Romano-Germanic",
+   "status": 403,
+   "final_url": "https://www.britannica.com/topic/civil-law-Romano-Germanic",
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260904125321"
   },
   {
    "headline": "Intellectual Property",
@@ -1686,7 +1702,7 @@
    "title": "",
    "verdict": "ARCHIVED_OK",
    "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20261004032820"
+   "wayback": "200 20261005212918"
   },
   {
    "headline": "United Nations: What It Does",
@@ -1874,9 +1890,9 @@
   },
   {
    "headline": "Why Some Products Become Popular",
-   "url": "https://www.britannica.com/money/consumer-behavior",
+   "url": "https://www.britannica.com/topic/consumer-behavior",
    "status": 403,
-   "final_url": "https://www.britannica.com/money/consumer-behavior",
+   "final_url": "https://www.britannica.com/topic/consumer-behavior",
    "canonical": "",
    "title": "",
    "verdict": "BLOCKED",
@@ -1911,9 +1927,9 @@
    "final_url": "https://www.britannica.com/money/invisible-hand",
    "canonical": "",
    "title": "",
-   "verdict": "ARCHIVED_OK",
-   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
-   "wayback": "200 20260908233028"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "Behavioral Economics",
@@ -1963,9 +1979,9 @@
    "final_url": "https://www.britannica.com/science/reaction-time",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260603042438"
   },
   {
    "headline": "How the Brain Controls Movement",
@@ -1989,14 +2005,14 @@
   },
   {
    "headline": "How the Human Heart Works",
-   "url": "https://www.britannica.com/science/human-heart",
+   "url": "https://www.britannica.com/science/human-cardiovascular-system",
    "status": 403,
-   "final_url": "https://www.britannica.com/science/human-heart",
+   "final_url": "https://www.britannica.com/science/human-cardiovascular-system",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20261006094406"
   },
   {
    "headline": "The math behind why cargo planes have no windows",
@@ -2249,14 +2265,14 @@
    "note": "title overlap 1.00"
   },
   {
-   "headline": "Can Electro-Agriculture Revolutionize the Way We Grow Food?",
+   "headline": "Can Electro-Agriculture Revolutionise the Way We Grow Food?",
    "url": "https://www.smithsonianmag.com/innovation/can-electro-agriculture-revolutionize-the-way-we-grow-food-180986120/",
    "status": 200,
    "final_url": "https://www.smithsonianmag.com/innovation/can-electro-agriculture-revolutionize-the-way-we-grow-food-180986120/",
    "canonical": "https://www.smithsonianmag.com/innovation/can-electro-agriculture-revolutionize-the-way-we-grow-food-180986120/",
    "title": "Can Electro-Agriculture Revolutionize the Way We Grow Food?",
    "verdict": "OK",
-   "note": "title overlap 1.00"
+   "note": "title overlap 0.80"
   },
   {
    "headline": "A Brief and Amazing History of Our Search for Life in the Clouds",
@@ -2299,14 +2315,14 @@
    "note": "title overlap 1.00"
   },
   {
-   "headline": "Scientists Say They've Discovered a New Color",
+   "headline": "Scientists Say They've Discovered a New Colour",
    "url": "https://www.smithsonianmag.com/smart-news/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986473/",
    "status": 200,
    "final_url": "https://www.smithsonianmag.com/smart-news/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986473/",
    "canonical": "https://www.smithsonianmag.com/smart-news/scientists-say-theyve-discovered-a-new-color-an-unprecedented-hue-only-ever-seen-by-five-people-180986473/",
    "title": "Scientists Say They've Discovered a New Color\u2014an 'Unprecedented' Hue Only Ever Seen by Five People",
    "verdict": "OK",
-   "note": "title overlap 1.00"
+   "note": "title overlap 0.75"
   },
   {
    "headline": "How Well Did the Mysterious Antikythera Mechanism Actually Work?",
@@ -2339,17 +2355,7 @@
    "note": "title overlap 1.00"
   },
   {
-   "headline": "Were Humans in Thailand Getting High Off Betel Nuts 4,000 Years Ago?",
-   "url": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180987090/",
-   "status": 200,
-   "final_url": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180987090/",
-   "canonical": "https://www.smithsonianmag.com/science-nature/were-humans-in-thailand-getting-high-off-betel-nuts-4000-years-ago-180987090/",
-   "title": "Were Humans in Thailand Getting High Off Betel Nuts 4,000 Years Ago?",
-   "verdict": "OK",
-   "note": "title overlap 1.00"
-  },
-  {
-   "headline": "Five Unusual Ways People Used Lead\u2014and Suffered For It",
+   "headline": "Five Unusual Ways People Used Lead - and Suffered For It",
    "url": "https://www.smithsonianmag.com/science-nature/five-unusual-ways-people-used-lead-180985961/",
    "status": 200,
    "final_url": "https://www.smithsonianmag.com/science-nature/five-unusual-ways-people-used-lead-180985961/",
@@ -2761,22 +2767,24 @@
   {
    "headline": "Why Do Prices Change?",
    "url": "https://www.economicshelp.org/blog/12136/economics/price-mechanism/",
-   "status": 202,
+   "status": 403,
    "final_url": "https://www.economicshelp.org/blog/12136/economics/price-mechanism/",
    "canonical": "",
    "title": "",
-   "verdict": "OK",
-   "note": "title overlap 0.00"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "What Is Opportunity Cost?",
    "url": "https://www.economicshelp.org/blog/11979/economics/opportunity-cost/",
-   "status": 202,
+   "status": 403,
    "final_url": "https://www.economicshelp.org/blog/11979/economics/opportunity-cost/",
    "canonical": "",
    "title": "",
-   "verdict": "OK",
-   "note": "title overlap 0.00"
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
   },
   {
    "headline": "The 17th-Century Language that Divided Everything in the Universe into 40 Categories",
@@ -2889,7 +2897,7 @@
    "note": "title overlap 1.00"
   },
   {
-   "headline": "Alien life may look nothing like life on Earth \u2014 so how should we go about looking for it?",
+   "headline": "Alien life may look nothing like life on Earth - so how should we go about looking for it?",
    "url": "https://www.livescience.com/space/extraterrestrial-life/alien-life-may-look-nothing-like-life-on-earth-so-how-should-we-go-about-looking-for-it",
    "status": 200,
    "final_url": "https://www.livescience.com/space/extraterrestrial-life/alien-life-may-look-nothing-like-life-on-earth-so-how-should-we-go-about-looking-for-it",
@@ -2971,7 +2979,7 @@
    "wayback": "200 20230321165309"
   },
   {
-   "headline": "Understanding Science: What We Cannot Know \u2014 Space",
+   "headline": "Understanding Science: What We Cannot Know - Space",
    "url": "https://www.open.edu/openlearn/science-maths-technology/understanding-science-what-we-cannot-know/altformat-printable",
    "status": 403,
    "final_url": "https://www.open.edu/openlearn/science-maths-technology/understanding-science-what-we-cannot-know/altformat-printable",
@@ -2988,9 +2996,9 @@
    "final_url": "https://www.open.edu/openlearn/science-maths-technology/introducing-engineering/content-section-0",
    "canonical": "",
    "title": "",
-   "verdict": "BLOCKED",
-   "note": "HTTP 403",
-   "wayback": "none"
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260927092659"
   },
   {
    "headline": "The Art and Science of Making a Believable Sci-Fi Spaceship",
@@ -3003,14 +3011,14 @@
    "note": "title overlap 0.25 (served title unrelated to headline)"
   },
   {
-   "headline": "A New Type of Propulsion Could Revolutionize Space Travel",
+   "headline": "A New Type of Propulsion Could Revolutionise Space Travel",
    "url": "https://www.popularmechanics.com/space/rockets/a64982063/nuclear-propulsion-space-travel/",
    "status": 200,
    "final_url": "https://www.popularmechanics.com/space/rockets/a64982063/nuclear-propulsion-space-travel/",
    "canonical": "https://www.popularmechanics.com/space/rockets/a64982063/nuclear-propulsion-space-travel/",
    "title": "A New Type of Propulsion Could Revolutionize Space Travel",
    "verdict": "OK",
-   "note": "title overlap 1.00"
+   "note": "title overlap 0.83"
   },
   {
    "headline": "The Secret Language of Thieves",
@@ -3109,6 +3117,1601 @@
    "final_url": "https://www.bbc.com/culture/article/20260817-eight-of-the-worlds-most-colourful-buildings",
    "canonical": "https://www.bbc.com/culture/article/20260817-eight-of-the-worlds-most-colourful-buildings",
    "title": "Eight of the world's most colourful buildings",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The evolutionary mystery of goosebumps",
+   "url": "https://www.popsci.com/why-do-we-get-goosebumps/",
+   "status": 200,
+   "final_url": "https://www.popsci.com/why-do-we-get-goosebumps/",
+   "canonical": "https://www.popsci.com/why-do-we-get-goosebumps/",
+   "title": "The evolutionary mystery of goosebumps",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "A Spider's Silky Strength",
+   "url": "https://www.snexplores.org/article/spiders-silky-strength",
+   "status": 200,
+   "final_url": "https://www.snexplores.org/article/spiders-silky-strength",
+   "canonical": "https://www.snexplores.org/article/spiders-silky-strength",
+   "title": "A Spider's Silky Strength",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Antarctica's icefish have translucent bodies and blood",
+   "url": "https://earthsky.org/earth/kristin-obrien-antarcticas-icefish-have-translucent-bodies-and-blood/",
+   "status": 200,
+   "final_url": "https://earthsky.org/earth/kristin-obrien-antarcticas-icefish-have-translucent-bodies-and-blood/",
+   "canonical": "https://earthsky.org/earth/kristin-obrien-antarcticas-icefish-have-translucent-bodies-and-blood/",
+   "title": "EarthSky | Antarctic icefish have translucent bodies and blood",
+   "verdict": "OK",
+   "note": "title overlap 0.83"
+  },
+  {
+   "headline": "Brown Recluse Silk Is Stronger Than Steel Because It's Constructed Like a Cable",
+   "url": "https://www.smithsonianmag.com/smart-news/brown-recluse-silk-made-cable-180970871/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/smart-news/brown-recluse-silk-made-cable-180970871/",
+   "canonical": "https://www.smithsonianmag.com/smart-news/brown-recluse-silk-made-cable-180970871/",
+   "title": "Brown Recluse Silk Is Stronger Than Steel Because It's Constructed Like a Cable",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "How tardigrades protect their DNA to defy death",
+   "url": "https://www.sciencenews.org/article/tardigrades-dna-damage-radiation-death",
+   "status": 200,
+   "final_url": "https://www.sciencenews.org/article/tardigrades-dna-damage-radiation-death",
+   "canonical": "https://www.sciencenews.org/article/tardigrades-dna-damage-radiation-death",
+   "title": "How tardigrades protect their DNA to defy death",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "How Do Fireflies Glow? Mystery Solved After 60 Years",
+   "url": "https://www.nationalgeographic.com/animals/article/150724-fireflies-glow-bugs-summer-nation-science",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/animals/article/150724-fireflies-glow-bugs-summer-nation-science",
+   "canonical": "https://www.nationalgeographic.com/animals/article/150724-fireflies-glow-bugs-summer-nation-science",
+   "title": "How Do Fireflies Glow? Mystery Solved After 60 Years",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Powerhouses of cells could be hotter than the summer in Death Valley",
+   "url": "https://www.iflscience.com/environment/powerhouses-cells-could-be-hotter-summer-death-valley/",
+   "status": 202,
+   "final_url": "https://www.iflscience.com/environment/powerhouses-cells-could-be-hotter-summer-death-valley/",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
+  },
+  {
+   "headline": "Bacteria can live in snake and spider venom",
+   "url": "https://www.sciencealert.com/bacteria-can-live-in-snake-and-spider-venom",
+   "status": 200,
+   "final_url": "https://www.sciencealert.com/bacteria-can-live-in-snake-and-spider-venom",
+   "canonical": "https://www.sciencealert.com/bacteria-can-live-in-snake-and-spider-venom",
+   "title": "Surprise! Snake And Spider Venom Aren't Nearly as Sterile as We Thought",
+   "verdict": "OK",
+   "note": "title overlap 0.60"
+  },
+  {
+   "headline": "5 Weird Currencies Once Used Around the World",
+   "url": "https://www.mentalfloss.com/history/weird-currencies-history",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/history/weird-currencies-history",
+   "canonical": "https://www.mentalfloss.com/history/weird-currencies-history",
+   "title": "5 Weird Currencies Once Used Around the World",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The island of stone money",
+   "url": "https://www.npr.org/sections/money/2011/02/15/131934618/The-island-of-stone-money",
+   "status": 200,
+   "final_url": "https://www.npr.org/sections/money/2011/02/15/131934618/the-island-of-stone-money",
+   "canonical": "https://www.npr.org/sections/money/2011/02/15/131934618/the-island-of-stone-money",
+   "title": "The Island Of Stone Money",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
+  },
+  {
+   "headline": "Why does popcorn at the movies cost so much?",
+   "url": "https://marketplace.org/2014/08/04/why-does-popcorn-movies-cost-so-much",
+   "status": 200,
+   "final_url": "https://www.marketplace.org/story/2014/08/04/why-does-popcorn-movies-cost-so-much",
+   "canonical": "https://www.marketplace.org/story/2014/08/04/why-does-popcorn-movies-cost-so-much",
+   "title": "Why does popcorn at the movies cost so much?",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
+  },
+  {
+   "headline": "The Great Beanie Baby Bubble: Mass Delusion and the Dark Side of Cute",
+   "url": "https://toytales.ca/beanie-baby-bubble",
+   "status": 200,
+   "final_url": "https://toytales.ca/beanie-baby-bubble/",
+   "canonical": "https://toytales.ca/beanie-baby-bubble/",
+   "title": "The Great Beanie Baby Bubble: Mass Delusion and the Dark Side of Cute - Books | Toy Tales - Todd Coopee | Toy Tales",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Zimbabwe 100 trillion hyperinflation note",
+   "url": "https://www.pcgs.com/news/zimbabwe-100-trillion-hyperinflation-note",
+   "status": 200,
+   "final_url": "https://www.pcgs.com/news/zimbabwe-100-trillion-hyperinflation-note",
+   "canonical": "https://www.pcgs.com/news/zimbabwe-100-trillion-hyperinflation-note",
+   "title": "Noteworthy Notes: Zimbabwe $100 Trillion Hyperinflation Note",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "How McDonald's became a fast food giant",
+   "url": "https://www.history.com/articles/how-mcdonalds-became-fast-food-giant",
+   "status": 200,
+   "final_url": "https://www.history.com/articles/how-mcdonalds-became-fast-food-giant",
+   "canonical": "https://www.history.com/articles/how-mcdonalds-became-fast-food-giant",
+   "title": "How McDonald's Became an Icon of Fast Food | HISTORY",
+   "verdict": "OK",
+   "note": "title overlap 0.80"
+  },
+  {
+   "headline": "The surprisingly long history of Nintendo",
+   "url": "https://gizmodo.com/the-surprisingly-long-history-of-nintendo-1354286257",
+   "status": 403,
+   "final_url": "https://gizmodo.com/the-surprisingly-long-history-of-nintendo-1354286257",
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20250705095727"
+  },
+  {
+   "headline": "Lego: Building an Empire Brick by Brick",
+   "url": "https://therobinreport.com/lego-building-an-empire-brick-by-brick/",
+   "status": 200,
+   "final_url": "https://therobinreport.com/lego-building-an-empire-brick-by-brick/",
+   "canonical": "https://therobinreport.com/lego-building-an-empire-brick-by-brick/",
+   "title": "Lego: Building an Empire Brick by Brick - The Robin Report",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Turns Out Apple Didn't Start in a Garage After All",
+   "url": "https://www.entrepreneur.com/article/240516",
+   "status": 200,
+   "final_url": "https://www.entrepreneur.com/business-news/turns-out-apple-didnt-start-in-a-garage-after-all/240516",
+   "canonical": "https://www.entrepreneur.com/business-news/turns-out-apple-didnt-start-in-a-garage-after-all/240516",
+   "title": "Turns Out Apple Didn't Start in a Garage After All",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
+  },
+  {
+   "headline": "Does formula mystery help keep Coke afloat?",
+   "url": "https://edition.cnn.com/2014/02/18/business/coca-cola-secret-formula",
+   "status": 200,
+   "final_url": "https://edition.cnn.com/2014/02/18/business/coca-cola-secret-formula",
+   "canonical": "https://www.cnn.com/2014/02/18/business/coca-cola-secret-formula",
+   "title": "Does formula mystery help keep Coke afloat? | CNN Business",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "The QWERTY Keyboard Will Never Die. Where Did the 150-Year-Old Design Come From?",
+   "url": "https://www.smithsonianmag.com/history/the-qwerty-keyboard-will-never-die-where-did-the-150-year-old-design-come-from-49863249/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/history/the-qwerty-keyboard-will-never-die-where-did-the-150-year-old-design-come-from-49863249/",
+   "canonical": "https://www.smithsonianmag.com/history/the-qwerty-keyboard-will-never-die-where-did-the-150-year-old-design-come-from-49863249/",
+   "title": "The QWERTY Keyboard Will Never Die. Where Did the 150-Year-Old Design Come From?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Tetris: 10 Facts You Need to Know About the Game's History",
+   "url": "https://www.denofgeek.com/games/tetris-game-weird-history",
+   "status": 200,
+   "final_url": "https://www.denofgeek.com/games/tetris-game-weird-history/",
+   "canonical": "https://www.denofgeek.com/games/tetris-game-weird-history/",
+   "title": "Tetris: 10 Facts You Need to Know About the Game's History | Den of Geek",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "What was the first computer virus?",
+   "url": "https://www.techspot.com/news/70505-what-first-computer-virus.html",
+   "status": 200,
+   "final_url": "https://www.techspot.com/trivia/130-what-first-computer-virus/",
+   "canonical": "https://www.techspot.com/trivia/130-what-first-computer-virus/",
+   "title": "What was the first computer virus?",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
+  },
+  {
+   "headline": "Why does AI hallucinate?",
+   "url": "https://www.technologyreview.com/2024/06/18/1093440/what-causes-ai-hallucinate-chatbots/",
+   "status": 200,
+   "final_url": "https://www.technologyreview.com/2024/06/18/1093440/what-causes-ai-hallucinate-chatbots/",
+   "canonical": "https://www.technologyreview.com/2024/06/18/1093440/what-causes-ai-hallucinate-chatbots/",
+   "title": "Why does AI hallucinate?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Software as Hardware: Apollo's Rope Memory",
+   "url": "https://spectrum.ieee.org/software-as-hardware-apollos-rope-memory",
+   "status": 200,
+   "final_url": "https://spectrum.ieee.org/software-as-hardware-apollos-rope-memory",
+   "canonical": "https://spectrum.ieee.org/software-as-hardware-apollos-rope-memory",
+   "title": "Software as Hardware: Apollo\u2019s Rope Memory",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Decoding the Antikythera Mechanism, the First Computer",
+   "url": "https://www.smithsonianmag.com/history/decoding-antikythera-mechanism-first-computer-180953979/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/history/decoding-antikythera-mechanism-first-computer-180953979/",
+   "canonical": "https://www.smithsonianmag.com/history/decoding-antikythera-mechanism-first-computer-180953979/",
+   "title": "Decoding the Antikythera Mechanism, the First Computer",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Object of Intrigue: The Turk, a Mechanical Chess Player that Unsettled the World",
+   "url": "https://atlasobscura.com/articles/object-of-intrigue-the-turk",
+   "status": 200,
+   "final_url": "https://www.atlasobscura.com/articles/object-of-intrigue-the-turk",
+   "canonical": "http://www.atlasobscura.com/articles/object-of-intrigue-the-turk",
+   "title": "Object of Intrigue: The Turk, a Mechanical Chess Player that Unsettled the World",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "40 Years Ago, The First Sony Walkman Went On Sale",
+   "url": "https://www.npr.org/2019/07/01/737535442/40-years-ago-the-first-sony-walkman-went-on-sale",
+   "status": 200,
+   "final_url": "https://www.npr.org/2019/07/01/737535442/40-years-ago-the-first-sony-walkman-went-on-sale",
+   "canonical": "https://www.npr.org/2019/07/01/737535442/40-years-ago-the-first-sony-walkman-went-on-sale",
+   "title": "40 Years Ago: The 1st Sony Walkman Went On Sale",
+   "verdict": "OK",
+   "note": "title overlap 0.83"
+  },
+  {
+   "headline": "T. Percy Spencer, candy bar, radar, magnetron, microwave oven",
+   "url": "https://scienceblog.com/t-percy-spencer-candy-bar-radar-magnetron-microwave-oven/",
+   "status": 200,
+   "final_url": "https://scienceblog.com/t-percy-spencer-candy-bar-radar-magnetron-microwave-oven/",
+   "canonical": "https://scienceblog.com/t-percy-spencer-candy-bar-radar-magnetron-microwave-oven/",
+   "title": "In 1945, Raytheon engineer Percy Spencer noticed a candy bar melting in his pocket while he worked near a radar magnetron. Instead of dismissing the accident, he tested the same energy on popcorn and ",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Behind the Unceasing Allure of the Rubik\u2019s Cube",
+   "url": "https://www.smithsonianmag.com/arts-culture/behind-unceasing-allure-rubiks-cube-180951866/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/arts-culture/behind-unceasing-allure-rubiks-cube-180951866/",
+   "canonical": "https://www.smithsonianmag.com/arts-culture/behind-unceasing-allure-rubiks-cube-180951866/",
+   "title": "Behind the Unceasing Allure of the Rubik\u2019s Cube",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Sydney Opera House's Architect Never Saw His Design Completed",
+   "url": "https://www.mentalfloss.com/culture/architecture/sydney-opera-houses-architect-never-saw-his-design-completed",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/culture/architecture/sydney-opera-houses-architect-never-saw-his-design-completed",
+   "canonical": "https://www.mentalfloss.com/culture/architecture/sydney-opera-houses-architect-never-saw-his-design-completed",
+   "title": "The Sydney Opera House's Architect Never Saw His Design Completed",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "How Harry Beck revolutionised the Tube map",
+   "url": "https://www.londonmuseum.org.uk/collections/london-stories/harry-beck-revolutionised-tube-map/",
+   "status": 200,
+   "final_url": "https://www.londonmuseum.org.uk/collections/london-stories/harry-beck-revolutionised-tube-map/",
+   "canonical": "/collections/london-stories/harry-beck-revolutionised-tube-map/",
+   "title": "How Harry Beck revolutionised the Tube map",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "Discover the origins of everyday emoji",
+   "url": "https://creativebloq.com/news/discover-the-origins-of-everyday-emoji",
+   "status": 200,
+   "final_url": "https://www.creativebloq.com/news/discover-the-origins-of-everyday-emoji",
+   "canonical": "https://www.creativebloq.com/news/discover-the-origins-of-everyday-emoji",
+   "title": "Discover the origins of everyday emoji",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Vexillonaire",
+   "url": "https://99percentinvisible.org/episode/vexillonaire/transcript/",
+   "status": 200,
+   "final_url": "https://99percentinvisible.org/episode/vexillonaire/transcript/",
+   "canonical": "https://99percentinvisible.org/episode/vexillonaire/",
+   "title": "Vexillonaire - 99% Invisible",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "A Language Based Only On Whistles",
+   "url": "https://www.mentalfloss.com/language/language-based-only-whistles",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/language/language-based-only-whistles",
+   "canonical": "https://www.mentalfloss.com/language/language-based-only-whistles",
+   "title": "A Language Based Only On Whistles",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The man who created a written language Cherokee did efficiently, elegantly, peers thought magic",
+   "url": "https://www.smithsonianmag.com/innovation/man-created-written-language-cherokee-did-efficiently-elegantly-peers-thought-magic-180988850/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/innovation/man-created-written-language-cherokee-did-efficiently-elegantly-peers-thought-magic-180988850/",
+   "canonical": "https://www.smithsonianmag.com/innovation/man-created-written-language-cherokee-did-efficiently-elegantly-peers-thought-magic-180988850/",
+   "title": "The Man Who Created a Written Language for the Cherokee Did It So Efficiently and Elegantly, His Peers Thought It Was Magic",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Birth of a Language",
+   "url": "https://www.damninteresting.com/the-birth-of-a-language/",
+   "status": 200,
+   "final_url": "https://www.damninteresting.com/the-birth-of-a-language/",
+   "canonical": "https://www.damninteresting.com/the-birth-of-a-language/",
+   "title": "The Birth of a Language",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Dear Duolingo: Are any languages unique?",
+   "url": "https://blog.duolingo.com/language-isolates",
+   "status": 200,
+   "final_url": "https://blog.duolingo.com/language-isolates/",
+   "canonical": "https://blog.duolingo.com/language-isolates/",
+   "title": "Dear Duolingo: Are any languages unique?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "10 of the strangest and most fascinating languages ever used on earth",
+   "url": "https://iflscience.com/10-of-the-strangest-and-most-fascinating-languages-ever-used-on-earth-72299",
+   "status": 202,
+   "final_url": "https://www.iflscience.com/10-of-the-strangest-and-most-fascinating-languages-ever-used-on-earth-72299",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
+  },
+  {
+   "headline": "The Medieval Court Cases That Put Animals on Trial",
+   "url": "https://www.mentalfloss.com/history/medieval-court-cases-animals-trial",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/history/medieval-court-cases-animals-trial",
+   "canonical": "https://www.mentalfloss.com/history/medieval-court-cases-animals-trial",
+   "title": "The Medieval Court Cases That Put Animals on Trial",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "That Time When The Supreme Court Had to Decide Whether Tomatoes Are Fruits or Vegetables",
+   "url": "https://www.amusingplanet.com/2023/06/that-time-when-supreme-court-had-to.html",
+   "status": 403,
+   "final_url": "https://www.amusingplanet.com/2023/06/that-time-when-supreme-court-had-to.html",
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20251219135906"
+  },
+  {
+   "headline": "Kangaroo (and Pig and Monkey and Dog and Donkey) Courts",
+   "url": "https://www.sciencehistory.org/stories/disappearing-pod/kangaroo-and-pig-and-monkey-and-dog-and-donkey-courts/",
+   "status": 200,
+   "final_url": "https://www.sciencehistory.org/stories/disappearing-pod/kangaroo-and-pig-and-monkey-and-dog-and-donkey-courts/",
+   "canonical": "https://www.sciencehistory.org/stories/disappearing-pod/kangaroo-and-pig-and-monkey-and-dog-and-donkey-courts/",
+   "title": "Kangaroo (and Pig and Monkey and Dog and Donkey) Courts",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "A Season for Giving: 5 Diplomatic Gifts to the U.S. in the Smithsonian Collections",
+   "url": "https://www.smithsonianmag.com/smithsonian-institution/a-season-for-giving-5-diplomatic-gifts-to-the-us-in-the-smithsonian-collections-12027655/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/smithsonian-institution/a-season-for-giving-5-diplomatic-gifts-to-the-us-in-the-smithsonian-collections-12027655/",
+   "canonical": "https://www.smithsonianmag.com/smithsonian-institution/a-season-for-giving-5-diplomatic-gifts-to-the-us-in-the-smithsonian-collections-12027655/",
+   "title": "A Season for Giving: 5 Diplomatic Gifts to the U.S. in the Smithsonian Collections",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Loss of Spy Plane Sabotaged 1960 Summit",
+   "url": "https://www.npr.org/2005/05/16/4653988/loss-of-spy-plane-sabotaged-1960-summit",
+   "status": 200,
+   "final_url": "https://www.npr.org/2005/05/16/4653988/loss-of-spy-plane-sabotaged-1960-summit",
+   "canonical": "https://www.npr.org/2005/05/16/4653988/loss-of-spy-plane-sabotaged-1960-summit",
+   "title": "Loss of Spy Plane Sabotaged 1960 Summit",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Interesting Facts About 10 National Anthems",
+   "url": "https://www.mentalfloss.com/entertainment/music/interesting-facts-about-10-national-anthems",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/entertainment/music/interesting-facts-about-10-national-anthems",
+   "canonical": "https://www.mentalfloss.com/entertainment/music/interesting-facts-about-10-national-anthems",
+   "title": "Interesting Facts About 10 National Anthems",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Pheasant Island: The Island That Changes Sovereignty Every Six Months",
+   "url": "https://www.amusingplanet.com/2016/10/pheasant-island-island-that-changes.html",
+   "status": 403,
+   "final_url": "https://www.amusingplanet.com/2016/10/pheasant-island-island-that-changes.html",
+   "canonical": "",
+   "title": "",
+   "verdict": "ARCHIVED_OK",
+   "note": "HTTP 403 (site blocks us; Internet Archive holds a 200 capture)",
+   "wayback": "200 20260730132746"
+  },
+  {
+   "headline": "The Whisky War: A Tale of Peaceful Resolution over Hans Island",
+   "url": "https://arcticportal.org/ap-library/news/3585-the-whisky-war-a-tale-of-peaceful-resolution-over-hans-island",
+   "status": 200,
+   "final_url": "https://arcticportal.org/ap-library/news/3585-the-whisky-war-a-tale-of-peaceful-resolution-over-hans-island",
+   "canonical": "https%3A%2F%2Farcticportal.org%2Fap-library%2Fnews%2F3585-the-whisky-war-a-tale-of-peaceful-resolution-over-hans-island",
+   "title": "The Whisky War: A Tale of Peaceful Resolution over Hans Island - Arctic Portal - The Arctic Gateway",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "Why teen brains need later school start time",
+   "url": "https://theconversation.com/why-teen-brains-need-later-school-start-time-65308",
+   "status": 200,
+   "final_url": "https://theconversation.com/why-teen-brains-need-a-later-school-start-time-65308",
+   "canonical": "https://theconversation.com/why-teen-brains-need-a-later-school-start-time-65308",
+   "title": "Why teen brains need a later school start time",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
+  },
+  {
+   "headline": "Remembering something that never happened",
+   "url": "https://www.psychologytoday.com/us/blog/brain-sense/201307/remembering-something-never-happened",
+   "status": 200,
+   "final_url": "https://www.psychologytoday.com/us/blog/brain-sense/201307/remembering-something-never-happened",
+   "canonical": "https://www.psychologytoday.com/us/blog/brain-sense/201307/remembering-something-never-happened",
+   "title": "Remembering Something That Never Happened",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Deja vu science",
+   "url": "https://www.popsci.com/science/deja-vu-science/",
+   "status": 200,
+   "final_url": "https://www.popsci.com/science/deja-vu-science/",
+   "canonical": "https://www.popsci.com/science/deja-vu-science/",
+   "title": "How does science explain d\u00e9j\u00e0 vu? It's a brain glitch with a purpose.",
+   "verdict": "OK",
+   "note": "title overlap 0.50"
+  },
+  {
+   "headline": "What makes yawning contagious?",
+   "url": "https://www.scrippsnews.com/science-and-tech/what-makes-yawning-contagious",
+   "status": 200,
+   "final_url": "https://www.scrippsnews.com/science-and-tech/what-makes-yawning-contagious",
+   "canonical": "https://www.scrippsnews.com/science-and-tech/what-makes-yawning-contagious",
+   "title": "What Makes Yawning Contagious?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "What was the dancing plague of 1518?",
+   "url": "https://www.history.com/articles/what-was-the-dancing-plague-of-1518",
+   "status": 200,
+   "final_url": "https://www.history.com/articles/what-was-the-dancing-plague-of-1518",
+   "canonical": "https://www.history.com/articles/what-was-the-dancing-plague-of-1518",
+   "title": "What Was the Dancing Plague of 1518? | HISTORY",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "A mound hid Viking treasures for centuries",
+   "url": "https://www.nationalgeographic.com/newsletters/article/a-mound-hid-viking-treasures-for-centuries-20220523",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/newsletters/article/a-mound-hid-viking-treasures-for-centuries-20220523",
+   "canonical": "https://www.nationalgeographic.com/newsletters/article/a-mound-hid-viking-treasures-for-centuries-20220523",
+   "title": "A mound hid Viking treasures for centuries",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "10 ancient Roman innovations that shape our modern world",
+   "url": "https://historycollection.com/10-ancient-roman-innovations-that-shape-our-modern-world/",
+   "status": 200,
+   "final_url": "https://historycollection.com/10-ancient-roman-innovations-that-shape-our-modern-world/",
+   "canonical": "https://historycollection.com/10-ancient-roman-innovations-that-shape-our-modern-world/",
+   "title": "10 Ancient Roman Innovations That Shape Our Modern World",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Darvaza Gas Crater",
+   "url": "https://geology.com/oil-and-gas/darvaza-gas-crater",
+   "status": 200,
+   "final_url": "https://geology.com/oil-and-gas/darvaza-gas-crater/",
+   "canonical": "https://geology.com/oil-and-gas/darvaza-gas-crater/",
+   "title": "Darvaza Gas Crater - The Door To Hell",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Danakil Depression",
+   "url": "https://www.discoverwildlife.com/environment/danakil-depression",
+   "status": 200,
+   "final_url": "https://www.discoverwildlife.com/environment/danakil-depression",
+   "canonical": "https://www.discoverwildlife.com/environment/danakil-depression",
+   "title": "It\u2019s the size of the Serengeti, hotter than Hades with deadly acid-filed lakes \u2013 and is called the Gateway to Hell. This is the closest to another planet you can get | Discover Wildlife",
+   "verdict": "MISMATCH",
+   "note": "title overlap 0.00 (served title unrelated to headline)"
+  },
+  {
+   "headline": "Buried Village of Al Madam",
+   "url": "https://atlasobscura.com/places/buried-village-of-al-madam",
+   "status": 200,
+   "final_url": "https://www.atlasobscura.com/places/buried-village-of-al-madam",
+   "canonical": "http://www.atlasobscura.com/places/buried-village-of-al-madam",
+   "title": "Buried Village of Al Madam in Al Madam",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The History Of Cheating In Chess",
+   "url": "https://www.chess.com/article/view/chess-cheating-history",
+   "status": 200,
+   "final_url": "https://www.chess.com/article/view/chess-cheating-history",
+   "canonical": "https://www.chess.com/article/view/chess-cheating-history",
+   "title": "The History Of Cheating In Chess",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Longest Game",
+   "url": "https://www.radiodiaries.org/post/the-longest-game",
+   "status": 200,
+   "final_url": "https://www.radiodiaries.org/post/the-longest-game",
+   "canonical": "https://www.radiodiaries.org/post/the-longest-game",
+   "title": "The Longest Game",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "On Giant Blue Alien Planet, It Rains Molten Glass",
+   "url": "https://www.space.com/22614-blue-alien-planet-glass-rain.html",
+   "status": 200,
+   "final_url": "https://www.space.com/22614-blue-alien-planet-glass-rain.html",
+   "canonical": "https://www.space.com/22614-blue-alien-planet-glass-rain.html",
+   "title": "On Giant Blue Alien Planet, It Rains Molten Glass",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The biggest discoveries of Voyagers - NASA's most distant explorers",
+   "url": "https://www.snexplores.org/article/voyagers-biggest-discoveries-nasa-space",
+   "status": 200,
+   "final_url": "https://www.snexplores.org/article/voyagers-biggest-discoveries-nasa-space",
+   "canonical": "https://www.snexplores.org/article/voyagers-biggest-discoveries-nasa-space",
+   "title": "The biggest discoveries of Voyagers \u2014 NASA\u2019s most distant explorers",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "13 facts about life in space we learned from astronaut Scott Kelly's tweets",
+   "url": "https://mentalfloss.com/article/68796/13-facts-about-life-space-we-learned-astronaut-scott-kellys-tweets",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/science/space/13-facts-about-life-space-we-learned-astronaut-scott-kellys-tweets",
+   "canonical": "https://www.mentalfloss.com/science/space/13-facts-about-life-space-we-learned-astronaut-scott-kellys-tweets",
+   "title": "13 Facts About Life in Space We Learned From Astronaut Scott Kelly's Tweets",
+   "verdict": "REDIRECT",
+   "note": "final URL differs from requested"
+  },
+  {
+   "headline": "7 interesting things you probably didn\u2019t know about living in space",
+   "url": "https://clickorlando.com/news/space-news/2020/11/10/7-interesting-things-you-probably-didnt-know-about-living-in-space",
+   "status": 200,
+   "final_url": "https://www.clickorlando.com/news/space-news/2020/11/10/7-interesting-things-you-probably-didnt-know-about-living-in-space/",
+   "canonical": "https://www.clickorlando.com/news/space-news/2020/11/10/7-interesting-things-you-probably-didnt-know-about-living-in-space/",
+   "title": "7 interesting things you probably didn\u2019t know about living in space",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "From beaches to golf courses: the world's most unusual airport runways",
+   "url": "https://www.ctvnews.ca/lifestyle/article/from-beaches-to-golf-courses-the-worlds-most-unusual-airport-runways/",
+   "status": 200,
+   "final_url": "https://www.ctvnews.ca/lifestyle/article/from-beaches-to-golf-courses-the-worlds-most-unusual-airport-runways/",
+   "canonical": "https://www.ctvnews.ca/lifestyle/article/from-beaches-to-golf-courses-the-worlds-most-unusual-airport-runways/",
+   "title": "From beaches to golf courses: The world\u2019s most unusual airport runways",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Chuck Yeager breaks the sound barrier",
+   "url": "https://www.history.com/this-day-in-history/october-14/yeager-breaks-sound-barrier",
+   "status": 200,
+   "final_url": "https://www.history.com/this-day-in-history/october-14/yeager-breaks-sound-barrier",
+   "canonical": "https://www.history.com/this-day-in-history/october-14/yeager-breaks-sound-barrier",
+   "title": "Chuck Yeager breaks the sound barrier | October 14, 1947 | HISTORY",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "December 17, 1903: The Day the Wrights got it Right",
+   "url": "https://historynet.com/pod1217/",
+   "status": 200,
+   "final_url": "https://historynet.com/pod1217/",
+   "canonical": "https://historynet.com/pod1217/",
+   "title": "December 17, 1903: The Day the Wrights got it Right",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Learn About Amelia Earhart and Other Female Pilots at the 99s Museum of Women Pilots in Oklahoma",
+   "url": "https://www.nationalgeographic.com/travel/article/history-female-pilots-aviation",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/travel/article/history-female-pilots-aviation",
+   "canonical": "https://www.nationalgeographic.com/travel/article/history-female-pilots-aviation",
+   "title": "Learn About Amelia Earhart and Other Female Pilots at the 99s Museum of Women Pilots in Oklahoma",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "I Flew the Same Route as the 1920s Airmail Pilots, and Lived to Tell the Tale",
+   "url": "https://www.smithsonianmag.com/air-space-magazine/omaha-salt-lake-city-without-gps-180973967/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/air-space-magazine/omaha-salt-lake-city-without-gps-180973967/",
+   "canonical": "https://www.smithsonianmag.com/air-space-magazine/omaha-salt-lake-city-without-gps-180973967/",
+   "title": "I Flew the Same Route as the 1920s Airmail Pilots, and Lived to Tell the Tale",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Here's how NASA's Ingenuity helicopter has spent 1 year on Mars",
+   "url": "https://www.sciencenews.org/article/ingenuity-helicopter-mars-nasa-flight-1-year-anniversary",
+   "status": 200,
+   "final_url": "https://www.sciencenews.org/article/ingenuity-helicopter-mars-nasa-flight-1-year-anniversary",
+   "canonical": "https://www.sciencenews.org/article/ingenuity-helicopter-mars-nasa-flight-1-year-anniversary",
+   "title": "Here\u2019s how NASA\u2019s Ingenuity helicopter has spent 1 year on Mars",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Apollo 11's 1202 alarm explained",
+   "url": "https://www.discovermagazine.com/the-sciences/apollo-11s-1202-alarm-explained",
+   "status": 202,
+   "final_url": "https://www.discovermagazine.com/the-sciences/apollo-11s-1202-alarm-explained",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
+  },
+  {
+   "headline": "Scientists uncover secret of Roberto Carlos goal",
+   "url": "https://www.nbcnews.com/id/wbna38988536",
+   "status": 200,
+   "final_url": "https://www.nbcnews.com/id/wbna38988536",
+   "canonical": "https://www.nbcnews.com/id/wbna38988536",
+   "title": "Scientists uncover secret of Roberto Carlos goal",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Remembering Bikila's 1960 Olympic marathon victory",
+   "url": "https://worldathletics.org/news/heritage/abebe-bikila-1960-olympic-marathon-victory",
+   "status": 200,
+   "final_url": "https://worldathletics.org/news/heritage/abebe-bikila-1960-olympic-marathon-victory",
+   "canonical": "https://worldathletics.org/news/heritage/abebe-bikila-1960-olympic-marathon-victory",
+   "title": "Remembering Bikila\u2019s 1960 Olympic marathon victory on its 60th anniversary | HERITAGE | World Athletics",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Longest match ever finally ends with Isner victory",
+   "url": "https://www.tennis.com/news/articles/longest-match-ever-finally-ends-with-isner-victory",
+   "status": 200,
+   "final_url": "https://www.tennis.com/news/articles/longest-match-ever-finally-ends-with-isner-victory",
+   "canonical": "https://www.tennis.com/news/articles/longest-match-ever-finally-ends-with-isner-victory",
+   "title": "Longest match ever finally ends with Isner victory",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Vanishing Sea",
+   "url": "https://www.nationalgeographic.com/photo-of-the-day/media-spotlight/aral-sea-boats-uzbekistan",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/photo-of-the-day/media-spotlight/aral-sea-boats-uzbekistan",
+   "canonical": "https://www.nationalgeographic.com/photo-of-the-day/media-spotlight/aral-sea-boats-uzbekistan",
+   "title": "Vanishing Sea | Nat Geo Photo of the Day",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Phenomena: The Eye of the Sahara",
+   "url": "https://geographical.co.uk/science-environment/phenomena-the-eye-of-the-sahara",
+   "status": 200,
+   "final_url": "https://geographical.co.uk/science-environment/phenomena-the-eye-of-the-sahara",
+   "canonical": "https://geographical.co.uk/science-environment/phenomena-the-eye-of-the-sahara",
+   "title": "Phenomena: The Eye of the Sahara",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "US lawsuit over 'monkey selfie' copyright settled",
+   "url": "https://theweek.com/88346/us-lawsuit-over-monkey-selfie-copyright-settled",
+   "status": 200,
+   "final_url": "https://theweek.com/88346/us-lawsuit-over-monkey-selfie-copyright-settled",
+   "canonical": "https://theweek.com/88346/us-lawsuit-over-monkey-selfie-copyright-settled",
+   "title": "US lawsuit over \u2018monkey selfie\u2019 copyright settled",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Paisley Snail: Unveiling the Case that Shaped Modern Negligence Law",
+   "url": "https://www.paisleyheritage.org.uk/post/the-paisley-snail-unveiling-the-case-that-shaped-modern-negligence-law",
+   "status": 200,
+   "final_url": "https://www.paisleyheritage.org.uk/post/the-paisley-snail-unveiling-the-case-that-shaped-modern-negligence-law",
+   "canonical": "https://www.paisleyheritage.org.uk/post/the-paisley-snail-unveiling-the-case-that-shaped-modern-negligence-law",
+   "title": "The Paisley Snail: Unveiling the Case that Shaped Modern Negligence Law",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Ibn Sina, Biruni, and the Lost Enlightenment",
+   "url": "https://www.worldhistory.org/article/2260/ibn-sina-biruni-and-the-lost-enlightenment/",
+   "status": 200,
+   "final_url": "https://www.worldhistory.org/article/2260/ibn-sina-biruni-and-the-lost-enlightenment/",
+   "canonical": "https://www.worldhistory.org/article/2260/ibn-sina-biruni-and-the-lost-enlightenment/",
+   "title": "Ibn Sina, Biruni, and the Lost Enlightenment",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Even the Ancient Egyptians Had Homework, Preserved Tablet Shows",
+   "url": "https://www.livescience.com/64458-ancient-egyptian-homework.html",
+   "status": 200,
+   "final_url": "https://www.livescience.com/64458-ancient-egyptian-homework.html",
+   "canonical": "https://www.livescience.com/64458-ancient-egyptian-homework.html",
+   "title": "Even the Ancient Egyptians Had Homework, Preserved Tablet Shows",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Scientists discover never-before-seen brain wave after reading octopuses' minds",
+   "url": "https://livescience.com/animals/scientists-discover-never-before-seen-brain-wave-after-reading-octopus-minds",
+   "status": 200,
+   "final_url": "https://www.livescience.com/animals/scientists-discover-never-before-seen-brain-wave-after-reading-octopus-minds",
+   "canonical": "https://www.livescience.com/animals/scientists-discover-never-before-seen-brain-wave-after-reading-octopus-minds",
+   "title": "Scientists discover never-before-seen brain wave after reading octopuses",
+   "verdict": "OK",
+   "note": "title overlap 0.91"
+  },
+  {
+   "headline": "We need to talk: researchers learn the language of cells",
+   "url": "https://discovermagazine.com/health/we-need-to-talk-researchers-learn-the-language-of-cells",
+   "status": 202,
+   "final_url": "https://www.discovermagazine.com/health/we-need-to-talk-researchers-learn-the-language-of-cells",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
+  },
+  {
+   "headline": "Why does the music from our teens stay with us forever?",
+   "url": "https://discovermagazine.com/mind/why-does-the-music-from-our-teens-stay-with-us-forever",
+   "status": 202,
+   "final_url": "https://www.discovermagazine.com/mind/why-does-the-music-from-our-teens-stay-with-us-forever",
+   "canonical": "",
+   "title": "",
+   "verdict": "OK",
+   "note": "title overlap 0.00"
+  },
+  {
+   "headline": "German scientists debunk 200-year-old theory on why ice is slippery",
+   "url": "https://interestingengineering.com/science/why-ice-is-slippery",
+   "status": 200,
+   "final_url": "https://interestingengineering.com/science/why-ice-is-slippery",
+   "canonical": "https://interestingengineering.com/science/why-ice-is-slippery",
+   "title": "German scientists debunk 200-year-old theory on why ice is slippery",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Physicists Actually Create \"Impossible\" Time Crystals",
+   "url": "https://bigthink.com/hard-science/scientists-actually-create-impossible-time-crystals/",
+   "status": 200,
+   "final_url": "https://bigthink.com/hard-science/scientists-actually-create-impossible-time-crystals/",
+   "canonical": "https://bigthink.com/hard-science/scientists-actually-create-impossible-time-crystals/",
+   "title": "Physicists Actually Create \"Impossible\" Time Crystals",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Rogue Waves Aren't Freaks of Nature - They're Just a 'Bad Day' at Sea",
+   "url": "https://www.ce.gatech.edu/news/2025/08/rogue-waves-arent-freaks-nature-theyre-just-bad-day-sea",
+   "status": 200,
+   "final_url": "https://www.ce.gatech.edu/news/2025/08/rogue-waves-arent-freaks-nature-theyre-just-bad-day-sea",
+   "canonical": "https://www.ce.gatech.edu/news/2025/08/rogue-waves-arent-freaks-nature-theyre-just-bad-day-sea",
+   "title": "Rogue Waves Aren\u2019t Freaks of Nature \u2014 They\u2019re Just a \u2018Bad Day\u2019 at Sea",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The simple protein that started all life",
+   "url": "https://cosmosmagazine.com/space/the-simple-protein-that-started-all-life",
+   "status": 403,
+   "final_url": "https://connectsci.au/news",
+   "canonical": "",
+   "title": "",
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
+  },
+  {
+   "headline": "The incredible origin story of CRISPR",
+   "url": "https://bigthink.com/hard-science/crispr-development-story/",
+   "status": 200,
+   "final_url": "https://bigthink.com/hard-science/crispr-development-story/",
+   "canonical": "https://bigthink.com/hard-science/crispr-development-story/",
+   "title": "The incredible origin story of CRISPR",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Scientists Are Using AI to Dream Up Artificial Enzymes",
+   "url": "https://singularityhub.com/2023/02/28/scientists-are-using-ai-to-dream-up-artificial-enzymes/",
+   "status": 200,
+   "final_url": "https://singularityhub.com/2023/02/28/scientists-are-using-ai-to-dream-up-artificial-enzymes/",
+   "canonical": "https://singularityhub.com/2023/02/28/scientists-are-using-ai-to-dream-up-artificial-enzymes/",
+   "title": "Scientists Are Using AI to Dream Up Artificial Enzymes",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Scientists harness fungal bioluminescence to create glow-in-the-dark plants",
+   "url": "https://www.the-microbiologist.com/news/scientists-harness-fungal-bioluminescence-to-create-glow-in-the-dark-plants/2704.article",
+   "status": 200,
+   "final_url": "https://www.the-microbiologist.com/news/scientists-harness-fungal-bioluminescence-to-create-glow-in-the-dark-plants/2704.article",
+   "canonical": "https://www.the-microbiologist.com/news/scientists-harness-fungal-bioluminescence-to-create-glow-in-the-dark-plants/2704.article",
+   "title": "Scientists harness fungal bioluminescence to create glow-in-the-dark plants",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "These scientists explain the power of music to spark awe",
+   "url": "https://www.npr.org/sections/health-shots/2023/07/29/1190374074/these-scientists-explain-the-power-of-music-to-spark-awe",
+   "status": 200,
+   "final_url": "https://www.npr.org/sections/health-shots/2023/07/29/1190374074/these-scientists-explain-the-power-of-music-to-spark-awe",
+   "canonical": "https://www.npr.org/sections/health-shots/2023/07/29/1190374074/these-scientists-explain-the-power-of-music-to-spark-awe",
+   "title": "These scientists explain the power of music to spark awe",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Why Do We Really Blush? Brain Scans Reveal It's Not What You Think.",
+   "url": "https://www.sciencealert.com/why-do-we-really-blush-brain-scans-reveal-its-not-what-you-think",
+   "status": 200,
+   "final_url": "https://www.sciencealert.com/why-do-we-really-blush-brain-scans-reveal-its-not-what-you-think",
+   "canonical": "https://www.sciencealert.com/why-do-we-really-blush-brain-scans-reveal-its-not-what-you-think",
+   "title": "Why Do We Really Blush? Brain Scans Reveal It's Not What You Think.",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Why Are We Ticklish?",
+   "url": "https://neurosciencenews.com/touch-tickle-sensation-5484/",
+   "status": 200,
+   "final_url": "https://neurosciencenews.com/touch-tickle-sensation-5484/",
+   "canonical": "https://neurosciencenews.com/touch-tickle-sensation-5484/",
+   "title": "Why Are We Ticklish? - Neuroscience News",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Archaeologists May Have Found the Lost Iron City of the Silk Road in the Remote Highlands of Uzbekistan",
+   "url": "https://www.smithsonianmag.com/history/archaeologists-may-have-found-the-lost-city-of-the-silk-road-180987637/",
+   "status": 200,
+   "final_url": "https://www.smithsonianmag.com/history/archaeologists-may-have-found-the-lost-city-of-the-silk-road-180987637/",
+   "canonical": "https://www.smithsonianmag.com/history/archaeologists-may-have-found-the-lost-city-of-the-silk-road-180987637/",
+   "title": "Archaeologists May Have Found the Lost Iron City of the Silk Road in the Remote Highlands of Uzbekistan",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Sunken Silk Road city emerges from depths of 25-million-year-old lake",
+   "url": "https://interestingengineering.com/culture/sunken-silk-road-city-found-in-oldest-lake",
+   "status": 200,
+   "final_url": "https://interestingengineering.com/culture/sunken-silk-road-city-found-in-oldest-lake",
+   "canonical": "https://interestingengineering.com/culture/sunken-silk-road-city-found-in-oldest-lake",
+   "title": "Sunken Silk Road city emerges from depths of 25-million-year-old lake",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "New DNA testing reveals who made ancient stone tools",
+   "url": "https://bigthink.com/the-past/new-dna-testing-reveals-who-made-ancient-stone-tools/",
+   "status": 200,
+   "final_url": "https://bigthink.com/the-past/new-dna-testing-reveals-who-made-ancient-stone-tools/",
+   "canonical": "https://www.freethink.com/science/stone-tools",
+   "title": "New DNA testing reveals who made ancient stone tools",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "Tulip mania: the classic story of a Dutch financial bubble is mostly wrong",
+   "url": "https://theconversation.com/tulip-mania-the-classic-story-of-a-dutch-financial-bubble-is-mostly-wrong-91413",
+   "status": 200,
+   "final_url": "https://theconversation.com/tulip-mania-the-classic-story-of-a-dutch-financial-bubble-is-mostly-wrong-91413",
+   "canonical": "https://theconversation.com/tulip-mania-the-classic-story-of-a-dutch-financial-bubble-is-mostly-wrong-91413",
+   "title": "Tulip mania: the classic story of a Dutch financial bubble is mostly wrong",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "6 Disastrous Economic Bubbles",
+   "url": "https://www.history.com/articles/6-disastrous-economic-bubbles",
+   "status": 200,
+   "final_url": "https://www.history.com/articles/6-disastrous-economic-bubbles",
+   "canonical": "https://www.history.com/articles/6-disastrous-economic-bubbles",
+   "title": "6 Disastrous Economic Bubbles | HISTORY",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The hidden economy deciding who gets into your favourite concert, restaurant, and theme park",
+   "url": "https://fortune.com/2026/03/08/taylor-swift-disney-world-restaurant-reservations-hidden-market-wharton/",
+   "status": 200,
+   "final_url": "https://fortune.com/2026/03/08/taylor-swift-disney-world-restaurant-reservations-hidden-market-wharton/",
+   "canonical": "https://fortune.com/2026/03/08/taylor-swift-disney-world-restaurant-reservations-hidden-market-wharton/",
+   "title": "The hidden economy deciding who gets into your favorite concert, restaurant, and theme park | Fortune",
+   "verdict": "OK",
+   "note": "title overlap 0.91"
+  },
+  {
+   "headline": "How sneakers became so valuable",
+   "url": "https://qz.com/1635964/how-sneakers-became-so-valuable",
+   "status": 200,
+   "final_url": "https://qz.com/1635964/how-sneakers-became-so-valuable",
+   "canonical": "https://qz.com/1635964/how-sneakers-became-so-valuable",
+   "title": "How sneakers became so valuable",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Weird History! Your Kid's Favourite Chips Were Invented at Disneyland",
+   "url": "https://www.fatherly.com/news/doritos-origin-story",
+   "status": 200,
+   "final_url": "https://www.fatherly.com/news/doritos-origin-story",
+   "canonical": "https://www.fatherly.com/news/doritos-origin-story",
+   "title": "Weird History! Your Kid\u2019s Favorite Chips Were Invented at Disneyland",
+   "verdict": "OK",
+   "note": "title overlap 0.88"
+  },
+  {
+   "headline": "The Fascinating Theory Of How Hershey's Kisses Got Their Name",
+   "url": "https://tastingtable.com/1518585/hersheys-kisses-name-origin",
+   "status": 200,
+   "final_url": "https://www.tastingtable.com/1518585/hersheys-kisses-name-origin/",
+   "canonical": "https://www.tastingtable.com/1518585/hersheys-kisses-name-origin/",
+   "title": "The Fascinating Theory Of How Hershey",
+   "verdict": "OK",
+   "note": "title overlap 0.50"
+  },
+  {
+   "headline": "How sneaker culture took over the world",
+   "url": "https://nationalgeographic.com/culture/article/sneaker-culture-sneakerheads-air-jordans-history-expression",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/culture/article/sneaker-culture-sneakerheads-air-jordans-history-expression",
+   "canonical": "https://www.nationalgeographic.com/culture/article/sneaker-culture-sneakerheads-air-jordans-history-expression",
+   "title": "How sneaker culture took over the world",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "15 Megabytes of Fame: The GeoCities Story",
+   "url": "https://www.mentalfloss.com/culture/internet/15-megabytes-fame-geocities-story",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/culture/internet/15-megabytes-fame-geocities-story",
+   "canonical": "https://www.mentalfloss.com/culture/internet/15-megabytes-fame-geocities-story",
+   "title": "15 Megabytes of Fame: The GeoCities Story",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Story Behind Why All Those Atari E.T. Video Games Ended Up In A Landfill",
+   "url": "https://cinemablend.com/movies/story-atari-et-video-games-landfill",
+   "status": 200,
+   "final_url": "https://www.cinemablend.com/movies/story-atari-et-video-games-landfill",
+   "canonical": "https://www.cinemablend.com/movies/story-atari-et-video-games-landfill",
+   "title": "The Story Behind Why All Those Atari E.T. Video Games Ended Up In A Landfill",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "If you think the millennium bug was a hoax, here comes a history lesson",
+   "url": "https://www.downtoearth.org.in/science-technology/if-you-think-the-millennium-bug-was-a-hoax-here-comes-a-history-lesson-68639",
+   "status": 200,
+   "final_url": "https://www.downtoearth.org.in/science-technology/if-you-think-the-millennium-bug-was-a-hoax-here-comes-a-history-lesson-68639",
+   "canonical": "https://www.downtoearth.org.in/science-technology/if-you-think-the-millennium-bug-was-a-hoax-here-comes-a-history-lesson-68639",
+   "title": "If you think the millennium bug was a hoax, here comes a history lesson",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "How Taneli Armanto Created Nokia's Iconic Snake Game",
+   "url": "https://www.snakegame.net/blog-posts/nokia-snake-creator-taneli-armanto",
+   "status": 200,
+   "final_url": "https://www.snakegame.net/blog-posts/nokia-snake-creator-taneli-armanto",
+   "canonical": "https://www.snakegame.net/blog-posts/nokia-snake-creator-taneli-armanto",
+   "title": "How Taneli Armanto Created Nokia\u2019s Iconic Snake Game",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "AIs are better gamers than us, but that's OK",
+   "url": "https://www.engadget.com/2019-03-20-ais-are-better-gamers.html",
+   "status": 200,
+   "final_url": "https://www.engadget.com/2019-03-20-ais-are-better-gamers.html",
+   "canonical": "https://www.engadget.com/2019-03-20-ais-are-better-gamers.html",
+   "title": "AIs are better gamers than us, but that\u2019s OK - Engadget",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "99% Invisible: Barcodes",
+   "url": "https://99percentinvisible.org/episode/barcodes/",
+   "status": 200,
+   "final_url": "https://99percentinvisible.org/episode/barcodes/",
+   "canonical": "https://99percentinvisible.org/episode/barcodes/",
+   "title": "Barcodes - 99% Invisible",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The NASA blunder that cost the agency a pricey Mars-worthy spacecraft",
+   "url": "https://interestingengineering.com/science/nasa-mars-climate-orbiter",
+   "status": 200,
+   "final_url": "https://interestingengineering.com/science/nasa-mars-climate-orbiter",
+   "canonical": "https://interestingengineering.com/science/nasa-mars-climate-orbiter",
+   "title": "The NASA blunder that cost the agency a pricey Mars-worthy spacecraft",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Making of the Voyager Golden Record",
+   "url": "https://science.nasa.gov/gallery/the-making-of-the-voyager-golden-record/",
+   "status": 200,
+   "final_url": "https://science.nasa.gov/gallery/the-making-of-the-voyager-golden-record/",
+   "canonical": "https://science.nasa.gov/gallery/the-making-of-the-voyager-golden-record/",
+   "title": "The Making of the Voyager Golden Record - NASA Science",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Everyday Tech That Was Created By Accident",
+   "url": "https://www.slashgear.com/905673/everyday-tech-that-was-created-by-accident",
+   "status": 200,
+   "final_url": "https://www.slashgear.com/905673/everyday-tech-that-was-created-by-accident/",
+   "canonical": "https://www.slashgear.com/905673/everyday-tech-that-was-created-by-accident/",
+   "title": "Everyday Tech That Was Created By Accident - SlashGear",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The 20 most fascinating accidental inventions",
+   "url": "https://csmonitor.com/Technology/2012/1005/The-20-most-fascinating-accidental-inventions/Post-its",
+   "status": 200,
+   "final_url": "https://www.csmonitor.com/Technology/2012/1005/The-20-most-fascinating-accidental-inventions/Post-its",
+   "canonical": "https://www.csmonitor.com/Technology/2012/1005/The-20-most-fascinating-accidental-inventions",
+   "title": "The 20 most fascinating accidental inventions",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "Object Lessons: The Surprisingly Complex History of the Humble Paperclip",
+   "url": "https://remodelista.com/posts/object-lessons-the-surprisingly-complex-history-of-the-humble-paperclip",
+   "status": 403,
+   "final_url": "https://www.remodelista.com/posts/object-lessons-the-surprisingly-complex-history-of-the-humble-paperclip",
+   "canonical": "",
+   "title": "",
+   "verdict": "BLOCKED",
+   "note": "HTTP 403",
+   "wayback": "none"
+  },
+  {
+   "headline": "Logo big or go home: How Nike got its swoosh for just $35",
+   "url": "https://www.retailbrew.com/stories/2022/09/09/logo-big-or-go-home-how-nike-got-its-swoosh-for-just-usd35",
+   "status": 200,
+   "final_url": "https://www.retailbrew.com/stories/2022/09/09/logo-big-or-go-home-how-nike-got-its-swoosh-for-just-usd35",
+   "canonical": "https://www.retailbrew.com/stories/2022/09/09/logo-big-or-go-home-how-nike-got-its-swoosh-for-just-usd35",
+   "title": "Logo big or go home: How Nike got its swoosh for just $35",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "How Comic Sans became the world's most hated font",
+   "url": "https://thenextweb.com/news/guy-thank-blame-comic-sans",
+   "status": 200,
+   "final_url": "https://thenextweb.com/news/guy-thank-blame-comic-sans",
+   "canonical": "https://thenextweb.com/news/guy-thank-blame-comic-sans",
+   "title": "How Comic Sans became the world\u2019s most hated font",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "3 Awesome Examples Of Interaction Design At Its Best",
+   "url": "https://careerfoundry.com/en/blog/ux-design/the-somewhat-unexpected-origins-of-3-everyday-user-interactions/",
+   "status": 200,
+   "final_url": "https://careerfoundry.com/en/blog/ux-design/the-somewhat-unexpected-origins-of-3-everyday-user-interactions/",
+   "canonical": "https://careerfoundry.com/en/blog/ux-design/the-somewhat-unexpected-origins-of-3-everyday-user-interactions/",
+   "title": "3 Awesome Examples Of Interaction Design At Its Best",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Saving the World's Dying and Disappearing Languages",
+   "url": "https://www.nationalgeographic.com/culture/article/saving-dying-disappearing-languages-wikitongues-culture",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/culture/article/saving-dying-disappearing-languages-wikitongues-culture",
+   "canonical": "https://www.nationalgeographic.com/culture/article/saving-dying-disappearing-languages-wikitongues-culture",
+   "title": "Saving the World's Dying and Disappearing Languages",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Who Created the First Alphabet?",
+   "url": "https://www.history.com/articles/who-created-the-first-alphabet",
+   "status": 200,
+   "final_url": "https://www.history.com/articles/who-created-the-first-alphabet",
+   "canonical": "https://www.history.com/articles/who-created-the-first-alphabet",
+   "title": "Who Created the First Alphabet? | HISTORY",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Cracking the code: the decipherment of Linear B 60 years on",
+   "url": "https://www.cam.ac.uk/research/news/cracking-the-code-the-decipherment-of-linear-b-60-years-on",
+   "status": 200,
+   "final_url": "https://www.cam.ac.uk/research/news/cracking-the-code-the-decipherment-of-linear-b-60-years-on",
+   "canonical": "https://www.cam.ac.uk/research/news/cracking-the-code-the-decipherment-of-linear-b-60-years-on",
+   "title": "Cracking the code: the decipherment of Linear B 60 years on",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "A language goes extinct every two weeks. here's a plan to save them.",
+   "url": "https://www.freethink.com/culture/saving-dead-languages",
+   "status": 200,
+   "final_url": "https://www.freethink.com/culture/saving-dead-languages",
+   "canonical": "https://www.freethink.com/culture/saving-dead-languages",
+   "title": "A language goes extinct every two weeks. here\u2019s a plan to save them.",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Language Birth",
+   "url": "https://asteriskmag.com/issues/13/language-birth",
+   "status": 200,
+   "final_url": "https://asteriskmag.com/issues/13/language-birth",
+   "canonical": "https://asteriskmag.com/issues/13/language-birth",
+   "title": "Language Birth",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Trials of the Century: 19th Century Edition",
+   "url": "https://blogs.loc.gov/headlinesandheroes/2020/07/trials-of-the-century-19th-century-edition/",
+   "status": 200,
+   "final_url": "https://blogs.loc.gov/headlinesandheroes/2020/07/trials-of-the-century-19th-century-edition/",
+   "canonical": "https://blogs.loc.gov/headlinesandheroes/2020/07/trials-of-the-century-19th-century-edition",
+   "title": "Trials of the Century: 19th Century Edition | Headlines & Heroes",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "History of wigs",
+   "url": "https://www.courts.sa.gov.au/history-of-wigs/",
+   "status": 200,
+   "final_url": "https://www.courts.sa.gov.au/history-of-wigs/",
+   "canonical": "https://www.courts.sa.gov.au/history-of-wigs/",
+   "title": "History of wigs - CAA",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Amistad: The Mende Slave Revolt",
+   "url": "https://www.fjc.gov/history/cases/famous-federal-trials/amistad-mende-slave-revolt",
+   "status": 200,
+   "final_url": "https://www.fjc.gov/history/cases/famous-federal-trials/amistad-mende-slave-revolt",
+   "canonical": "https://www.fjc.gov/history/cases/famous-federal-trials/amistad-mende-slave-revolt",
+   "title": "The Amistad: The Mende Slave Revolt | Federal Judicial Center",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The World Divided at Tordesillas",
+   "url": "https://www.historytoday.com/archive/feature/world-divided-tordesillas",
+   "status": 200,
+   "final_url": "https://www.historytoday.com/archive/feature/world-divided-tordesillas",
+   "canonical": "https://www.historytoday.com/archive/feature/world-divided-tordesillas",
+   "title": "The World Divided at Tordesillas",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "One-Shot War With England",
+   "url": "https://www.americanheritage.com/one-shot-war-england",
+   "status": 200,
+   "final_url": "https://www.americanheritage.com/one-shot-war-england",
+   "canonical": "https://www.americanheritage.com/one-shot-war-england",
+   "title": "One-Shot War With England",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Fragment of oldest known peace treaty discovered in Turkey",
+   "url": "https://popsci.com/science/oldest-peace-treaty-turkey",
+   "status": 200,
+   "final_url": "https://www.popsci.com/science/oldest-peace-treaty-turkey/",
+   "canonical": "https://www.popsci.com/science/oldest-peace-treaty-turkey/",
+   "title": "Fragment of oldest known peace treaty discovered in Turkey",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Only Peaceful Continent- The Antarctic Treaty",
+   "url": "https://www.todayifoundout.com/index.php/2015/10/peaceful-continent-antarctic-treaty/",
+   "status": 200,
+   "final_url": "https://www.todayifoundout.com/index.php/2015/10/peaceful-continent-antarctic-treaty/",
+   "canonical": "https://www.todayifoundout.com/index.php/2015/10/peaceful-continent-antarctic-treaty/",
+   "title": "The Only Peaceful Continent- The Antarctic Treaty",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Remembering the San Francisco Conference That Created the U.N.",
+   "url": "https://www.worldpoliticsreview.com/remembering-the-san-francisco-conference-that-created-the-u-n/",
+   "status": 200,
+   "final_url": "https://www.worldpoliticsreview.com/remembering-the-san-francisco-conference-that-created-the-u-n/",
+   "canonical": "https://www.worldpoliticsreview.com/remembering-the-san-francisco-conference-that-created-the-u-n/",
+   "title": "Remembering the San Francisco Conference That Created the U.N.",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Trans-Siberian Railway",
+   "url": "https://www.historytoday.com/archive/months-past/trans-siberian-railway",
+   "status": 200,
+   "final_url": "https://www.historytoday.com/archive/months-past/trans-siberian-railway",
+   "canonical": "https://www.historytoday.com/archive/months-past/trans-siberian-railway",
+   "title": "The Trans-Siberian Railway",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Massive Ancient Underground City Once Housed 20,000 People",
+   "url": "https://mymodernmet.com/derinkuyu-underground-city/",
+   "status": 200,
+   "final_url": "https://mymodernmet.com/derinkuyu-underground-city/",
+   "canonical": "https://mymodernmet.com/derinkuyu-underground-city/",
+   "title": "Massive Ancient Underground City Once Housed 20,000 People",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Tristan da Cunha: The most remote inhabited island on Earth",
+   "url": "https://www.yahoo.com/news/tristan-da-cunha-most-remote-130000890.html",
+   "status": 200,
+   "final_url": "https://www.yahoo.com/news/tristan-da-cunha-most-remote-130000890.html",
+   "canonical": "https://www.yahoo.com/news/tristan-da-cunha-most-remote-130000890.html",
+   "title": "Tristan da Cunha: The most remote inhabited island on Earth, forged from a supercontinent breakup",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Lalibela Rock Churches",
+   "url": "https://www.historyhit.com/locations/lalibela-rock-churches/",
+   "status": 200,
+   "final_url": "https://www.historyhit.com/locations/lalibela-rock-churches/",
+   "canonical": "https://www.historyhit.com/locations/lalibela-rock-churches/",
+   "title": "Lalibela Rock Churches",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "A Cup's Adventures And Oddities On Ice: 140 Years Of Hockey Trivia",
+   "url": "https://www.npr.org/2015/05/09/405303396/a-cups-adventures-and-oddities-on-ice-140-years-of-hockey-trivia",
+   "status": 200,
+   "final_url": "https://www.npr.org/2015/05/09/405303396/a-cups-adventures-and-oddities-on-ice-140-years-of-hockey-trivia",
+   "canonical": "https://www.npr.org/2015/05/09/405303396/a-cups-adventures-and-oddities-on-ice-140-years-of-hockey-trivia",
+   "title": "A Cup's Adventures And Oddities On Ice: 140 Years Of Hockey Trivia",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Sixty years on, the ball that won England the World Cup gives up its secrets",
+   "url": "https://www.manchester.ac.uk/about/news/sixty-years-on-the-ball-that-won-england-the-world-cup-gives-up-its-secrets/",
+   "status": 200,
+   "final_url": "https://www.manchester.ac.uk/about/news/sixty-years-on-the-ball-that-won-england-the-world-cup-gives-up-its-secrets/",
+   "canonical": "https://www.manchester.ac.uk/about/news/sixty-years-on-the-ball-that-won-england-the-world-cup-gives-up-its-secrets/",
+   "title": "Sixty years on, the ball that won England the World Cup gives up its secrets",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Eliud Kipchoge just ran a marathon in less than two hours: how much faster can humans get?",
+   "url": "https://www.popsci.com/kipchoge-two-hour-marathon-science/",
+   "status": 200,
+   "final_url": "https://www.popsci.com/kipchoge-two-hour-marathon-science/",
+   "canonical": "https://www.popsci.com/kipchoge-two-hour-marathon-science/",
+   "title": "Eliud Kipchoge just ran a marathon in less than two hours\u2014how much faster does science say humans can get?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Who Invented Basketball?",
+   "url": "https://www.history.com/articles/how-a-canadian-invented-basketball",
+   "status": 200,
+   "final_url": "https://www.history.com/articles/how-a-canadian-invented-basketball",
+   "canonical": "https://www.history.com/articles/how-a-canadian-invented-basketball",
+   "title": "Who Invented Basketball? | HISTORY",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Wimbledon's Grass Is a Labour of Love (and Science)",
+   "url": "https://www.nationalgeographic.com/science/article/news-wimbledon-tennis-grass-sports",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/science/article/news-wimbledon-tennis-grass-sports",
+   "canonical": "https://www.nationalgeographic.com/science/article/news-wimbledon-tennis-grass-sports",
+   "title": "Wimbledon's Grass Is a Labor of Love (and Science)",
+   "verdict": "OK",
+   "note": "title overlap 0.80"
+  },
+  {
+   "headline": "Saturn's Rings will Disappear in 2025. Don't Worry, They'll Return Soon Enough",
+   "url": "https://www.universetoday.com/articles/saturns-rings-will-disappear-in-2025-dont-worry-theyll-return-soon-enough",
+   "status": 200,
+   "final_url": "https://www.universetoday.com/articles/saturns-rings-will-disappear-in-2025-dont-worry-theyll-return-soon-enough",
+   "canonical": "https://www.universetoday.com/articles/saturns-rings-will-disappear-in-2025-dont-worry-theyll-return-soon-enough",
+   "title": "Saturn's Rings will Disappear in 2025. Don't Worry, They'll Return Soon Enough",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Studying a distant visitor: What we know about Interstellar Object 3I/ATLAS",
+   "url": "https://www.planetary.org/articles/studying-a-distant-visitor-what-we-know-about-interstellar-object-3i-atlas",
+   "status": 200,
+   "final_url": "https://www.planetary.org/articles/studying-a-distant-visitor-what-we-know-about-interstellar-object-3i-atlas",
+   "canonical": "https://www.planetary.org/articles/studying-a-distant-visitor-what-we-know-about-interstellar-object-3i-atlas",
+   "title": "Studying a distant visitor: What we know about Interstellar Object\u00e2\u0080\u00a6",
+   "verdict": "OK",
+   "note": "title overlap 0.89"
+  },
+  {
+   "headline": "NASA announces Mars rock as a potential biosignature",
+   "url": "https://earthsky.org/space/nasa-says-mars-rock-potential-biosignature-sapphire-canyon-cheyava-falls/",
+   "status": 200,
+   "final_url": "https://earthsky.org/space/nasa-says-mars-rock-potential-biosignature-sapphire-canyon-cheyava-falls/",
+   "canonical": "https://earthsky.org/space/nasa-says-mars-rock-potential-biosignature-sapphire-canyon-cheyava-falls/",
+   "title": "NASA announces Mars rock as a potential biosignature",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "It's one of the biggest mysteries of the cosmos: What are these little red dots?",
+   "url": "https://www.nationalgeographic.com/science/article/james-webb-little-red-dots-black-hole-stars",
+   "status": 200,
+   "final_url": "https://www.nationalgeographic.com/science/article/james-webb-little-red-dots-black-hole-stars",
+   "canonical": "https://www.nationalgeographic.com/science/article/james-webb-little-red-dots-black-hole-stars",
+   "title": "It\u2019s one of the biggest mysteries of the cosmos: What are these little red dots?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Asteroid Bennu Gives NASA's OSIRIS-REx Mission Team Lots of Surprises",
+   "url": "https://www.ucf.edu/news/asteroid-bennu-gives-nasas-osiris-rex-mission-team-lots-of-surprises/",
+   "status": 200,
+   "final_url": "https://www.ucf.edu/news/asteroid-bennu-gives-nasas-osiris-rex-mission-team-lots-of-surprises/",
+   "canonical": "https://www.ucf.edu/news/asteroid-bennu-gives-nasas-osiris-rex-mission-team-lots-of-surprises/",
+   "title": "Asteroid Bennu Gives NASA\u2019s OSIRIS-REx Mission Team Lots of Surprises",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The Spruce Goose Still Wows After Nearly 80 Years",
+   "url": "https://www.asme.org/topics-resources/content/the-spruce-goose-is-a-wooden-wonder",
+   "status": 200,
+   "final_url": "https://www.asme.org/topics-resources/content/the-spruce-goose-is-a-wooden-wonder",
+   "canonical": "https://www.asme.org/topics-resources/content/the-spruce-goose-is-a-wooden-wonder",
+   "title": "The Spruce Goose Still Wows After Nearly 80 Years - ASME",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Qantas Completes Longest-Ever Commercial Nonstop Flight",
+   "url": "https://ainonline.com/aviation-news/air-transport/2019-10-21/qantas-completes-longest-ever-commercial-nonstop-flight",
+   "status": 200,
+   "final_url": "https://www.ainonline.com/aviation-news/air-transport/2019-10-21/qantas-completes-longest-ever-commercial-nonstop-flight",
+   "canonical": "https://www.ainonline.com/aviation-news/air-transport/2019-10-21/qantas-completes-longest-ever-commercial-nonstop-flight",
+   "title": "Qantas Completes Longest-Ever Commercial Nonstop Flight | AIN",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Voyager: The First Airplane to Fly Around the World Non-Stop",
+   "url": "https://learningenglish.voanews.com/amp/voyager-the-first-airplane-to-fly-around-the-world-non-stop--104387429/116761.html",
+   "status": 200,
+   "final_url": "https://learningenglish.voanews.com/amp/voyager-the-first-airplane-to-fly-around-the-world-non-stop--104387429/116761.html",
+   "canonical": "https://learningenglish.voanews.com/a/voyager-the-first-airplane-to-fly-around-the-world-non-stop--104387429/116761.html",
+   "title": "Voyager: The First Airplane to Fly Around the World Non-Stop",
+   "verdict": "MISMATCH",
+   "note": "page canonical differs from requested"
+  },
+  {
+   "headline": "1929: The Graf Zeppelin becomes the first ship to sail around the world-by air",
+   "url": "https://www.popsci.com/technology/graf-zeppelin/",
+   "status": 200,
+   "final_url": "https://www.popsci.com/technology/graf-zeppelin/",
+   "canonical": "https://www.popsci.com/technology/graf-zeppelin/",
+   "title": "1929: The Graf Zeppelin becomes the first ship to sail around the world\u2014by air",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Japan's US$20 Billion Artificial Island Airport",
+   "url": "https://www.airwaysmag.com/legacy-posts/japans-artificial-island-airport",
+   "status": 200,
+   "final_url": "https://www.airwaysmag.com/legacy-posts/japans-artificial-island-airport",
+   "canonical": "https://airwaysmag.com/legacy-posts/japans-artificial-island-airport",
+   "title": "Japan's US$20 Billion Artificial Island Airport",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Bats wearing tiny mics reveal how the fliers avoid rush hour collisions",
+   "url": "https://www.sciencenews.org/article/bats-wearing-mics-collisions",
+   "status": 200,
+   "final_url": "https://www.sciencenews.org/article/bats-wearing-mics-collisions",
+   "canonical": "https://www.sciencenews.org/article/bats-wearing-mics-collisions",
+   "title": "Bats wearing tiny mics reveal how the fliers avoid rush hour collisions",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Spaghetti breakthrough",
+   "url": "https://plus.maths.org/spaghetti-breakthrough",
+   "status": 200,
+   "final_url": "https://plus.maths.org/spaghetti-breakthrough",
+   "canonical": "https://plus.maths.org/spaghetti-breakthrough",
+   "title": "Spaghetti breakthrough",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Wastewater Bacteria Can Break Down Plastic for Food",
+   "url": "https://www.mccormick.northwestern.edu/news/articles/2024/10/wastewater-bacteria-can-breakdown-plastic-for-food/",
+   "status": 200,
+   "final_url": "https://www.mccormick.northwestern.edu/news/articles/2024/10/wastewater-bacteria-can-breakdown-plastic-for-food/",
+   "canonical": "https://www.mccormick.northwestern.edu/news/articles/2024/10/wastewater-bacteria-can-breakdown-plastic-for-food/",
+   "title": "Wastewater Bacteria Can Break Down Plastic for Food",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Hard Sell: A History of the Pet Rock",
+   "url": "https://www.mentalfloss.com/fun/toys/pet-rock-history",
+   "status": 200,
+   "final_url": "https://www.mentalfloss.com/fun/toys/pet-rock-history",
+   "canonical": "https://www.mentalfloss.com/fun/toys/pet-rock-history",
+   "title": "Hard Sell: A History of the Pet Rock",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Ikea leaf table: the story of a flat-pack icon that sparked a design revolution",
+   "url": "https://www.wallpaper.com/design-interiors/ikea-leaf-table",
+   "status": 200,
+   "final_url": "https://www.wallpaper.com/design-interiors/ikea-leaf-table",
+   "canonical": "https://www.wallpaper.com/design-interiors/ikea-leaf-table",
+   "title": "Ikea leaf table: the story of a flat-pack icon that sparked a design revolution",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Cold Mine",
+   "url": "https://www.americanheritage.com/cold-mine",
+   "status": 200,
+   "final_url": "https://www.americanheritage.com/cold-mine",
+   "canonical": "https://www.americanheritage.com/cold-mine",
+   "title": "Cold Mine",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Why is saffron, the most expensive spice in the world, so expensive?",
+   "url": "https://gigazine.net/gsc_news/en/20240404-saffron-expensive-spice",
+   "status": 200,
+   "final_url": "https://gigazine.net/gsc_news/en/20240404-saffron-expensive-spice",
+   "canonical": "http://gigazine.net/gsc_news/en/20240404-saffron-expensive-spice/",
+   "title": "Why is saffron, the most expensive spice in the world, so expensive?",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "China's terracotta army was painted brightly, including purple",
+   "url": "https://www.historynewsnetwork.org/article/chinas-terracotta-army-was-painted-brightly-includ",
+   "status": 200,
+   "final_url": "https://www.historynewsnetwork.org/article/chinas-terracotta-army-was-painted-brightly-includ",
+   "canonical": "https://www.historynewsnetwork.org/article/chinas-terracotta-army-was-painted-brightly-includ",
+   "title": "China's terracotta army was painted brightly, including purple",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Lidar Imagery Reveals More Than 6,500 Unexplored Ancient Mayan Settlements",
+   "url": "https://thedebrief.org/lidar-imagery-reveals-more-than-6500-unexplored-ancient-mayan-settlements-including-pyramids/",
+   "status": 200,
+   "final_url": "https://thedebrief.org/lidar-imagery-reveals-more-than-6500-unexplored-ancient-mayan-settlements-including-pyramids/",
+   "canonical": "https://thedebrief.org/lidar-imagery-reveals-more-than-6500-unexplored-ancient-mayan-settlements-including-pyramids/",
+   "title": "Lidar Imagery Reveals More Than 6,500 Unexplored Ancient Mayan Settlements, Including Pyramids",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "A Harrier Jet, Pepsi, and John Leonard",
+   "url": "https://www.todayifoundout.com/index.php/2016/06/time-man-sued-pepsi-harrier-jet/",
+   "status": 200,
+   "final_url": "https://www.todayifoundout.com/index.php/2016/06/time-man-sued-pepsi-harrier-jet/",
+   "canonical": "https://www.todayifoundout.com/index.php/2016/06/time-man-sued-pepsi-harrier-jet/",
+   "title": "A Harrier Jet, Pepsi, and John Leonard",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "The History of Sealand",
+   "url": "https://www.damninteresting.com/the-history-of-sealand",
+   "status": 200,
+   "final_url": "https://www.damninteresting.com/the-history-of-sealand/",
+   "canonical": "https://www.damninteresting.com/the-history-of-sealand/",
+   "title": "The History of Sealand",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Harvard scientist on why that song is stuck in your head",
+   "url": "https://news.harvard.edu/gazette/story/2021/12/harvard-scientist-on-why-that-song-is-stuck-in-your-head/",
+   "status": 200,
+   "final_url": "https://news.harvard.edu/gazette/story/2021/12/harvard-scientist-on-why-that-song-is-stuck-in-your-head/",
+   "canonical": "https://news.harvard.edu/gazette/story/2021/12/harvard-scientist-on-why-that-song-is-stuck-in-your-head/",
+   "title": "Harvard scientist on why that song is stuck in your head",
+   "verdict": "OK",
+   "note": "title overlap 1.00"
+  },
+  {
+   "headline": "Natural Wonders: The Waitomo Glowworm Caves",
+   "url": "https://explorersweb.com/natural-wonders-waitomo-glowworm-caves/",
+   "status": 200,
+   "final_url": "https://explorersweb.com/natural-wonders-waitomo-glowworm-caves/",
+   "canonical": "https://explorersweb.com/natural-wonders-waitomo-glowworm-caves/",
+   "title": "Natural Wonders: The Waitomo Glowworm Caves \u00bb Explorersweb",
    "verdict": "OK",
    "note": "title overlap 1.00"
   }
