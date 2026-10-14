@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T12:32:12.673862+00:00",
+  "generatedAt": "2026-10-14T17:36:18.012768+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -86,6 +86,18 @@
       "points": 47
     },
     {
+      "team": "Barys",
+      "played": 18,
+      "won": 15,
+      "otWon": 7,
+      "soWon": 1,
+      "soLost": 1,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 58,
+      "points": 47
+    },
+    {
       "team": "Amur",
       "played": 17,
       "won": 15,
@@ -100,14 +112,14 @@
     {
       "team": "Salavat Yulaev",
       "played": 17,
-      "won": 15,
+      "won": 16,
       "otWon": 7,
       "soWon": 1,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 46,
-      "points": 46
+      "gf": 48,
+      "points": 48
     },
     {
       "team": "Dragons",
@@ -146,16 +158,16 @@
       "points": 43
     },
     {
-      "team": "Barys",
-      "played": 16,
-      "won": 14,
+      "team": "Sibir",
+      "played": 15,
+      "won": 16,
       "otWon": 6,
-      "soWon": 1,
-      "soLost": 1,
-      "otLost": 0,
+      "soWon": 0,
+      "soLost": 0,
+      "otLost": 2,
       "lost": 0,
-      "gf": 54,
-      "points": 43
+      "gf": 37,
+      "points": 46
     },
     {
       "team": "Ak Bars",
@@ -172,14 +184,14 @@
     {
       "team": "Avtomobilist",
       "played": 14,
-      "won": 13,
+      "won": 14,
       "otWon": 6,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 34,
-      "points": 38
+      "gf": 35,
+      "points": 40
     },
     {
       "team": "Dynamo Msk",
@@ -192,18 +204,6 @@
       "lost": 0,
       "gf": 33,
       "points": 43
-    },
-    {
-      "team": "Sibir",
-      "played": 13,
-      "won": 15,
-      "otWon": 5,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 2,
-      "lost": 0,
-      "gf": 33,
-      "points": 42
     },
     {
       "team": "Admiral",
@@ -267,31 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Salavat Yulaev",
-      "away": "Sibir",
-      "start": "2026-10-14T15:00:00+05:00"
-    },
-    {
-      "home": "Barys",
-      "away": "Avtomobilist",
-      "start": "2026-10-14T15:30:00+05:00"
-    },
-    {
-      "home": "Dynamo Minsk",
-      "away": "Metallurg Mg",
-      "start": "2026-10-14T12:10:00+05:00"
-    },
-    {
-      "home": "Dragons",
-      "away": "Traktor",
-      "start": "2026-10-14T12:30:00+05:00"
-    },
-    {
-      "home": "CSKA",
-      "away": "Dynamo Msk",
-      "start": "2026-10-14T12:30:00+05:00"
-    },
     {
       "home": "Lada",
       "away": "SKA",
@@ -3214,6 +3189,22 @@
     }
   ],
   "results": [
+    {
+      "home": "Barys",
+      "away": "Avtomobilist",
+      "start": "2026-10-14T15:30:00+05:00",
+      "homeScore": 4,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Salavat Yulaev",
+      "away": "Sibir",
+      "start": "2026-10-14T15:00:00+05:00",
+      "homeScore": 2,
+      "awayScore": 4,
+      "finished": true
+    },
     {
       "home": "Amur",
       "away": "Spartak",
