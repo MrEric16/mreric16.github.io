@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261014165447">
+<meta name="app-build" content="20261014170031">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -23038,11 +23038,43 @@ function wireDictCard(container, entry){
   });
 }
 
+/* iOS only raises the keyboard when focus() is called synchronously inside the tap itself.
+   The search page renders after the tap (hashchange), so a plain focus() there is ignored.
+   Fix: on tapping any search link, focus a hidden proxy input right away (keeps the keyboard
+   up), then wireSearch hands focus to the real field and removes the proxy. */
+document.addEventListener('click', function(e){
+  const a = e.target && e.target.closest ? e.target.closest('a[href="#search"]') : null;
+  if(!a) return;
+  if(location.hash === '#search'){
+    const cur = document.getElementById('searchInput');
+    if(cur) cur.focus();
+    return;
+  }
+  try{
+    const old = document.getElementById('searchKbProxy');
+    if(old) old.remove();
+    const p = document.createElement('input');
+    p.id = 'searchKbProxy';
+    p.type = 'text';
+    p.setAttribute('aria-hidden', 'true');
+    p.tabIndex = -1;
+    p.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;font-size:16px;border:0;padding:0;pointer-events:none;';
+    document.body.appendChild(p);
+    p.focus();
+    setTimeout(function(){ const x = document.getElementById('searchKbProxy'); if(x) x.remove(); }, 3000);
+  }catch(err){}
+}, true);
+
 function wireSearch(container){
   const input = container.querySelector('#searchInput');
   const results = container.querySelector('#searchResults');
   const dictCard = container.querySelector('#dictCard');
   if(!input || !results) return;
+  {
+    const px = document.getElementById('searchKbProxy');
+    input.focus();
+    if(px) px.remove();
+  }
 
   // Faculties are searchable by name too, jumping straight to that domain's page.
   const facultyPages = FACULTIES.map(f => ({
