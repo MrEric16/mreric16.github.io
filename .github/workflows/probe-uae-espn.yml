@@ -1,0 +1,14 @@
+name: Probe ESPN UAE
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 scripts/probe_uae_espn.py > scripts/probe-uae-espn-log.txt 2>&1 || true
+      - run: |
+          git config user.name bot; git config user.email actions@github.com
+          git add scripts/probe-uae-espn-log.txt; git commit -m "probe log" ; git pull --rebase --autostash origin main || true; git push
