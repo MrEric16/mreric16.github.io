@@ -1,14 +1,13 @@
-uae.1 ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-are.1 ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-uae.pro ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-uae.1.pro ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-arab.1 ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-uae1 ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-uae.league ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-uae.2 ERR 400 b'{"code":400,"message":"Failed to get events endpoint."}'
-{"leagues":[{"id":"700","uid":"s:600~l:700","name":"English Premier League","abbreviation":"Premier 
-page 1 1 219
-CAND friendly.emirates_cup
-page 2 1 0
-page 3 1 0
-
+TSDB leagues {"countries":[{"idLeague":"5198","idAPIfootball":"8773","idAPIfootballv3":"302","strSport":"Soccer","strLeague":"UAE League Cup","strLeagueAlternate":"كأس رابطة المحترفين الإماراتية","intDivision":"99","idCup":"1","strCurrentSeason":"2026-2027","intFormedYear":"2008","dateFirstEvent":"2021-10-08","strGender":"Male","strCountry":"United Arab Emirates","strWebsite":"www.uaefa.ae\/en\/competition\/1262","strFacebook":"www.facebook.com\/UAEFA.AE\/","strInstagram":"www.instagram.com\/uaefa\/","strTwi
+TSDB search ERR 404 b'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xml'
+TSDB next 4668 {"events":[{"idEvent":"2573375","idAPIfootball":"1603046","strTimestamp":"2026-10-15T13:40:00","strEvent":"Al-Faisaly vs Al-Kholood","strEventAlternate":"Al-Kholood @ Al-Faisaly","strFilename":"Saudi-
+TSDB next 4669 {"events":[{"idEvent":"2494658","idAPIfootball":"1557060","strTimestamp":"2026-10-17T14:00:00","strEvent":"Queen of the South vs Ross County","strEventAlternate":"Ross County @ Queen of the South","st
+TSDB next 5006 {"events":null}
+SOFA search ERR 403 b'{"error": {"code": 403, "reason": "Forbidden" }}'
+FOTMOB ERR 404 b'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta name="apple-itunes-app" content="app-id=488575683" data-next-head="'
+FOTMOB search ERR 404 b'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta name="apple-itunes-app" content="app-id=488575683" data-next-head="'
+WIKI {"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":1570},"search":[{"ns":0,"title":"2026\u201327 UAE Pro League","pageid":84244058,"size":14489,"wordcount":203,"snippet":"The <span class=\"searchmatch\">2026</span>\u2013<span class=\"searchmatch\">27</span> <span class=\"searchmatch\">UAE</span> <span class=\"searchmatch\">Pro</span> <span class=\"searchmatch\">League</span> (also known as ADNOC <span class=\"searchmatch\">Pro</span> <span class=\"searchmatch\">League</span> for sponsorship reasons) is the 52nd edition of the <span class=\"search
+WORLDFB ERR 403 b'<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/htm'
+BBC <!DOCTYPE html><html lang="en-GB" class="no-js"><head><meta charSet="utf-8" /><m
+365 {"lastUpdateId":5790135728,"requestedUpdateId":-1,"ttl":300,"sports":[],"countries":[],"competitions":[],"bookmakers":[{"id":14,"name":"Bet365","link":"https://www.bet365.com/olp/open-account?affiliate=365_03415948","nameForURL":"bet365","actionButton":{"link":"https://www.bet365.com/olp/open-accoun
+LIVESCORE ERR 404 b'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charSet="utf-8" data-next-head=""/><m
