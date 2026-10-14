@@ -1,13 +1,68 @@
-TSDB leagues {"countries":[{"idLeague":"5198","idAPIfootball":"8773","idAPIfootballv3":"302","strSport":"Soccer","strLeague":"UAE League Cup","strLeagueAlternate":"كأس رابطة المحترفين الإماراتية","intDivision":"99","idCup":"1","strCurrentSeason":"2026-2027","intFormedYear":"2008","dateFirstEvent":"2021-10-08","strGender":"Male","strCountry":"United Arab Emirates","strWebsite":"www.uaefa.ae\/en\/competition\/1262","strFacebook":"www.facebook.com\/UAEFA.AE\/","strInstagram":"www.instagram.com\/uaefa\/","strTwi
-TSDB search ERR 404 b'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">\r\n<html xml'
-TSDB next 4668 {"events":[{"idEvent":"2573375","idAPIfootball":"1603046","strTimestamp":"2026-10-15T13:40:00","strEvent":"Al-Faisaly vs Al-Kholood","strEventAlternate":"Al-Kholood @ Al-Faisaly","strFilename":"Saudi-
-TSDB next 4669 {"events":[{"idEvent":"2494658","idAPIfootball":"1557060","strTimestamp":"2026-10-17T14:00:00","strEvent":"Queen of the South vs Ross County","strEventAlternate":"Ross County @ Queen of the South","st
-TSDB next 5006 {"events":null}
-SOFA search ERR 403 b'{"error": {"code": 403, "reason": "Forbidden" }}'
-FOTMOB ERR 404 b'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta name="apple-itunes-app" content="app-id=488575683" data-next-head="'
-FOTMOB search ERR 404 b'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta name="apple-itunes-app" content="app-id=488575683" data-next-head="'
-WIKI {"batchcomplete":"","continue":{"sroffset":10,"continue":"-||"},"query":{"searchinfo":{"totalhits":1570},"search":[{"ns":0,"title":"2026\u201327 UAE Pro League","pageid":84244058,"size":14489,"wordcount":203,"snippet":"The <span class=\"searchmatch\">2026</span>\u2013<span class=\"searchmatch\">27</span> <span class=\"searchmatch\">UAE</span> <span class=\"searchmatch\">Pro</span> <span class=\"searchmatch\">League</span> (also known as ADNOC <span class=\"searchmatch\">Pro</span> <span class=\"searchmatch\">League</span> for sponsorship reasons) is the 52nd edition of the <span class=\"search
-WORLDFB ERR 403 b'<!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/htm'
-BBC <!DOCTYPE html><html lang="en-GB" class="no-js"><head><meta charSet="utf-8" /><m
-365 {"lastUpdateId":5790135728,"requestedUpdateId":-1,"ttl":300,"sports":[],"countries":[],"competitions":[],"bookmakers":[{"id":14,"name":"Bet365","link":"https://www.bet365.com/olp/open-account?affiliate=365_03415948","nameForURL":"bet365","actionButton":{"link":"https://www.bet365.com/olp/open-accoun
-LIVESCORE ERR 404 b'<!DOCTYPE html><html lang="en" dir="ltr"><head><meta charSet="utf-8" data-next-head=""/><m
+5198 UAE League Cup 2026-2027
+4678 UAE Pro League 2026-2027
+LID 4678
+eventsnextleague.php?id=4678 events 1
+{"idEvent": "2603380", "idAPIfootball": "1639007", "strTimestamp": "2026-10-16T13:05:00", "strEvent": "Al Dhafra vs United FC Dubai", "strEventAlternate": "United FC Dubai @ Al Dhafra", "strFilename": "UAE Pro League 2026-10-16 Al Dhafra vs United FC Dubai", "strSport": "Soccer", "idLeague": "4678", "strLeague": "UAE Pro League", "strLeagueBadge": "https://r2.thesportsdb.com/images/media/league/badge/95pes01643234997.png", "strSeason": "2026-2027", "strDescriptionEN": null, "strHomeTeam": "Al Dhafra", "strAwayTeam": "United FC Dubai", "intHomeScore": null, "intHomeScoreExtra": null, "intAwayScoreExtra": null, "intRound": "6", "intAwayScore": null, "intSpectators": null, "strOfficial": "", "strWeather": null, "dateEvent": "2026-10-16", "dateEventLocal": null, "strTime": "13:05:00", "strTimeLocal": null, "strGroup": null, "idHomeTeam": "137834", "strHomeTeamBadge": "https://r2.thesportsdb.
+eventspastleague.php?id=4678 events 1
+{"idEvent": "2589091", "idAPIfootball": "1634291", "strTimestamp": "2026-09-11T16:15:00", "strEvent": "Ajman vs Ittihad Kalba", "strEventAlternate": "Ittihad Kalba @ Ajman", "strFilename": "UAE Pro League 2026-09-11 Ajman vs Ittihad Kalba", "strSport": "Soccer", "idLeague": "4678", "strLeague": "UAE Pro League", "strLeagueBadge": "https://r2.thesportsdb.com/images/media/league/badge/95pes01643234997.png", "strSeason": "2026-2027", "strDescriptionEN": "", "strHomeTeam": "Ajman", "strAwayTeam": "Ittihad Kalba", "intHomeScore": "2", "intHomeScoreExtra": null, "intAwayScoreExtra": null, "intRound": "5", "intAwayScore": "3", "intSpectators": null, "strOfficial": "", "strWeather": "", "dateEvent": "2026-09-11", "dateEventLocal": "2026-09-11", "strTime": "16:15:00", "strTimeLocal": "20:15:00", "strGroup": "", "idHomeTeam": "137838", "strHomeTeamBadge": "https://r2.thesportsdb.com/images/media/t
+eventsseason.php?id=4678&s=2026-2027 events 5
+{"idEvent": "2523954", "strEvent": "Al Wahda vs Ajman", "strEventAlternate": "Ajman @ Al Wahda", "strSeason": "2026-2027", "idLeague": "4678", "strLeague": "UAE Pro League", "strLeagueBadge": "https://r2.thesportsdb.com/images/media/league/badge/95pes01643234997.png", "strSport": "Soccer", "strHomeTeam": "Al Wahda", "strAwayTeam": "Ajman", "idHomeTeam": "137836", "idAwayTeam": "137838", "intRound": "1", "intHomeScore": "2", "intAwayScore": "3", "strTimestamp": "2026-08-14T16:45:00", "dateEvent": "2026-08-14", "dateEventLocal": "2026-08-14", "strTime": "16:45:00", "strTimeLocal": "20:45:00", "strHomeTeamBadge": "https://r2.thesportsdb.com/images/media/team/badge/99xc7w1578858847.png", "strAwayTeamBadge": "https://r2.thesportsdb.com/images/media/team/badge/zohyna1677576452.png", "strVenue": "Al Nahyan Stadium", "strCountry": "United Arab Emirates", "strThumb": "https://r2.thesportsdb.com/i
+lookuptable.php?l=4678&s=2026-2027 table 5
+{"idStanding": "9853867", "intRank": "1", "idTeam": "137830", "strTeam": "Al Jazira", "strBadge": "https://r2.thesportsdb.com/images/media/team/badge/uknsoq1642708421.png/tiny", "idLeague": "4678", "strLeague": "UAE Pro League", "strSeason": "2026-2027", "strGroup": "Premier League", "strForm": "DWWWW", "strDescription": "Promotion - AFC Champions League (League phase)", "intPlayed": "5", "intWin": "4", "intLoss": "0", "intDraw": "1", "intGoalsFor": "11", "intGoalsAgainst": "2", "intGoalDifference": "9", "intPoints": "13", "dateUpdated": "2026-09-15 10:01:33"}
+{{one source|date=September 2026}}
+{{Use dmy dates|date=June 2026}}
+{{Infobox football league season
+| competition               = UAE Pro League<br>دوري المحترفين الإماراتي
+| logo                      = 
+| image                     = 
+| image_size                = 220px
+| alt                       = 
+| caption                   = 
+| season                    = 2026–27
+| country                   = {{flag|United Arab Emirates}}
+| num_teams                 = 14
+| dates                     = 14 August 2026 – TBC 
+| continentalcup1           = [[2027–28 AFC Champions League Elite|2027–28]]
+| continentalcup1 qualifiers= 
+| continentalcup2           = [[2027–28 AFC Champions League Two|2027–28]]
+| continentalcup2 qualifiers= 
+| continentalcup3           = [[2027–28 GFF Gulf Club Champions League|2027–28]]
+| continentalcup3 qualifiers=  
+| matches                   = <!-- no commas -->
+| matches footnote          = 
+| total goals               =  117 (3.34 per match)
+| total goals footnote      = 
+| average goals             = 
+| best player               = 
+| league topscorer          = ''9 players'' (3 goals)
+| best goalkeeper           = 
+| biggest home win          = [[Al Wasl F.C.|Al Wasl]] 5–1 [[United FC (Dubai)|United]] (15 August 2026)
+| biggest away win          = [[Khor Fakkan Club|Khor Fakkan]] 1–5 [[Shabab Al Ahli Club|Shabab Al Ahli]] (15 August 2026)
+| highest scoring           = [[Ajman Club|Ajman]] 4–3 [[Hatta Club|Hatta]] (22 August 2026)<br />[[Al Wasl F.C.|Al Wasl]] 5–2 [[Khor Fakkan Club|Khor Fakkan]] (4 September 2026)<br />[[Sharjah FC|Sharjah]] 4-3 [[United FC (Dubai)|United]] (5 September 2026)
+| longest wins              = 
+| longest unbeaten          = 
+| longest winless           = 
+| longest losses            = 
+| highest attendance        = 
+| lowest attendance         = 
+| attendance                = 
+| average attendance        = 
+| prevseason                = [[2025–26 UAE Pro League|2025–26]]
+| nextseason                = [[2027–28 UAE Pro League|2027–28]]
+| updated                   = 
+| extra information         = 
+}}
+
+The 2026–27 '''UAE Pro League''' (also known as '''ADNOC Pro League''' for sponsorship reasons) is the 52nd edition of the [[UAE Pro League]]. [[Al Ain FC|Al Ain]] are the defending champions.<ref>{{Cite web|title=UAE Pro League Holds 2025-26 Sports Season Draw for ADNOC Pro League, ADIB Cup|url=https://www.uaeproleague.ae/en/news-and-gallery/adnoc-pro-league-543#:~:text=The%20opening%20round%20will%20not,Al%20Nasr%2C%20and%20Al%20Dhafra|website=uaeproleague|access-date=5 November 2025 |date=5 November 2025}}</ref>
+
+== Teams ==
+
+14 teams will compete in the league - the top 12 teams from the [[2025–26 UAE Pro League|previous season]] and the 2 teams promoted from the [[2025–26 UAE First Division League]].
+
+===Team changes===
+{| class="wikitable"
+|-
+! Promoted from<br>[[2025–26 UAE First Division League]]
+! Relegated from<br>[[2025–26 UAE Pro League]]
+|-
+| [[Hatta Club|Hatta]]<br>[[United FC (Dubai)|Uni
