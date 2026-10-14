@@ -31,6 +31,14 @@ jobs:
       - name: Run scraper
         run: python scripts/scrape_uae_league.py > scripts/uae-league-log.txt 2>&1 || echo "FETCH_FAILED_SEE_LOG" >> scripts/uae-league-log.txt
 
+      # worldfootball.net began serving a Cloudflare challenge to runners on 2026-10-09. When the
+      # primary scraper is blocked or fails, fall back to ESPN so the league never goes stale.
+      - name: ESPN fallback when primary is blocked
+        run: |
+          if grep -q -E "all attempts blocked|FETCH_FAILED_SEE_LOG" scripts/uae-league-log.txt; then
+            python scripts/fetch_uae_espn.py >> scripts/uae-league-log.txt 2>&1 || echo "ESPN_FALLBACK_FAILED" >> scripts/uae-league-log.txt
+          fi
+
       - name: Commit results
         run: |
           git config user.name "uae-league-bot"
