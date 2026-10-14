@@ -1,0 +1,16 @@
+name: Audit videos oembed
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  a:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests
+      - run: python3 scripts/audit_videos_oembed.py
+      - run: |
+          git config user.name bot; git config user.email actions@github.com
+          git add scripts/video-oembed-audit.json; git commit -m "video oembed audit"
+          for i in 1 2 3; do git pull --rebase origin main -q && git push -q && break; sleep 3; done
