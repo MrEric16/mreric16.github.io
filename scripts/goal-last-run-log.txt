@@ -3,18 +3,15 @@
 [goal-scraper] [PD] Found 0 finished-match links
 [goal-scraper] [BL1] Found 0 finished-match links
 [goal-scraper] [SA] Found 0 finished-match links
-[goal-scraper] [FL1] Found 0 finished-match links
+[goal-scraper] FAILED to fetch https://www.goal.com/en/ligue-1/fixtures-results/dm5ka0os1e3dxcp3vh05kmp33: 404 Client Error: Not Found for url: https://www.goal.com/en/ligue-1/fixtures-results/dm5ka0os1e3dxcp3vh05kmp33
 [goal-scraper] [CL] Found 9 finished-match links
-[goal-scraper] [CL] Added: Arsenal 3-0 Lille
-[goal-scraper] [CL] Added: Atletico Madrid 2-0 Manchester United
-[goal-scraper] [CL] Added: Villarreal 3-1 Ssc Napoli
-[goal-scraper] [CL] Added: Galatasaray 1-4 Barcelona
 [goal-scraper] WARNING: Bayern Munich scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ
-[goal-scraper] [CL] SCORER PARSE FAILED (attempt 1/3) for Viking 3-3 Bayern Munich -- NOT committing, will retry next run: https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ
+[goal-scraper] [CL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Viking 3-3 Bayern Munich: https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ
+[goal-scraper] [CL] Added: Viking 3-3 Bayern Munich
 [goal-scraper] WARNING: Inter scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
 [goal-scraper] WARNING: Club Brugge scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
-[goal-scraper] [CL] SCORER PARSE FAILED (attempt 1/3) for Inter 3-4 Club Brugge -- NOT committing, will retry next run: https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
-[goal-scraper] [CL] Added: Rb Leipzig 1-0 Psv Eindhoven
+[goal-scraper] [CL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Inter 3-4 Club Brugge: https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
+[goal-scraper] [CL] Added: Inter 3-4 Club Brugge
 [goal-scraper] [real-madrid] Found 22 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Tottenham Hotspur on 2019-07-30
@@ -31,6 +28,7 @@
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Espanyol vs Real Madrid on 2026-08-22
 [goal-scraper] WARNING: Real Madrid scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Real Sociedad on 2026-08-26
+[goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Malaga on 2026-08-30
 [goal-scraper] [barcelona] Found 16 finished-match links
 [goal-scraper] WARNING: Barcelona scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/elche-vs-barcelona/2FnxuiygSUUuJoTZpwnve
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Elche vs Barcelona on 2026-08-23
@@ -50,16 +48,11 @@
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Paris Saint Germain vs Bayern Munich on 2025-07-05
 [goal-scraper] WARNING: Bayern Munich scored 5 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/salzburg-vs-bayern-munich/5HnHv_H00CkUM5w0_F4_S
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Salzburg vs Bayern Munich on 2026-01-06
-[goal-scraper] WARNING: Bayern Munich scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ
-[goal-scraper] [bayern-munich] SCORER PARSE FAILED (attempt 2/3) for Viking 3-3 Bayern Munich -- NOT committing, will retry next run: https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ
 [goal-scraper] [inter-milan] Found 18 finished-match links
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Monterrey vs Inter on 2025-06-17
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Urawa Red Diamonds on 2025-06-21
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs River Plate on 2025-06-25
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Fluminense on 2025-06-30
-[goal-scraper] WARNING: Inter scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
-[goal-scraper] WARNING: Club Brugge scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
-[goal-scraper] [inter-milan] SCORER PARSE FAILED (attempt 2/3) for Inter 3-4 Club Brugge -- NOT committing, will retry next run: https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN
 [goal-scraper] [ac-milan] Found 11 finished-match links
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Torino vs Ac Milan on 2026-08-23
 [goal-scraper] [psg] Found 20 finished-match links
@@ -101,6 +94,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 5
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ', 'https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN']
+[goal-scraper] TOTAL new results added this run: 2
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb']
 [goal-scraper] Wrote data/goal-results.json
