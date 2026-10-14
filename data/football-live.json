@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T13:05:50.148774Z",
+  "generatedAt": "2026-10-14T18:01:30.561804Z",
   "standings": {
     "PL": [
       {
@@ -983,6 +983,16 @@
         "pts": 6
       },
       {
+        "name": "Liverpool",
+        "pld": 2,
+        "w": 2,
+        "d": 0,
+        "l": 0,
+        "gf": 6,
+        "ga": 1,
+        "pts": 6
+      },
+      {
         "name": "Sporting CP",
         "pld": 2,
         "w": 2,
@@ -1024,12 +1034,12 @@
       },
       {
         "name": "Como 1907",
-        "pld": 1,
+        "pld": 2,
         "w": 1,
         "d": 0,
-        "l": 0,
-        "gf": 4,
-        "ga": 1,
+        "l": 1,
+        "gf": 5,
+        "ga": 3,
         "pts": 3
       },
       {
@@ -1113,16 +1123,6 @@
         "pts": 3
       },
       {
-        "name": "Liverpool",
-        "pld": 1,
-        "w": 1,
-        "d": 0,
-        "l": 0,
-        "gf": 2,
-        "ga": 1,
-        "pts": 3
-      },
-      {
         "name": "Real Madrid",
         "pld": 1,
         "w": 1,
@@ -1183,6 +1183,16 @@
         "pts": 3
       },
       {
+        "name": "Feyenoord",
+        "pld": 2,
+        "w": 1,
+        "d": 0,
+        "l": 1,
+        "gf": 3,
+        "ga": 6,
+        "pts": 3
+      },
+      {
         "name": "Roma",
         "pld": 1,
         "w": 0,
@@ -1231,16 +1241,6 @@
         "gf": 4,
         "ga": 6,
         "pts": 1
-      },
-      {
-        "name": "LASK",
-        "pld": 1,
-        "w": 0,
-        "d": 0,
-        "l": 1,
-        "gf": 0,
-        "ga": 1,
-        "pts": 0
       },
       {
         "name": "Inter",
@@ -1293,16 +1293,6 @@
         "pts": 0
       },
       {
-        "name": "Feyenoord",
-        "pld": 1,
-        "w": 0,
-        "d": 0,
-        "l": 1,
-        "gf": 1,
-        "ga": 5,
-        "pts": 0
-      },
-      {
         "name": "Galatasaray",
         "pld": 2,
         "w": 0,
@@ -1328,6 +1318,16 @@
         "w": 0,
         "d": 0,
         "l": 1,
+        "gf": 0,
+        "ga": 5,
+        "pts": 0
+      },
+      {
+        "name": "LASK",
+        "pld": 2,
+        "w": 0,
+        "d": 0,
+        "l": 2,
         "gf": 0,
         "ga": 5,
         "pts": 0
@@ -4903,7 +4903,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-14T16:45:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 2,
           "homeTeam": {
             "id": 2016,
@@ -4916,15 +4916,15 @@
             "shortName": "Liverpool"
           },
           "score": {
-            "winner": null,
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 4
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 3
             }
           },
           "competition": {
@@ -4934,7 +4934,7 @@
         },
         {
           "utcDate": "2026-10-14T16:45:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 2,
           "homeTeam": {
             "id": 675,
@@ -4947,15 +4947,15 @@
             "shortName": "Como 1907"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 1
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 1
             }
           },
           "competition": {
@@ -5998,13 +5998,13 @@
     },
     "liverpool": {
       "nextFixture": {
-        "utcDate": "2026-10-14T16:45:00Z",
+        "utcDate": "2026-10-17T14:00:00Z",
         "status": "TIMED",
-        "matchday": 2,
+        "matchday": 7,
         "homeTeam": {
-          "id": 2016,
-          "name": "LASK Linz",
-          "shortName": "LASK"
+          "id": 402,
+          "name": "Brentford FC",
+          "shortName": "Brentford"
         },
         "awayTeam": {
           "id": 64,
@@ -6024,7 +6024,7 @@
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Premier League"
         },
         "venue": null
       },
