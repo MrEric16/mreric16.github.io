@@ -4,15 +4,7 @@
 [goal-scraper] [BL1] Found 0 finished-match links
 [goal-scraper] [SA] Found 0 finished-match links
 [goal-scraper] [FL1] Found 0 finished-match links
-[goal-scraper] [CL] Found 18 finished-match links
-[goal-scraper] WARNING: Lask scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD
-[goal-scraper] WARNING: Liverpool scored 6 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD
-[goal-scraper] [CL] SCORER PARSE FAILED (attempt 2/3) for Lask 3-6 Liverpool -- NOT committing, will retry next run: https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD
-[goal-scraper] WARNING: Manchester City scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/manchester-city-vs-paris-saint-germain/QIrT8Lujk8ClaoGlq0jHO
-[goal-scraper] [CL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Manchester City 2-4 Paris Saint Germain: https://www.goal.com/en/match/manchester-city-vs-paris-saint-germain/QIrT8Lujk8ClaoGlq0jHO
-[goal-scraper] [CL] Added: Manchester City 2-4 Paris Saint Germain
-[goal-scraper] WARNING: Aston Villa scored 6 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo
-[goal-scraper] [CL] SCORER PARSE FAILED (attempt 2/3) for Aston Villa 6-0 Fenerbahce -- NOT committing, will retry next run: https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo
+[goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 23 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Tottenham Hotspur on 2019-07-30
@@ -96,6 +88,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 1
+[goal-scraper] TOTAL new results added this run: 0
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo']
 [goal-scraper] Wrote data/goal-results.json
