@@ -1,42 +1,6 @@
 {
-  "generatedAt": "2026-10-15T18:48:49.117820Z",
+  "generatedAt": "2026-10-15T21:53:38.210395Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/osasuna-vs-getafe/wBIPXrEuxFfIwfQNkHeHO",
-      "date": "2026-08-31",
-      "home": "Osasuna",
-      "away": "Getafe",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "A. Budimir",
-          "minute": 45
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/atalanta-vs-bologna/nWUt4qi5F_PIoMGkcTclR",
-      "date": "2026-08-31",
-      "home": "Atalanta",
-      "away": "Bologna",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "L. Samardzic",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [],
-      "competition": "SA"
-    },
     {
       "url": "https://www.goal.com/en/match/real-sociedad-vs-celta-vigo/uBjlTAkMFXO3hOrLFaIz-",
       "date": null,
@@ -7850,6 +7814,51 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/marseille-vs-olympiacos/MUO1RoWMzzMwcNiWTqrP7",
+      "date": "2026-10-15",
+      "home": "Marseille",
+      "away": "Olympiacos",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "S. Hezze",
+          "minute": 42
+        }
+      ],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/celta-vigo-vs-juventus/b3W2U-4tM0yqY_WBuJ3ox",
+      "date": "2026-10-15",
+      "home": "Celta Vigo",
+      "away": "Juventus",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "H. Alvarez",
+          "minute": 18
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "N. Woltemade",
+          "minute": 59
+        },
+        {
+          "scorer": "R. Kolo Muani",
+          "minute": 90
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7859,6 +7868,6 @@
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
     "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
-    "https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR": 1
+    "https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR": 2
   }
 }
