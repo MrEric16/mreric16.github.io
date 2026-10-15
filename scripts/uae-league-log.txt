@@ -4,8 +4,8 @@
 [uae-league] attempt 4/5: still a Cloudflare challenge page
 [uae-league] attempt 5/5: still a Cloudflare challenge page
 [uae-league] all attempts blocked -- KEEPING last good data/uae-league-live.json untouched
-[uae-tsdb] eventspastleague.php?id=4678: 1 events
-[uae-tsdb] eventsnextleague.php?id=4678: 1 events
-[uae-tsdb] eventsseason.php?id=4678&s=2026-2027: 5 events
-[uae-tsdb] verified current: last result 2026-09-11T19:15:00+05:00, next fixture 2026-10-16T16:05:00+05:00
-[uae-tsdb] wrote data/uae-league-live.json: 35 results, 56 fixtures, 0 new; leader Al Jazira Club 13 pts
+[uae-tsdb] eventspastleague.php?id=4678 failed: HTTP Error 522: <none>
+[uae-tsdb] eventsnextleague.php?id=4678 failed: HTTP Error 522: <none>
+[uae-tsdb] eventsseason.php?id=4678&s=2026-2027 failed: HTTP Error 522: <none>
+[uae-tsdb] TheSportsDB returned nothing; file untouched
+TSDB_FALLBACK_FAILED
