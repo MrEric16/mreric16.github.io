@@ -1,24 +1,6 @@
 {
-  "generatedAt": "2026-10-14T21:51:20.929384Z",
+  "generatedAt": "2026-10-15T00:13:46.874424Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/aston-villa-vs-arsenal/NpwExG9dqIXsQwKqmwGTu",
-      "date": "2026-08-31",
-      "home": "Aston Villa",
-      "away": "Arsenal",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "B. Saka",
-          "minute": 59
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/osasuna-vs-getafe/wBIPXrEuxFfIwfQNkHeHO",
       "date": "2026-08-31",
@@ -7833,6 +7815,41 @@
         }
       ],
       "competition": "roma"
+    },
+    {
+      "url": "https://www.goal.com/en/match/manchester-city-vs-paris-saint-germain/QIrT8Lujk8ClaoGlq0jHO",
+      "date": "2026-10-14",
+      "home": "Manchester City",
+      "away": "Paris Saint Germain",
+      "htHome": 0,
+      "htAway": 3,
+      "ftHome": 2,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "E. Haaland",
+          "minute": 53
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Doue",
+          "minute": 13
+        },
+        {
+          "scorer": "O. Dembele",
+          "minute": 15
+        },
+        {
+          "scorer": "Vitinha",
+          "minute": 32
+        },
+        {
+          "scorer": "M. Akliouche",
+          "minute": 63
+        }
+      ],
+      "competition": "CL"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7840,8 +7857,7 @@
     "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM": 2,
     "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
-    "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 1,
-    "https://www.goal.com/en/match/manchester-city-vs-paris-saint-germain/QIrT8Lujk8ClaoGlq0jHO": 2,
-    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 1
+    "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
+    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2
   }
 }
