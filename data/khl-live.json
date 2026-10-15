@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T16:55:29.420849+00:00",
+  "generatedAt": "2026-10-15T20:07:11.030018+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -28,26 +28,26 @@
     {
       "team": "Lokomotiv",
       "played": 22,
-      "won": 14,
+      "won": 15,
       "otWon": 10,
       "soWon": 1,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 38,
-      "points": 50
+      "gf": 40,
+      "points": 52
     },
     {
       "team": "Severstal",
-      "played": 20,
-      "won": 15,
-      "otWon": 8,
+      "played": 22,
+      "won": 16,
+      "otWon": 9,
       "soWon": 1,
       "soLost": 0,
       "otLost": 1,
       "lost": 0,
-      "gf": 35,
-      "points": 49
+      "gf": 40,
+      "points": 53
     },
     {
       "team": "Torpedo",
@@ -148,14 +148,14 @@
     {
       "team": "SKA",
       "played": 17,
-      "won": 14,
+      "won": 15,
       "otWon": 5,
       "soWon": 2,
       "soLost": 1,
       "otLost": 0,
       "lost": 0,
       "gf": 47,
-      "points": 43
+      "points": 45
     },
     {
       "team": "Sibir",
@@ -242,6 +242,18 @@
       "points": 38
     },
     {
+      "team": "Lada",
+      "played": 8,
+      "won": 16,
+      "otWon": 2,
+      "soWon": 0,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 25,
+      "points": 36
+    },
+    {
       "team": "HC Sochi",
       "played": 6,
       "won": 14,
@@ -252,18 +264,6 @@
       "lost": 0,
       "gf": 19,
       "points": 34
-    },
-    {
-      "team": "Lada",
-      "played": 6,
-      "won": 15,
-      "otWon": 1,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 24,
-      "points": 32
     }
   ],
   "fixtures": [
@@ -3179,6 +3179,22 @@
     }
   ],
   "results": [
+    {
+      "home": "Severstal",
+      "away": "Lokomotiv",
+      "start": "2026-10-15T09:00:00+05:00",
+      "homeScore": 5,
+      "awayScore": 2,
+      "finished": true
+    },
+    {
+      "home": "Lada",
+      "away": "SKA",
+      "start": "2026-10-15T08:00:00+05:00",
+      "homeScore": 1,
+      "awayScore": 0,
+      "finished": true
+    },
     {
       "home": "CSKA",
       "away": "Dynamo Msk",
