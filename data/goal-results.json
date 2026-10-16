@@ -1,73 +1,6 @@
 {
-  "generatedAt": "2026-10-16T20:21:16.089111Z",
+  "generatedAt": "2026-10-16T22:56:09.302489Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/toulouse-vs-lille/epMByCs4VS-dQWJdeXRzC",
-      "date": null,
-      "home": "Toulouse",
-      "away": "Lille",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "A. Ueda",
-          "minute": 73
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/lyon-vs-auxerre/d8-PCHiKE6MYpaS9e_7H4",
-      "date": null,
-      "home": "Lyon",
-      "away": "Auxerre",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 3,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "F. Bacher",
-          "minute": 28
-        },
-        {
-          "scorer": "Z. Athekame",
-          "minute": 31
-        },
-        {
-          "scorer": "E. Nuamah",
-          "minute": 53
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "C. Archer",
-          "minute": 42
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/real-betis-vs-real-madrid/80eK01Ka5aHU6o-AL5I6L",
-      "date": null,
-      "home": "Real Betis",
-      "away": "Real Madrid",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "T. Parrott",
-          "minute": 81
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-fc-koeln/5XAcGE3dpSe7xj5Ch7cgj",
       "date": null,
@@ -7868,6 +7801,73 @@
         }
       ],
       "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/deportivo-de-a-coruna-vs-levante/3pvQ_nFtuOO1tyEZAlofc",
+      "date": "2026-10-16",
+      "home": "Deportivo De A Coruna",
+      "away": "Levante",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "B. Nsongo",
+          "minute": 63
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Requena",
+          "minute": 82
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/eintracht-frankfurt-vs-fc-koeln/3bK_hyCCu3N3xQNVoBBw4",
+      "date": "2026-10-16",
+      "home": "Eintracht Frankfurt",
+      "away": "Fc Koeln",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "Y. Ebnoutalib",
+          "minute": 77
+        }
+      ],
+      "awayGoals": [],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/le-mans-vs-toulouse/vpGA15_O1FAK-IutZ5jU-",
+      "date": "2026-10-16",
+      "home": "Le Mans",
+      "away": "Toulouse",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 3,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "J. Russell-Rowe",
+          "minute": 46
+        },
+        {
+          "scorer": "A. Doennum",
+          "minute": 59
+        },
+        {
+          "scorer": "C. Tengstedt",
+          "minute": 87
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7876,6 +7876,7 @@
     "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
-    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2
+    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
+    "https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq": 1
   }
 }
