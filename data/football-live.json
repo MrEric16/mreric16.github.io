@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T09:18:31.139263Z",
+  "generatedAt": "2026-10-16T14:07:23.526409Z",
   "standings": {
     "PL": [
       {
@@ -2621,266 +2621,49 @@
     "BL1": {
       "fixtures": [
         {
-          "utcDate": "2026-10-16T18:30:00Z",
+          "utcDate": "2026-10-11T13:30:00Z",
           "status": "TIMED",
-          "matchday": 6,
+          "matchday": 5,
           "homeTeam": {
-            "id": 19,
-            "name": "Eintracht Frankfurt",
-            "shortName": "Frankfurt"
-          },
-          "awayTeam": {
             "id": 1,
             "name": "1. FC Köln",
             "shortName": "1. FC Köln"
           },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-17T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 28,
-            "name": "1. FC Union Berlin",
-            "shortName": "Union Berlin"
-          },
           "awayTeam": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-17T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 7,
-            "name": "Hamburger SV",
-            "shortName": "HSV"
-          },
-          "awayTeam": {
-            "id": 10,
-            "name": "VfB Stuttgart",
-            "shortName": "Stuttgart"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-17T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 12,
-            "name": "SV Werder Bremen",
-            "shortName": "Bremen"
-          },
-          "awayTeam": {
-            "id": 29,
-            "name": "SC Paderborn 07",
-            "shortName": "SC Paderborn"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-17T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 719,
-            "name": "SV 07 Elversberg",
-            "shortName": "Elversberg"
-          },
-          "awayTeam": {
-            "id": 16,
-            "name": "FC Augsburg",
-            "shortName": "Augsburg"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-17T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 6,
-            "name": "FC Schalke 04",
-            "shortName": "Schalke"
-          },
-          "awayTeam": {
-            "id": 15,
-            "name": "1. FSV Mainz 05",
-            "shortName": "Mainz"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-17T16:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern"
-          },
-          "awayTeam": {
-            "id": 721,
-            "name": "RB Leipzig",
-            "shortName": "RB Leipzig"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-18T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
-            "id": 3,
-            "name": "Bayer 04 Leverkusen",
-            "shortName": "Leverkusen"
-          },
-          "awayTeam": {
-            "id": 17,
-            "name": "SC Freiburg",
-            "shortName": "Freiburg"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-18T15:30:00Z",
-          "status": "TIMED",
-          "matchday": 6,
-          "homeTeam": {
             "id": 18,
             "name": "Borussia Mönchengladbach",
             "shortName": "M'gladbach"
           },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-11T15:30:00Z",
+          "status": "TIMED",
+          "matchday": 5,
+          "homeTeam": {
+            "id": 17,
+            "name": "SC Freiburg",
+            "shortName": "Freiburg"
+          },
           "awayTeam": {
-            "id": 2,
-            "name": "TSG 1899 Hoffenheim",
-            "shortName": "Hoffenheim"
+            "id": 6,
+            "name": "FC Schalke 04",
+            "shortName": "Schalke"
           },
           "score": {
             "winner": null,
@@ -2901,68 +2684,6 @@
         }
       ],
       "results": [
-        {
-          "utcDate": "2026-10-11T15:30:00Z",
-          "status": "FINISHED",
-          "matchday": 5,
-          "homeTeam": {
-            "id": 17,
-            "name": "SC Freiburg",
-            "shortName": "Freiburg"
-          },
-          "awayTeam": {
-            "id": 6,
-            "name": "FC Schalke 04",
-            "shortName": "Schalke"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-11T13:30:00Z",
-          "status": "FINISHED",
-          "matchday": 5,
-          "homeTeam": {
-            "id": 1,
-            "name": "1. FC Köln",
-            "shortName": "1. FC Köln"
-          },
-          "awayTeam": {
-            "id": 18,
-            "name": "Borussia Mönchengladbach",
-            "shortName": "M'gladbach"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
         {
           "utcDate": "2026-10-10T16:30:00Z",
           "status": "FINISHED",
@@ -3359,6 +3080,68 @@
             "halfTime": {
               "home": 1,
               "away": 2
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-19T13:30:00Z",
+          "status": "FINISHED",
+          "matchday": 4,
+          "homeTeam": {
+            "id": 12,
+            "name": "SV Werder Bremen",
+            "shortName": "Bremen"
+          },
+          "awayTeam": {
+            "id": 16,
+            "name": "FC Augsburg",
+            "shortName": "Augsburg"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 3,
+              "away": 2
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-19T13:30:00Z",
+          "status": "FINISHED",
+          "matchday": 4,
+          "homeTeam": {
+            "id": 19,
+            "name": "Eintracht Frankfurt",
+            "shortName": "Frankfurt"
+          },
+          "awayTeam": {
+            "id": 17,
+            "name": "SC Freiburg",
+            "shortName": "Freiburg"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 2,
+              "away": 2
+            },
+            "halfTime": {
+              "home": 2,
+              "away": 1
             }
           },
           "competition": {
@@ -4902,18 +4685,18 @@
     "CL": {
       "fixtures": [
         {
-          "utcDate": "2026-10-20T16:45:00Z",
+          "utcDate": "2026-10-13T16:45:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 10233,
-            "name": "Sabah FK",
-            "shortName": "Sabah FK"
+            "id": 546,
+            "name": "Racing Club de Lens",
+            "shortName": "RC Lens"
           },
           "awayTeam": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund"
+            "id": 498,
+            "name": "Sporting Clube de Portugal",
+            "shortName": "Sporting CP"
           },
           "score": {
             "winner": null,
@@ -4933,13 +4716,13 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-20T16:45:00Z",
+          "utcDate": "2026-10-13T16:45:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 613,
-            "name": "Fenerbahçe SK",
-            "shortName": "Fenerbahçe"
+            "id": 10233,
+            "name": "Sabah FK",
+            "shortName": "Sabah FK"
           },
           "awayTeam": {
             "id": 930,
@@ -4964,18 +4747,18 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-20T19:00:00Z",
+          "utcDate": "2026-10-13T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 65,
-            "name": "Manchester City FC",
-            "shortName": "Man City"
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter"
           },
           "awayTeam": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK"
+            "id": 851,
+            "name": "Club Brugge KV",
+            "shortName": "Club Brugge"
           },
           "score": {
             "winner": null,
@@ -4995,168 +4778,13 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-20T19:00:00Z",
+          "utcDate": "2026-10-13T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 10,
-            "name": "VfB Stuttgart",
-            "shortName": "Stuttgart"
-          },
-          "awayTeam": {
-            "id": 78,
-            "name": "Club Atlético de Madrid",
-            "shortName": "Atleti"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-20T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 64,
-            "name": "Liverpool FC",
-            "shortName": "Liverpool"
-          },
-          "awayTeam": {
-            "id": 94,
-            "name": "Villarreal CF",
-            "shortName": "Villarreal"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-20T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 100,
-            "name": "AS Roma",
-            "shortName": "Roma"
-          },
-          "awayTeam": {
-            "id": 7509,
-            "name": "ŠK Slovan Bratislava",
-            "shortName": "Sl. Bratislava"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-20T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto"
-          },
-          "awayTeam": {
-            "id": 674,
-            "name": "PSV",
-            "shortName": "PSV"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-20T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 113,
-            "name": "SSC Napoli",
-            "shortName": "Napoli"
-          },
-          "awayTeam": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-20T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 524,
-            "name": "Paris Saint-Germain FC",
-            "shortName": "PSG"
+            "id": 610,
+            "name": "Galatasaray SK",
+            "shortName": "Galatasaray"
           },
           "awayTeam": {
             "id": 81,
@@ -5181,13 +4809,13 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-21T16:45:00Z",
+          "utcDate": "2026-10-13T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 7397,
-            "name": "Como 1907",
-            "shortName": "Como 1907"
+            "id": 78,
+            "name": "Club Atlético de Madrid",
+            "shortName": "Atleti"
           },
           "awayTeam": {
             "id": 66,
@@ -5212,112 +4840,19 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-21T16:45:00Z",
+          "utcDate": "2026-10-13T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille"
-          },
-          "awayTeam": {
-            "id": 610,
-            "name": "Galatasaray SK",
-            "shortName": "Galatasaray"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 86,
-            "name": "Real Madrid CF",
-            "shortName": "Real Madrid"
-          },
-          "awayTeam": {
-            "id": 721,
-            "name": "RB Leipzig",
-            "shortName": "RB Leipzig"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter"
-          },
-          "awayTeam": {
-            "id": 1887,
-            "name": "FK Shakhtar Donetsk",
-            "shortName": "Shaktar"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern"
-          },
-          "awayTeam": {
             "id": 57,
             "name": "Arsenal FC",
             "shortName": "Arsenal"
           },
+          "awayTeam": {
+            "id": 521,
+            "name": "Lille OSC",
+            "shortName": "Lille"
+          },
           "score": {
             "winner": null,
             "duration": "REGULAR",
@@ -5336,18 +4871,18 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-21T19:00:00Z",
+          "utcDate": "2026-10-13T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
-            "id": 851,
-            "name": "Club Brugge KV",
-            "shortName": "Club Brugge"
+            "id": 5720,
+            "name": "Viking FK",
+            "shortName": "Viking"
           },
           "awayTeam": {
-            "id": 546,
-            "name": "Racing Club de Lens",
-            "shortName": "RC Lens"
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern"
           },
           "score": {
             "winner": null,
@@ -5367,18 +4902,235 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-21T19:00:00Z",
+          "utcDate": "2026-10-13T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
+          "homeTeam": {
+            "id": 721,
+            "name": "RB Leipzig",
+            "shortName": "RB Leipzig"
+          },
+          "awayTeam": {
+            "id": 674,
+            "name": "PSV",
+            "shortName": "PSV"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-13T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 94,
+            "name": "Villarreal CF",
+            "shortName": "Villarreal"
+          },
+          "awayTeam": {
+            "id": 113,
+            "name": "SSC Napoli",
+            "shortName": "Napoli"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T16:45:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK"
+          },
+          "awayTeam": {
+            "id": 64,
+            "name": "Liverpool FC",
+            "shortName": "Liverpool"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T16:45:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 675,
+            "name": "Feyenoord Rotterdam",
+            "shortName": "Feyenoord"
+          },
+          "awayTeam": {
+            "id": 7397,
+            "name": "Como 1907",
+            "shortName": "Como 1907"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 100,
+            "name": "AS Roma",
+            "shortName": "Roma"
+          },
+          "awayTeam": {
+            "id": 86,
+            "name": "Real Madrid CF",
+            "shortName": "Real Madrid"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 65,
+            "name": "Manchester City FC",
+            "shortName": "Man City"
+          },
+          "awayTeam": {
+            "id": 524,
+            "name": "Paris Saint-Germain FC",
+            "shortName": "PSG"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 5721,
+            "name": "FK Bodø/Glimt",
+            "shortName": "Bodø/Glimt"
+          },
+          "awayTeam": {
+            "id": 4,
+            "name": "Borussia Dortmund",
+            "shortName": "Dortmund"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
           "homeTeam": {
             "id": 58,
             "name": "Aston Villa FC",
             "shortName": "Aston Villa"
           },
           "awayTeam": {
-            "id": 5720,
-            "name": "Viking FK",
-            "shortName": "Viking"
+            "id": 613,
+            "name": "Fenerbahçe SK",
+            "shortName": "Fenerbahçe"
           },
           "score": {
             "winner": null,
@@ -5398,49 +5150,80 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-21T19:00:00Z",
+          "utcDate": "2026-10-14T19:00:00Z",
           "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 498,
-            "name": "Sporting Clube de Portugal",
-            "shortName": "Sporting CP"
-          },
-          "awayTeam": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
-          "matchday": 3,
+          "matchday": 2,
           "homeTeam": {
             "id": 90,
             "name": "Real Betis Balompié",
             "shortName": "Real Betis"
           },
           "awayTeam": {
-            "id": 675,
-            "name": "Feyenoord Rotterdam",
-            "shortName": "Feyenoord"
+            "id": 503,
+            "name": "FC Porto",
+            "shortName": "Porto"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 1887,
+            "name": "FK Shakhtar Donetsk",
+            "shortName": "Shaktar"
+          },
+          "awayTeam": {
+            "id": 1899,
+            "name": "PAE AEK",
+            "shortName": "PAE AEK"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-14T19:00:00Z",
+          "status": "TIMED",
+          "matchday": 2,
+          "homeTeam": {
+            "id": 7509,
+            "name": "ŠK Slovan Bratislava",
+            "shortName": "Sl. Bratislava"
+          },
+          "awayTeam": {
+            "id": 10,
+            "name": "VfB Stuttgart",
+            "shortName": "Stuttgart"
           },
           "score": {
             "winner": null,
@@ -5462,25 +5245,211 @@
       ],
       "results": [
         {
-          "utcDate": "2026-10-14T19:00:00Z",
+          "utcDate": "2026-09-10T19:00:00Z",
           "status": "FINISHED",
-          "matchday": 2,
+          "matchday": 1,
           "homeTeam": {
-            "id": 100,
-            "name": "AS Roma",
-            "shortName": "Roma"
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern"
           },
           "awayTeam": {
-            "id": 86,
-            "name": "Real Madrid CF",
-            "shortName": "Real Madrid"
+            "id": 5721,
+            "name": "FK Bodø/Glimt",
+            "shortName": "Bodø/Glimt"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 5,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-10T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 66,
+            "name": "Manchester United FC",
+            "shortName": "Man United"
+          },
+          "awayTeam": {
+            "id": 10233,
+            "name": "Sabah FK",
+            "shortName": "Sabah FK"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 4,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 3,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-10T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 7397,
+            "name": "Como 1907",
+            "shortName": "Como 1907"
+          },
+          "awayTeam": {
+            "id": 721,
+            "name": "RB Leipzig",
+            "shortName": "RB Leipzig"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 4,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 2,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-10T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 930,
+            "name": "SK Slavia Praha",
+            "shortName": "Slavia Praha"
+          },
+          "awayTeam": {
+            "id": 546,
+            "name": "Racing Club de Lens",
+            "shortName": "RC Lens"
           },
           "score": {
             "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": 3,
-              "away": 4
+              "home": 2,
+              "away": 3
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-10T16:45:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 613,
+            "name": "Fenerbahçe SK",
+            "shortName": "Fenerbahçe"
+          },
+          "awayTeam": {
+            "id": 100,
+            "name": "AS Roma",
+            "shortName": "Roma"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-10T16:45:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 674,
+            "name": "PSV",
+            "shortName": "PSV"
+          },
+          "awayTeam": {
+            "id": 1887,
+            "name": "FK Shakhtar Donetsk",
+            "shortName": "Shaktar"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-09T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 64,
+            "name": "Liverpool FC",
+            "shortName": "Liverpool"
+          },
+          "awayTeam": {
+            "id": 78,
+            "name": "Club Atlético de Madrid",
+            "shortName": "Atleti"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 2,
+              "away": 1
             },
             "halfTime": {
               "home": 1,
@@ -5493,87 +5462,25 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-14T19:00:00Z",
+          "utcDate": "2026-09-09T19:00:00Z",
           "status": "FINISHED",
-          "matchday": 2,
+          "matchday": 1,
           "homeTeam": {
-            "id": 65,
-            "name": "Manchester City FC",
-            "shortName": "Man City"
-          },
-          "awayTeam": {
             "id": 524,
             "name": "Paris Saint-Germain FC",
             "shortName": "PSG"
           },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 4
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 3
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt"
-          },
           "awayTeam": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 1,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 58,
-            "name": "Aston Villa FC",
-            "shortName": "Aston Villa"
-          },
-          "awayTeam": {
-            "id": 613,
-            "name": "Fenerbahçe SK",
-            "shortName": "Fenerbahçe"
+            "id": 7509,
+            "name": "ŠK Slovan Bratislava",
+            "shortName": "Sl. Bratislava"
           },
           "score": {
             "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
               "home": 6,
-              "away": 0
+              "away": 1
             },
             "halfTime": {
               "home": 3,
@@ -5586,273 +5493,25 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-14T19:00:00Z",
+          "utcDate": "2026-09-09T19:00:00Z",
           "status": "FINISHED",
-          "matchday": 2,
+          "matchday": 1,
           "homeTeam": {
-            "id": 90,
-            "name": "Real Betis Balompié",
-            "shortName": "Real Betis"
+            "id": 113,
+            "name": "SSC Napoli",
+            "shortName": "Napoli"
           },
           "awayTeam": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 1887,
-            "name": "FK Shakhtar Donetsk",
-            "shortName": "Shaktar"
-          },
-          "awayTeam": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 7509,
-            "name": "ŠK Slovan Bratislava",
-            "shortName": "Sl. Bratislava"
-          },
-          "awayTeam": {
-            "id": 10,
-            "name": "VfB Stuttgart",
-            "shortName": "Stuttgart"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 0,
-              "away": 3
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T16:45:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK"
-          },
-          "awayTeam": {
-            "id": 64,
-            "name": "Liverpool FC",
-            "shortName": "Liverpool"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 6
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 3
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T16:45:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 675,
-            "name": "Feyenoord Rotterdam",
-            "shortName": "Feyenoord"
-          },
-          "awayTeam": {
-            "id": 7397,
-            "name": "Como 1907",
-            "shortName": "Como 1907"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-13T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter"
-          },
-          "awayTeam": {
-            "id": 851,
-            "name": "Club Brugge KV",
-            "shortName": "Club Brugge"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 4
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-13T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 610,
-            "name": "Galatasaray SK",
-            "shortName": "Galatasaray"
-          },
-          "awayTeam": {
-            "id": 81,
-            "name": "FC Barcelona",
-            "shortName": "Barça"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 1,
-              "away": 4
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-13T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 78,
-            "name": "Club Atlético de Madrid",
-            "shortName": "Atleti"
-          },
-          "awayTeam": {
-            "id": 66,
-            "name": "Manchester United FC",
-            "shortName": "Man United"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-13T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
             "id": 57,
             "name": "Arsenal FC",
             "shortName": "Arsenal"
           },
-          "awayTeam": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille"
-          },
           "score": {
-            "winner": "HOME_TEAM",
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": 3,
-              "away": 0
+              "home": 0,
+              "away": 1
             },
             "halfTime": {
               "home": 0,
@@ -5865,25 +5524,56 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-13T19:00:00Z",
+          "utcDate": "2026-09-09T19:00:00Z",
           "status": "FINISHED",
-          "matchday": 2,
+          "matchday": 1,
           "homeTeam": {
-            "id": 5720,
-            "name": "Viking FK",
-            "shortName": "Viking"
+            "id": 498,
+            "name": "Sporting Clube de Portugal",
+            "shortName": "Sporting CP"
           },
           "awayTeam": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern"
+            "id": 610,
+            "name": "Galatasaray SK",
+            "shortName": "Galatasaray"
           },
           "score": {
-            "winner": "DRAW",
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
               "home": 3,
-              "away": 3
+              "away": 1
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-09T16:45:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 81,
+            "name": "FC Barcelona",
+            "shortName": "Barça"
+          },
+          "awayTeam": {
+            "id": 675,
+            "name": "Feyenoord Rotterdam",
+            "shortName": "Feyenoord"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 5,
+              "away": 1
             },
             "halfTime": {
               "home": 2,
@@ -5896,25 +5586,118 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-13T19:00:00Z",
+          "utcDate": "2026-09-09T16:45:00Z",
           "status": "FINISHED",
-          "matchday": 2,
+          "matchday": 1,
           "homeTeam": {
-            "id": 721,
-            "name": "RB Leipzig",
-            "shortName": "RB Leipzig"
+            "id": 10,
+            "name": "VfB Stuttgart",
+            "shortName": "Stuttgart"
           },
           "awayTeam": {
-            "id": 674,
-            "name": "PSV",
-            "shortName": "PSV"
+            "id": 5720,
+            "name": "Viking FK",
+            "shortName": "Viking"
           },
           "score": {
             "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": 1,
+              "home": 3,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 3,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-08T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 86,
+            "name": "Real Madrid CF",
+            "shortName": "Real Madrid"
+          },
+          "awayTeam": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 2,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 2,
               "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-08T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 503,
+            "name": "FC Porto",
+            "shortName": "Porto"
+          },
+          "awayTeam": {
+            "id": 65,
+            "name": "Manchester City FC",
+            "shortName": "Man City"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 0,
+              "away": 2
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-09-08T19:00:00Z",
+          "status": "FINISHED",
+          "matchday": 1,
+          "homeTeam": {
+            "id": 4,
+            "name": "Borussia Dortmund",
+            "shortName": "Dortmund"
+          },
+          "awayTeam": {
+            "id": 94,
+            "name": "Villarreal CF",
+            "shortName": "Villarreal"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 3,
+              "away": 2
             },
             "halfTime": {
               "home": 0,
