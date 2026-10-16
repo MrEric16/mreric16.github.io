@@ -1,19 +1,6 @@
 {
-  "generatedAt": "2026-10-15T21:53:38.210395Z",
+  "generatedAt": "2026-10-16T00:00:11.225465Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/real-sociedad-vs-celta-vigo/uBjlTAkMFXO3hOrLFaIz-",
-      "date": null,
-      "home": "Real Sociedad",
-      "away": "Celta Vigo",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/toulouse-vs-lille/epMByCs4VS-dQWJdeXRzC",
       "date": null,
@@ -7859,6 +7846,28 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR",
+      "date": "2026-10-15",
+      "home": "Salzburg",
+      "away": "Ac Milan",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 0,
+      "ftAway": 4,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "A. Cisse",
+          "minute": 15
+        },
+        {
+          "scorer": "G. Ramos",
+          "minute": 72
+        }
+      ],
+      "competition": "ac-milan"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7867,7 +7876,6 @@
     "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
-    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
-    "https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR": 2
+    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2
   }
 }

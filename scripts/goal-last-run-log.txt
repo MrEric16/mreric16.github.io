@@ -50,7 +50,8 @@
 [goal-scraper] [ac-milan] Found 12 finished-match links
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Torino vs Ac Milan on 2026-08-23
 [goal-scraper] WARNING: Ac Milan scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR
-[goal-scraper] [ac-milan] SCORER PARSE FAILED (attempt 2/3) for Salzburg 0-4 Ac Milan -- NOT committing, will retry next run: https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR
+[goal-scraper] [ac-milan] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Salzburg 0-4 Ac Milan: https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR
+[goal-scraper] [ac-milan] Added: Salzburg 0-4 Ac Milan
 [goal-scraper] [psg] Found 21 finished-match links
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Atletico Madrid on 2025-06-15
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Botafogo Rj on 2025-06-19
@@ -71,7 +72,6 @@
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Rennes on 2026-02-03
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Toulouse on 2026-03-04
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Yamoussoukro Fc vs Marseille on 2026-07-17
-[goal-scraper] [marseille] Added: Marseille 0-1 Olympiacos
 [goal-scraper] [dortmund] Found 20 finished-match links
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fluminense vs Borussia Dortmund on 2025-06-17
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Mamelodi Sundowns Fc vs Borussia Dortmund on 2025-06-21
@@ -90,8 +90,7 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
-[goal-scraper] [juventus] Added: Celta Vigo 1-2 Juventus
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 2
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR']
+[goal-scraper] TOTAL new results added this run: 1
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo']
 [goal-scraper] Wrote data/goal-results.json
