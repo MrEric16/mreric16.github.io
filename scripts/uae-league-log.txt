@@ -4,8 +4,8 @@
 [uae-league] attempt 4/5: still a Cloudflare challenge page
 [uae-league] attempt 5/5: still a Cloudflare challenge page
 [uae-league] all attempts blocked -- KEEPING last good data/uae-league-live.json untouched
-[uae-tsdb] eventspastleague.php?id=4678 failed: HTTP Error 522: <none>
-[uae-tsdb] eventsnextleague.php?id=4678 failed: HTTP Error 522: <none>
-[uae-tsdb] eventsseason.php?id=4678&s=2026-2027 failed: HTTP Error 522: <none>
+[uae-tsdb] eventspastleague.php?id=4678 failed: HTTP Error 503: Service Unavailable
+[uae-tsdb] eventsnextleague.php?id=4678 failed: HTTP Error 503: Service Unavailable
+[uae-tsdb] eventsseason.php?id=4678&s=2026-2027 failed: HTTP Error 503: Service Unavailable
 [uae-tsdb] TheSportsDB returned nothing; file untouched
 TSDB_FALLBACK_FAILED
