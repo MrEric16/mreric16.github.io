@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T14:12:53.486322+00:00",
+  "generatedAt": "2026-10-16T18:09:27.105022+00:00",
   "teams": [
     "Al Jazira Club",
     "Al Ain FC",
@@ -17,6 +17,17 @@
     "Baniyas SC"
   ],
   "standings": [
+    {
+      "team": "Al Wasl",
+      "played": 6,
+      "won": 4,
+      "drawn": 1,
+      "lost": 1,
+      "gf": 17,
+      "ga": 6,
+      "gd": 11,
+      "points": 13
+    },
     {
       "team": "Al Jazira Club",
       "played": 5,
@@ -38,17 +49,6 @@
       "ga": 5,
       "gd": 7,
       "points": 13
-    },
-    {
-      "team": "Al Wasl",
-      "played": 5,
-      "won": 3,
-      "drawn": 1,
-      "lost": 1,
-      "gf": 15,
-      "ga": 6,
-      "gd": 9,
-      "points": 10
     },
     {
       "team": "Shabab Al Ahli Club",
@@ -162,22 +162,17 @@
     },
     {
       "team": "Baniyas SC",
-      "played": 5,
+      "played": 6,
       "won": 0,
       "drawn": 1,
-      "lost": 4,
+      "lost": 5,
       "gf": 5,
-      "ga": 10,
-      "gd": -5,
+      "ga": 12,
+      "gd": -7,
       "points": 1
     }
   ],
   "fixtures": [
-    {
-      "home": "Baniyas SC",
-      "away": "Al Wasl",
-      "start": "2026-10-16T18:45:00+05:00"
-    },
     {
       "home": "Al Nasr SC",
       "away": "Hatta Club",
@@ -736,6 +731,14 @@
       "start": "2026-10-16T18:05:00+05:00",
       "homeScore": 2,
       "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Baniyas SC",
+      "away": "Al Wasl",
+      "start": "2026-10-16T20:45:00+05:00",
+      "homeScore": 0,
+      "awayScore": 2,
       "finished": true
     }
   ],
