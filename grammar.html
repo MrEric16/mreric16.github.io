@@ -174,7 +174,7 @@ function hexToRgba(hex, a){ var h = hex.replace('#',''); return 'rgba(' + parseI
 function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
 function ggLoad(topic, level){ try{ var raw = localStorage.getItem(ggKey(topic, level)); if(raw) return JSON.parse(raw); }catch(e){} return null; }
 function ggSave(topic, level, st){ try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
-var DATA_V = '22ecbaf460';
+var DATA_V = '0c4b18355a';
 function getJson(u){ return fetch(u + '?v=' + DATA_V).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
 var INDEX_P = null, TOPIC_P = {};
 function loadIndex(){ if(!INDEX_P) INDEX_P = getJson('data/grammar/index.json').catch(function(e){ INDEX_P = null; throw e; }); return INDEX_P; }
@@ -203,7 +203,7 @@ function loadTopic(id){ if(!TOPIC_P[id]) TOPIC_P[id] = getJson('data/grammar/' +
 // - answer normalisation -
 const GG_VOCAB = { movie:'film', movies:'films', soccer:'football', apartment:'flat', apartments:'flats', cookie:'biscuit', cookies:'biscuits',
   candy:'sweets', vacation:'holiday', vacations:'holidays', truck:'lorry', sneakers:'trainers', gas:'petrol', elevator:'lift', subway:'underground',
-  trash:'rubbish', pants:'trousers', mom:'mum', moms:'mums', gotten:'got', gray:'grey', jewelry:'jewellery', pajamas:'pyjamas', aluminum:'aluminium',
+  trash:'rubbish', pants:'trousers', mom:'mum', moms:'mums', gray:'grey', jewelry:'jewellery', pajamas:'pyjamas', aluminum:'aluminium',
   practise:'practice', practised:'practiced', practising:'practicing', license:'licence', defense:'defence', offense:'offence', catalog:'catalogue',
   dialog:'dialogue', plow:'plough', mold:'mould', cozy:'cosy', donut:'doughnut', color:'colour' };
 function ggCanon(s){
