@@ -20,6 +20,13 @@ PP_DUR = ['for two years','since 2019','for a long time','since last summer','fo
 PPC_END = ['for two hours','since nine o\'clock','all morning','all day','lately','for a long time','since breakfast','for ten minutes','for three hours','since lunch']
 PAP_END = ['when the guests arrived','when I got home','when the film started','when the bell rang','before the teacher came','before the match began','by the time we arrived','before the storm started','when the manager called','before the bus left']
 F_END = ['tomorrow','next week','next month','next year','tonight','in two days','on Friday','this weekend','next summer','on Saturday']
+FP_END = ['by Friday','by next year','by the end of the week','by six o\'clock','by this time tomorrow','by next summer','by the end of the month','by 2030','by the end of this year','by midnight']
+FP_LEAD = ['By Friday,','By next year,','By the end of the week,','By six o\'clock,','By this time tomorrow,','By next summer,','By the end of the month,','By 2030,','By the time you arrive,','By the time the lesson starts,']
+FPN_LEAD = ['By next June,','By Friday,','By the end of this year,','By 2030,','By six o\'clock,','By next summer,','By the end of the month,','By the time you arrive,','By this time next year,','By the end of the lesson,']
+FPN_OK = set('play watch read write study work live cook clean walk run drive swim talk listen sing dance paint draw build wait teach practise learn travel wash repair prepare design discuss sweep bake download organise perform'.split())
+FPN_NEAR = ['By six o\'clock,','By this time tomorrow,','By the end of the lesson,','By the time you arrive,','By midnight,','By lunchtime,']
+FPN_FAR = ['By next June,','By 2030,','By the end of this year,','By next summer,','By this time next year,','By 2035,']
+FPN_END = ['for two years','for ten years','for five hours','for three months','for a long time','for six weeks','for two hours','for twenty years','for eight hours','for a whole year']
 FPC_END = ['tomorrow at six','on Saturday','next Friday','tonight','this weekend','next week','on Monday morning','at the weekend']
 
 def cues(t, S, V, pol, rng, free=True):
@@ -50,6 +57,14 @@ def cues(t, S, V, pol, rng, free=True):
         c['end'] = rng.pick(F_END)
     elif t == 'fpc':
         c['end'] = rng.pick(FPC_END)
+    elif t == 'fp':
+        if rng.pick([0,1]): c['lead'], c['kind'] = rng.pick(FP_LEAD), 'clause'
+        else: c['end'] = rng.pick(FP_END)
+    elif t == 'fpn':
+        far = (V.dur or V.base in ('live','study','work','teach','learn','practise','play','travel','paint','sing')) and rng.pick([0,1])
+        c['kind'] = 'clause'
+        if far: c['lead'], c['end'] = rng.pick(FPN_FAR), rng.pick(['for two years','for ten years','for six months','for three years','for a whole year','for five years'])
+        else: c['lead'], c['end'] = rng.pick(FPN_NEAR), rng.pick(['for two hours','for three hours','for an hour','for four hours'])
     return c
 
 def subj_text(S, kind): return S.text if kind in ('none','sentence') else S.mid
@@ -78,7 +93,8 @@ def ques(t, S, V, comp, c, aux=None, rest=None):
 def aux_list(t,S,V): return [qp(t,S,V)[0]]
 
 def valid(t, V):
-    if t == 'ppc' and V.ach: return False
+    if t in ('ppc','fpn') and V.ach: return False
+    if t == 'fpn' and V.base not in FPN_OK: return False
     return True
 
 # ---------- single-tense error generators ----------
@@ -140,6 +156,14 @@ def wrong(t, S, V, comp, c, pol, rng):
             cands += [sub(f"hadn't {V.base}"), sub(f"didn't had {V.pp}")]
         if pol == 'q':
             cands += [ques(t,S,V,comp,c,'Has',V.pp), ques(t,S,V,comp,c,'Had',V.base)]
+    elif t == 'fp':
+        if pol == 'aff': cands += [sub(f"will {V.pp}"), sub(f"will have {V.base}"), sub(f"have {V.pp}")] + ([sub(f"will {V.base}")] if True else []) + ([sub(f"will have {V.past}")] if V.past != V.pp else [])
+        if pol == 'neg': cands += [sub(f"won't {V.pp}"), sub(f"won't have {V.base}"), sub(f"haven't {V.pp}")] + ([sub(f"won't have {V.past}")] if V.past != V.pp else [])
+        if pol == 'q': cands += [ques(t,S,V,comp,c,'Will',V.pp), ques(t,S,V,comp,c,'Will',f"have {V.base}"), ques(t,S,V,comp,c,'Have',V.pp) if True else None] + ([ques(t,S,V,comp,c,'Will',f"have {V.past}")] if V.past != V.pp else [])
+    elif t == 'fpn':
+        if pol == 'aff': cands += [sub(f"will have {V.ing}"), sub(f"will been {V.ing}"), sub(f"will have been {V.base}"), sub(f"will be {V.ing}")]
+        if pol == 'neg': cands += [sub(f"won't have {V.ing}"), sub(f"won't been {V.ing}"), sub(f"won't have been {V.base}")]
+        if pol == 'q': cands += [ques(t,S,V,comp,c,'Will',f"have {V.ing}"), ques(t,S,V,comp,c,'Will',f"been {V.ing}"), ques(t,S,V,comp,c,'Will',f"have been {V.base}")]
     elif t == 'fw':
         if pol == 'aff': cands += [sub(f"will {V.s}") if S.sg else sub(f"will {V.ing}"), sub(f"will to {V.base}"), sub(f"wills {V.base}")]
         if pol == 'neg': cands += [sub(f"won't {V.s}") if S.sg else sub(f"won't {V.ing}"), sub(f"don't {V.base}") if not S.sg else sub(f"doesn't {V.base}")]

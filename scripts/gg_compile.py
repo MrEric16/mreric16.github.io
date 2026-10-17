@@ -47,6 +47,18 @@ for t in topics:
             seen.add(key); out.append({'q': q, 'a': a})
         t['levels'][k] = out
 print(ntag, 'items carry random-name/place/job slots')
+ORDER = '''present-simple-be present-simple-other present-continuous present-simple-vs-continuous past-simple-be past-simple-other past-continuous past-simple-vs-continuous
+present-perfect-simple present-perfect-continuous present-perfect-simple-vs-continuous present-perfect-vs-past-simple past-perfect
+future-will future-going-to future-present-continuous future-will-vs-going-to future-all-forms future-perfect future-perfect-continuous future-perfect-simple-vs-continuous
+zero-conditional first-conditional second-conditional third-conditional conditionals-which-type wish-and-if-only
+passive-present-simple passive-past-simple passive-continuous passive-perfect passive-future passive-modals active-or-passive causative-have-something-done
+reported-statements reported-questions reported-commands reporting-verbs reported-speech-all indirect-questions
+modals-ability modals-obligation modals-advice modals-possibility modals-perfect modals-all
+stative-verbs used-to-would-and-be-used-to gerunds-and-infinitives
+comparatives superlatives comparatives-or-superlatives as-as-too-and-enough articles quantifiers
+relative-clauses-defining relative-clauses-non-defining question-tags so-neither-too-and-either
+prepositions-of-time prepositions-of-place prepositions-of-movement phrasal-verbs-separable-and-inseparable'''.split()
+topics.sort(key=lambda t: ORDER.index(t['id']) if t['id'] in ORDER else len(ORDER))
 outdir = os.path.join(root, 'data/grammar')
 os.makedirs(outdir, exist_ok=True)
 for f in os.listdir(outdir):

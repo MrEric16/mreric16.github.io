@@ -59,6 +59,12 @@ def q_ppc(S,V): return (cap(have_pres(S)), f"been {V.ing}")
 def g_pap(S,V,neg=False):
     return [f"hadn't {V.pp}", f"had not {V.pp}"] if neg else [f"had {V.pp}"]
 def q_pap(S,V): return ('Had', V.pp)
+def g_fp(S,V,neg=False):
+    return [f"won't have {V.pp}", f"will not have {V.pp}"] if neg else [f"will have {V.pp}", f"'ll have {V.pp}"]
+def q_fp(S,V): return ('Will', f"have {V.pp}")
+def g_fpn(S,V,neg=False):
+    return [f"won't have been {V.ing}", f"will not have been {V.ing}"] if neg else [f"will have been {V.ing}", f"'ll have been {V.ing}"]
+def q_fpn(S,V): return ('Will', f"have been {V.ing}")
 def g_fw(S,V,neg=False):
     return [f"won't {V.base}", f"will not {V.base}"] if neg else [f"will {V.base}", f"'ll {V.base}"]
 def q_fw(S,V): return ('Will', V.base)
@@ -71,7 +77,7 @@ def q_fg(S,V): return (cap(be_pres(S)), f"going to {V.base}")
 TENSES = {
  'ps': (g_ps,q_ps,'do'), 'pc': (g_pc,q_pc,'be'), 'pas': (g_pas,q_pas,'did'), 'pac': (g_pac,q_pac,'bepast'),
  'pp': (g_pp,q_pp,'have'), 'ppc': (g_ppc,q_ppc,'have'), 'pap': (g_pap,q_pap,'had'), 'fw': (g_fw,q_fw,'will'),
- 'fg': (g_fg,q_fg,'be'), 'fpc': (g_pc,q_pc,'be'),
+ 'fg': (g_fg,q_fg,'be'), 'fpc': (g_pc,q_pc,'be'), 'fp': (g_fp,q_fp,'will'), 'fpn': (g_fpn,q_fpn,'will'),
 }
 def grp(t,S,V,neg=False): return TENSES[t][0](S,V,neg)
 def qp(t,S,V): return TENSES[t][1](S,V)

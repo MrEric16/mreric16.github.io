@@ -193,7 +193,7 @@ def conj(vp, S, form, flip=False):
     return ans, full + tail, tail
 
 TYPES = {'zero': ('pres','pres'), 'first': ('pres','will'), 'second': ('past','would'), 'third': ('pastperf','wouldhave')}
-HINT = {'zero': 'general truth', 'first': 'real future', 'second': 'unreal present', 'third': 'unreal past'}
+HINT = {'zero': 'zero conditional', 'first': 'first conditional', 'second': 'second conditional', 'third': 'third conditional'}
 
 
 def grp_text(S, vp, form, mode, flip=False):

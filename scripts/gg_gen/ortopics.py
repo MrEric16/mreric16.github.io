@@ -18,6 +18,8 @@ def fc(t, S, V, pol, rng):
         c['end'] = rng.pick(pool)
     elif t == 'ppc':
         c['end'] = rng.pick(['for two hours',"since nine o'clock",'all morning','all day','lately','for three hours','since breakfast'])
+    elif t in ('fp','fpn'):
+        return cues(t, S, V, pol, rng, True)
     return c
 
 def Pn(S): return {'i':'I'}.get(S.pron, S.pron.capitalize()) if S.kind != 'i' else 'I'
@@ -65,11 +67,17 @@ def contrast_pp_pas(S,rng):
     return line(f"Have you ever ___ ({V1.base}) {c1}? Yes, I ___ ({V1.base}) {c1} {pc}.", [V1.pp], [V1.past])
 def pn_short(S): return S.pron
 
+def contrast_fp_fpn(S,rng):
+    V1 = rng.pick(VERBS); V2 = rng.pick([v for v in VERBS if v.base in FPN_OK]); c1,c2 = rng.pick(V1.comps), rng.pick(V2.comps)
+    lead = rng.pick(FPN_NEAR); dur = rng.pick(['for two hours','for three hours','for an hour','for four hours'])
+    if rng.pick([0,1]):
+        return line(f"{lead} {S.mid} ___ ({V1.base}) {c1} and {pl(S)} ___ ({V2.base}) {c2} {dur}.", grp('fp',S,V1), grp('fpn',S,V2))
+    return line(f"{lead} {S.mid} ___ ({V2.base}) {c2} {dur}, and {pl(S)} ___ ({V1.base}) {c1}.", grp('fpn',S,V2), grp('fp',S,V1))
 SW = lambda rng: None
 
 def gen_or(tid, rng, level):
-    ts = {'ps_pc':('ps','pc'),'pas_pac':('pas','pac'),'pp_ppc':('pp','ppc'),'pp_pas':('pp','pas')}[tid]
-    contrast = {'ps_pc':contrast_ps_pc,'pas_pac':contrast_pas_pac,'pp_ppc':contrast_pp_ppc,'pp_pas':contrast_pp_pas}[tid]
+    ts = {'ps_pc':('ps','pc'),'pas_pac':('pas','pac'),'pp_ppc':('pp','ppc'),'pp_pas':('pp','pas'),'fp_fpn':('fp','fpn')}[tid]
+    contrast = {'ps_pc':contrast_ps_pc,'pas_pac':contrast_pas_pac,'pp_ppc':contrast_pp_ppc,'pp_pas':contrast_pp_pas,'fp_fpn':contrast_fp_fpn}[tid]
     S = rng.pick(SUBJ); V = rng.pick(VERBS); comp = rng.pick(V.comps)
     t = rng.pick(ts); other = ts[1] if t == ts[0] else ts[0]
     if not valid(t,V): return None
@@ -107,6 +115,9 @@ def gen_or(tid, rng, level):
             if tid == 'pp_ppc':
                 if V.ach: return None
                 return line(f"How long ___ {S.mid} ___ ({V.base}) {comp}?", [have_pres(S)], [f"been {V.ing}"])
+            if tid == 'fp_fpn':
+                if V.base not in FPN_OK: return None
+                return line(f"How long ___ {S.mid} ___ ({V.base}) {comp} by {rng.pick(['six o'+chr(39)+'clock','midnight','lunchtime'])}?", ['will'], [f"have been {V.ing}"])
             if tid == 'ps_pc':
                 return line(f"What ___ {S.mid} usually ___ ({V.base})?", [do_pres(S)], [V.base]) if False else None
             return None
@@ -114,6 +125,7 @@ def gen_or(tid, rng, level):
     # hard
     k = rng.pick(['fix','fix','fix','contrast','contrast','contrast','neg','q','switch'])
     if k == 'fix':
+        if tid == 'fp_fpn': return None
         pol = rng.pick(['aff','neg','q']); c = fc(t,S,V,pol,rng)
         if pol != 'aff': c['pre'] = ''
         if not valid(other,V): return None
