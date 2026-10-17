@@ -28,6 +28,16 @@ K = """Uzbekistan Kazakhstan Kyrgyzstan Tajikistan Turkmenistan Azerbaijan Georg
 L = """Spanish French German Italian Portuguese Russian Chinese Japanese Korean Arabic Turkish Hindi Persian Polish Greek Dutch Swedish Norwegian Danish Finnish Czech Hungarian Romanian Bulgarian Ukrainian Uzbek Kazakh Thai Vietnamese Indonesian Swahili Hebrew Urdu Bengali Tamil""".split()
 P = """airport hospital cinema restaurant library supermarket bank museum station gym market bakery pharmacy theatre stadium park hotel office factory shop school village university farm""".split()
 J = """teacher manager doctor pilot nurse dentist lawyer driver farmer chef waiter firefighter mechanic builder artist singer actor scientist journalist baker cleaner tailor photographer architect programmer designer engineer electrician plumber accountant receptionist pharmacist librarian translator vet barber carpenter gardener guide judge musician painter reporter sailor secretary soldier surgeon coach cashier florist butcher optician professor pianist dancer postman neighbour""".split()
+
+# names removed on request: obscure / hard / odd-looking for the classroom (Indian, East and South-East Asian, African, Celtic, Nordic oddities)
+DROP = set("""Ravi Arjun Rohan Vikram Amit Sunil Raj Anil Deepak Imran Farid Nabil Kabir Aryan Dev Ankit Tenzin Wei Jun Ming Hao Lei Bo Chen Kai Yuki Haruto Kenji Hiro Takeshi Daiki Sora Ren Minho Joon Hyun Seung Jin Tae Dae
+Kofi Kwame Chidi Emeka Tunde Segun Yaw Musa Sipho Thabo Tendai Juma Baraka Amadou Moussa Ousmane Mamadou Idris Zane Bram Niels Leif Soren Teemu Mika Jari Dimitri Nikos Yannis Costas Giorgos Stavros Declan Cian Fergus Angus Hamish Rory Callan Ewan Gwilym Rhys Alun Tadeo Andile Cem Arda Kian Arman Babak Walid Zayd Moritz Klaus Tiago Thiago Remy Enzo Dario Hugo Jonas Lukas Piotr Tomasz Marek Pavel Boris Oleg Yuri Kirill Artem Vlad Alexei Nikolai
+Anh Linh Mai Trang Lan Thao Ping Ling Fang Yan Xin Li Mei Jia Yuna Ji Eun Soo Min Rin Aoi Mio Nana Ayaka Haruka Akari Yui Hina Sakura
+Priya Anjali Pooja Neha Divya Kavya Meera Ritu Sunita Asha Isha Tara Zara Kiran Sneha Lakshmi Rina
+Ines Mila Petra Ilona Zoran Katarina Amelie Manon Lea Margot Juliette Alessia Fernanda Valentina Beatriz Elisa Chiara Giulia
+Amara Ngozi Chiamaka Adaeze Abena Akosua Ama Efua Nia Imani Zuri Amina Halima Fatou Aminata Mariama Thandi Lerato Nomsa Zanele Naledi
+Aoife Niamh Siobhan Ciara Saoirse Orla Roisin Eilidh Morag Carys Seren Bethan Ffion Eira Freja Astrid Ingrid Greta Hanna Elsa Klara Ewa Agnieszka Kasia Jo Kim Sam Lena Ada Tess Ivy Zahra Niloufar Esra Defne Merve
+Patel Sharma Singh Kumar Gupta Mehta Shah Joshi Reddy Nair Nguyen Tran Pham Hoang Vu Sow Keita Traore Ndiaye Mwangi Kamau Otieno Abebe Tesfaye Moyo Banda Dlamini Nkosi Owusu Mensah Okafor Adeyemi Diallo Papadopoulos Nikolaidis Georgiou Virtanen Korhonen OBrien Fraser Sheikh Siddiqui Hamdan Haddad Nasser Mansour Khalil Saleh Tehrani Ahmadi Karimi Rezaei Hosseini Wisniewski Dvorak Svoboda Horvat Kovac""".split())
 def uniq(a):
     out=[]
     for x in a:
@@ -39,10 +49,10 @@ BAD_M = set('Will Mark Bill Rob Pete Max Ed'.split())
 BAD_C = set('Nice Cork Fiji Perth'.split())
 def build():
     f = lambda a: [x.replace('_',' ') for x in uniq(a)]
-    m, fe = [x for x in uniq(M) if x not in BAD_M and len(x) <= 9], [x for x in uniq(F) if x not in BAD_F and len(x) <= 9]
+    m, fe = [x for x in uniq(M) if x not in BAD_M and x not in DROP and len(x) <= 9], [x for x in uniq(F) if x not in BAD_F and x not in DROP and len(x) <= 9]
     both = set(m) & set(fe)  # keep unisex names out of both lists
     m = [x for x in m if x not in both]; fe = [x for x in fe if x not in both]
-    return {'m': m, 'f': fe, 's': [x for x in uniq(S) if x not in BAD_S and len(x) <= 9], 'c': [x for x in f(C) if x not in BAD_C], 'k': uniq(K), 'l': uniq(L), 'p': uniq(P), 'j': uniq(J)}
+    return {'m': m, 'f': fe, 's': [x for x in uniq(S) if x not in BAD_S and x not in DROP and len(x) <= 9], 'c': [x for x in f(C) if x not in BAD_C], 'k': uniq(K), 'l': uniq(L), 'p': uniq(P), 'j': uniq(J)}
 if __name__ == '__main__':
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     d = build()
