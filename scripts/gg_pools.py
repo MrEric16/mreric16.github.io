@@ -38,6 +38,12 @@ Ines Mila Petra Ilona Zoran Katarina Amelie Manon Lea Margot Juliette Alessia Fe
 Amara Ngozi Chiamaka Adaeze Abena Akosua Ama Efua Nia Imani Zuri Amina Halima Fatou Aminata Mariama Thandi Lerato Nomsa Zanele Naledi
 Aoife Niamh Siobhan Ciara Saoirse Orla Roisin Eilidh Morag Carys Seren Bethan Ffion Eira Freja Astrid Ingrid Greta Hanna Elsa Klara Ewa Agnieszka Kasia Jo Kim Sam Lena Ada Tess Ivy Zahra Niloufar Esra Defne Merve
 Patel Sharma Singh Kumar Gupta Mehta Shah Joshi Reddy Nair Nguyen Tran Pham Hoang Vu Sow Keita Traore Ndiaye Mwangi Kamau Otieno Abebe Tesfaye Moyo Banda Dlamini Nkosi Owusu Mensah Okafor Adeyemi Diallo Papadopoulos Nikolaidis Georgiou Virtanen Korhonen OBrien Fraser Sheikh Siddiqui Hamdan Haddad Nasser Mansour Khalil Saleh Tehrani Ahmadi Karimi Rezaei Hosseini Wisniewski Dvorak Svoboda Horvat Kovac""".split())
+
+# Arsenal first names (2026-27 squad), BMU students and other students (first names from the birthdays list)
+ARS = "David Kepa Illan William Cristhian Ben Piero Gabriel Jurrien Ezri Riccardo Myles Martin Eberechi Mikel Declan Bukayo Viktor Christos Noni Kai Bruno Ethan Tommy".split()
+STU_M = "Saidkhon Ayubkhon Saidalo Bobur Zoxir Timur Oybek Amir Behruz Surat Muhammad Asadbek Shakhriyor Saidbosit Imran Kamol Saidazim Xondamir Azim Azizxon Zafar Sarvar Arif Sheroz Aleksandr Olim Iskander Samir Daniyar Danial Miraziz Yakov Javohir Doniyor Kamron Begzod Agzam Ali Asad Umar Sultan".split()
+STU_F = "Jamila Diyora Kamila Kuxinur Dilyora Lobar Nilufar Farzona Malika Yasmina Samina Sevinch Safina Darya Zarina Lola Amalia Nadin Laziza Laura Darina Oyniso Mishelle Sitora Samia Latifa Sofia Samira Laylo".split()
+KEEP = set(ARS + STU_M + STU_F)
 def uniq(a):
     out=[]
     for x in a:
@@ -49,7 +55,7 @@ BAD_M = set('Will Mark Bill Rob Pete Max Ed'.split())
 BAD_C = set('Nice Cork Fiji Perth'.split())
 def build():
     f = lambda a: [x.replace('_',' ') for x in uniq(a)]
-    m, fe = [x for x in uniq(M) if x not in BAD_M and x not in DROP and len(x) <= 9], [x for x in uniq(F) if x not in BAD_F and x not in DROP and len(x) <= 9]
+    m, fe = [x for x in uniq(M + ARS + STU_M) if x not in BAD_M and (x not in DROP or x in KEEP) and len(x) <= 9], [x for x in uniq(F + STU_F) if x not in BAD_F and (x not in DROP or x in KEEP) and len(x) <= 9]
     both = set(m) & set(fe)  # keep unisex names out of both lists
     m = [x for x in m if x not in both]; fe = [x for x in fe if x not in both]
     return {'m': m, 'f': fe, 's': [x for x in uniq(S) if x not in BAD_S and x not in DROP and len(x) <= 9], 'c': [x for x in f(C) if x not in BAD_C], 'k': uniq(K), 'l': uniq(L), 'p': uniq(P), 'j': uniq(J)}
