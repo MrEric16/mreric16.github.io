@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-17T18:38:09.918440Z",
+ "generatedAt": "2026-10-17T21:07:53.172197Z",
  "results": [
   {
    "url": "espn:401878771",
@@ -208,6 +208,21 @@
      "minute": 81
     }
    ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882838",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T19:00Z",
+   "home": "Valencia",
+   "away": "Athletic",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
    "competition": "PD",
    "complete": true
   },
@@ -443,6 +458,30 @@
    "complete": true
   },
   {
+   "url": "espn:401874935",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T18:45Z",
+   "home": "Roma",
+   "away": "Genoa",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "S. Castro",
+     "minute": 50
+    },
+    {
+     "scorer": "E. Lulli",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876432",
    "date": "2026-10-17",
    "utc": "2026-10-17T15:15Z",
@@ -470,6 +509,64 @@
     {
      "scorer": "D. Doué",
      "minute": "90+3"
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876436",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T18:45Z",
+   "home": "Lille",
+   "away": "Brest",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "O. Giroud (pen)",
+     "minute": 64
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Baldé",
+     "minute": 6
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876431",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T18:45Z",
+   "home": "Troyes",
+   "away": "RC Lens",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 1,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "T. Nkada",
+     "minute": 26
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Monfray (og)",
+     "minute": 13
+    },
+    {
+     "scorer": "O. Édouard",
+     "minute": "45+2"
+    },
+    {
+     "scorer": "R. Aguilar",
+     "minute": 55
     }
    ],
    "competition": "FL1",
