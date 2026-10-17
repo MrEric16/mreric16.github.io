@@ -27,6 +27,10 @@ jobs = {
  'future-perfect': lambda: gen_tense_topic('fp','fp',C,107),
  'future-perfect-continuous': lambda: gen_tense_topic('fpn','fpn',C,108),
  'future-perfect-simple-vs-continuous': lambda: gen_or_topic('fp_fpn',C,109),
+ 'past-perfect-continuous': lambda: gen_tense_topic('papn','papn',C,110),
+ 'past-perfect-simple-vs-continuous': lambda: gen_or_topic('pap_papn',C,111),
+ 'past-perfect-vs-past-simple': lambda: gen_or_topic('pap_pas',C,112),
+ 'present-perfect-vs-past-perfect': lambda: gen_or_topic('pp_pap',C,113),
  'future-will-vs-going-to': lambda: gen_wg_topic(C,27),
  'future-all-forms': lambda: gen_all_topic(C,28),
  'zero-conditional': lambda: gen_cond_topic('zero',C,29),
@@ -77,7 +81,10 @@ except ImportError: pass
 try:
     from misc3 import gen_misc3_jobs; jobs.update(gen_misc3_jobs(C))
 except ImportError: pass
-NAMES = {'future-perfect':'Future perfect simple','future-perfect-continuous':'Future perfect continuous','future-perfect-simple-vs-continuous':'Future perfect simple or continuous','question-tags':'Question tags','indirect-questions':'Indirect questions','so-neither-too-and-either':'so, neither, too and either','causative-have-something-done':'Causative (have / get something done)','wish-and-if-only':'wish and If only','phrasal-verbs-separable-and-inseparable':'Phrasal verbs (separable and inseparable)','prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
+try:
+    from nar import gen_nar_jobs; jobs.update(gen_nar_jobs(C))
+except ImportError: pass
+NAMES = {'narrative-tenses':'Narrative tenses (past simple, past continuous, past perfect)','past-perfect-continuous':'Past perfect continuous','past-perfect-simple-vs-continuous':'Past perfect simple or continuous','past-perfect-vs-past-simple':'Past perfect or past simple','present-perfect-vs-past-perfect':'Present perfect or past perfect','future-perfect':'Future perfect simple','future-perfect-continuous':'Future perfect continuous','future-perfect-simple-vs-continuous':'Future perfect simple or continuous','question-tags':'Question tags','indirect-questions':'Indirect questions','so-neither-too-and-either':'so, neither, too and either','causative-have-something-done':'Causative (have / get something done)','wish-and-if-only':'wish and If only','phrasal-verbs-separable-and-inseparable':'Phrasal verbs (separable and inseparable)','prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
          'as-as-too-and-enough':'as ... as, too and enough','relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
          'relative-clauses-non-defining':'Relative clauses (non-defining)',
          'gerunds-and-infinitives':'Gerunds and infinitives'}

@@ -18,7 +18,7 @@ def fc(t, S, V, pol, rng):
         c['end'] = rng.pick(pool)
     elif t == 'ppc':
         c['end'] = rng.pick(['for two hours',"since nine o'clock",'all morning','all day','lately','for three hours','since breakfast'])
-    elif t in ('fp','fpn'):
+    elif t in ('fp','fpn','papn','pap'):
         return cues(t, S, V, pol, rng, True)
     return c
 
@@ -73,14 +73,38 @@ def contrast_fp_fpn(S,rng):
     if rng.pick([0,1]):
         return line(f"{lead} {S.mid} ___ ({V1.base}) {c1} and {pl(S)} ___ ({V2.base}) {c2} {dur}.", grp('fp',S,V1), grp('fpn',S,V2))
     return line(f"{lead} {S.mid} ___ ({V2.base}) {c2} {dur}, and {pl(S)} ___ ({V1.base}) {c1}.", grp('fpn',S,V2), grp('fp',S,V1))
+def contrast_pap_papn(S,rng):
+    V1 = rng.pick(VERBS); V2 = rng.pick([v for v in VERBS if v.base in FPN_OK]); c1,c2 = rng.pick(V1.comps), rng.pick(V2.comps)
+    ev = rng.pick(PAPN_CL); dur = rng.pick(['for two hours','for three hours','for an hour','all morning','since nine o\'clock'])
+    if rng.pick([0,1]):
+        return line(f"{S.text} ___ ({V1.base}) {c1} and {pl(S)} ___ ({V2.base}) {c2} {dur} {ev}.", grp('pap',S,V1), grp('papn',S,V2))
+    return line(f"{cap(ev)}, {S.mid} ___ ({V2.base}) {c2} {dur}, and {pl(S)} ___ ({V1.base}) {c1}.", grp('papn',S,V2), grp('pap',S,V1))
+EVS = [("the film",'start','started'),("the train",'leave','left'),("the shop",'close','closed'),("the match",'begin','begun'),("the guests",'go','gone'),("the lesson",'finish','finished'),("the bus",'leave','left'),("the meeting",'end','ended')]
+def contrast_pap_pas(S,rng):
+    V1 = rng.pick(VERBS); c1 = rng.pick(V1.comps); ev, b, pp = rng.pick(EVS)
+    k = rng.pick(['a','b','c'])
+    if k == 'a': return line(f"When {S.mid} ___ ({V1.base}) {c1}, {ev} ___ (already / {b}).", grp('pas',S,V1), [f"had already {pp}"])
+    if k == 'b': return line(f"{cap(ev)} ___ (already / {b}) when {S.mid} ___ ({V1.base}) {c1}.", [f"had already {pp}"], grp('pas',S,V1))
+    return line(f"{S.text} ___ ({V1.base}) {c1} after {ev} ___ ({b}).", grp('pas',S,V1), [f"had {pp}"])
+def contrast_pp_pap(S,rng):
+    V1 = rng.pick(VERBS); c1 = rng.pick(V1.comps); V2 = rng.pick(VERBS); c2 = rng.pick(V2.comps)
+    k = rng.pick(['a','b'])
+    if k == 'a': return line(f"{S.text} ___ ({V1.base}) {c1} already today, but yesterday {pl(S)} ___ (not / {V1.base}) it by noon.", grp('pp',S,V1), grp('pap',S,V1,True))
+    return line(f"By the time the lesson started yesterday, {S.mid} ___ ({V2.base}) {c2}. Today {pl(S)} ___ (not / {V2.base}) {c2} yet.", grp('pap',S,V2), grp('pp',S,V2,True))
 SW = lambda rng: None
 
 def gen_or(tid, rng, level):
-    ts = {'ps_pc':('ps','pc'),'pas_pac':('pas','pac'),'pp_ppc':('pp','ppc'),'pp_pas':('pp','pas'),'fp_fpn':('fp','fpn')}[tid]
-    contrast = {'ps_pc':contrast_ps_pc,'pas_pac':contrast_pas_pac,'pp_ppc':contrast_pp_ppc,'pp_pas':contrast_pp_pas,'fp_fpn':contrast_fp_fpn}[tid]
+    ts = {'ps_pc':('ps','pc'),'pas_pac':('pas','pac'),'pp_ppc':('pp','ppc'),'pp_pas':('pp','pas'),'fp_fpn':('fp','fpn'),'pap_papn':('pap','papn'),'pap_pas':('pap','pas'),'pp_pap':('pp','pap')}[tid]
+    contrast = {'ps_pc':contrast_ps_pc,'pas_pac':contrast_pas_pac,'pp_ppc':contrast_pp_ppc,'pp_pas':contrast_pp_pas,'fp_fpn':contrast_fp_fpn,'pap_papn':contrast_pap_papn,'pap_pas':contrast_pap_pas,'pp_pap':contrast_pp_pap}[tid]
     S = rng.pick(SUBJ); V = rng.pick(VERBS); comp = rng.pick(V.comps)
     t = rng.pick(ts); other = ts[1] if t == ts[0] else ts[0]
     if not valid(t,V): return None
+    if tid == 'pap_pas' and t == 'pap':
+        cue = rng.pick(PAP_END); pol = rng.pick(['aff','aff','neg','q'])
+        if pol == 'aff': return line(f"{S.text} ___ (already / {V.base}) {comp} {cue}.", [f"had already {V.pp}"])
+        if pol == 'neg': return line(f"{S.text} ___ (not / {V.base}) {comp} yet {cue}.", [f"hadn't {V.pp}", f"had not {V.pp}"])
+        return line(f"___ {S.mid} already ___ ({V.base}) {comp} {cue}?", ['Had'], [V.pp])
+    if tid == 'pap_pas' and level == 'hard' and False: return None
     if level == 'easy':
         r = rng.r.random(); pol = 'aff' if r < .6 else ('neg' if r < .85 else 'q')
         c = fc(t,S,V,pol,rng)
@@ -115,6 +139,9 @@ def gen_or(tid, rng, level):
             if tid == 'pp_ppc':
                 if V.ach: return None
                 return line(f"How long ___ {S.mid} ___ ({V.base}) {comp}?", [have_pres(S)], [f"been {V.ing}"])
+            if tid == 'pap_papn':
+                if V.base not in FPN_OK: return None
+                return line(f"How long ___ {S.mid} ___ ({V.base}) {comp} when the guests arrived?", ['had'], [f"been {V.ing}"])
             if tid == 'fp_fpn':
                 if V.base not in FPN_OK: return None
                 return line(f"How long ___ {S.mid} ___ ({V.base}) {comp} by {rng.pick(['six o'+chr(39)+'clock','midnight','lunchtime'])}?", ['will'], [f"have been {V.ing}"])
@@ -125,7 +152,7 @@ def gen_or(tid, rng, level):
     # hard
     k = rng.pick(['fix','fix','fix','contrast','contrast','contrast','neg','q','switch'])
     if k == 'fix':
-        if tid == 'fp_fpn': return None
+        if tid in ('fp_fpn','pap_papn','pap_pas'): return None
         pol = rng.pick(['aff','neg','q']); c = fc(t,S,V,pol,rng)
         if pol != 'aff': c['pre'] = ''
         if not valid(other,V): return None
@@ -157,7 +184,7 @@ def gen_or_topic(tid, counts, seed):
         while len(lines) < n and tries < n * 100:
             tries += 1
             l = gen_or(tid, rng, level)
-            if not l: continue
+            if not l or bad_prompt(l): continue
             q = l.split(' => ')[0]
             if q in seen: continue
             seen.add(q); lines.append(l)

@@ -379,7 +379,7 @@ def gen_topic(fn, counts, seed):
         while len(lines) < n and tries < n * 200:
             tries += 1
             l = fn(level, rng)
-            if not l: continue
+            if not l or bad_prompt(l): continue
             q = l.split(' => ')[0]
             if q in seen: continue
             seen.add(q); lines.append(l)

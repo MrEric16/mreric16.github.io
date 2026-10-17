@@ -20,6 +20,8 @@ PP_DUR = ['for two years','since 2019','for a long time','since last summer','fo
 PPC_END = ['for two hours','since nine o\'clock','all morning','all day','lately','for a long time','since breakfast','for ten minutes','for three hours','since lunch']
 PAP_END = ['when the guests arrived','when I got home','when the film started','when the bell rang','before the teacher came','before the match began','by the time we arrived','before the storm started','when the manager called','before the bus left']
 F_END = ['tomorrow','next week','next month','next year','tonight','in two days','on Friday','this weekend','next summer','on Saturday']
+PAPN_END = ['for two hours','all morning','since nine o\'clock','for a long time','for three hours','all day','for ten minutes','since breakfast','for hours','for an hour']
+PAPN_CL = ['when the guests arrived','when I got home','when the bell rang','when the teacher came in','when I called','when the storm began','when the film started','when the manager arrived']
 FP_END = ['by Friday','by next year','by the end of the week','by six o\'clock','by this time tomorrow','by next summer','by the end of the month','by 2030','by the end of this year','by midnight']
 FP_LEAD = ['By Friday,','By next year,','By the end of the week,','By six o\'clock,','By this time tomorrow,','By next summer,','By the end of the month,','By 2030,','By the time you arrive,','By the time the lesson starts,']
 FPN_LEAD = ['By next June,','By Friday,','By the end of this year,','By 2030,','By six o\'clock,','By next summer,','By the end of the month,','By the time you arrive,','By this time next year,','By the end of the lesson,']
@@ -57,6 +59,10 @@ def cues(t, S, V, pol, rng, free=True):
         c['end'] = rng.pick(F_END)
     elif t == 'fpc':
         c['end'] = rng.pick(FPC_END)
+    elif t == 'papn':
+        c['end'] = rng.pick(PAPN_END) + ' ' + rng.pick(PAPN_CL) if rng.pick([0,1]) else rng.pick(PAPN_CL) + ', ' + 'x'
+        if c['end'].endswith(', x'):
+            c['lead'], c['kind'] = 'When ' + c['end'][5:-3] + ',', 'clause'; c['end'] = rng.pick(PAPN_END)
     elif t == 'fp':
         if rng.pick([0,1]): c['lead'], c['kind'] = rng.pick(FP_LEAD), 'clause'
         else: c['end'] = rng.pick(FP_END)
@@ -93,8 +99,8 @@ def ques(t, S, V, comp, c, aux=None, rest=None):
 def aux_list(t,S,V): return [qp(t,S,V)[0]]
 
 def valid(t, V):
-    if t in ('ppc','fpn') and V.ach: return False
-    if t == 'fpn' and V.base not in FPN_OK: return False
+    if t in ('ppc','fpn','papn') and V.ach: return False
+    if t in ('fpn','papn') and V.base not in FPN_OK: return False
     return True
 
 # ---------- single-tense error generators ----------
@@ -156,6 +162,10 @@ def wrong(t, S, V, comp, c, pol, rng):
             cands += [sub(f"hadn't {V.base}"), sub(f"didn't had {V.pp}")]
         if pol == 'q':
             cands += [ques(t,S,V,comp,c,'Has',V.pp), ques(t,S,V,comp,c,'Had',V.base)]
+    elif t == 'papn':
+        if pol == 'aff': cands += [sub(f"had {V.ing}"), sub(f"{be_past(S)} {V.ing}"), sub(f"has been {V.ing}"), sub(f"had been {V.base}")]
+        if pol == 'neg': cands += [sub(f"hadn't {V.ing}"), sub(f"hadn't been {V.base}"), sub(f"hasn't been {V.ing}")]
+        if pol == 'q': cands += [ques(t,S,V,comp,c,'Had',V.ing), ques(t,S,V,comp,c,'Has',f"been {V.ing}"), ques(t,S,V,comp,c,'Had',f"been {V.base}")]
     elif t == 'fp':
         if pol == 'aff': cands += [sub(f"will {V.pp}"), sub(f"will have {V.base}"), sub(f"have {V.pp}")] + ([sub(f"will {V.base}")] if True else []) + ([sub(f"will have {V.past}")] if V.past != V.pp else [])
         if pol == 'neg': cands += [sub(f"won't {V.pp}"), sub(f"won't have {V.base}"), sub(f"haven't {V.pp}")] + ([sub(f"won't have {V.past}")] if V.past != V.pp else [])
@@ -301,7 +311,7 @@ def gen_tense_topic(tid, t, counts, seed, free=True):
             try: l = gen_item(t, level, rng, free)
             except AssertionError as e:
                 raise
-            if not l: continue
+            if not l or bad_prompt(l): continue
             q = l.split(' => ')[0]
             if q in seen: continue
             seen.add(q); lines.append(l)
