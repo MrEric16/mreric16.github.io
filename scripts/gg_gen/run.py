@@ -62,7 +62,13 @@ except ImportError: pass
 try:
     from quant import gen_q_jobs; jobs.update(gen_q_jobs(C))
 except ImportError: pass
-NAMES = {'articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
+try:
+    from prep import gen_prep_jobs; jobs.update(gen_prep_jobs(C))
+except ImportError: pass
+try:
+    from usedto import gen_used_jobs; jobs.update(gen_used_jobs(C))
+except ImportError: pass
+NAMES = {'prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
          'as-as-too-and-enough':'as ... as, too and enough','relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
          'relative-clauses-non-defining':'Relative clauses (non-defining)',
          'gerunds-and-infinitives':'Gerunds and infinitives'}
