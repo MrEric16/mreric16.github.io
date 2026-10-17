@@ -8,7 +8,8 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <meta name="theme-color" content="#3D2A22">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
 <style>
 
   :root{
@@ -18,8 +19,8 @@
   }
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
-  body{background:var(--cream); color:var(--ink); font-family:'Nunito', sans-serif; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;}
-  h1,h2,h3{font-family:'Baloo 2', sans-serif; margin:0;}
+  body{background:var(--cream); color:var(--ink); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;}
+  h1,h2,h3{font-family:'Baloo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin:0;}
   a{color:inherit;}
   .wrap{max-width:720px; margin:0 auto; padding:18px 16px 48px;}
   .section-head{display:flex; align-items:center; gap:10px; margin-bottom:18px;}
@@ -28,12 +29,12 @@
   .back-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14px; color:var(--ff-accent); text-decoration:none; cursor:pointer; margin-bottom:6px;}
   .back-link:hover{text-decoration:underline;}
   .sport-hub-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
-  .sport-hub-tile{background:var(--card); border:none; border-radius:18px; box-shadow:0 3px 0 rgba(58,42,30,.08); font-family:'Nunito', sans-serif; text-decoration:none; color:var(--ink); height:100px; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; -webkit-tap-highlight-color:transparent;}
+  .sport-hub-tile{background:var(--card); border:none; border-radius:18px; box-shadow:0 3px 0 rgba(58,42,30,.08); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-decoration:none; color:var(--ink); height:100px; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; -webkit-tap-highlight-color:transparent;}
   .sport-hub-tile:active{transform:translateY(1px);}
   .sport-hub-tile .name{font-weight:700; font-size:15px; line-height:1.25; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
   .hub-icon{display:inline-flex; align-items:center; justify-content:center;}
   .hub-icon svg{width:20px;height:20px;}
-  .search-input{width:100%; padding:14px 16px; border-radius:16px; border:none; background:var(--card); color:var(--ink); font-family:'Nunito', sans-serif; font-size:16px; box-shadow:0 3px 0 rgba(58,42,30,.08);}
+  .search-input{width:100%; padding:14px 16px; border-radius:16px; border:none; background:var(--card); color:var(--ink); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; box-shadow:0 3px 0 rgba(58,42,30,.08);}
   .search-input:focus{outline:2px solid var(--coral);}
   .ivb-search-wrap{position:relative; margin-bottom:12px;}
   .ivb-search-wrap .search-input{padding-left:42px;}
@@ -57,7 +58,7 @@
   .gg-num{font-weight:800; color:var(--ink-soft); min-width:22px; padding-top:5px; font-size:14px;}
   .gg-q{flex:1; min-width:0; line-height:2.2; font-size:16px; color:var(--ink);}
   .gg-q-block{line-height:1.5;}
-  .gg-inp{font-family:'Nunito', sans-serif; font-size:16px; width:11em; max-width:100%; padding:4px 9px; margin:0 3px; border-radius:9px; border:2px solid rgba(133,111,92,.4); background:rgba(255,255,255,.55); color:var(--ink);}
+  .gg-inp{font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; width:11em; max-width:100%; padding:4px 9px; margin:0 3px; border-radius:9px; border:2px solid rgba(133,111,92,.4); background:rgba(255,255,255,.55); color:var(--ink);}
   .gg-inp:focus{outline:2px solid var(--coral); border-color:var(--coral);}
   .gg-wide{display:block; width:100%; margin:8px 0 0;}
   .gg-inp.gg-ok{border-color:var(--teal); background:rgba(107,122,61,.18);}
@@ -65,7 +66,7 @@
   body.dark-mode .gg-inp{background:rgba(0,0,0,.25);}
   body.dark-mode .gg-item-bad, body.dark-mode .gg-inp.gg-bad{border-color:#E57373;}
   .gg-actions{display:flex; gap:10px; margin:16px 0 28px;}
-  .gg-btn{flex:1; border:none; border-radius:16px; padding:15px 12px; font-family:'Nunito', sans-serif; font-weight:800; font-size:16px; cursor:pointer; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.12);}
+  .gg-btn{flex:1; border:none; border-radius:16px; padding:15px 12px; font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight:800; font-size:16px; cursor:pointer; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.12);}
   .gg-btn-main{background:var(--coral); color:#fff;}
   /* Colour themes: only the palette variables are carried over from the main app (no animations),
      so the page matches the active theme and stays light on old phones. */
@@ -173,9 +174,30 @@ function hexToRgba(hex, a){ var h = hex.replace('#',''); return 'rgba(' + parseI
 function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
 function ggLoad(topic, level){ try{ var raw = localStorage.getItem(ggKey(topic, level)); if(raw) return JSON.parse(raw); }catch(e){} return null; }
 function ggSave(topic, level, st){ try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
-function getJson(u){ return fetch(u, { cache:'no-cache' }).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
+var DATA_V = '9473abaa68';
+function getJson(u){ return fetch(u + '?v=' + DATA_V).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
 var INDEX_P = null, TOPIC_P = {};
 function loadIndex(){ if(!INDEX_P) INDEX_P = getJson('data/grammar/index.json').catch(function(e){ INDEX_P = null; throw e; }); return INDEX_P; }
+var FALLBACK = { m:['Tom','Aziz','Ali','Sam','Karim'], f:['Anna','Dilya','Malika','Sara','Kim'], s:['Karimov','Smith','Garcia'], c:['London','Paris','Tashkent','Rome'], k:['Spain','Japan','Brazil'], l:['Spanish','French','German'], p:['park','library','station','hotel'], j:['teacher','doctor','pilot','nurse'] };
+var POOLS_P = null;
+function loadPools(){ if(!POOLS_P) POOLS_P = getJson('data/grammar/pools.json').catch(function(){ return FALLBACK; }); return POOLS_P; }
+var POOLS = FALLBACK;
+// Fills the {m0} {f1} {s0} {c0} {k0} {l0} {p0} {j0} slots of one bank item with fresh random values
+// (same slot = same value everywhere in the item, different slots = different values).
+function ggFill(it){
+  var found = {}, order = [];
+  function scan(s){ String(s).replace(/\{([mfscklpj])(\d)\}/g, function(t){ if(!found[t]){ found[t] = 1; order.push(t); } return t; }); }
+  scan(it.q); it.a.forEach(function(g){ g.forEach(scan); });
+  if(!order.length) return { q: it.q, a: it.a };
+  var val = {}, usedPerCat = {}, usedNames = [];
+  order.forEach(function(t){
+    var cat = t.charAt(1), arr = POOLS[cat] || FALLBACK[cat], pool = (cat === 'm' || cat === 'f') ? usedNames : (usedPerCat[cat] = usedPerCat[cat] || []), v = arr[0];
+    for(var k = 0; k < 40; k++){ v = arr[Math.floor(Math.random() * arr.length)]; if(pool.indexOf(v) < 0) break; }
+    pool.push(v); val[t] = v;
+  });
+  function sub(s){ return String(s).replace(/\{([mfscklpj])(\d)\}/g, function(t){ return val[t] != null ? val[t] : t; }); }
+  return { q: sub(it.q), a: it.a.map(function(g){ return g.map(sub); }) };
+}
 function loadTopic(id){ if(!TOPIC_P[id]) TOPIC_P[id] = getJson('data/grammar/' + encodeURIComponent(id) + '.json').catch(function(e){ delete TOPIC_P[id]; throw e; }); return TOPIC_P[id]; }
 
 // - answer normalisation -
@@ -229,10 +251,10 @@ function ggDraw(topic, level, avoid){
   shuffle(pick);
   return {
     idx: pick,
-    items: pick.map(i => ({ q: pool[i].q, a: pool[i].a })),
-    ans: pick.map(i => pool[i].a.map(() => '')),
+    items: pick.map(i => ggFill(pool[i])),
+    ans: pick.map(i => pool[i].a.map(function(){ return ''; })),
     ok: pick.map(() => null),          // per item: null (unchecked) | true | false
-    bl: pick.map(i => pool[i].a.map(() => null)), // per blank result
+    bl: pick.map(i => pool[i].a.map(function(){ return null; })), // per blank result
     checked: false,
     score: null,
     ts: Date.now(),
@@ -365,6 +387,7 @@ function showTopics(){
     '<div class="ivb-search-wrap"><span class="ivb-search-icon">' + icon('search') + '</span>' +
     '<input type="text" id="ggSearch" class="search-input" placeholder="Search a topic\u2026" autocomplete="off" autocapitalize="off" spellcheck="false"></div>' +
     '<div class="sport-hub-grid" id="ggGrid"><div class="empty-card" style="grid-column:1/-1;">Loading\u2026</div></div></section>';
+  var bl = app.querySelector('.back-link'); if(bl) bl.addEventListener('click', backToLounge);
   loadIndex().then(function(ix){
     var grid = document.getElementById('ggGrid'), input = document.getElementById('ggSearch');
     if(!grid) return;
@@ -406,13 +429,31 @@ function showLevels(topicId){
 }
 function showExercise(topicId, level){
   app.innerHTML = '<a class="back-link" href="#' + escapeHtml(topicId) + '">\u2190 Back to levels</a><section style="padding-top:14px;" id="ggExercise"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Loading\u2026</h2></div><div class="empty-card">Loading\u2026</div></section>';
-  loadTopic(topicId).then(function(topic){
+  Promise.all([loadTopic(topicId), loadPools()]).then(function(r){
+    var topic = r[0]; POOLS = r[1];
     if(!document.getElementById('ggExercise')) return;
     document.title = topic.name + " \u2014 Grammar Practice";
     ggWireExercise(app, { topics:[topic] }, topicId, level);
   }).catch(function(){ fail(); });
 }
+var depth = 0, lastD = -1;
+function noteDepth(){
+  var s = history.state;
+  if(s && typeof s.d === 'number') depth = s.d; else { depth = lastD + 1; try{ history.replaceState({ d: depth }, ''); }catch(e){} }
+  lastD = depth;
+}
+// "Back to Mr Eric's Lounge": if we came from the app, rewind history so the browser restores the
+// already-loaded home page instantly (no 2 MB reload); otherwise just open it.
+function backToLounge(e){
+  var ok = false;
+  try{ var u = new URL(document.referrer); ok = u.origin === location.origin && !/grammar\.html$/.test(u.pathname) && history.length > depth + 1; }catch(x){}
+  if(!ok) return;
+  e.preventDefault();
+  history.go(-(depth + 1));
+  setTimeout(function(){ location.href = 'index.html'; }, 1200);
+}
 function route(){
+  noteDepth();
   var parts = location.hash.replace(/^#/, '').split('/').filter(Boolean).map(decodeURIComponent);
   window.scrollTo(0, 0);
   if(parts[1]) showExercise(parts[0], parts[1]);

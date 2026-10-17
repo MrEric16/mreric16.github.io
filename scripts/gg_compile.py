@@ -32,6 +32,21 @@ for t in topics:
             seen.add(it['q']); out.append(it)
         t['levels'][k] = out
 if bad: sys.exit(1)
+import hashlib, re
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import gg_tag, gg_pools
+ntag = 0
+for t in topics:
+    for k, arr in t['levels'].items():
+        seen, out = set(), []
+        for it in arr:
+            q, a = gg_tag.tag(it['q'], it['a'])
+            if q != it['q']: ntag += 1
+            key = q + '\u0001' + json.dumps(a, ensure_ascii=False)
+            if key in seen: continue
+            seen.add(key); out.append({'q': q, 'a': a})
+        t['levels'][k] = out
+print(ntag, 'items carry random-name/place/job slots')
 outdir = os.path.join(root, 'data/grammar')
 os.makedirs(outdir, exist_ok=True)
 for f in os.listdir(outdir):
@@ -40,4 +55,13 @@ dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':')) + '\n'
 for t in topics:
     open(os.path.join(outdir, t['id'] + '.json'), 'w', encoding='utf-8').write(dump(t))
 open(os.path.join(outdir, 'index.json'), 'w', encoding='utf-8').write(dump({'topics': [{'id': t['id'], 'name': t['name']} for t in topics]}))
+pools = gg_pools.build()
+open(os.path.join(outdir, 'pools.json'), 'w', encoding='utf-8').write(dump(pools))
+h = hashlib.sha1()
+for f in sorted(os.listdir(outdir)): h.update(open(os.path.join(outdir, f), 'rb').read())
+ver = h.hexdigest()[:10]
+gp = os.path.join(root, 'grammar.html')
+g = open(gp, encoding='utf-8').read()
+g2 = re.sub(r"var DATA_V = '[^']*';", "var DATA_V = '" + ver + "';", g, count=1)
+if g2 != g: open(gp, 'w', encoding='utf-8').write(g2)
 print(len(topics), 'topics written to data/grammar/ (one file each + index.json)')

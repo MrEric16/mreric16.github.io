@@ -37,6 +37,8 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
+  // Grammar Practice data files are versioned by ?v= and cached by the browser; don't re-fetch them no-store.
+  if (url.pathname.indexOf('/data/grammar/') !== -1) return;
   const isShellFile = url.origin === self.location.origin;
 
   if (isShellFile) {
