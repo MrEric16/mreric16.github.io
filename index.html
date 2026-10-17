@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261017132538">
+<meta name="app-build" content="20261017133602">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -17976,6 +17976,11 @@ function ggCanon(s){
        .replace(/\b(he|she|it|that|there|here|what|who|where|how|when|why)'s\b/g, '$1 is')
        .replace(/(^|\s)'s\b/g, ' is');
   s = s.replace(/\bcan not\b/g, 'cannot');
+  // apostrophes are optional: "isnt", "doesnt", "im", "theyre" etc. count the same as the contracted form
+  s = s.replace(/\b(is|are|was|were|do|does|did|has|have|had|could|would|should|must|need)nt\b/g, '$1 not')
+       .replace(/\bcant\b/g, 'cannot').replace(/\bwont\b/g, 'will not').replace(/\bshant\b/g, 'shall not')
+       .replace(/\bim\b/g, 'i am').replace(/\b(you|we|they)re\b/g, '$1 are').replace(/\b(you|we|they)ve\b/g, '$1 have')
+       .replace(/\b(he|she|that|there|what|who|where|how)s\b/g, '$1 is');
   s = s.replace(/\b(\w{3,})iz(e|es|ed|ing|ation|ations)\b/g, '$1is$2').replace(/\b(\w{3,})yz(e|es|ed|ing)\b/g, '$1ys$2');
   s = s.replace(/\b(colo|favo|neighbo|hono|humo|flavo|labo|behavio|harbo|rumo|vapo|savo|odo|armo)r(s|ed|ing|ite|ites|ful|less|able)?\b/g, '$1ur$2');
   s = s.replace(/\b(cent|theat|met|fib|lit)er(s|ed|ing)?\b/g, '$1re$2');
@@ -18141,9 +18146,10 @@ function ggWireExercise(app, bank, topicId, level){
       <div class="gg-banner" id="ggBanner" style="display:none;"></div>
       <div class="gg-list" id="ggList">${st.items.map((it, n) => ggItemHtml(it, n, st.ans[n], st.bl[n], st.ok[n])).join('')}</div>
       <div class="gg-actions">
-        <button class="gg-btn gg-btn-main" id="ggCheck">${st.checked ? 'Check again' : 'Check answers'}</button>
-        <button class="gg-btn" id="ggAgain">Go again</button>
-      </div>`;
+        <button class="gg-btn gg-btn-main" id="ggCheck">Check</button>
+        <button class="gg-btn" id="ggAgain">Reset</button>
+      </div>
+      <div class="gg-banner" id="ggBanner2" style="display:none;"></div>`;
     updateProg(); showBanner();
     wire();
     if(scrollTop) window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -18153,12 +18159,29 @@ function ggWireExercise(app, bank, topicId, level){
     if(p) p.textContent = ggFilled(st) + '/' + GG_PER_SET + ' answered';
   }
   function showBanner(){
-    const b = root.querySelector('#ggBanner');
-    if(!b) return;
-    if(!st.checked){ b.style.display = 'none'; return; }
-    b.style.display = '';
-    b.className = 'gg-banner ' + (st.score === GG_PER_SET ? 'gg-banner-ok' : 'gg-banner-mid');
-    b.textContent = st.score === GG_PER_SET ? '20/20. Perfect! Tap Go again for a new set.' : st.score + '/' + GG_PER_SET + ' correct. Fix the red ones and check again.';
+    ['#ggBanner', '#ggBanner2'].forEach(sel => {
+      const b = root.querySelector(sel);
+      if(!b) return;
+      if(!st.checked){ b.style.display = 'none'; return; }
+      b.style.display = '';
+      b.className = 'gg-banner ' + (st.score === GG_PER_SET ? 'gg-banner-ok' : 'gg-banner-mid');
+      b.textContent = st.score === GG_PER_SET ? '20/20. Perfect! Tap Reset for a new set.' : st.score + '/' + GG_PER_SET + ' correct. Fix the red ones and check again.';
+    });
+  }
+  // Marks results in place (no re-render) so the page never jumps while checking.
+  function applyResults(){
+    root.querySelectorAll('.gg-item').forEach(item => {
+      const n = +item.dataset.i;
+      item.classList.toggle('gg-item-ok', st.ok[n] === true);
+      item.classList.toggle('gg-item-bad', st.ok[n] === false);
+      item.querySelectorAll('.gg-inp').forEach(inp => {
+        const r = st.bl[n][+inp.dataset.b];
+        inp.classList.toggle('gg-ok', r === true);
+        inp.classList.toggle('gg-bad', r === false);
+        inp.readOnly = st.ok[n] === true;
+      });
+    });
+    showBanner(); updateProg();
   }
   function wire(){
     root.querySelectorAll('.gg-inp').forEach(inp => {
@@ -18185,10 +18208,11 @@ function ggWireExercise(app, bank, topicId, level){
         st.ok[n] = all; if(all) score++;
       });
       st.checked = true; st.score = score; ggSave(topicId, level, st);
-      render(true);
+      if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      applyResults();
     });
     root.querySelector('#ggAgain').addEventListener('click', () => {
-      if(!st.checked && ggFilled(st) > 0 && !confirm('Start a new set? Your current answers will be lost.')) return;
+      if(!st.checked && ggFilled(st) > 0 && !confirm('Reset? This gives you a new set and your current answers will be lost.')) return;
       st = ggDraw(topic, level, st.idx); ggSave(topicId, level, st);
       render(true);
     });
