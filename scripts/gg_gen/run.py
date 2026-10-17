@@ -50,7 +50,14 @@ except ImportError: pass
 try:
     from gerinf import gen_gi_jobs; jobs.update(gen_gi_jobs(C))
 except ImportError: pass
-NAMES = {'relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
+try:
+    from comp import gen_comp_jobs; jobs.update(gen_comp_jobs(C))
+except ImportError: pass
+try:
+    from asas import gen_asas_jobs; jobs.update(gen_asas_jobs(C))
+except ImportError: pass
+NAMES = {'comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
+         'as-as-too-and-enough':'as ... as, too and enough','relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
          'relative-clauses-non-defining':'Relative clauses (non-defining)',
          'gerunds-and-infinitives':'Gerunds and infinitives'}
 only = sys.argv[1:]
