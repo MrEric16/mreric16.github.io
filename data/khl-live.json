@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T06:19:57.215081+00:00",
+  "generatedAt": "2026-10-17T11:01:09.828340+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -86,6 +86,18 @@
       "points": 50
     },
     {
+      "team": "Salavat Yulaev",
+      "played": 19,
+      "won": 17,
+      "otWon": 8,
+      "soWon": 1,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 52,
+      "points": 52
+    },
+    {
       "team": "Barys",
       "played": 18,
       "won": 15,
@@ -112,25 +124,13 @@
     {
       "team": "Amur",
       "played": 17,
-      "won": 15,
+      "won": 16,
       "otWon": 8,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 24,
-      "points": 46
-    },
-    {
-      "team": "Salavat Yulaev",
-      "played": 17,
-      "won": 16,
-      "otWon": 7,
-      "soWon": 1,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 48,
+      "gf": 27,
       "points": 48
     },
     {
@@ -267,16 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Amur",
-      "away": "Salavat Yulaev",
-      "start": "2026-10-17T15:00:00+05:00"
-    },
-    {
-      "home": "Sibir",
-      "away": "Barys",
-      "start": "2026-10-17T15:00:00+05:00"
-    },
     {
       "home": "HC Sochi",
       "away": "Lokomotiv",
@@ -3169,6 +3159,14 @@
     }
   ],
   "results": [
+    {
+      "home": "Amur",
+      "away": "Salavat Yulaev",
+      "start": "2026-10-17T15:00:00+05:00",
+      "homeScore": 3,
+      "awayScore": 4,
+      "finished": true
+    },
     {
       "home": "Dragons",
       "away": "Ak Bars",
