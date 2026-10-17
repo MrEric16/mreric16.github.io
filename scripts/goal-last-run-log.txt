@@ -4,7 +4,8 @@
 [goal-scraper] [BL1] Found 1 finished-match links
 [goal-scraper] [SA] Found 1 finished-match links
 [goal-scraper] WARNING: Frosinone scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq
-[goal-scraper] [SA] SCORER PARSE FAILED (attempt 2/3) for Frosinone 4-2 Sassuolo -- NOT committing, will retry next run: https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq
+[goal-scraper] [SA] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Frosinone 4-2 Sassuolo: https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq
+[goal-scraper] [SA] Added: Frosinone 4-2 Sassuolo
 [goal-scraper] [FL1] Found 1 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 23 finished-match links
@@ -24,7 +25,6 @@
 [goal-scraper] WARNING: Real Madrid scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Real Sociedad on 2026-08-26
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Malaga on 2026-08-30
-[goal-scraper] [real-madrid] Added: Real Betis 1-0 Real Madrid
 [goal-scraper] [barcelona] Found 16 finished-match links
 [goal-scraper] WARNING: Barcelona scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/elche-vs-barcelona/2FnxuiygSUUuJoTZpwnve
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Elche vs Barcelona on 2026-08-23
@@ -92,5 +92,5 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
 [goal-scraper] TOTAL new results added this run: 1
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq']
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo']
 [goal-scraper] Wrote data/goal-results.json

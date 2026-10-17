@@ -1,33 +1,6 @@
 {
-  "generatedAt": "2026-10-17T00:56:06.629406Z",
+  "generatedAt": "2026-10-17T05:15:22.100610Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-monaco/n1scCm_7mzZjbz2yZ5dFp",
-      "date": null,
-      "home": "Paris Saint Germain",
-      "away": "Monaco",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "Marquinhos",
-          "minute": 31
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "F. Nazinho",
-          "minute": 58
-        },
-        {
-          "scorer": "S. Idumbo",
-          "minute": 72
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/real-madrid-vs-leganes/Q5TuVS4FQ8m2iPuWzknzu",
       "date": "2026-07-28",
@@ -7851,6 +7824,37 @@
       ],
       "awayGoals": [],
       "competition": "real-madrid"
+    },
+    {
+      "url": "https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq",
+      "date": "2026-10-16",
+      "home": "Frosinone",
+      "away": "Sassuolo",
+      "htHome": 3,
+      "htAway": 2,
+      "ftHome": 4,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "G. Calo",
+          "minute": 9
+        },
+        {
+          "scorer": "A. Raimondo",
+          "minute": 27
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Berardi",
+          "minute": 15
+        },
+        {
+          "scorer": "K. Thorstvedt",
+          "minute": 37
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7859,7 +7863,6 @@
     "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
-    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
-    "https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq": 2
+    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2
   }
 }
