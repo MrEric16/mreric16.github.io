@@ -41,7 +41,7 @@ Patel Sharma Singh Kumar Gupta Mehta Shah Joshi Reddy Nair Nguyen Tran Pham Hoan
 
 # Arsenal first names (2026-27 squad), BMU students and other students (first names from the birthdays list)
 ARS = "David Kepa Illan William Cristhian Ben Piero Gabriel Jurrien Ezri Riccardo Myles Martin Eberechi Mikel Declan Bukayo Viktor Christos Noni Kai Bruno Ethan Tommy".split()
-STU_M = "Saidkhon Ayubkhon Saidalo Bobur Zoxir Timur Oybek Amir Behruz Surat Muhammad Asadbek Shakhriyor Saidbosit Imran Kamol Saidazim Xondamir Azim Azizxon Zafar Sarvar Arif Sheroz Aleksandr Olim Iskander Samir Daniyar Danial Miraziz Yakov Javohir Doniyor Kamron Begzod Agzam Ali Asad Umar Sultan".split()
+STU_M = "Hadiyat Saidkhon Ayubkhon Saidalo Bobur Zoxir Timur Oybek Amir Behruz Surat Muhammad Asadbek Shakhriyor Saidbosit Imran Kamol Saidazim Xondamir Azim Azizxon Zafar Sarvar Arif Sheroz Aleksandr Olim Iskander Samir Daniyar Danial Miraziz Yakov Javohir Doniyor Kamron Begzod Agzam Ali Asad Umar Sultan".split()
 STU_F = "Jamila Diyora Kamila Kuxinur Dilyora Lobar Nilufar Farzona Malika Yasmina Samina Sevinch Safina Darya Zarina Lola Amalia Nadin Laziza Laura Darina Oyniso Mishelle Sitora Samia Latifa Sofia Samira Laylo".split()
 KEEP = set(ARS + STU_M + STU_F)
 def uniq(a):
