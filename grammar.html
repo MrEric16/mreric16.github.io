@@ -398,7 +398,7 @@ function showTopics(){
       var busy = false;
       GG_LEVELS.forEach(function(l){ var s = ggLoad(t.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; });
       return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '"' + st.tint + '>' +
-        '<span class="name"><span class="hub-icon"' + st.ico + '>' + icon('book') + '</span> ' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
+        '<span class="name">' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
     }).join('') + '<div class="empty-card" id="ggNone" style="grid-column:1/-1;display:none;">No topic matches.</div>';
     input.addEventListener('input', function(){
       var words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean), shown = 0;
