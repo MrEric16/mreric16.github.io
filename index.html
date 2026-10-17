@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261017141746">
+<meta name="app-build" content="20261017155626">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4313,32 +4313,6 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .random-tile .icon{display:inline-flex; align-items:center;} .random-tile .icon svg{width:26px;height:26px;}
   .random-tile .title{font-weight:800; font-size:17px;}
   .random-tile .sub{font-size:12px; color:#FBDFCF; font-weight:600; margin-top:2px;}
-  /* - Grammar Gym (Brain Train style tiles + typed exercise list) - */
-  .gg-dot{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--coral); margin-left:4px; vertical-align:middle;}
-  .gg-levels{grid-template-columns:1fr;}
-  .gg-sub{font-weight:600; font-size:12px; color:var(--ink-soft);}
-  .gg-meta{display:flex; justify-content:space-between; align-items:center; margin:2px 2px 12px; font-size:13px; font-weight:700; color:var(--ink-soft);}
-  .gg-lvl{background:var(--coral); color:#fff; border-radius:999px; padding:3px 12px; font-size:12px; font-weight:800;}
-  .gg-banner{border-radius:14px; padding:12px 14px; margin-bottom:12px; font-weight:800; font-size:15px;}
-  .gg-banner-ok{background:rgba(107,122,61,.22); color:var(--ink);}
-  .gg-banner-mid{background:rgba(179,38,30,.14); color:var(--ink);}
-  .gg-list{display:flex; flex-direction:column; gap:10px;}
-  .gg-item{background:var(--card); border-radius:14px; padding:12px 14px; display:flex; gap:10px; align-items:flex-start; box-shadow:0 2px 0 rgba(58,42,30,.08); border:2px solid transparent;}
-  .gg-item-ok{border-color:var(--teal);}
-  .gg-item-bad{border-color:#B3261E;}
-  .gg-num{font-weight:800; color:var(--ink-soft); min-width:22px; padding-top:5px; font-size:14px;}
-  .gg-q{flex:1; min-width:0; line-height:2.2; font-size:16px; color:var(--ink);}
-  .gg-q-block{line-height:1.5;}
-  .gg-inp{font-family:'Nunito', sans-serif; font-size:16px; width:11em; max-width:100%; padding:4px 9px; margin:0 3px; border-radius:9px; border:2px solid rgba(133,111,92,.4); background:rgba(255,255,255,.55); color:var(--ink);}
-  .gg-inp:focus{outline:2px solid var(--coral); border-color:var(--coral);}
-  .gg-wide{display:block; width:100%; margin:8px 0 0;}
-  .gg-inp.gg-ok{border-color:var(--teal); background:rgba(107,122,61,.18);}
-  .gg-inp.gg-bad{border-color:#B3261E; background:rgba(179,38,30,.12);}
-  body.dark-mode .gg-inp{background:rgba(0,0,0,.25);}
-  body.dark-mode .gg-item-bad, body.dark-mode .gg-inp.gg-bad{border-color:#E57373;}
-  .gg-actions{display:flex; gap:10px; margin:16px 0 28px;}
-  .gg-btn{flex:1; border:none; border-radius:16px; padding:15px 12px; font-family:'Nunito', sans-serif; font-weight:800; font-size:16px; cursor:pointer; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.12);}
-  .gg-btn-main{background:var(--coral); color:#fff;}
 
   .empty-card{
     background:var(--card);
@@ -17925,301 +17899,6 @@ function viewGeographyHub(){
       </div>
     </section>
   `;
-}
-
-// - Grammar Gym -
-// Randomised grammar practice: home tile -> #grammar-gym (flat grid of topic tiles + search)
-// -> #grammar-gym/<topic> (Easy / Medium / Hard) -> #grammar-gym/<topic>/<level> (20 typed
-// items listed at once). Items come from data/grammar-bank.json (original exercises written
-// for the app; NOT copied from any website). Each level of each topic is a bank bigger than
-// 20; every visit/"Go again" draws a fresh 20, avoiding the previous draw where the bank
-// allows. Answers are checked in the browser: capitalisation, punctuation, contractions
-// (isn't = is not) and American spellings are all forgiven (ggCanon is applied to BOTH the
-// typed answer and every accepted answer, so any lossy mapping stays symmetric). Wrong
-// items are highlighted red; correct answers and explanations are never shown. Progress
-// (the 20 drawn items, typed answers, check results) is saved per topic+level in
-// localStorage so a student can leave and resume. Bank format (see scripts/gg_compile.py):
-// item = { q: "text with ___ per blank (no ___ = rewrite/correct whole sentence)", a: [[accepted...], ...] }.
-const GG_PER_SET = 20;
-const GG_LEVELS = [
-  { key:'easy',   label:'Easy',   sub:'Simple, clear-cut sentences' },
-  { key:'medium', label:'Medium', sub:'Mixed forms, questions, dialogues' },
-  { key:'hard',   label:'Hard',   sub:'Tricky cases, tags, corrections' },
-];
-let GG_BANK = null, GG_BANK_PROMISE = null;
-function ggLoadBank(){
-  if(GG_BANK) return Promise.resolve(GG_BANK);
-  if(!GG_BANK_PROMISE){
-    const m = document.querySelector('meta[name="app-build"]');
-    const b = m ? m.content : Date.now();
-    GG_BANK_PROMISE = fetch('data/grammar-bank.json?b=' + b)
-      .then(r => { if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
-      .then(d => { GG_BANK = d; return d; })
-      .catch(e => { GG_BANK_PROMISE = null; throw e; });
-  }
-  return GG_BANK_PROMISE;
-}
-function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
-function ggLoad(topic, level){ return btLoadState(ggKey(topic, level)); }
-function ggSave(topic, level, st){ btSaveState(ggKey(topic, level), st); }
-
-// - answer normalisation -
-const GG_VOCAB = { movie:'film', movies:'films', soccer:'football', apartment:'flat', apartments:'flats', cookie:'biscuit', cookies:'biscuits',
-  candy:'sweets', vacation:'holiday', vacations:'holidays', truck:'lorry', sneakers:'trainers', gas:'petrol', elevator:'lift', subway:'underground',
-  trash:'rubbish', pants:'trousers', mom:'mum', moms:'mums', gotten:'got', gray:'grey', jewelry:'jewellery', pajamas:'pyjamas', aluminum:'aluminium',
-  practise:'practice', practised:'practiced', practising:'practicing', license:'licence', defense:'defence', offense:'offence', catalog:'catalogue',
-  dialog:'dialogue', plow:'plough', mold:'mould', cozy:'cosy', donut:'doughnut', color:'colour' };
-function ggCanon(s){
-  s = String(s == null ? '' : s).toLowerCase().replace(/[‘’ʼ´`]/g, "'");
-  s = s.replace(/\bwon't\b/g, 'will not').replace(/\bcan't\b/g, 'cannot').replace(/\bshan't\b/g, 'shall not')
-       .replace(/n't\b/g, ' not').replace(/'m\b/g, ' am').replace(/'re\b/g, ' are').replace(/'ve\b/g, ' have').replace(/'ll\b/g, ' will')
-       .replace(/\b(he|she|it|that|there|here|what|who|where|how|when|why)'s\b/g, '$1 is')
-       .replace(/(^|\s)'s\b/g, ' is');
-  s = s.replace(/\bcan not\b/g, 'cannot');
-  // apostrophes are optional: "isnt", "doesnt", "im", "theyre" etc. count the same as the contracted form
-  s = s.replace(/\b(is|are|was|were|do|does|did|has|have|had|could|would|should|must|need)nt\b/g, '$1 not')
-       .replace(/\bcant\b/g, 'cannot').replace(/\bwont\b/g, 'will not').replace(/\bshant\b/g, 'shall not')
-       .replace(/\bim\b/g, 'i am').replace(/\b(you|we|they)re\b/g, '$1 are').replace(/\b(you|we|they)ve\b/g, '$1 have')
-       .replace(/\b(he|she|that|there|what|who|where|how)s\b/g, '$1 is');
-  s = s.replace(/\b(\w{3,})iz(e|es|ed|ing|ation|ations)\b/g, '$1is$2').replace(/\b(\w{3,})yz(e|es|ed|ing)\b/g, '$1ys$2');
-  s = s.replace(/\b(colo|favo|neighbo|hono|humo|flavo|labo|behavio|harbo|rumo|vapo|savo|odo|armo)r(s|ed|ing|ite|ites|ful|less|able)?\b/g, '$1ur$2');
-  s = s.replace(/\b(cent|theat|met|fib|lit)er(s|ed|ing)?\b/g, '$1re$2');
-  s = s.replace(/\b(travel|cancel|label|model|fuel|signal|counsel|marvel|quarrel|level|total|equal|dial|enrol|fulfil)l?(ed|ing|er|ers)\b/g, '$1l$2');
-  s = s.replace(/\b(burn|spill|learn|dream|smell|spell|lean|leap)t\b/g, '$1ed');
-  s = s.replace(/[^a-z0-9\s]/g, ' ').replace(/\s+/g, ' ').trim();
-  s = s.replace(/\b[a-z]+\b/g, w => GG_VOCAB[w] || w);
-  return s;
-}
-function ggBlankOk(typed, accepted){
-  const t = ggCanon(typed);
-  if(!t) return false;
-  for(let i = 0; i < accepted.length; i++){ if(ggCanon(accepted[i]) === t) return true; }
-  return false;
-}
-
-// - drawing a set -
-function ggDraw(topic, level, avoid){
-  const pool = ((topic.levels || {})[level]) || [];
-  const idx = pool.map((_, i) => i);
-  const avoidSet = new Set(avoid || []);
-  let fresh = idx.filter(i => !avoidSet.has(i));
-  const shuffle = a => { for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
-  shuffle(fresh);
-  let pick = fresh.slice(0, GG_PER_SET);
-  if(pick.length < GG_PER_SET){
-    const rest = shuffle(idx.filter(i => avoidSet.has(i)));
-    pick = pick.concat(rest.slice(0, GG_PER_SET - pick.length));
-  }
-  shuffle(pick);
-  return {
-    idx: pick,
-    items: pick.map(i => ({ q: pool[i].q, a: pool[i].a })),
-    ans: pick.map(i => pool[i].a.map(() => '')),
-    ok: pick.map(() => null),          // per item: null (unchecked) | true | false
-    bl: pick.map(i => pool[i].a.map(() => null)), // per blank result
-    checked: false,
-    score: null,
-    ts: Date.now(),
-  };
-}
-function ggFilled(st){ return st.ans.filter(a => a.every(x => String(x).trim() !== '')).length; }
-
-// - views -
-function ggTileStyle(){
-  const fac = FAC_MAP[GEO_CAT_FAC.language];
-  return fac ? { tint: ` style="background:${hexToRgba(fac.hex, 0.14)}"`, ico: ` style="color:${fac.color}"` } : { tint:'', ico:'' };
-}
-function viewGrammarTopics(){
-  return `
-    <a class="back-link" href="#">← Back to Mr Eric's Lounge</a>
-    <section style="padding-top:14px;">
-      <div class="section-head"><span class="emoji">${icon('book')}</span><h2>Grammar Practice</h2></div>
-      <div class="ivb-search-wrap">
-        <span class="ivb-search-icon">${icon('search')}</span>
-        <input type="text" id="ggSearch" class="search-input" placeholder="Search a topic…" autocomplete="off" autocapitalize="off" spellcheck="false">
-      </div>
-      <div class="sport-hub-grid" id="ggGrid"><div class="empty-card" style="grid-column:1/-1;">Loading…</div></div>
-    </section>`;
-}
-function viewGrammarLevels(topicId){
-  return `
-    <a class="back-link" href="#grammar-gym">← Back to Grammar Practice</a>
-    <section style="padding-top:14px;">
-      <div class="section-head"><span class="emoji">${icon('book')}</span><h2 id="ggLevelsTitle">Loading…</h2></div>
-      <div class="sport-hub-grid gg-levels" id="ggLevels" data-topic="${escapeHtml(topicId)}"></div>
-    </section>`;
-}
-function viewGrammarExercise(topicId, level){
-  return `
-    <a class="back-link" href="#grammar-gym/${escapeHtml(topicId)}">← Back to levels</a>
-    <section style="padding-top:14px;" id="ggExercise" data-topic="${escapeHtml(topicId)}" data-level="${escapeHtml(level)}">
-      <div class="section-head"><span class="emoji">${icon('book')}</span><h2 id="ggExTitle">Loading…</h2></div>
-      <div class="empty-card">Loading…</div>
-    </section>`;
-}
-
-// - wiring -
-function wireGrammarGym(app, parts){
-  ggLoadBank().then(bank => {
-    if(!document.body.contains(app) || app.querySelector('#ggGrid, #ggLevels, #ggExercise') == null) return;
-    if(parts[2]) ggWireExercise(app, bank, parts[1], parts[2]);
-    else if(parts[1]) ggWireLevels(app, bank, parts[1]);
-    else ggWireTopics(app, bank);
-  }).catch(() => {
-    const box = app.querySelector('#ggGrid, #ggLevels, #ggExercise');
-    if(box) box.innerHTML = '<div class="empty-card" style="grid-column:1/-1;">Could not load the exercises. Check your connection and reload.</div>';
-  });
-}
-function ggWireTopics(app, bank){
-  const grid = app.querySelector('#ggGrid'), input = app.querySelector('#ggSearch');
-  const st = ggTileStyle();
-  grid.innerHTML = bank.topics.map(t => {
-    let busy = false;
-    GG_LEVELS.forEach(l => { const s = ggLoad(t.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; });
-    return `<a class="sport-hub-tile gg-tile" href="#grammar-gym/${t.id}" data-name="${escapeHtml(t.name.toLowerCase())}"${st.tint}>
-      <span class="name"><span class="hub-icon"${st.ico}>${icon('book')}</span> ${escapeHtml(t.name)}${busy ? ' <span class="gg-dot" title="In progress"></span>' : ''}</span>
-    </a>`;
-  }).join('') + '<div class="empty-card" id="ggNone" style="grid-column:1/-1;display:none;">No topic matches.</div>';
-  input.addEventListener('input', () => {
-    const words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
-    let shown = 0;
-    grid.querySelectorAll('.gg-tile').forEach(a => {
-      const ok = words.every(w => a.dataset.name.includes(w));
-      a.style.display = ok ? '' : 'none';
-      if(ok) shown++;
-    });
-    grid.querySelector('#ggNone').style.display = shown ? 'none' : '';
-  });
-}
-function ggWireLevels(app, bank, topicId){
-  const topic = bank.topics.find(t => t.id === topicId);
-  const box = app.querySelector('#ggLevels');
-  if(!topic){ box.innerHTML = '<div class="empty-card" style="grid-column:1/-1;">Topic not found.</div>'; return; }
-  app.querySelector('#ggLevelsTitle').textContent = topic.name;
-  const st = ggTileStyle();
-  box.innerHTML = GG_LEVELS.map(l => {
-    const s = ggLoad(topicId, l.key);
-    let status = 'Not started';
-    if(s){
-      if(s.checked && s.score != null) status = (s.score === GG_PER_SET ? 'Last score: 20/20 ✓' : 'Last score: ' + s.score + '/' + GG_PER_SET);
-      else if(ggFilled(s) > 0) status = 'In progress · ' + ggFilled(s) + '/' + GG_PER_SET + ' answered';
-    }
-    return `<a class="sport-hub-tile gg-level" href="#grammar-gym/${topicId}/${l.key}"${st.tint}>
-      <span class="name" style="flex-direction:column;gap:3px;"><span>${l.label}</span><span class="gg-sub">${escapeHtml(status)}</span></span>
-    </a>`;
-  }).join('');
-}
-function ggItemHtml(it, n, ansRow, blRow, okVal){
-  const segs = it.q.split('___');
-  const hasBlank = segs.length > 1;
-  let h = '';
-  if(hasBlank){
-    segs.forEach((seg, bi) => {
-      h += escapeHtml(seg);
-      if(bi < segs.length - 1){
-        const v = ansRow[bi] || '';
-        const cls = blRow[bi] === true ? ' gg-ok' : (blRow[bi] === false ? ' gg-bad' : '');
-        h += `<input type="text" class="gg-inp${cls}" data-b="${bi}" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
-      }
-    });
-  } else {
-    const v = ansRow[0] || '';
-    const cls = blRow[0] === true ? ' gg-ok' : (blRow[0] === false ? ' gg-bad' : '');
-    h = escapeHtml(it.q) + `<input type="text" class="gg-inp gg-wide${cls}" data-b="0" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} placeholder="Type the full sentence…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
-  }
-  const mark = okVal === true ? ' gg-item-ok' : (okVal === false ? ' gg-item-bad' : '');
-  return `<div class="gg-item${mark}" data-i="${n}"><span class="gg-num">${n + 1}</span><div class="gg-q${hasBlank ? '' : ' gg-q-block'}">${h}</div></div>`;
-}
-function ggWireExercise(app, bank, topicId, level){
-  const topic = bank.topics.find(t => t.id === topicId);
-  const lv = GG_LEVELS.find(l => l.key === level);
-  const root = app.querySelector('#ggExercise');
-  if(!topic || !lv || !(topic.levels[level] || []).length){ root.innerHTML = '<div class="empty-card">Exercise not found.</div>'; return; }
-  let st = ggLoad(topicId, level);
-  const valid = st && Array.isArray(st.items) && st.items.length && Array.isArray(st.ans) && st.items.length === st.ans.length;
-  if(!valid){ st = ggDraw(topic, level, st && st.idx); ggSave(topicId, level, st); }
-  function render(scrollTop){
-    const done = st.checked && st.score === GG_PER_SET;
-    root.innerHTML = `
-      <div class="section-head"><span class="emoji">${icon('book')}</span><h2>${escapeHtml(topic.name)}</h2></div>
-      <div class="gg-meta"><span class="gg-lvl">${lv.label}</span><span id="ggProg"></span></div>
-      <div class="gg-banner" id="ggBanner" style="display:none;"></div>
-      <div class="gg-list" id="ggList">${st.items.map((it, n) => ggItemHtml(it, n, st.ans[n], st.bl[n], st.ok[n])).join('')}</div>
-      <div class="gg-actions">
-        <button class="gg-btn gg-btn-main" id="ggCheck">Check</button>
-        <button class="gg-btn" id="ggAgain">Reset</button>
-      </div>
-      <div class="gg-banner" id="ggBanner2" style="display:none;"></div>`;
-    updateProg(); showBanner();
-    wire();
-    if(scrollTop) window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-  function updateProg(){
-    const p = root.querySelector('#ggProg');
-    if(p) p.textContent = ggFilled(st) + '/' + GG_PER_SET + ' answered';
-  }
-  function showBanner(){
-    ['#ggBanner', '#ggBanner2'].forEach(sel => {
-      const b = root.querySelector(sel);
-      if(!b) return;
-      if(!st.checked){ b.style.display = 'none'; return; }
-      b.style.display = '';
-      b.className = 'gg-banner ' + (st.score === GG_PER_SET ? 'gg-banner-ok' : 'gg-banner-mid');
-      b.textContent = st.score === GG_PER_SET ? '20/20. Perfect! Tap Reset for a new set.' : st.score + '/' + GG_PER_SET + ' correct. Fix the red ones and check again.';
-    });
-  }
-  // Marks results in place (no re-render) so the page never jumps while checking.
-  function applyResults(){
-    root.querySelectorAll('.gg-item').forEach(item => {
-      const n = +item.dataset.i;
-      item.classList.toggle('gg-item-ok', st.ok[n] === true);
-      item.classList.toggle('gg-item-bad', st.ok[n] === false);
-      item.querySelectorAll('.gg-inp').forEach(inp => {
-        const r = st.bl[n][+inp.dataset.b];
-        inp.classList.toggle('gg-ok', r === true);
-        inp.classList.toggle('gg-bad', r === false);
-        inp.readOnly = st.ok[n] === true;
-      });
-    });
-    showBanner(); updateProg();
-  }
-  function wire(){
-    root.querySelectorAll('.gg-inp').forEach(inp => {
-      inp.addEventListener('input', () => {
-        const item = inp.closest('.gg-item'), n = +item.dataset.i, b = +inp.dataset.b;
-        st.ans[n][b] = inp.value;
-        // editing a previously flagged blank clears its red mark; item stays unchecked until re-check
-        if(st.bl[n][b] === false){ st.bl[n][b] = null; inp.classList.remove('gg-bad'); if(st.ok[n] === false){ st.ok[n] = null; item.classList.remove('gg-item-bad'); } }
-        ggSave(topicId, level, st); updateProg();
-      });
-      inp.addEventListener('keydown', e => {
-        if(e.key !== 'Enter') return;
-        e.preventDefault();
-        const all = Array.from(root.querySelectorAll('.gg-inp:not([readonly])'));
-        const nxt = all[all.indexOf(inp) + 1];
-        if(nxt) nxt.focus(); else inp.blur();
-      });
-    });
-    root.querySelector('#ggCheck').addEventListener('click', () => {
-      let score = 0;
-      st.items.forEach((it, n) => {
-        let all = true;
-        it.a.forEach((acc, b) => { const r = ggBlankOk(st.ans[n][b], acc); st.bl[n][b] = r; if(!r) all = false; });
-        st.ok[n] = all; if(all) score++;
-      });
-      st.checked = true; st.score = score; ggSave(topicId, level, st);
-      if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
-      applyResults();
-      const firstBad = root.querySelector('.gg-item-bad');
-      if(firstBad){ firstBad.style.scrollMarginTop = '90px'; firstBad.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
-    });
-    root.querySelector('#ggAgain').addEventListener('click', () => {
-      if(!st.checked && ggFilled(st) > 0 && !confirm('Reset? This gives you a new set and your current answers will be lost.')) return;
-      st = ggDraw(topic, level, st.idx); ggSave(topicId, level, st);
-      render(true);
-    });
-  }
-  render(false);
 }
 
 function viewIrregularVerbsHub(){
@@ -33004,7 +32683,7 @@ function viewHome(){
           <div class="sub">Jump straight to a random game</div>
         </div>
       </button>
-      <a class="random-tile" href="#grammar-gym" id="grammarGymTile" style="margin-top:12px; text-decoration:none;">
+      <a class="random-tile" href="grammar.html" id="grammarGymTile" style="margin-top:12px; text-decoration:none;">
         <span class="icon">${icon('book')}</span>
         <div>
           <div class="title">Practise grammar</div>
@@ -34431,12 +34110,10 @@ function renderRoute(opts){
     html = viewSolitaireGame();
   } else if(parts[0] === 'alias-game'){
     html = viewAliasGame();
-  } else if(parts[0] === 'grammar-gym' && parts[2]){
-    html = viewGrammarExercise(parts[1], parts[2]);
-  } else if(parts[0] === 'grammar-gym' && parts[1]){
-    html = viewGrammarLevels(parts[1]);
   } else if(parts[0] === 'grammar-gym'){
-    html = viewGrammarTopics();
+    // Grammar Practice now lives on its own page (old bookmarks / links still land there).
+    location.replace('grammar.html' + (parts[1] ? '#' + parts.slice(1).join('/') : ''));
+    return;
   } else if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){
     html = viewIrregularVerbsPractice();
   } else if(parts[0] === 'irregular-verbs' && parts[1]){
@@ -34603,7 +34280,6 @@ function renderRoute(opts){
   if(parts[0] !== 'durak-game' && dkSp){ if(dkSp.aiTimer) clearTimeout(dkSp.aiTimer); dkSp = null; }
   if(parts[0] === 'solitaire-game'){ wireSolitaireGame(app); if(solitaireState){ solitaireState.runStart = 0; if(!solitaireState.over) solResume(); } }
   if(parts[0] !== 'solitaire-game'){ solPause(); solEndDrag(); if(solitaireState){ solitaireState = null; } }
-  if(parts[0] === 'grammar-gym'){ wireGrammarGym(app, parts); }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
   if(parts[0] === 'install'){ wireInstallPage(); }

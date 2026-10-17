@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compile scripts/grammar-bank-src/t*.txt into data/grammar-bank.json (Grammar Practice).
+"""Compile scripts/grammar-bank-src/t*.txt into data/grammar/ (index.json + one JSON per topic) (Grammar Practice).
 Format per line:  question with ___ per blank => accepted|alt ;; accepted for blank 2
 A line with no ___ is a whole-sentence answer (rewrite / correct the mistake). Contractions,
 capitalisation, punctuation and American spellings are forgiven by the app's checker."""
@@ -32,5 +32,12 @@ for t in topics:
             seen.add(it['q']); out.append(it)
         t['levels'][k] = out
 if bad: sys.exit(1)
-open(os.path.join(root, 'data/grammar-bank.json'), 'w', encoding='utf-8').write(json.dumps({'topics': topics}, ensure_ascii=False, separators=(',', ':')) + '\n')
-print(len(topics), 'topics written')
+outdir = os.path.join(root, 'data/grammar')
+os.makedirs(outdir, exist_ok=True)
+for f in os.listdir(outdir):
+    if f.endswith('.json'): os.remove(os.path.join(outdir, f))
+dump = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':')) + '\n'
+for t in topics:
+    open(os.path.join(outdir, t['id'] + '.json'), 'w', encoding='utf-8').write(dump(t))
+open(os.path.join(outdir, 'index.json'), 'w', encoding='utf-8').write(dump({'topics': [{'id': t['id'], 'name': t['name']} for t in topics]}))
+print(len(topics), 'topics written to data/grammar/ (one file each + index.json)')
