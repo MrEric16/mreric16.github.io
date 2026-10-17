@@ -2,6 +2,7 @@ from lib import *
 from passive import gen_topic
 SGq = [Subj('I','i','i'),Subj('You','you','you'),Subj('He','sg','he'),Subj('She','sg','she'),Subj('We','pl','we'),Subj('They','pl','they'),Subj('Tom','sg','he',True),Subj('Anna','sg','she',True),Subj('Aziz','sg','he',True),Subj('Malika','sg','she',True),Subj('Karim','sg','he',True),Subj('Dilya','sg','she',True),Subj('My brother','sg','he'),Subj('My sister','sg','she'),Subj('My parents','pl','they'),Subj('The students','pl','they')]
 def mood2(rng): return rng.pick(['aff','neg'])
+def _lab(S): return S.text[0].lower() + S.text[1:] if S.text.split()[0] in ('He','She','We','They','You','The','My','Our','This','That','These','Those','Her','His','Their') else S.text
 def pr_sub(S): return {'i':'I','you':'you','he':'he','she':'she','we':'we','they':'they'}[S.pron]
 NOTDO = ('be',)
 # ====== question tags ======
@@ -209,7 +210,10 @@ def gen_sn(level, rng):
             return line('Correct the mistake: ' + f"{st} {wrong}", [f"{st} {x}" for x in alt])
         tooe = f"{sub2[0].upper()+sub2[1:] if S2.proper or True else sub2} {n2} {'either' if neg else 'too'}."
         tooe2 = f"{sub2[0].upper()+sub2[1:]} {n2}, {'either' if neg else 'too'}."
-        return line(f"Reply with '{'neither' if neg else 'so'}' ({S2.text}): {st}", alt)
+        pj = pr_sub(S2); pj = 'I' if pj == 'I' else pj.lower()
+        if pj != sub2:
+            alt = alt + [x.replace(f" {sub2}.", f" {pj}.") for x in alt]
+        return line(f"Reply with '{'neither' if neg else 'so'}', using {_lab(S2)} as the subject: {st}", alt)
     # too / either
     resp = f"{sub2[0].upper()+sub2[1:]} {n2} {'either' if neg else 'too'}."
     resp_alt = f"{sub2[0].upper()+sub2[1:]} {n2}, {'either' if neg else 'too'}."
@@ -219,7 +223,11 @@ def gen_sn(level, rng):
     if k == 'fix':
         wrong = f"{sub2[0].upper()+sub2[1:]} {n2} {'too' if neg else 'either'}."
         return line('Correct the mistake: ' + f"{st} {wrong}", [f"{st} {resp}", f"{st} {resp_alt}"])
-    return line(f"Reply with '{'either' if neg else 'too'}' ({S2.text}): {st}", [resp, resp_alt])
+    pj = pr_sub(S2); pj = 'I' if pj == 'I' else pj.lower()
+    extra = []
+    if pj.lower() != sub2.lower():
+        extra = [x.replace(sub2[0].upper() + sub2[1:], pj[0].upper() + pj[1:], 1) for x in (resp, resp_alt)]
+    return line(f"Reply with '{'either' if neg else 'too'}', using {_lab(S2)} as the subject: {st}", [resp, resp_alt] + extra)
 def gen_misc3_jobs(C):
     return {'question-tags': lambda: gen_topic(gen_tag, C, 104),
             'indirect-questions': lambda: gen_topic(gen_ind, C, 105),
