@@ -3,9 +3,6 @@
 [goal-scraper] [PD] Found 1 finished-match links
 [goal-scraper] [BL1] Found 1 finished-match links
 [goal-scraper] [SA] Found 1 finished-match links
-[goal-scraper] WARNING: Frosinone scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq
-[goal-scraper] [SA] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Frosinone 4-2 Sassuolo: https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq
-[goal-scraper] [SA] Added: Frosinone 4-2 Sassuolo
 [goal-scraper] [FL1] Found 1 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 23 finished-match links
@@ -65,6 +62,7 @@
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Paris Fc on 2026-01-12
 [goal-scraper] WARNING: Paris Saint Germain scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/rennes-vs-paris-saint-germain/n1px-CIQndBw5p3N1QVaq
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Rennes vs Paris Saint Germain on 2026-08-23
+[goal-scraper] [psg] Added: Paris Saint Germain 1-2 Monaco
 [goal-scraper] [marseille] Found 18 finished-match links
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Bourg En Bresse Peronnas vs Marseille on 2025-12-21
 [goal-scraper] WARNING: Marseille scored 9 but only 6 scorer(s) were parsed for https://www.goal.com/en/match/bayeux-vs-marseille/R85xLJltvhkq24LKLCcBj

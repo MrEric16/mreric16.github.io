@@ -1,41 +1,6 @@
 {
-  "generatedAt": "2026-10-17T05:15:22.100610Z",
+  "generatedAt": "2026-10-17T09:33:47.116287Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/real-madrid-vs-leganes/Q5TuVS4FQ8m2iPuWzknzu",
-      "date": "2026-07-28",
-      "home": "Real Madrid",
-      "away": "Leganes",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "F. Valverde",
-          "minute": 22
-        },
-        {
-          "scorer": "G. Garcia",
-          "minute": 27
-        },
-        {
-          "scorer": "F. Mastantuono",
-          "minute": 58
-        },
-        {
-          "scorer": "R. Pulido",
-          "minute": 60
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "N. Garcia",
-          "minute": 36
-        }
-      ],
-      "competition": "real-madrid"
-    },
     {
       "url": "https://www.goal.com/en/match/real-madrid-vs-fiorentina/MWLhFr8VnXIup0MJXpIrF",
       "date": "2026-08-01",
@@ -7855,6 +7820,33 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-monaco/n1scCm_7mzZjbz2yZ5dFp",
+      "date": null,
+      "home": "Paris Saint Germain",
+      "away": "Monaco",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "Marquinhos",
+          "minute": 31
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "F. Nazinho",
+          "minute": 58
+        },
+        {
+          "scorer": "S. Idumbo",
+          "minute": 72
+        }
+      ],
+      "competition": "psg"
     }
   ],
   "scorerParseRetryCounts": {
