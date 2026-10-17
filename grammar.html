@@ -174,7 +174,7 @@ function hexToRgba(hex, a){ var h = hex.replace('#',''); return 'rgba(' + parseI
 function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
 function ggLoad(topic, level){ try{ var raw = localStorage.getItem(ggKey(topic, level)); if(raw) return JSON.parse(raw); }catch(e){} return null; }
 function ggSave(topic, level, st){ try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
-var DATA_V = 'e8cf1bbb82';
+var DATA_V = '22ecbaf460';
 function getJson(u){ return fetch(u + '?v=' + DATA_V).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
 var INDEX_P = null, TOPIC_P = {};
 function loadIndex(){ if(!INDEX_P) INDEX_P = getJson('data/grammar/index.json').catch(function(e){ INDEX_P = null; throw e; }); return INDEX_P; }
@@ -213,6 +213,8 @@ function ggCanon(s){
        .replace(/\b(he|she|it|that|there|here|what|who|where|how|when|why)'s\b/g, '$1 is')
        .replace(/(^|\s)'s\b/g, ' is');
   s = s.replace(/\bcan not\b/g, 'cannot');
+  // plural possessive (students' books) keeps its apostrophe marker so it is not equal to the plain plural
+  s = s.replace(/(\w)s'(?=\s|$|[.,!?;:])/g, '$1s poss0');
   // apostrophes are optional: "isnt", "doesnt", "im", "theyre" etc. count the same as the contracted form
   s = s.replace(/\b(is|are|was|were|do|does|did|has|have|had|could|would|should|must|need)nt\b/g, '$1 not')
        .replace(/\bcant\b/g, 'cannot').replace(/\bwont\b/g, 'will not').replace(/\bshant\b/g, 'shall not')

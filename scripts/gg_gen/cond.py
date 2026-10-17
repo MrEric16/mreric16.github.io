@@ -312,7 +312,7 @@ def gen_cond(typ, level, rng, hint=False):
         w = build(P, typ, rng, forms=(fi, fr))[0]
         okv = full_variants(P, typ)
         if w in okv: return None
-        return line('Correct the mistake: ' + w + h, okv)
+        return line('Correct the mistake: ' + w + (h or f" ({HINT[typ]})"), okv)
     if k == 'neg':
         if not can_flip(P): return None
         src = build(P, typ, rng)[0]

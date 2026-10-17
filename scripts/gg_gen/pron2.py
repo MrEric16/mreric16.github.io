@@ -64,7 +64,7 @@ def gen_refl(level, rng):
         return line(f"Correct the mistake: {S.text} {p} {bad} {rest}.", [f"{S.text} {p} {R} {rest}."])
     if kk == 'f2':
         objp = S.objp
-        return line(f"Correct the mistake: {S.text} {p} {objp} {rest}.", [f"{S.text} {p} {R} {rest}."])
+        return line(f"Correct the mistake: {S.text} {p} {objp} {rest}. (same person)", [f"{S.text} {p} {R} {rest}."])
     P, pr = rng.pick(PAIRS); rb, rp = rng.pick(RECIP)
     return line(f"Correct the mistake: {P} {rp} themselves.", [f"{P} {rp} each other.", f"{P} {rp} one another."])
 

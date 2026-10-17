@@ -1,3 +1,4 @@
+from passive import _degenerate
 from tense import *
 
 def fc(t, S, V, pol, rng):
@@ -27,7 +28,7 @@ def pl(S): return 'I' if S.kind == 'i' else S.pron
 
 # ----- pair specific contrast items -----
 EVENTS = [("the phone ___ (ring)",'rang'),("the lights ___ (go) out",'went'),("the bell ___ (ring)",'rang'),("it ___ (start) to rain",'started'),
-          ("the teacher ___ (come) in",'came'),("somebody ___ (knock) on the door",'knocked'),("the alarm ___ (go) off",'went'),("the power ___ (fail)",'failed')]
+          ("the headteacher ___ (come) in",'came'),("somebody ___ (knock) on the door",'knocked'),("the alarm ___ (go) off",'went'),("the power ___ (fail)",'failed')]
 def contrast_ps_pc(S,rng):
     V1,V2 = rng.pick(VERBS), rng.pick(VERBS); c1,c2 = rng.pick(V1.comps), rng.pick(V2.comps)
     h = rng.pick(['usually','often','always']); e = rng.pick(['right now','at the moment','today'])
@@ -52,7 +53,7 @@ def contrast_pp_ppc(S,rng):
     V1 = rng.pick([v for v in VERBS if not v.ach]); V2 = rng.pick(VERBS)
     c1,c2 = rng.pick(V1.comps), rng.pick(V2.comps)
     dur = rng.pick(['for two hours','all morning','since nine o\'clock','all day','for three hours'])
-    num = rng.pick(['three times','twice','already','so far'])
+    num = rng.pick(['three times','twice','already'])
     if rng.pick([0,1]):
         return line(f"{S.text} ___ ({V1.base}) {c1} {dur}. {Pn(S)} ___ ({V2.base}) {c2} {num}.", grp('ppc',S,V1), grp('pp',S,V2))
     return line(f"{S.text} ___ ({V2.base}) {c2} {num}. {Pn(S)} ___ ({V1.base}) {c1} {dur}.", grp('pp',S,V2), grp('ppc',S,V1))
@@ -70,12 +71,14 @@ def pn_short(S): return S.pron
 def contrast_fp_fpn(S,rng):
     V1 = rng.pick(VERBS); V2 = rng.pick([v for v in VERBS if v.base in FPN_OK]); c1,c2 = rng.pick(V1.comps), rng.pick(V2.comps)
     lead = rng.pick(FPN_NEAR); dur = rng.pick(['for two hours','for three hours','for an hour','for four hours'])
+    c1 = c1 + ' ' + rng.pick(['twice','three times'])
     if rng.pick([0,1]):
         return line(f"{lead} {S.mid} ___ ({V1.base}) {c1} and {pl(S)} ___ ({V2.base}) {c2} {dur}.", grp('fp',S,V1), grp('fpn',S,V2))
     return line(f"{lead} {S.mid} ___ ({V2.base}) {c2} {dur}, and {pl(S)} ___ ({V1.base}) {c1}.", grp('fpn',S,V2), grp('fp',S,V1))
 def contrast_pap_papn(S,rng):
     V1 = rng.pick(VERBS); V2 = rng.pick([v for v in VERBS if v.base in FPN_OK]); c1,c2 = rng.pick(V1.comps), rng.pick(V2.comps)
     ev = rng.pick(PAPN_CL); dur = rng.pick(['for two hours','for three hours','for an hour','all morning','since nine o\'clock'])
+    c1 = c1 + ' ' + rng.pick(['twice','three times'])
     if rng.pick([0,1]):
         return line(f"{S.text} ___ ({V1.base}) {c1} and {pl(S)} ___ ({V2.base}) {c2} {dur} {ev}.", grp('pap',S,V1), grp('papn',S,V2))
     return line(f"{cap(ev)}, {S.mid} ___ ({V2.base}) {c2} {dur}, and {pl(S)} ___ ({V1.base}) {c1}.", grp('papn',S,V2), grp('pap',S,V1))
@@ -99,6 +102,17 @@ def gen_or(tid, rng, level):
     S = rng.pick(SUBJ); V = rng.pick(VERBS); comp = rng.pick(V.comps)
     t = rng.pick(ts); other = ts[1] if t == ts[0] else ts[0]
     if not valid(t,V): return None
+    def fcx(t_, S_, V_, pol_, rng_):
+        c_ = fc(t_, S_, V_, pol_, rng_)
+        # simple tense next to its continuous twin must carry a result cue, continuous a duration cue
+        if tid == 'pap_papn' and t_ == 'pap': c_['end'] = rng_.pick(['twice','three times','already']) + ' ' + rng_.pick(PAP_END)
+        elif tid == 'fp_fpn' and t_ == 'fp':
+            c_['end'] = rng_.pick(['twice','three times']); c_['lead'] = ''; c_['kind'] = 'none'
+            if rng_.pick([0,1]): c_['lead'], c_['kind'] = rng_.pick(FP_LEAD), 'clause'
+            else: c_['end'] += ' ' + rng_.pick(FP_END)
+        elif tid == 'pp_ppc' and t_ == 'pp': c_['end'] = rng_.pick(['already','three times','twice']) if pol_ == 'aff' else 'yet'
+        elif tid == 'pp_ppc' and t_ == 'ppc' and c_['end'] == 'lately': c_['end'] = 'all day'
+        return c_
     if tid == 'pap_pas' and t == 'pap':
         cue = rng.pick(PAP_END); pol = rng.pick(['aff','aff','neg','q'])
         if pol == 'aff': return line(f"{S.text} ___ (already / {V.base}) {comp} {cue}.", [f"had already {V.pp}"])
@@ -107,29 +121,29 @@ def gen_or(tid, rng, level):
     if tid == 'pap_pas' and level == 'hard' and False: return None
     if level == 'easy':
         r = rng.r.random(); pol = 'aff' if r < .6 else ('neg' if r < .85 else 'q')
-        c = fc(t,S,V,pol,rng)
+        c = fcx(t,S,V,pol,rng)
         if pol == 'aff': return line(aff(t,S,V,comp,c,f"___ ({V.base})"), grp(t,S,V))
         if pol == 'neg': return line(neg(t,S,V,comp,c,f"___ (not / {V.base})"), grp(t,S,V,True))
         a,rr = qp(t,S,V); return line(ques(t,S,V,comp,c,'___',rr),[a])
     if level == 'medium':
         k = rng.pick(['single','single','q','contrast','contrast','contrast','short','tag','extra'])
         if k == 'single':
-            pol = rng.pick(['aff','neg']); c = fc(t,S,V,pol,rng)
+            pol = rng.pick(['aff','neg']); c = fcx(t,S,V,pol,rng)
             if pol == 'aff': return line(aff(t,S,V,comp,c,f"___ ({V.base})"), grp(t,S,V))
             return line(neg(t,S,V,comp,c,f"___ (not / {V.base})"), grp(t,S,V,True))
         if k == 'q':
-            c = fc(t,S,V,'q',rng); a,rr = qp(t,S,V)
+            c = fcx(t,S,V,'q',rng); a,rr = qp(t,S,V)
             return line(ques(t,S,V,comp,c,'___',f"___ ({V.base})"),[a],[rr])
         if k == 'short':
             if S.kind == 'i': return None
-            c = fc(t,S,V,'q',rng); qq = ques(t,S,V,comp,c); p = pron_ans(S)
+            c = fcx(t,S,V,'q',rng); qq = ques(t,S,V,comp,c); p = pron_ans(S)
             return line(f"{qq} Yes, {p} ___.", [short_aux(t,S)]) if rng.pick([0,1]) else line(f"{qq} No, {p} ___.", negs(short_aux(t,S)))
         if k == 'tag':
             if S.kind == 'i': return None
-            c = fc(t,S,V,'aff',rng); c['pre'] = ''
+            c = fcx(t,S,V,'aff',rng); c['pre'] = ''
             if c['kind'] == 'sentence': return None
             if rng.pick([0,1]): return line(aff(t,S,V,comp,c)[:-1] + f", ___ {S.pron}?", negs(short_aux(t,S)))
-            c = fc(t,S,V,'neg',rng)
+            c = fcx(t,S,V,'neg',rng)
             if c['kind'] == 'sentence': return None
             return line(neg(t,S,V,comp,c)[:-1] + f", ___ {S.pron}?", [short_aux(t,S)])
         if k == 'extra':
@@ -153,7 +167,7 @@ def gen_or(tid, rng, level):
     k = rng.pick(['fix','fix','fix','contrast','contrast','contrast','neg','q','switch'])
     if k == 'fix':
         if tid in ('fp_fpn','pap_papn','pap_pas'): return None
-        pol = rng.pick(['aff','neg','q']); c = fc(t,S,V,pol,rng)
+        pol = rng.pick(['aff','neg','q']); c = fcx(t,S,V,pol,rng)
         if pol != 'aff': c['pre'] = ''
         if not valid(other,V): return None
         f = {'aff': aff, 'neg': neg, 'q': ques}[pol]
@@ -171,7 +185,7 @@ def gen_or(tid, rng, level):
         e = rng.pick(['every day','every week','on Mondays','at the weekend'])
         c2 = dict(lead='',kind='none',pre='',end=e)
         return line(f'Rewrite with "{e}": ' + aff('pc',S,V,comp,c), [aff('ps',S,V,comp,c2)])
-    c = fc(t,S,V,'neg' if k == 'neg' else 'q',rng); c['pre'] = ''
+    c = fcx(t,S,V,'neg' if k == 'neg' else 'q',rng); c['pre'] = ''
     if c['kind'] == 'sentence' or c['end'] in ('already',): return None
     s1 = aff(t,S,V,comp,c)
     if k == 'neg': return line('Make a negative sentence: ' + s1, [neg(t,S,V,comp,c)])
@@ -184,8 +198,9 @@ def gen_or_topic(tid, counts, seed):
         while len(lines) < n and tries < n * 100:
             tries += 1
             l = gen_or(tid, rng, level)
-            if not l or bad_prompt(l): continue
+            if not l or bad_prompt(l) or _degenerate(l): continue
             q = l.split(' => ')[0]
+            if tid in ('pp_ppc','pap_papn','fp_fpn') and '(not /' in q and 'been ' in l.split(' => ')[1] and ', ___' not in q: continue
             if q in seen: continue
             seen.add(q); lines.append(l)
         out[level] = lines

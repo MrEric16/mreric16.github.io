@@ -76,7 +76,7 @@ def build(rng):
         if S.text == 'I': return None
         V, comp = vcomp(rng); wh = rng.pick(WH); b = _be(S); sm = S.mid
         return dict(right=f"{wh} {b} {sm} {V.ing} {comp}?", wrong=f"{wh} {sm} {b} {V.ing} {comp}?", rt=f"{b} {sm}", wt=f"{sm} {b}")
-    r, w, rt, wt = rng.pick(CONF)
+    w, r, wt, rt = rng.pick(CONF)
     return dict(right=r, wrong=w, rt=rt, wt=wt)
 def gen_ec(level, rng):
     d = build(rng)

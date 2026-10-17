@@ -12,7 +12,11 @@ def comp_for(S, rng, past=False):
     if k == 'adj': return rng.pick(ADJ), 'adj'
     if k == 'place': return rng.pick(PLACE), 'place'
     if k == 'noun':
-        n = rng.pick(NOUN); return (n[1] if S.kind in ('pl','you') else n[0]), 'noun'
+        for _ in range(20):
+            n = rng.pick(NOUN)
+            head = n[1].split()[-1].rstrip('s')
+            if head not in S.text.lower() and 'friend' not in S.text.lower(): break
+        return (n[1] if S.kind in ('pl','you') else n[0]), 'noun'
     if k == 'from': return rng.pick(FROM), 'from'
     return f"{rng.pick(AGES)} years old", 'age'
 

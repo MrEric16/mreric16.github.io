@@ -178,7 +178,7 @@ def gen_obligation(level, rng):
         return line('Correct the mistake: ' + rng.pick(w) + ' ' + reason, [x + ' ' + reason for x in good])
     if k == 'rewrite':
         if typ == 'must' and tm == 'now': return line('Rewrite with "have to": ' + f"{pre} must {ph}.", [f"{pre} {hv(S)} {ph}."])
-        if typ == 'mnt': return line('Rewrite with "not allowed to": ' + f"{pre} mustn't {ph}.", [f"{pre} {be_pres(S)} not allowed to {ph}.", f"{pre} {be_pres(S)}n't allowed to {ph}." if S.kind != 'i' else f"{pre} am not allowed to {ph}.", f"{pre} {CONTR(S)} not allowed to {ph}."])
+        if typ == 'mnt': return line('Rewrite with "not allowed to": ' + f"{pre} mustn't {ph}.", [f"{pre} {be_pres(S)} not allowed to {ph}.", f"{pre} {be_pres(S)}n't allowed to {ph}." if S.kind != 'i' else f"{pre} am not allowed to {ph}.", f"{pre}{CONTR(S)} not allowed to {ph}."])
         if typ == 'dnt' and tm == 'now': return line('Rewrite with "needn\'t": ' + f"{pre} {dhv(S)} {ph}.", [f"{pre} needn't {ph}.", f"{pre} need not {ph}."])
         return None
     if k == 'neg' and typ == 'must':

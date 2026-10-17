@@ -96,7 +96,7 @@ def gen_asas(level, rng):
         comp = comp_of(adj)
         if not comp: return None
         cap2 = lambda s: s[0].upper()+s[1:]
-        return line(f"Rewrite with 'not as ... as': {A} is {comp[0]} than {B}. => ", [f"{B} isn't as {adj} as {A}."], [f"{cap2(B)} isn't as {adj} as {A}."]) if False else line(f"Rewrite with 'not as ... as': {cap2(B)} is {comp[0]} than {A}.", [f"{A} isn't as {adj} as {B}."])
+        return line(f"Rewrite with 'not as ... as': {A} is {comp[0]} than {B}. => ", [f"{B} isn't as {adj} as {A}."], [f"{cap2(B)} isn't as {adj} as {A}."]) if False else line(f"Rewrite with 'not as ... as': {cap2(B)} is {comp[0]} than {A[0].lower() + A[1:] if A.split()[0] in ('The','This','That','These','Those','My','Our') else A}.", [f"{A} isn't as {adj} as {B}."])
     return None
 def gen_te(level, rng):
     which = rng.pick(['too','enough','both'])

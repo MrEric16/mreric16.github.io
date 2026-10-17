@@ -67,9 +67,9 @@ def gen_deduction(level, rng):
         wrong = {'must':[f"{S} must of {pp}.",f"{S} must had {pp}.",f"{S} must to have {pp}."],'cant':[f"{S} can't of {pp}.",f"{S} can't had {pp}.",f"{S} can't to have {pp}."],'might':[f"{S} might of {pp}.",f"{S} might had {pp}.",f"{S} mights have {pp}."]}[kind]
         ctx = _ev(t, S, pos)
     blank = (lambda: (f"{_ev(t,S,pos)} {Pn} ___ {'be '+pred if not past else 'have '+pp}." if fr == 1 else f"{S} ___ {'be '+pred if not past else 'have '+pp}. {_ev(t,pn,pos)}"))
-    if level == 'easy': return line(blank(), ANSD[kind])
+    if level == 'easy': return line(blank() + ' ' + DEG[kind], ANSD[kind])
     if level == 'medium':
-        if rng.pick([0,1]): return line(two(), ANSD[kind], ['have' if past else 'be'])
+        if rng.pick([0,1]): return line(two() + ' ' + DEG[kind], ANSD[kind], ['have' if past else 'be'])
         return line(blank() + ' ' + DEG[kind], ANSD[kind])
     k = rng.pick(['rewrite','fix'])
     if k == 'rewrite':

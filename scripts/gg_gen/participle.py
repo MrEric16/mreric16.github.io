@@ -110,7 +110,8 @@ def gen_part(level, rng):
             return line(f"Complete the participle clause: {normal} = ___ ({base}) {' '.join(ph.split()[1:])}, {low} {m}.", [_cp(pv)])
         if level == 'medium':
             return line(f"Rewrite with a participle clause (start with the past participle): {normal}", [tgt])
-        bads = [f"{_cp(base)}ing {' '.join(ph.split()[1:])}, {low} {m}.".replace(f"{_cp(base)}ing", _cp(pv[:-2]) + 'ing' if pv.endswith('ed') else _cp(base) + 'ing'), f"Been {ph}, {low} {m}."]
+        ingf = (base[:-1] if base.endswith('e') and not base.endswith('ee') else base) + 'ing'
+        bads = [f"{_cp(ingf)} {' '.join(ph.split()[1:])}, {low} {m}.", f"Been {ph}, {low} {m}."]
         return line(f"Correct the mistake: {rng.pick(bads)}", [tgt])
     # reduced relative with -ing
     N, ph, m = rng.pick(RELI)

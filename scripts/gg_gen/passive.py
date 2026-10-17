@@ -277,7 +277,7 @@ def gen_modal_passive(it, level, rng):
     mdl = rng.pick(['must','should','can','could','may','might','ought to','has to',"can't","mustn't"])
     perf = rng.pick([False,False,False,True]) and mdl in ('must','should','could','may','might',"can't")
     cue = rng.pick(MCUE) if not perf else rng.pick(['yesterday','last week','by now','before Friday'])
-    mt = modal_text(mdl, n)
+    mt = modal_text(mdl, n); mta = modal_text(mdl, it['anum'])
     if perf: grp_ = f"have been {pp}"; blank = 'have been ' + pp
     else: grp_ = f"be {pp}"
     agent = rng.pick([False,False,True])
@@ -300,8 +300,8 @@ def gen_modal_passive(it, level, rng):
             return line(sent(f"___ ({v})", m2), [grp_])
         if k == 'act2pas':
             if mdl in ("has to","ought to"): pass
-            act_m = mt
-            act = cap(' '.join(x for x in [it['agent'], act_m, ('have ' + pp) if perf else v, it['obj'], cue] if x)) + '.'
+            act_m = mta
+            act = cap(' '.join(x for x in [it['agent'], mta, ('have ' + pp) if perf else v, it['obj'], cue] if x)) + '.'
             ans = cap(' '.join(x for x in [NP(it), mt, grp_, cue] if x)) + '.'
             ans2 = cap(' '.join(x for x in [NP(it), mt, grp_, 'by ' + it['agent'], cue] if x)) + '.'
             return line('Make it passive: ' + act, [ans2, ans])
@@ -311,13 +311,13 @@ def gen_modal_passive(it, level, rng):
         return line(cap(f"{aux} {NP(it)} ___ ({v}) {cue}?"), [grp_])
     k = rng.pick(['act2pas','act2pas','pas2act','fix','fix','neg','q'])
     if k == 'act2pas':
-        act = cap(' '.join(x for x in [it['agent'], mt, ('have ' + pp) if perf else v, it['obj'], cue] if x)) + '.'
+        act = cap(' '.join(x for x in [it['agent'], mta, ('have ' + pp) if perf else v, it['obj'], cue] if x)) + '.'
         ans = cap(' '.join(x for x in [NP(it), mt, grp_, cue] if x)) + '.'
         ans2 = cap(' '.join(x for x in [NP(it), mt, grp_, 'by ' + it['agent'], cue] if x)) + '.'
         return line('Make it passive: ' + act, [ans2, ans])
     if k == 'pas2act':
         src = cap(' '.join(x for x in [NP(it), mt, grp_, 'by ' + it['agent'], cue] if x)) + '.'
-        act = cap(' '.join(x for x in [it['agent'], mt, ('have ' + pp) if perf else v, it['obj'], cue] if x)) + '.'
+        act = cap(' '.join(x for x in [it['agent'], mta, ('have ' + pp) if perf else v, it['obj'], cue] if x)) + '.'
         return line('Make it active: ' + src, [act])
     if k == 'neg':
         m2 = {'must':"mustn't",'should':"shouldn't",'can':"can't",'could':"couldn't",'may':'may not','might':'might not'}.get(mdl)
@@ -372,6 +372,20 @@ def gen_active_or_passive(level, rng):
     bad = cap(' '.join([ob, act, 'by ' + ag, cue])) + '.'
     return line('Correct the mistake: ' + bad, [cap(' '.join([ob, pas[0], 'by ' + ag, cue])) + '.'])
 
+import re as _re_gt
+_REP = _re_gt.compile(r"\b([A-Za-z']+) \1\b", _re_gt.I)
+_REP_OK = {'had had', 'that that'}
+def _degenerate(l):
+    q, a = l.rsplit(' => ', 1)
+    texts = [q.replace('___', '_')] + [x for g in a.split(' ;; ') for x in g.split('|')]
+    for t in texts:
+        for m in _REP.finditer(t):
+            if m.group(0).lower() not in _REP_OK: return True
+    if q.startswith('Correct the mistake: '):
+        body = q[len('Correct the mistake: '):].strip().lower()
+        for g in a.split(' ;; '):
+            if body in [x.strip().lower() for x in g.split('|')]: return True
+    return False
 def gen_topic(fn, counts, seed):
     rng = Rng(seed); out = {}
     for level, n in counts.items():
@@ -379,7 +393,7 @@ def gen_topic(fn, counts, seed):
         while len(lines) < n and tries < n * 200:
             tries += 1
             l = fn(level, rng)
-            if not l or bad_prompt(l): continue
+            if not l or bad_prompt(l) or _degenerate(l): continue
             q = l.split(' => ')[0]
             if q in seen: continue
             seen.add(q); lines.append(l)

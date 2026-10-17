@@ -278,7 +278,7 @@ def nd_item(rng):
 def nd_s2(clause):
     w = clause.split(' ')
     if w[0] in ('I', 'we', 'everybody', 'Everybody'):
-        return cap(w[0]) + ' ' + w[1] + ' it ' + ' '.join(w[2:]) + '.'
+        return (cap(w[0]) + ' ' + w[1] + ' it ' + ' '.join(w[2:])).strip() + '.'
     return 'It ' + clause + '.'
 def nd_sent(d, rp=None):
     rp = rp or d['rp']
