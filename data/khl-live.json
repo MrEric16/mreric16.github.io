@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T14:11:48.460172+00:00",
+  "generatedAt": "2026-10-17T17:07:48.628004+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -14,6 +14,18 @@
       "points": 59
     },
     {
+      "team": "Lokomotiv",
+      "played": 24,
+      "won": 16,
+      "otWon": 11,
+      "soWon": 1,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 46,
+      "points": 56
+    },
+    {
       "team": "CSKA",
       "played": 24,
       "won": 15,
@@ -23,18 +35,6 @@
       "otLost": 0,
       "lost": 0,
       "gf": 50,
-      "points": 52
-    },
-    {
-      "team": "Lokomotiv",
-      "played": 22,
-      "won": 15,
-      "otWon": 10,
-      "soWon": 1,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 40,
       "points": 52
     },
     {
@@ -256,14 +256,14 @@
     {
       "team": "HC Sochi",
       "played": 6,
-      "won": 14,
+      "won": 15,
       "otWon": 3,
       "soWon": 0,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 19,
-      "points": 34
+      "gf": 22,
+      "points": 36
     }
   ],
   "fixtures": [
@@ -328,33 +328,18 @@
       "start": "2026-10-20T12:30:00+05:00"
     },
     {
-      "home": "Lokomotiv",
-      "away": "Neftekhimik",
-      "start": "2026-10-20T12:00:00+05:00"
-    },
-    {
-      "home": "Dynamo Msk",
-      "away": "Sibir",
-      "start": "2026-10-20T12:30:00+05:00"
-    },
-    {
-      "home": "SKA",
-      "away": "Avtomobilist",
-      "start": "2026-10-20T12:30:00+05:00"
-    },
-    {
-      "home": "Severstal",
-      "away": "Dragons",
-      "start": "2026-10-21T15:00:00+05:00"
-    },
-    {
       "home": "Admiral",
       "away": "Barys",
       "start": "2026-10-21T15:00:00+05:00"
     },
     {
-      "home": "Spartak",
-      "away": "CSKA",
+      "home": "Metallurg Mg",
+      "away": "Salavat Yulaev",
+      "start": "2026-10-21T15:00:00+05:00"
+    },
+    {
+      "home": "Severstal",
+      "away": "Dragons",
       "start": "2026-10-21T15:00:00+05:00"
     },
     {
@@ -363,9 +348,14 @@
       "start": "2026-10-21T15:00:00+05:00"
     },
     {
-      "home": "Metallurg Mg",
-      "away": "Salavat Yulaev",
+      "home": "Spartak",
+      "away": "CSKA",
       "start": "2026-10-21T15:00:00+05:00"
+    },
+    {
+      "home": "Avangard",
+      "away": "Neftekhimik",
+      "start": "2026-10-22T15:00:00+05:00"
     },
     {
       "home": "SKA",
@@ -378,18 +368,8 @@
       "start": "2026-10-22T15:00:00+05:00"
     },
     {
-      "home": "Avangard",
-      "away": "Neftekhimik",
-      "start": "2026-10-22T15:00:00+05:00"
-    },
-    {
       "home": "Avtomobilist",
       "away": "CSKA",
-      "start": "2026-10-23T15:00:00+05:00"
-    },
-    {
-      "home": "Spartak",
-      "away": "Severstal",
       "start": "2026-10-23T15:00:00+05:00"
     },
     {
@@ -405,6 +385,11 @@
     {
       "home": "Lokomotiv",
       "away": "Dynamo Msk",
+      "start": "2026-10-23T15:00:00+05:00"
+    },
+    {
+      "home": "Spartak",
+      "away": "Severstal",
       "start": "2026-10-23T15:00:00+05:00"
     },
     {
@@ -3155,9 +3140,17 @@
   ],
   "results": [
     {
+      "home": "HC Sochi",
+      "away": "Lokomotiv",
+      "start": "2026-10-17T07:00:00+05:00",
+      "homeScore": 3,
+      "awayScore": 6,
+      "finished": true
+    },
+    {
       "home": "Sibir",
       "away": "Barys",
-      "start": "2026-10-17T06:30:00+05:00",
+      "start": "2026-10-17T03:30:00+05:00",
       "homeScore": 0,
       "awayScore": 1,
       "finished": true
@@ -3197,7 +3190,7 @@
     {
       "home": "Avangard",
       "away": "Avtomobilist",
-      "start": "2026-10-16T09:30:00+05:00",
+      "start": "2026-10-16T06:30:00+05:00",
       "homeScore": 4,
       "awayScore": 2,
       "finished": true
@@ -3205,7 +3198,7 @@
     {
       "home": "Admiral",
       "away": "Spartak",
-      "start": "2026-10-16T05:30:00+05:00",
+      "start": "2026-10-16T02:30:00+05:00",
       "homeScore": 1,
       "awayScore": 5,
       "finished": true
@@ -3221,7 +3214,7 @@
     {
       "home": "Lada",
       "away": "SKA",
-      "start": "2026-10-15T11:00:00+05:00",
+      "start": "2026-10-15T08:00:00+05:00",
       "homeScore": 1,
       "awayScore": 0,
       "finished": true
@@ -3373,7 +3366,7 @@
     {
       "home": "Admiral",
       "away": "Lada",
-      "start": "2026-10-10T03:00:00+05:00",
+      "start": "2026-10-10T00:00:00+05:00",
       "homeScore": 4,
       "awayScore": 3,
       "finished": true
@@ -3725,7 +3718,7 @@
     {
       "home": "Amur",
       "away": "Neftekhimik",
-      "start": "2026-09-29T05:00:00+05:00",
+      "start": "2026-09-29T02:00:00+05:00",
       "homeScore": 1,
       "awayScore": 0,
       "finished": true
@@ -3781,7 +3774,7 @@
     {
       "home": "Sibir",
       "away": "Lokomotiv",
-      "start": "2026-09-27T06:30:00+05:00",
+      "start": "2026-09-27T03:30:00+05:00",
       "homeScore": 1,
       "awayScore": 2,
       "finished": true
@@ -3789,7 +3782,7 @@
     {
       "home": "Admiral",
       "away": "Neftekhimik",
-      "start": "2026-09-27T05:00:00+05:00",
+      "start": "2026-09-27T02:00:00+05:00",
       "homeScore": 3,
       "awayScore": 5,
       "finished": true
@@ -3837,7 +3830,7 @@
     {
       "home": "Barys",
       "away": "Neftekhimik",
-      "start": "2026-09-26T04:00:00+05:00",
+      "start": "2026-09-26T01:00:00+05:00",
       "homeScore": 3,
       "awayScore": 6,
       "finished": true
@@ -3861,7 +3854,7 @@
     {
       "home": "Amur",
       "away": "Lokomotiv",
-      "start": "2026-09-25T05:00:00+05:00",
+      "start": "2026-09-25T02:00:00+05:00",
       "homeScore": 3,
       "awayScore": 1,
       "finished": true
@@ -3925,7 +3918,7 @@
     {
       "home": "Admiral",
       "away": "Lokomotiv",
-      "start": "2026-09-23T05:30:00+05:00",
+      "start": "2026-09-23T02:30:00+05:00",
       "homeScore": 1,
       "awayScore": 2,
       "finished": true
@@ -3933,7 +3926,7 @@
     {
       "home": "Amur",
       "away": "CSKA",
-      "start": "2026-09-23T05:00:00+05:00",
+      "start": "2026-09-23T02:00:00+05:00",
       "homeScore": 0,
       "awayScore": 2,
       "finished": true
@@ -3973,7 +3966,7 @@
     {
       "home": "Admiral",
       "away": "CSKA",
-      "start": "2026-09-21T05:30:00+05:00",
+      "start": "2026-09-21T02:30:00+05:00",
       "homeScore": 3,
       "awayScore": 4,
       "finished": true
@@ -3981,7 +3974,7 @@
     {
       "home": "Amur",
       "away": "Severstal",
-      "start": "2026-09-21T05:00:00+05:00",
+      "start": "2026-09-21T02:00:00+05:00",
       "homeScore": 1,
       "awayScore": 4,
       "finished": true
@@ -4037,7 +4030,7 @@
     {
       "home": "Admiral",
       "away": "Severstal",
-      "start": "2026-09-19T03:00:00+05:00",
+      "start": "2026-09-19T00:00:00+05:00",
       "homeScore": 2,
       "awayScore": 0,
       "finished": true
@@ -4045,7 +4038,7 @@
     {
       "home": "Amur",
       "away": "Dynamo Msk",
-      "start": "2026-09-19T03:00:00+05:00",
+      "start": "2026-09-19T00:00:00+05:00",
       "homeScore": 4,
       "awayScore": 0,
       "finished": true
@@ -4109,7 +4102,7 @@
     {
       "home": "Admiral",
       "away": "Dynamo Msk",
-      "start": "2026-09-17T05:30:00+05:00",
+      "start": "2026-09-17T02:30:00+05:00",
       "homeScore": 2,
       "awayScore": 3,
       "finished": true
@@ -4229,7 +4222,7 @@
     {
       "home": "Sibir",
       "away": "Avtomobilist",
-      "start": "2026-09-13T06:30:00+05:00",
+      "start": "2026-09-13T03:30:00+05:00",
       "homeScore": 2,
       "awayScore": 5,
       "finished": true
@@ -4525,7 +4518,7 @@
     {
       "home": "Lokomotiv",
       "away": "Traktor",
-      "start": "2026-09-05T06:00:00+05:00",
+      "start": "2026-09-05T03:00:00+05:00",
       "homeScore": 5,
       "awayScore": 1,
       "finished": true
