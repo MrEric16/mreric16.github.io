@@ -1,41 +1,6 @@
 {
-  "generatedAt": "2026-10-16T22:56:09.302489Z",
+  "generatedAt": "2026-10-17T00:56:06.629406Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-fc-koeln/5XAcGE3dpSe7xj5Ch7cgj",
-      "date": null,
-      "home": "Vfb Stuttgart",
-      "away": "Fc Koeln",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "B. El Khannouss",
-          "minute": 39
-        },
-        {
-          "scorer": "G. Proemel",
-          "minute": 60
-        },
-        {
-          "scorer": "E. Demirovic",
-          "minute": 75
-        },
-        {
-          "scorer": "J. Vagnoman",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Hendriks",
-          "minute": 81
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/paris-saint-germain-vs-monaco/n1scCm_7mzZjbz2yZ5dFp",
       "date": null,
@@ -7868,6 +7833,24 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-betis-vs-real-madrid/80eK01Ka5aHU6o-AL5I6L",
+      "date": null,
+      "home": "Real Betis",
+      "away": "Real Madrid",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "T. Parrott",
+          "minute": 81
+        }
+      ],
+      "awayGoals": [],
+      "competition": "real-madrid"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7877,6 +7860,6 @@
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
     "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
-    "https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq": 1
+    "https://www.goal.com/en/match/frosinone-vs-sassuolo/UBRTx4C8U40U_x7fgjhgq": 2
   }
 }
