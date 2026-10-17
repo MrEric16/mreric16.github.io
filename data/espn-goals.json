@@ -1,6 +1,223 @@
 {
- "generatedAt": "2026-10-17T12:32:38.013099Z",
+ "generatedAt": "2026-10-17T16:02:25.017523Z",
  "results": [
+  {
+   "url": "espn:401878771",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T11:30Z",
+   "home": "Everton",
+   "away": "Chelsea",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "P. Neto",
+     "minute": 46
+    },
+    {
+     "scorer": "P. Neto",
+     "minute": 90
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878770",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T14:00Z",
+   "home": "Fulham",
+   "away": "Hull City",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Iwobi",
+     "minute": 33
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882843",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T12:00Z",
+   "home": "Espanyol",
+   "away": "Atleti",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "Á. Baena",
+     "minute": 89
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884769",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T13:30Z",
+   "home": "Union Berlin",
+   "away": "Dortmund",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884767",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T13:30Z",
+   "home": "HSV",
+   "away": "Stuttgart",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "M. Muheim",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884765",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T13:30Z",
+   "home": "Schalke",
+   "away": "Mainz",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "P. Tietz",
+     "minute": 24
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884764",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T13:30Z",
+   "home": "Elversberg",
+   "away": "Augsburg",
+   "htHome": 3,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "L. Petkov",
+     "minute": 4
+    },
+    {
+     "scorer": "L. Günther",
+     "minute": 7
+    },
+    {
+     "scorer": "M. Rohr",
+     "minute": 28
+    },
+    {
+     "scorer": "F. Schmahl",
+     "minute": 89
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "F. Rieder (pen)",
+     "minute": "45+9"
+    },
+    {
+     "scorer": "M. Gregoritsch (pen)",
+     "minute": 76
+    },
+    {
+     "scorer": "M. Kömür",
+     "minute": 90
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884766",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T13:30Z",
+   "home": "Bremen",
+   "away": "SC Paderborn",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "N. Füllkrug",
+     "minute": 59
+    },
+    {
+     "scorer": "N. Füllkrug (pen)",
+     "minute": 65
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Marino",
+     "minute": 18
+    },
+    {
+     "scorer": "S. Tigges",
+     "minute": 30
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401874760",
+   "date": "2026-10-17",
+   "utc": "2026-10-17T13:00Z",
+   "home": "Venezia FC",
+   "away": "Napoli",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Adams",
+     "minute": 49
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401882844",
    "date": "2026-10-16",
@@ -5120,198 +5337,6 @@
    ],
    "awayGoals": [],
    "competition": "FL1",
-   "complete": true
-  },
-  {
-   "url": "espn:401915444",
-   "date": "2026-09-10",
-   "utc": "2026-09-10T16:45Z",
-   "home": "Fenerbahçe",
-   "away": "Roma",
-   "htHome": 0,
-   "htAway": 1,
-   "ftHome": 1,
-   "ftAway": 1,
-   "homeGoals": [
-    {
-     "scorer": "A. Brown",
-     "minute": 48
-    }
-   ],
-   "awayGoals": [
-    {
-     "scorer": "B. Cristante",
-     "minute": 39
-    }
-   ],
-   "competition": "CL",
-   "complete": true
-  },
-  {
-   "url": "espn:401915422",
-   "date": "2026-09-10",
-   "utc": "2026-09-10T16:45Z",
-   "home": "PSV",
-   "away": "Shaktar",
-   "htHome": 0,
-   "htAway": 1,
-   "ftHome": 1,
-   "ftAway": 1,
-   "homeGoals": [
-    {
-     "scorer": "S. Dest",
-     "minute": 48
-    }
-   ],
-   "awayGoals": [
-    {
-     "scorer": "G. Mendoza",
-     "minute": "45+1"
-    }
-   ],
-   "competition": "CL",
-   "complete": true
-  },
-  {
-   "url": "espn:401915443",
-   "date": "2026-09-10",
-   "utc": "2026-09-10T19:00Z",
-   "home": "Bayern",
-   "away": "Bodø/Glimt",
-   "htHome": 0,
-   "htAway": 0,
-   "ftHome": 5,
-   "ftAway": 0,
-   "homeGoals": [
-    {
-     "scorer": "J. Musiala",
-     "minute": 47
-    },
-    {
-     "scorer": "H. Kane",
-     "minute": 61
-    },
-    {
-     "scorer": "A. Davies",
-     "minute": 77
-    },
-    {
-     "scorer": "M. Olise",
-     "minute": 83
-    },
-    {
-     "scorer": "M. Olise",
-     "minute": "90+2"
-    }
-   ],
-   "awayGoals": [],
-   "competition": "CL",
-   "complete": true
-  },
-  {
-   "url": "espn:401915441",
-   "date": "2026-09-10",
-   "utc": "2026-09-10T19:00Z",
-   "home": "Como",
-   "away": "RB Leipzig",
-   "htHome": 2,
-   "htAway": 0,
-   "ftHome": 4,
-   "ftAway": 1,
-   "homeGoals": [
-    {
-     "scorer": "M. Baturina",
-     "minute": 15
-    },
-    {
-     "scorer": "A. Douvikas",
-     "minute": 38
-    },
-    {
-     "scorer": "A. Diao",
-     "minute": 54
-    },
-    {
-     "scorer": "M. Perrone",
-     "minute": 90
-    }
-   ],
-   "awayGoals": [
-    {
-     "scorer": "A. Maksimovic",
-     "minute": 58
-    }
-   ],
-   "competition": "CL",
-   "complete": true
-  },
-  {
-   "url": "espn:401915442",
-   "date": "2026-09-10",
-   "utc": "2026-09-10T19:00Z",
-   "home": "Man United",
-   "away": "Sabah FK",
-   "htHome": 3,
-   "htAway": 0,
-   "ftHome": 4,
-   "ftAway": 0,
-   "homeGoals": [
-    {
-     "scorer": "M. Cunha",
-     "minute": 27
-    },
-    {
-     "scorer": "B. Fernandes",
-     "minute": 42
-    },
-    {
-     "scorer": "B. Sesko",
-     "minute": 45
-    },
-    {
-     "scorer": "L. Martínez",
-     "minute": 68
-    }
-   ],
-   "awayGoals": [],
-   "competition": "CL",
-   "complete": true
-  },
-  {
-   "url": "espn:401915440",
-   "date": "2026-09-10",
-   "utc": "2026-09-10T19:00Z",
-   "home": "Slavia Praha",
-   "away": "RC Lens",
-   "htHome": 0,
-   "htAway": 0,
-   "ftHome": 2,
-   "ftAway": 3,
-   "homeGoals": [
-    {
-     "scorer": "D. Sturm",
-     "minute": 51
-    },
-    {
-     "scorer": "D. Sturm",
-     "minute": 88
-    }
-   ],
-   "awayGoals": [
-    {
-     "scorer": "A. Sima",
-     "minute": 73
-    },
-    {
-     "scorer": "F. Thauvin",
-     "minute": "90+1"
-    },
-    {
-     "scorer": "R. Aguilar",
-     "minute": "90+3"
-    }
-   ],
-   "competition": "CL",
    "complete": true
   },
   {
