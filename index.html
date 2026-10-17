@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261017140657">
+<meta name="app-build" content="20261017141019">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -18210,6 +18210,8 @@ function ggWireExercise(app, bank, topicId, level){
       st.checked = true; st.score = score; ggSave(topicId, level, st);
       if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
       applyResults();
+      const firstBad = root.querySelector('.gg-item-bad');
+      if(firstBad){ firstBad.style.scrollMarginTop = '90px'; firstBad.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
     });
     root.querySelector('#ggAgain').addEventListener('click', () => {
       if(!st.checked && ggFilled(st) > 0 && !confirm('Reset? This gives you a new set and your current answers will be lost.')) return;
