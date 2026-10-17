@@ -71,7 +71,10 @@ except ImportError: pass
 try:
     from misc2 import gen_misc2_jobs; jobs.update(gen_misc2_jobs(C))
 except ImportError: pass
-NAMES = {'causative-have-something-done':'Causative (have / get something done)','wish-and-if-only':'wish and If only','phrasal-verbs-separable-and-inseparable':'Phrasal verbs (separable and inseparable)','prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
+try:
+    from misc3 import gen_misc3_jobs; jobs.update(gen_misc3_jobs(C))
+except ImportError: pass
+NAMES = {'question-tags':'Question tags','indirect-questions':'Indirect questions','so-neither-too-and-either':'so, neither, too and either','causative-have-something-done':'Causative (have / get something done)','wish-and-if-only':'wish and If only','phrasal-verbs-separable-and-inseparable':'Phrasal verbs (separable and inseparable)','prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
          'as-as-too-and-enough':'as ... as, too and enough','relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
          'relative-clauses-non-defining':'Relative clauses (non-defining)',
          'gerunds-and-infinitives':'Gerunds and infinitives'}
