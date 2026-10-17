@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-17T15:54:14.561699Z",
+  "generatedAt": "2026-10-17T18:23:46.144739Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -13,23 +13,33 @@
     },
     {
       "name": "Pakhtakor",
-      "pld": 23,
+      "pld": 24,
       "w": 15,
-      "d": 7,
+      "d": 8,
       "l": 1,
-      "gf": 42,
-      "ga": 21,
-      "pts": 52
+      "gf": 43,
+      "ga": 22,
+      "pts": 53
     },
     {
       "name": "Navbahor Namangan",
-      "pld": 23,
+      "pld": 24,
       "w": 13,
-      "d": 6,
+      "d": 7,
       "l": 4,
-      "gf": 41,
-      "ga": 23,
-      "pts": 45
+      "gf": 42,
+      "ga": 24,
+      "pts": 46
+    },
+    {
+      "name": "Buxoro",
+      "pld": 24,
+      "w": 12,
+      "d": 4,
+      "l": 8,
+      "gf": 37,
+      "ga": 32,
+      "pts": 40
     },
     {
       "name": "Lok. Tashkent",
@@ -62,16 +72,6 @@
       "pts": 38
     },
     {
-      "name": "Buxoro",
-      "pld": 23,
-      "w": 11,
-      "d": 4,
-      "l": 8,
-      "gf": 35,
-      "ga": 31,
-      "pts": 37
-    },
-    {
       "name": "Qizilqum",
       "pld": 24,
       "w": 10,
@@ -83,12 +83,12 @@
     },
     {
       "name": "Din. Samarkand",
-      "pld": 23,
+      "pld": 24,
       "w": 8,
       "d": 6,
-      "l": 9,
-      "gf": 34,
-      "ga": 36,
+      "l": 10,
+      "gf": 35,
+      "ga": 38,
       "pts": 30
     },
     {
@@ -163,6 +163,20 @@
     }
   ],
   "results": [
+    {
+      "home": "Din. Samarkand",
+      "away": "Buxoro",
+      "raw_time": "17.10. 14:00",
+      "homeScore": 1,
+      "awayScore": 2
+    },
+    {
+      "home": "Navbahor Namangan",
+      "away": "Pakhtakor",
+      "raw_time": "17.10. 14:00",
+      "homeScore": 1,
+      "awayScore": 1
+    },
     {
       "home": "Lok. Tashkent",
       "away": "Nasaf Qarshi",
@@ -288,20 +302,6 @@
       "raw_time": "20.09. 13:00",
       "homeScore": 1,
       "awayScore": 0
-    },
-    {
-      "home": "Andijan",
-      "away": "Nasaf Qarshi",
-      "raw_time": "20.09. 12:15",
-      "homeScore": 1,
-      "awayScore": 4
-    },
-    {
-      "home": "Bunyodkor",
-      "away": "Buxoro",
-      "raw_time": "19.09. 15:15",
-      "homeScore": 2,
-      "awayScore": 1
     }
   ],
   "fixtures": [
