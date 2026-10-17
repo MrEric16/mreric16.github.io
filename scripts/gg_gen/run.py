@@ -84,7 +84,22 @@ except ImportError: pass
 try:
     from nar import gen_nar_jobs; jobs.update(gen_nar_jobs(C))
 except ImportError: pass
-NAMES = {'narrative-tenses':'Narrative tenses (past simple, past continuous, past perfect)','past-perfect-continuous':'Past perfect continuous','past-perfect-simple-vs-continuous':'Past perfect simple or continuous','past-perfect-vs-past-simple':'Past perfect or past simple','present-perfect-vs-past-perfect':'Present perfect or past perfect','future-perfect':'Future perfect simple','future-perfect-continuous':'Future perfect continuous','future-perfect-simple-vs-continuous':'Future perfect simple or continuous','question-tags':'Question tags','indirect-questions':'Indirect questions','so-neither-too-and-either':'so, neither, too and either','causative-have-something-done':'Causative (have / get something done)','wish-and-if-only':'wish and If only','phrasal-verbs-separable-and-inseparable':'Phrasal verbs (separable and inseparable)','prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
+try:
+    from linkers import gen_link_jobs; jobs.update(gen_link_jobs(C))
+except ImportError: pass
+try:
+    from condconn import gen_cc_jobs; jobs.update(gen_cc_jobs(C))
+except ImportError: pass
+try:
+    from repverb import gen_rv_jobs; jobs.update(gen_rv_jobs(C))
+except ImportError: pass
+try:
+    from inversion import gen_inv_jobs; jobs.update(gen_inv_jobs(C))
+except ImportError: pass
+try:
+    from participle import gen_part_jobs; jobs.update(gen_part_jobs(C))
+except ImportError: pass
+NAMES = {'linkers':'Linkers (although, despite, because, so, however)','conditional-connectors':'Conditional connectors (unless, as long as, provided, otherwise, in case)','passive-reporting-verbs':'Passive with reporting verbs (it is said that / he is said to)','inversion':'Inversion and emphasis (Never have I, Not only, Hardly)','participle-clauses':'Participle clauses (-ing, -ed, having done)','narrative-tenses':'Narrative tenses (past simple, past continuous, past perfect)','past-perfect-continuous':'Past perfect continuous','past-perfect-simple-vs-continuous':'Past perfect simple or continuous','past-perfect-vs-past-simple':'Past perfect or past simple','present-perfect-vs-past-perfect':'Present perfect or past perfect','future-perfect':'Future perfect simple','future-perfect-continuous':'Future perfect continuous','future-perfect-simple-vs-continuous':'Future perfect simple or continuous','question-tags':'Question tags','indirect-questions':'Indirect questions','so-neither-too-and-either':'so, neither, too and either','causative-have-something-done':'Causative (have / get something done)','wish-and-if-only':'wish and If only','phrasal-verbs-separable-and-inseparable':'Phrasal verbs (separable and inseparable)','prepositions-of-time':'Prepositions of time (at, on, in)','prepositions-of-place':'Prepositions of place','prepositions-of-movement':'Prepositions of movement','used-to-would-and-be-used-to':'used to, would and be used to','articles':'Articles (a, an, the, no article)','quantifiers':'Quantifiers (some, any, much, many, few, little, enough)','comparatives':'Comparatives','superlatives':'Superlatives','comparatives-or-superlatives':'Comparatives or superlatives',
          'as-as-too-and-enough':'as ... as, too and enough','relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
          'relative-clauses-non-defining':'Relative clauses (non-defining)',
          'gerunds-and-infinitives':'Gerunds and infinitives'}
