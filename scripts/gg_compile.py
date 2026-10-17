@@ -56,7 +56,7 @@ passive-present-simple passive-past-simple passive-continuous passive-perfect pa
 reported-statements reported-questions reported-commands reporting-verbs reported-speech-all indirect-questions
 modals-ability modals-obligation modals-advice modals-possibility modals-perfect modals-all
 stative-verbs used-to-would-and-be-used-to gerunds-and-infinitives
-comparatives superlatives comparatives-or-superlatives as-as-too-and-enough articles quantifiers
+comparatives superlatives comparatives-or-superlatives as-as-too-and-enough articles quantifiers determiners possessives this-that-these-those reflexive-pronouns-and-each-other indefinite-pronouns adverbs-of-frequency adjectives-or-adverbs adjective-order
 relative-clauses-defining relative-clauses-non-defining participle-clauses linkers inversion question-tags so-neither-too-and-either
 prepositions-of-time prepositions-of-place prepositions-of-movement phrasal-verbs-separable-and-inseparable'''.split()
 topics.sort(key=lambda t: ORDER.index(t['id']) if t['id'] in ORDER else len(ORDER))
