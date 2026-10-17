@@ -44,6 +44,15 @@ except ImportError: pass
 try:
     from stative import gen_stative_jobs; jobs.update(gen_stative_jobs(C))
 except ImportError: pass
+try:
+    from relcl import gen_rel_jobs; jobs.update(gen_rel_jobs(C))
+except ImportError: pass
+try:
+    from gerinf import gen_gi_jobs; jobs.update(gen_gi_jobs(C))
+except ImportError: pass
+NAMES = {'relative-clauses-defining':'Relative clauses (defining: who, which, that, whose, where)',
+         'relative-clauses-non-defining':'Relative clauses (non-defining)',
+         'gerunds-and-infinitives':'Gerunds and infinitives'}
 only = sys.argv[1:]
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 outdir = os.path.join(root, 'grammar-bank-src')
@@ -53,7 +62,7 @@ for tid, fn in jobs.items():
     if only and tid not in only: continue
     out = fn()
     with open(os.path.join(outdir, f'g_{tid}.txt'), 'w', encoding='utf-8') as fh:
-        fh.write(f'@topic {tid} | {tid}\n')
+        fh.write(f'@topic {tid} | {NAMES.get(tid, tid)}\n')
         for lv in ('easy','medium','hard'):
             fh.write(f'@{lv}\n' + '\n'.join(out[lv]) + '\n')
     print(tid, [len(out[l]) for l in ('easy','medium','hard')])
