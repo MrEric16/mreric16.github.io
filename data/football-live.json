@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-18T06:22:10.776363Z",
+  "generatedAt": "2026-10-18T11:33:49.403051Z",
   "standings": {
     "PL": [
       {
@@ -689,6 +689,16 @@
         "pts": 9
       },
       {
+        "name": "Lecce",
+        "pld": 7,
+        "w": 3,
+        "d": 0,
+        "l": 4,
+        "gf": 8,
+        "ga": 12,
+        "pts": 9
+      },
+      {
         "name": "Sassuolo",
         "pld": 7,
         "w": 2,
@@ -709,16 +719,6 @@
         "pts": 7
       },
       {
-        "name": "Lecce",
-        "pld": 6,
-        "w": 2,
-        "d": 0,
-        "l": 4,
-        "gf": 6,
-        "ga": 12,
-        "pts": 6
-      },
-      {
         "name": "Bologna",
         "pld": 7,
         "w": 1,
@@ -729,21 +729,21 @@
         "pts": 5
       },
       {
-        "name": "Udinese",
-        "pld": 6,
-        "w": 1,
-        "d": 1,
-        "l": 4,
-        "gf": 9,
-        "ga": 13,
-        "pts": 4
-      },
-      {
         "name": "Monza",
         "pld": 6,
         "w": 1,
         "d": 1,
         "l": 4,
+        "gf": 9,
+        "ga": 15,
+        "pts": 4
+      },
+      {
+        "name": "Udinese",
+        "pld": 7,
+        "w": 1,
+        "d": 1,
+        "l": 5,
         "gf": 9,
         "ga": 15,
         "pts": 4
@@ -3000,7 +3000,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-18T10:30:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 7,
           "homeTeam": {
             "id": 115,
@@ -3013,15 +3013,15 @@
             "shortName": "Lecce"
           },
           "score": {
-            "winner": null,
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 2
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 2
             }
           },
           "competition": {
