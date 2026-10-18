@@ -1,6 +1,58 @@
 {
- "generatedAt": "2026-10-18T11:27:35.228580Z",
+ "generatedAt": "2026-10-18T14:43:34.813299Z",
  "results": [
+  {
+   "url": "espn:401882840",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T12:00Z",
+   "home": "Osasuna",
+   "away": "Santander",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Budimir (pen)",
+     "minute": 9
+    },
+    {
+     "scorer": "A. Osambela",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401874771",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T10:30Z",
+   "home": "Udinese",
+   "away": "Lecce",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "K. Gaspar",
+     "minute": 11
+    },
+    {
+     "scorer": "K. N’Dri",
+     "minute": 33
+    },
+    {
+     "scorer": "J. Siebert",
+     "minute": 86
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401878771",
    "date": "2026-10-17",
