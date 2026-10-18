@@ -31,6 +31,9 @@
   .sport-hub-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
   .sport-hub-tile{background:var(--card); border:none; border-radius:18px; box-shadow:0 3px 0 rgba(58,42,30,.08); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-decoration:none; color:var(--ink); height:100px; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; -webkit-tap-highlight-color:transparent;}
   .sport-hub-tile:active{transform:translateY(1px);}
+  .gg-tile{position:relative; padding-top:20px;}
+  .gg-no{position:absolute; top:7px; left:9px; min-width:1.6em; padding:0 6px; border-radius:999px; background:rgba(133,56,159,.16); color:#85389F; font-size:11px; font-weight:800; line-height:1.6; text-align:center;}
+  body.dark-mode .gg-no{color:#d9a8ec; background:rgba(217,168,236,.16);}
   .sport-hub-tile .name{font-weight:700; font-size:15px; line-height:1.25; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
   .hub-icon{display:inline-flex; align-items:center; justify-content:center;}
   .hub-icon svg{width:20px;height:20px;}
@@ -394,16 +397,16 @@ function showTopics(){
     var grid = document.getElementById('ggGrid'), input = document.getElementById('ggSearch');
     if(!grid) return;
     var st = ggTileStyle();
-    grid.innerHTML = ix.topics.map(function(t){
+    grid.innerHTML = ix.topics.map(function(t, ti){
       var busy = false;
       GG_LEVELS.forEach(function(l){ var s = ggLoad(t.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; });
-      return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '"' + st.tint + '>' +
-        '<span class="name">' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
+      return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '" data-no="' + (ti + 1) + '"' + st.tint + '>' +
+        '<span class="name"><span class="gg-no">' + (ti + 1) + '</span>' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
     }).join('') + '<div class="empty-card" id="ggNone" style="grid-column:1/-1;display:none;">No topic matches.</div>';
     input.addEventListener('input', function(){
-      var words = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean), shown = 0;
+      var words = input.value.trim().toLowerCase().replace(/#/g, ' ').split(/\s+/).filter(Boolean), shown = 0;
       Array.prototype.forEach.call(grid.querySelectorAll('.gg-tile'), function(a){
-        var ok = words.every(function(w){ return a.dataset.name.indexOf(w) !== -1; });
+        var ok = words.every(function(w){ return /^\d+$/.test(w) ? (a.dataset.no === w || a.dataset.name.indexOf(w) !== -1) : a.dataset.name.indexOf(w) !== -1; });
         a.style.display = ok ? '' : 'none'; if(ok) shown++;
       });
       document.getElementById('ggNone').style.display = shown ? 'none' : '';
