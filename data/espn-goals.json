@@ -1,6 +1,111 @@
 {
- "generatedAt": "2026-10-18T14:43:34.813299Z",
+ "generatedAt": "2026-10-18T17:38:59.791508Z",
  "results": [
+  {
+   "url": "espn:401879263",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T13:00Z",
+   "home": "Bournemouth",
+   "away": "Sunderland",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "M. Tavernier",
+     "minute": 6
+    },
+    {
+     "scorer": "Evanilson",
+     "minute": 48
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879261",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T13:00Z",
+   "home": "Brighton Hove",
+   "away": "Crystal Palace",
+   "htHome": 3,
+   "htAway": 0,
+   "ftHome": 5,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. Canvot (og)",
+     "minute": 4
+    },
+    {
+     "scorer": "D. Gómez",
+     "minute": 7
+    },
+    {
+     "scorer": "Y. Ayari",
+     "minute": 10
+    },
+    {
+     "scorer": "C. Kostoulas",
+     "minute": 49
+    },
+    {
+     "scorer": "J. Hinshelwood",
+     "minute": 84
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879260",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T13:00Z",
+   "home": "Leeds United",
+   "away": "Man United",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "D. Calvert-Lewin",
+     "minute": 51
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "B. Mbeumo",
+     "minute": 35
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878769",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T15:30Z",
+   "home": "Nottingham",
+   "away": "Arsenal",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "N. Madueke",
+     "minute": 80
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
   {
    "url": "espn:401882840",
    "date": "2026-10-18",
@@ -23,6 +128,93 @@
    ],
    "awayGoals": [],
    "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882845",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T14:15Z",
+   "home": "Celta",
+   "away": "Alavés",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "F. Jutglà",
+     "minute": 53
+    },
+    {
+     "scorer": "J. Rodríguez",
+     "minute": 71
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "H. Novoa",
+     "minute": 87
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884771",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T13:30Z",
+   "home": "Leverkusen",
+   "away": "Freiburg",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "I. Maza",
+     "minute": 19
+    },
+    {
+     "scorer": "P. Schick",
+     "minute": 76
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Scherhant",
+     "minute": 14
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884768",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T15:30Z",
+   "home": "M'gladbach",
+   "away": "Hoffenheim",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "W. Mohya",
+     "minute": 49
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "B. Conté",
+     "minute": 11
+    },
+    {
+     "scorer": "A. Prass",
+     "minute": 54
+    }
+   ],
+   "competition": "BL1",
    "complete": true
   },
   {
@@ -51,6 +243,182 @@
     }
    ],
    "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874774",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T13:00Z",
+   "home": "Fiorentina",
+   "away": "Como",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 1,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "M. Pongracic",
+     "minute": 42
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Liberali",
+     "minute": 32
+    },
+    {
+     "scorer": "N. Paz",
+     "minute": 36
+    },
+    {
+     "scorer": "A. Douvikas",
+     "minute": 56
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876439",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T13:00Z",
+   "home": "Angers",
+   "away": "Marseille",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 2,
+   "ftAway": 5,
+   "homeGoals": [
+    {
+     "scorer": "L. Raolisoa",
+     "minute": 14
+    },
+    {
+     "scorer": "A. El Ouazzani (pen)",
+     "minute": 75
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "H. Abdelli",
+     "minute": 37
+    },
+    {
+     "scorer": "N. Kamissoko",
+     "minute": 43
+    },
+    {
+     "scorer": "A. Gouiri",
+     "minute": 60
+    },
+    {
+     "scorer": "A. Harit",
+     "minute": 83
+    },
+    {
+     "scorer": "Igor Paixão",
+     "minute": 85
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876438",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T15:15Z",
+   "home": "Le Havre",
+   "away": "Auxerre",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "R. Fofana",
+     "minute": 66
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Namaso",
+     "minute": 40
+    },
+    {
+     "scorer": "D. Namaso",
+     "minute": 61
+    },
+    {
+     "scorer": "R. Faivre",
+     "minute": 80
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876435",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T15:15Z",
+   "home": "Lorient",
+   "away": "Monaco",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "N. Cadiou (pen)",
+     "minute": 61
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876433",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T15:15Z",
+   "home": "Paris FC",
+   "away": "Stade Rennais",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "M. López",
+     "minute": 14
+    },
+    {
+     "scorer": "M. López",
+     "minute": "45+4"
+    },
+    {
+     "scorer": "L. Sinayoko",
+     "minute": 76
+    },
+    {
+     "scorer": "L. Sinayoko (pen)",
+     "minute": "90+7"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Lepaul (pen)",
+     "minute": 29
+    },
+    {
+     "scorer": "E. Lepaul (pen)",
+     "minute": 74
+    },
+    {
+     "scorer": "E. Lepaul (pen)",
+     "minute": 88
+    }
+   ],
+   "competition": "FL1",
    "complete": true
   },
   {
