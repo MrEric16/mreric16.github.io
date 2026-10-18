@@ -59,7 +59,7 @@ stative-verbs used-to-would-and-be-used-to gerunds-and-infinitives
 comparatives superlatives comparatives-or-superlatives as-as-too-and-enough articles quantifiers determiners possessives this-that-these-those reflexive-pronouns-and-each-other indefinite-pronouns adverbs-of-frequency adjectives-or-adverbs adjective-order
 dependent-prepositions collocations-make-do-take-get-have word-formation key-word-transformations error-correction
 relative-clauses-defining relative-clauses-non-defining participle-clauses linkers inversion question-tags so-neither-too-and-either
-prepositions-of-time prepositions-of-place prepositions-of-movement phrasal-verbs-separable-and-inseparable'''.split()
+prepositions-of-time prepositions-of-place prepositions-of-movement phrasal-verbs-separable-and-inseparable irregular-verbs subject-verb-agreement time-clauses for-since-ago-already-yet-still-just purpose-and-result wh-questions verbs-that-change-meaning verb-object-infinitive participle-adjectives commonly-confused-words would-rather-had-better-its-time-prefer future-in-the-past countable-and-uncountable-nouns'''.split()
 topics.sort(key=lambda t: ORDER.index(t['id']) if t['id'] in ORDER else len(ORDER))
 outdir = os.path.join(root, 'data/grammar')
 os.makedirs(outdir, exist_ok=True)
