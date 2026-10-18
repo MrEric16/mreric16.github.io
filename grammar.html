@@ -61,7 +61,8 @@
   .gg-num{font-weight:800; color:var(--ink-soft); min-width:22px; padding-top:5px; font-size:14px;}
   .gg-q{flex:1; min-width:0; line-height:2.2; font-size:16px; color:var(--ink);}
   .gg-q-block{line-height:1.5;}
-  .gg-instr{font-weight:700; color:var(--ink-soft, var(--ink)); font-size:15px;}
+  .gg-instr{font-weight:400; color:var(--ink); font-size:15px;}
+  .gg-sent{font-weight:800; font-size:17px; letter-spacing:.15px; color:var(--gg-sent, var(--ink));}
   .gg-inp{font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; width:11em; max-width:100%; padding:4px 9px; margin:0 3px; border-radius:9px; border:2px solid rgba(133,111,92,.4); background:rgba(255,255,255,.55); color:var(--ink);}
   .gg-inp:focus{outline:2px solid var(--coral); border-color:var(--coral);}
   .gg-wide{display:block; width:100%; margin:8px 0 0;}
@@ -269,6 +270,27 @@ function ggDraw(topic, level, avoid){
 function ggFilled(st){ return st.ans.filter(a => a.every(x => String(x).trim() !== '')).length; }
 
 
+// Sentence colour: first theme accent that reaches WCAG 4.5:1 on the card, else plain ink (never an unreadable pairing).
+function ggSentColour(root){
+  try{
+    const card = root.querySelector('.gg-item'); if(!card) return;
+    const probe = document.createElement('span'); probe.style.display = 'none'; card.appendChild(probe);
+    const rgb = c => { probe.style.color = ''; probe.style.color = c; const m = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(getComputedStyle(probe).color); return m ? [+m[1], +m[2], +m[3]] : null; };
+    const lum = a => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(a[0]) + .7152 * f(a[1]) + .0722 * f(a[2]); };
+    const cr = (a, b) => { const x = lum(a), y = lum(b); return (Math.max(x, y) + .05) / (Math.min(x, y) + .05); };
+    const bg = /rgba?\((\d+),\s*(\d+),\s*(\d+)/.exec(getComputedStyle(card).backgroundColor);
+    let pick = 'var(--ink)';
+    if(bg){
+      const B = [+bg[1], +bg[2], +bg[3]];
+      for(const v of ['--coral-dark', '--coral', '--teal', '--gold']){
+        const c = rgb('var(' + v + ')');
+        if(c && cr(c, B) >= 4.5){ pick = 'var(' + v + ')'; break; }
+      }
+    }
+    probe.remove();
+    root.style.setProperty('--gg-sent', pick);
+  }catch(e){}
+}
 // Instruction ("Correct the mistake:", "Make it negative:") goes on its own line; the sentence starts on a new line below it.
 function ggSplitQ(q){
   const m = /^([^:_(=]{1,90}): (?=\S)/.exec(q);
@@ -280,9 +302,10 @@ function ggItemHtml(it, n, ansRow, blRow, okVal){
   const segs = body.split('___');
   const hasBlank = segs.length > 1;
   let h = instr ? '<span class="gg-instr">' + escapeHtml(instr) + '</span><br>' : '';
+  const SN = '<span class="gg-sent">', SE = '</span>';
   if(hasBlank){
     segs.forEach((seg, bi) => {
-      h += escapeHtml(seg);
+      h += (seg ? SN + escapeHtml(seg) + SE : '');
       if(bi < segs.length - 1){
         const v = ansRow[bi] || '';
         const cls = blRow[bi] === true ? ' gg-ok' : (blRow[bi] === false ? ' gg-bad' : '');
@@ -292,7 +315,7 @@ function ggItemHtml(it, n, ansRow, blRow, okVal){
   } else {
     const v = ansRow[0] || '';
     const cls = blRow[0] === true ? ' gg-ok' : (blRow[0] === false ? ' gg-bad' : '');
-    h += escapeHtml(body) + `<input type="text" class="gg-inp gg-wide${cls}" data-b="0" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} placeholder="Type the full sentence…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
+    h += SN + escapeHtml(body) + SE + `<input type="text" class="gg-inp gg-wide${cls}" data-b="0" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} placeholder="Type the full sentence…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
   }
   const mark = okVal === true ? ' gg-item-ok' : (okVal === false ? ' gg-item-bad' : '');
   return `<div class="gg-item${mark}" data-i="${n}"><span class="gg-num">${n + 1}</span><div class="gg-q${hasBlank ? '' : ' gg-q-block'}">${h}</div></div>`;
@@ -317,6 +340,7 @@ function ggWireExercise(app, bank, topicId, level){
         <button class="gg-btn" id="ggAgain">Reset</button>
       </div>
       <div class="gg-banner" id="ggBanner2" style="display:none;"></div>`;
+    ggSentColour(root);
     updateProg(); showBanner();
     wire();
     if(scrollTop) window.scrollTo({ top: 0, behavior: 'smooth' });
