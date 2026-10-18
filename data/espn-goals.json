@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-18T19:49:26.242592Z",
+ "generatedAt": "2026-10-18T22:01:02.306352Z",
  "results": [
   {
    "url": "espn:401879263",
@@ -205,6 +205,43 @@
    "complete": true
   },
   {
+   "url": "espn:401882839",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T19:00Z",
+   "home": "Real Madrid",
+   "away": "Sevilla FC",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "A. Güler",
+     "minute": 30
+    },
+    {
+     "scorer": "K. Mbappé",
+     "minute": 37
+    },
+    {
+     "scorer": "K. Mbappé (pen)",
+     "minute": 63
+    },
+    {
+     "scorer": "Y. Diomande",
+     "minute": 82
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Bueno",
+     "minute": 80
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
    "url": "espn:401884771",
    "date": "2026-10-18",
    "utc": "2026-10-18T13:30Z",
@@ -361,6 +398,34 @@
    "complete": true
   },
   {
+   "url": "espn:401874765",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T18:45Z",
+   "home": "Juventus",
+   "away": "Lazio",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "O. Provstgaard",
+     "minute": 37
+    },
+    {
+     "scorer": "G. Isaksen",
+     "minute": 66
+    },
+    {
+     "scorer": "F. Dele-Bashiru",
+     "minute": 89
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876439",
    "date": "2026-10-18",
    "utc": "2026-10-18T13:00Z",
@@ -498,6 +563,35 @@
     {
      "scorer": "E. Lepaul (pen)",
      "minute": 88
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876434",
+   "date": "2026-10-18",
+   "utc": "2026-10-18T18:45Z",
+   "home": "Lyon",
+   "away": "Nice",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "P. Sulc",
+     "minute": 32
+    },
+    {
+     "scorer": "T. Tessmann",
+     "minute": 36
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Wahi",
+     "minute": 18
     }
    ],
    "competition": "FL1",
