@@ -1,28 +1,6 @@
 {
-  "generatedAt": "2026-10-18T19:55:25.455825Z",
+  "generatedAt": "2026-10-18T22:07:51.001502Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/juventus-vs-palermo/gLmx728mBPNCilX6PgjdG",
-      "date": "2026-08-11",
-      "home": "Juventus",
-      "away": "Palermo",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "K. Yildiz",
-          "minute": 45
-        },
-        {
-          "scorer": "A. Milik",
-          "minute": 86
-        }
-      ],
-      "awayGoals": [],
-      "competition": "juventus"
-    },
     {
       "url": "https://www.goal.com/en/match/lecce-vs-roma/tW1qvyr9_Qo8wjo8JeDaG",
       "date": "2026-08-31",
@@ -7862,6 +7840,32 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-lazio/PaMY7uDbHmx-V5LYFx2nC",
+      "date": "2026-10-18",
+      "home": "Juventus",
+      "away": "Lazio",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 3,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "O. Provstgaard",
+          "minute": 37
+        },
+        {
+          "scorer": "G. Isaksen",
+          "minute": 66
+        },
+        {
+          "scorer": "F. Dele-Bashiru",
+          "minute": 89
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7873,6 +7877,7 @@
     "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
     "https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi": 2,
     "https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv": 2,
-    "https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6": 1
+    "https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6": 2,
+    "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI": 2
   }
 }

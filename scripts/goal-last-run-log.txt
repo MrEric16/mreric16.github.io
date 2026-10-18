@@ -1,19 +1,16 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 9 finished-match links
-[goal-scraper] [PD] Found 8 finished-match links
+[goal-scraper] [PD] Found 9 finished-match links
 [goal-scraper] WARNING: Real Sociedad scored 5 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6
-[goal-scraper] [PD] SCORER PARSE FAILED (attempt 1/3) for Malaga 2-5 Real Sociedad -- NOT committing, will retry next run: https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6
+[goal-scraper] [PD] SCORER PARSE FAILED (attempt 2/3) for Malaga 2-5 Real Sociedad -- NOT committing, will retry next run: https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6
+[goal-scraper] WARNING: Real Madrid scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI
+[goal-scraper] [PD] SCORER PARSE FAILED (attempt 1/3) for Real Madrid 4-1 Sevilla -- NOT committing, will retry next run: https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI
 [goal-scraper] [BL1] Found 9 finished-match links
-[goal-scraper] [SA] Found 7 finished-match links
-[goal-scraper] [SA] Added: Ac Milan 3-2 Atalanta
-[goal-scraper] [FL1] Found 8 finished-match links
-[goal-scraper] WARNING: Auxerre scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi
-[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 2/3) for Le Havre 1-3 Auxerre -- NOT committing, will retry next run: https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi
-[goal-scraper] WARNING: Paris Fc scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
-[goal-scraper] WARNING: Rennes scored 3 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
-[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 2/3) for Paris Fc 4-3 Rennes -- NOT committing, will retry next run: https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
+[goal-scraper] [SA] Found 8 finished-match links
+[goal-scraper] [SA] Added: Juventus 0-3 Lazio
+[goal-scraper] FAILED to fetch https://www.goal.com/en/ligue-1/fixtures-results/dm5ka0os1e3dxcp3vh05kmp33: 404 Client Error: Not Found for url: https://www.goal.com/en/ligue-1/fixtures-results/dm5ka0os1e3dxcp3vh05kmp33
 [goal-scraper] [CL] Found 0 finished-match links
-[goal-scraper] [real-madrid] Found 23 finished-match links
+[goal-scraper] [real-madrid] Found 24 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Tottenham Hotspur on 2019-07-30
 [goal-scraper] WARNING: Real Madrid scored 5 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-fenerbahce/Itwt-7CyyDV3G4JM6rzmu
@@ -35,6 +32,8 @@
 [goal-scraper] WARNING: Real Madrid scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Real Sociedad on 2026-08-26
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Malaga on 2026-08-30
+[goal-scraper] WARNING: Real Madrid scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI
+[goal-scraper] [real-madrid] SCORER PARSE FAILED (attempt 2/3) for Real Madrid 4-1 Sevilla -- NOT committing, will retry next run: https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI
 [goal-scraper] [barcelona] Found 17 finished-match links
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Nottingham Forest vs Barcelona on 2026-08-08
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Udinese vs Barcelona on 2026-08-08
@@ -114,7 +113,7 @@
 [goal-scraper] [roma] Found 15 finished-match links
 [goal-scraper] WARNING: Roma scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/roma-vs-fiorentina/2sJvO24_g2D6Mpsty7WoU
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Fiorentina on 2026-08-24
-[goal-scraper] [juventus] Found 19 finished-match links
+[goal-scraper] [juventus] Found 20 finished-match links
 [goal-scraper] WARNING: Juventus scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/al-ain-vs-juventus/hZXoigptTekk6p6Awa3MU
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Al Ain vs Juventus on 2025-06-18
 [goal-scraper] WARNING: Juventus scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/juventus-vs-wydad-casablanca/-pKHM6JA5PGaaJ-6nK6sk
@@ -123,8 +122,9 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Standard Liege vs Juventus on 2026-07-25
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Nice on 2026-07-31
+[goal-scraper] [juventus] Skipping stale match (older than 45 days): Chelsea vs Juventus on 2026-08-05
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
 [goal-scraper] TOTAL new results added this run: 1
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi', 'https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv', 'https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6']
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi', 'https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv', 'https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6', 'https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI']
 [goal-scraper] Wrote data/goal-results.json
