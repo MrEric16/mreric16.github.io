@@ -1,51 +1,6 @@
 {
-  "generatedAt": "2026-10-18T11:30:44.187045Z",
+  "generatedAt": "2026-10-18T14:46:32.916352Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-aston-villa/lm9hGRzWvpn9x4YHKU7q5",
-      "date": "2026-08-12",
-      "home": "Paris Saint Germain",
-      "away": "Aston Villa",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "K. Kvaratskhelia",
-          "minute": 20
-        },
-        {
-          "scorer": "D. Doue",
-          "minute": 61
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. Madjo",
-          "minute": 45
-        }
-      ],
-      "competition": "psg"
-    },
-    {
-      "url": "https://www.goal.com/en/match/lens-vs-paris-saint-germain/FdT__V0VNd7-4yXQzXNLQ",
-      "date": "2026-08-16",
-      "home": "Lens",
-      "away": "Paris Saint Germain",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "F. Thauvin",
-          "minute": 32
-        }
-      ],
-      "awayGoals": [],
-      "competition": "psg"
-    },
     {
       "url": "https://www.goal.com/en/match/marseille-vs-al-shahaniya/PCiH9XleGRCldaqNIRPIl",
       "date": "2026-08-05",
@@ -7808,6 +7763,54 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/osasuna-vs-racing-santander/WdcOdGj7jfApTLEMX8dsk",
+      "date": "2026-10-18",
+      "home": "Osasuna",
+      "away": "Racing Santander",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "A. Budimir",
+          "minute": 9
+        },
+        {
+          "scorer": "A. Osambela",
+          "minute": 88
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/udinese-vs-lecce/lryYVFWrQvjfiWbjLhGT1",
+      "date": "2026-10-18",
+      "home": "Udinese",
+      "away": "Lecce",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 0,
+      "ftAway": 3,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "K. Gaspar",
+          "minute": 11
+        },
+        {
+          "scorer": "K. N'Dri",
+          "minute": 33
+        },
+        {
+          "scorer": "J. Siebert",
+          "minute": 86
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {

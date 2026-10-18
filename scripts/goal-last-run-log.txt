@@ -1,8 +1,10 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 5 finished-match links
-[goal-scraper] [PD] Found 5 finished-match links
+[goal-scraper] [PD] Found 6 finished-match links
+[goal-scraper] [PD] Added: Osasuna 2-0 Racing Santander
 [goal-scraper] [BL1] Found 7 finished-match links
-[goal-scraper] [SA] Found 4 finished-match links
+[goal-scraper] [SA] Found 5 finished-match links
+[goal-scraper] [SA] Added: Udinese 0-3 Lecce
 [goal-scraper] [FL1] Found 4 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 23 finished-match links
@@ -112,6 +114,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 0
+[goal-scraper] TOTAL new results added this run: 2
 [goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo']
 [goal-scraper] Wrote data/goal-results.json
