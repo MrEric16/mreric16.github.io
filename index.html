@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261018141558">
+<meta name="app-build" content="20261018165845">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -35249,6 +35249,7 @@ function checkAchievements(){
     t.el.style.background = last;
     if(prefersReducedMotion) return; // static color, no cycling, respects the OS setting
     setInterval(() => {
+      if(document.hidden) return;
       last = randomColorExcluding(last);
       t.el.style.background = last;
     }, t.duration);
@@ -35295,7 +35296,7 @@ function checkAchievements(){
     }
     showingIcon = !showingIcon;
   }
-  setInterval(tick, 1000);
+  setInterval(() => { if(!document.hidden) tick(); }, 1000);
   el.addEventListener('click', (e) => {
     if(currentRoute){
       e.stopPropagation();
@@ -36159,10 +36160,17 @@ document.addEventListener('keydown', (e)=>{
 updateClock();
 updateWeekendCountdown();
 wireClockTapCycling();
-setInterval(updateClock, 1000);
-setInterval(updateWeekendCountdown, 1000);
-setInterval(updateClubCountdowns, 1000);
-setInterval(updateSudokuTimer, 1000);
+// Battery: these tick only while the page is visible (all four compute from real timestamps, so nothing is lost);
+// one immediate refresh when the page becomes visible again keeps what is shown exact.
+function elVisibleOnly(fn){ return function(){ if(!document.hidden) fn(); }; }
+setInterval(elVisibleOnly(updateClock), 1000);
+setInterval(elVisibleOnly(updateWeekendCountdown), 1000);
+setInterval(elVisibleOnly(updateClubCountdowns), 1000);
+setInterval(elVisibleOnly(updateSudokuTimer), 1000);
+document.addEventListener('visibilitychange', function(){
+  if(document.hidden) return;
+  [updateClock, updateWeekendCountdown, updateClubCountdowns, updateSudokuTimer].forEach(function(f){ try{ f(); }catch(e){} });
+});
 
 (function(){
   let startX = 0, startY = 0, tracking = false;

@@ -42,10 +42,17 @@ self.addEventListener('fetch', (event) => {
   const isShellFile = url.origin === self.location.origin;
 
   if (isShellFile) {
+    // Same freshness as before (always checked with the server), but without throwing away the
+    // browser's saved copy: pages and data files are revalidated (a tiny "unchanged" reply when
+    // nothing moved, instead of re-downloading the whole file); images and audio may reuse the
+    // browser cache. version.json stays strictly no-store - it is the update detector.
+    const isVersion = url.pathname.endsWith('/version.json');
+    const isMedia = /\.(png|jpe?g|gif|webp|svg|ico|mp3|m4a|ogg|wav|woff2?)$/i.test(url.pathname);
+    const mode = isVersion ? 'no-store' : (isMedia ? 'default' : 'no-cache');
     event.respondWith(
-      fetch(req, { cache: 'no-store' })
+      fetch(req, { cache: mode })
         .then((res) => {
-          if (res && res.status === 200) {
+          if (res && res.status === 200 && !req.headers.has('range')) {
             caches.open(CACHE_NAME).then((cache) => cache.put(req, res.clone()));
           }
           return res;
