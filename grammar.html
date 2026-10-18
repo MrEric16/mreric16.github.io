@@ -61,6 +61,7 @@
   .gg-num{font-weight:800; color:var(--ink-soft); min-width:22px; padding-top:5px; font-size:14px;}
   .gg-q{flex:1; min-width:0; line-height:2.2; font-size:16px; color:var(--ink);}
   .gg-q-block{line-height:1.5;}
+  .gg-instr{font-weight:700; color:var(--ink-soft, var(--ink)); font-size:15px;}
   .gg-inp{font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; width:11em; max-width:100%; padding:4px 9px; margin:0 3px; border-radius:9px; border:2px solid rgba(133,111,92,.4); background:rgba(255,255,255,.55); color:var(--ink);}
   .gg-inp:focus{outline:2px solid var(--coral); border-color:var(--coral);}
   .gg-wide{display:block; width:100%; margin:8px 0 0;}
@@ -268,10 +269,17 @@ function ggDraw(topic, level, avoid){
 function ggFilled(st){ return st.ans.filter(a => a.every(x => String(x).trim() !== '')).length; }
 
 
+// Instruction ("Correct the mistake:", "Make it negative:") goes on its own line; the sentence starts on a new line below it.
+function ggSplitQ(q){
+  const m = /^([^:_(=]{1,90}): (?=\S)/.exec(q);
+  if(!m || /^(I've|We've|My plan|[AB]$)/.test(m[1])) return ['', q];
+  return [m[1] + ':', q.slice(m[0].length)];
+}
 function ggItemHtml(it, n, ansRow, blRow, okVal){
-  const segs = it.q.split('___');
+  const sp = ggSplitQ(it.q), instr = sp[0], body = sp[1];
+  const segs = body.split('___');
   const hasBlank = segs.length > 1;
-  let h = '';
+  let h = instr ? '<span class="gg-instr">' + escapeHtml(instr) + '</span><br>' : '';
   if(hasBlank){
     segs.forEach((seg, bi) => {
       h += escapeHtml(seg);
@@ -284,7 +292,7 @@ function ggItemHtml(it, n, ansRow, blRow, okVal){
   } else {
     const v = ansRow[0] || '';
     const cls = blRow[0] === true ? ' gg-ok' : (blRow[0] === false ? ' gg-bad' : '');
-    h = escapeHtml(it.q) + `<input type="text" class="gg-inp gg-wide${cls}" data-b="0" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} placeholder="Type the full sentence…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
+    h += escapeHtml(body) + `<input type="text" class="gg-inp gg-wide${cls}" data-b="0" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} placeholder="Type the full sentence…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
   }
   const mark = okVal === true ? ' gg-item-ok' : (okVal === false ? ' gg-item-bad' : '');
   return `<div class="gg-item${mark}" data-i="${n}"><span class="gg-num">${n + 1}</span><div class="gg-q${hasBlank ? '' : ' gg-q-block'}">${h}</div></div>`;
