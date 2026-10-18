@@ -1,24 +1,6 @@
 {
-  "generatedAt": "2026-10-18T17:42:24.768165Z",
+  "generatedAt": "2026-10-18T19:55:25.455825Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/chelsea-vs-juventus/u9k5RYr0eefFqPuDKNZRu",
-      "date": "2026-08-05",
-      "home": "Chelsea",
-      "away": "Juventus",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "E. Zhegrova",
-          "minute": 68
-        }
-      ],
-      "competition": "juventus"
-    },
     {
       "url": "https://www.goal.com/en/match/juventus-vs-palermo/gLmx728mBPNCilX6PgjdG",
       "date": "2026-08-11",
@@ -7845,6 +7827,41 @@
       ],
       "awayGoals": [],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ac-milan-vs-atalanta/RkN5BTklgxnNYqSscilrx",
+      "date": "2026-10-18",
+      "home": "Ac Milan",
+      "away": "Atalanta",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "G. Ramos",
+          "minute": 24
+        },
+        {
+          "scorer": "A. Rabiot",
+          "minute": 43
+        },
+        {
+          "scorer": "M. Gila",
+          "minute": 57
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "G. Gaetano",
+          "minute": 66
+        },
+        {
+          "scorer": "N. Krstovic",
+          "minute": 81
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7854,7 +7871,8 @@
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
     "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
-    "https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi": 1,
-    "https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv": 1
+    "https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi": 2,
+    "https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv": 2,
+    "https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6": 1
   }
 }

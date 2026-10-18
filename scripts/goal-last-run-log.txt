@@ -1,24 +1,17 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 9 finished-match links
-[goal-scraper] [PL] Added: Afc Bournemouth 2-0 Sunderland
-[goal-scraper] [PL] Added: Brighton And Hove Albion 5-0 Crystal Palace
-[goal-scraper] [PL] Added: Leeds United 1-1 Manchester United
-[goal-scraper] [PL] Added: Nottingham Forest 0-1 Arsenal
-[goal-scraper] [PD] Found 7 finished-match links
-[goal-scraper] [PD] Added: Celta Vigo 2-1 Deportivo Alaves
+[goal-scraper] [PD] Found 8 finished-match links
+[goal-scraper] WARNING: Real Sociedad scored 5 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6
+[goal-scraper] [PD] SCORER PARSE FAILED (attempt 1/3) for Malaga 2-5 Real Sociedad -- NOT committing, will retry next run: https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6
 [goal-scraper] [BL1] Found 9 finished-match links
-[goal-scraper] [BL1] Added: Bayer Leverkusen 2-1 Freiburg
-[goal-scraper] [BL1] Added: Borussia Moenchengladbach 1-2 Hoffenheim
-[goal-scraper] [SA] Found 6 finished-match links
-[goal-scraper] [SA] Added: Fiorentina 1-3 Como
+[goal-scraper] [SA] Found 7 finished-match links
+[goal-scraper] [SA] Added: Ac Milan 3-2 Atalanta
 [goal-scraper] [FL1] Found 8 finished-match links
-[goal-scraper] [FL1] Added: Angers 2-5 Marseille
-[goal-scraper] [FL1] Added: Lorient 1-0 Monaco
 [goal-scraper] WARNING: Auxerre scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi
-[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 1/3) for Le Havre 1-3 Auxerre -- NOT committing, will retry next run: https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi
+[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 2/3) for Le Havre 1-3 Auxerre -- NOT committing, will retry next run: https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi
 [goal-scraper] WARNING: Paris Fc scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
 [goal-scraper] WARNING: Rennes scored 3 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
-[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 1/3) for Paris Fc 4-3 Rennes -- NOT committing, will retry next run: https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
+[goal-scraper] [FL1] SCORER PARSE FAILED (attempt 2/3) for Paris Fc 4-3 Rennes -- NOT committing, will retry next run: https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 23 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -83,10 +76,10 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Juventus vs Inter on 2026-08-08
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Real Betis on 2026-08-15
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Cagliari vs Inter on 2026-08-30
-[goal-scraper] [ac-milan] Found 12 finished-match links
+[goal-scraper] [ac-milan] Found 13 finished-match links
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Manchester United vs Ac Milan on 2026-08-15
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Torino vs Ac Milan on 2026-08-23
-[goal-scraper] [psg] Found 22 finished-match links
+[goal-scraper] [psg] Found 20 finished-match links
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Atletico Madrid on 2025-06-15
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Botafogo Rj on 2025-06-19
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Seattle Sounders Fc vs Paris Saint Germain on 2025-06-23
@@ -94,22 +87,19 @@
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Inter Miami Cf on 2025-06-29
 [goal-scraper] WARNING: Chelsea scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/chelsea-vs-paris-saint-germain/Z4zruNgsCidaQXy8Mcfpo
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Chelsea vs Paris Saint Germain on 2025-07-13
-[goal-scraper] WARNING: Paris Saint Germain scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/vendee-fontenay-foot-vs-paris-saint-germain/H95TaHXkvzClAm2AMFdgg
-[goal-scraper] [psg] Skipping stale match (older than 45 days): Vendee Fontenay Foot vs Paris Saint Germain on 2025-12-20
-[goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Paris Fc on 2026-01-12
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Mallorca vs Paris Saint Germain on 2026-08-05
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Manchester United vs Paris Saint Germain on 2026-08-08
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Aston Villa on 2026-08-12
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Lens vs Paris Saint Germain on 2026-08-16
 [goal-scraper] WARNING: Paris Saint Germain scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/rennes-vs-paris-saint-germain/n1px-CIQndBw5p3N1QVaq
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Rennes vs Paris Saint Germain on 2026-08-23
-[goal-scraper] [marseille] Found 19 finished-match links
-[goal-scraper] [marseille] Skipping stale match (older than 45 days): Bourg En Bresse Peronnas vs Marseille on 2025-12-21
-[goal-scraper] WARNING: Marseille scored 9 but only 6 scorer(s) were parsed for https://www.goal.com/en/match/bayeux-vs-marseille/R85xLJltvhkq24LKLCcBj
-[goal-scraper] [marseille] Skipping stale match (older than 45 days): Bayeux vs Marseille on 2026-01-13
-[goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Rennes on 2026-02-03
-[goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Toulouse on 2026-03-04
+[goal-scraper] [marseille] Found 15 finished-match links
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Yamoussoukro Fc vs Marseille on 2026-07-17
+[goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Al Shahaniya on 2026-08-05
+[goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Athletic Bilbao on 2026-08-09
+[goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Atletico Madrid on 2026-08-14
+[goal-scraper] WARNING: Monaco scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/monaco-vs-marseille/o_QlMszaNoxjSs5L9TLym
+[goal-scraper] [marseille] Skipping stale match (older than 45 days): Monaco vs Marseille on 2026-08-30
 [goal-scraper] [dortmund] Found 21 finished-match links
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fluminense vs Borussia Dortmund on 2025-06-17
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Mamelodi Sundowns Fc vs Borussia Dortmund on 2025-06-21
@@ -117,6 +107,10 @@
 [goal-scraper] WARNING: Borussia Dortmund scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/borussia-dortmund-vs-monterrey/UFMDj_-1r2womLuAYX338
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Monterrey on 2025-07-01
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Oberhausen vs Borussia Dortmund on 2026-07-18
+[goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fortuna Duesseldorf vs Borussia Dortmund on 2026-07-25
+[goal-scraper] [dortmund] Skipping stale match (older than 45 days): Cerezo Osaka vs Borussia Dortmund on 2026-07-29
+[goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fc Tokyo vs Borussia Dortmund on 2026-08-01
+[goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Roma on 2026-08-15
 [goal-scraper] [roma] Found 15 finished-match links
 [goal-scraper] WARNING: Roma scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/roma-vs-fiorentina/2sJvO24_g2D6Mpsty7WoU
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Fiorentina on 2026-08-24
@@ -127,8 +121,10 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Wydad Casablanca on 2025-06-22
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Manchester City on 2025-06-26
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Basel vs Juventus on 2026-07-18
+[goal-scraper] [juventus] Skipping stale match (older than 45 days): Standard Liege vs Juventus on 2026-07-25
+[goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Nice on 2026-07-31
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 10
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi', 'https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv']
+[goal-scraper] TOTAL new results added this run: 1
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi', 'https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv', 'https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6']
 [goal-scraper] Wrote data/goal-results.json
