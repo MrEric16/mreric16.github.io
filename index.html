@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261019175442">
+<meta name="app-build" content="20261019180635">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -17859,6 +17859,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Tetris", emoji: icon('tetromino'), url: "#tetris-game", internal: true },
   { name: "Battleship", emoji: icon('ship'), url: "#battleship-game", internal: true },
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
+  { name: "IELTS Vocabulary", emoji: icon('book'), url: "vocabulary.html", internal: false, sameTab: true },
   { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
   { name: "Solitaire", emoji: icon('spade'), url: "#solitaire-game", internal: true },
   { name: "Durak", emoji: icon('crown'), url: "#durak-game", internal: true },
@@ -17874,7 +17875,7 @@ const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzz
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#nerdle-game', '#xword-game', '#alias-game'],
-  language: ['#idiom-match-game', '#antonym-match-game', '#language-game', '#phrase-lang-game', '#irregular-verbs'],
+  language: ['#idiom-match-game', '#antonym-match-game', '#language-game', '#phrase-lang-game', '#irregular-verbs', 'vocabulary.html'],
   geo: ['#flag-game', '#capital-game', '#currency-game', '#silhouette-game', 'globe.html', 'GeoGuessr', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#odd-one-out-game', '#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],
@@ -31613,7 +31614,7 @@ function leagueTableHtml(league){
 }
 
 function sportsTileHtml(t){
-  const attrs = t.internal ? '' : ' target="_blank" rel="noopener"';
+  const attrs = (t.internal || t.sameTab) ? '' : ' target="_blank" rel="noopener"';
   const cat = t.cat ? ` data-cat="${t.cat}"` : '';
   // Default look copies the domain tiles: a soft tint of one faculty colour per category,
   // with a matching icon colour. Painted themes override this with their own palettes.
@@ -32690,13 +32691,6 @@ function viewHome(){
         <div>
           <div class="title">Practise grammar</div>
           <div class="sub">Jump straight into suffering</div>
-        </div>
-      </a>
-      <a class="random-tile" href="vocabulary.html" id="vocabTile" style="margin-top:12px; text-decoration:none;">
-        <span class="icon">${icon('book')}</span>
-        <div>
-          <div class="title">IELTS vocabulary</div>
-          <div class="sub">Learn it, drill it, save it</div>
         </div>
       </a>
     </section>
