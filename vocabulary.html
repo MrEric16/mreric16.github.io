@@ -136,6 +136,8 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
   .v-miss{background:var(--card); border-radius:14px; padding:12px 14px; margin-bottom:8px; text-align:left;}
   .v-miss b{font-size:16px;} .v-miss div{font-size:14px; color:var(--ink-soft); margin-top:3px;}
 </style>
+<link rel="stylesheet" href="theme-pages.css">
+<style>body .v-opt.ok{outline:4px solid #4CAF50 !important; outline-offset:-2px;} body .v-opt.bad{outline:4px solid #E5484D !important; outline-offset:-2px; opacity:.9;} body{--ff-accent:var(--coral-dark);} .v-opt.sport-hub-tile{height:auto; display:block; padding:14px;} .v-opts.six .v-opt.sport-hub-tile{padding:14px 8px;} .v-btn{box-shadow:0 3px 0 rgba(0,0,0,.12);} .v-card.random-tile{display:block;}</style>
 </head>
 <body>
 <script>
@@ -257,10 +259,10 @@ function filterUI(mode, label){
   var bOpts = '<option value="all">All levels</option>' + [6,7,8].map(function(b){ return '<option value="' + b + '"' + (String(f.b) === String(b) ? ' selected' : '') + '>' + BANDS[b] + '</option>'; }).join('');
   app.innerHTML = back('#', 'Back to IELTS Vocabulary') + head(label) +
     '<div class="v-filters"><label>Topic<select class="v-sel" id="vT">' + tOpts + '</select></label><label>Level<select class="v-sel" id="vB">' + bOpts + '</select></label></div>' +
-    '<div class="v-hint" id="vCount"></div><button class="v-btn" id="vGo">Start</button>';
+    '<button class="v-btn" id="vGo">Start</button>';
   var t = document.getElementById('vT'), b = document.getElementById('vB');
   function pool(){ return WORDS.filter(function(w){ return (t.value === 'all' || String(w.t) === t.value) && (b.value === 'all' || String(w.b) === b.value); }); }
-  function upd(){ var n = pool().length; document.getElementById('vCount').textContent = n + ' items match'; document.getElementById('vGo').disabled = n < 6; lsSet('vocabFilter', { t:t.value, b:b.value }); }
+  function upd(){ var n = pool().length; document.getElementById('vGo').disabled = n < 6; lsSet('vocabFilter', { t:t.value, b:b.value }); }
   t.addEventListener('change', upd); b.addEventListener('change', upd); upd();
   document.getElementById('vGo').addEventListener('click', function(){ var p = pool(); if(p.length >= 6) mode(p); });
 }
@@ -272,7 +274,7 @@ function learn(pool){
     if(idx >= deck.length){ deck = shuffle(pool); idx = 0; }
     var w = deck[idx];
     app.innerHTML = back('#', 'Back to IELTS Vocabulary') + '<div class="v-meta"><span>' + (idx + 1) + ' / ' + deck.length + '</span><span>' + BANDS[w.b] + ' · ' + esc(TOPICS[w.t]) + '</span></div>' +
-      '<div class="v-card"><div class="v-word">' + esc(w.w) + '</div><span class="v-pos">' + POSN[w.pos] + '</span><div class="v-def">' + esc(w.d) + '</div><div class="v-ex">“' + esc(w.e) + '”</div><div style="margin-top:8px;">' + saveBtn(w) + '</div></div>' +
+      '<div class="v-card random-tile"><div class="v-word">' + esc(w.w) + '</div><span class="v-pos">' + POSN[w.pos] + '</span><div class="v-def">' + esc(w.d) + '</div><div class="v-ex">“' + esc(w.e) + '”</div><div style="margin-top:8px;">' + saveBtn(w) + '</div></div>' +
       '<button class="v-btn" id="vNext">Got it</button>';
     bindSave(app);
     document.getElementById('vNext').addEventListener('click', function(){ idx++; window.scrollTo(0,0); show(); });
@@ -308,8 +310,8 @@ function practice(kind, pool){
     var opts = shuffle([w].concat(ds));
     var prompt = kind === 'w2m' ? '<div class="v-word">' + esc(w.w) + '</div><span class="v-pos">' + POSN[w.pos] + '</span>' : '<div class="v-def" style="margin-top:0;">' + esc(w.d) + '</div><span class="v-pos" style="margin-top:10px;">' + POSN[w.pos] + '</span>';
     app.innerHTML = back('#', 'Quit round') + '<div class="v-meta"><span>Question ' + (i + 1) + ' / ' + qs.length + '</span><span>Score ' + score + '</span></div><div class="v-bar"><i style="width:' + (i / qs.length * 100) + '%"></i></div>' +
-      '<div class="v-card">' + prompt + '</div><div class="v-opts' + (kind === 'm2w' ? ' six' : '') + '">' +
-      opts.map(function(o, n){ return '<button class="v-opt" data-n="' + n + '">' + esc(kind === 'w2m' ? o.d : o.w) + '</button>'; }).join('') + '</div><div id="vFb"></div>';
+      '<div class="v-card random-tile">' + prompt + '</div><div class="v-opts' + (kind === 'm2w' ? ' six' : '') + '">' +
+      opts.map(function(o, n){ return '<button class="v-opt sport-hub-tile" data-n="' + n + '">' + esc(kind === 'w2m' ? o.d : o.w) + '</button>'; }).join('') + '</div><div id="vFb"></div>';
     var btns = app.querySelectorAll('.v-opt');
     btns.forEach(function(b){
       b.addEventListener('click', function(){
@@ -319,14 +321,16 @@ function practice(kind, pool){
         if(ok) score++; else { b.classList.add('bad'); miss.push(w); setSaved(w.k, true); }
         var fb = document.getElementById('vFb');
         fb.innerHTML = '<div class="v-ex" style="text-align:center;margin:4px 0 0;">' + (kind === 'm2w' ? '<b>' + esc(w.w) + '</b>: ' : '') + '“' + esc(w.e) + '”</div>';
-        setTimeout(function(){ i++; q(); }, ok ? 900 : 1900);
+        var nb = document.createElement('button'); nb.className = 'v-btn'; nb.textContent = i + 1 >= qs.length ? 'See results' : 'Next'; fb.appendChild(nb);
+        nb.addEventListener('click', function(){ i++; window.scrollTo(0, 0); q(); });
+        nb.scrollIntoView({ block:'nearest', behavior:'smooth' });
       });
     });
   }
   function end(){
     var best = lsGet(bestKey, 0), pct = Math.round(score / qs.length * 100), isBest = pct > best;
     if(isBest) lsSet(bestKey, pct);
-    app.innerHTML = back('#', 'Back to IELTS Vocabulary') + '<div class="v-card"><div class="v-big">' + score + ' / ' + qs.length + '</div><div class="v-def" style="margin-top:6px;">' + pct + '%' + (isBest ? ' · new best' : ' · best ' + best + '%') + '</div></div>' +
+    app.innerHTML = back('#', 'Back to IELTS Vocabulary') + '<div class="v-card random-tile"><div class="v-big">' + score + ' / ' + qs.length + '</div><div class="v-def" style="margin-top:6px;">' + pct + '%' + (isBest ? ' · new best' : ' · best ' + best + '%') + '</div></div>' +
       (miss.length ? '<div class="v-hint">Missed words are saved automatically.</div>' + miss.map(function(w){ return '<div class="v-miss"><b>' + esc(w.w) + '</b><div>' + esc(w.d) + '</div></div>'; }).join('') : '') +
       '<button class="v-btn" id="vAgain" style="margin-top:12px;">Another round</button>';
     document.getElementById('vAgain').addEventListener('click', function(){ practice(kind, pool); });
@@ -343,7 +347,7 @@ function savedPage(){
     '<div class="ivb-search-wrap"><input class="search-input" id="vQ" placeholder="Find any word to save…" style="padding-left:16px;"></div><div id="vRes"></div>' +
     (list.length ? '<button class="v-btn alt" id="vReblur" style="margin-bottom:12px;">Blur all again</button>' : '<div class="empty-card">Nothing saved yet. Wrong answers in practice are saved automatically, and every card has a Save button.</div>') +
     '<div id="vList">' + list.map(function(w){
-      return '<div class="v-card" data-k="' + esc(w.k) + '"><div class="v-word" style="font-size:26px;"><span class="blur">' + esc(w.w) + '</span></div><div><span class="v-pos">' + POSN[w.pos] + '</span></div><div class="v-def"><span class="blur">' + esc(w.d) + '</span></div><div class="v-ex blur-ex" style="display:none;">“' + esc(w.e) + '”</div><div style="margin-top:8px;"><button class="v-save" data-rm="' + esc(w.k) + '">Remove</button></div></div>';
+      return '<div class="v-card random-tile" data-k="' + esc(w.k) + '"><div class="v-word" style="font-size:26px;"><span class="blur">' + esc(w.w) + '</span></div><div><span class="v-pos">' + POSN[w.pos] + '</span></div><div class="v-def"><span class="blur">' + esc(w.d) + '</span></div><div class="v-ex blur-ex" style="display:none;">“' + esc(w.e) + '”</div><div style="margin-top:8px;"><button class="v-save" data-rm="' + esc(w.k) + '">Remove</button></div></div>';
     }).join('') + '</div>';
   function bindBlur(root){
     root.querySelectorAll('.blur').forEach(function(b){ b.addEventListener('click', function(){ b.classList.toggle('show'); var c = b.closest('.v-card'); var ex = c && c.querySelector('.blur-ex'); if(ex){ ex.style.display = c.querySelectorAll('.blur.show').length ? 'block' : 'none'; } }); });

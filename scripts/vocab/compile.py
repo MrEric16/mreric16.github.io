@@ -1,13 +1,14 @@
 import os,re,json,sys,collections
 SRC=os.path.join(os.path.dirname(__file__),'src')
 OUT=os.path.join(os.path.dirname(__file__),'..','..','data','vocab','words.json')
-TOPICS={'acad1':'Academic','acad2':'Academic','env':'Environment','edu':'Education','tech':'Technology','health':'Health','soc':'Society','work':'Work','econ':'Economy','media':'Media','travel':'Travel','crime':'Crime','fam':'Family','sci':'Science','cult':'Culture','phr1':'Phrasal verbs','phr2':'Phrasal verbs','idm1':'Idioms','idm2':'Idioms','link':'Linking words','col1':'Collocations','col2':'Collocations','gov':'Government','psych':'Psychology','food':'Food','sport':'Sport','arts':'Arts','urban':'Cities','trans':'Transport','desc':'Describing','task1':'Task 1 language','lang':'Language','shop':'Shopping','home':'Home and leisure','more':'Academic','more2':'Academic'}
+TOPICS={'acad1':'Academic','acad2':'Academic','env':'Environment','edu':'Education','tech':'Technology','health':'Health','soc':'Society','work':'Work','econ':'Economy','media':'Media','travel':'Travel','crime':'Crime','fam':'Family','sci':'Science','cult':'Culture','phr1':'Phrasal verbs','phr2':'Phrasal verbs','idm1':'Idioms','idm2':'Idioms','link':'Linking words','col1':'Collocations','col2':'Collocations','gov':'Government','psych':'Psychology','food':'Food','sport':'Sport','arts':'Arts','urban':'Cities','trans':'Transport','desc':'Describing','task1':'Task 1 language','lang':'Language','shop':'Shopping','home':'Home and leisure','more':'Academic','phr3':'Phrasal verbs','idm3':'Idioms','col3':'Collocations','acad3':'Academic','acad4':'Academic','acad5':'Academic','more2':'Academic'}
 POS={'n','v','adj','adv','phr','idm','col','conj','prep'}
 seen={};errs=[];warn=[]
 BR={'color':'colour','center':'centre','organize':'organise','realize':'realise','behavior':'behaviour','favorite':'favourite','analyze':'analyse','recognize':'recognise','skeptical':'sceptical'}
 for fn in sorted(os.listdir(SRC)):
     if not fn.endswith('.txt'):continue
     key=fn[:-4]
+    if key not in TOPICS and key.endswith('x') and key[:-1] in TOPICS: TOPICS[key]=TOPICS[key[:-1]]
     if key not in TOPICS:errs.append('no topic for '+key);continue
     for i,l in enumerate(open(os.path.join(SRC,fn),encoding='utf8'),1):
         l=l.rstrip('\n')
