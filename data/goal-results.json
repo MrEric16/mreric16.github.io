@@ -1,121 +1,6 @@
 {
-  "generatedAt": "2026-10-18T22:07:51.001502Z",
+  "generatedAt": "2026-10-19T00:20:04.625165Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lecce-vs-roma/tW1qvyr9_Qo8wjo8JeDaG",
-      "date": "2026-08-31",
-      "home": "Lecce",
-      "away": "Roma",
-      "htHome": 0,
-      "htAway": 3,
-      "ftHome": 0,
-      "ftAway": 4,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "D. Malen",
-          "minute": 4
-        },
-        {
-          "scorer": "M. Soule",
-          "minute": 25
-        },
-        {
-          "scorer": "R. Mora",
-          "minute": 65
-        }
-      ],
-      "competition": "roma"
-    },
-    {
-      "url": "https://www.goal.com/en/match/ipswich-town-vs-liverpool/qjMao9n9speO52jWoe6nd",
-      "date": null,
-      "home": "Ipswich Town",
-      "away": "Liverpool",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "A. Isak",
-          "minute": 6
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/genoa-vs-como/ZjI7u6Ry3gQLDTe471CdL",
-      "date": null,
-      "home": "Genoa",
-      "away": "Como",
-      "htHome": 1,
-      "htAway": 3,
-      "ftHome": 1,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "M. Osmajic",
-          "minute": 19
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Baturina",
-          "minute": 25
-        },
-        {
-          "scorer": "A. Diao",
-          "minute": 30
-        },
-        {
-          "scorer": "N. Paz",
-          "minute": 40
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/barcelona-vs-ce-europa/_ALaHuWMS8DB2jd-OZGrF",
-      "date": "2026-07-24",
-      "home": "Barcelona",
-      "away": "Ce Europa",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "barcelona"
-    },
-    {
-      "url": "https://www.goal.com/en/match/birmingham-city-vs-barcelona/K3VtapP4TCXOwIm3iJ_0j",
-      "date": "2026-07-31",
-      "home": "Birmingham City",
-      "away": "Barcelona",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "A. Priske",
-          "minute": 31
-        },
-        {
-          "scorer": "J. Solis",
-          "minute": 68
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "H. Abdelkarim",
-          "minute": 42
-        }
-      ],
-      "competition": "barcelona"
-    },
     {
       "url": "https://www.goal.com/en/match/basel-vs-barcelona/BecAmKNbUMIXdrZMQRRc8",
       "date": "2026-08-16",
@@ -7866,6 +7751,157 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6",
+      "date": "2026-10-18",
+      "home": "Malaga",
+      "away": "Real Sociedad",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 2,
+      "ftAway": 5,
+      "homeGoals": [
+        {
+          "scorer": "A. Nino",
+          "minute": 54
+        },
+        {
+          "scorer": "P. Martinez",
+          "minute": 66
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "T. Kubo",
+          "minute": 3
+        },
+        {
+          "scorer": "O. Oskarsson",
+          "minute": 26
+        },
+        {
+          "scorer": "M. Oyarzabal",
+          "minute": 59
+        },
+        {
+          "scorer": "G. Guedes",
+          "minute": 73
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI",
+      "date": "2026-10-18",
+      "home": "Real Madrid",
+      "away": "Sevilla",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Guler",
+          "minute": 30
+        },
+        {
+          "scorer": "K. Mbappe",
+          "minute": 37
+        },
+        {
+          "scorer": "Y. Diomande",
+          "minute": 82
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Bueno",
+          "minute": 80
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi",
+      "date": "2026-10-18",
+      "home": "Le Havre",
+      "away": "Auxerre",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "R. Fofana",
+          "minute": 66
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Namaso",
+          "minute": 40
+        },
+        {
+          "scorer": "R. Faivre",
+          "minute": 80
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv",
+      "date": "2026-10-18",
+      "home": "Paris Fc",
+      "away": "Rennes",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 4,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "M. Lopez",
+          "minute": 14
+        },
+        {
+          "scorer": "L. Sinayoko",
+          "minute": 76
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "E. Lepaul",
+          "minute": 29
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lyon-vs-nice/quykXDQwvB6tvHOwdFqbS",
+      "date": "2026-10-18",
+      "home": "Lyon",
+      "away": "Nice",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "P. Sulc",
+          "minute": 32
+        },
+        {
+          "scorer": "T. Tessmann",
+          "minute": 36
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "E. Wahi",
+          "minute": 18
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7874,10 +7910,6 @@
     "https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv": 2,
     "https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb": 1,
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
-    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
-    "https://www.goal.com/en/match/le-havre-vs-auxerre/5foAKDnrkVLAs10LqoMyi": 2,
-    "https://www.goal.com/en/match/paris-fc-vs-rennes/16oeFMtZ69aMaJ-qNCuzv": 2,
-    "https://www.goal.com/en/match/malaga-vs-real-sociedad/l2uz2RqcOic6aYRolohJ6": 2,
-    "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI": 2
+    "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2
   }
 }
