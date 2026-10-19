@@ -135,6 +135,9 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
   .v-big{font-family:'Baloo 2', sans-serif; font-size:44px; font-weight:700; color:var(--coral);}
   .v-miss{background:var(--card); border-radius:14px; padding:12px 14px; margin-bottom:8px; text-align:left;}
   .v-miss b{font-size:16px;} .v-miss div{font-size:14px; color:var(--ink-soft); margin-top:3px;}
+  .v-learn{height:360px; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; padding:20px 18px 52px; overflow:auto;}
+  .v-learn .v-save{position:absolute; bottom:8px; left:50%; transform:translateX(-50%);}
+  .v-fixed{position:fixed; bottom:22px; left:50%; transform:translateX(-50%); width:min(688px, calc(100% - 32px)); margin:0; z-index:5;}
 </style>
 <link rel="stylesheet" href="theme-pages.css">
 <style>body .v-opt.ok{outline:4px solid #4CAF50 !important; outline-offset:-2px;} body .v-opt.bad{outline:4px solid #E5484D !important; outline-offset:-2px; opacity:.9;} body{--ff-accent:var(--coral-dark);} .v-opt.sport-hub-tile{height:auto; display:block; padding:14px;} .v-opts.six .v-opt.sport-hub-tile{padding:14px 8px;} .v-btn{box-shadow:0 3px 0 rgba(0,0,0,.12);} .v-card.random-tile{display:block;}</style>
@@ -273,9 +276,9 @@ function learn(pool){
   function show(){
     if(idx >= deck.length){ deck = shuffle(pool); idx = 0; }
     var w = deck[idx];
-    app.innerHTML = back('#', 'Back to IELTS Vocabulary') + '<div class="v-meta"><span>' + (idx + 1) + ' / ' + deck.length + '</span><span>' + BANDS[w.b] + ' · ' + esc(TOPICS[w.t]) + '</span></div>' +
-      '<div class="v-card random-tile"><div class="v-word">' + esc(w.w) + '</div><span class="v-pos">' + POSN[w.pos] + '</span><div class="v-def">' + esc(w.d) + '</div><div class="v-ex">“' + esc(w.e) + '”</div><div style="margin-top:8px;">' + saveBtn(w) + '</div></div>' +
-      '<button class="v-btn" id="vNext">Got it</button>';
+    app.innerHTML = back('#', 'Back to IELTS Vocabulary') + '<div class="v-meta"><span></span><span>' + BANDS[w.b] + ' · ' + esc(TOPICS[w.t]) + '</span></div>' +
+      '<div class="v-card random-tile v-learn"><div class="v-word">' + esc(w.w) + '</div><span class="v-pos">' + POSN[w.pos] + '</span><div class="v-def">' + esc(w.d) + '</div><div class="v-ex">“' + esc(w.e) + '”</div>' + saveBtn(w) + '</div>' +
+      '<div style="height:80px;"></div><button class="v-btn v-fixed" id="vNext">Got it</button>';
     bindSave(app);
     document.getElementById('vNext').addEventListener('click', function(){ idx++; window.scrollTo(0,0); show(); });
   }
