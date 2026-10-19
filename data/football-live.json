@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-19T10:46:38.772103Z",
+  "generatedAt": "2026-10-19T17:20:51.026536Z",
   "standings": {
     "PL": [
       {
@@ -650,12 +650,12 @@
       },
       {
         "name": "Cagliari",
-        "pld": 6,
+        "pld": 7,
         "w": 4,
         "d": 1,
-        "l": 1,
+        "l": 2,
         "gf": 6,
-        "ga": 3,
+        "ga": 4,
         "pts": 13
       },
       {
@@ -719,6 +719,16 @@
         "pts": 7
       },
       {
+        "name": "Monza",
+        "pld": 7,
+        "w": 2,
+        "d": 1,
+        "l": 4,
+        "gf": 10,
+        "ga": 15,
+        "pts": 7
+      },
+      {
         "name": "Bologna",
         "pld": 7,
         "w": 1,
@@ -727,16 +737,6 @@
         "gf": 6,
         "ga": 10,
         "pts": 5
-      },
-      {
-        "name": "Monza",
-        "pld": 6,
-        "w": 1,
-        "d": 1,
-        "l": 4,
-        "gf": 9,
-        "ga": 15,
-        "pts": 4
       },
       {
         "name": "Parma",
@@ -3093,7 +3093,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-19T16:30:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 7,
           "homeTeam": {
             "id": 5911,
@@ -3106,11 +3106,11 @@
             "shortName": "Cagliari"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             },
             "halfTime": {
               "home": null,
