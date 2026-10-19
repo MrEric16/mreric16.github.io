@@ -1,3 +1,5 @@
-[generate_voice_narration] provider=elevenlabs slug=ikea-britannica voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=2443
-[generate_voice_narration] elevenlabs chunk 1/1 ok (2443 chars)
-[generate_voice_narration] wrote data/audio/ikea-britannica.mp3 (2528279 bytes, 1 chunk(s), no post-processing)
+ERROR: ElevenLabs request failed: HTTP 401
+{"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 40000. You have 66 credits remaining, while 840 credits are required for this request.","status":"quota_exceeded","request_id":"e7eaa6aedee16f39de991ca25c01ca4f"}}
+  -> API key rejected: check the ELEVENLABS_API_KEY secret (and that the key has Text to Speech permission).
+[generate_voice_narration] provider=elevenlabs slug=immortal-jellyfish voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=2100
+GENERATE_FAILED_SEE_LOG
