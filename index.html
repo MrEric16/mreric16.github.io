@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261019180635">
+<meta name="app-build" content="20261019181001">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7236,8 +7236,7 @@ const EXPLORE_SITES = [
   { name:"Our World in Data", desc:"Thousands of interactive charts tracking how the world has actually changed - poverty, trade, energy - sourced by Oxford researchers.", url:"https://ourworldindata.org/", fac:"economics" },
   { name:"Numbeo", desc:"Compare real cost of living, rent, and salaries between any two cities on Earth. Genuinely fun to check your own city against places you'll never live.", url:"https://www.numbeo.com/cost-of-living/", fac:"economics" },
   { name:"Worldometers", desc:"A live, constantly-ticking dashboard of world statistics - population growing in real time, CO2 emissions, internet users.", url:"https://www.worldometers.info/", fac:"international-relations" },
-  { name:"GeoGuessr", desc:"Drop into a random real-world location via Google Street View and guess where in the world you are - a genuinely fun way to sharpen geography knowledge.", url:"https://www.geoguessr.com/", fac:"travel" },
-  { name:"OpenGuessr", desc:"A free alternative to GeoGuessr - same idea, guessing your location from a random street-level image, no account or payment required.", url:"https://openguessr.com/", fac:"travel" },
+  { name:"OpenGuessr", desc:"Guess where in the world you are from a random street-level image, no account or payment required. from a random street-level image, no account or payment required.", url:"https://openguessr.com/", fac:"travel" },
   { name:"PubMed", desc:"The National Library of Medicine's free search engine for biomedical literature - millions of real published research papers on medicine, biology, and life sciences.", url:"https://pubmed.ncbi.nlm.nih.gov/", fac:"biochem" },
   { name:"Cell", desc:"One of the most respected peer-reviewed journals in biology, publishing major breakthroughs across genetics, molecular biology, and biochemistry.", url:"https://www.cell.com/", fac:"biochem" },
   { name:"LinguaVine", desc:"Explore the classification of all human languages in an interactive tree - see which languages are most closely related to each other and how they evolved.", url:"https://www.linguavine.com/", fac:"languages" },
@@ -17864,7 +17863,6 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Solitaire", emoji: icon('spade'), url: "#solitaire-game", internal: true },
   { name: "Durak", emoji: icon('crown'), url: "#durak-game", internal: true },
   { name: "Globe", emoji: icon('globeSpin'), url: "globe.html", internal: false },
-  geoHubExternalTile("GeoGuessr"),
   geoHubExternalTile("OpenGuessr"),
 ].filter(Boolean);
 
@@ -17876,7 +17874,7 @@ const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card']
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#nerdle-game', '#xword-game', '#alias-game'],
   language: ['#idiom-match-game', '#antonym-match-game', '#language-game', '#phrase-lang-game', '#irregular-verbs', 'vocabulary.html'],
-  geo: ['#flag-game', '#capital-game', '#currency-game', '#silhouette-game', 'globe.html', 'GeoGuessr', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
+  geo: ['#flag-game', '#capital-game', '#currency-game', '#silhouette-game', 'globe.html', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#odd-one-out-game', '#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],
   card: ['#solitaire-game', '#durak-game'],
@@ -22053,7 +22051,7 @@ function wireRandomVideoButton(container){
 const DO_SOMETHING_EXCLUDED_FACS = ['design', 'psychology', 'technology', 'it'];
 
 // "Play something": a random Train Your Brain game. Only tiles that live inside the
-// Lounge qualify (hash routes only), so GeoGuessr, OpenGuessr and the Globe page are never
+// Lounge qualify (hash routes only), so OpenGuessr and the Globe page are never
 // picked, and neither is the Irregular Verbs reference hub since it is not a game. Never
 // the same game twice in a row.
 let lastRandomGameUrl = null;
@@ -23144,7 +23142,7 @@ function wireSearch(container){
     const videoMatches = WATCH_VIDEOS.filter(v => v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q));
     const exploreMatches = EXPLORE_SITES.filter(s => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
     // Brain Train games (GEOGRAPHY_HUB_TILES) - internal:true only, since the external
-    // entries (GeoGuessr, OpenGuessr) already surface under Instruments via exploreMatches,
+    // entries (OpenGuessr) already surface under Instruments via exploreMatches,
     // and listing them twice would just be noise.
     const gameMatches = GEOGRAPHY_HUB_TILES.filter(g => g.internal && g.name.toLowerCase().includes(q));
     const pageMatches = allPages.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.keywords||[]).some(k => k.includes(q)));
@@ -26283,7 +26281,6 @@ const MT_COMFORT_INSTRUMENT_URLS = [
   "https://ncase.me/",
   "https://goblin.tools/",
   "https://www.chess.com/puzzles",
-  "https://www.geoguessr.com/",
   "https://openguessr.com/",
   "https://www.mapcrunch.com/",
   "https://www.airpano.com/",
