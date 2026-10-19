@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261019182111">
+<meta name="app-build" content="20261019182546">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7117,6 +7117,56 @@ const SEARCHABLE_PAGES = [
   { name:"Superstars of the Week", desc:"This week's shoutouts.", url:"#superstars", icon:"star", keywords:["superstars","shoutouts","students of the week"] },
   { name:"Birthdays", desc:"Upcoming birthdays in class.", url:"#birthdays", icon:"cake", keywords:["birthdays","bday"] },
   { name:"Invite a Friend", desc:"Get the QR code to install the Lounge on a new device.", url:"#invite", icon:"star", keywords:["invite","share","qr code","install"] },
+];
+
+// Every tile in the app is findable in search. Anything added here shows under "Pages".
+// url = hash route or full link; ext:true opens a new tab; js = an action instead of a route
+// (used for the random buttons and the story circles). Tiles that already live in an
+// array (Train Your Brain games, domains, instruments) are picked up from those arrays.
+function searchRandomArticle(){ if(DISPATCHES.length) location.href = DISPATCHES[Math.floor(Math.random() * DISPATCHES.length)].url; }
+function searchRandomVideo(){ if(WATCH_VIDEOS.length) location.hash = '#play/' + WATCH_VIDEOS[Math.floor(Math.random() * WATCH_VIDEOS.length)].videoId; }
+function searchRandomExplore(){ const pool = EXPLORE_SITES.filter(s => !DO_SOMETHING_EXCLUDED_FACS.includes(s.fac)); if(pool.length) window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); }
+function searchRandomGame(){ const pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && t.url.charAt(0) === '#' && t.url !== '#irregular-verbs'); if(pool.length) location.hash = pool[Math.floor(Math.random() * pool.length)].url; }
+const SEARCH_EXTRA_TILES = [
+  { name:"Home", desc:"Back to the Lounge's main page.", url:"#", icon:"compass2", keywords:["main page","front page","lounge","start"] },
+  { name:"Read something", desc:"Jump straight to a random article.", js:"searchRandomArticle()", icon:"newspaper", keywords:["random article","random","surprise me","article"] },
+  { name:"Watch something", desc:"Jump straight to a random video.", js:"searchRandomVideo()", icon:"clapper", keywords:["random video","random","video"] },
+  { name:"Do something", desc:"Jump straight to a random powerful website.", js:"searchRandomExplore()", icon:"compass2", keywords:["random website","random instrument","random tool","random"] },
+  { name:"Play something", desc:"Jump straight to a random game.", js:"searchRandomGame()", icon:"dice", keywords:["random game","random","game"] },
+  { name:"Weather", desc:"Today's weather in the three cities.", js:"openStory('weather')", icon:"compass2", keywords:["temperature","tashkent weather","monrovia","tripoli","forecast","story"] },
+  { name:"Word of the day", desc:"Today's word.", js:"openStory('word')", icon:"book", keywords:["word","vocabulary","story"] },
+  { name:"Fact of the day", desc:"Today's fact.", js:"openStory('fact')", icon:"bulb", keywords:["fact","did you know","story"] },
+  { name:"Quote of the day", desc:"Today's quote.", js:"openStory('quote')", icon:"chatBubble", keywords:["quote","story"] },
+  { name:"Birthdays today", desc:"Whose birthday is coming up.", js:"openStory('bdays')", icon:"cake", keywords:["b'days","bdays","story"] },
+  { name:"Arsenal", desc:"Fixtures, results and news for Arsenal.", url:"#arsenal", icon:"ball", keywords:["gunners","football","club","emirates","view arsenal"] },
+  { name:"Premier League", desc:"Table, fixtures and results.", url:"#sports/league/PL", icon:"ball", keywords:["epl","english football","standings"] },
+  { name:"La Liga", desc:"Table, fixtures and results.", url:"#sports/league/PD", icon:"ball", keywords:["spanish football","laliga","standings"] },
+  { name:"Serie A", desc:"Table, fixtures and results.", url:"#sports/league/SA", icon:"ball", keywords:["italian football","standings"] },
+  { name:"Bundesliga", desc:"Table, fixtures and results.", url:"#sports/league/BL1", icon:"ball", keywords:["german football","standings"] },
+  { name:"Ligue 1", desc:"Table, fixtures and results.", url:"#sports/league/FL1", icon:"ball", keywords:["french football","standings"] },
+  { name:"Champions League", desc:"Table, fixtures and results.", url:"#sports/league/CL", icon:"ball", keywords:["ucl","european football","standings"] },
+  { name:"Uzbekistan Super League", desc:"Table, fixtures and results.", url:"#sports/league/UZ", icon:"ball", keywords:["uzbek football","pfc","standings"] },
+  { name:"UAE Pro League", desc:"Table, fixtures and results.", url:"#sports/league/UAE", icon:"ball", keywords:["emirates football","dubai football","standings"] },
+  { name:"KHL", desc:"Table, fixtures and results.", url:"#sports/league/KHL", icon:"ball", keywords:["hockey","ice hockey","kontinental hockey league","standings"] },
+  { name:"BBC Football", desc:"Football news on the BBC.", url:"https://www.bbc.com/sport/football", ext:true, icon:"ball", keywords:["bbc sport","news"] },
+  { name:"UFC", desc:"Upcoming fights and results.", url:"#ufc", icon:"ball", keywords:["mma","fighting","mixed martial arts","ultimate fighting"] },
+  { name:"Good News Only", desc:"A break from the doom and gloom.", url:"https://www.goodgoodgood.co/goodnews", ext:true, icon:"star", keywords:["positive news","happy news","goodgoodgood","uplifting"] },
+  { name:"Books", desc:"Read, listen, download books - 140 million books and journals.", url:"https://welib.st", ext:true, icon:"book", keywords:["ebooks","library","download books","audiobooks","welib","journals","read"] },
+  { name:"Maths with Mr Hayk", desc:"General maths and SAT maths practice.", url:"#maths-mr-hayk", icon:"mathSymbols", keywords:["math","maths","hayk","sat","mr hayk"] },
+  { name:"General Maths", desc:"Maths practice with Mr Hayk (chaosxedu.com).", url:"https://chaosxedu.com/", ext:true, icon:"mathSymbols", keywords:["math","maths","hayk","chaosxedu"] },
+  { name:"SAT Maths", desc:"SAT maths practice with Mr Hayk (chaosxsat.com).", url:"https://chaosxsat.com/", ext:true, icon:"mathSymbols", keywords:["math","maths","sat","hayk","chaosxsat"] },
+  { name:"Photos", desc:"Superstars of the Week and the Photo Library.", url:"#photos", icon:"camera", keywords:["pictures","images","gallery"] },
+  { name:"My Stats", desc:"Your reading, watching and playing stats.", url:"#my-stats", icon:"star", keywords:["statistics","progress","unread","mark all unread","reset my stats"] },
+  { name:"Ask Mr Eric", desc:"Have a question for Mr Eric?", url:"#ask-mr-eric", icon:"chatBubble", keywords:["question","contact","help","message"] },
+  { name:"Mind Temple", desc:"Pick how you feel and get something that fits.", url:"#mind-temple", icon:"bulb", keywords:["mind","mood","feelings","emotions","wellbeing","joyful","trusting","surprised","eager","scared","disgusted","angry","sad"] },
+  { name:"My Wellbeing", desc:"Your mood history in Mind Temple.", url:"#mind-temple", icon:"bulb", keywords:["mood","mind temple","wellbeing","mental health"] },
+  { name:"Upcoming Events in Tashkent", desc:"Concerts, theatre, exhibitions and more.", url:"#events-tashkent", icon:"calendar", keywords:["tashkent","concerts","theatre","exhibitions","city","things to do"] },
+  { name:"Upcoming and Current Online Events", desc:"Free live sessions and talks online.", url:"#events-virtual", icon:"globe", keywords:["online","virtual","webinar","live sessions","free events"] },
+  { name:"Train Your Brain", desc:"Every game and exercise in one place.", url:"#geography-hub", icon:"dice", keywords:["games","brain","brain train","puzzles","play","exercises","practice"] },
+  { name:"Full Archive", desc:"Every article, video and instrument in one place.", url:"#full-archive-hub", icon:"compass2", keywords:["archive","everything","all articles","all videos","all instruments"] },
+  { name:"Articles", desc:"Every article across every domain.", url:"#faculty/all", icon:"newspaper", keywords:["all articles","news","read","archive"] },
+  { name:"Videos", desc:"Every video across every domain.", url:"#watch/all", icon:"clapper", keywords:["all videos","watch","archive"] },
+  { name:"Instruments", desc:"Every powerful website and tool.", url:"#explore", icon:"compass2", keywords:["all instruments","tools","websites","archive"] },
 ];
 
 // HARD RULE: always APPEND new entries at the very end of this array, never insert
@@ -17858,8 +17908,8 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Tetris", emoji: icon('tetromino'), url: "#tetris-game", internal: true },
   { name: "Battleship", emoji: icon('ship'), url: "#battleship-game", internal: true },
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
-  { name: "Practise Grammar", emoji: icon('book'), url: "grammar.html", internal: false, sameTab: true },
-  { name: "IELTS Vocabulary", emoji: icon('book'), url: "vocabulary.html", internal: false, sameTab: true },
+  { name: "Practise Grammar", emoji: icon('book'), url: "grammar.html", internal: false, sameTab: true, kw: ["grammar", "grammar exercises", "grammar practice", "grammar gym", "tenses", "exercises", "english"] },
+  { name: "IELTS Vocabulary", emoji: icon('book'), url: "vocabulary.html", internal: false, sameTab: true, kw: ["ielts", "vocab", "vocabulary", "words", "word list", "phrasal verbs", "idioms", "collocations", "saved words", "learn words"] },
   { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
   { name: "Solitaire", emoji: icon('spade'), url: "#solitaire-game", internal: true },
   { name: "Durak", emoji: icon('crown'), url: "#durak-game", internal: true },
@@ -22417,7 +22467,7 @@ function birthdayResultsHtml(list){
 
 function pageResultsHtml(list){
   return list.map(p => `
-    <a class="page-result" href="${p.url}">
+    <a class="page-result" href="${p.url || '#'}"${p.ext ? ' target="_blank" rel="noopener"' : ''}${p.js ? ` onclick="${p.js}; return false;"` : ''}>
       <span class="page-result-icon">${icon(p.icon)}</span>
       <div>
         <div class="page-result-name">${escapeHtml(p.name)}</div>
@@ -23084,9 +23134,15 @@ function wireSearch(container){
 
   // Faculties are searchable by name too, jumping straight to that domain's page.
   const facultyPages = FACULTIES.map(f => ({
-    name: f.label, desc: `Browse everything filed under ${f.label}.`, url: `#faculty/${f.key}`, icon: f.icon
+    name: f.label, desc: `Browse everything filed under ${f.label}.`, url: `#faculty/${f.key}`, icon: f.icon,
+    keywords: [f.key.replace(/-/g, ' '), f.label.toLowerCase().replace(/&/g, 'and'), ...(f.key === 'international-relations' ? ['international relations', 'ir', 'politics', 'diplomacy'] : []), ...(f.key === 'space-astronomy' ? ['space', 'astronomy', 'astrophysics'] : []), ...(f.key === 'travel' ? ['environment', 'travel and environment'] : []), ...(f.key === 'jurisprudence' ? ['law', 'legal'] : [])]
   }));
-  const allPages = [...SEARCHABLE_PAGES, ...facultyPages];
+  // Brain Train tiles that are not in-app games (Globe, IELTS Vocabulary, Grammar...). In-app
+  // games get their own Games group below, and OpenGuessr already shows under Instruments.
+  const brainExtraPages = GEOGRAPHY_HUB_TILES
+    .filter(t => !t.internal && !EXPLORE_SITES.some(x => x.name === t.name))
+    .map(t => ({ name: t.name, desc: 'Brain Train - tap to open.', url: t.url, ext: !t.sameTab, icon: 'dice', keywords: t.kw || [] }));
+  const allPages = [...SEARCHABLE_PAGES, ...SEARCH_EXTRA_TILES, ...brainExtraPages, ...facultyPages];
 
   // Dictionary lookup runs on a debounce, completely separate from the instant local-array
   // filtering below - typing normally shouldn't fire a network request per keystroke, and
@@ -23145,7 +23201,7 @@ function wireSearch(container){
     // Brain Train games (GEOGRAPHY_HUB_TILES) - internal:true only, since the external
     // entries (OpenGuessr) already surface under Instruments via exploreMatches,
     // and listing them twice would just be noise.
-    const gameMatches = GEOGRAPHY_HUB_TILES.filter(g => g.internal && g.name.toLowerCase().includes(q));
+    const gameMatches = GEOGRAPHY_HUB_TILES.filter(g => g.internal && (g.name.toLowerCase().includes(q) || (g.kw||[]).some(k => k.includes(q))));
     const pageMatches = allPages.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q) || (p.keywords||[]).some(k => k.includes(q)));
     const birthdayMatches = BIRTHDAYS.filter(b => b.name.toLowerCase().includes(q));
     // Matches on title OR category (e.g. typing "theatre" finds every theatre
