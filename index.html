@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261020181107">
+<meta name="app-build" content="20261020181421">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -6701,7 +6701,12 @@ const ICONS = {
   target: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="12" r="1.1" fill="currentColor" stroke="none"/></svg>`,
   grid4: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="3" width="8" height="8" rx="1.2"/><rect x="13" y="3" width="8" height="8" rx="1.2"/><rect x="3" y="13" width="8" height="8" rx="1.2"/><rect x="13" y="13" width="8" height="8" rx="1.2"/></svg>`,
   hexagon: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M12 3l7.8 4.5v9L12 21l-7.8-4.5v-9L12 3Z"/><path d="M12 9l3 1.7v3.6L12 16l-3-1.7v-3.6L12 9Z"/></svg>`,
-  grid4: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg>`,
+  groups4: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="3" y="4" width="18" height="3.4" rx="1.2"/><rect x="3" y="9" width="18" height="3.4" rx="1.2"/><rect x="3" y="14" width="18" height="3.4" rx="1.2"/><path d="M3 20h18"/></svg>`,
+  pencil: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 0 1 3 3L8 19l-4 1Z"/><path d="M14.5 6.5l3 3"/></svg>`,
+  headphones: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4 15v-3a8 8 0 0 1 16 0v3"/><rect x="3" y="14" width="4.5" height="6.5" rx="1.5"/><rect x="16.5" y="14" width="4.5" height="6.5" rx="1.5"/></svg>`,
+  mic: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5.5 11.5a6.5 6.5 0 0 0 13 0"/><path d="M12 18v3"/></svg>`,
+  linkchain: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>`,
+  layers: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg>`,
   oddOneOut: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><circle cx="5.5" cy="14" r="2.3" fill="currentColor" stroke="none"/><circle cx="12" cy="14" r="2.3" fill="currentColor" stroke="none"/><path d="M18.5 9 21.5 15h-6L18.5 9Z"/></svg>`,
   chatBubble: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M4 5h16v11H9l-4 4v-4H4V5Z"/></svg>`,
   mathSymbols: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M6 5v7M2.5 8.5h7"/><path d="M14 8h8M14 14h8"/></svg>`,
@@ -17890,7 +17895,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Wordle", emoji: icon('gradcap'), url: "#wordle-game", internal: true },
   { name: "Word Scramble", emoji: icon('dice'), url: "#anagram-game", internal: true },
   { name: "Odd One Out", emoji: icon('oddOneOut'), url: "#odd-one-out-game", internal: true },
-  { name: "Connections", emoji: icon('grid4'), url: "connections.html", internal: false, sameTab: true, kw:["group","categories","sort words","nyt","four groups","puzzle"] },
+  { name: "Connections", emoji: icon('groups4'), url: "connections.html", internal: false, sameTab: true, kw:["group","categories","sort words","nyt","four groups","puzzle"] },
   { name: "Spelling Bee", emoji: icon('hexagon'), url: "spellingbee.html", internal: false, sameTab: true, kw:["letters","honeycomb","pangram","spell","words","hive"] },
   { name: "Idiom Match", emoji: icon('chatBubble'), url: "#idiom-match-game", internal: true },
   { name: "Antonym Match", emoji: icon('scales'), url: "#antonym-match-game", internal: true },
@@ -17919,6 +17924,8 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Irregular Verbs", emoji: icon('book'), url: "#irregular-verbs", internal: true },
   { name: "Practise Grammar", emoji: icon('book'), url: "grammar.html", internal: false, sameTab: true, kw: ["grammar", "grammar exercises", "grammar practice", "grammar gym", "tenses", "exercises", "english"] },
   { name: "IELTS Vocabulary", emoji: icon('book'), url: "vocabulary.html", internal: false, sameTab: true, kw: ["ielts", "vocab", "vocabulary", "words", "word list", "phrasal verbs", "idioms", "collocations", "saved words", "learn words"] },
+  { name: "IELTS Writing Checker", emoji: icon('pencil'), url: "writing.html", internal: false, sameTab: true, kw: ["writing", "essay", "task 2", "task 1", "word count", "linking words", "ielts writing", "checker"] },
+  { name: "Exam Timer", emoji: icon('hourglass'), url: "mocktimer.html", internal: false, sameTab: true, kw: ["timer", "ielts timer", "toefl timer", "mock test", "countdown", "section timer"] },
   { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
   { name: "Solitaire", emoji: icon('spade'), url: "#solitaire-game", internal: true },
   { name: "Durak", emoji: icon('crown'), url: "#durak-game", internal: true },
@@ -17933,7 +17940,7 @@ const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzz
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#odd-one-out-game', 'connections.html', 'spellingbee.html', '#nerdle-game', '#xword-game', '#alias-game'],
-  language: ['#idiom-match-game', '#antonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html'],
+  language: ['#idiom-match-game', '#antonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'writing.html', 'mocktimer.html'],
   geo: ['#flag-game', '#capital-game', '#currency-game', '#language-game', '#phrase-lang-game', '#silhouette-game', 'globe.html', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],

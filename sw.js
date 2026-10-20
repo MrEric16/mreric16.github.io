@@ -15,6 +15,8 @@ const SHELL_FILES = [
   './grammar.html',
   './connections.html',
   './spellingbee.html',
+  './writing.html',
+  './mocktimer.html',
   './lounge-core.js',
   './theme-pages.css',
   './manifest.json',
