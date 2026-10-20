@@ -9,3 +9,35 @@
 [uae-tsdb] eventsseason.php?id=4678&s=2026-2027 failed: HTTP Error 403: Forbidden
 [uae-tsdb] TheSportsDB returned nothing; file untouched
 TSDB_FALLBACK_FAILED
+[uae-365] results: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=49
+[uae-365]   sample: {"startTime": "2026-11-01T20:35:00+05:00", "statusGroup": 4, "statusText": "Postponed", "shortStatusText": "Post."} home=Sharjah SC -1.0 away=Al Nasr Dubai -1.0
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=42
+[uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Dhafra -1.0 away=Kalba -1.0
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
+[uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
+[uae-365] verified current
+[uae-365] wrote data/uae-league-live.json: 42 results, 49 fixtures, 0 new
