@@ -209,14 +209,13 @@ function drawResults(){
   var box = document.getElementById('trOut'); if(!box) return;
   if(!results.length){ box.innerHTML = '<div class="v-hint">No route found. Try a point closer to a bus stop or metro station.</div>'; return; }
   var h = '';
-  var bm = baseMin(), closedLines = T.metro.filter(function(l, li){ return metroClosed(li, bm); }).map(function(l){ return l.name; }), warn = closedLines.length ? '<div class="v-hint" style="color:#C0392B;">Metro closed at this time: ' + esc(closedLines.join(', ')) + '. Routes avoid it. Metro runs about 05:00 to midnight (Yunusobod 06:00 to 23:00). Bus times assume buses are running, which late at night they may not be.</div>' : '';
+  var bm = baseMin(), closedLines = T.metro.filter(function(l, li){ return metroClosed(li, bm); }).map(function(l){ return l.name; }), warn = closedLines.length ? '' : '';
   h += warn + (G.peak ? '<div class="v-hint">Rush hour: times include extra delay.</div>' : '');
   results.forEach(function(r, i){
     h += '<div class="tr-card' + (i === openIdx ? ' on' : '') + '" data-i="' + i + '"><div class="tr-top"><b class="tr-min">' + fmtMin(r.total) + '</b><span>arrive about ' + clock(r.total) + '</span><span class="tr-tag">' + esc(r.label) + '</span></div>' +
       '<div class="tr-chips">' + r.legs.map(chipFor).filter(Boolean).join('<i>›</i>') + '</div>' +
       '<div class="v-hint" style="margin:6px 0 0;">Walking ' + Math.round(r.walkMin) + ' min. ' + (r.fare ? 'Fare about ' + r.fare.toLocaleString('en-GB') + ' soum with a card.' : 'Free.') + '</div>' + (i === openIdx ? stepsHtml(r) : '') + '</div>';
   });
-  h += '<div class="v-hint" style="margin-top:10px;">Times are estimates from distance and typical speeds. There is no live traffic or timetable. Bus routes come from OpenStreetMap and may be incomplete or out of date. Fares from 1 October 2026: 2,500 soum card for the first ride, 1,500 for a second within 60 minutes, 3,000 cash per ride.</div>';
   box.innerHTML = h;
   box.querySelectorAll('.tr-card').forEach(function(c){ c.onclick = function(){ openIdx = +c.getAttribute('data-i'); drawResults(); drawRoute(results[openIdx]); }; });
 }
