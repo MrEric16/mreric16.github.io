@@ -255,12 +255,29 @@ function hub(){
     '</div><div class="v-hint" style="margin-top:12px;">Wrong answers are saved automatically to your Saved words in IELTS Vocabulary.</div>';
   app.querySelectorAll('[data-c]').forEach(function(b){ b.onclick = function(){ ui.cat = b.getAttribute('data-c'); lsSet('collUI', ui); hub(); }; });
 }
+var STOPW = 'a an the to of in on at or and is are be was it its that this who which with for from by as not very more most than into up out do does doing your you one someone something their they them his her we our just can may so such have has had been being when what while about over also but if'.split(' ');
+function toks(t){
+  var o = {}; (t.toLowerCase().match(/[a-z]+/g) || []).forEach(function(x){ if(x.length > 2 && STOPW.indexOf(x) < 0) o[x.replace(/(ing|ed|es|s|ly)$/, '')] = 1; });
+  return o;
+}
+// Two items clash when their meanings share content words, or they share the noun or the rest of the phrase,
+// so a wrong option can never also be a correct answer.
+function clash(a, b){
+  var wa = a.w.toLowerCase().split(' '), wb = b.w.toLowerCase().split(' ');
+  if(wa[wa.length - 1] === wb[wb.length - 1] && wa.length > 1 && wb.length > 1) return true;
+  if(wa.length > 1 && wa.slice(1).join(' ') === wb.slice(1).join(' ')) return true;
+  var ta = a._t || (a._t = toks(a.d)), tb = b._t || (b._t = toks(b.d)), n = 0, u = 0, k;
+  for(k in ta){ u++; if(tb[k]) n++; }
+  for(k in tb){ if(!ta[k]) u++; }
+  return n >= 2 || (n >= 1 && n / u >= 0.2);
+}
 function distract(w, n, byDef){
   var c = shuffle(ALL.filter(function(x){ return x.pos === w.pos && x.k !== w.k; })), out = [], used = {};
   for(var i = 0; i < c.length && out.length < n; i++){
     var x = c[i], f = x.w.split(' ')[0];
     if(f === w.w.split(' ')[0] || used[f]) continue;
     if(byDef && x.d.toLowerCase().indexOf(w.w.split(' ')[0].toLowerCase()) >= 0) continue;
+    if(clash(w, x)) continue;
     used[f] = 1; out.push(x);
   }
   return out;
