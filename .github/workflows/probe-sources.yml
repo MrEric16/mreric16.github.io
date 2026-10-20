@@ -1,0 +1,31 @@
+name: Probe sources
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: probe
+        run: |
+          mkdir -p probe; cd probe
+          for u in \
+            "https://islomapi.uz/api/present/day?region=Toshkent" \
+            "https://islomapi.uz/api/monthly?region=Toshkent&month=10" \
+            "https://namoz-vaqti.uz/api/v1/prayer-times?region=Toshkent" \
+            "https://muslim.uz/uz/pages/namoz-vaqtlari" \
+            "https://api.aladhan.com/v1/timingsByCity/21-10-2026?city=Tashkent&country=Uzbekistan&method=1&school=1" \
+            "https://open.er-api.com/v6/latest/USD" \
+            "https://api.frankfurter.dev/v1/latest?base=USD" \
+            "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json" \
+            "https://cbu.uz/en/arkhiv-kursov-valyut/json/" ; do
+            n=$(echo "$u" | md5sum | cut -c1-6)
+            code=$(curl -sS -m 30 -L -o "$n.out" -w "%{http_code}" -A "Mozilla/5.0" "$u" || echo ERR)
+            echo "$n $code $u" >> index.txt
+            head -c 3000 "$n.out" > "$n.head" ; rm -f "$n.out"
+          done
+      - run: |
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add probe; git commit -m "probe" ; git pull -q --rebase; git push
