@@ -22,6 +22,7 @@ const SHELL_FILES = [
   './speaking.html',
   './listening.html',
   './tashkent-route.html',
+  './tashkent-today.html',
   './data/tashkent-transit.json',
   './lounge-core.js',
   './theme-pages.css',

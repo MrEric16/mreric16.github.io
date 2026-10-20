@@ -10,6 +10,7 @@ PAGES = {
   'writing.html': 'IELTS Writing Checker',
   'listening.html': 'Listening Practice',
   'tashkent-route.html': 'Getting Around Tashkent',
+  'tashkent-today.html': 'Tashkent Today',
   'speaking.html': 'Speaking Practice',
   'collocations.html': 'Collocations and Phrasal Verbs',
   'wordforms.html': 'Word Forms',
