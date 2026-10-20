@@ -1,21 +1,14 @@
-[out#0/mp3 @ 0x557605ebc600] Error opening output data/audio/listening/00.mp3: No such file or directory
-Error opening output file data/audio/listening/00.mp3.
-Error opening output files: No such file or directory
-Traceback (most recent call last):
-  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/gen_listening_audio.py", line 64, in <module>
-    asyncio.run(main())
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/asyncio/runners.py", line 190, in run
-    return runner.run(main)
-           ^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/asyncio/runners.py", line 118, in run
-    return self._loop.run_until_complete(task)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
-    return future.result()
-           ^^^^^^^^^^^^^^^
-  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/gen_listening_audio.py", line 60, in main
-    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-ar', '24000', '-ac', '1', '-b:a', '48k', out], check=True)
-  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 571, in run
-    raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', '/tmp/tmpcxal0sm0/00.txt', '-ar', '24000', '-ac', '1', '-b:a', '48k', 'data/audio/listening/00.mp3']' returned non-zero exit status 254.
-FAILED
+0 Booking a gym membership 9 turns 326 KB
+1 Lost property 12 turns 392 KB
+2 Student accommodation 1 turns 260 KB
+3 Library induction 1 turns 286 KB
+4 A town museum tour 1 turns 275 KB
+5 Changes to the timetable 1 turns 251 KB
+6 Urban beekeeping 8 turns 343 KB
+7 Choosing a research method 7 turns 311 KB
+8 The history of the bicycle 1 turns 304 KB
+9 Why we dream 1 turns 320 KB
+10 Lecture: coral reefs 1 turns 320 KB
+11 Phone call: renting a bike 12 turns 328 KB
+12 A group project meeting 9 turns 291 KB
+13 Tashkent weather report 1 turns 226 KB
