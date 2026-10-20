@@ -1,0 +1,21 @@
+[out#0/mp3 @ 0x557605ebc600] Error opening output data/audio/listening/00.mp3: No such file or directory
+Error opening output file data/audio/listening/00.mp3.
+Error opening output files: No such file or directory
+Traceback (most recent call last):
+  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/gen_listening_audio.py", line 64, in <module>
+    asyncio.run(main())
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/asyncio/runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/runner/work/mreric16.github.io/mreric16.github.io/scripts/gen_listening_audio.py", line 60, in main
+    subprocess.run(['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', lst, '-ar', '24000', '-ac', '1', '-b:a', '48k', out], check=True)
+  File "/opt/hostedtoolcache/Python/3.11.17/x64/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['ffmpeg', '-y', '-loglevel', 'error', '-f', 'concat', '-safe', '0', '-i', '/tmp/tmpcxal0sm0/00.txt', '-ar', '24000', '-ac', '1', '-b:a', '48k', 'data/audio/listening/00.mp3']' returned non-zero exit status 254.
+FAILED
