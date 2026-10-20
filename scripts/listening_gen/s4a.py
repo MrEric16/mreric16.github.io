@@ -1,0 +1,51 @@
+# Lecture topics: (title, intro, [(sentence, question, answer, [distractors] or None for typed answer)])
+L1 = [
+('The Great Barrier Reef', 'Today I would like to talk about the Great Barrier Reef, the largest coral reef system in the world.', [
+ ('It lies off the coast of Queensland in north-eastern Australia.', 'Where does the reef lie?', 'Queensland, Australia', ['New South Wales, Australia', 'Western Australia', 'Papua New Guinea']),
+ ('It stretches for roughly two thousand three hundred kilometres.', 'How long is the reef, roughly (kilometres)? ____', '2,300', None),
+ ('It is not one reef but a network of nearly three thousand individual reefs.', 'How many individual reefs does it contain, roughly? ____', '2,900', None),
+ ('More than one thousand five hundred species of fish live there, together with many kinds of turtles and sharks.', 'How many kinds of fish live there?', 'More than 1,500', ['More than 500', 'More than 5,000', 'About 100']),
+ ('It was added to the UNESCO World Heritage list in nineteen eighty-one.', 'When did it become a World Heritage site?', '1981', ['1951', '1991', '2001']),
+ ('Warm water causes corals to expel the algae that feed them, which turns them white. This is called bleaching.', 'What is it called when corals turn white?', 'Bleaching', ['Fading', 'Dissolving', 'Hardening']),
+ ('Scientists say that rising sea temperatures are the greatest long-term threat to the reef.', 'What do scientists see as the greatest long-term threat?', 'Rising sea temperatures', ['Tourism', 'Oil spills', 'Fishing nets']),
+]),
+('Honeybees', 'In this lecture I will describe how honeybees live and why they matter so much to farmers.', [
+ ('A single summer hive can contain up to sixty thousand bees, but only one queen.', 'How many queens does a hive have? ____', 'one', None),
+ ('The queen can lay as many as two thousand eggs in one day.', 'How many eggs can a queen lay in a day?', '2,000', ['200', '20,000', '500']),
+ ('Worker bees live for only about six weeks in summer, and they spend their lives doing different jobs, from cleaning the hive to collecting nectar.', 'How long do summer workers live?', 'About six weeks', ['About six days', 'About six months', 'About six years']),
+ ('In its whole life, one worker produces only about one-twelfth of a teaspoon of honey.', 'How much honey does one worker make in its life?', 'One-twelfth of a teaspoon', ['One teaspoon', 'One tablespoon', 'One cup']),
+ ('Bees tell each other where food is by dancing. The angle of the dance shows the direction, and its length shows the distance.', 'What does the length of the dance show?', 'The distance to the food', ['The type of flower', 'The number of bees needed', 'The time of day']),
+ ('Many crops, such as almonds and apples, depend on bees to carry pollen from flower to flower.', 'What do bees carry from flower to flower?', 'Pollen', ['Seeds', 'Water', 'Wax']),
+]),
+('The Moon', 'This morning we are going to look at some basic facts about the Moon.', [
+ ('The Moon is about three hundred and eighty-four thousand kilometres from the Earth.', 'How far is the Moon from Earth (kilometres), roughly?', '384,000', ['38,400', '3,840,000', '150,000']),
+ ('It takes about twenty-seven days to orbit the Earth once.', 'How many days does one orbit take? ____', '27', None),
+ ('The same side of the Moon always faces us, because its rotation takes exactly as long as its orbit.', 'Why does the same side always face Earth?', 'Its rotation takes as long as its orbit', ['It has no gravity', 'It does not rotate at all', 'The Sun holds it in place']),
+ ('The Moon is about a quarter of the width of the Earth.', 'How wide is the Moon compared with Earth?', 'About a quarter', ['About half', 'About a tenth', 'About three-quarters']),
+ ('Gravity on the Moon is only about one-sixth of gravity on Earth.', 'How strong is lunar gravity compared with Earth?', 'About one-sixth', ['About one-half', 'About one-tenth', 'The same']),
+ ('In nineteen sixty-nine, Apollo Eleven became the first mission to land humans there.', 'Which mission first landed humans on the Moon?', 'Apollo 11', ['Apollo 8', 'Apollo 13', 'Gemini 4']),
+]),
+('Sleep', 'Today I want to explain why sleep is so important, and what happens in the brain during the night.', [
+ ('Adults need between seven and nine hours of sleep a night, while teenagers need eight to ten.', 'How much sleep do teenagers need?', 'Eight to ten hours', ['Five to six hours', 'Six to seven hours', 'Ten to twelve hours']),
+ ('A full cycle of sleep lasts about ninety minutes, and we go through four or five cycles each night.', 'How long is one sleep cycle (minutes)? ____', '90', None),
+ ('Most vivid dreams happen during a stage called REM sleep, when the eyes move quickly under the eyelids.', 'During which stage do most vivid dreams happen?', 'REM sleep', ['Deep sleep', 'Light sleep', 'Waking']),
+ ('While we sleep, the brain moves memories from short-term storage into long-term storage.', 'What does the brain do with memories during sleep?', 'Stores them long term', ['Deletes all of them', 'Makes them shorter', 'Hides them']),
+ ('Lack of sleep makes it harder to concentrate and slows reaction times, which is why tired drivers cause many accidents.', 'What does lack of sleep slow down?', 'Reaction times', ['Hair growth', 'Digestion', 'Eyesight']),
+ ('On average, people spend about one third of their lives asleep.', 'What fraction of life do people spend asleep?', 'About one third', ['About one half', 'About one tenth', 'About two thirds']),
+]),
+('The History of the Bicycle', 'Let us begin with the early history of the bicycle.', [
+ ('The first machine of this kind was built in eighteen seventeen by a German baron called Karl von Drais, and it had no pedals.', 'What did the first machine not have?', 'Pedals', ['Wheels', 'A seat', 'Handlebars']),
+ ('In the eighteen sixties, pedals were fixed to the front wheel, and the machines were nicknamed boneshakers because of their hard wheels.', 'Why were these machines called boneshakers?', 'Their wheels were hard', ['They were very fast', 'They had three wheels', 'They were made of glass']),
+ ('In the eighteen seventies, the penny-farthing had a huge front wheel, which made it fast but dangerous.', 'What was dangerous about the penny-farthing?', 'The huge front wheel', ['The brakes', 'The chain', 'The seat']),
+ ('The safety bicycle of the eighteen eighties had two wheels of the same size and a chain driving the back wheel.', 'What drove the back wheel of the safety bicycle?', 'A chain', ['A belt', 'A motor', 'A spring']),
+ ('In eighteen eighty-eight, John Dunlop introduced the air-filled tyre, which made riding far more comfortable.', 'Who introduced the air-filled tyre?', 'John Dunlop', ['Karl von Drais', 'Henry Ford', 'Pierre Michaux']),
+]),
+('Printing and Books', 'Today we look at how printing changed the world.', [
+ ('Before printing, every book in Europe was copied by hand, usually by monks, which took months.', 'Who usually copied books by hand?', 'Monks', ['Teachers', 'Soldiers', 'Merchants']),
+ ('Around fourteen forty, a German goldsmith called Johannes Gutenberg developed a printing press with movable metal letters.', 'What kind of letters did Gutenberg use?', 'Movable metal letters', ['Wooden blocks', 'Clay stamps', 'Hand-drawn letters']),
+ ('The famous Gutenberg Bible was printed around fourteen fifty-five.', 'About when was the Gutenberg Bible printed?', 'Around 1455', ['Around 1355', 'Around 1555', 'Around 1655']),
+ ('William Caxton set up the first printing press in England in fourteen seventy-six.', 'Who set up the first press in England?', 'William Caxton', ['Johannes Gutenberg', 'William Shakespeare', 'John Dunlop']),
+ ('By the year fifteen hundred, historians estimate that more than twenty million books had been printed in Europe.', 'How many books had been printed in Europe by 1500, roughly?', 'Over 20 million', ['Over 2,000', 'Over 200,000', 'Over 200 million']),
+ ('Cheaper books helped literacy spread and made it easier to share new scientific ideas.', 'What did cheaper books help to spread?', 'Literacy', ['Disease', 'Gold', 'Weapons']),
+]),
+]

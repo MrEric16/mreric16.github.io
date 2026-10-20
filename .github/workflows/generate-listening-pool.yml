@@ -1,0 +1,58 @@
+name: Generate listening pool (new items each night)
+on:
+  schedule:
+    - cron: '41 21 * * *'
+  workflow_dispatch:
+    inputs:
+      per_sec:
+        description: 'New items per section'
+        default: '10'
+permissions:
+  contents: write
+concurrency:
+  group: listening-pool
+  cancel-in-progress: false
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install edge-tts
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - name: Generate
+        run: |
+          BATCH=$(date -u +%Y%m%d%H%M)
+          echo "BATCH=$BATCH" >> $GITHUB_ENV
+          python scripts/listening_gen/gen.py $BATCH ${{ github.event.inputs.per_sec || '10' }} /tmp/pool 2>&1 | tee scripts/listening-pool-log.txt
+      - name: Upload audio to a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG=lp-${BATCH:0:8}
+          gh release view $TAG >/dev/null 2>&1 || gh release create $TAG --title "Listening audio $TAG" --notes "Generated listening audio" --target main
+          ls /tmp/pool/audio | wc -l
+          gh release upload $TAG /tmp/pool/audio/*.mp3 --clobber
+      - name: Update index and commit
+        run: |
+          mkdir -p data/listening-pool
+          cp /tmp/pool/$BATCH.json data/listening-pool/
+          python - <<'PY'
+          import json, os, collections
+          b = os.environ['BATCH']
+          sh = json.load(open('data/listening-pool/%s.json' % b, encoding='utf8'))
+          idxp = 'data/listening-pool/index.json'
+          idx = json.load(open(idxp)) if os.path.exists(idxp) else {'shards': []}
+          n = collections.Counter(i['s'] for i in sh['items'])
+          if sum(n.values()): idx['shards'].append({'f': b + '.json', 'tag': sh['tag'], 'n': dict(n)})
+          json.dump(idx, open(idxp, 'w'), separators=(',', ':'))
+          print(dict(n))
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/listening-pool scripts/listening-pool-log.txt
+          git commit -m "Listening pool: new batch $BATCH" || exit 0
+          git pull -q --rebase
+          git push
