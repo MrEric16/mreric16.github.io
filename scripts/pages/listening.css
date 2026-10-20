@@ -4,3 +4,6 @@
 .ls-item b{display:block; font-size:17px;} .ls-item small{color:var(--ink-soft); font-weight:700;}
 .ls-opt{display:block; width:100%; text-align:left; margin:8px 0 0; padding:11px 14px; border-radius:14px; border:2px solid transparent; background:var(--cream-2); color:var(--ink); font:700 15px Nunito,sans-serif; cursor:pointer;}
 .ls-opt.on{border-color:var(--coral);} .ls-opt.ok{background:#CFEBD2; color:#1d4d27; border-color:#4A9B5A;} .ls-opt.bad{background:#F6D0CC; color:#7a2018; border-color:#C0392B;}
+.ls-in{display:block; width:100%; box-sizing:border-box; margin-top:8px; padding:11px 14px; border-radius:14px; border:2px solid transparent; background:var(--cream-2); color:var(--ink); font:700 16px Nunito,sans-serif;}
+.ls-in.ok{background:#CFEBD2; border-color:#4A9B5A; color:#1d4d27;} .ls-in.bad{background:#F6D0CC; border-color:#C0392B; color:#7a2018;}
+.ls-fix{margin-top:6px; font-weight:800; color:#1d4d27;}
