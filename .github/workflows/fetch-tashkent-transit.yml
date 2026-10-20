@@ -1,0 +1,22 @@
+name: Fetch Tashkent transit (OpenStreetMap)
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install requests
+      - run: python scripts/fetch_tashkent_transit.py
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/tashkent-transit-raw.json
+          git commit -m "Update Tashkent transit raw data" || exit 0
+          git pull -q --rebase
+          git push
