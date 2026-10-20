@@ -1,0 +1,19 @@
+name: Test TTS function
+on:
+  workflow_dispatch: {}
+permissions:
+  contents: write
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Call function
+        run: |
+          {
+          curl -s -m 60 -o /tmp/t.mp3 -w "http %{http_code} time %{time_total}\n" -X POST https://uugjyucgeyopyvmhckdg.supabase.co/functions/v1/tts -H "content-type: application/json" -d '{"turns":[{"v":"F1","t":"Good morning, Riverside Fitness. How can I help?"},{"v":"M1","t":"Hello, I would like to join the gym."}]}'
+          ls -la /tmp/t.mp3; file /tmp/t.mp3; head -c 300 /tmp/t.mp3 | strings | head -3
+          } > scripts/tts-test-log.txt 2>&1
+      - run: |
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/tts-test-log.txt; git commit -m "tts test log" ; git pull -q --rebase; git push
