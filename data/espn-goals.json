@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-20T19:25:44.560696Z",
+ "generatedAt": "2026-10-20T22:27:55.676951Z",
  "results": [
   {
    "url": "espn:401915403",
@@ -58,6 +58,255 @@
     {
      "scorer": "S. Guirassy",
      "minute": 53
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915402",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "Roma",
+   "away": "Sl. Bratislava",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "M. Hermoso",
+     "minute": 21
+    },
+    {
+     "scorer": "N. Molina",
+     "minute": 39
+    },
+    {
+     "scorer": "N. Pisilli",
+     "minute": 52
+    },
+    {
+     "scorer": "D. Malen (pen)",
+     "minute": 58
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915398",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "Porto",
+   "away": "PSV",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "G. Til",
+     "minute": 57
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915397",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "Liverpool",
+   "away": "Villarreal",
+   "htHome": 2,
+   "htAway": 2,
+   "ftHome": 4,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "A. Mac Allister",
+     "minute": 36
+    },
+    {
+     "scorer": "R. Araújo",
+     "minute": "45+2"
+    },
+    {
+     "scorer": "A. Mac Allister",
+     "minute": 65
+    },
+    {
+     "scorer": "F. Wirtz",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "G. Mikautadze",
+     "minute": 4
+    },
+    {
+     "scorer": "S. Cardona",
+     "minute": 29
+    },
+    {
+     "scorer": "T. Oluwaseyi",
+     "minute": 87
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915401",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "Man City",
+   "away": "AEK Athens",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 5,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Anderson",
+     "minute": 12
+    },
+    {
+     "scorer": "P. Foden",
+     "minute": 34
+    },
+    {
+     "scorer": "R. Cherki",
+     "minute": 57
+    },
+    {
+     "scorer": "P. Foden",
+     "minute": 65
+    },
+    {
+     "scorer": "P. Foden",
+     "minute": 76
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Pilios",
+     "minute": 52
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915400",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "Napoli",
+   "away": "Bodø/Glimt",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "M. Politano",
+     "minute": 1
+    },
+    {
+     "scorer": "S. McTominay",
+     "minute": 41
+    },
+    {
+     "scorer": "S. McTominay",
+     "minute": 75
+    },
+    {
+     "scorer": "O. Bjørtuft (og)",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Hauge",
+     "minute": 27
+    },
+    {
+     "scorer": "A. Helmersen",
+     "minute": 62
+    },
+    {
+     "scorer": "S. Brunstad Fet",
+     "minute": "90+4"
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915399",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "PSG",
+   "away": "Barça",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "D. Doué",
+     "minute": 38
+    },
+    {
+     "scorer": "L. Hernández",
+     "minute": 72
+    },
+    {
+     "scorer": "Vitinha",
+     "minute": 81
+    },
+    {
+     "scorer": "F. Ruiz",
+     "minute": 86
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "X. Espart",
+     "minute": 55
+    },
+    {
+     "scorer": "L. Yamal",
+     "minute": 79
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915392",
+   "date": "2026-10-20",
+   "utc": "2026-10-20T19:00Z",
+   "home": "Stuttgart",
+   "away": "Atleti",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Leweling",
+     "minute": 36
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Álvarez",
+     "minute": 47
     }
    ],
    "competition": "CL",
