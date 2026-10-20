@@ -11,21 +11,15 @@ jobs:
       - name: probe
         run: |
           mkdir -p probe; cd probe
-          for u in \
-            "https://islomapi.uz/api/present/day?region=Toshkent" \
-            "https://islomapi.uz/api/monthly?region=Toshkent&month=10" \
-            "https://namoz-vaqti.uz/api/v1/prayer-times?region=Toshkent" \
-            "https://muslim.uz/uz/pages/namoz-vaqtlari" \
-            "https://api.aladhan.com/v1/timingsByCity/21-10-2026?city=Tashkent&country=Uzbekistan&method=1&school=1" \
-            "https://open.er-api.com/v6/latest/USD" \
-            "https://api.frankfurter.dev/v1/latest?base=USD" \
-            "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json" \
-            "https://cbu.uz/en/arkhiv-kursov-valyut/json/" ; do
-            n=$(echo "$u" | md5sum | cut -c1-6)
-            code=$(curl -sS -m 30 -L -o "$n.out" -w "%{http_code}" -A "Mozilla/5.0" "$u" || echo ERR)
-            echo "$n $code $u" >> index.txt
-            head -c 3000 "$n.out" > "$n.head" ; rm -f "$n.out"
-          done
+          curl -sS -m 40 -L -A "Mozilla/5.0" "https://muslim.uz/uz/pages/namoz-vaqtlari" -o m.html || true
+          curl -sS -m 40 -L -A "Mozilla/5.0" "https://muslim.uz/ru/pages/namoz-vaqtlari" -o mr.html || true
+          curl -sS -m 40 -L -A "Mozilla/5.0" "https://islomapi.uz/api/monthly?region=Toshkent&month=10" -o i.json || true
+          curl -sS -m 40 -L -A "Mozilla/5.0" "https://islom.uz/" -o islom.html || true
+          wc -c * > sizes.txt
+          grep -o 'href="[^"]*[Nn]amoz[^"]*"' m.html | sort -u | head -30 > links.txt || true
+          grep -n -i "toshkent\|тошкент\|ташкент" m.html | head -20 | cut -c1-300 > tk.txt || true
+          grep -n -E "[0-9]{2}:[0-9]{2}" m.html | head -40 | cut -c1-300 > times.txt || true
+          rm -f m.html mr.html islom.html
       - run: |
           git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add probe; git commit -m "probe" ; git pull -q --rebase; git push
+          git add -A probe; git commit -m "probe2" ; git pull -q --rebase; git push
