@@ -11,15 +11,13 @@ jobs:
       - name: probe
         run: |
           mkdir -p probe; cd probe
-          curl -sS -m 40 -L -A "Mozilla/5.0" "https://muslim.uz/uz/pages/namoz-vaqtlari" -o m.html || true
-          curl -sS -m 40 -L -A "Mozilla/5.0" "https://muslim.uz/ru/pages/namoz-vaqtlari" -o mr.html || true
-          curl -sS -m 40 -L -A "Mozilla/5.0" "https://islomapi.uz/api/monthly?region=Toshkent&month=10" -o i.json || true
-          curl -sS -m 40 -L -A "Mozilla/5.0" "https://islom.uz/" -o islom.html || true
-          wc -c * > sizes.txt
-          grep -o 'href="[^"]*[Nn]amoz[^"]*"' m.html | sort -u | head -30 > links.txt || true
-          grep -n -i "toshkent\|тошкент\|ташкент" m.html | head -20 | cut -c1-300 > tk.txt || true
-          grep -n -E "[0-9]{2}:[0-9]{2}" m.html | head -40 | cut -c1-300 > times.txt || true
-          cp m.html mfull.html; rm -f mr.html islom.html m.html
+          curl -sS -m 40 -L -A "Mozilla/5.0" "https://muslim.uz/build/js/scripts.min.js" -o s.js || true
+          curl -sS -m 40 -L -A "Mozilla/5.0" "https://muslim.uz/uz" -o home.html || true
+          wc -c s.js home.html > sizes.txt
+          grep -o -E ".{120}(namaz|namoz|prayer|prayers|vaqt)[^;]{0,200}" s.js | head -20 > js_hits.txt || true
+          grep -o -E "(url|href|action)[^,;]{0,12}['\"][^'\"]*(prayer|namaz|namoz|time|vaqt)[^'\"]*['\"]" s.js | head > urls.txt || true
+          grep -n -i "prayer\|namaz\|vaqt" home.html | head -40 | cut -c1-260 > home_hits.txt || true
+          rm -f s.js home.html
       - run: |
           git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A probe; git commit -m "probe2" ; git pull -q --rebase; git push
+          git add -A probe; git commit -m "probe4" ; git pull -q --rebase; git push
