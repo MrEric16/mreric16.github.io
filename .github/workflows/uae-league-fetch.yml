@@ -39,6 +39,13 @@ jobs:
             python scripts/fetch_uae_tsdb.py >> scripts/uae-league-log.txt 2>&1 || echo "TSDB_FALLBACK_FAILED" >> scripts/uae-league-log.txt
           fi
 
+      # TheSportsDB began returning 403 to runners on 2026-10-20 too. Second fallback: 365Scores.
+      - name: 365Scores fallback when TheSportsDB also fails
+        run: |
+          if grep -q "TSDB_FALLBACK_FAILED" scripts/uae-league-log.txt; then
+            python scripts/fetch_uae_365.py >> scripts/uae-league-log.txt 2>&1 || echo "365_FALLBACK_FAILED" >> scripts/uae-league-log.txt
+          fi
+
       - name: Commit results
         run: |
           git config user.name "uae-league-bot"
