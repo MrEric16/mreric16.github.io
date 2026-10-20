@@ -1,6 +1,64 @@
 {
- "generatedAt": "2026-10-19T20:47:50.229246Z",
+ "generatedAt": "2026-10-20T00:01:10.577159Z",
  "results": [
+  {
+   "url": "espn:401879257",
+   "date": "2026-10-19",
+   "utc": "2026-10-19T19:00Z",
+   "home": "Tottenham",
+   "away": "Coventry City",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Maddison",
+     "minute": 14
+    },
+    {
+     "scorer": "O. Marmoush",
+     "minute": 58
+    },
+    {
+     "scorer": "B. Davies",
+     "minute": "90+6"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Rudoni",
+     "minute": 49
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882842",
+   "date": "2026-10-19",
+   "utc": "2026-10-19T19:00Z",
+   "home": "Getafe",
+   "away": "Rayo Vallecano",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Satriano",
+     "minute": 56
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Á. García",
+     "minute": 11
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
   {
    "url": "espn:401874762",
    "date": "2026-10-19",
