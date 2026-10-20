@@ -7,10 +7,14 @@
 // win on the first load after a change. Network-first means you always get the latest push
 // immediately when there's a connection; the cache only kicks in when there's genuinely none.
 
-const CACHE_NAME = 'erics-lounge-v3';
+const CACHE_NAME = 'erics-lounge-v4';
 const SHELL_FILES = [
   './',
   './index.html',
+  './vocabulary.html',
+  './grammar.html',
+  './lounge-core.js',
+  './theme-pages.css',
   './manifest.json',
   './icon-192.png',
   './icon-512.png',
@@ -37,8 +41,6 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
-  // Grammar Practice data files are versioned by ?v= and cached by the browser; don't re-fetch them no-store.
-  if (url.pathname.indexOf('/data/grammar/') !== -1) return;
   const isShellFile = url.origin === self.location.origin;
 
   if (isShellFile) {
@@ -48,7 +50,9 @@ self.addEventListener('fetch', (event) => {
     // browser cache. version.json stays strictly no-store - it is the update detector.
     const isVersion = url.pathname.endsWith('/version.json');
     const isMedia = /\.(png|jpe?g|gif|webp|svg|ico|mp3|m4a|ogg|wav|woff2?)$/i.test(url.pathname);
-    const mode = isVersion ? 'no-store' : (isMedia ? 'default' : 'no-cache');
+    // Grammar data is versioned by ?v=, so the browser's own copy is always right: reuse it.
+    const isGrammarData = url.pathname.indexOf('/data/grammar/') !== -1;
+    const mode = isVersion ? 'no-store' : ((isMedia || isGrammarData) ? 'default' : 'no-cache');
     event.respondWith(
       fetch(req, { cache: mode })
         .then((res) => {
@@ -57,7 +61,11 @@ self.addEventListener('fetch', (event) => {
           }
           return res;
         })
-        .catch(() => caches.match(req))
+        .catch(() =>
+          caches.match(req, { ignoreSearch: true }).then((hit) =>
+            hit || (req.mode === 'navigate' ? caches.match('./index.html', { ignoreSearch: true }) : undefined)
+          )
+        )
     );
   }
   // Everything else (weather API, Wikipedia, YouTube, news sites) — just let it

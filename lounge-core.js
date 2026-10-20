@@ -270,11 +270,96 @@
     }
   };
 
+
+  /* ---------- offline download + install banner ---------- */
+  var CACHE_NAME = 'erics-lounge-v4';
+  var Offline = {
+    baseUrls: ['vocabulary.html', 'grammar.html', 'lounge-core.js', 'theme-pages.css', 'data/vocab/words.json', 'data/grammar/index.json', 'data/grammar/pools.json'],
+    urls: function(){
+      var extra = (window.LOUNGE_OFFLINE_EXTRA || []).slice();
+      return fetch('data/grammar/index.json').then(function(r){ return r.json(); }).then(function(ix){
+        var t = (ix.topics || []).map(function(x){ return 'data/grammar/' + encodeURIComponent(x.id) + '.json'; });
+        return Offline.baseUrls.concat(t, extra);
+      }).catch(function(){ return Offline.baseUrls.concat(extra); });
+    },
+    status: function(){
+      if(!window.caches) return Promise.resolve(null);
+      return Promise.all([Offline.urls(), caches.open(CACHE_NAME)]).then(function(r){
+        var urls = r[0], c = r[1];
+        return Promise.all(urls.map(function(u){ return c.match(u, { ignoreSearch: true }).then(function(h){ return h ? 1 : 0; }); })).then(function(a){
+          return { have: a.reduce(function(x, y){ return x + y; }, 0), total: urls.length, urls: urls, cache: c, missing: urls.filter(function(u, i){ return !a[i]; }) };
+        });
+      });
+    },
+    download: function(onProgress){
+      return Offline.status().then(function(st){
+        if(!st) throw new Error('Offline mode is not supported in this browser.');
+        var todo = st.missing.slice(), done = st.have, total = st.total;
+        function worker(){
+          var u = todo.shift();
+          if(!u) return Promise.resolve();
+          return fetch(u, { cache: 'no-cache' }).then(function(res){ if(res.ok) return st.cache.put(u, res); }).catch(function(){}).then(function(){ done++; if(onProgress) onProgress(done, total); return worker(); });
+        }
+        return Promise.all([worker(), worker(), worker(), worker(), worker()]);
+      });
+    },
+    mount: function(el){
+      if(!el) return;
+      var draw = function(){
+        Offline.status().then(function(st){
+          if(!st){ el.innerHTML = ''; return; }
+          var ready = st.have >= st.total;
+          el.innerHTML = '<div style="' + card + '"><b>Offline mode</b><div style="font-size:13px;opacity:.8;margin:6px 0;">' +
+            (ready ? 'Ready. Vocabulary, Grammar practice and the pages around them open without internet.' : 'Download the study data (about 9 MB) so Vocabulary and Grammar work without internet.') +
+            '</div><div style="font-size:12.5px;opacity:.7;">' + st.have + ' of ' + st.total + ' files saved on this device.</div>' +
+            (ready ? '' : '<button style="' + btn + '" id="offDl">Download for offline use</button>') +
+            '<div style="font-size:12px;opacity:.65;margin-top:8px;">Voice narrations, videos and live data (scores, weather) still need a connection.</div></div>';
+          var b = document.getElementById('offDl');
+          if(b) b.onclick = function(){
+            b.disabled = true;
+            Offline.download(function(d, t){ b.textContent = 'Downloading ' + d + ' / ' + t; }).then(draw).catch(function(e){ b.textContent = e.message; });
+          };
+        });
+      };
+      draw();
+    }
+  };
+  window.LoungeOffline = Offline;
+
+  function offlineBar(){
+    var bar = document.getElementById('offlineBar');
+    if(navigator.onLine){ if(bar) bar.remove(); return; }
+    if(bar) return;
+    bar = document.createElement('div'); bar.id = 'offlineBar';
+    bar.style.cssText = 'position:fixed;left:0;right:0;top:0;z-index:9998;background:#444;color:#fff;text-align:center;font:700 12px Nunito,system-ui,sans-serif;padding:5px 8px;';
+    bar.textContent = 'You are offline. Downloaded study tools still work.';
+    document.body.appendChild(bar);
+  }
+  function installBanner(){
+    try{
+      if(!/index\.html$|\/$/.test(location.pathname) || (location.hash && location.hash !== '#')) return;
+      if(rawGet('installDismissed')) return;
+      var standalone = (window.matchMedia && matchMedia('(display-mode: standalone)').matches) || navigator.standalone === true;
+      if(standalone) return;
+      if((parseInt(rawGet('siteOpenCount') || '0', 10) || 0) < 3) return;
+      if(document.getElementById('installBanner')) return;
+      var d = document.createElement('div'); d.id = 'installBanner';
+      d.style.cssText = 'position:fixed;left:12px;right:12px;bottom:calc(var(--tabbar-h,62px) + 10px);z-index:9000;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:10px;font:700 13px Nunito,system-ui,sans-serif;box-shadow:0 6px 20px rgba(0,0,0,.25);';
+      d.innerHTML = '<span style="flex:1;">Add the Lounge to your Home Screen. It opens faster and works offline.</span><a href="#install" style="' + btn + 'margin:0;text-decoration:none;">How</a><button aria-label="Dismiss" style="background:none;border:0;color:inherit;font-size:18px;cursor:pointer;">×</button>';
+      d.querySelector('button').onclick = function(){ rawSet('installDismissed', '1'); d.remove(); };
+      d.querySelector('a').onclick = function(){ rawSet('installDismissed', '1'); d.remove(); };
+      document.body.appendChild(d);
+      window.addEventListener('hashchange', function(){ if(location.hash && location.hash !== '#' && d.parentNode) d.remove(); });
+    }catch(e){}
+  }
+
   window.LoungeCore = { XP: XP, Sync: Sync, UI: LoungeUI };
   window.LoungeXP = XP; window.LoungeSync = Sync;
 
   function boot(){
     mountChip(); XP.daily(); XP.refresh();
+    offlineBar(); window.addEventListener('online', offlineBar); window.addEventListener('offline', offlineBar);
+    setTimeout(installBanner, 2500);
     if(Sync.code()) Sync.run();
     document.addEventListener('visibilitychange', function(){ if(document.visibilityState === 'hidden' && Sync.code()) Sync.run(); else if(document.visibilityState === 'visible' && Sync.code()) Sync.run(); });
     window.addEventListener('online', function(){ if(Sync.code()) Sync.run(); });
