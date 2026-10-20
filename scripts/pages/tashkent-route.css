@@ -1,0 +1,13 @@
+.tr-form{margin:0 0 6px;} .tr-f{display:flex; gap:8px; align-items:center; margin:0 0 6px;}
+.tr-ab,.tr-pin{width:28px; height:28px; border-radius:50%; color:#fff; font:800 14px Nunito,sans-serif; display:flex; align-items:center; justify-content:center; flex:none; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.35);}
+.tr-f input{flex:1; min-width:0; padding:12px 14px; border-radius:14px; border:none; background:var(--card); color:var(--ink); font:700 16px Nunito,sans-serif;}
+.tr-loc{border:none; background:var(--cream-2); color:var(--ink); padding:11px 12px; border-radius:14px; font:800 13px Nunito,sans-serif; cursor:pointer; white-space:nowrap;}
+.tr-sug{display:block; width:100%; text-align:left; border:none; background:var(--card); color:var(--ink); padding:10px 14px; margin:0 0 3px 36px; width:calc(100% - 36px); border-radius:12px; font:700 15px Nunito,sans-serif; cursor:pointer;}
+.tr-sug small{display:block; color:var(--ink-soft); font-weight:700; font-size:12px;}
+.tr-map{height:300px; border-radius:18px; overflow:hidden; background:var(--cream-2); margin-top:6px;}
+.tr-card{background:var(--card); color:var(--ink); border-radius:18px; padding:13px 15px; margin:0 0 10px; border:2px solid transparent; cursor:pointer; box-shadow:0 2px 0 rgba(58,42,30,.08);} .tr-card.on{border-color:var(--coral);}
+.tr-top{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap;} .tr-min{font-size:22px;} .tr-tag{margin-left:auto; font-size:12px; font-weight:800; background:var(--cream-2); padding:3px 9px; border-radius:99px;}
+.tr-chips{display:flex; flex-wrap:wrap; gap:4px; align-items:center; margin-top:8px;} .tr-chips i{font-style:normal; color:var(--ink-soft);}
+.tr-chip{padding:4px 9px; border-radius:99px; font-size:13px; font-weight:800; background:var(--cream-2);} .tr-chip.b{background:#1E6FD9; color:#fff;}
+.tr-steps{margin:10px 0 0; padding-left:20px; line-height:1.5; font-weight:600; font-size:15px;} .tr-steps li{margin:0 0 6px;}
+.tr-time{display:flex; gap:8px; align-items:center; font-weight:800; margin:2px 0 6px;} .tr-time select,.tr-time input{padding:8px 10px; border-radius:12px; border:none; background:var(--card); color:var(--ink); font:700 15px Nunito,sans-serif;}

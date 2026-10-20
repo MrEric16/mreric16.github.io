@@ -21,6 +21,8 @@ const SHELL_FILES = [
   './wordforms.html',
   './speaking.html',
   './listening.html',
+  './tashkent-route.html',
+  './data/tashkent-transit.json',
   './lounge-core.js',
   './theme-pages.css',
   './manifest.json',

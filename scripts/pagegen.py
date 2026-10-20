@@ -9,6 +9,7 @@ PAGES = {
   'spellingbee.html': 'Spelling Bee',
   'writing.html': 'IELTS Writing Checker',
   'listening.html': 'Listening Practice',
+  'tashkent-route.html': 'Getting Around Tashkent',
   'speaking.html': 'Speaking Practice',
   'collocations.html': 'Collocations and Phrasal Verbs',
   'wordforms.html': 'Word Forms',
