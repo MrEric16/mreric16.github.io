@@ -105,6 +105,7 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 </style>
 </head>
 <body>
+<script src="lounge-core.js"></script>
 <script>
 // Applies whatever theme/dark-mode the main app currently has active, read straight
 // from the same-origin localStorage key it writes to. Mirrors applyThemeState() and
@@ -393,12 +394,14 @@ function ggWireExercise(app, bank, topicId, level){
     });
     root.querySelector('#ggCheck').addEventListener('click', () => {
       let score = 0;
+      const prevOk = (st.ok || []).filter(x => x === true).length;
       st.items.forEach((it, n) => {
         let all = true;
         it.a.forEach((acc, b) => { const r = ggBlankOk(st.ans[n][b], acc); st.bl[n][b] = r; if(!r) all = false; });
         st.ok[n] = all; if(all) score++;
       });
       st.checked = true; st.score = score; ggSave(topicId, level, st);
+      if(window.LoungeXP){ const gain = Math.max(0, score - prevOk); if(gain) LoungeXP.award(gain, 'grammar'); if(score === GG_PER_SET && prevOk < GG_PER_SET) LoungeXP.award(10, 'perfect'); }
       if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
       applyResults();
       const firstBad = root.querySelector('.gg-item-bad');

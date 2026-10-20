@@ -143,6 +143,7 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 <style>body .v-opt.ok{outline:4px solid #4CAF50 !important; outline-offset:-2px;} body .v-opt.bad{outline:4px solid #E5484D !important; outline-offset:-2px; opacity:.9;} body{--ff-accent:var(--coral-dark);} .v-opt.sport-hub-tile{height:auto; display:block; padding:14px;} .v-opts.six .v-opt.sport-hub-tile{padding:14px 8px;} .v-btn{box-shadow:0 3px 0 rgba(0,0,0,.12);} .v-card.random-tile{display:block;}</style>
 </head>
 <body>
+<script src="lounge-core.js"></script>
 <script>
 // Applies whatever theme/dark-mode the main app currently has active, read straight
 // from the same-origin localStorage key it writes to. Mirrors applyThemeState() and
@@ -280,7 +281,7 @@ function learn(pool){
       '<div class="v-card random-tile v-learn"><div class="v-word">' + esc(w.w) + '</div><span class="v-pos">' + POSN[w.pos] + '</span><div class="v-def">' + esc(w.d) + '</div><div class="v-ex">“' + esc(w.e) + '”</div>' + saveBtn(w) + '</div>' +
       '<div style="height:80px;"></div><button class="v-btn v-fixed" id="vNext">Got it</button>';
     bindSave(app);
-    document.getElementById('vNext').addEventListener('click', function(){ idx++; window.scrollTo(0,0); show(); });
+    document.getElementById('vNext').addEventListener('click', function(){ if(window.LoungeXP) LoungeXP.award(1, 'learn'); idx++; window.scrollTo(0,0); show(); });
   }
   show();
 }
@@ -321,7 +322,7 @@ function practice(kind, pool){
         if(busy) return; busy = true;
         var pick = opts[+b.getAttribute('data-n')], ok = pick === w;
         btns.forEach(function(x, n){ if(opts[n] === w) x.classList.add('ok'); });
-        if(ok) score++; else { b.classList.add('bad'); miss.push(w); setSaved(w.k, true); }
+        if(ok){ score++; if(window.LoungeXP) LoungeXP.award(1, 'vocab'); } else { b.classList.add('bad'); miss.push(w); setSaved(w.k, true); }
         var fb = document.getElementById('vFb');
         fb.innerHTML = '<div class="v-ex" style="text-align:center;margin:4px 0 0;">' + (kind === 'm2w' ? '<b>' + esc(w.w) + '</b>: ' : '') + '“' + esc(w.e) + '”</div>';
         var nb = document.createElement('button'); nb.className = 'v-btn'; nb.textContent = i + 1 >= qs.length ? 'See results' : 'Next'; fb.appendChild(nb);
@@ -333,6 +334,7 @@ function practice(kind, pool){
   function end(){
     var best = lsGet(bestKey, 0), pct = Math.round(score / qs.length * 100), isBest = pct > best;
     if(isBest) lsSet(bestKey, pct);
+    if(window.LoungeXP) LoungeXP.award(10, 'round');
     app.innerHTML = back('#', 'Back to IELTS Vocabulary') + '<div class="v-card random-tile"><div class="v-big">' + score + ' / ' + qs.length + '</div><div class="v-def" style="margin-top:6px;">' + pct + '%' + (isBest ? ' · new best' : ' · best ' + best + '%') + '</div></div>' +
       (miss.length ? '<div class="v-hint">Missed words are saved automatically.</div>' + miss.map(function(w){ return '<div class="v-miss"><b>' + esc(w.w) + '</b><div>' + esc(w.d) + '</div></div>'; }).join('') : '') +
       '<button class="v-btn" id="vAgain" style="margin-top:12px;">Another round</button>';

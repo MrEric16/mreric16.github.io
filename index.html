@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261020174632">
+<meta name="app-build" content="20261020180117">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -41,6 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="lounge-core.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
   :root{
@@ -34340,7 +34341,7 @@ function renderRoute(opts){
   if(parts[0] === 'ufc'){ loadUFCEvents(); }
   if(parts[0] === 'invite'){ wireNativeShareButton(); }
   if(parts[0] === 'ask-mr-eric'){ loadAnsweredQuestions(); showAskQuestionOverlay(); }
-  if(parts[0] === 'my-stats'){ submitStatsSnapshot(); renderComparisonBox(); }
+  if(parts[0] === 'my-stats'){ submitStatsSnapshot(); renderComparisonBox(); if(window.LoungeUI) LoungeUI.mountStats(); }
   if(parts[0] === 'events-virtual'){ loadVirtualEvents(); }
   if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireRandomGameButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
   if(parts[0] === 'sports' && parts[1] === 'tables'){ loadLiveSportsData(); }
@@ -36070,8 +36071,9 @@ function viewMyStats(){
     <section style="padding-top:14px;">
       <div class="section-head"><span class="emoji">📊</span><h2>My Stats</h2></div>
       <div class="empty-card" style="text-align:left; font-size:13px; opacity:.75; margin-bottom:16px;">
-        These stats live on this device only. Clearing your browser data, reinstalling, or using a different device starts fresh - there's no account to sync across devices.
+        These stats live on this device unless you turn on sync below. Clearing your browser data or using a different device starts fresh without it.
       </div>
+      <div id="loungeCards"></div>
       <div id="comparisonBox" class="badge-grid" style="margin-bottom:${10}px;"></div>
       <div class="badge-grid">
         <div class="badge-item"><div class="badge-emoji">🔥</div><div class="badge-name">${streakCount} day streak</div></div>
