@@ -17,7 +17,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/audio/listening scripts/listening-audio-log.txt
+          mkdir -p data/audio/listening; git add -A data/audio scripts/listening-audio-log.txt
           git commit -m "Generate listening audio" || exit 0
           git pull -q --rebase
           git push
