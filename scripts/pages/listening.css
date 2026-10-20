@@ -1,0 +1,6 @@
+.ls-set{display:flex; gap:16px; flex-wrap:wrap; align-items:center; font-weight:800; margin:0 0 12px;}
+.ls-set select{padding:8px; border-radius:12px; border:none; background:var(--card); color:var(--ink); font:700 15px Nunito,sans-serif;}
+.ls-item{display:block; background:var(--card); color:var(--ink); border-radius:16px; padding:13px 16px; margin:0 0 10px; text-decoration:none; box-shadow:0 2px 0 rgba(58,42,30,.08);}
+.ls-item b{display:block; font-size:17px;} .ls-item small{color:var(--ink-soft); font-weight:700;}
+.ls-opt{display:block; width:100%; text-align:left; margin:8px 0 0; padding:11px 14px; border-radius:14px; border:2px solid transparent; background:var(--cream-2); color:var(--ink); font:700 15px Nunito,sans-serif; cursor:pointer;}
+.ls-opt.on{border-color:var(--coral);} .ls-opt.ok{background:#CFEBD2; color:#1d4d27; border-color:#4A9B5A;} .ls-opt.bad{background:#F6D0CC; color:#7a2018; border-color:#C0392B;}

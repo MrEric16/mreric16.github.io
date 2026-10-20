@@ -20,6 +20,7 @@ const SHELL_FILES = [
   './collocations.html',
   './wordforms.html',
   './speaking.html',
+  './listening.html',
   './lounge-core.js',
   './theme-pages.css',
   './manifest.json',
