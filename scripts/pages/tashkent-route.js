@@ -214,7 +214,7 @@ function drawResults(){
   results.forEach(function(r, i){
     h += '<div class="tr-card' + (i === openIdx ? ' on' : '') + '" data-i="' + i + '"><div class="tr-top"><b class="tr-min">' + fmtMin(r.total) + '</b><span>arrive about ' + clock(r.total) + '</span><span class="tr-tag">' + esc(r.label) + '</span></div>' +
       '<div class="tr-chips">' + r.legs.map(chipFor).filter(Boolean).join('<i>›</i>') + '</div>' +
-      '<div class="v-hint" style="margin:6px 0 0;">Walking ' + Math.round(r.walkMin) + ' min. ' + (r.fare ? 'Fare about ' + r.fare.toLocaleString('en-GB') + ' soum with a card.' : 'Free.') + '</div>' + (i === openIdx ? stepsHtml(r) : '') + '</div>';
+      '<div class="v-hint" style="margin:6px 0 0;">Walking ' + Math.round(r.walkMin) + ' min. ' + (r.fare ? 'Fare about ' + r.fare.toLocaleString('en-GB') + ' UZS with a card.' : 'Free.') + '</div>' + (i === openIdx ? stepsHtml(r) : '') + '</div>';
   });
   box.innerHTML = h;
   box.querySelectorAll('.tr-card').forEach(function(c){ c.onclick = function(){ openIdx = +c.getAttribute('data-i'); drawResults(); drawRoute(results[openIdx]); }; });

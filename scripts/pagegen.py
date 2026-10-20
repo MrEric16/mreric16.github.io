@@ -28,6 +28,21 @@ function getJson(u){ return fetch(u, { cache: 'no-cache' }).then(function(r){ if
 function dayNumber(){ var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); }
 function award(n, why){ if(window.LoungeXP) LoungeXP.award(n, why); }
 """
+COMMON_CSS = """
+.sp-card{border:1px solid var(--line);}
+input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
+.tr-f input,.ls-in,.wf-in{border:2px solid var(--line);}
+.gg-lvl,.gg-btn-main,.v-btn,.cl-tabs button.on,.cn-tile.sel,.mt-tabs button.on,.wr-sel button.on,.wf-base{color:var(--on-coral,#fff) !important;}
+"""
+ONCORAL = r"""
+(function(){ try{
+  var c = getComputedStyle(document.body).getPropertyValue('--coral').trim(), e = document.createElement('i'); e.style.color = c; document.body.appendChild(e);
+  var m = getComputedStyle(e).color.match(/\d+(\.\d+)?/g); document.body.removeChild(e); if(!m) return;
+  function L(v){ v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+  var l = 0.2126 * L(+m[0]) + 0.7152 * L(+m[1]) + 0.0722 * L(+m[2]);
+  document.body.style.setProperty('--on-coral', (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.0556) ? '#fff' : '#111');
+}catch(e){} })();
+"""
 def build():
     src = open(os.path.join(ROOT, 'vocabulary.html'), encoding='utf8').read()
     pre = src.split('<div class="wrap" id="app">')[0]
@@ -39,8 +54,8 @@ def build():
         cssf = os.path.join(ROOT, 'scripts', 'pages', name + '.css')
         css = open(cssf, encoding='utf8').read() if os.path.exists(cssf) else ''
         head_ = re.sub(r'<title>.*?</title>', "<title>%s | Mr Eric's Lounge</title>" % title, pre)
-        if css: head_ = head_.replace('</head>', '<style>\n' + css + '\n</style>\n</head>')
-        html = head_ + '<div class="wrap" id="app"><div class="empty-card">Loading…</div></div>\n<script>\n(function(){\n' + HELPERS + js + '\n})();\n</script>\n</body>\n</html>\n'
+        head_ = head_.replace('</head>', '<style>\n' + COMMON_CSS + css + '\n</style>\n</head>')
+        html = head_ + '<div class="wrap" id="app"><div class="empty-card">Loading…</div></div>\n<script>\n(function(){\n' + ONCORAL + HELPERS + js + '\n})();\n</script>\n</body>\n</html>\n'
         open(os.path.join(ROOT, fn), 'w', encoding='utf8').write(html)
         print('built', fn, len(html) // 1024, 'KB')
 if __name__ == '__main__':

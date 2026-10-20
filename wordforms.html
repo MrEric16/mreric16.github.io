@@ -142,6 +142,11 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 <link rel="stylesheet" href="theme-pages.css">
 <style>body .v-opt.ok{outline:4px solid #4CAF50 !important; outline-offset:-2px;} body .v-opt.bad{outline:4px solid #E5484D !important; outline-offset:-2px; opacity:.9;} body{--ff-accent:var(--coral-dark);} .v-opt.sport-hub-tile{height:auto; display:block; padding:14px;} .v-opts.six .v-opt.sport-hub-tile{padding:14px 8px;} .v-btn{box-shadow:0 3px 0 rgba(0,0,0,.12);} .v-card.random-tile{display:block;}</style>
 <style>
+
+.sp-card{border:1px solid var(--line);}
+input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
+.tr-f input,.ls-in,.wf-in{border:2px solid var(--line);}
+.gg-lvl,.gg-btn-main,.v-btn,.cl-tabs button.on,.cn-tile.sel,.mt-tabs button.on,.wr-sel button.on,.wf-base{color:var(--on-coral,#fff) !important;}
 .wf-sent{font-size:20px; font-weight:700; line-height:1.55; text-align:left;} .wf-sent u{display:inline-block; min-width:80px; border-bottom:3px solid var(--coral); text-decoration:none;}
 .wf-base{display:inline-block; margin:0 0 12px; padding:3px 12px; border-radius:999px; background:var(--coral); color:#fff; font-weight:800; font-size:13px; letter-spacing:.5px;}
 .wf-pos{font-weight:800; font-size:13px; color:var(--ink-soft); margin-top:12px;}
@@ -211,6 +216,14 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 <div class="wrap" id="app"><div class="empty-card">Loading…</div></div>
 <script>
 (function(){
+
+(function(){ try{
+  var c = getComputedStyle(document.body).getPropertyValue('--coral').trim(), e = document.createElement('i'); e.style.color = c; document.body.appendChild(e);
+  var m = getComputedStyle(e).color.match(/\d+(\.\d+)?/g); document.body.removeChild(e); if(!m) return;
+  function L(v){ v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+  var l = 0.2126 * L(+m[0]) + 0.7152 * L(+m[1]) + 0.0722 * L(+m[2]);
+  document.body.style.setProperty('--on-coral', (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.0556) ? '#fff' : '#111');
+}catch(e){} })();
 
 var app = document.getElementById('app');
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }

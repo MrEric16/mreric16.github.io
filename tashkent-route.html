@@ -142,6 +142,11 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 <link rel="stylesheet" href="theme-pages.css">
 <style>body .v-opt.ok{outline:4px solid #4CAF50 !important; outline-offset:-2px;} body .v-opt.bad{outline:4px solid #E5484D !important; outline-offset:-2px; opacity:.9;} body{--ff-accent:var(--coral-dark);} .v-opt.sport-hub-tile{height:auto; display:block; padding:14px;} .v-opts.six .v-opt.sport-hub-tile{padding:14px 8px;} .v-btn{box-shadow:0 3px 0 rgba(0,0,0,.12);} .v-card.random-tile{display:block;}</style>
 <style>
+
+.sp-card{border:1px solid var(--line);}
+input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
+.tr-f input,.ls-in,.wf-in{border:2px solid var(--line);}
+.gg-lvl,.gg-btn-main,.v-btn,.cl-tabs button.on,.cn-tile.sel,.mt-tabs button.on,.wr-sel button.on,.wf-base{color:var(--on-coral,#fff) !important;}
 .tr-form{margin:0 0 6px;} .tr-f{display:flex; gap:8px; align-items:center; margin:0 0 6px;}
 .tr-ab,.tr-pin{width:28px; height:28px; border-radius:50%; color:#fff; font:800 14px Nunito,sans-serif; display:flex; align-items:center; justify-content:center; flex:none; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.35);}
 .tr-f input{flex:1; min-width:0; padding:12px 14px; border-radius:14px; border:none; background:var(--card); color:var(--ink); font:700 16px Nunito,sans-serif;}
@@ -218,6 +223,14 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 <div class="wrap" id="app"><div class="empty-card">Loading…</div></div>
 <script>
 (function(){
+
+(function(){ try{
+  var c = getComputedStyle(document.body).getPropertyValue('--coral').trim(), e = document.createElement('i'); e.style.color = c; document.body.appendChild(e);
+  var m = getComputedStyle(e).color.match(/\d+(\.\d+)?/g); document.body.removeChild(e); if(!m) return;
+  function L(v){ v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+  var l = 0.2126 * L(+m[0]) + 0.7152 * L(+m[1]) + 0.0722 * L(+m[2]);
+  document.body.style.setProperty('--on-coral', (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.0556) ? '#fff' : '#111');
+}catch(e){} })();
 
 var app = document.getElementById('app');
 function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
@@ -445,7 +458,7 @@ function drawResults(){
   results.forEach(function(r, i){
     h += '<div class="tr-card' + (i === openIdx ? ' on' : '') + '" data-i="' + i + '"><div class="tr-top"><b class="tr-min">' + fmtMin(r.total) + '</b><span>arrive about ' + clock(r.total) + '</span><span class="tr-tag">' + esc(r.label) + '</span></div>' +
       '<div class="tr-chips">' + r.legs.map(chipFor).filter(Boolean).join('<i>›</i>') + '</div>' +
-      '<div class="v-hint" style="margin:6px 0 0;">Walking ' + Math.round(r.walkMin) + ' min. ' + (r.fare ? 'Fare about ' + r.fare.toLocaleString('en-GB') + ' soum with a card.' : 'Free.') + '</div>' + (i === openIdx ? stepsHtml(r) : '') + '</div>';
+      '<div class="v-hint" style="margin:6px 0 0;">Walking ' + Math.round(r.walkMin) + ' min. ' + (r.fare ? 'Fare about ' + r.fare.toLocaleString('en-GB') + ' UZS with a card.' : 'Free.') + '</div>' + (i === openIdx ? stepsHtml(r) : '') + '</div>';
   });
   box.innerHTML = h;
   box.querySelectorAll('.tr-card').forEach(function(c){ c.onclick = function(){ openIdx = +c.getAttribute('data-i'); drawResults(); drawRoute(results[openIdx]); }; });
