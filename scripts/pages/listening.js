@@ -25,7 +25,7 @@ function task(i){
 function drawTask(){
   var x = cur.t, max = S.exam ? 1 : 99, can = plays < max;
   var h = BACK + head(esc(x.t), esc(x.l)) +
-    '<div class="sp-card" style="text-align:center;"><button class="v-btn" id="lsPlay"' + (can || speaking ? '' : ' disabled') + '>' + (speaking ? 'Stop' : (plays ? 'Play again' : 'Play audio')) + '</button><div class="v-hint" style="margin-top:8px;">' + (S.exam ? (plays ? 'Exam mode: already played.' : 'Plays once.') : 'Play as often as you like.') + '</div><div class="v-hint" id="lsErr" style="color:#C0392B;"></div></div>';
+    '<div class="sp-card" style="text-align:center;"><button class="v-btn" id="lsPlay"' + (can || speaking ? '' : ' disabled') + '>' + (speaking ? 'Stop' : (plays ? (S.exam ? 'Played' : 'Play again') : 'Play audio')) + '</button><div class="v-hint" style="margin-top:8px;">' + (S.exam ? (plays ? 'Exam mode: already played.' : 'Plays once.') : 'Play as often as you like.') + '</div><div class="v-hint" id="lsErr" style="color:#C0392B;"></div></div>';
   h += cur.qs.map(function(q, qi){
     return '<div class="sp-card"><div class="sp-q" style="font-size:17px;">' + (qi + 1) + '. ' + esc(q.q) + '</div>' + q.o.map(function(o, oi){
       var cls = 'ls-opt' + (ans[qi] === oi ? ' on' : '') + (checked ? (oi === q.a ? ' ok' : (ans[qi] === oi ? ' bad' : '')) : '');
@@ -40,7 +40,7 @@ function drawTask(){
   var pb = document.getElementById('lsPlay');
   pb.onclick = function(){
     if(speaking){ stopSpeech(); drawTask(); return; }
-    plays++; drawTask(); speak(cur.i, function(){ drawTask(); });
+    plays++; speak(cur.i, function(){ drawTask(); }); drawTask();
   };
   app.querySelectorAll('.ls-opt').forEach(function(b){ b.onclick = function(){ ans[+b.getAttribute('data-q')] = +b.getAttribute('data-o'); var y = window.scrollY; var sp = speaking; drawTaskKeep(sp); window.scrollTo(0, y); }; });
   var c = document.getElementById('lsCheck');
