@@ -12,7 +12,7 @@ jobs:
         run: |
           U=https://github.com/MrEric16/mreric16.github.io/releases/download/lp-20261020/202610202025-S1001.mp3
           {
-          curl -sIL -m 30 "$U" | grep -i -E "^(HTTP|content-type|content-length|accept-ranges|access-control)" 
+          curl -sIL -m 30 -H "Origin: https://mreric16.github.io" "$U" | grep -i -E "^(HTTP|location|content-type|access-control|vary)"
           echo ---range
           curl -s -L -m 30 -H "Range: bytes=0-99" -o /dev/null -D - "$U" | grep -i -E "^(HTTP|content-range|content-type)"
           } > scripts/tts-test-log.txt 2>&1
