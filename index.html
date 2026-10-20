@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261020210558">
+<meta name="app-build" content="20261020211247">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -11529,49 +11529,66 @@ function oooExit(){
 }
 
 // ============ Idiom Match ============
-// Reuses IDIOM_OF_THE_DAY_POOL directly (64 real idioms, already verified) rather than
-// duplicating content - this array must be defined earlier in the file already.
+// Fallback pool is IDIOM_OF_THE_DAY_POOL (defined earlier in this file).
 const IDIOM_MATCH_ROUNDS_PER_GAME = 30;
 const IDIOM_MATCH_BEST_SCORE_KEY = 'idiomMatchBestScore';
 const IDIOM_MATCH_STATE_KEY = 'btIdiomMatchGameState_v1';
 function idiomMatchQuit(){ btClearState(IDIOM_MATCH_STATE_KEY); location.hash = '#geography-hub'; }
 const IDIOM_MATCH_STREAK_KEY = 'idiomMatchStreak';
 
-function idiomMatchBuildRounds(totalRounds){
-  const pool = [...IDIOM_OF_THE_DAY_POOL];
-  for(let i = pool.length - 1; i > 0; i--){
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
+// Expanded pool: data/games/idioms.json (scripts/build_idioms.py). Each idiom has meaning-family tags;
+// wrong options never share a tag with the question idiom and are never listed as a conflict, so two
+// options cannot both be right. Falls back to IDIOM_OF_THE_DAY_POOL if the file cannot be loaded.
+let IDIOMS = null, IDIOMS_PROMISE = null;
+function idiomsLoad(){
+  if(IDIOMS) return Promise.resolve(IDIOMS);
+  if(!IDIOMS_PROMISE){
+    IDIOMS_PROMISE = fetch('data/games/idioms.json').then(r => { if(!r.ok) throw new Error('idioms ' + r.status); return r.json(); })
+      .then(d => { IDIOMS = d; return d; }).catch(() => { IDIOMS_PROMISE = null; return null; });
   }
+  return IDIOMS_PROMISE;
+}
+function idiomMatchShuffle(arr){ const a = [...arr]; for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function idiomMatchBuildRoundsFrom(data, totalRounds){
+  const rec = i => ({ idiom: data.i[i][0], meaning: data.i[i][1], example: data.i[i][2] });
+  const isTo = i => /^To /.test(data.i[i][1]);
+  const order = idiomMatchShuffle(data.i.map((_, i) => i)).slice(0, Math.min(totalRounds, data.i.length));
+  return order.map(a => {
+    const ta = new Set(data.t[a]), xa = new Set(data.x[String(a)] || []);
+    const ok = [];
+    for(let b = 0; b < data.i.length; b++){
+      if(b === a || xa.has(b)) continue;
+      if(data.t[b].some(t => ta.has(t))) continue;
+      ok.push(b);
+    }
+    const same = ok.filter(b => isTo(b) === isTo(a));
+    const pick = idiomMatchShuffle(same.length >= 6 ? same : ok).slice(0, 3);
+    return { correct: rec(a), options: idiomMatchShuffle([a, ...pick]).map(rec) };
+  });
+}
+function idiomMatchBuildRounds(totalRounds){
+  const pool = idiomMatchShuffle(IDIOM_OF_THE_DAY_POOL);
   const chosen = pool.slice(0, Math.min(totalRounds, pool.length));
   return chosen.map(correct => {
-    const others = IDIOM_OF_THE_DAY_POOL.filter(x => x.idiom !== correct.idiom);
-    for(let i = others.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random() * (i + 1));
-      [others[i], others[j]] = [others[j], others[i]];
-    }
-    const distractors = others.slice(0, 3);
-    const options = [correct, ...distractors];
-    for(let i = options.length - 1; i > 0; i--){
-      const j = Math.floor(Math.random() * (i + 1));
-      [options[i], options[j]] = [options[j], options[i]];
-    }
-    return { correct, options };
+    const others = idiomMatchShuffle(IDIOM_OF_THE_DAY_POOL.filter(x => x.idiom !== correct.idiom));
+    return { correct, options: idiomMatchShuffle([correct, ...others.slice(0, 3)]) };
   });
 }
 
 let idiomMatchState = null;
 
 function idiomMatchStart(){
-  idiomMatchState = {
-    rounds: idiomMatchBuildRounds(IDIOM_MATCH_ROUNDS_PER_GAME),
-    current: 0,
-    correctCount: 0,
-    mistakes: [],
-    answered: false,
-    lastPickedMeaning: null,
-  };
-  renderRoute();
+  idiomsLoad().then(data => {
+    idiomMatchState = {
+      rounds: data ? idiomMatchBuildRoundsFrom(data, IDIOM_MATCH_ROUNDS_PER_GAME) : idiomMatchBuildRounds(IDIOM_MATCH_ROUNDS_PER_GAME),
+      current: 0,
+      correctCount: 0,
+      mistakes: [],
+      answered: false,
+      lastPickedMeaning: null,
+    };
+    renderRoute();
+  });
 }
 
 function idiomMatchAnswer(pickedMeaning){
