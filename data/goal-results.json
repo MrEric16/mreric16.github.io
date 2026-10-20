@@ -1,29 +1,6 @@
 {
-  "generatedAt": "2026-10-20T15:31:42.234150Z",
+  "generatedAt": "2026-10-20T19:47:04.069296Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/bayern-munich-vs-jeju-sk/Sr1UpS3ZGkz4YRhrglI3c",
-      "date": "2026-08-04",
-      "home": "Bayern Munich",
-      "away": "Jeju Sk",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "B. Assomo",
-          "minute": 41
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "C. Lee",
-          "minute": 15
-        }
-      ],
-      "competition": "bayern-munich"
-    },
     {
       "url": "https://www.goal.com/en/match/osnabrueck-vs-bayern-munich/ebLdOgagg2wHEGrpYfcg2",
       "date": null,
@@ -7859,6 +7836,37 @@
         }
       ],
       "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/fenerbahce-vs-slavia-prague/lPbnNLMfECCc7GnjOBOTL",
+      "date": "2026-10-20",
+      "home": "Fenerbahce",
+      "away": "Slavia Prague",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "O. Aydin",
+          "minute": 4
+        },
+        {
+          "scorer": "M. Greenwood",
+          "minute": 11
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Provod",
+          "minute": 15
+        },
+        {
+          "scorer": "P. Kacor",
+          "minute": 90
+        }
+      ],
+      "competition": "CL"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7869,6 +7877,7 @@
     "https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD": 2,
     "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
     "https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr": 2,
-    "https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK": 2
+    "https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK": 2,
+    "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU": 2
   }
 }
