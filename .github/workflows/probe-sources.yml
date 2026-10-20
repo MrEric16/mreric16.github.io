@@ -17,7 +17,7 @@ jobs:
           grep -o -E ".{120}(namaz|namoz|prayer|prayers|vaqt)[^;]{0,200}" s.js | head -20 > js_hits.txt || true
           grep -o -E "(url|href|action)[^,;]{0,12}['\"][^'\"]*(prayer|namaz|namoz|time|vaqt)[^'\"]*['\"]" s.js | head > urls.txt || true
           grep -n -i "prayer\|namaz\|vaqt" home.html | head -40 | cut -c1-260 > home_hits.txt || true
-          rm -f s.js home.html
+          cp home.html home_full.html; grep -o -E ".{80}(Peshin|Xufton|prayer-times|namaz-vaqt|getPrayer|pray)[^;]{0,160}" s.js | head -10 > js2.txt || true; rm -f s.js home.html
       - run: |
           git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A probe; git commit -m "probe4" ; git pull -q --rebase; git push
