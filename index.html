@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261020204808">
+<meta name="app-build" content="20261020210558">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -6675,6 +6675,7 @@ const ICONS = {
   glove: `<svg width="20" height="20" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M7 11V6a2 2 0 0 1 4 0v4"/><path d="M11 10V5a2 2 0 0 1 4 0v5"/><path d="M15 10.5V6a2 2 0 0 1 4 0v7c0 4-2.5 7-7 7h-1c-3 0-5-1.8-6-4l-1.5-3.5A1.8 1.8 0 0 1 5 10a1.8 1.8 0 0 1 2.3-.3L9 11"/></svg>`,
   stick: `<svg width="20" height="20" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M17 3 8 18"/><path d="M6 18h5.5L8 21H5l1-3Z"/></svg>`,
   moon: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>`,
+  equals: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M5 9h14M5 15h14"/></svg>`,
   scales: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M12 3v18M8 21h8"/><path d="M4 7h6M14 7h6"/><path d="M4 7 1.5 12a2.5 2.5 0 0 0 5 0L4 7Z"/><path d="M20 7l-2.5 5a2.5 2.5 0 0 0 5 0L20 7Z"/></svg>`,
   pin: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>`,
   route: `<svg width="18" height="18" viewBox="0 0 24 24" ${ICON_STYLE}><circle cx="6" cy="19" r="2.2"/><circle cx="18" cy="5" r="2.2"/><path d="M8 19h7a3.5 3.5 0 0 0 0-7H9a3.5 3.5 0 0 1 0-7h6"/></svg>`,
@@ -6780,6 +6781,7 @@ const DSURPRISE_GAME_TEASERS = {
   '#odd-one-out-game': "Four things, one doesn't belong. Can you spot it?",
   '#idiom-match-game': "Match the idiom to its real meaning.",
   '#antonym-match-game': "Find the opposite - fast.",
+  '#synonym-match-game': "Find the word with the same meaning.",
   '#currency-game': "Can you match the currency to its country?",
   '#language-game': "Can you guess the language just from how it looks?",
   '#phrase-lang-game': "Learn to say hello in a language you've never studied.",
@@ -11657,6 +11659,7 @@ function antMatchBuildRounds(pool, totalRounds){
   const MAX_AFFIX = 4;   // hard cap: prefix/root pairs (e.g. unconscious/conscious) can't
                          // exceed this per game, and are never placed back-to-back -
                          // guaranteed every game, not just probable.
+  pool = lexOnePerGroup(antMatchShuffle(pool));
   const affixPool = antMatchShuffle(pool.filter(item => antMatchIsAffixPair(item.word, item.answer)));
   const genuinePool = antMatchShuffle(pool.filter(item => !antMatchIsAffixPair(item.word, item.answer)));
   const affixCount = Math.min(MAX_AFFIX, affixPool.length, totalRounds);
@@ -11692,15 +11695,22 @@ const ANT_MATCH_STREAK_KEY = 'antMatchStreak';
 let antMatchState = null;
 
 function antMatchStart(){
-  antMatchState = {
-    rounds: antMatchBuildRounds(ANTONYM_MATCH_POOL, ANT_MATCH_ROUNDS_PER_GAME),
-    current: 0,
-    correctCount: 0,
-    mistakes: [],
-    answered: false,
-    lastPicked: null,
-  };
-  renderRoute();
+  lexLoad().then(lex => {
+    let pool = ANTONYM_MATCH_POOL;
+    if(lex){
+      const have = new Set(ANTONYM_MATCH_POOL.map(x => x.word.toUpperCase()));
+      pool = ANTONYM_MATCH_POOL.concat(lexAntItems(lex).filter(x => !have.has(x.word)));
+    }
+    antMatchState = {
+      rounds: antMatchBuildRounds(pool, ANT_MATCH_ROUNDS_PER_GAME),
+      current: 0,
+      correctCount: 0,
+      mistakes: [],
+      answered: false,
+      lastPicked: null,
+    };
+    renderRoute();
+  });
 }
 
 function antMatchAnswer(picked){
@@ -11750,6 +11760,136 @@ function antMatchExit(){
   antMatchState = null;
   renderRoute();
 }
+
+
+
+// ============ Synonym / Antonym lexicon (hand-built word groups, see data/games/lexicon.json) ============
+// Each group is a set of true synonyms; opposite groups are linked. Distractors are pre-vetted: same word class,
+// different meaning area, and no dictionary relation to the question word or its opposite group.
+let LEX = null, LEX_PROMISE = null;
+function lexLoad(){
+  if(LEX) return Promise.resolve(LEX);
+  if(!LEX_PROMISE){
+    LEX_PROMISE = fetch('data/games/lexicon.json').then(r => { if(!r.ok) throw new Error('lex ' + r.status); return r.json(); })
+      .then(d => { LEX = d; return d; }).catch(() => { LEX_PROMISE = null; return null; });
+  }
+  return LEX_PROMISE;
+}
+function lexRand(arr){ return arr[Math.floor(Math.random() * arr.length)]; }
+function lexShuffle(arr){ const a = [...arr]; for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+// 3 distractors for cluster ci; optionally one "trap" word (a real synonym or antonym that is deliberately wrong)
+function lexDistractors(lex, ci, wordLower, answerLower, trapPool){
+  const out = [], seen = new Set([wordLower, answerLower]);
+  if(trapPool.length && Math.random() < 0.45){
+    const t = lexRand(trapPool).toLowerCase();
+    if(!seen.has(t)){ out.push(t); seen.add(t); }
+  }
+  for(const id of lexShuffle(lex.x[ci])){
+    const w = lex.w[id].toLowerCase();
+    if(seen.has(w)) continue;
+    out.push(w); seen.add(w);
+    if(out.length === 3) break;
+  }
+  return out.length === 3 ? out : null;
+}
+function lexAntItems(lex){
+  const items = [];
+  lex.c.forEach((c, ci) => {
+    if(!c[2].length) return;
+    c[1].forEach(wid => {
+      const word = lex.w[wid], oc = lex.c[lexRand(c[2])];
+      const answer = lex.w[lexRand(oc[1])];
+      const trap = c[1].filter(i => i !== wid).map(i => lex.w[i]);
+      const d = lexDistractors(lex, ci, word.toLowerCase(), answer.toLowerCase(), trap);
+      if(d) items.push({ word: word.toUpperCase(), answer: answer.toLowerCase(), distractors: d, cl: 'a' + ci });
+    });
+  });
+  return items;
+}
+function lexSynItems(lex){
+  const items = [];
+  lex.c.forEach((c, ci) => {
+    if(c[1].length < 2) return;
+    c[1].forEach(wid => {
+      const word = lex.w[wid], answer = lex.w[lexRand(c[1].filter(i => i !== wid))];
+      const trap = []; c[2].forEach(o => lex.c[o][1].forEach(i => trap.push(lex.w[i])));
+      const d = lexDistractors(lex, ci, word.toLowerCase(), answer.toLowerCase(), trap);
+      if(d) items.push({ word: word.toUpperCase(), answer: answer.toLowerCase(), distractors: d, cl: 's' + ci });
+    });
+  });
+  return items;
+}
+// at most one question per word group in a game, so a game never repeats the same idea
+function lexOnePerGroup(list){
+  const seen = new Set();
+  return list.filter(it => { if(!it.cl) return true; if(seen.has(it.cl)) return false; seen.add(it.cl); return true; });
+}
+const SYN_MATCH_ROUNDS_PER_GAME = 20;
+const SYN_MATCH_BEST_SCORE_KEY = 'synMatchBestScore';
+const SYN_MATCH_STATE_KEY = 'btSynMatchGameState_v1';
+function synMatchQuit(){ btClearState(SYN_MATCH_STATE_KEY); location.hash = '#geography-hub'; }
+const SYN_MATCH_STREAK_KEY = 'synMatchStreak';
+let synMatchState = null, synMatchLoadFailed = false;
+function synMatchBuildRounds(items, total){
+  return lexOnePerGroup(lexShuffle(items)).slice(0, total).map(item => ({ word: item.word, answer: item.answer, options: lexShuffle([item.answer, ...item.distractors]) }));
+}
+function synMatchStart(){
+  lexLoad().then(lex => {
+    if(!lex){ synMatchLoadFailed = true; renderRoute(); return; }
+    synMatchLoadFailed = false;
+    synMatchState = { rounds: synMatchBuildRounds(lexSynItems(lex), SYN_MATCH_ROUNDS_PER_GAME), current: 0, correctCount: 0, mistakes: [], answered: false, lastPicked: null };
+    renderRoute();
+  });
+}
+
+function synMatchAnswer(picked){
+  if(!synMatchState || synMatchState.answered) return;
+  synMatchState.answered = true;
+  synMatchState.lastPicked = picked;
+  const round = synMatchState.rounds[synMatchState.current];
+  const isCorrect = picked === round.answer;
+  if(isCorrect){ synMatchState.correctCount++; }
+  else{ synMatchState.mistakes.push({ round, picked }); }
+  renderRoute();
+  setTimeout(() => {
+    if(!synMatchState) return;
+    synMatchState.current++;
+    synMatchState.answered = false;
+    synMatchState.lastPicked = null;
+    if(synMatchState.current >= synMatchState.rounds.length){
+      synMatchFinishGame();
+    }
+    renderRoute();
+  }, 1800);
+}
+
+function synMatchFinishGame(){
+  const score = synMatchState.correctCount;
+  let best = 0, streak = 0;
+  try{ best = parseInt(localStorage.getItem(SYN_MATCH_BEST_SCORE_KEY) || '0', 10); }catch(e){}
+  if(score > best){
+    try{ localStorage.setItem(SYN_MATCH_BEST_SCORE_KEY, String(score)); }catch(e){}
+  }
+  try{ streak = parseInt(localStorage.getItem(SYN_MATCH_STREAK_KEY) || '0', 10); }catch(e){}
+  const todayKey = getTodayKeyLocal();
+  let lastPlayed = null;
+  try{ lastPlayed = localStorage.getItem('synMatchLastPlayedDate'); }catch(e){}
+  if(lastPlayed !== todayKey){
+    const yesterday = new Date(Date.now() - 86400000);
+    const yKey = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,'0')}-${String(yesterday.getDate()).padStart(2,'0')}`;
+    streak = (lastPlayed === yKey) ? streak + 1 : 1;
+    try{
+      localStorage.setItem(SYN_MATCH_STREAK_KEY, String(streak));
+      localStorage.setItem('synMatchLastPlayedDate', todayKey);
+    }catch(e){}
+  }
+}
+
+function synMatchExit(){
+  synMatchState = null;
+  renderRoute();
+}
+
 
 
 // ============ Battleship ============
@@ -17903,6 +18043,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Spelling Bee", emoji: icon('hexagon'), url: "spellingbee.html", internal: false, sameTab: true, kw:["letters","honeycomb","pangram","spell","words","hive"] },
   { name: "Idiom Match", emoji: icon('chatBubble'), url: "#idiom-match-game", internal: true },
   { name: "Antonym Match", emoji: icon('scales'), url: "#antonym-match-game", internal: true },
+  { name: "Synonym Match", emoji: icon('equals'), url: "#synonym-match-game", internal: true },
   { name: "Guess the Currency", emoji: icon('coin'), url: "#currency-game", internal: true },
   { name: "Guess the Language", emoji: icon('chatBubble'), url: "#language-game", internal: true },
   { name: "Say Hello", emoji: icon('chatBubble'), url: "#phrase-lang-game", internal: true },
@@ -17948,7 +18089,7 @@ const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzz
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#odd-one-out-game', 'connections.html', 'spellingbee.html', '#nerdle-game', '#xword-game', '#alias-game'],
-  language: ['#idiom-match-game', '#antonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'writing.html', 'collocations.html', 'wordforms.html', 'listening.html', 'speaking.html', 'mocktimer.html'],
+  language: ['#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'writing.html', 'collocations.html', 'wordforms.html', 'listening.html', 'speaking.html', 'mocktimer.html'],
   geo: ['#flag-game', '#capital-game', '#currency-game', '#language-game', '#phrase-lang-game', '#silhouette-game', 'globe.html', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],
@@ -24384,6 +24525,98 @@ function viewAntMatchGame(){
     return antMatchEndHtml();
   }
   return antMatchPlayingHtml();
+}
+
+
+function synMatchIntroHtml(){
+  let best = 0, streak = 0;
+  try{
+    best = parseInt(localStorage.getItem(SYN_MATCH_BEST_SCORE_KEY) || '0', 10);
+    streak = parseInt(localStorage.getItem(SYN_MATCH_STREAK_KEY) || '0', 10);
+  }catch(e){}
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="section-head"><span class="emoji">${icon('equals')}</span><h2>Synonym Match</h2></div>
+        <p style="font-size:14px; color:var(--ink-soft); line-height:1.6; margin-bottom:6px;">Find the word that means the same. The others only look right.</p>
+        <div class="fg-intro-stats">
+          <div class="fg-intro-stat"><div class="num">${best}/${SYN_MATCH_ROUNDS_PER_GAME}</div><div class="label">Best Score</div></div>
+          <div class="fg-intro-stat"><div class="num">${streak}</div><div class="label">Day Streak</div></div>
+        </div>
+        ${synMatchLoadFailed ? '<p style="font-size:13px; color:var(--ink-soft); margin-bottom:8px;">Could not load the word list. Check your connection and try again.</p>' : ''}
+        <button class="fg-start-btn" data-action="syn-match-start">Start</button>
+      </div>
+    </section>
+  `;
+}
+
+function synMatchPlayingHtml(){
+  const round = synMatchState.rounds[synMatchState.current];
+  const pct = Math.round((synMatchState.current / synMatchState.rounds.length) * 100);
+  const optionsHtml = round.options.map(o => {
+    let cls = 'fg-option-btn';
+    if(synMatchState.answered){
+      if(o === round.answer) cls += ' fg-correct';
+      else if(o === synMatchState.lastPicked) cls += ' fg-wrong';
+    }
+    return `<button class="${cls}" data-action="syn-match-answer" data-picked="${escapeHtml(o)}" ${synMatchState.answered ? 'disabled' : ''} style="text-align:left; font-weight:600; font-size:13.5px; text-transform:capitalize;">${escapeHtml(o)}</button>`;
+  }).join('');
+  return `
+    <button class="back-link bt-quit-btn" data-action="syn-match-quit">← Quit</button>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="fg-progress-row">
+          <span>Word ${synMatchState.current + 1} of ${synMatchState.rounds.length}</span>
+          <span>Score: ${synMatchState.correctCount}</span>
+        </div>
+        <div class="fg-progress-bar"><div class="fg-progress-fill" style="width:${pct}%"></div></div>
+        <div style="text-align:center; padding:30px 16px 10px; font-family:'Baloo 2', sans-serif; font-weight:800; font-size:28px; color:var(--ink); letter-spacing:0.5px;">${escapeHtml(round.word)}</div>
+        <div class="fg-question">Which word means the same or almost the same?</div>
+        <div class="fg-options" style="grid-template-columns:1fr 1fr;">${optionsHtml}</div>
+      </div>
+    </section>
+  `;
+}
+
+function synMatchEndHtml(){
+  const score = synMatchState.correctCount;
+  let best = 0;
+  try{ best = parseInt(localStorage.getItem(SYN_MATCH_BEST_SCORE_KEY) || '0', 10); }catch(e){}
+  const isNewBest = score >= best && score > 0;
+  const reviewHtml = synMatchState.mistakes.length === 0 ? `<p style="text-align:center; font-size:14px; color:var(--ink-soft);">Perfect round - no mistakes.</p>` : `
+    <div style="margin-top:8px;">
+      ${synMatchState.mistakes.map(m => `
+        <div class="fg-review-item fg-review-wrong">
+          <div><strong>${escapeHtml(m.round.word)}</strong> means the same as: ${escapeHtml(m.round.answer)}</div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  return `
+    <a class="back-link" href="#geography-hub">← Back to Train Your Brain</a>
+    <section style="padding-top:14px;">
+      <div class="fg-wrap">
+        <div class="section-head"><span class="emoji">${icon('trophy')}</span><h2>Round Complete</h2></div>
+        <div class="fg-end-score">${score}/${synMatchState.rounds.length}</div>
+        <div class="fg-end-label">${isNewBest ? 'New best score!' : `Best: ${best}/${synMatchState.rounds.length}`}</div>
+        <button class="fg-start-btn" data-action="syn-match-start">Play Again</button>
+        <h3 style="margin:22px 0 4px; font-family:'Baloo 2', sans-serif; font-size:15px;">Missed words</h3>
+        ${reviewHtml}
+      </div>
+    </section>
+  `;
+}
+
+function viewSynMatchGame(){
+  if(!synMatchState) synMatchState = btLoadState(SYN_MATCH_STATE_KEY);
+  if(!synMatchState){
+    return synMatchIntroHtml();
+  }
+  if(synMatchState.current >= synMatchState.rounds.length){
+    return synMatchEndHtml();
+  }
+  return synMatchPlayingHtml();
 }
 
 function bsGridHtml(grid, ships, opts){
@@ -33524,6 +33757,24 @@ document.addEventListener('click', (e) => {
     antMatchAnswer(antMatchAnswerBtn.dataset.picked);
     return;
   }
+  const synMatchStartBtn = e.target.closest('[data-action="syn-match-start"]');
+  if(synMatchStartBtn){
+    e.preventDefault();
+    synMatchStart();
+    return;
+  }
+  const synMatchQuitBtn = e.target.closest('[data-action="syn-match-quit"]');
+  if(synMatchQuitBtn){
+    e.preventDefault();
+    synMatchQuit();
+    return;
+  }
+  const synMatchAnswerBtn = e.target.closest('[data-action="syn-match-answer"]');
+  if(synMatchAnswerBtn){
+    e.preventDefault();
+    synMatchAnswer(synMatchAnswerBtn.dataset.picked);
+    return;
+  }
   const bsStartBtn = e.target.closest('[data-action="bs-start"]');
   if(bsStartBtn){
     e.preventDefault();
@@ -34162,6 +34413,8 @@ function renderRoute(opts){
     html = viewIdiomMatchGame();
   } else if(parts[0] === 'antonym-match-game'){
     html = viewAntMatchGame();
+  } else if(parts[0] === 'synonym-match-game'){
+    html = viewSynMatchGame();
   } else if(parts[0] === 'battleship-game'){
     html = viewBattleshipGame();
   } else if(parts[0] === 'currency-game'){
@@ -34312,6 +34565,8 @@ function renderRoute(opts){
   if(parts[0] !== 'idiom-match-game' && idiomMatchState){ idiomMatchState = null; }
   if(parts[0] === 'antonym-match-game' && antMatchState){ btSaveState(ANT_MATCH_STATE_KEY, antMatchState); }
   if(parts[0] !== 'antonym-match-game' && antMatchState){ antMatchState = null; }
+  if(parts[0] === 'synonym-match-game' && synMatchState){ btSaveState(SYN_MATCH_STATE_KEY, synMatchState); }
+  if(parts[0] !== 'synonym-match-game' && synMatchState){ synMatchState = null; }
   if(parts[0] === 'battleship-game' && bsState){ bsSave(); }
   if(parts[0] !== 'battleship-game' && bsState){ bsState = null; }
   if(parts[0] === 'currency-game' && currencyState){ btSaveState(CUR_STATE_KEY, currencyState); }
