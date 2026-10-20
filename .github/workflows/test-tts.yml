@@ -10,11 +10,15 @@ jobs:
       - uses: actions/checkout@v4
       - name: Probe
         run: |
-          U=https://github.com/MrEric16/mreric16.github.io/releases/download/lp-20261020/202610202025-S1001.mp3
+          U="https://uugjyucgeyopyvmhckdg.supabase.co/functions/v1/listening-audio?tag=lp-20261020&id=202610202025-S1001"
           {
-          curl -sIL -m 30 -H "Origin: https://mreric16.github.io" "$U" | grep -i -E "^(HTTP|location|content-type|access-control|vary)"
+          curl -sI -m 30 "$U" | grep -i -E "^(HTTP|content-type|content-length|accept-ranges|access-control)"
           echo ---range
-          curl -s -L -m 30 -H "Range: bytes=0-99" -o /dev/null -D - "$U" | grep -i -E "^(HTTP|content-range|content-type)"
+          curl -s -m 30 -H "Range: bytes=0-99" -o /tmp/r.bin -D - "$U" | grep -i -E "^(HTTP|content-range|content-type|content-length)"
+          ls -la /tmp/r.bin
+          echo ---full
+          curl -s -m 60 -o /tmp/f.mp3 -w "http %{http_code} size %{size_download}\n" "$U"
+          file /tmp/f.mp3
           } > scripts/tts-test-log.txt 2>&1
       - run: |
           git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
