@@ -35,6 +35,7 @@ def turns(i, s):
 async def say(text, voice, path):
     await edge_tts.Communicate(text, voice, rate='-4%').save(path)
 async def main():
+    os.makedirs('data/audio/listening', exist_ok=True)
     man = []
     tmp = tempfile.mkdtemp()
     sil = os.path.join(tmp, 'sil.mp3')
