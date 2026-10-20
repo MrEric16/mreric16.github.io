@@ -1,0 +1,13 @@
+.bee-hive{position:relative; width:300px; height:284px; margin:8px auto 6px; user-select:none; -webkit-user-select:none;}
+.bee-hex{position:absolute; width:88px; height:76px; border:none; padding:0; background:var(--cream-2); color:var(--ink); font-family:'Baloo 2',sans-serif; font-weight:700; font-size:30px; text-transform:uppercase; cursor:pointer; clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);}
+.bee-hex.mid{background:var(--gold); color:#2a1d12;}
+.bee-hex:active{filter:brightness(.9);}
+.bee-in{text-align:center; font-family:'Baloo 2',sans-serif; font-size:30px; font-weight:700; min-height:44px; letter-spacing:2px; text-transform:uppercase; margin:6px 0 0; color:var(--ink);}
+.bee-in .req{color:var(--gold);} .bee-in .bad{opacity:.35;}
+.bee-msg{text-align:center; min-height:22px; font-weight:800; font-size:14px; color:var(--coral); margin-bottom:6px;}
+.bee-rank{display:flex; align-items:center; gap:10px; margin:2px 0 10px; font-weight:800; font-size:14px;}
+.bee-rank .bar{flex:1; height:8px; border-radius:99px; background:var(--cream-2); overflow:hidden;} .bee-rank .bar i{display:block; height:100%; background:var(--coral); width:0;}
+.bee-words{display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 12px;}
+.bee-words span{background:var(--card); border-radius:999px; padding:5px 11px; font-weight:700; font-size:14px;}
+.bee-words span.pg{background:var(--gold); color:#2a1d12;}
+.bee-words span.miss{opacity:.55;}

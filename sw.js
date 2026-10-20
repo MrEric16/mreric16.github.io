@@ -13,6 +13,8 @@ const SHELL_FILES = [
   './index.html',
   './vocabulary.html',
   './grammar.html',
+  './connections.html',
+  './spellingbee.html',
   './lounge-core.js',
   './theme-pages.css',
   './manifest.json',

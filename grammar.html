@@ -419,10 +419,10 @@ function ggWireExercise(app, bank, topicId, level){
 var TILE_HEX = '#85389F';
 function ggTileStyle(){ return { tint: ' style="background:' + hexToRgba(TILE_HEX, 0.14) + '"', ico: ' style="color:var(--f-des)"' }; }
 var app = document.getElementById('app');
-function fail(){ app.innerHTML = '<a class="back-link" href="index.html#geography-hub">\u2190 Back to Train Your Brain</a><div class="empty-card" style="margin-top:14px;">Could not load the exercises. Check your connection and reload.</div>'; }
+function fail(){ app.innerHTML = '<a class="back-link" href="index.html#geography-hub/study">\u2190 Back to Train Your Brain</a><div class="empty-card" style="margin-top:14px;">Could not load the exercises. Check your connection and reload.</div>'; }
 function showTopics(){
   document.title = "Grammar Practice \u2014 Mr Eric's Lounge";
-  app.innerHTML = '<a class="back-link" href="index.html#geography-hub">\u2190 Back to Train Your Brain</a>' +
+  app.innerHTML = '<a class="back-link" href="index.html#geography-hub/study">\u2190 Back to Train Your Brain</a>' +
     '<section style="padding-top:14px;"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Grammar Practice</h2></div>' +
     '<div class="ivb-search-wrap"><span class="ivb-search-icon">' + icon('search') + '</span>' +
     '<input type="text" id="ggSearch" class="search-input" placeholder="Search a topic\u2026" autocomplete="off" autocapitalize="off" spellcheck="false"></div>' +
@@ -490,7 +490,7 @@ function backToLounge(e){
   if(!ok) return;
   e.preventDefault();
   history.go(-(depth + 1));
-  setTimeout(function(){ location.href = 'index.html#geography-hub'; }, 1200);
+  setTimeout(function(){ location.href = 'index.html#geography-hub/study'; }, 1200);
 }
 function route(){
   noteDepth();
