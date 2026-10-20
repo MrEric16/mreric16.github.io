@@ -1,4 +1,13 @@
-http 502 time 0.599597
--rw-r--r-- 1 runner runner 44 Oct 20 20:10 /tmp/t.mp3
-/tmp/t.mp3: ASCII text, with no line terminators
-tts failed: handshake HTTP/1.1 403 Forbidden
+HTTP/2 302 
+content-type: text/html; charset=utf-8
+content-length: 0
+HTTP/2 200 
+accept-ranges: bytes
+content-type: application/octet-stream
+content-length: 228765
+---range
+HTTP/2 302 
+content-type: text/html; charset=utf-8
+HTTP/2 206 
+content-type: application/octet-stream
+content-range: bytes 0-99/228765
