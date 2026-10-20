@@ -1,12 +1,17 @@
-HTTP/2 302 
-content-type: text/html; charset=utf-8
-location: https://release-assets.githubusercontent.com/github-production-release-asset/1305206159/bf335f09-8882-456a-b878-517d9a3fa4db?sp=r&sv=2018-11-09&sr=b&spr=https&se=2026-10-20T21%3A15%3A23Z&rscd=attachment%3B+filename%3D202610202025-S1001.mp3&rsct=application%2Foctet-stream&skoid=96c2d410-5711-43a1-aedd-ab1947aa7ab0&sktid=398a6654-997b-47e9-b12b-9515b896b4de&skt=2026-10-20T20%3A15%3A01Z&ske=2026-10-20T21%3A15%3A23Z&sks=b&skv=2018-11-09&sig=Ss4qz8HPioyRWfNRCXn7xjwX%2Fo57aYRbN2JLyTP4aGE%3D&jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmVsZWFzZS1hc3NldHMuZ2l0aHVidXNlcmNvbnRlbnQuY29tIiwia2V5Ijoia2V5MSIsImV4cCI6MTc5MjUyODY0NywibmJmIjoxNzkyNTI4MzQ3LCJwYXRoIjoicmVsZWFzZWFzc2V0cHJvZHVjdGlvbi5ibG9iLmNvcmUud2luZG93cy5uZXQifQ.PXQy-xlsvalzL-xtyfnDC3tjlzI3f8aAeZh7_0SS3yc&response-content-disposition=attachment%3B%20filename%3D202610202025-S1001.mp3&response-content-type=application%2Foctet-stream
-vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, X-GitHub-Client-Version, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With
 HTTP/2 200 
-content-type: application/octet-stream
+content-type: audio/mpeg
+content-length: 228765
+accept-ranges: bytes
+access-control-allow-origin: *
+access-control-allow-headers: range, content-type
+access-control-allow-methods: GET, HEAD, OPTIONS
+access-control-expose-headers: content-range, content-length, accept-ranges
 ---range
-HTTP/2 302 
-content-type: text/html; charset=utf-8
 HTTP/2 206 
-content-type: application/octet-stream
+content-type: audio/mpeg
+content-length: 100
 content-range: bytes 0-99/228765
+-rw-r--r-- 1 runner runner 100 Oct 20 20:34 /tmp/r.bin
+---full
+http 200 size 228765
+/tmp/f.mp3: Audio file with ID3 version 2.4.0, contains:\012- MPEG ADTS, layer III, v2,  64 kbps, 24 kHz, Monaural
