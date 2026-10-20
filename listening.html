@@ -226,7 +226,7 @@ function getJson(u){ return fetch(u, { cache: 'no-cache' }).then(function(r){ if
 function dayNumber(){ var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); }
 function award(n, why){ if(window.LoungeXP) LoungeXP.award(n, why); }
 var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
-var REPO = 'https://github.com/MrEric16/mreric16.github.io/releases/download/';
+var AUDIO = 'https://uugjyucgeyopyvmhckdg.supabase.co/functions/v1/listening-audio';
 var SECS = { S1: ['Section 1', 'Everyday conversation', 'Two people, a booking or an enquiry. Fill in the details.'], S2: ['Section 2', 'Talk or announcement', 'One speaker giving public information.'], S3: ['Section 3', 'Academic discussion', 'A tutor and students talk about a project or assignment.'], S4: ['Section 4', 'Lecture', 'One speaker on an academic topic.'] };
 var IDX = null, SHARDS = {}, cur = null, ans = {}, checked = false, plays = 0, speaking = false, AU = null, tok = 0;
 var S = lsGet('listenSet', { exam: true, rate: 1 });
@@ -274,7 +274,7 @@ function task(sec){
   pickItem(sec).then(function(it){ cur = it; ans = {}; checked = false; plays = 0; markSeen(it.id); draw(); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load a task. Check your connection and try again.</div>'; });
 }
 function speak(){
-  stopAudio(); var my = tok; AU = new Audio(REPO + cur.tag + '/' + cur.id + '.mp3'); AU.playbackRate = S.rate; speaking = true;
+  stopAudio(); var my = tok; AU = new Audio(AUDIO + '?tag=' + cur.tag + '&id=' + cur.id); AU.playbackRate = S.rate; speaking = true;
   AU.onended = function(){ if(my === tok){ speaking = false; draw(); } };
   AU.onerror = function(){ if(my === tok){ speaking = false; plays = Math.max(0, plays - 1); draw(); var o = document.getElementById('lsErr'); if(o) o.textContent = 'Audio could not load. Check your connection and try again.'; } };
   var pr = AU.play(); if(pr && pr.catch) pr.catch(function(){ if(my === tok){ speaking = false; draw(); } });
