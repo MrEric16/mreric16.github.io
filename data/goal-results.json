@@ -1,28 +1,6 @@
 {
-  "generatedAt": "2026-10-21T17:30:30.768229Z",
+  "generatedAt": "2026-10-21T20:50:30.016277Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/brighton-and-hove-albion-vs-roma/x5IBegE9Gk-tB_J996CVG",
-      "date": "2026-08-08",
-      "home": "Brighton And Hove Albion",
-      "away": "Roma",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "G. Rutter",
-          "minute": 29
-        },
-        {
-          "scorer": "Y. Ayari",
-          "minute": 40
-        }
-      ],
-      "awayGoals": [],
-      "competition": "roma"
-    },
     {
       "url": "https://www.goal.com/en/match/newcastle-united-vs-afc-bournemouth/z9ksHrHHCIjkNAz9qALgS",
       "date": null,
@@ -7898,6 +7876,36 @@
         }
       ],
       "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/hebc-hamburg-vs-borussia-dortmund/XsMyY7DmCyNoD2yvmKJQm",
+      "date": null,
+      "home": "Hebc Hamburg",
+      "away": "Borussia Dortmund",
+      "htHome": 0,
+      "htAway": 4,
+      "ftHome": 0,
+      "ftAway": 5,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "J. Wrede",
+          "minute": 33
+        },
+        {
+          "scorer": "D. Svensson",
+          "minute": 36
+        },
+        {
+          "scorer": "S. Inacio",
+          "minute": 41
+        },
+        {
+          "scorer": "F. Silva",
+          "minute": 59
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7908,6 +7916,7 @@
     "https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo": 2,
     "https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr": 2,
     "https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK": 2,
-    "https://www.goal.com/en/match/hebc-hamburg-vs-borussia-dortmund/XsMyY7DmCyNoD2yvmKJQm": 2
+    "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 1,
+    "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 1
   }
 }
