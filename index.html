@@ -31182,7 +31182,7 @@ function mtStepHtml(){
   if(s.step === 'picker'){
     const sortedCategories = [...MT_EMOTIONS].sort((a,b)=> MT_VALENCE_RANK[a.valence] - MT_VALENCE_RANK[b.valence]);
     return `
-      <p class="mt-intro">A private mood log. It stays on this device only. Nobody else can see it, not even me. Use it to spot your own patterns over time. Pick what's closest to how you feel right now.</p>
+      <p class="mt-intro">Just for you. A private mood log that never leaves this device. Nobody can see it, not even me. Tap what's closest to how you feel, and spot your own patterns over time.</p>
       <div class="mt-cat-grid">
         ${sortedCategories.map(c => `<button class="mt-cat-btn" style="background:${mtValenceColor(c.valence)}" data-cat="${c.key}">${escapeHtml(c.label)}</button>`).join('')}
       </div>
