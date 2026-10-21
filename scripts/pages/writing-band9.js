@@ -1,4 +1,4 @@
-var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
+var BACK = back('writing-hub.html', 'Back to IELTS Writing');
 var DATA = null;
 var st = lsGet('wb9UI', { roles: true, tab: 'essays' });
 var scores = lsGet('wb9Scores', {});

@@ -1,4 +1,4 @@
-var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
+var BACK = back('writing-hub.html', 'Back to IELTS Writing');
 var TABS = [['t1a', 'Task 1 Academic'], ['t1g', 'Task 1 Letters'], ['t2', 'Task 2 Essays']];
 var CRIT = { t1a: 'Task Achievement', t1g: 'Task Achievement', t2: 'Task Response' };
 var st = lsGet('wmUI', { tab: 't1a', open: null, notes: false });

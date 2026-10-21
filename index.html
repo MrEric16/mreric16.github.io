@@ -18192,9 +18192,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Practise Grammar", emoji: icon('book'), url: "grammar.html", internal: false, sameTab: true, kw: ["grammar", "grammar exercises", "grammar practice", "grammar gym", "tenses", "exercises", "english"] },
   { name: "IELTS Vocabulary", emoji: icon('book'), url: "vocabulary.html", internal: false, sameTab: true, kw: ["ielts", "vocab", "vocabulary", "words", "word list", "phrasal verbs", "idioms", "collocations", "saved words", "learn words"] },
   { name: "Amendments", emoji: icon('bookmark'), url: "amendments.html", internal: false, sameTab: true, kw: ["amendments", "mistakes", "wrong answers", "review", "revise", "errors", "missed words"] },
-  { name: "IELTS Writing Checker", emoji: icon('pencil'), url: "writing.html", internal: false, sameTab: true, kw: ["writing", "essay", "task 2", "task 1", "word count", "linking words", "ielts writing", "checker"] },
-  { name: "IELTS Writing Models", emoji: icon('pencil'), url: "writing-models.html", internal: false, sameTab: true, kw: ["writing", "band 9", "sample", "model answer", "task 1", "task 2", "essay", "letter", "graph", "chart", "ielts writing"] },
-  { name: "Writing Band 9", emoji: icon('pencil'), url: "writing-band9.html", internal: false, sameTab: true, kw: ["writing band 9", "band 9", "essay", "task 2", "opinion essay", "discussion essay", "problem solution", "advantages disadvantages", "two part question", "ielts writing", "essay structure"] },
+  { name: "IELTS Writing", emoji: icon('pencil'), url: "writing-hub.html", internal: false, sameTab: true, kw: ["writing", "essay", "task 2", "task 1", "word count", "linking words", "ielts writing", "checker", "models", "band 9", "sample", "model answer", "letter", "graph", "chart", "essay structure"] },
   { name: "Collocations and Phrasal Verbs", emoji: icon('linkchain'), url: "collocations.html", internal: false, sameTab: true, kw: ["collocation", "phrasal verb", "phrasal verbs", "make or do", "verb noun", "ielts vocabulary"] },
   { name: "Word Forms", emoji: icon('layers'), url: "wordforms.html", internal: false, sameTab: true, kw: ["word form", "word family", "noun verb adjective", "derivation", "suffix", "toefl writing", "ielts writing"] },
   { name: "Listening Practice", emoji: icon('headphones'), url: "listening.html", internal: false, sameTab: true, kw: ["listening", "ielts listening", "toefl listening", "audio", "dictation", "lecture"] },
@@ -18215,7 +18213,7 @@ const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzz
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#odd-one-out-game', 'connections.html', 'spellingbee.html', '#nerdle-game', '#xword-game', '#alias-game'],
-  language: ['#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'writing.html', 'writing-models.html', 'writing-band9.html', 'collocations.html', 'wordforms.html', 'listening.html', 'reading.html', 'speaking.html', 'mocktimer.html', 'amendments.html'],
+  language: ['#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'writing-hub.html', 'collocations.html', 'wordforms.html', 'listening.html', 'reading.html', 'speaking.html', 'mocktimer.html', 'amendments.html'],
   geo: ['#flag-game', '#capital-game', '#currency-game', '#language-game', '#phrase-lang-game', '#silhouette-game', 'globe.html', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],
@@ -33522,6 +33520,22 @@ function getScrollMemory(){
 function saveScrollMemory(mem){
   try{ sessionStorage.setItem('scrollMemory', JSON.stringify(mem)); }catch(e){}
 }
+// Leaving to a separate page (a Study tile, say) never goes through renderRoute, so the
+// scroll position was never saved and coming back landed at the top. Save it on the way out.
+function rememberScrollNow(){
+  try{
+    if(lastRenderedHash === null || (typeof mtOverlayParts !== 'undefined' && mtOverlayParts)) return;
+    const mem = getScrollMemory();
+    mem[lastRenderedHash] = window.scrollY;
+    saveScrollMemory(mem);
+  }catch(e){}
+}
+window.addEventListener('pagehide', rememberScrollNow);
+document.addEventListener('visibilitychange', () => { if(document.visibilityState === 'hidden') rememberScrollNow(); });
+document.addEventListener('click', e => {
+  const a = e.target.closest && e.target.closest('a[href]');
+  if(a && !/^#/.test(a.getAttribute('href'))) rememberScrollNow();
+}, true);
 // Every previous attempt at this (CSS touch-action/overscroll-behavior, then a history
 // "trap" that re-plants a duplicate entry on every popstate) failed on a real installed
 // home-screen app: confirmed by W3C's own open issue on this exact problem - iOS's
@@ -34793,6 +34807,8 @@ function renderRoute(opts){
     savedY = scrollMem[hash];
   }
   requestAnimationFrame(()=> window.scrollTo({ top: savedY !== undefined ? savedY : 0, left: 0, behavior: 'instant' }));
+  // Layout can still be settling on a fresh load (fonts, icons); re-apply once if it drifted.
+  if(savedY){ setTimeout(()=>{ if(Math.abs(window.scrollY - savedY) > 4 && lastRenderedHash === hash) window.scrollTo({ top: savedY, left: 0, behavior: 'instant' }); }, 250); }
   lastRenderedHash = hash;
 }
 

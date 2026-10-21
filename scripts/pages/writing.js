@@ -1,4 +1,4 @@
-var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
+var BACK = back('writing-hub.html', 'Back to IELTS Writing');
 var TASKS = { t2: { n: 'Task 2 essay', min: 250 }, t1a: { n: 'Task 1 Academic', min: 150 }, t1g: { n: 'Task 1 General (letter)', min: 150 } };
 var st = lsGet('writingUI', { task: 't2' });
 var STOP = 'the a an and or but if of to in on at for with by from as is are was were be been being am it its this that these those i you he she we they my your his her our their me him us them not no do does did have has had will would can could should may might must than then so such very more most also just only into about over under again there here what which who whom whose when where why how all any each other some one two'.split(' ');
