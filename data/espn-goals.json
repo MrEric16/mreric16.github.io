@@ -1,6 +1,39 @@
 {
- "generatedAt": "2026-10-21T19:28:08.776374Z",
+ "generatedAt": "2026-10-21T22:35:00.548017Z",
  "results": [
+  {
+   "url": "espn:401882870",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T18:00Z",
+   "home": "Levante",
+   "away": "Athletic",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "R. Brugué",
+     "minute": 20
+    },
+    {
+     "scorer": "R. Brugué",
+     "minute": 22
+    },
+    {
+     "scorer": "E. Eyong",
+     "minute": "90+8"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Á. Berenguer (pen)",
+     "minute": 67
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
   {
    "url": "espn:401915395",
    "date": "2026-10-21",
@@ -74,6 +107,214 @@
     {
      "scorer": "V. Osimhen",
      "minute": 61
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915394",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Aston Villa",
+   "away": "Viking",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "R. Barkley",
+     "minute": 23
+    },
+    {
+     "scorer": "E. Buendía (pen)",
+     "minute": 37
+    },
+    {
+     "scorer": "H. Heggheim (og)",
+     "minute": 62
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "P. Christiansen",
+     "minute": 84
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915312",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Bayern",
+   "away": "Arsenal",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "A. Davies",
+     "minute": 35
+    },
+    {
+     "scorer": "H. Kane (pen)",
+     "minute": 61
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Eze",
+     "minute": 25
+    },
+    {
+     "scorer": "D. Rice",
+     "minute": 82
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915388",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Club Brugge",
+   "away": "RC Lens",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "H. Vanaken",
+     "minute": "45+3"
+    },
+    {
+     "scorer": "J. Seys",
+     "minute": 50
+    },
+    {
+     "scorer": "C. Forbs",
+     "minute": 72
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915390",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Inter",
+   "away": "Shaktar",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "C. Augusto",
+     "minute": 77
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915389",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Real Betis",
+   "away": "Feyenoord",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "Isco (pen)",
+     "minute": 59
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915313",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Real Madrid",
+   "away": "RB Leipzig",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "B. Silva",
+     "minute": 43
+    },
+    {
+     "scorer": "A. Güler",
+     "minute": 52
+    },
+    {
+     "scorer": "K. Mbappé",
+     "minute": 83
+    },
+    {
+     "scorer": "Y. Diomande",
+     "minute": 87
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "T. Gomis",
+     "minute": 85
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915391",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T19:00Z",
+   "home": "Sporting CP",
+   "away": "LASK",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "L. Suárez (pen)",
+     "minute": 5
+    },
+    {
+     "scorer": "L. Suárez",
+     "minute": 89
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "C. Lang",
+     "minute": 15
+    },
+    {
+     "scorer": "S. Kalajdzic",
+     "minute": 63
+    },
+    {
+     "scorer": "K. Danek",
+     "minute": 68
     }
    ],
    "competition": "CL",
