@@ -17,7 +17,7 @@ P = passage('p87', 'The Great Bird Migration', 'Biology', 2, 'You should spend a
   ('The bar-tailed godwit flies from Alaska to New Zealand.', 'T', 'C', 'from Alaska to New Zealand'),
   ('Day length is the main signal to leave.', 'T', 'D', 'length of the day'),
   ('Geese fly in a V-shape to save energy.', 'T', 'D', 'V-shape'),
-  ('Most migrating birds travel alone.', 'NG', 'D', 'Many birds travel in flocks', 'The proportion travelling alone is not given.'),
+  ('Small birds migrate faster than large birds.', 'NG', 'C', 'A small warbler', 'Relative speeds are not given.'),
  ]),
  mcq([
   ('What is the main reason for migration?', ['Food.', 'Fashion.', 'Noise.', 'Fear.'], 0, 'B', 'The main reason for migration is food'),

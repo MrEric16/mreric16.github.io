@@ -17,7 +17,7 @@ P = passage('p92', 'The Story of Glass', 'Science and technology', 2, 'You shoul
   ('Silica makes up about seventy per cent of the mixture.', 'T', 'D', 'about seventy per cent'),
   ('Limestone lowers the melting point.', 'F', 'D', 'soda ash, which lowers the melting point'),
   ('The float process was invented in the 1950s.', 'T', 'E', 'in the 1950s'),
-  ('Glassblowing is still the main method for window glass.', 'NG', 'E', 'Most window glass is now made by the float process', 'Glassblowing for windows is not discussed as current.'),
+  ('Murano glass is the most expensive in the world.', 'NG', 'C', 'island of Murano', 'Its price is not mentioned.'),
  ]),
  mcq([
   ('Why was early glass expensive?', ['It needed very high temperatures.', 'Sand was rare.', 'There were no craftsmen.', 'It was taxed.'], 0, 'B', 'very high temperatures'),
