@@ -73,6 +73,9 @@
   .gg-actions{display:flex; gap:10px; margin:16px 0 28px;}
   .gg-btn{flex:1; border:none; border-radius:16px; padding:15px 12px; font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight:800; font-size:16px; cursor:pointer; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.12);}
   .gg-btn-main{background:var(--coral); color:#fff;}
+  .gg-body{flex:1; min-width:0; display:flex; flex-direction:column; align-items:stretch;}
+  .gg-ichk{align-self:flex-end; margin-top:6px; border:none; border-radius:12px; padding:7px 18px; font-family:inherit; font-weight:800; font-size:14px; cursor:pointer; background:var(--coral); color:#fff;}
+  .gg-ichk[disabled]{display:none;}
   /* Colour themes: only the palette variables are carried over from the main app (no animations),
      so the page matches the active theme and stays light on old phones. */
 body.dark-mode{--cream:#181110;--cream-2:#241A15;--card:#3A2B22;--ink:#EFE3D3;--ink-soft:#B8A48E;--line:#54402F;--coral-dark:#E8C766;--coral:#CC9544;--teal:#9CB06A;--gold:#E8C766;--board-bg:rgba(0,0,0,.4)}
@@ -248,14 +251,32 @@ function ggDraw(topic, level, avoid){
   const pool = ((topic.levels || {})[level]) || [];
   const idx = pool.map((_, i) => i);
   const avoidSet = new Set(avoid || []);
-  let fresh = idx.filter(i => !avoidSet.has(i));
   const shuffle = a => { for(let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); const t = a[i]; a[i] = a[j]; a[j] = t; } return a; };
-  shuffle(fresh);
-  let pick = fresh.slice(0, GG_PER_SET);
-  if(pick.length < GG_PER_SET){
-    const rest = shuffle(idx.filter(i => avoidSet.has(i)));
-    pick = pick.concat(rest.slice(0, GG_PER_SET - pick.length));
-  }
+  // Variety: cap how many items share an instruction type or an opening, and skip near-duplicate stems,
+  // so a set of 20 does not read as the same sentence 20 times. Relaxes only if the pool is too uniform.
+  const info = pool.map(it => {
+    const sp = ggSplitQ(it.q), body = sp[1].toLowerCase().replace(/\{[a-z]\d\}/g, ' ');
+    const words = body.replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(Boolean);
+    return { kind: sp[0] ? sp[0] : (it.a.length > 1 ? 'gap2' : 'gap1'), open: words.slice(0, 2).join(' '), set: new Set(words.filter(w => w.length > 3)) };
+  });
+  const sim = (x, y) => { if(!x.size || !y.size) return 0; let n = 0; x.forEach(w => { if(y.has(w)) n++; }); return n / (x.size + y.size - n); };
+  const fresh = shuffle(idx.filter(i => !avoidSet.has(i))), stale = shuffle(idx.filter(i => avoidSet.has(i)));
+  const order = fresh.concat(stale);
+  const pick = [], taken = new Set();
+  [[4, 2, .5], [6, 3, .7], [9, 5, 1.01]].forEach(rule => {
+    if(pick.length >= GG_PER_SET) return;
+    for(const i of order){
+      if(pick.length >= GG_PER_SET) break;
+      if(taken.has(i)) continue;
+      const me = info[i];
+      let kinds = 0, opens = 0, dup = false;
+      for(const j of pick){ if(info[j].kind === me.kind) kinds++; if(info[j].open === me.open) opens++; if(sim(info[j].set, me.set) >= rule[2]) dup = true; }
+      const kindCap = /^gap/.test(me.kind) ? 99 : rule[0];
+      if(kinds >= kindCap || opens >= rule[1] || dup) continue;
+      pick.push(i); taken.add(i);
+    }
+  });
+  for(const i of order){ if(pick.length >= GG_PER_SET) break; if(!taken.has(i)){ pick.push(i); taken.add(i); } }
   shuffle(pick);
   return {
     idx: pick,
@@ -319,7 +340,7 @@ function ggItemHtml(it, n, ansRow, blRow, okVal){
     h += SN + escapeHtml(body) + SE + `<input type="text" class="gg-inp gg-wide${cls}" data-b="0" value="${escapeHtml(v)}"${okVal === true ? ' readonly' : ''} placeholder="Type the full sentence…" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" enterkeyhint="next">`;
   }
   const mark = okVal === true ? ' gg-item-ok' : (okVal === false ? ' gg-item-bad' : '');
-  return `<div class="gg-item${mark}" data-i="${n}"><span class="gg-num">${n + 1}</span><div class="gg-q${hasBlank ? '' : ' gg-q-block'}">${h}</div></div>`;
+  return `<div class="gg-item${mark}" data-i="${n}"><span class="gg-num">${n + 1}</span><div class="gg-body"><div class="gg-q${hasBlank ? '' : ' gg-q-block'}">${h}</div><button type="button" class="gg-ichk"${okVal === true ? ' disabled' : ''}>Check</button></div></div>`;
 }
 function ggWireExercise(app, bank, topicId, level){
   const topic = bank.topics.find(t => t.id === topicId);
@@ -350,11 +371,12 @@ function ggWireExercise(app, bank, topicId, level){
     const p = root.querySelector('#ggProg');
     if(p) p.textContent = ggFilled(st) + '/' + GG_PER_SET + ' answered';
   }
+  function allChecked(){ return st.ok.every(x => x !== null && x !== undefined); }
   function showBanner(){
     ['#ggBanner', '#ggBanner2'].forEach(sel => {
       const b = root.querySelector(sel);
       if(!b) return;
-      if(!st.checked){ b.style.display = 'none'; return; }
+      if(!allChecked()){ b.style.display = 'none'; return; }
       b.style.display = '';
       b.className = 'gg-banner ' + (st.score === GG_PER_SET ? 'gg-banner-ok' : 'gg-banner-mid');
       b.textContent = st.score === GG_PER_SET ? '20/20. Perfect! Tap Reset for a new set.' : st.score + '/' + GG_PER_SET + ' correct. Fix the red ones and check again.';
@@ -372,6 +394,7 @@ function ggWireExercise(app, bank, topicId, level){
         inp.classList.toggle('gg-bad', r === false);
         inp.readOnly = st.ok[n] === true;
       });
+      const cb = item.querySelector('.gg-ichk'); if(cb) cb.disabled = st.ok[n] === true;
     });
     showBanner(); updateProg();
   }
@@ -382,28 +405,45 @@ function ggWireExercise(app, bank, topicId, level){
         st.ans[n][b] = inp.value;
         // editing a previously flagged blank clears its red mark; item stays unchecked until re-check
         if(st.bl[n][b] === false){ st.bl[n][b] = null; inp.classList.remove('gg-bad'); if(st.ok[n] === false){ st.ok[n] = null; item.classList.remove('gg-item-bad'); } }
-        ggSave(topicId, level, st); updateProg();
+        st.checked = allChecked(); ggSave(topicId, level, st); updateProg(); showBanner();
       });
       inp.addEventListener('keydown', e => {
         if(e.key !== 'Enter') return;
         e.preventDefault();
-        const all = Array.from(root.querySelectorAll('.gg-inp:not([readonly])'));
-        const nxt = all[all.indexOf(inp) + 1];
-        if(nxt) nxt.focus(); else inp.blur();
+        const item = inp.closest('.gg-item'), mine = Array.from(item.querySelectorAll('.gg-inp'));
+        if(inp === mine[mine.length - 1]){ checkOne(+item.dataset.i); return; }
+        const nxt = mine[mine.indexOf(inp) + 1]; if(nxt) nxt.focus();
       });
     });
-    root.querySelector('#ggCheck').addEventListener('click', () => {
-      let score = 0;
-      const prevOk = (st.ok || []).filter(x => x === true).length;
-      st.items.forEach((it, n) => {
-        let all = true;
-        it.a.forEach((acc, b) => { const r = ggBlankOk(st.ans[n][b], acc); st.bl[n][b] = r; if(!r) all = false; });
-        st.ok[n] = all; if(all) score++;
-      });
-      st.checked = true; st.score = score; ggSave(topicId, level, st);
+    function gradeItem(n){
+      let all = true;
+      st.items[n].a.forEach((acc, b) => { const r = ggBlankOk(st.ans[n][b], acc); st.bl[n][b] = r; if(!r) all = false; });
+      st.ok[n] = all;
+    }
+    function finish(prevOk){
+      const score = st.ok.filter(x => x === true).length;
+      st.score = score; st.checked = allChecked(); ggSave(topicId, level, st);
       if(window.LoungeXP){ const gain = Math.max(0, score - prevOk); if(gain) LoungeXP.award(gain, 'grammar'); if(score === GG_PER_SET && prevOk < GG_PER_SET) LoungeXP.award(10, 'perfect'); }
-      if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
       applyResults();
+    }
+    function checkOne(n){
+      const item = root.querySelector('.gg-item[data-i="' + n + '"]');
+      if(item && item.querySelector('.gg-inp').readOnly) return;
+      const prevOk = st.ok.filter(x => x === true).length;
+      if(st.ans[n].every(x => String(x).trim() === '')) return;
+      gradeItem(n); finish(prevOk);
+      if(st.ok[n] === true){
+        // correct: move on to the next unanswered field so typing flows
+        const nxt = Array.from(root.querySelectorAll('.gg-item')).slice(n + 1).map(i => i.querySelector('.gg-inp:not([readonly])')).filter(Boolean)[0];
+        if(nxt) nxt.focus(); else if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+      }
+    }
+    root.querySelectorAll('.gg-ichk').forEach(btn => btn.addEventListener('click', () => checkOne(+btn.closest('.gg-item').dataset.i)));
+    root.querySelector('#ggCheck').addEventListener('click', () => {
+      const prevOk = st.ok.filter(x => x === true).length;
+      st.items.forEach((it, n) => gradeItem(n));
+      finish(prevOk);
+      if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
       const firstBad = root.querySelector('.gg-item-bad');
       if(firstBad){ firstBad.style.scrollMarginTop = '90px'; firstBad.scrollIntoView({ block: 'start', behavior: 'smooth' }); }
     });
@@ -501,6 +541,22 @@ function route(){
   else showTopics();
 }
 window.addEventListener('hashchange', route);
+// Swipe right (from the left part of the screen) = go back one level: exercise -> levels -> topics.
+(function(){
+  var sx = 0, sy = 0, st0 = 0, ok = false;
+  document.addEventListener('touchstart', function(e){
+    var t = e.touches[0]; ok = e.touches.length === 1 && t.clientX > 24 && t.clientX < window.innerWidth * 0.4 && !/^(INPUT|TEXTAREA)$/.test((e.target || {}).tagName || '');
+    sx = t.clientX; sy = t.clientY; st0 = Date.now();
+  }, { passive: true });
+  document.addEventListener('touchend', function(e){
+    if(!ok) return; ok = false;
+    var t = e.changedTouches[0], dx = t.clientX - sx, dy = t.clientY - sy;
+    if(dx < 90 || Math.abs(dy) > dx * 0.5 || Date.now() - st0 > 700) return;
+    var parts = location.hash.replace(/^#/, '').split('/').filter(Boolean);
+    if(parts.length >= 2) location.hash = '#' + parts[0];
+    else if(parts.length === 1) location.hash = '#';
+  }, { passive: true });
+})();
 route();
 
 })();
