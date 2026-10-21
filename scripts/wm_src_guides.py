@@ -1,0 +1,42 @@
+# -*- coding: utf-8 -*-
+# Original guidance written for this site. The five essay types follow the standard IELTS Task 2 question types.
+GUIDES = {
+ 'principles': [
+  'Plan for 5 minutes, write for 30, check for 5. A plan with a position and two or three reasons stops you rambling.',
+  'Aim for 260 to 290 words. Under 250 loses marks; 350 words usually means more errors, not more marks.',
+  'Four paragraphs is enough, five is better when the question has two parts. Each paragraph carries one controlling idea.',
+  'Every sentence has a job: state, explain, give an example, or link. If you cannot name its job, cut it.',
+  'Answer the exact question. If it asks "to what extent", give a position. If it asks for causes and solutions, give both.',
+  'Paraphrase the question in your introduction instead of copying it. Then state your position or outline in one sentence.',
+  'Use examples from general knowledge or experience, kept short. Never invent statistics: write "research suggests" or give no figure.',
+  'Make your position the same in the introduction and the conclusion.'],
+ 'types': [
+  {'key': 'opinion', 'name': 'Opinion (agree or disagree)', 'asks': ['To what extent do you agree or disagree?', 'Do you agree or disagree with this statement?'],
+   'plan': ['Introduction: paraphrase, then say clearly whether you agree, disagree or partly agree', 'Body 1: your strongest reason, explained and illustrated', 'Body 2: a second, different reason', 'Optional: the opposite view and why you reject it', 'Conclusion: restate your position in new words'],
+   'tips': ['Choose one position and keep it. A clear "I strongly agree" beats a vague "both sides".', 'If you partly agree, say which part in the introduction and keep that balance throughout.', 'Two well-developed reasons are better than four thin ones.'],
+   'traps': ['Changing your opinion half-way through.', 'Writing about the topic in general and never about the exact statement.', 'Ending with a new argument.']},
+  {'key': 'discussion', 'name': 'Discussion (both views + opinion)', 'asks': ['Discuss both views and give your own opinion.', 'Some people think A. Others think B. Discuss both views.'],
+   'plan': ['Introduction: paraphrase both views and say what you think', 'Body 1: the first view, with reasons', 'Body 2: the second view, with reasons', 'Your opinion: weigh the views and justify', 'Conclusion: short summary'],
+   'tips': ['Give both views a fair hearing: roughly equal space.', 'The phrase "give your opinion" is not optional. Put it in the introduction and develop it.', 'Present each view as its supporters would, not as a weak argument you plan to destroy.'],
+   'traps': ['Describing only one view in detail.', 'Hiding your opinion until the last sentence.', 'Using "some people say" for everything without ever explaining why.']},
+  {'key': 'advdis', 'name': 'Advantages and disadvantages', 'asks': ['What are the advantages and disadvantages?', 'Do the advantages outweigh the disadvantages?'],
+   'plan': ['Introduction: paraphrase and (if asked) state which side is stronger', 'Body 1: advantages, one or two, with detail', 'Body 2: disadvantages, one or two, with detail', 'Optional: how the drawbacks can be reduced', 'Conclusion: weigh the two sides'],
+   'tips': ['If the question says "outweigh", answer it: the advantages do, the disadvantages do, or neither clearly.', 'Spend more words on the side you think is stronger.', 'Keep advantages together and disadvantages together. Do not zigzag.'],
+   'traps': ['Listing points without explaining them.', 'Ignoring the word "outweigh".', 'Using the same example for both sides.']},
+  {'key': 'probsol', 'name': 'Problem and solution', 'asks': ['What are the causes of this problem and what can be done?', 'What problems does this cause and how can they be solved?'],
+   'plan': ['Introduction: paraphrase the problem and outline the essay', 'Body 1: causes (or effects), each explained', 'Body 2: solutions, each linked to a cause', 'Optional: a second group of solutions (who does what)', 'Conclusion: summarise problem and best solutions'],
+   'tips': ['Match each solution to a cause so the essay feels logical.', 'Say who should act: government, schools, employers, individuals.', 'Be realistic. "Ban all cars" is easy to criticise; "congestion charges" is not.'],
+   'traps': ['Solutions that have nothing to do with the causes you gave.', 'Only one cause and one solution, both undeveloped.', 'Vague phrases such as "the government must do something".']},
+  {'key': 'twopart', 'name': 'Two-part question', 'asks': ['Why is this happening? Is this a positive or negative development?', 'What are the reasons for this? What problems might it cause?'],
+   'plan': ['Introduction: paraphrase and outline your answer to both questions', 'Body 1: answer question 1 fully', 'Body 2: answer question 2 fully', 'Optional: concession or second part of question 2', 'Conclusion: give a short answer to both again'],
+   'tips': ['Answer each question in its own paragraph(s). Do not blend them.', 'When the second question asks for a judgement (positive or negative), give one and defend it.', 'Underline the question words ("why", "is it positive") before planning.'],
+   'traps': ['Answering only one of the two questions.', 'Giving a list of reasons with no development.', 'Forgetting the judgement.']}],
+ 'phrases': [
+  ['Giving your view', ['I firmly believe that...', 'In my opinion, ...', 'It seems to me that...', 'I am inclined to think that...', 'I would argue that...']],
+  ['Introducing another view', ['It is often claimed that...', 'Critics argue that...', 'Supporters of this view point out that...', 'It could be objected that...']],
+  ['Answering a counter-argument', ['This concern is understandable, but...', 'This view overlooks the fact that...', 'However, this argument is weaker than it appears because...', 'That may be true in some cases, yet...']],
+  ['Developing a point', ['This is because...', 'In other words, ...', 'As a result, ...', 'This means that...', 'A further reason is that...']],
+  ['Giving an example', ['For instance, ...', 'A good example is...', 'Take, for example, ...', 'This can be seen in...']],
+  ['Contrast and concession', ['Admittedly, ... however, ...', 'Although..., ...', 'Despite this, ...', 'On the other hand, ...', 'Nevertheless, ...']],
+  ['Concluding', ['In conclusion, ...', 'To sum up, ...', 'All things considered, ...', 'On balance, ...']]],
+}
