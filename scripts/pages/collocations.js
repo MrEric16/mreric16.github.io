@@ -66,7 +66,7 @@ function practice(kind){
       if(busy) return; busy = true;
       var ok = opts[+b.getAttribute('data-n')] === w;
       btns.forEach(function(x, n){ if(opts[n] === w) x.classList.add('ok'); });
-      if(ok){ score++; award(1, 'coll'); } else { b.classList.add('bad'); miss.push(w); setSaved(w.k, true); }
+      if(ok){ score++; award(1, 'coll'); } else { b.classList.add('bad'); miss.push(w); if(window.LoungeAmend) LoungeAmend.add(w.w, w.d, 'Collocations'); }
       var fb = document.getElementById('vFb');
       fb.innerHTML = '<div class="v-ex" style="text-align:center;margin:4px 0 0;"><b>' + esc(w.w) + '</b>: ' + esc(w.d) + '<br>“' + esc(w.e) + '”</div>';
       var nb = document.createElement('button'); nb.className = 'v-btn'; nb.textContent = i + 1 >= qs.length ? 'See results' : 'Next'; fb.appendChild(nb);

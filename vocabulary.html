@@ -322,7 +322,7 @@ function practice(kind, pool){
         if(busy) return; busy = true;
         var pick = opts[+b.getAttribute('data-n')], ok = pick === w;
         btns.forEach(function(x, n){ if(opts[n] === w) x.classList.add('ok'); });
-        if(ok){ score++; if(window.LoungeXP) LoungeXP.award(1, 'vocab'); } else { b.classList.add('bad'); miss.push(w); setSaved(w.k, true); }
+        if(ok){ score++; if(window.LoungeXP) LoungeXP.award(1, 'vocab'); } else { b.classList.add('bad'); miss.push(w); if(window.LoungeAmend) LoungeAmend.add(w.w, w.d, 'Vocabulary'); }
         var fb = document.getElementById('vFb');
         fb.innerHTML = '<div class="v-ex" style="text-align:center;margin:4px 0 0;">' + (kind === 'm2w' ? '<b>' + esc(w.w) + '</b>: ' : '') + '“' + esc(w.e) + '”</div>';
         var nb = document.createElement('button'); nb.className = 'v-btn'; nb.textContent = i + 1 >= qs.length ? 'See results' : 'Next'; fb.appendChild(nb);
@@ -350,9 +350,9 @@ function savedPage(){
   app.innerHTML = back('#', 'Back to IELTS Vocabulary') + head('Saved words', list.length + ' saved') +
     '<div class="v-hint">Tap a blurred word or meaning to reveal it. Guess first, then check.</div>' +
     '<div class="ivb-search-wrap"><input class="search-input" id="vQ" placeholder="Find any word to save…" style="padding-left:16px;"></div><div id="vRes"></div>' +
-    (list.length ? '<button class="v-btn alt" id="vReblur" style="margin-bottom:12px;">Blur all again</button>' : '<div class="empty-card">Nothing saved yet. Wrong answers in practice are saved automatically, and every card has a Save button.</div>') +
+    (list.length ? '<button class="v-btn alt" id="vReblur" style="margin-bottom:12px;">Blur all again</button>' : '<div class="empty-card">Nothing saved yet. Every card has a Save button. Words you get wrong in games go to Amendments.</div>') +
     '<div id="vList">' + list.map(function(w){
-      return '<div class="v-card random-tile" data-k="' + esc(w.k) + '"><div class="v-word" style="font-size:26px;"><span class="blur">' + esc(w.w) + '</span></div><div><span class="v-pos">' + POSN[w.pos] + '</span></div><div class="v-def"><span class="blur">' + esc(w.d) + '</span></div><div class="v-ex blur-ex" style="display:none;">“' + esc(w.e) + '”</div><div style="margin-top:8px;"><button class="v-save" data-rm="' + esc(w.k) + '">Remove</button></div></div>';
+      return '<div class="v-card random-tile" data-k="' + esc(w.k) + '"><div class="v-word" style="font-size:26px;"><span class="blur">' + esc(w.w) + '</span></div><div><span class="v-pos">' + POSN[w.pos] + '</span></div><div class="v-def"><span class="blur">' + esc(w.d) + '</span></div><div style="margin-top:8px;"><button class="v-save" data-rm="' + esc(w.k) + '">Remove</button></div></div>';
     }).join('') + '</div>';
   function bindBlur(root){
     root.querySelectorAll('.blur').forEach(function(b){ b.addEventListener('click', function(){ b.classList.toggle('show'); var c = b.closest('.v-card'); var ex = c && c.querySelector('.blur-ex'); if(ex){ ex.style.display = c.querySelectorAll('.blur.show').length ? 'block' : 'none'; } }); });

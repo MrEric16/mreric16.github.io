@@ -21,7 +21,7 @@
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
 
   /* ---------- which keys sync ---------- */
-  var SYNC_RE = /(Best|best|Streak|Wins|Played$|Moves)|^(vocabSaved|vocabBest_|bookmarks$|readArticles$|watchedVideos$|visitedFaculties$|unlockedBadges$|longestStreak$|totalActiveTimeMs$|siteOpenCount$|facultyVisitCount$|ggs_|xp\.)/;
+  var SYNC_RE = /(Best|best|Streak|Wins|Played$|Moves)|^(amendments$|vocabSaved|vocabBest_|bookmarks$|readArticles$|watchedVideos$|visitedFaculties$|unlockedBadges$|longestStreak$|totalActiveTimeMs$|siteOpenCount$|facultyVisitCount$|ggs_|xp\.)/;
   function isSynced(k){
     if(k === 'syncCode' || k === 'syncMeta' || k === 'xp.dev' || k === 'themeChoice' || k === 'darkMode') return false;
     if(/State_v1$/.test(k) || /LastPlayedDate$/.test(k)) return false;
@@ -274,7 +274,7 @@
   /* ---------- offline download + install banner ---------- */
   var CACHE_NAME = 'erics-lounge-v4';
   var Offline = {
-    baseUrls: ['vocabulary.html', 'grammar.html', 'connections.html', 'spellingbee.html', 'writing.html', 'collocations.html', 'wordforms.html', 'speaking.html', 'listening.html', 'reading.html', 'tashkent-route.html', 'data/tashkent-transit.json', 'tashkent-today.html', 'mocktimer.html', 'data/games/wordforms.json', 'data/games/lexicon.json', 'data/games/idioms.json', 'data/games/speaking.json', 'data/games/connections.json', 'data/games/bee.json', 'lounge-core.js', 'theme-pages.css', 'data/vocab/words.json', 'data/grammar/index.json', 'data/grammar/pools.json'],
+    baseUrls: ['vocabulary.html', 'grammar.html', 'connections.html', 'spellingbee.html', 'writing.html', 'collocations.html', 'wordforms.html', 'speaking.html', 'listening.html', 'reading.html', 'amendments.html', 'tashkent-route.html', 'data/tashkent-transit.json', 'tashkent-today.html', 'mocktimer.html', 'data/games/wordforms.json', 'data/games/lexicon.json', 'data/games/idioms.json', 'data/games/speaking.json', 'data/games/connections.json', 'data/games/bee.json', 'lounge-core.js', 'theme-pages.css', 'data/vocab/words.json', 'data/grammar/index.json', 'data/grammar/pools.json'],
     urls: function(){
       var extra = (window.LOUNGE_OFFLINE_EXTRA || []).slice();
       return fetch('data/grammar/index.json').then(function(r){ return r.json(); }).then(function(ix){
@@ -366,4 +366,24 @@
   }
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
   window.LoungeUI = LoungeUI;
+})();
+
+/* Amendments: words answered wrongly in any game. Stored as [{k,w,d,s,t}] newest first, synced as 'amendments'. */
+(function(){
+  var KEY = 'amendments';
+  function get(){ try{ var v = JSON.parse(localStorage.getItem(KEY) || '[]'); return Array.isArray(v) ? v : []; }catch(e){ return []; } }
+  function put(a){ try{ localStorage.setItem(KEY, JSON.stringify(a)); }catch(e){} }
+  window.LoungeAmend = {
+    get: get,
+    add: function(w, d, src){
+      w = String(w == null ? '' : w).trim(); d = String(d == null ? '' : d).trim(); if(!w || !d) return;
+      var k = w.toLowerCase() + '|' + d.toLowerCase();
+      var a = get().filter(function(x){ return x.k !== k; });
+      a.unshift({ k: k, w: w, d: d, s: src || '', t: Date.now() });
+      if(a.length > 600) a.length = 600;
+      put(a);
+    },
+    remove: function(k){ put(get().filter(function(x){ return x.k !== k; })); },
+    clear: function(){ put([]); }
+  };
 })();

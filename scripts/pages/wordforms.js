@@ -33,7 +33,7 @@ function practice(kind){
       var btns = app.querySelectorAll('.v-opt');
       btns.forEach(function(b){ b.onclick = function(){
         if(busy) return; busy = true; var pick = opts[+b.getAttribute('data-n')], ok = pick === it.fam.f[it.p];
-        btns.forEach(function(x, n){ if(opts[n] === it.fam.f[it.p]) x.classList.add('ok'); }); if(ok){ score++; award(1, 'wf'); } else b.classList.add('bad');
+        btns.forEach(function(x, n){ if(opts[n] === it.fam.f[it.p]) x.classList.add('ok'); }); if(ok){ score++; award(1, 'wf'); } else { b.classList.add('bad'); amend(it); }
         done(it);
       }; });
     } else {
@@ -43,12 +43,13 @@ function practice(kind){
       var check = function(){
         if(busy) return; var v = inp.value.trim().toLowerCase(); if(!v) return; busy = true;
         var ok = v === it.fam.f[it.p].toLowerCase(); inp.classList.add(ok ? 'ok' : 'bad'); inp.readOnly = true;
-        if(ok){ score++; award(2, 'wf'); } else inp.value = v + '  →  ' + it.fam.f[it.p];
+        if(ok){ score++; award(2, 'wf'); } else { inp.value = v + '  →  ' + it.fam.f[it.p]; amend(it); }
         document.getElementById('wfGo').style.display = 'none'; done(it);
       };
       document.getElementById('wfGo').onclick = check; inp.onkeydown = function(e){ if(e.key === 'Enter') check(); };
     }
   }
+  function amend(it){ var f = it.fam.f, L = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' }; var rest = ['n', 'v', 'adj', 'adv'].filter(function(p){ return f[p] && p !== it.p && f[p] !== f[it.p]; }).map(function(p){ return L[p] + ' ' + f[p]; }).join(', '); if(window.LoungeAmend) LoungeAmend.add(f[it.p], L[it.p].charAt(0).toUpperCase() + L[it.p].slice(1) + ' form. Same family: ' + (rest || 'none'), 'Word Forms'); }
   function done(it){
     var fb = document.getElementById('vFb');
     fb.innerHTML = '<div class="v-ex" style="text-align:center;margin:8px 0 0;">“' + esc(it.s).replace('___', '<b>' + esc(it.fam.f[it.p]) + '</b>') + '”</div>' + famHtml(it.fam);

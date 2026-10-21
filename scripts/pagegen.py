@@ -10,6 +10,7 @@ PAGES = {
   'writing.html': 'IELTS Writing Checker',
   'listening.html': 'Listening Practice',
   'reading.html': 'Reading Practice',
+  'amendments.html': 'Amendments',
   'tashkent-route.html': 'Getting Around Tashkent',
   'tashkent-today.html': 'Tashkent Today',
   'speaking.html': 'Speaking Practice',
@@ -33,6 +34,7 @@ COMMON_CSS = """
 .sp-card{border:1px solid var(--line);}
 input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .tr-f input,.ls-in,.wf-in{border:2px solid var(--line);}
+.v-btn.alt{color:var(--ink) !important;}
 .gg-lvl,.gg-btn-main,.v-btn,.cl-tabs button.on,.cn-tile.sel,.mt-tabs button.on,.wr-sel button.on,.wf-base{color:var(--on-coral,#fff) !important;}
 """
 ONCORAL = r"""
