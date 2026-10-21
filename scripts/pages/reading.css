@@ -55,3 +55,5 @@ mark.rd-ev.flash{outline:3px solid var(--coral); animation:rdf 1.4s ease 2;} @ke
   .rd-bar{top:0;}
 }
 .v-btn.alt{color:var(--ink) !important;}
+
+.rd-svg .lc{stroke:var(--coral); fill:none; stroke-width:3.5; stroke-linecap:round; stroke-linejoin:round;}
