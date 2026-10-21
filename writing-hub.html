@@ -148,10 +148,6 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .tr-f input,.ls-in,.wf-in{border:2px solid var(--line);}
 .v-btn.alt{color:var(--ink) !important;}
 .gg-lvl,.gg-btn-main,.v-btn,.cl-tabs button.on,.cn-tile.sel,.mt-tabs button.on,.wr-sel button.on,.wf-base{color:var(--on-coral,#fff) !important;}
-.wm-warn{background:var(--cream-2); border-radius:12px; padding:10px 12px; font-size:13px; font-weight:700; color:var(--ink-soft); margin:0 0 12px; line-height:1.4;}
-.wm-grid{display:grid; grid-template-columns:1fr; gap:10px;} @media (min-width:560px){ .wm-grid{grid-template-columns:repeat(2,1fr);} }
-.wm-tile{display:flex; flex-direction:column; gap:4px; background:var(--card); border-radius:16px; padding:14px 16px; text-decoration:none; color:var(--ink); box-shadow:0 2px 0 rgba(58,42,30,.08);}
-.wm-tile b{font-size:16px;} .wm-type{font-size:12px; font-weight:800; color:var(--ink-soft); text-transform:uppercase; letter-spacing:.4px;} .wm-w{font-size:12.5px; font-weight:700; color:var(--ink-soft);}
 
 </style>
 </head>
@@ -235,12 +231,12 @@ function getJson(u){ return fetch(u, { cache: 'no-cache' }).then(function(r){ if
 function dayNumber(){ var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); }
 function award(n, why){ if(window.LoungeXP) LoungeXP.award(n, why); }
 var items = [
-  ['writing.html', 'IELTS Writing Checker', 'Write an essay or letter and check word count, linking words and structure.'],
-  ['writing-models.html', 'IELTS Writing Models', 'Task 1 and Task 2 model answers with charts, letters and notes.'],
-  ['writing-band9.html', 'Writing Band 9', 'Task 2 essay types, annotated Band 9 targets, skills lessons and drills.']
+  ['writing.html', 'IELTS Writing Checker'],
+  ['writing-models.html', 'IELTS Writing Models'],
+  ['writing-band9.html', 'Writing Band 9']
 ];
 app.innerHTML = back('index.html#geography-hub/study', 'Back to Train Your Brain') + head('IELTS Writing') +
-  '<div class="wm-grid">' + items.map(function(t){ return '<a class="wm-tile" href="' + t[0] + '"><b>' + esc(t[1]) + '</b><span class="wm-w">' + esc(t[2]) + '</span></a>'; }).join('') + '</div>';
+  '<div class="sport-hub-grid">' + items.map(function(t, i){ return '<a class="sport-hub-tile" href="' + t[0] + '"' + (i === 2 ? ' style="grid-column:1 / -1;"' : '') + '><span class="name">' + esc(t[1]) + '</span></a>'; }).join('') + '</div>';
 
 })();
 </script>
