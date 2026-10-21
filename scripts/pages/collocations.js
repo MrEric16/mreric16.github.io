@@ -1,4 +1,4 @@
-var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
+var BACK = back('index.html#vocab-hub', 'Back to Vocabulary');
 var POS = { phr: 'Phrasal verbs', col: 'Collocations', idm: 'Idioms' };
 var ROUND = 20, ALL = [], BYK = {};
 var ui = lsGet('collUI', { cat: 'phr' });

@@ -1,4 +1,4 @@
-var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
+var BACK = back('index.html#vocab-hub', 'Back to Vocabulary');
 var FAM = [], ITEMS = [], ROUND = 15;
 var PN = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' };
 function famHtml(f){ return '<div class="wf-fam"><b>' + esc(f.b) + '</b><br>' + ['n', 'v', 'adj', 'adv'].filter(function(p){ return f.f[p]; }).map(function(p){ return '<span><em>' + PN[p] + '</em> ' + esc(f.f[p]) + '</span>'; }).join('') + '</div>'; }
