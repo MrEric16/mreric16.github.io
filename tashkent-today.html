@@ -379,7 +379,18 @@ function view(){
   });
   convPaint();
 }
-getJson('data/tashkent-today.json').then(function(d){ D = d; view(); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
+var AIR_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=41.3111&longitude=69.2797&current=us_aqi,pm2_5,pm10,ozone,nitrogen_dioxide&hourly=us_aqi&timezone=Asia%2FTashkent&forecast_days=2';
+// Air quality is fetched live from the browser (the hourly server job is only the fallback), so it cannot go stale while the device is online.
+function liveAir(){
+  if(!D || !navigator.onLine) return;
+  fetch(AIR_URL, { cache: 'no-store' }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(js){
+    if(!js || !js.current || !js.hourly || js.current.us_aqi == null) return;
+    D.air = { current: js.current, hours: js.hourly.time.map(function(t, i){ return [t, js.hourly.us_aqi[i]]; }), source: 'Open-Meteo (CAMS model)' };
+    D.stamps = D.stamps || {}; D.stamps.air = new Date().toISOString();
+    var f = document.activeElement; if(!(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT'))) view();
+  }).catch(function(){});
+}
+getJson('data/tashkent-today.json').then(function(d){ D = d; view(); liveAir(); setInterval(liveAir, 600000); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
 
 })();
 </script>
