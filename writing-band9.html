@@ -278,7 +278,7 @@ function home(){
   } else if(st.tab === 'practice'){
     h += prHome();
   } else {
-    h += '<div class="wr-card"><h3>Phrase bank by job</h3>' + G.phrases.map(function(p){ return '<div class="wr-li"><b>' + esc(p[0]) + '</b></div><div>' + p[1].map(function(x){ return '<span class="wr-chip">' + esc(x) + '</span>'; }).join('') + '</div>'; }).join('') + '</div>';
+    h += '<div class="wr-card"><h3>Phrase bank</h3>' + G.phrases.map(function(p){ return '<div class="wr-li"><b>' + esc(p[0]) + '</b></div><div>' + p[1].map(function(x){ return '<span class="wr-chip">' + esc(x) + '</span>'; }).join('') + '</div>'; }).join('') + '</div>';
   }
   h += '<div class="v-row" style="margin-top:10px;"><a class="v-btn alt wm-nav" href="writing.html">Writing Checker</a></div>';
   app.innerHTML = h; window.scrollTo(0, 0);
