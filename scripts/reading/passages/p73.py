@@ -1,64 +1,64 @@
 from lib import *
 from svgs import *
-A = """The bicycle is one of the simplest and most successful machines ever invented. It converts human energy into movement more efficiently than any other vehicle, it needs no fuel but food, and it is cheap enough for millions of people who could never afford a car. Today more than a billion bicycles are in use around the world. Yet the machine that we know was not invented in a single moment. It developed over about seventy years, as many inventors tried different ideas, and several of their designs were so uncomfortable or dangerous that they seem almost comic today."""
-B = """The story begins in 1817, when a German baron, Karl von Drais, built a wooden machine with two wheels in a line, a seat and a steering handle. There were no pedals: the rider sat astride and pushed against the ground with his feet, like a child on a scooter. The machine was called the draisine, after its inventor, or the hobby horse. It was fast on smooth roads, and for a few years it was a fashion among wealthy young men. But the roads of the time were rough and muddy, and the machine was heavy, so the craze soon faded, and the draisine was forgotten for decades."""
-C = """In the 1860s, French makers added pedals directly to the front wheel, and the machine became the velocipede. It was an important step, because the rider could now keep his feet off the ground, but the machine was heavy and its iron-rimmed wheels made the ride so rough that it earned the nickname boneshaker. A single turn of the pedals moved the machine forward by only one turn of the wheel, so that speed depended on the size of the wheel. This simple fact led makers to a new idea: if a larger wheel meant greater speed, the front wheel should be made as large as possible."""
-D = """The result, in the 1870s, was the penny-farthing, named after two British coins, one large and one small. The front wheel might be more than a metre and a half across, and the rider sat high above it, with the tiny rear wheel following behind. These machines were fast, and racing became popular, but they were also very dangerous. A sudden stop or a stone on the road could throw the rider over the handlebars and on to his head. Riding one required skill and courage, and only young, athletic men attempted it, so the bicycle remained a toy for the few and not a vehicle for everyone."""
-E = """The breakthrough came in the 1880s with the safety bicycle, designed by John Kemp Starley in England. It had two wheels of equal size, a low seat, and a chain which carried power from the pedals to the rear wheel. Because the gearing allowed the wheels to turn faster than the pedals, a small wheel could still give good speed. The rider sat close to the ground, could put his feet down in an emergency, and was no longer in danger of a fall from a great height. The shape of the design, with a diamond-shaped frame, has changed remarkably little in more than a century."""
-F = """A further improvement came in 1888, when a Scottish veterinary surgeon, John Boyd Dunlop, invented the air-filled, or pneumatic, tyre for his son's tricycle. Soft tyres absorbed the shocks from the road and also reduced friction, so that cycling became both more comfortable and faster. Within a few years almost every maker had adopted the idea. With the safety bicycle and the pneumatic tyre together, cycling suddenly became practical and enjoyable for ordinary people, including women, for whom the new machine offered an unprecedented freedom to travel without a man or a horse."""
-G = """In the twentieth century the bicycle continued to develop. Gears, lighter metals, better brakes and, more recently, electric motors that help the rider on hills, have all been added. Dr Maria Kovac, a historian of technology, says that the bicycle is a model of good design: every part has a purpose, and nothing can be removed without loss. She believes that it will remain important in the future, because cities are becoming crowded, and a machine that carries a person at the speed of a car in traffic, while taking up far less space, is an obvious answer to the problem."""
+A = """Bread is one of the oldest prepared foods in the world, and in many countries, including Uzbekistan, it is treated with respect: a piece of bread is never thrown on the ground, and guests are welcomed with it. Archaeologists have found evidence of bread-making more than fourteen thousand years ago, long before farming began. Yet every loaf is the result of a long chain of work, beginning in a field and ending in an oven, and involving farmers, millers and bakers. This passage follows the journey of a loaf of bread, step by step, and then looks at the traditional Uzbek method of baking in a clay oven."""
+B = """The journey begins in the field, where farmers sow wheat seeds in autumn or in spring, depending on the variety. During the growing season the crop needs sun, rain and care: farmers must control weeds and pests and sometimes add fertiliser. When the stalks turn golden, in early summer, harvesting begins, and a combine harvester cuts the wheat and separates the grain from the straw in a single operation. A century ago the same task required dozens of people with sickles and many days of work. The grain is then dried and stored in silos, large towers in which it can be kept for a year without spoiling."""
+C = """The next step is milling. The grain is cleaned, and then passed between heavy steel rollers, which crush it into flour. Each grain of wheat has three parts: the outer layer, called bran, the germ, which is the seed's embryo, and the starchy middle. In white flour, the bran and germ are sifted out, leaving a soft, pale powder that keeps for a long time; in wholemeal flour, the whole grain is used, which means the bread contains more fibre and vitamins. In the past, water mills and windmills turned heavy stones for this task, and some small mills still do."""
+D = """At the bakery, the stage of mixing begins. The baker combines flour with water, salt and yeast. Yeast is a tiny living fungus, which feeds on the sugars in the flour and releases carbon dioxide. The mixture is kneaded, which means pushing and stretching it for several minutes, so that the proteins in the flour form long, elastic threads called gluten. These threads trap the gas, and they allow the dough to expand like a balloon. A good baker can tell by the feel of the dough whether it has been kneaded enough. Without yeast, the dough would not rise, and the result would be a flat bread, like the unleavened breads of ancient times."""
+E = """The dough is then shaped and left to rise in a warm place, a stage called proving. During about an hour, the yeast multiplies and the dough doubles in size, filled with thousands of tiny bubbles. If the dough is left too long, the bubbles break and the loaf collapses; if it is baked too soon, the bread is dense and heavy. Bakers therefore watch the temperature carefully, for the yeast works faster in the warm air of summer than in the cold of winter. Before baking, they often cut the surface with a sharp knife, so that the loaf can expand in the oven without cracking."""
+F = """Finally comes baking. In a hot oven, at around two hundred and twenty degrees, the gas in the dough expands rapidly, the yeast dies, and the starch sets into a firm structure. The outside of the loaf turns brown and crisp, as sugars and proteins react in a process which also creates the rich smell of fresh bread. A loaf of ordinary size takes about thirty to forty minutes. When it is done, it should sound hollow if tapped on the bottom. After baking, the bread should be left to cool for a short time, as the inside continues to cook slightly and the crumb needs to set."""
+G = """In Uzbekistan, bread is traditionally baked in a tandoor, a round clay oven heated by burning wood at the bottom. The baker, called a nonvoy, stretches the dough on a cushion, stamps a pattern on it with a special tool, and presses it against the hot inner wall of the oven, where it bakes in a few minutes. Every region has its own style: the famous bread of Samarkand is thick and round, and is said to stay fresh for days. Dr Gulnora Rashidova, a food historian, says that the patterns on the bread are signs of local identity, much as a signature is for a person."""
 S, PT, W, H = chain(5)
-P = passage('p73', 'How the Bicycle Evolved', 'Technology', 1, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
+P = passage('p73', 'The Journey of Bread', 'Food and culture', 1, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
  tfng([
-  ('More than a billion bicycles are in use today.', 'T', 'A', 'more than a billion bicycles'),
-  ('The bicycle developed over about seventy years.', 'T', 'A', 'about seventy years'),
-  ('The draisine had pedals.', 'F', 'B', 'There were no pedals'),
-  ('The draisine was built in 1817.', 'T', 'B', 'in 1817'),
-  ('The velocipede was nicknamed the boneshaker.', 'T', 'C', 'the nickname boneshaker'),
-  ('The penny-farthing was named after two coins.', 'T', 'D', 'two British coins'),
-  ('The penny-farthing was safe for everyone to ride.', 'F', 'D', 'very dangerous'),
-  ('The safety bicycle was designed in England.', 'T', 'E', 'John Kemp Starley in England'),
-  ('Dunlop became rich from his invention.', 'NG', 'F', 'John Boyd Dunlop', 'His wealth is not discussed.'),
+  ('Bread-making is more than fourteen thousand years old.', 'T', 'A', 'more than fourteen thousand years ago'),
+  ('Bread is thrown away freely in Uzbekistan.', 'F', 'A', 'never thrown on the ground'),
+  ('Farmers sow wheat only in autumn.', 'F', 'B', 'autumn or in spring'),
+  ('A combine harvester separates grain from straw.', 'T', 'B', 'separates the grain from the straw'),
+  ('White flour contains the bran.', 'F', 'C', 'the bran and germ are sifted out'),
+  ('Wholemeal bread contains more fibre.', 'T', 'C', 'more fibre and vitamins'),
+  ('Gluten threads trap gas in the dough.', 'T', 'D', 'trap the gas'),
+  ('Dough is proved for about an hour.', 'T', 'E', 'During about an hour'),
+  ('The bread of Samarkand was invented by Timur.', 'NG', 'G', 'the famous bread of Samarkand', 'Its inventor is not named.'),
  ]),
  mcq([
-  ('Why did the draisine craze fade?', ['Roads were rough and the machine was heavy.', 'It had no seat.', 'It was too slow.', 'Wheels were square.'], 0, 'B', 'the roads of the time were rough and muddy'),
-  ('Why did makers enlarge the front wheel?', ['A larger wheel meant greater speed.', 'It looked better.', 'It was cheaper.', 'It was lighter.'], 0, 'C', 'a larger wheel meant greater speed'),
-  ('What makes the bicycle a model of good design, according to Dr Kovac?', ['Every part has a purpose.', 'It is cheap.', 'It is fast.', 'It is old.'], 0, 'G', 'every part has a purpose'),
+  ('What happens if dough is left too long to prove?', ['The loaf collapses.', 'It turns sweet.', 'It freezes.', 'It becomes flour.'], 0, 'E', 'the bubbles break and the loaf collapses'),
+  ('Why do bakers cut the surface of a loaf?', ['So it can expand without cracking.', 'To add salt.', 'To cool it.', 'To measure it.'], 0, 'E', 'expand in the oven without cracking'),
+  ('What do the patterns on Uzbek bread show?', ['Local identity.', 'The price.', 'The weight.', 'The age.'], 0, 'G', 'signs of local identity'),
  ]),
- diag('Label the stages in the development of the bicycle, in order. Write ONE OR TWO WORDS from the passage for each answer.', W, H, S, PT,
-  [(['draisine'], 'B', 'called the draisine'), (['velocipede'], 'C', 'became the velocipede'), (['penny-farthing', 'penny farthing'], 'D', 'was the penny-farthing'), (['safety bicycle', 'safety'], 'E', 'the safety bicycle'), (['pneumatic'], 'F', 'or pneumatic, tyre')], 2),
- table('Complete the table. Write ONE WORD from the passage for each answer.', ['Machine', 'Detail'],
-  [['Draisine', 'Invented by a German [[1]]'], ['Velocipede', 'Nicknamed the [[2]]'], ['Penny-farthing', 'A rider could be thrown over the [[3]]'], ['Safety bicycle', 'Power was carried by a [[4]]']],
-  [(['baron'], 'B', 'German baron'), (['boneshaker'], 'C', 'nickname boneshaker'), (['handlebars'], 'D', 'over the handlebars'), (['chain'], 'E', 'a chain which carried power')], 1),
+ diag('Label the stages in making bread, in order. Write ONE WORD from the passage for each answer.', W, H, S, PT,
+  [(['harvesting'], 'B', 'harvesting begins'), (['milling'], 'C', 'The next step is milling'), (['mixing'], 'D', 'the stage of mixing'), (['proving'], 'E', 'called proving'), (['baking'], 'F', 'Finally comes baking')], 1),
+ table('Complete the table. Write ONE WORD from the passage for each answer.', ['Stage', 'Detail'],
+  [['Harvesting', 'Grain is stored in [[1]]'], ['Milling', 'A grain has bran, starch and [[2]]'], ['Mixing', 'Without yeast, the dough would not [[3]]'], ['Baking', 'A loaf takes about thirty to forty [[4]]']],
+  [(['silos'], 'B', 'stored in silos'), (['germ'], 'C', 'the germ'), (['rise'], 'D', 'the dough would not rise'), (['minutes'], 'F', 'thirty to forty minutes')], 1),
  summ('Complete the summary using the list of words below. Choose the correct word for each gap.',
-  'The first machine was built in 1817 by a German [[1]], and it had no [[2]]. The safety bicycle used a [[3]] to carry power to the rear wheel, and the [[4]] tyre made riding more comfortable.',
-  [(['baron'], 'B', 'German baron'), (['pedals'], 'B', 'no pedals'), (['chain'], 'E', 'a chain'), (['pneumatic'], 'F', 'pneumatic')], 1,
-  bank=['baron', 'pedals', 'chain', 'pneumatic', 'wooden', 'iron', 'electric', 'steam']),
- multi('Which TWO improvements from the pneumatic tyre are mentioned in paragraph F?', ['It absorbed shocks from the road.', 'It reduced friction.', 'It was cheaper than iron.', 'It lasted for a century.', 'It was made of wood.'], [0, 1], [('F', 'absorbed the shocks from the road'), ('F', 'reduced friction')]),
- head(['A simple machine with a long history', 'A machine without pedals', 'A rough ride', 'Speed and danger', 'A safer design', 'Comfort on air', 'Looking ahead', 'The history of the car', 'Cycling holidays'],
-  [('A', 0, 'one of the simplest and most successful machines ever invented'), ('B', 1, 'There were no pedals'), ('C', 2, 'earned the nickname boneshaker'), ('D', 3, 'they were also very dangerous'), ('E', 4, 'The breakthrough came in the 1880s'), ('F', 5, 'the air-filled, or pneumatic, tyre'), ('G', 6, 'the bicycle continued to develop')]),
+  'Wheat is cut by a combine [[1]] and ground into flour between steel [[2]]. Yeast makes the dough rise because the elastic threads trap the [[3]], and in Uzbekistan bread is baked in a clay oven called a [[4]].',
+  [(['harvester'], 'B', 'combine harvester'), (['rollers'], 'C', 'steel rollers'), (['gas'], 'D', 'trap the gas'), (['tandoor'], 'G', 'in a tandoor')], 1,
+  bank=['harvester', 'rollers', 'gas', 'tandoor', 'sickle', 'stones', 'water', 'wood']),
+ multi('Which TWO parts of the wheat grain are mentioned in paragraph C?', ['The bran.', 'The germ.', 'The husk.', 'The shell.', 'The stem.'], [0, 1], [('C', 'called bran'), ('C', 'the germ')]),
+ head(['An ancient food', 'From seed to silo', 'Turning grain into flour', 'Making the dough', 'Waiting for the rise', 'The heat of the oven', 'A clay oven tradition', 'The history of the plough', 'Healthy eating habits'],
+  [('A', 0, 'one of the oldest prepared foods in the world'), ('B', 1, 'The journey begins in the field'), ('C', 2, 'crush it into flour'), ('D', 3, 'The baker combines flour with water, salt and yeast'), ('E', 4, 'left to rise in a warm place'), ('F', 5, 'In a hot oven'), ('G', 6, 'baked in a tandoor')]),
  info([
-  ('a reference to a fashion among wealthy young men', 'B', 'a fashion among wealthy young men'),
-  ('a reference to a nickname', 'C', 'the nickname boneshaker'),
-  ('a reference to racing', 'D', 'racing became popular'),
-  ('a reference to new freedom for women', 'F', 'including women'),
-  ('a reference to electric motors', 'G', 'electric motors'),
+  ('a comparison with an earlier method of harvesting', 'B', 'dozens of people with sickles'),
+  ('a reference to water mills', 'C', 'water mills and windmills'),
+  ('a comparison with a balloon', 'D', 'like a balloon'),
+  ('a reference to the effect of the season on yeast', 'E', 'warm air of summer'),
+  ('a way of testing whether a loaf is ready', 'F', 'sound hollow'),
  ]),
- ends(['was pushed along by the rider\'s feet.', 'had a very large front wheel.', 'had a chain.', 'invented the pneumatic tyre.', 'built the first car.', 'raced in 1817.', 'lived in France.'], [
-  ('The draisine', 0, 'B', 'pushed against the ground with his feet'),
-  ('The penny-farthing', 1, 'D', 'front wheel might be more than a metre and a half across'),
-  ('The safety bicycle', 2, 'E', 'a chain which carried power'),
-  ('John Boyd Dunlop', 3, 'F', 'invented the air-filled, or pneumatic, tyre'),
+ ends(['store grain for a year.', 'releases carbon dioxide.', 'makes the loaf collapse.', 'presses dough on the oven wall.', 'grinds the wheat.', 'sows the seeds.', 'sells the flour.'], [
+  ('Silos', 0, 'B', 'kept for a year without spoiling'),
+  ('Yeast', 1, 'D', 'releases carbon dioxide'),
+  ('Overproved dough', 2, 'E', 'the loaf collapses'),
+  ('A nonvoy', 3, 'G', 'presses it against the hot inner wall'),
  ]),
  sent(2, [
-  ('Karl von Drais was a German ___.', ['baron'], 'B', 'German baron'),
-  ('The velocipede appeared in the ___.', ['1860s'], 'C', 'In the 1860s'),
-  ('The safety bicycle had a diamond-shaped ___.', ['frame'], 'E', 'diamond-shaped frame'),
-  ('Dr Kovac is a historian of ___.', ['technology'], 'G', 'historian of technology'),
+  ('Bread is made from flour, water, salt and ___.', ['yeast'], 'D', 'salt and yeast'),
+  ('The stage when the dough rises is called ___.', ['proving'], 'E', 'called proving'),
+  ('Bread is baked at around two hundred and twenty ___.', ['degrees'], 'F', 'twenty degrees'),
+  ('Dr Rashidova is a food ___.', ['historian'], 'G', 'food historian'),
  ]),
  short(3, [
-  ('What else was the draisine called?', ['the hobby horse', 'hobby horse'], 'B', 'the hobby horse'),
-  ('What was Dunlop\'s profession?', ['veterinary surgeon'], 'F', 'veterinary surgeon'),
-  ('What helps riders on hills today?', ['electric motors'], 'G', 'electric motors'),
+  ('What is the outer layer of a grain called?', ['bran'], 'C', 'called bran'),
+  ('How long does a loaf take to bake?', ['forty minutes'], 'F', 'thirty to forty minutes'),
+  ('What is a tandoor made of?', ['clay'], 'G', 'a round clay oven'),
  ]),
 ])

@@ -1,60 +1,66 @@
 from lib import *
 from svgs import *
-A = """Water covers about seventy per cent of the surface of the Earth, but almost all of it is in the oceans and is too salty to drink. Only about three per cent is fresh, and most of that is locked in ice at the poles and in glaciers, or lies deep underground. The small amount that remains in rivers, lakes and the air is, however, enough to support all life on land, because water is not used up. It moves continuously between the oceans, the air and the land in a process called the water cycle, which has been working for billions of years and which has no real beginning or end."""
-B = """The cycle is driven by the sun. Its heat warms the surface of oceans, lakes and rivers, and some of the liquid water turns into an invisible gas called water vapour. This change is called evaporation. About eighty-six per cent of all evaporation takes place over the oceans, and it happens faster when the weather is hot, dry and windy. Plants also release vapour through tiny holes in their leaves, a process known as transpiration. A single large tree can release hundreds of litres of water into the air on a hot day, so forests have an important effect on the climate and on the amount of rain that falls nearby."""
-C = """As the water vapour rises, it meets colder air and cools. Cool air cannot hold as much vapour as warm air, so the vapour turns back into tiny drops of liquid water, a change called condensation. The drops gather around specks of dust, salt or smoke in the air and form clouds. Fog is simply a cloud that touches the ground. The drops in a cloud are so small and light that they stay in the air, and a typical cloud may contain hundreds of tonnes of water. Clouds are carried over great distances by the wind, which is how water that evaporated from the sea can fall on a mountain hundreds of kilometres from the coast."""
-D = """When the drops in a cloud join together and become too heavy to float, they fall as precipitation. This may be rain, snow, sleet or hail, depending on the temperature of the air through which the water falls. Snow forms when the air is below freezing, and hail forms when strong currents carry drops up and down inside a storm cloud so that layers of ice build up around them. The amount of precipitation varies enormously around the world. Some places in the desert may receive less than twenty millimetres in a year, while a few mountain villages in tropical regions receive more than ten metres, which is the reason why some regions flood and others suffer from drought."""
-E = """Rain that reaches the ground follows several routes. Some runs over the surface into streams and rivers, which carry it back to the sea; this is known as runoff. Some soaks into the soil, where it feeds plants or sinks deeper to become groundwater, stored in layers of rock called aquifers. Snow and ice can hold water for thousands of years before they melt. The time that a water molecule spends in each place differs greatly: a drop may stay in the atmosphere for about nine days, but in a deep aquifer or a large ice sheet it may remain for ten thousand years or more."""
-F = """People have changed the cycle in many ways. Dams store water and slow rivers, irrigation sends large amounts of water into the air from fields, and cities cover the ground with concrete, so that rain runs off quickly instead of soaking in. Dr Helena Okafor, a hydrologist, says that the greatest change is the removal of groundwater: in many regions people now pump water from aquifers far faster than rain can refill them. She warns that wells in these areas may run dry within a generation, and that careful management of water is more urgent than ever for farmers, cities and industry alike."""
-G = """Climate change is also altering the cycle. A warmer atmosphere holds more water vapour, which means that storms can produce heavier rain, and floods are becoming more common in many regions. At the same time, higher temperatures cause faster evaporation from soil, making droughts longer and more severe. Mountain glaciers, which act as natural reservoirs by storing winter snow and releasing it slowly in summer, are shrinking in most parts of the world. Scientists are working to measure these changes with satellites, which can track clouds, rainfall and even the level of groundwater from space, and to use the data to plan for the future."""
+A = """Frogs belong to a group of animals called amphibians, a word that comes from Greek and means two lives. The name is a good one, because most frogs spend the first part of their lives in water and the second part mainly on land, and the bodies of the young animal and the adult are so different that early naturalists thought that they were separate species. The change from one form to the other is called metamorphosis. In Europe, the common frog takes about sixteen weeks to complete the journey, while some tropical species finish in a few weeks and a few large species need two years. This passage follows a frog through the stages of its life."""
+B = """The cycle begins in early spring, when adult frogs gather in ponds and ditches to breed. The female lays her eggs in a large mass of jelly, called frogspawn, which may contain from one to two thousand eggs. Each egg is a small black dot in a clear ball of jelly. The jelly protects the eggs from cold and from some enemies, and it swells as it absorbs water, so that the mass floats near the surface where the sun can warm it. Most eggs, however, will never become frogs: fish, newts, ducks and insects eat them in large numbers, and a late frost can destroy a whole mass."""
+C = """After one to three weeks, depending on the temperature, the eggs hatch into tadpoles. A tadpole looks more like a small fish than a frog. It has a long tail for swimming, gills for breathing underwater, and no legs. At first it feeds on the remains of the jelly, and then it uses its tiny, rough mouth to scrape algae from stones and water plants. Tadpoles grow rapidly, and they often swim in large groups for safety. Even so, they are food for dragonfly larvae, fish and birds, and only a small number of them survive long enough to leave the water."""
+D = """After about six weeks, the tadpole begins to change. First, the back legs appear as two small buds near the base of the tail, and they grow longer and develop toes. Next, the front legs push out from beneath the skin. At the same time, the lungs develop and the gills disappear, so that the animal begins to rise to the surface to gulp air. The mouth widens, the eyes grow bigger and the diet changes from plants to insects. These changes are controlled by a hormone made in a gland in the neck, and without it a tadpole would simply continue to grow without becoming a frog."""
+E = """The next stage is the froglet. The animal now has four legs and looks like a tiny frog, but it still has a short tail, which it slowly absorbs: the tail is not dropped but is used as a food store, so that the froglet need not eat during the most dramatic part of its change. When the tail has gone, the froglet, about the size of a fingernail, climbs out of the water. It hides in damp grass and under stones, since its skin dries out easily, and it hunts small insects. Thousands of froglets may leave a pond on the same wet day, which is why people sometimes talk of it raining frogs."""
+F = """A young frog takes about three years to become an adult, and it then returns to the pond where it was born to breed. A frog breathes not only with lungs but also through its skin, which must be kept moist, and it drinks by absorbing water through the skin of its belly. Its long, sticky tongue can catch an insect in a fraction of a second. In winter, frogs hibernate in the mud at the bottom of ponds or under piles of leaves, with their bodies slowed down so that they need almost no food. In a good place a frog may live for up to eight years."""
+G = """Amphibians are now among the most threatened animals on Earth. Because their skin is so thin, frogs absorb chemicals from the water as easily as they absorb water itself, and they are therefore very sensitive to pollution. Ponds are drained for building, and a disease caused by a fungus has killed frogs in many parts of the world. Dr Rosa Contreras, a conservation biologist, says that frogs are like canaries in a coal mine: when they disappear from a place, it is a warning that something is wrong with the environment. She urges gardeners to dig small ponds, which can become a refuge for local frogs."""
 S, PT, W, H = cycle(4)
-P = passage('p59', 'The Journey of Water', 'Earth science', 1, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
+P = passage('p59', 'From Tadpole to Frog', 'Biology', 1, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
  tfng([
-  ('Most of the water on Earth is too salty to drink.', 'T', 'A', 'almost all of it is in the oceans and is too salty to drink'),
-  ('About three per cent of the Earth\'s water is fresh.', 'T', 'A', 'about three per cent is fresh'),
-  ('Water is used up when plants and animals drink it.', 'F', 'A', 'water is not used up'),
-  ('Most evaporation takes place over land.', 'F', 'B', 'eighty-six per cent of all evaporation takes place over the oceans'),
-  ('Plants release vapour through their leaves.', 'T', 'B', 'Plants also release vapour through tiny holes in their leaves'),
-  ('Fog is a cloud that touches the ground.', 'T', 'C', 'Fog is simply a cloud that touches the ground'),
-  ('Hail forms in strong currents inside storm clouds.', 'T', 'D', 'strong currents carry drops up and down inside a storm cloud'),
-  ('Water stays in the atmosphere longer than in an ice sheet.', 'F', 'E', 'in a deep aquifer or a large ice sheet it may remain for ten thousand years or more'),
-  ('Water vapour is poisonous in large quantities.', 'NG', 'B', 'an invisible gas called water vapour', 'Poison is not mentioned.'),
+  ('The word amphibian comes from Greek.', 'T', 'A', 'comes from Greek'),
+  ('Early naturalists thought young and adult frogs were separate species.', 'T', 'A', 'separate species'),
+  ('Frogs lay their eggs in early spring.', 'T', 'B', 'early spring'),
+  ('Most frogspawn eggs become adult frogs.', 'F', 'B', 'Most eggs, however, will never become frogs'),
+  ('A tadpole has legs when it hatches.', 'F', 'C', 'no legs'),
+  ('Tadpoles feed on algae.', 'T', 'C', 'scrape algae from stones and water plants'),
+  ('The back legs appear before the front legs.', 'T', 'D', 'First, the back legs appear'),
+  ('The tail of a froglet is used as a food store.', 'T', 'E', 'used as a food store'),
+  ('Frogs live longer than tortoises.', 'NG', 'F', 'live for up to eight years', 'Tortoises are not mentioned.'),
  ]),
  mcq([
-  ('Why do clouds stay in the air?', ['The drops are small and light.', 'They are warmer than the air.', 'The wind holds them.', 'They contain no water.'], 0, 'C', 'so small and light that they stay in the air'),
-  ('What does Dr Okafor say is the greatest change?', ['More dams.', 'The removal of groundwater.', 'Colder weather.', 'Bigger cities.'], 1, 'F', 'the removal of groundwater'),
-  ('Why are mountain glaciers called natural reservoirs?', ['They store snow and release it slowly.', 'They are made of salt.', 'They contain fish.', 'They are growing.'], 0, 'G', 'storing winter snow and releasing it slowly in summer'),
+  ('Why does frogspawn float near the surface?', ['The jelly swells as it absorbs water.', 'The eggs are light.', 'The pond is shallow.', 'Fish push it up.'], 0, 'B', 'it swells as it absorbs water'),
+  ('What controls the changes in a tadpole?', ['The temperature.', 'A hormone.', 'The food.', 'The light.'], 1, 'D', 'controlled by a hormone'),
+  ('Why are frogs sensitive to pollution?', ['Their thin skin absorbs chemicals.', 'They eat polluted food.', 'They live in rivers.', 'They breathe smoke.'], 0, 'G', 'frogs absorb chemicals from the water'),
  ]),
- multi('Which TWO effects of climate change on the water cycle are mentioned in paragraph G?', ['Storms can produce heavier rain.', 'Droughts become longer and more severe.', 'Winters become colder.', 'Oceans become less salty.', 'Glaciers grow faster.'], [0, 1], [('G', 'storms can produce heavier rain'), ('G', 'making droughts longer and more severe')]),
- head(['Water that never disappears', 'Heat from the sun', 'Vapour becomes cloud', 'Water falls from the sky', 'Many routes and long waits', 'The human effect', 'A changing climate', 'The history of the oceans', 'How to make rain'],
-  [('A', 0, 'water is not used up'), ('B', 1, 'The cycle is driven by the sun'), ('C', 2, 'the vapour turns back into tiny drops'), ('D', 3, 'they fall as precipitation'), ('E', 4, 'Rain that reaches the ground follows several routes'), ('F', 5, 'People have changed the cycle'), ('G', 6, 'Climate change is also altering the cycle')]),
+ feat('Match each statement with the correct stage, A to D.', ['Egg', 'Tadpole', 'Froglet', 'Adult'], [
+  ('It breathes underwater with gills.', 1, 'C', 'gills for breathing underwater'),
+  ('It is about the size of a fingernail.', 2, 'E', 'about the size of a fingernail'),
+  ('It returns to the pond where it was born.', 3, 'F', 'returns to the pond where it was born'),
+  ('It floats in a mass of jelly.', 0, 'B', 'floats near the surface'),
+ ]),
+ multi('Which TWO enemies of frogspawn are mentioned in paragraph B?', ['Fish.', 'Ducks.', 'Foxes.', 'Cats.', 'Snakes.'], [0, 1], [('B', 'fish'), ('B', 'ducks')]),
+ head(['Two lives', 'The start in jelly', 'A swimmer without legs', 'Legs and lungs appear', 'A small frog leaves the water', 'Life as an adult', 'A warning from nature', 'The history of ponds', 'Fishing for beginners'],
+  [('A', 0, 'means two lives'), ('B', 1, 'The cycle begins in early spring'), ('C', 2, 'It has a long tail for swimming'), ('D', 3, 'the back legs appear'), ('E', 4, 'climbs out of the water'), ('F', 5, 'A young frog takes about three years to become an adult'), ('G', 6, 'canaries in a coal mine')]),
  info([
-  ('a figure for the proportion of water that is fresh', 'A', 'about three per cent is fresh'),
-  ('a reference to the effect of forests on climate', 'B', 'forests have an important effect on the climate'),
-  ('a description of how hail is formed', 'D', 'layers of ice build up around them'),
-  ('an example of how long water may stay in the air', 'E', 'about nine days'),
-  ('a reference to measuring change from space', 'G', 'track clouds, rainfall and even the level of groundwater from space'),
+  ('a reference to a hormone', 'D', 'a hormone made in a gland'),
+  ('a reference to damp hiding places', 'E', 'damp grass and under stones'),
+  ('a reference to breathing through the skin', 'F', 'also through its skin'),
+  ('a reference to a disease caused by a fungus', 'G', 'a disease caused by a fungus'),
+  ('a reference to a rain of frogs', 'E', 'raining frogs'),
  ]),
- ends(['is caused by the heat of the sun.', 'form around specks of dust, salt or smoke.', 'are layers of rock that store groundwater.', 'store water and slow rivers.', 'are found only in deserts.', 'are made of ice.', 'are used up by plants.'], [
-  ('Evaporation', 0, 'B', 'The cycle is driven by the sun'),
-  ('Clouds', 1, 'C', 'The drops gather around specks of dust, salt or smoke in the air and form clouds'),
-  ('Aquifers', 2, 'E', 'stored in layers of rock called aquifers'),
-  ('Dams', 3, 'F', 'Dams store water and slow rivers'),
+ ends(['is protected by jelly.', 'scrape algae from stones.', 'slowly absorbs its tail.', 'urges gardeners to dig small ponds.', 'is a kind of fish.', 'lays eggs in trees.', 'eats only plants.'], [
+  ('Frogspawn', 0, 'B', 'The jelly protects the eggs'),
+  ('Tadpoles', 1, 'C', 'scrape algae'),
+  ('A froglet', 2, 'E', 'it slowly absorbs'),
+  ('Dr Contreras', 3, 'G', 'dig small ponds'),
  ]),
- diag('Label the stages of the water cycle, in order. Write ONE WORD from the passage for each answer.', W, H, S, PT,
-  [(['evaporation'], 'B', 'This change is called evaporation'), (['condensation'], 'C', 'a change called condensation'), (['precipitation'], 'D', 'they fall as precipitation'), (['runoff'], 'E', 'this is known as runoff')], 1),
- table('Complete the table. Write NO MORE THAN TWO WORDS from the passage for each answer.', ['Process', 'Description'],
-  [['Evaporation', 'Water turns into [[1]]'], ['Transpiration', 'Plants release vapour through their [[2]]'], ['Condensation', 'Vapour turns into drops around specks of [[3]]'], ['Runoff', 'Water flows into streams and [[4]]']],
-  [(['vapour', 'water vapour'], 'B', 'called water vapour'), (['leaves'], 'B', 'holes in their leaves'), (['dust'], 'C', 'specks of dust'), (['rivers'], 'E', 'streams and rivers')], 2),
+ diag('Label the stages in the life cycle of a frog, in order. Write ONE WORD from the passage for each answer.', W, H, S, PT,
+  [(['egg'], 'B', 'Each egg is a small black dot'), (['tadpole'], 'C', 'hatch into tadpoles'), (['froglet'], 'E', 'is the froglet'), (['adult'], 'F', 'become an adult')], 1),
+ table('Complete the table. Write ONE WORD from the passage for each answer.', ['Stage', 'Detail'],
+  [['Egg', 'Protected by a ball of [[1]]'], ['Tadpole', 'Breathes underwater with [[2]]'], ['Froglet', 'Slowly absorbs its [[3]]'], ['Adult', 'Hibernates in the [[4]]']],
+  [(['jelly'], 'B', 'clear ball of jelly'), (['gills'], 'C', 'gills for breathing'), (['tail'], 'E', 'a short tail, which it slowly absorbs'), (['mud'], 'F', 'in the mud at the bottom')], 1),
  sent(2, [
-  ('Water covers about ___ per cent of the surface of the Earth.', ['seventy', '70'], 'A', 'about seventy per cent'),
-  ('Some rain soaks into the soil and becomes ___.', ['groundwater'], 'E', 'become groundwater'),
-  ('Dr Okafor is a ___.', ['hydrologist'], 'F', 'a hydrologist'),
-  ('Satellites can track clouds, rainfall and the level of ___.', ['groundwater'], 'G', 'level of groundwater'),
+  ('The word amphibian means two ___.', ['lives'], 'A', 'two lives'),
+  ('A mass of frog eggs is called ___.', ['frogspawn'], 'B', 'called frogspawn'),
+  ('Tadpoles breathe with ___.', ['gills'], 'C', 'gills'),
+  ('Dr Contreras is a conservation ___.', ['biologist'], 'G', 'conservation biologist'),
  ]),
  short(3, [
-  ('What is the release of vapour by plants called?', ['transpiration'], 'B', 'known as transpiration'),
-  ('What are layers of rock that store groundwater called?', ['aquifers'], 'E', 'called aquifers'),
-  ('What do mountain glaciers act as?', ['natural reservoirs'], 'G', 'natural reservoirs'),
+  ('How long does the common frog take to complete metamorphosis?', ['sixteen weeks', 'about sixteen weeks'], 'A', 'about sixteen weeks'),
+  ('What do froglets hunt?', ['small insects', 'insects'], 'E', 'small insects'),
+  ('What does Dr Contreras compare frogs to?', ['canaries'], 'G', 'canaries in a coal mine'),
  ]),
 ])

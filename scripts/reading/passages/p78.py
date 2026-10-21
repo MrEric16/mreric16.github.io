@@ -1,66 +1,66 @@
 from lib import *
 from svgs import *
-A = """The Silk Road was not a single road but a vast network of trading routes which linked China with the Mediterranean for about fifteen hundred years. The name was invented in 1877 by a German geographer, Ferdinand von Richthofen, who chose it because silk was the most famous product carried along the way, though traders also carried spices, glass, horses, paper and precious stones. The routes crossed deserts, mountains and some of the harshest country in the world, and few merchants travelled the whole distance. Instead, goods were passed from trader to trader, becoming more expensive at every stage, so that a piece of silk bought in China cost a fortune by the time it reached Rome."""
-B = """The network began to take shape in the second century before our era, when the Chinese emperor sent an envoy, Zhang Qian, to look for allies against the nomads of the north. His journey took him through Central Asia, and when he returned after more than a decade he brought news of rich cities and fine horses. The emperor was impressed and sent more expeditions. Soon, caravans of camels were carrying silk westwards, and in return came horses, glass and gold. For the Chinese, the trade was valuable not only for the goods but also for the strength it gave the empire along its western border."""
-C = """Between East and West, a chain of great cities grew rich on the trade. Samarkand and Bukhara, in what is now Uzbekistan, were among the most famous. Their markets sold goods from every corner of the known world, and their craftsmen produced fine cloth, ceramics and paper. Merchants rested in caravanserais, large inns with walled courtyards, where animals could be fed and goods stored safely behind locked gates. A traveller in Samarkand might hear a dozen languages in a single day, and the city was famous as a meeting place of religions and cultures, including Buddhists, Christians, Muslims and Zoroastrians."""
-D = """The routes carried far more than goods. Ideas, religions and inventions travelled with the caravans. Buddhism spread from India into China along the Silk Road, and Islam later moved eastward into Central Asia. The Chinese invention of papermaking reached the Islamic world in the eighth century, and from there passed on to Europe, where it later made the printing of books affordable. Knowledge of astronomy, mathematics and medicine also passed in both directions, so that scholars in Baghdad, Samarkand and Beijing built on one another's discoveries. Historians often say that the Silk Road was the first great network for the exchange of knowledge."""
-E = """The routes became safer in the thirteenth century, when the Mongol Empire controlled most of Asia and guarded the roads. In this period the Venetian merchant Marco Polo travelled to China and spent many years at the court of the emperor. When he returned to Europe, he wrote a famous account of what he had seen, which astonished readers with its descriptions of wealthy cities, paper money and a postal system. Some scholars doubt that he saw everything he described, but his book encouraged many Europeans to dream of the East, and it was read by explorers for centuries."""
-F = """The Silk Road also carried dangers. In the fourteenth century, a terrible disease, the Black Death, is thought to have travelled westward along the trade routes and killed millions of people in Asia and Europe. At the same time, the Mongol Empire weakened, and the roads became less safe again. Meanwhile, European sailors found new sea routes to Asia, which were cheaper and could carry far more cargo than a caravan of camels. By the sixteenth century, most of the long-distance trade had moved to the sea, and many of the cities along the old routes lost their wealth."""
-G = """Today, the Silk Road is remembered with pride. Dr Aziza Karimova, a historian of Central Asia, says that the great cities along the route developed a culture of tolerance and curiosity, because their prosperity depended on welcoming strangers. Many of the old monuments of Samarkand and Bukhara are now protected, and thousands of tourists visit them every year. Several governments have also announced plans to build new roads, railways and ports along the ancient routes, in what they call a revival of the Silk Road. Historians are cautious, however: they point out that the old network worked because it served the interests of many different peoples."""
-P = passage('p78', 'The Silk Road', 'History', 2, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
+A = """Ibn Sina, known in Europe as Avicenna, is one of the most important scientists of the Middle Ages. He was born in the year 980 in a village near Bukhara, which at the time was one of the greatest centres of learning in the world. His father was an official, and the family was wealthy enough to give the boy the best teachers. Ibn Sina was a prodigy: according to his own account, he had memorised the Quran by the age of ten, and he had become so skilled in medicine by the age of sixteen that established doctors came to him for advice. Today he is remembered above all as a physician and a philosopher."""
+B = """When Ibn Sina was about seventeen, the ruler of Bukhara fell seriously ill, and the court physicians could not cure him. The young man was called, and he succeeded. As a reward, he was allowed to use the royal library, a collection so large that, in his words, he had never seen the like of it. He read hungrily, often through the night, and he later said that he had studied the books until he knew them thoroughly. This opportunity shaped his future, and it demonstrates the importance of libraries and of rulers who support learning."""
+C = """Ibn Sina's life was not peaceful. When the Samanid dynasty fell and Bukhara was conquered, he left the city and spent the rest of his life moving from court to court in Persia, working as a physician and as an adviser to rulers. He wrote at astonishing speed, sometimes at night after a day of work, and in some periods he produced several pages every day. Illness and political trouble interrupted his career, and at one point he was imprisoned for several months. He died in 1037 in the city of Hamadan, at the age of about fifty-seven."""
+D = """His most important work is the Canon of Medicine, completed around 1025. It is an enormous encyclopedia in five books, which gathered the medical knowledge of the Greeks, Persians, Indians and Arabs and added his own observations. The first book describes the principles of medicine and the causes of disease; the second lists hundreds of medicines made from plants, minerals and animal products; the third and fourth cover diseases of the body from head to foot; and the fifth contains recipes for compound drugs. The book was clear and well organised, and doctors found that they could use it as a reference for a particular problem."""
+E = """Ibn Sina understood many things that were not widely accepted for centuries. He noticed that certain illnesses, such as tuberculosis, pass from one person to another, and he suggested that a sick person should be kept apart from the healthy. He described the importance of diet, exercise and sleep for health. He insisted that a new medicine should be tested before it was used, and he laid down rules for the testing: the drug must be free of other influences, it must be tried on a disease that is not complicated, and it must produce the same result every time. These rules anticipate the clinical trials of modern medicine."""
+F = """The Canon of Medicine was translated into Latin in the twelfth century, and for about six hundred years it was the standard textbook in the medical schools of Europe, as well as in the Islamic world. Students in Italy, France and England studied his words, and his name remained on university reading lists long after his death. The book was printed in dozens of editions after the invention of printing. Ibn Sina also wrote The Book of Healing, a vast work of philosophy and science, which discussed logic, physics, mathematics and music as well as the soul."""
+G = """Dr Zarina Mirzaeva, a historian of medicine in Tashkent, says that Ibn Sina's greatest lesson is that a scientist must observe carefully and think freely. In Bukhara, a statue and a museum honour his memory. The ordinary habits he recommended, such as moderate eating and regular exercise, are what doctors recommend today. Yet Dr Mirzaeva reminds students that Ibn Sina was also a hard worker, who sat for long hours with his books, and she says that genius without effort would never have produced the Canon. She hopes that young people will read his works, in translation if necessary, and learn from his curiosity."""
+P = passage('p78', 'Ibn Sina and the Canon of Medicine', 'History of science', 2, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
  tfng([
-  ('The Silk Road was a single road.', 'F', 'A', 'not a single road'),
-  ('The name Silk Road was invented in 1877.', 'T', 'A', 'in 1877'),
-  ('Few merchants travelled the whole distance.', 'T', 'A', 'few merchants travelled the whole distance'),
-  ('Zhang Qian was sent by the Chinese emperor.', 'T', 'B', 'the Chinese emperor sent an envoy'),
-  ('Samarkand and Bukhara are in what is now Uzbekistan.', 'T', 'C', 'in what is now Uzbekistan'),
-  ('Caravanserais were large inns.', 'T', 'C', 'large inns with walled courtyards'),
-  ('Buddhism spread from China to India along the road.', 'F', 'D', 'Buddhism spread from India into China'),
-  ('Papermaking reached the Islamic world in the eighth century.', 'T', 'D', 'eighth century'),
-  ('Marco Polo wrote his book in prison.', 'NG', 'E', 'he wrote a famous account', 'Where he wrote it is not mentioned.'),
+  ('Ibn Sina was born near Bukhara.', 'T', 'A', 'near Bukhara'),
+  ('He was born in the year 980.', 'T', 'A', 'in the year 980'),
+  ('He was a skilled doctor by the age of sixteen.', 'T', 'A', 'by the age of sixteen'),
+  ('The court physicians cured the ruler of Bukhara.', 'F', 'B', 'court physicians could not cure him'),
+  ('Ibn Sina died in Bukhara.', 'F', 'C', 'died in 1037 in the city of Hamadan'),
+  ('The Canon of Medicine has five books.', 'T', 'D', 'five books'),
+  ('Ibn Sina suggested that sick people should be kept apart.', 'T', 'E', 'kept apart from the healthy'),
+  ('The Canon was a standard textbook in Europe for about six hundred years.', 'T', 'F', 'for about six hundred years'),
+  ('Ibn Sina wrote poetry in Latin.', 'NG', 'F', 'Ibn Sina also wrote The Book of Healing', 'Poetry is not mentioned.'),
  ]),
  mcq([
-  ('Why did goods become very expensive?', ['They were passed from trader to trader.', 'They were stolen.', 'They were rare.', 'They were heavy.'], 0, 'A', 'becoming more expensive at every stage'),
-  ('Why did the routes become safer in the thirteenth century?', ['The Mongol Empire guarded the roads.', 'Camels were faster.', 'The deserts shrank.', 'Rome fell.'], 0, 'E', 'guarded the roads'),
-  ('Why did trade move to the sea?', ['Sea routes were cheaper and carried more cargo.', 'Camels died.', 'Silk was banned.', 'Cities closed.'], 0, 'F', 'cheaper and could carry far more cargo'),
+  ('What reward did Ibn Sina receive?', ['Gold.', 'Use of the royal library.', 'A palace.', 'A title.'], 1, 'B', 'allowed to use the royal library'),
+  ('Why could doctors use the Canon easily?', ['It was short.', 'It was clear and well organised.', 'It was in pictures.', 'It was free.'], 1, 'D', 'clear and well organised'),
+  ('What does Dr Mirzaeva say about genius?', ['It needs effort.', 'It is rare.', 'It is lucky.', 'It is quick.'], 0, 'G', 'genius without effort would never have produced the Canon'),
  ]),
- feat('Match each statement with the correct person, A to D.', ['Zhang Qian', 'Marco Polo', 'Ferdinand von Richthofen', 'Dr Karimova'], [
-  ('He gave the Silk Road its name.', 2, 'A', 'invented in 1877 by a German geographer'),
-  ('He spent many years at the court of an emperor.', 1, 'E', 'spent many years at the court of the emperor'),
-  ('He returned with news of rich cities.', 0, 'B', 'news of rich cities and fine horses'),
-  ('She is a historian of Central Asia.', 3, 'G', 'historian of Central Asia'),
- ]),
- multi('Which TWO products carried along the Silk Road are mentioned in paragraph A?', ['Spices.', 'Glass.', 'Cars.', 'Coal.', 'Oil.'], [0, 1], [('A', 'spices'), ('A', 'glass')]),
- table('Complete the table. Write ONE WORD from the passage for each answer.', ['Item', 'Detail'],
-  [['Zhang Qian', 'Sent to look for [[1]]'], ['Caravanserai', 'Animals could be [[2]]'], ['Papermaking', 'Reached Europe, making books [[3]]'], ['Black Death', 'Killed [[4]] of people']],
-  [(['allies'], 'B', 'look for allies'), (['fed'], 'C', 'animals could be fed'), (['affordable'], 'D', 'books affordable'), (['millions'], 'F', 'killed millions of people')], 1),
  flow('Complete the flow chart. Write ONE WORD from the passage for each answer.',
-  ['Goods are passed from [[1]] to trader.', 'The price rises at every [[2]].', 'Camel [[3]] carry silk westwards.', 'Merchants rest in a [[4]].'],
-  [(['trader'], 'A', 'from trader to trader'), (['stage'], 'A', 'at every stage'), (['caravans'], 'B', 'caravans of camels'), (['caravanserai'], 'C', 'caravanserais')], 1),
- head(['A network, not a road', 'The first expeditions', 'Cities of the desert', 'More than goods', 'A traveller\'s tale', 'Disease and decline', 'A proud memory', 'The history of tea', 'The invention of the compass'],
-  [('A', 0, 'not a single road but a vast network'), ('B', 1, 'sent an envoy'), ('C', 2, 'a chain of great cities grew rich on the trade'), ('D', 3, 'The routes carried far more than goods'), ('E', 4, 'wrote a famous account of what he had seen'), ('F', 5, 'The Silk Road also carried dangers'), ('G', 6, 'remembered with pride')]),
- info([
-  ('a reference to the cost of silk in Rome', 'A', 'cost a fortune'),
-  ('a reference to a long journey of more than ten years', 'B', 'more than a decade'),
-  ('a reference to many languages in one day', 'C', 'a dozen languages in a single day'),
-  ('a reference to scholars in several cities', 'D', 'scholars in Baghdad, Samarkand and Beijing'),
-  ('a reference to paper money', 'E', 'paper money and a postal system'),
+  ['Ibn Sina cured the ruler of [[1]].', 'He was allowed to use the royal [[2]].', 'He left the city when the Samanid [[3]] fell.', 'He died in the city of [[4]].'],
+  [(['bukhara'], 'B', 'ruler of Bukhara'), (['library'], 'B', 'royal library'), (['dynasty'], 'C', 'Samanid dynasty fell'), (['hamadan'], 'C', 'city of Hamadan')], 1),
+ table('Complete the table. Write ONE WORD from the passage for each answer.', ['Book', 'Contents'],
+  [['Book one', 'Principles of medicine and causes of [[1]]'], ['Book two', 'Hundreds of [[2]]'], ['Book five', 'Recipes for compound [[3]]'], ['Book of Healing', 'Philosophy and [[4]]']],
+  [(['disease'], 'D', 'causes of disease'), (['medicines'], 'D', 'hundreds of medicines'), (['drugs'], 'D', 'compound drugs'), (['science'], 'F', 'philosophy and science')], 1),
+ feat('Match each statement with the correct period, A to D.', ['Early life', 'Wandering years', 'The Canon of Medicine', 'Later fame'], [
+  ('He memorised the Quran by the age of ten.', 0, 'A', 'memorised the Quran by the age of ten'),
+  ('He was imprisoned for several months.', 1, 'C', 'imprisoned for several months'),
+  ('It was completed around 1025.', 2, 'D', 'completed around 1025'),
+  ('It was printed in dozens of editions.', 3, 'F', 'dozens of editions'),
  ]),
- ends(['was invented by a German geographer.', 'was a meeting place of religions.', 'were cheaper than caravans.', 'are now protected.', 'were built by Marco Polo.', 'are found only in China.', 'were sold as silk.'], [
-  ('The name Silk Road', 0, 'A', 'a German geographer'),
-  ('Samarkand', 1, 'C', 'meeting place of religions and cultures'),
-  ('Sea routes', 2, 'F', 'cheaper and could carry far more cargo'),
-  ('Many old monuments', 3, 'G', 'now protected'),
+ multi('Which TWO rules for testing a medicine are mentioned in paragraph E?', ['The drug must be free of other influences.', 'It must produce the same result every time.', 'It must be sweet.', 'It must be given to children.', 'It must be tried on animals only.'], [0, 1], [('E', 'free of other influences'), ('E', 'the same result every time')]),
+ head(['A gifted boy', 'A cure and a library', 'Years of movement', 'An encyclopedia in five books', 'Ideas ahead of their time', 'Six centuries of influence', 'Lessons for today', 'The history of surgery', 'Travel in Persia'],
+  [('A', 0, 'Ibn Sina was a prodigy'), ('B', 1, 'allowed to use the royal library'), ('C', 2, 'moving from court to court'), ('D', 3, 'an enormous encyclopedia in five books'), ('E', 4, 'not widely accepted for centuries'), ('F', 5, 'the standard textbook in the medical schools of Europe'), ('G', 6, 'a scientist must observe carefully and think freely')]),
+ info([
+  ('a reference to reading through the night', 'B', 'often through the night'),
+  ('a reference to writing at speed', 'C', 'astonishing speed'),
+  ('a list of sources of medicines', 'D', 'plants, minerals and animal products'),
+  ('a reference to tuberculosis', 'E', 'tuberculosis'),
+  ('a reference to physics and music', 'F', 'physics, mathematics and music'),
+ ]),
+ ends(['rewarded Ibn Sina with the library.', 'wrote at astonishing speed.', 'was translated into Latin.', 'honour him in Bukhara.', 'was written in Greek.', 'cured every disease.', 'was lost.'], [
+  ('The ruler of Bukhara', 0, 'B', 'allowed to use the royal library'),
+  ('Ibn Sina', 1, 'C', 'astonishing speed'),
+  ('The Canon', 2, 'F', 'translated into Latin'),
+  ('A statue and a museum', 3, 'G', 'honour his memory'),
  ]),
  sent(2, [
-  ('Ferdinand von Richthofen was a German ___.', ['geographer'], 'A', 'German geographer'),
-  ('Merchants rested in ___.', ['caravanserais'], 'C', 'caravanserais'),
-  ('The Venetian merchant ___ travelled to China.', ['marco polo', 'polo'], 'E', 'Marco Polo'),
-  ('Dr Karimova is a historian of ___ Asia.', ['central'], 'G', 'Central Asia'),
+  ('Ibn Sina is known in Europe as ___.', ['avicenna'], 'A', 'Avicenna'),
+  ('The Canon of Medicine was completed around ___.', ['1025'], 'D', 'around 1025'),
+  ('Ibn Sina suggested that sick people should be kept ___ from the healthy.', ['apart'], 'E', 'kept apart'),
+  ('Dr Mirzaeva is a historian of ___.', ['medicine'], 'G', 'historian of medicine'),
  ]),
  short(3, [
-  ('Which animals carried the silk?', ['camels'], 'B', 'caravans of camels'),
-  ('Which disease may have travelled along the routes?', ['the black death', 'black death'], 'F', 'the Black Death'),
-  ('When did the Mongol Empire make the routes safer?', ['thirteenth century', 'the thirteenth century'], 'E', 'thirteenth century'),
+  ('How old was Ibn Sina when he died?', ['about fifty-seven', 'fifty-seven'], 'C', 'about fifty-seven'),
+  ('What did the first book of the Canon describe?', ['principles of medicine'], 'D', 'principles of medicine'),
+  ('Where did Ibn Sina die?', ['hamadan'], 'C', 'Hamadan'),
  ]),
 ])

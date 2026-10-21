@@ -1,66 +1,66 @@
 from lib import *
 from svgs import *
-A = """Humans spend about a third of their lives asleep, yet for most of history sleep was a mystery. Until the middle of the twentieth century, many scientists believed that the brain simply switched off at night, like a machine. Modern research has shown the opposite: the sleeping brain is active, and it performs tasks that are essential for health, from repairing the body to sorting the memories of the day. Without enough sleep, people become forgetful, irritable and more likely to catch infections, and in the long term they face a higher risk of serious illness. This passage explains how sleep works and why teenagers in particular need more of it than they usually get."""
-B = """A night's sleep is not a single state, but a series of cycles of about ninety minutes each. In every cycle the sleeper passes through several stages. In light sleep, the heartbeat slows and the body temperature falls, and the sleeper can easily be woken. In deep sleep, which is most common in the first half of the night, the brain waves become slow and large, and it is very difficult to wake the sleeper; this is when the body repairs its tissues and strengthens its defences against disease. A typical adult goes through four or five cycles in a night, and being woken in the middle of deep sleep leaves a person confused and tired."""
-C = """The last stage of each cycle is REM sleep, named after the rapid eye movements that can be seen beneath the closed eyelids. During REM sleep, the brain is almost as active as when awake, the breathing becomes faster and irregular, and most dreams occur. The muscles, however, are temporarily paralysed, which prevents the sleeper from acting out the dreams. REM periods are short at the start of the night, lasting about ten minutes, but they grow longer in later cycles, and the final one may last for nearly an hour. Scientists believe that REM sleep helps the brain to process emotions and to store memories."""
-D = """The timing of sleep is controlled by an internal body clock, which follows a rhythm of roughly twenty-four hours. Light is the main signal that sets the clock. When darkness falls, a small gland in the brain releases a hormone called melatonin, which makes the body feel sleepy; in the morning, light stops its production and helps to wake a person up. The clock changes with age. During the teenage years, it shifts later by about two hours, so that many teenagers do not feel sleepy until after eleven at night and find it hard to wake early, which is a matter of biology and not of laziness."""
-E = """The amount of sleep that people need depends on their age. Babies sleep for more than twelve hours a day, and young children for about ten. Experts recommend that teenagers sleep for between eight and ten hours a night, and that adults sleep for at least seven. In fact, a large proportion of teenagers sleep far less than this, because they have to get up early for school, spend their evenings on homework and social media, and then lie awake in front of screens. The result is a kind of permanent jet lag, in which students are tired in the morning lessons and cannot concentrate on what the teacher says."""
-F = """Dr Isabel Moreno, a sleep researcher, has studied the effect of tiredness on students' results. She found that students who slept less than seven hours scored lower in memory tests than those who slept for nine, even when they had studied for the same length of time. She explains that learning is not complete until it has been stored during sleep, so that a student who stays up all night to revise may actually forget more than one who revises less and goes to bed at a sensible time. She also warns that the blue light from phones and tablets reduces the production of melatonin and delays sleep."""
-G = """Fortunately, sleep can be improved by simple habits. Experts advise people to go to bed and wake up at the same time every day, including weekends, to keep the bedroom dark, quiet and cool, and to avoid screens for an hour before bed. Caffeine in coffee, tea and energy drinks should be avoided in the afternoon, because it stays in the body for many hours. Taking exercise in the daytime helps, but not just before bedtime. If a person cannot fall asleep within about twenty minutes, it is better to get up and read quietly in dim light than to lie awake and worry."""
-P = passage('p77', 'The Science of Sleep', 'Health', 2, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
+A = """Few words in the modern world are used as often as algorithm and algebra, and both come from a single man who lived more than twelve hundred years ago. Muhammad ibn Musa al-Khwarizmi was a mathematician, astronomer and geographer, and he is often called the father of algebra. He was born around the year 780, probably in Khwarazm, a region which today lies partly in Uzbekistan, and the name al-Khwarizmi simply means from Khwarazm. Little is known about his private life, but his work was so influential that it shaped the way in which people in many countries have calculated ever since."""
+B = """Al-Khwarizmi spent most of his career in Baghdad, then the largest city in the world and the capital of the Islamic empire. The ruler, Caliph al-Ma'mun, had founded a great centre of learning, known as the House of Wisdom, where scholars gathered from many countries to translate Greek, Persian and Indian books into Arabic and to carry out new research. Al-Khwarizmi worked there as a scholar, supported by the Caliph, and he studied mathematics, astronomy and geography. The House of Wisdom produced a flood of discoveries, and historians sometimes call this period the Golden Age of Islamic science."""
+C = """His most famous book was written around the year 820, with the title The Compendious Book on Calculation by Completion and Balancing. Its purpose was practical: the Caliph wanted a guide to the problems that ordinary people faced, such as dividing an inheritance, measuring land and calculating the amount of a tax. Al-Khwarizmi showed how such problems could be turned into equations and solved by clear, step-by-step rules. He described six types of equation, and for each he explained a method of solution, using diagrams to show why the method worked. The book contained no symbols; the equations were written in words, and the reader had to follow the argument in sentences."""
+D = """The word algebra comes from the title of the book. In Arabic, the process of completion, which means moving a quantity from one side of an equation to the other, was called al-jabr. When the book was translated into Latin in the twelfth century, the word became algebra, and it has been used in this sense in European languages ever since. The second part of the title, balancing, refers to the idea that an equation must remain balanced like a pair of scales: whatever is done to one side must be done to the other. This simple principle, which students learn at school today, is the foundation of all algebra."""
+E = """Al-Khwarizmi also wrote a book explaining the number system that had been invented in India, with the nine digits and zero. Before it, many people used Roman numerals or counting boards, which made large calculations slow and difficult. The Latin translation of the book, which began with the words Dixit Algorismi, meaning Al-Khwarizmi said, spread the new numbers across Europe. His name, in its Latin form Algorismi, became the word algorithm, which today means any set of step-by-step rules for solving a problem, from a recipe to the programs in a computer."""
+F = """His interests were wide. He compiled astronomical tables, which gave the positions of the sun, moon and planets, and they were used by astronomers for centuries. He also wrote a work on geography, listing the coordinates of hundreds of cities and rivers, and he helped to prepare a map of the known world for the Caliph. Some historians believe that he took part in an expedition to measure the size of the Earth. Dr Farida Yusupova, a historian of mathematics, says that his greatest gift was clarity: he took ideas that were scattered and complicated and presented them in a form that anybody could use."""
+G = """Today al-Khwarizmi is remembered in many ways. A statue of him stands in the old city of Khiva, near the place where he is thought to have been born, and a university in Urgench carries his name. Dr Yusupova points out that every time someone solves an equation, searches the internet or follows a recipe, he or she is using an idea that goes back to the scholar of Khwarazm. She hopes that young people in Central Asia will take pride in this heritage, and she adds that the best way to honour him is not to admire his statue but to study the subject that he loved."""
+P = passage('p77', 'Al-Khwarizmi and the Birth of Algebra', 'History of science', 2, 'You should spend about 20 minutes on this passage.', [A, B, C, D, E, F, G], [
  tfng([
-  ('Humans spend about a third of their lives asleep.', 'T', 'A', 'about a third of their lives asleep'),
-  ('Scientists once believed the brain switched off at night.', 'T', 'A', 'the brain simply switched off at night'),
-  ('A night\'s sleep consists of cycles of about ninety minutes.', 'T', 'B', 'cycles of about ninety minutes each'),
-  ('Deep sleep is most common in the second half of the night.', 'F', 'B', 'most common in the first half of the night'),
-  ('Most dreams occur in REM sleep.', 'T', 'C', 'most dreams occur'),
-  ('During REM sleep the muscles are fully active.', 'F', 'C', 'temporarily paralysed'),
-  ('Melatonin is released when darkness falls.', 'T', 'D', 'When darkness falls'),
-  ('Teenagers are recommended to sleep for eight to ten hours.', 'T', 'E', 'between eight and ten hours'),
-  ('Dr Moreno has studied sleep in children under five.', 'NG', 'F', 'Dr Isabel Moreno', 'Young children are not discussed there.'),
+  ('Algebra and algorithm both come from the work of al-Khwarizmi.', 'T', 'A', 'come from a single man'),
+  ('Al-Khwarizmi was born around the year 780.', 'T', 'A', 'around the year 780'),
+  ('Khwarazm lies partly in Uzbekistan today.', 'T', 'A', 'partly in Uzbekistan'),
+  ('Baghdad was then the largest city in the world.', 'T', 'B', 'the largest city in the world'),
+  ('The House of Wisdom translated books into Arabic.', 'T', 'B', 'into Arabic'),
+  ('His famous book was written for scholars only.', 'F', 'C', 'ordinary people faced'),
+  ('The book contained many symbols.', 'F', 'C', 'contained no symbols'),
+  ('The word algebra comes from al-jabr.', 'T', 'D', 'al-jabr'),
+  ('Al-Khwarizmi had many children.', 'NG', 'A', 'Little is known about his private life', 'His family is not mentioned.'),
  ]),
  mcq([
-  ('Why is deep sleep important?', ['The body repairs its tissues.', 'Dreams occur.', 'Light is needed.', 'The eyes move.'], 0, 'B', 'the body repairs its tissues'),
-  ('What happens to the body clock in the teenage years?', ['It stops.', 'It shifts later by about two hours.', 'It speeds up.', 'It shifts earlier.'], 1, 'D', 'shifts later by about two hours'),
-  ('Why may a student who stays up all night forget more?', ['Learning is not complete until stored during sleep.', 'The books are boring.', 'The room is dark.', 'The teacher is tired.'], 0, 'F', 'learning is not complete until it has been stored during sleep'),
+  ('What was the purpose of his famous book?', ['To solve practical problems of ordinary people.', 'To teach Greek.', 'To describe animals.', 'To map the stars.'], 0, 'C', 'a guide to the problems that ordinary people faced'),
+  ('What does balancing refer to?', ['An equation must remain balanced.', 'A diet.', 'A scale of music.', 'A tax.'], 0, 'D', 'an equation must remain balanced'),
+  ('What problem did Roman numerals cause?', ['Large calculations were slow and difficult.', 'They were secret.', 'They had no zero.', 'They were too small.'], 0, 'E', 'made large calculations slow and difficult'),
  ]),
  flow('Complete the flow chart. Write ONE WORD from the passage for each answer.',
-  ['In light sleep the heartbeat [[1]].', 'In deep sleep the brain waves become slow and [[2]].', 'REM sleep is named after rapid eye [[3]].', 'During REM sleep the muscles are temporarily [[4]].'],
-  [(['slows'], 'B', 'the heartbeat slows'), (['large'], 'B', 'slow and large'), (['movements'], 'C', 'rapid eye movements'), (['paralysed'], 'C', 'temporarily paralysed')], 1),
- table('Complete the table. Write ONE WORD from the passage for each answer.', ['Stage', 'Detail'],
-  [['Light sleep', 'The sleeper can easily be [[1]]'], ['Deep sleep', 'The body repairs its [[2]]'], ['REM sleep', 'Most [[3]] occur'], ['Melatonin', 'A [[4]] released in the dark']],
-  [(['woken'], 'B', 'easily be woken'), (['tissues'], 'B', 'repairs its tissues'), (['dreams'], 'C', 'most dreams occur'), (['hormone'], 'D', 'a hormone called melatonin')], 1),
- feat('Match each statement with the correct group of people, A to D.', ['Babies', 'Young children', 'Teenagers', 'Adults'], [
-  ('They sleep for more than twelve hours a day.', 0, 'E', 'more than twelve hours a day'),
-  ('Their body clock shifts later by about two hours.', 2, 'D', 'shifts later by about two hours'),
-  ('They should sleep for at least seven hours.', 3, 'E', 'at least seven'),
-  ('They are recommended to sleep for between eight and ten hours.', 2, 'E', 'between eight and ten hours'),
+  ['The Latin translation of his book began with the words Dixit [[1]].', 'The Latin form of his name became the word [[2]].', 'The word algebra comes from al-[[3]].', 'The book was translated into Latin in the [[4]] century.'],
+  [(['algorismi'], 'E', 'Dixit Algorismi'), (['algorithm'], 'E', 'became the word algorithm'), (['jabr'], 'D', 'al-jabr'), (['twelfth'], 'D', 'in the twelfth century')], 1),
+ table('Complete the table. Write ONE WORD from the passage for each answer.', ['Work', 'Detail'],
+  [['Book on calculation', 'Written around the year [[1]]'], ['Book on numbers', 'Explained the system invented in [[2]]'], ['Astronomical tables', 'Gave positions of the sun, moon and [[3]]'], ['Geography', 'Listed coordinates of hundreds of [[4]]']],
+  [(['820'], 'C', 'around the year 820'), (['india'], 'E', 'invented in India'), (['planets'], 'F', 'moon and planets'), (['cities'], 'F', 'cities and rivers')], 1),
+ feat('Match each statement with the correct person or place, A to D.', ['Caliph al-Ma\'mun', 'Al-Khwarizmi', 'Dr Yusupova', 'The House of Wisdom'], [
+  ('It was a centre of learning where scholars translated books.', 3, 'B', 'a great centre of learning'),
+  ('He wanted a guide to practical problems.', 0, 'C', 'the Caliph wanted a guide'),
+  ('She believes his greatest gift was clarity.', 2, 'F', 'his greatest gift was clarity'),
+  ('He compiled astronomical tables.', 1, 'F', 'compiled astronomical tables'),
  ]),
- multi('Which TWO habits to improve sleep are mentioned in paragraph G?', ['Going to bed at the same time every day.', 'Avoiding screens for an hour before bed.', 'Drinking coffee in the evening.', 'Exercising just before bedtime.', 'Sleeping late at weekends.'], [0, 1], [('G', 'go to bed and wake up at the same time every day'), ('G', 'avoid screens for an hour before bed')]),
- head(['A brain that never switches off', 'Cycles of the night', 'The stage of dreams', 'The body\'s clock', 'How much is enough', 'Sleep and learning', 'Habits for better sleep', 'The history of the bed', 'Dreams of animals'],
-  [('A', 0, 'the sleeping brain is active'), ('B', 1, 'a series of cycles of about ninety minutes each'), ('C', 2, 'most dreams occur'), ('D', 3, 'an internal body clock'), ('E', 4, 'The amount of sleep that people need depends on their age'), ('F', 5, 'learning is not complete until it has been stored during sleep'), ('G', 6, 'sleep can be improved by simple habits')]),
+ multi('Which TWO practical problems are mentioned in paragraph C?', ['Dividing an inheritance.', 'Measuring land.', 'Building ships.', 'Making maps.', 'Predicting weather.'], [0, 1], [('C', 'dividing an inheritance'), ('C', 'measuring land')]),
+ head(['Words we still use', 'A city of learning', 'A book of practical solutions', 'The origin of a word', 'Numbers and a new word', 'A wide range of interests', 'A heritage to be proud of', 'The history of the compass', 'Persian poetry'],
+  [('A', 0, 'Few words in the modern world are used as often as algorithm and algebra'), ('B', 1, 'a great centre of learning'), ('C', 2, 'a guide to the problems that ordinary people faced'), ('D', 3, 'The word algebra comes from the title of the book'), ('E', 4, 'became the word algorithm'), ('F', 5, 'His interests were wide'), ('G', 6, 'Today al-Khwarizmi is remembered in many ways')]),
  info([
-  ('a reference to feeling confused after waking', 'B', 'confused and tired'),
-  ('a reference to paralysed muscles', 'C', 'temporarily paralysed'),
-  ('a reference to a gland in the brain', 'D', 'a small gland in the brain'),
-  ('a comparison with jet lag', 'E', 'permanent jet lag'),
-  ('a warning about blue light', 'F', 'blue light from phones and tablets'),
+  ('a reference to the meaning of his name', 'A', 'means from Khwarazm'),
+  ('a reference to support from the ruler', 'B', 'supported by the Caliph'),
+  ('a reference to the use of diagrams', 'C', 'using diagrams'),
+  ('a comparison with scales', 'D', 'pair of scales'),
+  ('a reference to Roman numerals', 'E', 'Roman numerals'),
  ]),
- ends(['is when the body repairs itself.', 'is when most dreams occur.', 'sets the body clock.', 'stays in the body for many hours.', 'prevents all dreams.', 'makes teenagers wake early.', 'is produced by the eyes.'], [
-  ('Deep sleep', 0, 'B', 'the body repairs its tissues'),
-  ('REM sleep', 1, 'C', 'most dreams occur'),
-  ('Light', 2, 'D', 'Light is the main signal that sets the clock'),
-  ('Caffeine', 3, 'G', 'stays in the body for many hours'),
+ ends(['founded the House of Wisdom.', 'contained no symbols.', 'comes from his name.', 'carries his name.', 'was built in Baghdad.', 'was written in Latin.', 'uses Roman numerals.'], [
+  ('Caliph al-Ma\'mun', 0, 'B', 'had founded a great centre of learning'),
+  ('The book on calculation', 1, 'C', 'contained no symbols'),
+  ('The word algorithm', 2, 'E', 'His name, in its Latin form'),
+  ('A university in Urgench', 3, 'G', 'carries his name'),
  ]),
  sent(2, [
-  ('A typical adult goes through four or five ___ in a night.', ['cycles'], 'B', 'four or five cycles'),
-  ('REM stands for rapid eye ___.', ['movement', 'movements'], 'C', 'rapid eye movements'),
-  ('Teenagers need between eight and ___ hours of sleep.', ['ten', '10'], 'E', 'eight and ten hours'),
-  ('Dr Moreno is a sleep ___.', ['researcher'], 'F', 'sleep researcher'),
+  ('Al-Khwarizmi is often called the father of ___.', ['algebra'], 'A', 'father of algebra'),
+  ('The House of Wisdom was in ___.', ['baghdad'], 'B', 'in Baghdad'),
+  ('He described ___ types of equation.', ['six', '6'], 'C', 'six types of equation'),
+  ('Dr Yusupova is a historian of ___.', ['mathematics'], 'F', 'historian of mathematics'),
  ]),
  short(3, [
-  ('Which hormone makes the body feel sleepy?', ['melatonin'], 'D', 'called melatonin'),
-  ('How long might the final REM period last?', ['nearly an hour'], 'C', 'nearly an hour'),
-  ('How long should you wait before getting up if you cannot sleep?', ['twenty minutes', 'about twenty minutes'], 'G', 'about twenty minutes'),
+  ('What were the equations written in?', ['words'], 'C', 'written in words'),
+  ('Where does a statue of him stand?', ['khiva'], 'G', 'old city of Khiva'),
+  ('What does Dixit Algorismi mean?', ['al-khwarizmi said'], 'E', 'Al-Khwarizmi said'),
  ]),
 ])
