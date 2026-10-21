@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T15:59:23.690216Z",
+  "generatedAt": "2026-10-21T20:03:29.514611Z",
   "standings": {
     "PL": [
       {
@@ -305,14 +305,14 @@
         "pts": 11
       },
       {
-        "name": "Athletic",
-        "pld": 7,
+        "name": "Levante",
+        "pld": 9,
         "w": 2,
-        "d": 3,
-        "l": 2,
-        "gf": 7,
-        "ga": 6,
-        "pts": 9
+        "d": 4,
+        "l": 3,
+        "gf": 14,
+        "ga": 17,
+        "pts": 10
       },
       {
         "name": "Villarreal",
@@ -322,6 +322,16 @@
         "l": 4,
         "gf": 13,
         "ga": 13,
+        "pts": 9
+      },
+      {
+        "name": "Athletic",
+        "pld": 8,
+        "w": 2,
+        "d": 3,
+        "l": 3,
+        "gf": 8,
+        "ga": 8,
         "pts": 9
       },
       {
@@ -363,16 +373,6 @@
         "gf": 13,
         "ga": 25,
         "pts": 8
-      },
-      {
-        "name": "Levante",
-        "pld": 8,
-        "w": 1,
-        "d": 4,
-        "l": 3,
-        "gf": 12,
-        "ga": 16,
-        "pts": 7
       },
       {
         "name": "Elche",
@@ -983,6 +983,16 @@
         "pts": 9
       },
       {
+        "name": "Aston Villa",
+        "pld": 3,
+        "w": 3,
+        "d": 0,
+        "l": 0,
+        "gf": 11,
+        "ga": 2,
+        "pts": 9
+      },
+      {
         "name": "Liverpool",
         "pld": 3,
         "w": 3,
@@ -990,6 +1000,16 @@
         "l": 0,
         "gf": 12,
         "ga": 7,
+        "pts": 9
+      },
+      {
+        "name": "Real Madrid",
+        "pld": 3,
+        "w": 3,
+        "d": 0,
+        "l": 0,
+        "gf": 7,
+        "ga": 4,
         "pts": 9
       },
       {
@@ -1003,14 +1023,34 @@
         "pts": 7
       },
       {
-        "name": "Aston Villa",
-        "pld": 2,
+        "name": "Sporting CP",
+        "pld": 3,
         "w": 2,
-        "d": 0,
+        "d": 1,
         "l": 0,
-        "gf": 9,
+        "gf": 6,
         "ga": 2,
-        "pts": 6
+        "pts": 7
+      },
+      {
+        "name": "Arsenal",
+        "pld": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 5,
+        "ga": 1,
+        "pts": 7
+      },
+      {
+        "name": "Real Betis",
+        "pld": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 6,
+        "ga": 4,
+        "pts": 7
       },
       {
         "name": "Barça",
@@ -1020,6 +1060,16 @@
         "l": 1,
         "gf": 11,
         "ga": 6,
+        "pts": 6
+      },
+      {
+        "name": "Como 1907",
+        "pld": 3,
+        "w": 2,
+        "d": 0,
+        "l": 1,
+        "gf": 10,
+        "ga": 5,
         "pts": 6
       },
       {
@@ -1033,43 +1083,13 @@
         "pts": 6
       },
       {
-        "name": "Sporting CP",
-        "pld": 2,
+        "name": "Club Brugge",
+        "pld": 3,
         "w": 2,
         "d": 0,
-        "l": 0,
-        "gf": 5,
-        "ga": 1,
-        "pts": 6
-      },
-      {
-        "name": "Arsenal",
-        "pld": 2,
-        "w": 2,
-        "d": 0,
-        "l": 0,
-        "gf": 4,
-        "ga": 0,
-        "pts": 6
-      },
-      {
-        "name": "Real Madrid",
-        "pld": 2,
-        "w": 2,
-        "d": 0,
-        "l": 0,
-        "gf": 6,
-        "ga": 4,
-        "pts": 6
-      },
-      {
-        "name": "Real Betis",
-        "pld": 2,
-        "w": 2,
-        "d": 0,
-        "l": 0,
-        "gf": 6,
-        "ga": 4,
+        "l": 1,
+        "gf": 7,
+        "ga": 6,
         "pts": 6
       },
       {
@@ -1084,13 +1104,23 @@
       },
       {
         "name": "Bayern",
-        "pld": 2,
+        "pld": 3,
         "w": 1,
-        "d": 1,
+        "d": 2,
         "l": 0,
-        "gf": 8,
-        "ga": 3,
-        "pts": 4
+        "gf": 9,
+        "ga": 4,
+        "pts": 5
+      },
+      {
+        "name": "Shaktar",
+        "pld": 3,
+        "w": 1,
+        "d": 2,
+        "l": 0,
+        "gf": 4,
+        "ga": 2,
+        "pts": 5
       },
       {
         "name": "Roma",
@@ -1100,16 +1130,6 @@
         "l": 1,
         "gf": 8,
         "ga": 5,
-        "pts": 4
-      },
-      {
-        "name": "Shaktar",
-        "pld": 2,
-        "w": 1,
-        "d": 1,
-        "l": 0,
-        "gf": 4,
-        "ga": 2,
         "pts": 4
       },
       {
@@ -1133,24 +1153,14 @@
         "pts": 4
       },
       {
-        "name": "Como 1907",
-        "pld": 2,
+        "name": "Feyenoord",
+        "pld": 3,
         "w": 1,
-        "d": 0,
-        "l": 1,
-        "gf": 6,
-        "ga": 4,
-        "pts": 3
-      },
-      {
-        "name": "Man United",
-        "pld": 2,
-        "w": 1,
-        "d": 0,
+        "d": 1,
         "l": 1,
         "gf": 4,
-        "ga": 2,
-        "pts": 3
+        "ga": 7,
+        "pts": 4
       },
       {
         "name": "Villarreal",
@@ -1163,23 +1173,13 @@
         "pts": 3
       },
       {
-        "name": "Club Brugge",
-        "pld": 2,
+        "name": "Man United",
+        "pld": 3,
         "w": 1,
         "d": 0,
-        "l": 1,
-        "gf": 6,
+        "l": 2,
+        "gf": 5,
         "ga": 6,
-        "pts": 3
-      },
-      {
-        "name": "RC Lens",
-        "pld": 2,
-        "w": 1,
-        "d": 0,
-        "l": 1,
-        "gf": 3,
-        "ga": 4,
         "pts": 3
       },
       {
@@ -1193,23 +1193,23 @@
         "pts": 3
       },
       {
-        "name": "RB Leipzig",
-        "pld": 2,
+        "name": "RC Lens",
+        "pld": 3,
         "w": 1,
         "d": 0,
-        "l": 1,
-        "gf": 2,
-        "ga": 4,
+        "l": 2,
+        "gf": 3,
+        "ga": 5,
         "pts": 3
       },
       {
-        "name": "Feyenoord",
-        "pld": 2,
+        "name": "Galatasaray",
+        "pld": 3,
         "w": 1,
         "d": 0,
-        "l": 1,
-        "gf": 4,
-        "ga": 7,
+        "l": 2,
+        "gf": 6,
+        "ga": 9,
         "pts": 3
       },
       {
@@ -1220,6 +1220,16 @@
         "l": 2,
         "gf": 3,
         "ga": 6,
+        "pts": 3
+      },
+      {
+        "name": "RB Leipzig",
+        "pld": 3,
+        "w": 1,
+        "d": 0,
+        "l": 2,
+        "gf": 2,
+        "ga": 5,
         "pts": 3
       },
       {
@@ -1253,11 +1263,11 @@
         "pts": 2
       },
       {
-        "name": "Viking",
-        "pld": 2,
+        "name": "Inter",
+        "pld": 3,
         "w": 0,
         "d": 1,
-        "l": 1,
+        "l": 2,
         "gf": 4,
         "ga": 6,
         "pts": 1
@@ -1273,24 +1283,24 @@
         "pts": 1
       },
       {
-        "name": "Inter",
-        "pld": 2,
+        "name": "LASK",
+        "pld": 3,
         "w": 0,
-        "d": 0,
+        "d": 1,
         "l": 2,
         "gf": 4,
-        "ga": 6,
-        "pts": 0
+        "ga": 8,
+        "pts": 1
       },
       {
-        "name": "LASK",
-        "pld": 2,
+        "name": "Viking",
+        "pld": 3,
         "w": 0,
-        "d": 0,
+        "d": 1,
         "l": 2,
-        "gf": 3,
-        "ga": 7,
-        "pts": 0
+        "gf": 4,
+        "ga": 8,
+        "pts": 1
       },
       {
         "name": "Porto",
@@ -1304,22 +1314,12 @@
       },
       {
         "name": "Lille",
-        "pld": 2,
+        "pld": 3,
         "w": 0,
         "d": 0,
-        "l": 2,
-        "gf": 2,
-        "ga": 6,
-        "pts": 0
-      },
-      {
-        "name": "Galatasaray",
-        "pld": 2,
-        "w": 0,
-        "d": 0,
-        "l": 2,
-        "gf": 2,
-        "ga": 7,
+        "l": 3,
+        "gf": 4,
+        "ga": 10,
         "pts": 0
       },
       {
@@ -2120,7 +2120,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-21T18:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 6,
           "homeTeam": {
             "id": 88,
@@ -2133,15 +2133,15 @@
             "shortName": "Athletic"
           },
           "score": {
-            "winner": "DRAW",
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": 0,
-              "away": 0
+              "home": 2,
+              "away": 1
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 2,
+              "away": 0
             }
           },
           "competition": {
@@ -4902,70 +4902,8 @@
     "CL": {
       "fixtures": [
         {
-          "utcDate": "2026-10-21T16:45:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 7397,
-            "name": "Como 1907",
-            "shortName": "Como 1907"
-          },
-          "awayTeam": {
-            "id": 66,
-            "name": "Manchester United FC",
-            "shortName": "Man United"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-21T16:45:00Z",
-          "status": "TIMED",
-          "matchday": 3,
-          "homeTeam": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille"
-          },
-          "awayTeam": {
-            "id": 610,
-            "name": "Galatasaray SK",
-            "shortName": "Galatasaray"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 86,
@@ -4978,15 +4916,15 @@
             "shortName": "RB Leipzig"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             }
           },
           "competition": {
@@ -4996,7 +4934,7 @@
         },
         {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 108,
@@ -5009,15 +4947,15 @@
             "shortName": "Shaktar"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             }
           },
           "competition": {
@@ -5027,7 +4965,7 @@
         },
         {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 5,
@@ -5040,15 +4978,15 @@
             "shortName": "Arsenal"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 1
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 1
             }
           },
           "competition": {
@@ -5058,7 +4996,7 @@
         },
         {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 851,
@@ -5071,15 +5009,15 @@
             "shortName": "RC Lens"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             }
           },
           "competition": {
@@ -5089,7 +5027,7 @@
         },
         {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 58,
@@ -5102,15 +5040,15 @@
             "shortName": "Viking"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 2,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 2,
+              "away": 0
             }
           },
           "competition": {
@@ -5120,7 +5058,7 @@
         },
         {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 498,
@@ -5133,15 +5071,15 @@
             "shortName": "LASK"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 1
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 1
             }
           },
           "competition": {
@@ -5151,7 +5089,7 @@
         },
         {
           "utcDate": "2026-10-21T19:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 3,
           "homeTeam": {
             "id": 90,
@@ -5164,15 +5102,15 @@
             "shortName": "Feyenoord"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             }
           },
           "competition": {
@@ -5182,6 +5120,68 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-10-21T16:45:00Z",
+          "status": "FINISHED",
+          "matchday": 3,
+          "homeTeam": {
+            "id": 7397,
+            "name": "Como 1907",
+            "shortName": "Como 1907"
+          },
+          "awayTeam": {
+            "id": 66,
+            "name": "Manchester United FC",
+            "shortName": "Man United"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 4,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-21T16:45:00Z",
+          "status": "FINISHED",
+          "matchday": 3,
+          "homeTeam": {
+            "id": 521,
+            "name": "Lille OSC",
+            "shortName": "Lille"
+          },
+          "awayTeam": {
+            "id": 610,
+            "name": "Galatasaray SK",
+            "shortName": "Galatasaray"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 2,
+              "away": 4
+            },
+            "halfTime": {
+              "home": 2,
+              "away": 2
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-10-20T19:00:00Z",
           "status": "FINISHED",
@@ -5584,85 +5584,23 @@
             "name": "UEFA Champions League"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 90,
-            "name": "Real Betis Balompié",
-            "shortName": "Real Betis"
-          },
-          "awayTeam": {
-            "id": 503,
-            "name": "FC Porto",
-            "shortName": "Porto"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-14T19:00:00Z",
-          "status": "FINISHED",
-          "matchday": 2,
-          "homeTeam": {
-            "id": 1887,
-            "name": "FK Shakhtar Donetsk",
-            "shortName": "Shaktar"
-          },
-          "awayTeam": {
-            "id": 1899,
-            "name": "PAE AEK",
-            "shortName": "PAE AEK"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
         }
       ]
     }
   },
   "arsenalNextFixture": {
-    "utcDate": "2026-10-21T19:00:00Z",
+    "utcDate": "2026-10-24T14:00:00Z",
     "status": "TIMED",
-    "matchday": 3,
+    "matchday": 8,
     "homeTeam": {
-      "id": 5,
-      "name": "FC Bayern München",
-      "shortName": "Bayern"
-    },
-    "awayTeam": {
       "id": 57,
       "name": "Arsenal FC",
       "shortName": "Arsenal"
+    },
+    "awayTeam": {
+      "id": 62,
+      "name": "Everton FC",
+      "shortName": "Everton"
     },
     "score": {
       "winner": null,
@@ -5677,7 +5615,7 @@
       }
     },
     "competition": {
-      "name": "UEFA Champions League"
+      "name": "Premier League"
     },
     "venue": null
   },
@@ -5965,18 +5903,18 @@
   "clubFixtures": {
     "man_utd": {
       "nextFixture": {
-        "utcDate": "2026-10-21T16:45:00Z",
+        "utcDate": "2026-10-25T14:00:00Z",
         "status": "TIMED",
-        "matchday": 3,
+        "matchday": 8,
         "homeTeam": {
-          "id": 7397,
-          "name": "Como 1907",
-          "shortName": "Como 1907"
-        },
-        "awayTeam": {
           "id": 66,
           "name": "Manchester United FC",
           "shortName": "Man United"
+        },
+        "awayTeam": {
+          "id": 1044,
+          "name": "AFC Bournemouth",
+          "shortName": "Bournemouth"
         },
         "score": {
           "winner": null,
@@ -5991,18 +5929,18 @@
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Premier League"
         },
         "venue": null
       },
       "lastResult": {
-        "utcDate": "2026-10-18T13:00:00Z",
+        "utcDate": "2026-10-21T16:45:00Z",
         "status": "FINISHED",
-        "matchday": 7,
+        "matchday": 3,
         "homeTeam": {
-          "id": 341,
-          "name": "Leeds United FC",
-          "shortName": "Leeds United"
+          "id": 7397,
+          "name": "Como 1907",
+          "shortName": "Como 1907"
         },
         "awayTeam": {
           "id": 66,
@@ -6010,19 +5948,19 @@
           "shortName": "Man United"
         },
         "score": {
-          "winner": "DRAW",
+          "winner": "HOME_TEAM",
           "duration": "REGULAR",
           "fullTime": {
-            "home": 1,
+            "home": 4,
             "away": 1
           },
           "halfTime": {
-            "home": 0,
-            "away": 1
+            "home": 1,
+            "away": 0
           }
         },
         "competition": {
-          "name": "Premier League"
+          "name": "UEFA Champions League"
         },
         "venue": null
       }
@@ -6285,18 +6223,18 @@
     },
     "real_madrid": {
       "nextFixture": {
-        "utcDate": "2026-10-21T19:00:00Z",
+        "utcDate": "2026-10-25T20:00:00Z",
         "status": "TIMED",
-        "matchday": 3,
+        "matchday": 10,
         "homeTeam": {
+          "id": 81,
+          "name": "FC Barcelona",
+          "shortName": "Barça"
+        },
+        "awayTeam": {
           "id": 86,
           "name": "Real Madrid CF",
           "shortName": "Real Madrid"
-        },
-        "awayTeam": {
-          "id": 721,
-          "name": "RB Leipzig",
-          "shortName": "RB Leipzig"
         },
         "score": {
           "winner": null,
@@ -6311,7 +6249,7 @@
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Primera Division"
         },
         "venue": null
       },
@@ -6477,18 +6415,18 @@
     },
     "bayern": {
       "nextFixture": {
-        "utcDate": "2026-10-21T19:00:00Z",
+        "utcDate": "2026-10-25T16:30:00Z",
         "status": "TIMED",
-        "matchday": 3,
+        "matchday": 7,
         "homeTeam": {
+          "id": 17,
+          "name": "SC Freiburg",
+          "shortName": "Freiburg"
+        },
+        "awayTeam": {
           "id": 5,
           "name": "FC Bayern München",
           "shortName": "Bayern"
-        },
-        "awayTeam": {
-          "id": 57,
-          "name": "Arsenal FC",
-          "shortName": "Arsenal"
         },
         "score": {
           "winner": null,
@@ -6503,7 +6441,7 @@
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Bundesliga"
         },
         "venue": null
       },
