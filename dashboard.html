@@ -22,7 +22,7 @@
     --cream:#F3EADD;
     --card:#FBF5EA;
     --ink:#3D2A22;
-    --ink-soft:#856F5C;
+    --ink-soft:#6A5644;
     --coral:#7A2E35;
     --coral-dark:#5C2530;
     --teal:#6B7A3D;
@@ -203,6 +203,7 @@
   }
   .loading-text{ color:var(--ink-soft); font-size:13px; }
 </style>
+<script src="contrast-guard.js"></script>
 </head>
 <body>
 
@@ -312,10 +313,10 @@ function svgBarChart(labels, values, opts){
     const y = padT + (plotH - bh);
     bars += `<rect x="${x + bw*0.12}" y="${y}" width="${bw*0.76}" height="${Math.max(1,bh)}" fill="var(--bar,#8C6A46)" rx="2"></rect>`;
     if(i % labelEvery === 0 || i === n-1){
-      bars += `<text x="${x + bw/2}" y="${h - 5}" font-size="8" fill="#856F5C" text-anchor="middle">${escapeHtml(labels[i])}</text>`;
+      bars += `<text x="${x + bw/2}" y="${h - 5}" font-size="8" fill="#6A5644" text-anchor="middle">${escapeHtml(labels[i])}</text>`;
     }
   }
-  bars += `<text x="2" y="${padT+8}" font-size="9" fill="#856F5C">${max}</text>`;
+  bars += `<text x="2" y="${padT+8}" font-size="9" fill="#6A5644">${max}</text>`;
   return `<svg viewBox="0 0 ${w} ${h}" style="width:100%; height:${h}px;">${bars}</svg>`;
 }
 

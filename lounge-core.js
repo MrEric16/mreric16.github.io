@@ -274,7 +274,7 @@
   /* ---------- offline download + install banner ---------- */
   var CACHE_NAME = 'erics-lounge-v4';
   var Offline = {
-    baseUrls: ['vocabulary.html', 'grammar.html', 'connections.html', 'spellingbee.html', 'writing.html', 'writing-hub.html', 'writing-models.html', 'writing-band9.html', 'collocations.html', 'wordforms.html', 'speaking.html', 'listening.html', 'reading.html', 'amendments.html', 'tashkent-route.html', 'data/tashkent-transit.json', 'tashkent-today.html', 'mocktimer.html', 'data/games/wordforms.json', 'data/games/lexicon.json', 'data/games/idioms.json', 'data/games/speaking.json', 'data/games/connections.json', 'data/games/bee.json', 'lounge-core.js', 'theme-pages.css', 'data/vocab/words.json', 'data/grammar/index.json', 'data/grammar/pools.json'],
+    baseUrls: ['vocabulary.html', 'grammar.html', 'connections.html', 'spellingbee.html', 'writing.html', 'writing-hub.html', 'writing-models.html', 'writing-band9.html', 'collocations.html', 'wordforms.html', 'speaking.html', 'listening.html', 'reading.html', 'amendments.html', 'tashkent-route.html', 'data/tashkent-transit.json', 'tashkent-today.html', 'mocktimer.html', 'data/games/wordforms.json', 'data/games/lexicon.json', 'data/games/idioms.json', 'data/games/speaking.json', 'data/games/connections.json', 'data/games/bee.json', 'lounge-core.js', 'contrast-guard.js', 'theme-pages.css', 'data/vocab/words.json', 'data/grammar/index.json', 'data/grammar/pools.json'],
     urls: function(){
       var extra = (window.LOUNGE_OFFLINE_EXTRA || []).slice();
       return fetch('data/grammar/index.json').then(function(r){ return r.json(); }).then(function(ix){

@@ -13,7 +13,7 @@
 <style>
 
   :root{
-    --cream:#F3EADD; --cream-2:#E9D9C5; --card:#FBF5EA; --ink:#3D2A22; --ink-soft:#856F5C;
+    --cream:#F3EADD; --cream-2:#E9D9C5; --card:#FBF5EA; --ink:#3D2A22; --ink-soft:#6A5644;
     --coral:#7A2E35; --coral-dark:#5C2530; --teal:#6B7A3D; --gold:#B5862B; --line:#E0CBA4;
     --ff-accent:var(--coral-dark); --f-des:#85389F;
   }
@@ -153,6 +153,7 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 </head>
 <body>
 <script src="lounge-core.js"></script>
+<script src="contrast-guard.js"></script>
 <script>
 // Applies whatever theme/dark-mode the main app currently has active, read straight
 // from the same-origin localStorage key it writes to. Mirrors applyThemeState() and

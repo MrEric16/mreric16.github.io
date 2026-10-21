@@ -42,6 +42,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="lounge-core.js"></script>
+<script src="contrast-guard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
   :root{
@@ -50,14 +51,14 @@
     --card:#FBF5EA;
     --ink:#3D2A22;
     --ink-solid:#3D2A22;
-    --ink-soft:#856F5C;
+    --ink-soft:#6A5644;
     --coral:#7A2E35;
     --coral-dark:#5C2530;
     --gold:#D4AF37;
     --teal:#6B7A3D;
     --line:#E0CBA4;
     --arsenal:#EF0107;
-    --board-bg:rgba(74,31,40,.62);
+    --board-bg:rgba(74,31,40,.86);
 
     /* Domain palette redesigned 2026-08-09: grouped by feel rather than pure hue-spread -
        "Serious/Institutional" (Jurisprudence, Int'l Relations, Business, Economics) sits in
@@ -117,7 +118,7 @@
     --coral:#CC9544;
     --teal:#9CB06A;
     --gold:#E8C766;
-    --board-bg:rgba(0,0,0,.4);
+    --board-bg:rgba(0,0,0,.86);
   }
 
   /* - Seasonal themes -
@@ -159,7 +160,7 @@
   body.theme-nationalday:not(.dark-mode){
     --cream:#EAF2FE; --cream-2:#D6E6FD; --card:#FFFFFF;
     --coral:#0072CE; --coral-dark:#005092; --gold:#DA291C; --teal:#43B02A; --line:#C7DBFB;
-    --board-bg:rgba(0,114,206,.35);
+    --board-bg:rgba(0,48,102,.92);
   }
   body.theme-nationalday:not(.dark-mode) header{
     position:relative;
@@ -174,6 +175,7 @@
     color:#0B2540;
     text-shadow:0 1px 2px rgba(255,255,255,.55);
   }
+  body.theme-nationalday:not(.dark-mode) .bday-tile-card.today, body.theme-nationalday:not(.dark-mode) .bday-tile-card.today *{ color:#fff !important; }
   body.theme-nationalday:not(.dark-mode) .aurora-layer{ opacity:0; }
   .flag-emblem{ display:none; }
   body.theme-nationalday:not(.dark-mode) .flag-emblem{
@@ -257,7 +259,7 @@
   body.usertheme-vintage:not(.dark-mode){
     --cream:#F0F0F0; --cream-2:#E0E0E0; --card:#FFFFFF;
     --coral:#333333; --coral-dark:#000000; --gold:#666666; --teal:#999999; --line:#CCCCCC;
-    --board-bg:rgba(0,0,0,.55);
+    --board-bg:rgba(0,0,0,.86);
   }
   /* SIGNATURE (both Vintage themes): old CRT/damaged-film devices, requested
      specifically. Five things:
@@ -391,10 +393,10 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-ihl:not(.dark-mode){
     --cream:#EEF1F7; --cream-2:#E0E4F1; --card:#FBFBFD;
     --coral:#304EA0; --coral-dark:#233873; --gold:#FF9E2C; --teal:#4D65A8; --line:#D1D8EA;
-    --board-bg:rgba(48,78,160,.55);
+    --board-bg:rgba(48,78,160,.86);
   }
   body.usertheme-ihl:not(.dark-mode) header{
-    background:linear-gradient(135deg, #304EA0 0%, #4D65A8 100%);
+    background:linear-gradient(135deg, #304EA0 0%, #3C58A2 100%);
     border-bottom:3px solid #FF9E2C;
   }
   body.usertheme-ihl:not(.dark-mode) header::before,
@@ -455,7 +457,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --cream:#FEFEFE; --cream-2:#FEFEFE; --card:#FEFEFE;
     --coral:#EC0024; --coral-dark:#CE0041; --gold:#99824C; --teal:#113476;
     --line:rgba(153,130,76,.35);
-    --board-bg:rgba(17,52,118,.62);
+    --board-bg:rgba(17,52,118,.86);
   }
   body.usertheme-arsenal:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* SIGNATURE (Arsenal - matchday devices): the cannon silhouette watermark and the
@@ -638,7 +640,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#FEFEFE; --ink-soft:#C9A542;
     --coral:#2E375D; --coral-dark:#1B2033; --gold:#C9A542; --teal:#BB2C38;
     --line:rgba(201,165,66,.35);
-    --board-bg:rgba(46,55,93,.62);
+    --board-bg:rgba(46,55,93,.86);
   }
   body.usertheme-arsenal2:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* SIGNATURE (Arsenal2 - stadium/pitch devices): grass-stripe mown-pitch banding,
@@ -804,7 +806,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#FEFEFE; --ink-soft:#F7EBCF;
     --coral:#07093B; --coral-dark:#F7EBCF; --gold:#FDECC8; --teal:#D6F2E6;
     --line:rgba(247,235,207,.35);
-    --board-bg:rgba(7,9,59,.55);
+    --board-bg:rgba(7,9,59,.86);
   }
   body.usertheme-uzbekistan2:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* SIGNATURE: authentic girih/khatam 8-12 point star lattice, replacing the brick
@@ -1054,7 +1056,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#2B1D0E; --ink-soft:#6B1D1D;
     --coral:#AE352F; --coral-dark:#363636; --gold:#A54200; --teal:#6B1D1D;
     --line:rgba(43,29,14,.25);
-    --board-bg:rgba(211,64,57,.55);
+    --board-bg:rgba(211,64,57,.86);
   }
   @font-face{
     font-family:'Propaganda';
@@ -1333,7 +1335,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#FEFEFE; --ink-soft:#F0D6A0;
     --coral:#6C0D07; --coral-dark:#F0D6A0; --gold:#F0D6A0; --teal:#F0D6A0;
     --line:rgba(240,214,160,.3);
-    --board-bg:rgba(197,81,11,.55);
+    --board-bg:rgba(197,81,11,.86);
   }
   body.usertheme-bazaar:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* SIGNATURE 4 (was): overhead market-shadow vignette. SIGNATURE (new): warm dusk
@@ -1711,7 +1713,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#33FF33; --ink-soft:#2ABF4E;
     --coral:#0F5C24; --coral-dark:#33FF33; --gold:#33FF33; --teal:#33FF33;
     --line:rgba(51,255,51,.3);
-    --board-bg:rgba(0,204,65,.55);
+    --board-bg:rgba(0,204,65,.86);
   }
   body.usertheme-hacker:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* DEVICE: page-wide scanlines + curved-screen vignette (static). Softened alongside
@@ -1999,7 +2001,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#FEFEFE; --ink-soft:#E0C8FF;
     --coral:#3D0A66; --coral-dark:#E0C8FF; --gold:#E0C8FF; --teal:#E0C8FF;
     --line:rgba(224,200,255,.3);
-    --board-bg:rgba(61,10,102,.55);
+    --board-bg:rgba(61,10,102,.86);
   }
   body.usertheme-nebula:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* Starfield rebuilt as individually-generated elements (see setupNebulaStars in the
@@ -2269,7 +2271,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#FEFEFE; --ink-soft:#9FF7FF;
     --coral:#9D00FF; --coral-dark:#9FF7FF; --gold:#9FF7FF; --teal:#9FF7FF;
     --line:rgba(159,247,255,.3);
-    --board-bg:rgba(157,0,255,.55);
+    --board-bg:rgba(157,0,255,.86);
   }
   body.usertheme-synthwave:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* SIGNATURE: retro sun (horizontal-striped circle, classic 80s-sunset look) low in
@@ -2565,7 +2567,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --ink:#1A1A1A; --ink-soft:#0056A4;
     --coral:#D4141E; --coral-dark:#1A1A1A; --gold:#FFD100; --teal:#0056A4;
     --line:rgba(26,26,26,.3);
-    --board-bg:rgba(212,20,30,.55);
+    --board-bg:rgba(212,20,30,.86);
   }
   body.usertheme-bauhaus:not(.dark-mode) .aurora-layer{ opacity:0; }
   /* FIX 1: Vox Populi's "my pick" label was yellow-on-cream (1.27:1, a real fail) */
@@ -3552,7 +3554,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .arsenal-page .league-table th,
   .arsenal-page .league-table td{ color:var(--ink); }
   .arsenal-page table.league-table th{
-    background:#EF0107;
+    background:#D6000A;
     color:#fff;
     border-bottom:1.5px solid #9C824A;
   }
@@ -3770,7 +3772,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #A54200 !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
-  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px), #868686 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px), #B4B4B4 !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #6B1D1D !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
@@ -30791,7 +30793,7 @@ function mtDrawHeatmapChart(canvas, cells){
     ctx.fill();
 
     const label = cell.hour === 0 ? '12am' : cell.hour < 12 ? `${cell.hour}am` : cell.hour === 12 ? '12pm' : `${cell.hour-12}pm`;
-    ctx.fillStyle = total > 0 ? 'rgba(255,255,255,0.92)' : '#856F5C';
+    ctx.fillStyle = total > 0 ? 'rgba(255,255,255,0.92)' : '#6A5644';
     ctx.font = '10px sans-serif';
     ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
