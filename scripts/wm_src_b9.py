@@ -1,0 +1,165 @@
+# -*- coding: utf-8 -*-
+# Original lessons and drills for the Writing Band 9 tile. Written for this site.
+LESSONS = [
+ {'id': 'read', 'title': 'Read the question before the topic', 'time': '2 min',
+  'intro': ['A Band 9 essay answers the exact question, not the general subject. Most lost marks at this level come from writing a good essay about the wrong thing.',
+            'A Task 2 question reaches you in one of three shapes. Learn to recognise each one in seconds.'],
+  'points': [
+   ['Two views are given', 'Some people say homework should be banned, while others think it is essential. Discuss both views and give your opinion.', 'You must cover both views and say what you think.'],
+   ['A direct question', 'Should schools teach students how to manage money, or is that a job for parents?', 'Answer the question itself. A "should" question needs a clear answer in your introduction.'],
+   ['A single statement', 'Handwriting is no longer a useful skill. To what extent do you agree or disagree?', 'Respond to this claim, not to "handwriting" in general. Decide your position first.']],
+  'steps': ['Underline the instruction words (discuss, to what extent, what are the causes).', 'Circle the topic words and think of two synonyms for each. You will need them for paraphrasing.', 'Count the tasks: one question or two? Both views or one claim?', 'Write your answer to the question in one sentence. That sentence is your position, and it goes in the introduction.'],
+  'pairs': []},
+ {'id': 'open', 'title': 'Open with one precise sentence', 'time': '3 min',
+  'intro': ['The first sentence should place the reader inside the topic. It should be specific enough that nobody could paste it into an essay on a different subject.',
+            'Avoid three things: sweeping statements about history or the modern world, claims so obvious that no one could argue with them, and memorised frames that you drop an idea into.'],
+  'points': [],
+  'steps': ['Name the topic with a concrete detail: a trend, a change, or a tension between two groups.', 'Link that detail to the question without copying its words.', 'Finish the introduction with your position or a one-line outline of what you will do.'],
+  'pairs': [
+   ['Throughout history, humans have always used transport and it is very important in our lives.', 'Over the past decade, many cities have started charging drivers to enter their centres, a move that supporters praise and critics resent.', 'The second sentence gives a real development and shows why the question is worth debating.'],
+   ['It is clear to everybody that education is good, so schools matter.', 'Parents and employers increasingly ask schools to teach more than exam subjects, and opinions differ on how far schools should go.', 'The first sentence states something nobody disputes and says nothing about the question.'],
+   ['In this modern world, social media is a very important topic that many people discuss.', 'Teenagers now spend several hours a day on social media, and this has made parents and teachers anxious about its effects.', '"In this modern world" is filler. A fact about teenagers and a reaction to it is real content.']],
+  },
+ {'id': 'connect', 'title': 'Connect your paragraphs', 'time': '4 min',
+  'intro': ['A new paragraph tells the reader that one point is finished and another begins. A good first sentence also shows how the two are related, and it does so in very few words.',
+            'Test your essay by reading only the first sentence of each paragraph. If the argument still makes sense, the essay is well built. If it does not, the paragraphs are not doing their jobs.'],
+  'points': [
+   ['Adding a point', 'A second reason is that... / A further factor is...', 'Signals the same direction.'],
+   ['Changing direction', 'However, critics point out that... / On the other hand, ...', 'Signals a contrast with the paragraph before.'],
+   ['Following a cause with a result', 'As a consequence, ... / This has led to...', 'Signals that the new paragraph follows logically.'],
+   ['Moving to solutions', 'In response to these problems, ... / Several measures could help.', 'Signals a change of task inside the essay.']],
+  'steps': ['Pick the link-back word: This, These, Such, Another, A further, A second.', 'Add a summary noun that captures the previous idea: trend, factor, development, approach, view, concern, claim, policy, change, measure, issue.', 'Say what the new paragraph is about. Example pattern: "This trend [link-back], however, [contrast] has an impact on small shops [new topic]."', 'Avoid starting every paragraph with First, Second, Third. Mix it up.'],
+  'pairs': [
+   ['Cars are expensive. Many people cannot afford them. Cars cause pollution. Fares are rising.', 'Rising fares have pushed many commuters back to their cars. This trend worsens both congestion and pollution.', '"This trend" packs the whole previous sentence into two words, so you can move on to the effect.']]},
+ {'id': 'nouns', 'title': 'Say more with fewer words: nouns', 'time': '4 min',
+  'intro': ['Academic writing often turns an action into a noun. A long clause becomes a short phrase, and the sentence says the same thing in fewer words. This is what examiners mean when they praise "range of structures" and "precision".',
+            'The method is simple: find the verb, change it into a noun, and give it a new verb that links cause and result (lead to, result in, contribute to, reduce, increase).'],
+  'points': [],
+  'steps': ['Find the verbs in your sentence.', 'Change one or two into nouns: increase to an increase in, decide to a decision, improve to an improvement in, rely to reliance on, depend to dependence on.', 'Add a linking verb: leads to, results in, contributes to, reduces.', 'Stop when the sentence is clear. Three nouns in a row is usually too many.'],
+  'pairs': [
+   ['When prices rise, people buy less food.', 'A rise in prices reduces food purchases.', 'Eight words become six, and the sentence has the formal tone of a report.'],
+   ['If the government spends more on schools, teachers can offer better lessons.', 'Increased investment in schools improves the quality of teaching.', 'Two clauses become one subject plus one verb.'],
+   ['Because people use their phones too much, they sleep badly.', 'Excessive phone use contributes to poor sleep.', 'The noun phrase "excessive phone use" replaces a whole clause.']]},
+ {'id': 'hedge', 'title': 'Cautious language (hedging)', 'time': '4 min',
+  'intro': ['In an essay you rarely have evidence for large claims. Careful writers soften what they cannot prove and stay firm about what they can. This gives balance and also protects you from saying something false.',
+            'Hedging is not weakness. Overdo it and your sentences become vague, so use it where it is needed.'],
+  'points': [
+   ['Soften general claims', 'may, might, can, could, tends to, appears to, is likely to', 'Smartphones may reduce concentration. Experts suggest that...'],
+   ['Limit the scope', 'some, many, most, often, in some cases, to some extent', 'Some teenagers... / Many employers...'],
+   ['Refer to evidence you do not name', 'Research suggests that, There is evidence that, It is widely believed that', 'Use these instead of inventing statistics.'],
+   ['Do NOT hedge', 'facts, definitions, and your own position', '"I strongly believe..." not "I perhaps tend to think..."']],
+  'steps': ['Read each sentence that makes a claim about people or society.', 'Ask: could I prove this word for word? If not, soften it.', 'Keep your position sentence confident.', 'Be diplomatic about the other side: "This view is understandable, but..." is better than "This is stupid."'],
+  'pairs': [
+   ['Video games make children aggressive.', 'Violent video games may increase aggressive behaviour in some children.', 'The first sentence is a sweeping claim that nobody can prove.'],
+   ['Young people never read books.', 'Fewer young people than in the past read books for pleasure.', 'Swap an absolute (never) for a comparison you could defend.']]},
+ {'id': 'efficient', 'title': 'Efficiency: cut what does not work', 'time': '3 min',
+  'intro': ['Your aim is 260 to 290 words in which every sentence has a job. Extra words do not add marks, but they do add errors and use up time.',
+            'The word count in the exam is a minimum. Reach it with ideas, not with padding.'],
+  'points': [],
+  'steps': ['Cut filler openings: in this modern world, as we all know, it goes without saying.', 'Cut repetition: future plans, very unique, advance planning, my own personal opinion.', 'Replace long phrases with one word: in order to to simply to, due to the fact that to because.', 'If two sentences make the same point, keep the better one and use the saved words for an example.'],
+  'pairs': [
+   ['In my personal opinion, I think that it is a very important thing that governments should plan for the future in advance.', 'Governments should plan ahead.', '17 words become 4, and nothing is lost.'],
+   ['Due to the fact that many people are unemployed, there are many problems in society.', 'Because many people are unemployed, society suffers.', 'The meaning is the same in half the length.']]},
+ {'id': 'plan', 'title': 'Five-minute plan', 'time': '3 min',
+  'intro': ['Spending five minutes planning is the best use of your time in the exam. A plan prevents the most expensive mistakes: no clear position, repeated ideas, and a conclusion that contradicts the introduction.'],
+  'points': [],
+  'steps': ['Minute 1: underline the instruction words, circle the topic, decide your position.', 'Minutes 2 to 3: write two or three main ideas as short phrases, not sentences. For each idea add a reason or example.', 'Minute 4: choose the paragraph order. Put your strongest idea first, or last if you want to end with force.', 'Minute 5: write your first sentence and the first sentence of each paragraph. The rest will follow.', 'Brainstorming questions that always work: Who is affected? What changes? What is the cost? What would happen if nobody acted?'],
+  'pairs': []},
+ {'id': 'check', 'title': 'Final five-minute check', 'time': '3 min',
+  'intro': ['Most candidates make the same small errors again and again. A planned check removes most of them.'],
+  'points': [],
+  'steps': ['Does the introduction answer the question? Does the conclusion repeat the same answer in new words?', 'Does every paragraph start with a clear topic sentence?', 'Subjects and verbs: does each verb agree with its subject (people are, the number of students is)?', 'Articles and plurals: a / the / no article; one problem, two problems.', 'Is the spelling consistent (British or American, not both)? Are numbers and names correct?', 'Count your words. Cross out anything repeated rather than adding new sentences at the end.'],
+  'pairs': []},
+]
+
+def mk(label_opts, items):
+    out = []
+    for q, a, why in items:
+        out.append({'q': q, 'a': a, 'why': why})
+    return out
+
+QT = ['Opinion (agree or disagree)', 'Discussion (both views)', 'Advantages and disadvantages', 'Problem and solution', 'Two-part question']
+QTYPE = mk(QT, [
+ ('Some people say that museums should be free for everyone. To what extent do you agree or disagree?', 0, 'A claim plus "to what extent": you need a clear position.'),
+ ('Many believe that children should not be given homework. Do you agree or disagree?', 0, 'One statement and "agree or disagree".'),
+ ('Competitive sport does more harm than good in schools. How far do you agree?', 0, '"How far do you agree" means the same as "to what extent".'),
+ ('It is better to rent a home than to buy one. To what extent do you agree?', 0, 'One statement to accept or reject.'),
+ ('Some people think that cash will disappear completely in the future. Do you agree or disagree?', 0, 'One prediction to respond to.'),
+ ('The best way to reduce crime is to give longer prison sentences. Do you agree or disagree?', 0, 'A single claim and your position on it.'),
+ ('Some people believe that the best way to learn is by reading books. Others think videos are more effective. Discuss both views and give your opinion.', 1, 'Two opposing views, and the instruction asks for your opinion too.'),
+ ('Some think children should start school at four. Others believe a later start is better. Discuss both views and give your own opinion.', 1, 'Both views must be discussed, then your opinion.'),
+ ('Some argue that governments should fund the arts. Others say money should go to healthcare. Discuss both views.', 1, 'Two views to discuss. Even if the opinion is not requested, a short one helps.'),
+ ('Some people prefer to live in one town all their lives, while others prefer to move often. Discuss both views and give your opinion.', 1, 'Two opposite views plus opinion.'),
+ ('Some say that team projects are better than individual work for students. Others disagree. Discuss both views and give your opinion.', 1, 'Both sides, then your view.'),
+ ('Some people think that cities should ban cars from the centre. Others disagree. Discuss both views and give your opinion.', 1, 'The word "both" signals a discussion essay.'),
+ ('More people are working part-time. What are the advantages and disadvantages of this trend?', 2, 'The words "advantages and disadvantages" name the type.'),
+ ('Many students take a gap year before university. Do the advantages of this outweigh the disadvantages?', 2, '"Outweigh" asks you to judge which side is stronger.'),
+ ('Some companies let employees choose their own working hours. What are the advantages and disadvantages of this?', 2, 'Two sides of one development.'),
+ ('Governments are spending more on high-speed rail. Do the benefits outweigh the drawbacks?', 2, 'Benefits and drawbacks are advantages and disadvantages in other words.'),
+ ('More families now have only one child. What are the advantages and disadvantages?', 2, 'You need both sides, ideally with a judgement.'),
+ ('English is becoming the world\'s common language. Do the advantages outweigh the disadvantages?', 2, '"Outweigh" again: the essay must say which side wins.'),
+ ('Many cities suffer from air pollution. What are the causes, and what can be done to solve the problem?', 3, 'Causes and solutions are the classic pair.'),
+ ('Young people spend less time reading books than in the past. What problems does this cause, and how can they be solved?', 3, 'Problems plus solutions.'),
+ ('Food waste is a growing problem. What are the causes, and what solutions can you suggest?', 3, 'The word "solutions" names the type.'),
+ ('Noise is a serious problem in many cities. What are the main causes, and what can be done to reduce it?', 3, 'Causes then measures.'),
+ ('Fewer people are learning traditional crafts. What problems could this cause, and what can be done?', 3, 'A problem and what to do about it.'),
+ ('Water shortages affect many regions. What problems does this cause, and what measures could be taken?', 3, '"Measures" means solutions.'),
+ ('More people are choosing to live alone. Why is this happening? Is it a positive or negative development?', 4, 'Two separate questions: a reason question and a judgement question.'),
+ ('Many young people today prefer to own fewer possessions. Why is this the case? Is it a good thing?', 4, 'Reason first, then judgement.'),
+ ('Fewer people now write letters by hand. Why is this the case? Does it matter?', 4, 'Two questions, two answers.'),
+ ('In some countries, people are marrying later than before. What are the reasons for this, and what effects does it have on society?', 4, 'Reasons and effects, each needs its own answer.'),
+ ('Many people now use ride-sharing apps instead of taxis. Why? Is this a positive development?', 4, '"Why" plus "is it positive" makes this a two-part question.'),
+ ('More teenagers are choosing vocational courses over university. Why is this happening? Is it a good trend?', 4, 'Look for the two question marks.'),
+])
+QTYPE_OPTS = QT
+
+OPEN = mk(None, [
+ ('Topic: fast food and health. Which opening sentence is stronger?|Fast food is very bad and everybody knows it.|Sales of fast food have risen sharply in many countries, and doctors increasingly link this trend to rising obesity.', 1, 'The second names a concrete trend. The first is vague and absolute.'),
+ ('Topic: tourism and local culture. Which opening sentence is stronger?|Since the beginning of time, people have loved travelling.|As cheap flights bring more visitors than ever to historic towns, residents are asking whether their traditions are being protected or diluted.', 1, '"Since the beginning of time" is a classic empty opening.'),
+ ('Topic: public money for the arts. Which opening sentence is stronger?|In today\'s modern world, art is a very important thing for society.|Governments face a difficult choice when deciding whether public money should support theatres and galleries or be spent on services such as healthcare.', 1, 'The second sets up the real argument. The first is filler.'),
+ ('Topic: technology in classrooms. Which opening sentence is stronger?|It is a universally acknowledged truth that technology is changing the world.|Tablets and laptops are now a common sight in classrooms, yet teachers disagree about whether they improve learning.', 1, 'A familiar-sounding frame with no connection to the question loses marks.'),
+ ('Topic: zoos. Which opening sentence is stronger?|Some people think zoos should be closed. I will discuss this.|Whether zoos still have a place in the modern world is a question that divides animal lovers and scientists alike.', 1, 'The first copies the question and announces. The second paraphrases and frames it.'),
+ ('Topic: traffic. Which opening sentence is stronger?|Traffic is a problem.|Traffic jams now cost city dwellers hours every week, and many councils are considering charging drivers to enter the centre.', 1, 'Short is not always precise. Add a detail.'),
+ ('Topic: teenage reading. Which opening sentence is stronger?|In recent years, the number of teenagers who read for pleasure has fallen in several countries, which worries many teachers.|Reading is a thing that people do with books, and books have pages.', 0, 'The first is concrete and links to the likely question.'),
+ ('Topic: obesity. Which opening sentence is stronger?|Obesity is the biggest problem in human history.|Obesity rates have risen in most countries over recent decades, placing growing pressure on health services.', 1, 'Exaggeration weakens a statement. Careful accuracy impresses.'),
+ ('Topic: remote work. Which opening sentence is stronger?|Remote working has become common in many professions, and employers are divided over whether it should continue.|The rise of remote working is, without doubt, the most important change in the entire history of work.', 0, 'The first is accurate and frames a debate.'),
+ ('Topic: sportspeople\'s pay. Which opening sentence is stronger?|Footballers earn lots of money. This essay will say whether it is right.|The enormous salaries paid to top sportspeople regularly provoke debate, particularly when compared with the pay of nurses and teachers.', 1, 'The second adds a contrast that makes the topic interesting.'),
+])
+HEDGE = mk(None, [
+ ('Which sentence suits an exam essay better?|Video games make children violent.|Violent video games may increase aggressive behaviour in some children.', 1, 'A sweeping claim without evidence should be softened.'),
+ ('Which sentence suits an exam essay better?|The Earth orbits the Sun.|The Earth might orbit the Sun.', 0, 'Facts need no hedge. Hedging a fact looks uninformed.'),
+ ('Which sentence suits an exam essay better?|I think, perhaps, that I might possibly agree with this idea to some extent.|I strongly agree with this statement.', 1, 'Your own position should be clear and confident.'),
+ ('Which sentence suits an exam essay better?|People who study abroad always become more independent.|People who study abroad often become more independent.', 1, '"Always" is an absolute you cannot prove.'),
+ ('Which sentence suits an exam essay better?|This policy will solve the problem of traffic.|This policy could help to reduce traffic.', 1, 'Predictions about policies need modal verbs.'),
+ ('Which sentence suits an exam essay better?|Governments are completely wrong to cut arts funding.|Cutting arts funding may be a short-sighted decision.', 1, 'Diplomatic language shows respect for other views.'),
+ ('Which sentence suits an exam essay better?|Smoking causes lung cancer.|Smoking may possibly be linked to lung cancer in a few cases.', 0, 'This is well established. Over-hedging weakens it.'),
+ ('Which sentence suits an exam essay better?|Young people are lazy.|Some young people appear to spend less time on physical activity than earlier generations did.', 1, 'Generalising about a whole group is risky and unfair.'),
+ ('Which sentence suits an exam essay better?|Money cannot buy happiness for anyone.|Money does not always buy happiness.', 1, '"Not always" is defensible. "For anyone" is not.'),
+ ('Which sentence suits an exam essay better?|Many experts suggest that early language learning can bring cognitive benefits.|Early language learning gives every child a higher IQ.', 0, 'Attribute to experts and use "can" instead of an absolute.'),
+])
+NOUN = mk(None, [
+ ('Which version is more compact and academic?|When people exercise more, they become healthier, and this reduces the cost of treating them.|Increased exercise improves public health and lowers treatment costs.', 1, 'Nouns replace clauses, so the sentence is shorter and stronger.'),
+ ('Which version is more compact and academic?|A growth in online shopping has led to a decline in high-street sales.|Online shopping has grown, and so the shops on the high street have started to sell less than they did.', 0, 'The noun phrase version is tighter.'),
+ ('Which version is more compact and academic?|Because teachers are trained better, students achieve better results.|Better teacher training leads to improved student results.', 1, 'The noun phrases "teacher training" and "student results" do the work.'),
+ ('Which version is more compact and academic?|An expansion of the metro network would reduce congestion.|If the government expands the metro network, congestion will reduce because the network will be bigger.', 0, 'The second repeats ideas. The first says it once.'),
+ ('Which version is more compact and academic?|Employees feel more motivated when managers praise them often.|Frequent praise from managers increases employee motivation.', 1, 'Verbs become nouns, and a strong linking verb connects cause and result.'),
+ ('Which version is more compact and academic?|The destruction of forests contributes to the loss of wildlife.|People destroy forests, and as a result lots of wildlife is lost.', 0, 'The first uses two noun phrases and one verb.'),
+ ('Which version is more compact and academic?|If cities invest more in cycling, fewer people will rely on cars.|Greater investment in cycling reduces dependence on cars.', 1, 'Fewer words, same meaning.'),
+ ('Which version is more compact and academic?|Heavy phone use among teenagers is associated with sleep problems.|Teenagers use their phones a lot and this is associated with the fact that they have problems when they sleep.', 0, 'The second is wordy and clumsy.'),
+ ('Which version is more compact and academic?|Because the population is ageing, there is more pressure on pension systems.|Population ageing puts pressure on pension systems.', 1, 'A noun phrase can act as the subject.'),
+ ('Which sentence is clearer?|The implementation of the reduction of the utilisation of private vehicles by the authorities is a necessity.|Authorities need to reduce private car use.', 1, 'Too many nouns in a row make a sentence unreadable. Balance verbs and nouns.'),
+])
+LINK = mk(None, [
+ ('Choose the best start for the next sentence. "Many students now rely on private tutors. ___ may widen the gap between rich and poor families."|This trend|Tutors|It is|This is important', 0, '"This + summary noun" links back and adds a label.'),
+ ('Choose the best start for the next sentence. "Some cities have banned cars from the centre. ___ has reduced pollution noticeably."|This measure|Cars|They|The measure of', 0, 'A summary noun after "this" is the cleanest way to refer back.'),
+ ('Choose the best start. "Critics claim that tuition fees stop talented students from applying. ___ is understandable, but it overlooks scholarship schemes."|This concern|This concerned|This concerns|Concerning', 0, 'Use a noun after "this".'),
+ ('Choose the best link. "Cycling is cheap and healthy. ___, it does not pollute the air."|Moreover|However|Consequently|Although', 0, 'Another advantage in the same direction needs an addition word.'),
+ ('Choose the best link. "Public transport is improving. ___, many commuters still prefer to drive."|However|Moreover|Therefore|For instance', 0, 'The second sentence goes against what you expect.'),
+ ('Choose the best link. "Rents have doubled in ten years. ___, many young people cannot afford to leave their parents\' homes."|As a result|In contrast|Nevertheless|For example', 0, 'The second sentence is a consequence.'),
+ ('Choose the best link. "Some countries have introduced a tax on sugary drinks. ___, Mexico introduced one in 2014."|For example|However|Therefore|In addition', 0, 'An example of the previous idea.'),
+ ('Choose the best phrase. "A second argument against the plan is its cost. ___ argument is that it may not work."|A further|This further|Further of|Furthermore of', 0, '"A further argument" adds a point without repeating "second".'),
+ ('Paragraph 2 argued that remote work saves time. Choose the best start for paragraph 3: "___, working from home has serious drawbacks."|On the other hand|For example|As a result|Similarly', 0, 'A new paragraph that changes direction needs a contrast word.'),
+ ('Paragraph 2 described several causes. Choose the best start for paragraph 3: "___ these causes, several solutions are possible."|In light of|In spite of|In case of|In front of', 0, '"In light of" means "considering".'),
+ ('Choose the best start. "The government has built new cycle lanes. ___ has encouraged more people to cycle to work."|This development|This developments|These development|It developing', 0, 'Singular noun after "this".'),
+ ('Choose the best start. "Some argue that homework improves discipline. ___ is common among parents."|This view|Viewing this|Viewed|Views is', 0, 'A summary noun plus "is".'),
+])

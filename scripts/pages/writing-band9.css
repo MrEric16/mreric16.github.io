@@ -18,3 +18,6 @@
 .wm-try{font-weight:800; margin-bottom:10px; color:var(--ink);} .wm-nav{text-decoration:none; display:inline-block; text-align:center;}
 
 .wb-role{display:inline-block; background:var(--coral); color:var(--on-coral,#fff); border-radius:999px; padding:3px 12px; font-size:12px; font-weight:800; margin:4px 0 6px;}
+.wb-pair{margin-bottom:12px;} .wb-ctx{background:var(--cream-2); border-radius:12px; padding:10px 12px; font-size:14.5px;}
+.wb-opt{display:block; width:100%; text-align:left; margin:8px 0; padding:12px 14px; border:2px solid var(--line); border-radius:14px; background:var(--card); color:var(--ink); font-family:inherit; font-size:15px; font-weight:700; cursor:pointer; line-height:1.4;}
+.wb-opt.good{border-color:var(--teal); background:rgba(107,122,61,.18);} .wb-opt.bad{border-color:#B3261E; background:rgba(179,38,30,.12);} .wb-opt[disabled]{cursor:default; opacity:1;}
