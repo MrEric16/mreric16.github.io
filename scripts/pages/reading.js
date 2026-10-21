@@ -318,12 +318,12 @@ function wire(){
 function toHub(){ stopTimer(); T = null; document.body.classList.remove('rd-on'); location.hash = ''; hub(); }
 function hub(){
   stopTimer(); document.body.classList.remove('rd-on'); var st = stats();
-  app.innerHTML = BACK + head('Reading Practice', 'Academic-style passages and every common question type. Each sitting draws a fresh mix of questions, and you get the answer and the evidence in the text for everything you miss.') +
+  app.innerHTML = BACK + head('Reading Practice') +
     '<div class="ls-set"><label><input type="checkbox" id="rdTimed"' + (S.timed ? ' checked' : '') + '> Timer (20 minutes a passage, 60 for a full test)</label></div>' +
     '<a class="ls-item" href="#full"><b>Full test</b><small>Three passages, 40 questions, 60 minutes.' + (st.full.n ? ' Done: ' + st.full.n + ', best ' + st.full.best + '/40.' : '') + '</small></a>' +
     '<div class="rd-lv">' + [['Any level', 0], ['Easier', 1], ['Medium', 2], ['Harder', 3]].map(function(x){ return '<a class="ls-item" href="#one' + x[1] + '"><b>One passage</b><small>' + x[0] + ', about 13 questions, 20 minutes</small></a>'; }).join('') + '</div>' +
     '<div class="rd-h3">Practise one question type</div><div id="rdTypes"><div class="v-hint">Loading...</div></div>' +
-    '<div class="v-hint" style="margin-top:8px;">Passages are written for practice. Names of researchers and figures in them are invented.' + (navigator.onLine ? ' Needs an internet connection.' : ' You are offline. Reading needs a connection.') + '</div>';
+    (navigator.onLine ? '' : '<div class="v-hint" style="margin-top:8px;">You are offline. Reading needs a connection.</div>');
   document.getElementById('rdTimed').onchange = function(){ S.timed = this.checked; lsSet('readSet', S); };
   loadIndex().then(function(idx){
     var box = document.getElementById('rdTypes'); if(!box) return;

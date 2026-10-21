@@ -9,14 +9,14 @@ function pool(needGap){
 }
 function hub(){
   var n = pool(false).length, g = pool(true).length;
-  app.innerHTML = BACK + head('Collocations and Phrasal Verbs', 'Choose a type, then a way to practise.') +
+  app.innerHTML = BACK + head('Collocations and Phrasal Verbs') +
     '<div class="cl-tabs">' + [['phr', 'Phrasal verbs'], ['col', 'Collocations'], ['idm', 'Idioms'], ['all', 'All']].map(function(t){ return '<button data-c="' + t[0] + '" class="' + (ui.cat === t[0] ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '</div>' +
     '<div class="sport-hub-grid">' +
     '<a class="sport-hub-tile" href="#gap"><span class="name" style="flex-direction:column;gap:2px;"><span>Complete the sentence</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">fill the gap</span></span></a>' +
     '<a class="sport-hub-tile" href="#m2p"><span class="name" style="flex-direction:column;gap:2px;"><span>Meaning to phrase</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">find the expression</span></span></a>' +
     '<a class="sport-hub-tile" href="#p2m"><span class="name" style="flex-direction:column;gap:2px;"><span>Phrase to meaning</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">what does it mean?</span></span></a>' +
     '<a class="sport-hub-tile" href="#browse"><span class="name" style="flex-direction:column;gap:2px;"><span>Browse and search</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">study the list</span></span></a>' +
-    '</div><div class="v-hint" style="margin-top:12px;">Wrong answers are saved automatically to your Saved words in IELTS Vocabulary.</div>';
+    '</div>';
   app.querySelectorAll('[data-c]').forEach(function(b){ b.onclick = function(){ ui.cat = b.getAttribute('data-c'); lsSet('collUI', ui); hub(); }; });
 }
 var STOPW = 'a an the to of in on at or and is are be was it its that this who which with for from by as not very more most than into up out do does doing your you one someone something their they them his her we our just can may so such have has had been being when what while about over also but if'.split(' ');

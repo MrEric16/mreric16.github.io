@@ -279,7 +279,7 @@ function beep(n, hz){
 }
 function render(){
   var ex = EXAMS[st.exam], s = cur();
-  var h = BACK + head('Exam Timer', 'One tap per section. Keep this page open; the screen stays awake while the timer runs.');
+  var h = BACK + head('Exam Timer');
   h += '<div class="mt-tabs">' + Object.keys(EXAMS).map(function(k){ return '<button data-ex="' + k + '" class="' + (k === st.exam ? 'on' : '') + '">' + EXAMS[k].label + '</button>'; }).join('') + '</div>';
   h += '<div class="mt-grid">' + ex.secs.map(function(x, i){ return '<button class="mt-sec' + (i === st.sec ? ' on' : '') + '" data-i="' + i + '">' + esc(x.n) + '<small>' + x.m + ' min' + (x.s ? '. ' + esc(x.s) : '') + '</small></button>'; }).join('') + '</div>';
   h += '<div class="mt-cust"><input id="mtMin" type="number" min="1" max="240" inputmode="numeric" placeholder="min"><button class="v-btn alt" id="mtSet" style="width:auto;margin:0;padding:11px 16px;">Set custom time</button></div>';

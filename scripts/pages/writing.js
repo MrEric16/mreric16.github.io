@@ -19,7 +19,7 @@ function sentences(t){ return t.replace(/\n+/g, ' ').replace(/([.!?]["\u201D)]?)
 function count(hay, needle){ var re = new RegExp('(^|[^a-z])' + needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?![a-z])', 'gi'); return (hay.match(re) || []).length; }
 function ui(){
   var draft = lsGet('writingDraft', '');
-  var h = BACK + head('IELTS Writing Checker', 'Paste or type your essay. You get counts and checks, not a band score. A teacher marks the band.');
+  var h = BACK + head('IELTS Writing Checker');
   h += '<div class="wr-sel">' + Object.keys(TASKS).map(function(k){ return '<button data-t="' + k + '" class="' + (st.task === k ? 'on' : '') + '">' + TASKS[k].n + '</button>'; }).join('') + '</div>';
   h += '<textarea class="wr-ta" id="wrTa" placeholder="Write your answer here..." spellcheck="true" autocapitalize="sentences">' + esc(draft) + '</textarea>';
   h += '<div class="wr-count"><span id="wrWc">0 words</span><span id="wrTarget"></span></div>';

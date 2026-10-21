@@ -67,7 +67,7 @@ function chartHtml(c){
 }
 function list(){
   var items = DATA.models.filter(function(m){ return m.task === st.tab; });
-  var h = BACK + head('IELTS Writing Models', 'Band 9 target answers for Task 1 and Task 2, with notes on why each one works.');
+  var h = BACK + head('IELTS Writing Models');
   h += '<div class="wr-sel">' + TABS.map(function(t){ return '<button data-tab="' + t[0] + '" class="' + (st.tab === t[0] ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '</div>';
   h += '<div class="wm-grid">' + items.map(function(m){
     return '<a class="wm-tile" href="#' + m.id + '"><span class="wm-type">' + esc(m.type) + '</span><b>' + esc(m.title) + '</b><span class="wm-w">' + m.words + ' words</span></a>';
@@ -82,7 +82,7 @@ function openModel(id){
   var h = back('#', 'Back to models') + head(esc(m.title), esc(m.type) + ' · ' + (m.task === 't2' ? 'Task 2' : m.task === 't1a' ? 'Task 1 Academic' : 'Task 1 General') + ' · ' + m.words + ' words');
   h += '<div class="wr-card"><h3>The task</h3>' + m.prompt.split('\n').map(function(p){ return '<p class="wm-p">' + esc(p) + '</p>'; }).join('') + '</div>';
   h += chartHtml(m.chart);
-  h += '<div class="wr-card"><div class="wm-try">Try it yourself first. Then compare.</div><div class="v-row"><button class="v-btn" id="wmTry">Write it in the Checker</button><button class="v-btn alt" id="wmShow">' + (st.shown === id ? 'Hide model answer' : 'Show model answer') + '</button></div></div>';
+  h += '<div class="wr-card"><div class="v-row"><button class="v-btn" id="wmTry">Write it in the Checker</button><button class="v-btn alt" id="wmShow">' + (st.shown === id ? 'Hide model answer' : 'Show model answer') + '</button></div></div>';
   if(st.shown === id){
     h += '<div class="wr-card wm-model"><h3>Model answer</h3>' + m.model.map(function(p, i){
       var small = m.task === 't1g' && (i === 0 || i >= m.model.length - 2);

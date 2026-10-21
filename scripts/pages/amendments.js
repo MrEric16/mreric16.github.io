@@ -3,7 +3,6 @@ function list(){ return window.LoungeAmend ? LoungeAmend.get() : []; }
 function draw(){
   var a = list();
   app.innerHTML = BACK + head('Amendments', a.length + (a.length === 1 ? ' word' : ' words') + ' to review') +
-    '<div class="v-hint">Everything you got wrong in the games lands here. Tap a blurred word or meaning to reveal it. Guess first, then check. Press Got it when you know it.</div>' +
     (a.length ? '<div class="v-row"><button class="v-btn alt" id="amBlur">Blur all again</button><button class="v-btn alt" id="amMix">Shuffle</button></div>' : '<div class="empty-card">Nothing to amend. Words you get wrong in the games will appear here.</div>') +
     '<div id="amList">' + a.map(function(x){
       return '<div class="v-card random-tile" data-k="' + esc(x.k) + '"><div class="v-word" style="font-size:26px;"><span class="blur">' + esc(x.w) + '</span></div>' +

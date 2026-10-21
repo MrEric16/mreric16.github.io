@@ -3,11 +3,10 @@ var FAM = [], ITEMS = [], ROUND = 15;
 var PN = { n: 'noun', v: 'verb', adj: 'adjective', adv: 'adverb' };
 function famHtml(f){ return '<div class="wf-fam"><b>' + esc(f.b) + '</b><br>' + ['n', 'v', 'adj', 'adv'].filter(function(p){ return f.f[p]; }).map(function(p){ return '<span><em>' + PN[p] + '</em> ' + esc(f.f[p]) + '</span>'; }).join('') + '</div>'; }
 function hub(){
-  app.innerHTML = BACK + head('Word Forms', 'Change the word in capitals into the form the sentence needs. A key skill for IELTS and TOEFL writing.') +
+  app.innerHTML = BACK + head('Word Forms') +
     '<div class="sport-hub-grid"><a class="sport-hub-tile" href="#choose"><span class="name" style="flex-direction:column;gap:2px;"><span>Choose the form</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">multiple choice</span></span></a>' +
     '<a class="sport-hub-tile" href="#type"><span class="name" style="flex-direction:column;gap:2px;"><span>Type the form</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">harder</span></span></a>' +
-    '<a class="sport-hub-tile" href="#families" style="grid-column:1 / -1;"><span class="name">Word family list</span></a></div>' +
-    '<div class="v-hint" style="margin-top:12px;">' + FAM.length + ' word families, ' + ITEMS.length + ' sentences.</div>';
+    '<a class="sport-hub-tile" href="#families" style="grid-column:1 / -1;"><span class="name">Word family list</span></a></div>';
 }
 function options(it){
   var f = it.fam.f, ans = f[it.p], opts = ['n', 'v', 'adj', 'adv'].filter(function(p){ return f[p]; }).map(function(p){ return f[p]; });

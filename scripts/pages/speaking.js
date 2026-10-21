@@ -5,10 +5,10 @@ function mmss(s){ s = Math.max(0, s); return Math.floor(s / 60) + ':' + String(s
 function hub(){
   stopAll();
   var done = lsGet('speakDone', 0);
-  app.innerHTML = BACK + head('Speaking Practice', 'IELTS style. Part 1 short answers, Part 2 the long turn with a cue card, Part 3 discussion. Record yourself and listen back.') +
+  app.innerHTML = BACK + head('Speaking Practice') +
     '<div class="sport-hub-grid"><a class="sport-hub-tile" href="#p1"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 1</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p1.length + ' topics</span></span></a>' +
     '<a class="sport-hub-tile" href="#p2"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 2 and 3</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p2.length + ' cue cards</span></span></a></div>' +
-    '<div class="v-hint" style="margin-top:12px;">Sessions finished: ' + done + '. Your recording stays on your device and is never uploaded.</div>';
+    (done ? '<div class="v-hint" style="margin-top:12px;">Sessions finished: ' + done + '</div>' : '');
 }
 function recorder(){
   if(!(navigator.mediaDevices && window.MediaRecorder)) return '<div class="v-hint">Recording is not supported in this browser. You can still use the timer.</div>';

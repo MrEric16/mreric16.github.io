@@ -10,7 +10,7 @@ function typeOf(key){ return DATA.guides.types.filter(function(t){ return t.key 
 function bullets(a, cls){ return a.map(function(x){ return '<div class="wr-li ' + (cls || 'tip') + '">' + esc(x) + '</div>'; }).join(''); }
 var TABS = [['essays', 'Essays'], ['skills', 'Skills'], ['practice', 'Practice'], ['phrases', 'Phrases']];
 function home(){
-  var G = DATA.guides, h = BACK + head('Writing Band 9', 'Task 2: learn the skills, study annotated Band 9 target essays, then practise.');
+  var G = DATA.guides, h = BACK + head('Writing Band 9');
   h += '<div class="wr-sel">' + TABS.map(function(t){ return '<button data-tab="' + t[0] + '" class="' + (st.tab === t[0] ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '</div>';
   if(st.tab === 'essays'){
     h += '<div class="wm-grid">' + G.types.map(function(t){ return '<a class="wm-tile" href="#type/' + t.key + '"><span class="wm-type">' + essays(t.key).length + ' essays</span><b>' + esc(t.name) + '</b><span class="wm-w">' + esc(t.asks[0]) + '</span></a>'; }).join('') + '</div>';
@@ -28,7 +28,7 @@ function home(){
 }
 function typeView(key){
   var t = typeOf(key); if(!t){ location.hash = ''; return; }
-  var h = back('#', 'Back to Writing Band 9') + head(esc(t.name), 'How to build this essay, then examples to study.');
+  var h = back('#', 'Back to Writing Band 9') + head(esc(t.name));
   h += '<div class="wr-card"><h3>Typical question wording</h3>' + t.asks.map(function(a){ return '<div class="wr-li">' + esc(a) + '</div>'; }).join('') + '</div>';
   h += '<div class="wr-card"><h3>Plan: one job per paragraph</h3><ol class="wm-proc">' + t.plan.map(function(p){ return '<li>' + esc(p) + '</li>'; }).join('') + '</ol></div>';
   h += '<div class="wr-card"><h3>What earns marks</h3>' + bullets(t.tips) + '</div>';
@@ -42,7 +42,7 @@ function essayView(id){
   var list = essays(m.etype), ix = list.indexOf(m), t = typeOf(m.etype);
   var h = back('#type/' + m.etype, esc(t.name)) + head(esc(m.title), esc(t.name) + ' · ' + m.words + ' words');
   h += '<div class="wr-card"><h3>The question</h3>' + m.prompt.split('\n').map(function(p){ return '<p class="wm-p">' + esc(p) + '</p>'; }).join('') + '</div>';
-  h += '<div class="wr-card"><div class="wm-try">Plan it in five minutes, write it, then compare.</div><div class="v-row"><button class="v-btn" id="wbTry">Write it in the Checker</button><button class="v-btn alt" id="wbRoles">' + (st.roles ? 'Hide paragraph jobs' : 'Show paragraph jobs') + '</button></div></div>';
+  h += '<div class="wr-card"><div class="v-row"><button class="v-btn" id="wbTry">Write it in the Checker</button><button class="v-btn alt" id="wbRoles">' + (st.roles ? 'Hide paragraph jobs' : 'Show paragraph jobs') + '</button></div></div>';
   h += '<div class="wr-card wm-model"><h3>Band 9 target essay</h3>' + m.model.map(function(p, i){ return (st.roles ? '<div class="wb-role">' + (i + 1) + '. ' + esc(m.roles[i]) + '</div>' : '') + '<p class="wm-p">' + esc(p) + '</p>'; }).join('') + '<div class="wr-note">' + m.words + ' words (numbers count as words).</div></div>';
   h += '<div class="wr-card"><h3>Why it scores Band 9</h3>' + Object.keys(m.notes).map(function(k){ return '<div class="wr-li"><b>' + esc(k) + ':</b> ' + esc(m.notes[k]) + '</div>'; }).join('') + '</div>';
   h += '<div class="wr-card"><h3>First-sentence test</h3><p class="wm-p">Read only the first sentence of each paragraph:</p>' + m.model.map(function(p, i){ return '<div class="wr-li tip">' + esc(p.split(/(?<=[.!?])\s+/)[0]) + '</div>'; }).join('') + '<div class="wr-note">If these five sentences tell the story of the essay, the structure is working.</div></div>';
@@ -100,7 +100,7 @@ function prTile(s){
   return '<a class="wm-tile" href="#practice/' + s.key + '"><span class="wm-type">' + doneIn(s) + ' of ' + s.items.length + ' written</span><b>' + esc(s.title) + '</b><span class="wm-w">' + esc(s.blurb) + '</span></a>';
 }
 function prHome(){
-  var h = '<div class="wm-warn">Typing only. No multiple choice, no gap-fills. You write every answer from a blank box, with no pasting and no spellcheck. The checker tests structure, required content, length, punctuation and copying. It cannot judge quality, so the model answer unlocks only after you pass, and you must then compare it with yours.</div>';
+  var h = '';
   [['build', 'Build the sentence (grammar and punctuation)'], ['task1', 'Task 1 parts'], ['task2', 'Task 2 parts']].forEach(function(g){
     h += '<div class="section-head" style="margin-top:14px;"><h2>' + g[1] + '</h2></div><div class="wm-grid">' + PR.sets.filter(function(s){ return s.group === g[0]; }).map(prTile).join('') + '</div>';
   });

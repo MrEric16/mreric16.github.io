@@ -34,10 +34,10 @@ function pickItem(sec){
 }
 function hub(){
   stopAudio(); var st = stats();
-  app.innerHTML = BACK + head('Listening Practice', 'Pick a section. Every task is new: fresh names, numbers, dates and topics, so you never run out.') +
+  app.innerHTML = BACK + head('Listening Practice') +
     '<div class="ls-set"><label><input type="checkbox" id="lsExam"' + (S.exam ? ' checked' : '') + '> Exam mode (play once)</label><label>Speed <select id="lsRate"><option value="0.85">Slow</option><option value="1">Normal</option><option value="1.15">Fast</option></select></label></div>' +
     Object.keys(SECS).map(function(k){ var x = SECS[k], s = st[k]; return '<a class="ls-item" href="#' + k + '"><b>' + x[0] + ': ' + x[1] + '</b><small>' + x[2] + (s ? ' Done: ' + s.n + ', average ' + Math.round(s.c / s.t * 100) + '%.' : '') + '</small></a>'; }).join('') +
-    '<div class="v-hint" style="margin-top:8px;">' + (navigator.onLine ? 'Needs an internet connection.' : 'You are offline. Listening needs a connection.') + '</div>';
+    (navigator.onLine ? '' : '<div class="v-hint" style="margin-top:8px;">You are offline. Listening needs a connection.</div>');
   var r = document.getElementById('lsRate'); r.value = String(S.rate); if(r.value !== String(S.rate)) r.value = '1';
   r.onchange = function(){ S.rate = +r.value; lsSet('listenSet', S); };
   document.getElementById('lsExam').onchange = function(){ S.exam = this.checked; lsSet('listenSet', S); };
