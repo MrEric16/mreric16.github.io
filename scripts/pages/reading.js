@@ -335,3 +335,4 @@ function route(){
 }
 window.addEventListener('hashchange', route);
 route();
+window.RD_TEST = { loadIndex: loadIndex, loadP: loadP, choose: choose, slots: slots, T: function(){ return T; }, check: check };
