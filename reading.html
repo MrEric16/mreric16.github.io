@@ -351,6 +351,10 @@ function trim(g0, k, p){
   else if(t === 'pic'){ g.items = shuffle(g.items).slice(0, k); var pm = shuffle(g.pics.map(function(x, i){ return i; })); g.items.forEach(function(it){ it.a = pm.indexOf(it.a); }); g.pics = pm.map(function(i){ return g0.pics[i]; }); }
   else if(g.items) g.items = (t === 'feat' ? diverse(g.items, k, function(x){ return x.a; }) : shuffle(g.items).slice(0, k));
   if(t === 'info') g.letters = p.paras.map(function(x){ return x.l; });
+  if(['tfng', 'mcq', 'sent', 'short', 'end'].indexOf(t) >= 0 && g.items){ // these follow passage order in the real test
+    var ord = function(it){ var pp = p.paras.filter(function(x){ return x.l === it.e[0]; })[0]; return (it.e[0].charCodeAt(0) * 100000) + (pp ? Math.max(0, pp.t.indexOf(it.e[1])) : 0); };
+    g.items.sort(function(a, b){ return ord(a) - ord(b); });
+  }
   return g;
 }
 function slots(g){ // flat list of questions for a group
