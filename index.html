@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261020212727">
+<meta name="app-build" content="20261021020721">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5153,6 +5153,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .dk-pair{ position:relative; width:calc(var(--tcw) + 16px); height:calc(var(--tcw) * 1.4545 + 18px); }
   .dk-pair .dk-card{ position:absolute; left:0; top:0; }
   .dk-pair .dk-card.def{ left:16px; top:18px; cursor:default; }
+  .dk-hint{ text-align:center; font-size:13px; font-weight:700; color:var(--ink-soft); min-height:18px; margin-top:-4px; }
   .dk-btns{ display:flex; gap:10px; justify-content:center; min-height:42px; }
   .dk-btn{ border:none; border-radius:999px; padding:10px 24px; font-weight:800; font-size:14px; cursor:pointer; background:var(--coral); color:#fff; font-family:'Nunito', sans-serif; }
   .dk-btn.alt{ background:color-mix(in srgb, var(--coral) 16%, transparent); color:var(--coral); }
@@ -16793,7 +16794,9 @@ function wireSolitaireGame(app){
 // the defender held at the start of the bout. With passing on, a defender facing only
 // unbeaten cards of one rank may add a card of that rank and pass the attack back.
 // No draws exist: the first player to empty their hand once the talon is gone wins.
-// Play is strictly sequential: one action at a time, by whoever dkActor says.
+// Play is strictly sequential: one action at a time, by whoever dkActor says. An attack
+// action may carry several cards at once (act.c is an id or an array of ids): a lead of
+// equal ranks, or a throw-in of cards whose ranks are on the table.
 const DK_SUIT_L = ['S', 'H', 'D', 'C'];
 const DK_SP_KEY = 'btDurakState_v1';
 const DK_SET_KEY = 'btDurakSettings_v1';
@@ -16885,10 +16888,22 @@ function dkCheck(st, seat, act){
   const hand = st.hands[seat];
   if(act.t === 'attack'){
     if(seat !== st.attacker) return 'role';
-    const i = dkFind(hand, act.c);
-    if(i < 0) return 'no card';
-    if(st.table.length === 0) return '';
-    return dkCanAddCard(st, hand[i]) ? '' : 'illegal add';
+    const ids = Array.isArray(act.c) ? act.c : [act.c];
+    if(!ids.length || ids.length > 6) return 'no card';
+    const cards = [];
+    for(let k = 0; k < ids.length; k += 1){
+      const i = dkFind(hand, ids[k]);
+      if(i < 0 || ids.indexOf(ids[k]) !== k) return 'no card';
+      cards.push(hand[i]);
+    }
+    if(st.table.length === 0){
+      if(cards.some(c => c.r !== cards[0].r)) return 'lead one rank';
+      return cards.length > st.limit ? 'too many' : '';
+    }
+    if(!st.opts.throwIn) return 'illegal add';
+    if(st.table.length + cards.length > st.limit) return 'too many';
+    const ranks = dkTableRanks(st);
+    return cards.every(c => ranks[c.r]) ? '' : 'illegal add';
   }
   if(act.t === 'defend'){
     if(seat !== dkDef(st) || st.taking) return 'role';
@@ -16972,8 +16987,10 @@ function dkApply(st, seat, act){
   if(why) return { ok: false, why: why };
   const hand = st.hands[seat];
   if(act.t === 'attack'){
-    const c = hand.splice(dkFind(hand, act.c), 1)[0];
-    st.table.push({ a: c, d: null });
+    (Array.isArray(act.c) ? act.c : [act.c]).forEach(id => {
+      const c = hand.splice(dkFind(hand, id), 1)[0];
+      st.table.push({ a: c, d: null });
+    });
     dkNoteOut(st, seat);
   } else if(act.t === 'defend'){
     const c = hand.splice(dkFind(hand, act.c), 1)[0];
@@ -17100,8 +17117,16 @@ function dkBoardHtml(g, W){
     } else if(st.table.length && (st.taking || !dkUndefended(st).length)){
       btns += '<button class="dk-btn" data-dk="done">Done</button>';
     }
+    if(iAttack && g.multi && g.multi.length) btns = `<button class="dk-btn" data-dk="playsel">Play ${g.multi.length} card${g.multi.length > 1 ? 's' : ''}</button>` + btns;
   }
-  const status = `<div class="dk-btns">${btns}</div>`;
+  let hint = g.msg || '';
+  if(!hint && myTurn && st.winner === null){
+    if(!iAttack) hint = st.taking ? '' : 'Tap a card to beat the attack, or Take.';
+    else if(!st.table.length) hint = 'Lead a card. Equal ranks can be played together.';
+    else if(st.taking) hint = 'You can add more cards, or press Done.';
+    else hint = 'Throw in a card of a rank on the table, or press Done.';
+  }
+  const status = `<div class="dk-btns">${btns}</div>` + (hint ? `<div class="dk-hint">${hint}</div>` : '');
 
   // my hand, rows of up to 9 cards, overlapped to fit
   const mine = dkSortedHand(st, me);
@@ -17112,7 +17137,7 @@ function dkBoardHtml(g, W){
     const need = row.length * cw;
     const ov = row.length > 1 && need > W - 8 ? Math.ceil((need - (W - 8)) / (row.length - 1)) : 0;
     const cells = row.map((c, i) => {
-      const sel = g.sel === dkId(c) ? 'sel' : '';
+      const sel = (g.sel === dkId(c) || (g.multi && g.multi.indexOf(dkId(c)) >= 0)) ? 'sel' : '';
       return dkCardEl(c, cw, sel, `data-dk="card" data-id="${dkId(c)}"`, i ? `margin-left:${-ov}px;` : '');
     }).join('');
     rows += `<div class="dk-hand-row">${cells}</div>`;
@@ -17216,7 +17241,7 @@ function wireDurakGame(){
   dkAiKick(dkSp);
 }
 function dkSpAfter(g){
-  g.sel = null;
+  g.sel = null; g.multi = []; g.msg = '';
   if(g.st.winner !== null){
     if(!g.finished){ g.finished = true; dkStatsAdd(g.st.winner === g.mySeat); }
     btClearState(DK_SP_KEY);
@@ -17252,7 +17277,7 @@ function dkDo(g, act){
   const n = g.st.n;
   const r = dkApply(g.st, g.mySeat, act);
   if(!r.ok) return false;
-  g.sel = null;
+  g.sel = null; g.multi = []; g.msg = '';
   if(g.mode === 'sp'){ dkSpAfter(g); return true; }
   g.log.push(act);
   gameChannel.send({ type: 'broadcast', event: 'game_move', payload: { to: g.opponentKey, from: myPresenceKey, dk: 'act', n: n, act: act } });
@@ -17286,16 +17311,54 @@ function dkHandleTap(el){
   if(dkActor(st) !== me) return;
   if(k === 'card'){
     const id = parseInt(el.dataset.id, 10);
-    if(me === st.attacker){ dkDo(g, { t: 'attack', c: id }); return; }
+    const hand = st.hands[me];
+    const card = hand[dkFind(hand, id)];
+    if(!card) return;
+    g.msg = '';
+    if(me === st.attacker){
+      // which cards could go down together with this one (same rank)?
+      const room = (st.table.length ? st.limit - st.table.length : st.limit);
+      const mates = hand.filter(c => c.r === card.r);
+      const legalOne = !dkCheck(st, me, { t: 'attack', c: id });
+      if(!legalOne){
+        g.multi = [];
+        g.msg = st.table.length ? 'No card of that rank is on the table.' : 'You cannot lead that card.';
+        dkRender(g); return;
+      }
+      if(mates.length < 2 || room < 2){ dkDo(g, { t: 'attack', c: id }); return; }
+      g.multi = g.multi || [];
+      const cur = g.multi.map(x => hand[dkFind(hand, x)]).filter(Boolean);
+      if(cur.length && cur[0].r !== card.r) g.multi = [];
+      const at = g.multi.indexOf(id);
+      if(at >= 0) g.multi.splice(at, 1);
+      else if(g.multi.length < room) g.multi.push(id);
+      dkRender(g);
+      return;
+    }
     const und = dkUndefended(st);
-    if(!st.opts.passing && und.length === 1){ dkDo(g, { t: 'defend', a: und[0], c: id }); return; }
+    const targets = und.filter(i => dkBeats(card, st.table[i].a, st.trump));
+    const canPass = st.opts.passing && !dkCheck(st, me, { t: 'pass', c: id });
+    if(!targets.length && !canPass){
+      g.sel = null;
+      g.msg = und.length > 1 ? 'That card cannot beat any card on the table.' : 'That card cannot beat it. Pick a higher card of the same suit or a trump, or Take.';
+      dkRender(g); return;
+    }
+    if(!canPass && targets.length === 1){ dkDo(g, { t: 'defend', a: targets[0], c: id }); return; }
     g.sel = g.sel === id ? null : id;
+    if(g.sel !== null) g.msg = canPass && targets.length ? 'Tap the card to beat it, or Pass.' : canPass ? 'Tap Pass to send the attack back.' : 'Tap the attacking card you want to beat.';
     dkRender(g);
     return;
   }
+  if(k === 'playsel'){
+    if(g.multi && g.multi.length) dkDo(g, { t: 'attack', c: g.multi.slice() });
+    return;
+  }
   if(k === 'slot'){
-    if(g.sel === null || g.sel === undefined || me === st.attacker) return;
-    dkDo(g, { t: 'defend', a: parseInt(el.dataset.idx, 10), c: g.sel });
+    if(me === st.attacker) return;
+    if(g.sel === null || g.sel === undefined){ g.msg = 'Pick a card from your hand first.'; dkRender(g); return; }
+    if(!dkDo(g, { t: 'defend', a: parseInt(el.dataset.idx, 10), c: g.sel })){
+      g.msg = 'That card does not beat this one.'; dkRender(g);
+    }
     return;
   }
   if(k === 'take'){ dkDo(g, { t: 'take' }); return; }
@@ -17375,6 +17438,7 @@ function dkMpAfter(){
   const g = dkMp;
   if(!g || !g.st) return;
   g.myTurn = dkActor(g.st) === g.mySeat;
+  g.multi = []; g.msg = '';
   dkRender(g);
   if(g.st.winner !== null){ dkMpFinish(); return; }
   startTurnTimer();
