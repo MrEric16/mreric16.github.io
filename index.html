@@ -18200,7 +18200,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Speaking Practice", emoji: icon('mic'), url: "speaking.html", internal: false, sameTab: true, kw: ["speaking", "ielts speaking", "cue card", "part 2", "part 1", "record", "toefl speaking"] },
   { name: "Exam Timer", emoji: icon('hourglass'), url: "mocktimer.html", internal: false, sameTab: true, kw: ["timer", "ielts timer", "toefl timer", "mock test", "countdown", "section timer"] },
   { name: "Vocabulary", emoji: icon('book'), url: "#vocab-hub", internal: true, hub: true, kw: ["vocabulary", "words", "collocations", "phrasal verbs", "word forms", "ielts vocabulary"] },
-  { name: "Word Match", emoji: icon('scales'), url: "#word-match", internal: true, hub: true, kw: ["synonyms", "antonyms", "idioms", "match"] },
+  { name: "Word Match", emoji: icon('scales'), url: "#word-match", internal: true, hub: true, hide: true, kw: ["synonyms", "antonyms", "idioms", "match"] },
   { name: "Grammar", emoji: icon('checkDouble'), url: "#grammar-hub", internal: true, hub: true, kw: ["grammar", "irregular verbs", "tenses"] },
   { name: "Alias", emoji: icon('chatBubble'), url: "#alias-game", internal: true },
   { name: "Solitaire", emoji: icon('spade'), url: "#solitaire-game", internal: true },
@@ -18216,7 +18216,7 @@ const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzz
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#odd-one-out-game', 'connections.html', 'spellingbee.html', '#nerdle-game', '#xword-game', '#alias-game'],
-  language: ['#vocab-hub', '#word-match', '#grammar-hub', 'writing-hub.html', 'listening.html', 'reading.html', 'speaking.html', 'mocktimer.html', 'amendments.html', '#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'collocations.html', 'wordforms.html'],
+  language: ['#vocab-hub', '#grammar-hub', 'writing-hub.html', 'listening.html', 'reading.html', 'speaking.html', 'mocktimer.html', 'amendments.html', '#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'grammar.html', 'collocations.html', 'wordforms.html'],
   geo: ['#flag-game', '#capital-game', '#currency-game', '#language-game', '#phrase-lang-game', '#silhouette-game', 'globe.html', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],
@@ -18258,12 +18258,12 @@ function viewGeographyHub(){
 function viewStudyHub(kind){
   const H = {
     'word-match': ['Word Match', 'scales', [['Synonym Match', 'equals', '#synonym-match-game'], ['Antonym Match', 'scales', '#antonym-match-game'], ['Idiom Match', 'chatBubble', '#idiom-match-game']]],
-    'vocab-hub': ['Vocabulary', 'book', [['IELTS Vocabulary', 'book', 'vocabulary.html'], ['Collocations and Phrasal Verbs', 'linkchain', 'collocations.html'], ['Word Forms', 'layers', 'wordforms.html']]],
+    'vocab-hub': ['Vocabulary', 'book', [['IELTS Vocabulary', 'book', 'vocabulary.html'], ['Collocations and Phrasal Verbs', 'linkchain', 'collocations.html'], ['Word Forms', 'layers', 'wordforms.html'], ['Word Match', 'scales', '#word-match']]],
     'grammar-hub': ['Grammar', 'checkDouble', [['Grammar Practice', 'book', 'grammar.html'], ['Irregular Verbs', 'book', '#irregular-verbs']]],
   }[kind];
   const tiles = H[2].map(x => sportsTileHtml({ name: x[0], emoji: icon(x[1]), url: x[2], internal: x[2].charAt(0) === '#', sameTab: true, cat: 'language' })).join('');
   return `
-    <a class="back-link" href="#geography-hub/study">\u2190 Back to Train Your Brain</a>
+    ${kind === 'word-match' ? '<a class="back-link" href="#vocab-hub">\u2190 Back to Vocabulary</a>' : '<a class="back-link" href="#geography-hub/study">\u2190 Back to Train Your Brain</a>'}
     <section style="padding-top:14px;">
       <div class="section-head"><span class="emoji">${icon(H[1])}</span><h2>${H[0]}</h2></div>
       <div class="sport-hub-grid">${tiles}</div>
