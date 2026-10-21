@@ -165,6 +165,13 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .td-aq{display:flex; gap:14px; align-items:center;} .td-aqn{width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; font:800 24px Nunito,sans-serif; flex:none;}
 .td-bars{display:flex; gap:2px; align-items:flex-end; height:64px;} .td-bars i{flex:1; border-radius:3px 3px 0 0; display:block;}
 
+.td-cb{background:var(--cream-2); border:1px solid var(--line); border-radius:20px; padding:12px 16px; margin-top:8px; color:var(--ink);}
+.td-cl{font-size:14px; font-weight:700; color:var(--ink-soft); margin-bottom:2px;}
+.td-crow{display:flex; align-items:center; justify-content:space-between; gap:10px;}
+.td-cs{border:none; background:transparent; color:var(--ink); font:900 20px Nunito,sans-serif; padding:6px 2px; max-width:110px;}
+.td-ca{flex:1; min-width:0; border:none; background:transparent; color:var(--ink); font:900 32px Nunito,sans-serif; text-align:right; padding:0;}
+.td-cv2{text-align:right; min-width:0;} .td-co{font:900 26px/1.15 Nunito,sans-serif; word-break:break-word;}
+
 </style>
 </head>
 <body>
@@ -264,9 +271,11 @@ function sec(title, tag, body){ return '<section class="td-sec"><div class="td-h
 /* ---------- Exchange rates ---------- */
 var CUR = ['USD', 'EUR', 'GBP', 'RUB', 'AED', 'KZT', 'CNY', 'KGS'];
 var NAMES = { UZS: 'Uzbekistan', USD: 'US dollar', EUR: 'Euro', GBP: 'Pound sterling', RUB: 'Russian rouble', AED: 'UAE dirham', KZT: 'Kazakhstani tenge', CNY: 'Chinese yuan', KGS: 'Kyrgyz som' };
-var conv = lsGet('tashkentConv2', { from: 'USD', to: 'UZS', amt: '100' });
-if(['UZS'].concat(CUR).indexOf(conv.from) < 0) conv.from = 'USD';
-if(['UZS'].concat(CUR).indexOf(conv.to) < 0) conv.to = 'UZS';
+var ALL = ['UZS'].concat(CUR);
+var conv = lsGet('tashkentConv3', { from: 'AED', amt: '1', to: ['USD', 'RUB', 'UZS', 'EUR'] });
+if(ALL.indexOf(conv.from) < 0) conv.from = 'AED';
+if(!Array.isArray(conv.to) || conv.to.length !== 4) conv.to = ['USD', 'RUB', 'UZS', 'EUR'];
+conv.to = conv.to.map(function(c){ return ALL.indexOf(c) < 0 ? 'USD' : c; });
 function unit(c){ if(c === 'UZS') return 1; var x = D.rates.items[c]; return x.rate / x.nominal; }
 function fmtN(n){ return n >= 100 ? Math.round(n).toLocaleString('en-GB') : n.toFixed(2); }
 function fmtAmt(n, c){
@@ -295,18 +304,19 @@ function rates(){
     var d = x.diff / x.nominal;
     return '<tr><td><b>' + c + '</b><span>' + NAMES[c] + '</span></td><td>' + fmtN(unit(c)) + ' UZS</td><td>' + (d ? '<i class="td-ch ' + (d > 0 ? 'up' : 'dn') + '">' + (d > 0 ? '▲ ' : '▼ ') + fmtN(Math.abs(d)) + '</i>' : '') + '</td></tr>';
   }).join('') + '</table>';
-  h += '<div class="td-cvh">Converter</div><input id="tdAmt" class="td-in" type="number" inputmode="decimal" value="' + esc(conv.amt) + '" aria-label="Amount">' +
-    '<div class="td-cv"><select id="tdFrom" class="td-in" aria-label="From">' + opts(conv.from) + '</select><button class="td-btn" id="tdSwap" aria-label="Swap currencies">⇄</button><select id="tdTo" class="td-in" aria-label="To">' + opts(conv.to) + '</select></div>' +
-    '<div id="tdRes" class="td-res"></div><div id="tdUnit" class="td-unit"></div>';
+  h += '<div class="td-cvh">Converter</div><div class="td-cb"><div class="td-cl">You convert</div><div class="td-crow"><select id="tdFrom" class="td-cs" aria-label="From">' + opts(conv.from) + '</select><input id="tdAmt" class="td-ca" type="text" inputmode="decimal" value="' + esc(conv.amt) + '" aria-label="Amount"></div></div>' +
+    conv.to.map(function(c, i){ return '<div class="td-cb"><div class="td-crow"><select class="td-cs td-to" data-i="' + i + '" aria-label="To">' + opts(c) + '</select><div class="td-cv2"><div class="td-co" id="tdO' + i + '"></div><div class="td-unit" id="tdU' + i + '"></div></div></div></div>'; }).join('');
   return sec('Exchange rates', '', h);
 }
 function convPaint(){
-  var el = document.getElementById('tdRes'), u = document.getElementById('tdUnit'); if(!el || !D.rates) return;
-  var a = parseFloat(conv.amt);
-  if(!isFinite(a)){ el.textContent = ''; u.textContent = ''; return; }
-  var r = unit(conv.from) / unit(conv.to);
-  el.textContent = a.toLocaleString('en-GB', { maximumFractionDigits: 6 }) + ' ' + conv.from + ' = ' + fmtAmt(a * r, conv.to) + ' ' + conv.to;
-  u.textContent = '1 ' + conv.from + ' = ' + fmtRate(r) + ' ' + conv.to;
+  if(!D.rates) return;
+  var a = parseFloat(String(conv.amt).replace(/,/g, ''));
+  conv.to.forEach(function(c, i){
+    var o = document.getElementById('tdO' + i), u = document.getElementById('tdU' + i); if(!o) return;
+    var r = unit(conv.from) / unit(c);
+    o.textContent = isFinite(a) ? fmtAmt(a * r, c) : '';
+    u.textContent = '1 ' + conv.from + ' \u2192 ' + (c === 'UZS' ? r.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : fmtRate(r)) + ' ' + c;
+  });
 }
 
 /* ---------- Prayer times ---------- */
@@ -343,13 +353,12 @@ function air(){
 
 function view(){
   app.innerHTML = BACK + head('Tashkent Today', 'Exchange rates, prayer times and air quality.') + rates() + prayer() + air();
-  var amt = document.getElementById('tdAmt'), f = document.getElementById('tdFrom'), t = document.getElementById('tdTo'), sw = document.getElementById('tdSwap');
+  var amt = document.getElementById('tdAmt'), f = document.getElementById('tdFrom');
   if(amt){
-    function save(){ lsSet('tashkentConv2', conv); convPaint(); }
+    var save = function(){ lsSet('tashkentConv3', conv); convPaint(); };
     amt.oninput = function(){ conv.amt = amt.value; save(); };
     f.onchange = function(){ conv.from = f.value; save(); };
-    t.onchange = function(){ conv.to = t.value; save(); };
-    sw.onclick = function(){ var x = conv.from; conv.from = conv.to; conv.to = x; f.value = conv.from; t.value = conv.to; save(); };
+    document.querySelectorAll('.td-to').forEach(function(t){ t.onchange = function(){ conv.to[+t.getAttribute('data-i')] = t.value; save(); }; });
     convPaint();
   }
 }
