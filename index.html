@@ -35236,11 +35236,20 @@ const COMPLIMENTS = [
   // gone, nobody ends up on nationalday except by deliberately picking it themselves,
   // and force-resetting a deliberate pick back to default once the window ends would be
   // exactly the unwanted forcing this was supposed to stop doing. Removed entirely.
+  // Brand-new visitors (no saved theme, no legacy dark flag, migration never ran) are no
+  // longer silently locked into IHL Dark: it is only the look behind the theme picker,
+  // which opens by itself on their first visit so they choose. Nothing is saved until they
+  // actually pick. Everyone else keeps the old behaviour exactly.
+  let firstVisit = false;
   try{
     if(!localStorage.getItem('elDihlDefaultMigrationDone')){
       localStorage.setItem('elDihlDefaultMigrationDone', '1');
       initial = 'dihl';
-      localStorage.setItem('themeChoice', 'dihl');
+      if(localStorage.getItem('themeChoice') === null && localStorage.getItem('darkMode') === null && !localStorage.getItem('themePickerShown')){
+        firstVisit = true;
+      } else {
+        localStorage.setItem('themeChoice', 'dihl');
+      }
     }
   }catch(e){}
   if(THEME_ORDER.indexOf(initial) === -1) initial = 'default';
@@ -35328,7 +35337,7 @@ const COMPLIMENTS = [
   }
   function refreshThemePickerActiveState(){
     if(!themePickerBackdrop) return;
-    const currentKey = (()=>{ try{ return localStorage.getItem('themeChoice'); }catch(e){ return null; } })() || 'default';
+    const currentKey = (()=>{ try{ return localStorage.getItem('themeChoice'); }catch(e){ return null; } })() || (firstVisit ? 'dihl' : 'default');
     themePickerBackdrop.querySelectorAll('[data-theme-key]').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.themeKey === currentKey);
     });
@@ -35357,6 +35366,10 @@ const COMPLIMENTS = [
     }
     openThemePicker();
   });
+  if(firstVisit){
+    try{ localStorage.setItem('themePickerShown', '1'); }catch(e){}
+    setTimeout(openThemePicker, 800);
+  }
 })();
 
 
