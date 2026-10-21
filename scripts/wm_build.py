@@ -46,5 +46,5 @@ drills = [
 b9 = [x for x in out if x['id'] in B9ONLY or (x['task'] == 't2')]
 os.makedirs(os.path.join(here, '..', 'data', 'writing'), exist_ok=True)
 json.dump({'v': 3, 'models': [x for x in out if x['id'] not in B9ONLY]}, open(os.path.join(here, '..', 'data', 'writing', 'models.json'), 'w', encoding='utf8'), ensure_ascii=False, separators=(',', ':'))
-json.dump({'v': 1, 'essays': b9, 'guides': GUIDES, 'lessons': B9.LESSONS, 'drills': drills}, open(os.path.join(here, '..', 'data', 'writing', 'band9.json'), 'w', encoding='utf8'), ensure_ascii=False, separators=(',', ':'))
+json.dump({'v': 1, 'essays': b9, 'guides': GUIDES, 'lessons': B9.LESSONS, 'drills': []}, open(os.path.join(here, '..', 'data', 'writing', 'band9.json'), 'w', encoding='utf8'), ensure_ascii=False, separators=(',', ':'))
 print(len(out), 'models,', len(b9), 'band9 essays,', sum(len(d['items']) for d in drills), 'drill items,', bad, 'problems'); sys.exit(1 if bad else 0)

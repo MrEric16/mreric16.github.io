@@ -21,3 +21,6 @@
 .wb-pair{margin-bottom:12px;} .wb-ctx{background:var(--cream-2); border-radius:12px; padding:10px 12px; font-size:14.5px;}
 .wb-opt{display:block; width:100%; text-align:left; margin:8px 0; padding:12px 14px; border:2px solid var(--line); border-radius:14px; background:var(--card); color:var(--ink); font-family:inherit; font-size:15px; font-weight:700; cursor:pointer; line-height:1.4;}
 .wb-opt.good{border-color:var(--teal); background:rgba(107,122,61,.18);} .wb-opt.bad{border-color:#B3261E; background:rgba(179,38,30,.12);} .wb-opt[disabled]{cursor:default; opacity:1;}
+.wb-ta{width:100%; box-sizing:border-box; border:2px solid var(--line); border-radius:14px; padding:12px 14px; background:var(--card); color:var(--ink); font-family:inherit; font-size:16px; line-height:1.5; resize:vertical;}
+.wb-ta:focus{outline:none; border-color:var(--teal);} .wb-count{font-size:12.5px; font-weight:700; color:var(--ink-soft); margin:6px 0 10px;} .wb-sub{color:var(--ink-soft); font-size:14px;}
+.wb-tw{overflow-x:auto;} .wb-tab{border-collapse:collapse; width:100%; font-size:14.5px;} .wb-tab th,.wb-tab td{border:1px solid var(--line); padding:7px 10px; text-align:left;} .wb-tab th{background:var(--cream-2); font-weight:800;}
