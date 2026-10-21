@@ -15,12 +15,10 @@ function sec(title, tag, body){ return '<section class="td-sec"><div class="td-h
 
 /* ---------- Exchange rates ---------- */
 var CUR = ['USD', 'EUR', 'GBP', 'RUB', 'AED', 'KZT', 'CNY', 'KGS'];
-var NAMES = { UZS: 'Uzbekistan', USD: 'US dollar', EUR: 'Euro', GBP: 'Pound sterling', RUB: 'Russian rouble', AED: 'UAE dirham', KZT: 'Kazakhstani tenge', CNY: 'Chinese yuan', KGS: 'Kyrgyz som' };
+var NAMES = { UZS: 'Uzbekistani som', USD: 'US dollar', EUR: 'Euro', GBP: 'Pound sterling', RUB: 'Russian rouble', AED: 'UAE dirham', KZT: 'Kazakhstani tenge', CNY: 'Chinese yuan', KGS: 'Kyrgyz som' };
 var ALL = ['UZS'].concat(CUR);
-var conv = lsGet('tashkentConv4', { from: 'AED', amt: '1', to: ['UZS', 'USD', 'RUB', 'EUR'] });
-if(ALL.indexOf(conv.from) < 0) conv.from = 'AED';
-if(!Array.isArray(conv.to) || conv.to.length !== 4) conv.to = ['UZS', 'USD', 'RUB', 'EUR'];
-conv.to = conv.to.map(function(c){ return ALL.indexOf(c) < 0 ? 'USD' : c; });
+var conv = lsGet('tashkentConv5', { b: 'AED', amt: '1' });
+if(ALL.indexOf(conv.b) < 0) conv.b = 'AED';
 function unit(c){ if(c === 'UZS') return 1; var x = D.rates.items[c]; return x.rate / x.nominal; }
 function fmtN(n){ return n >= 100 ? Math.round(n).toLocaleString('en-GB') : n.toFixed(2); }
 function fmtAmt(n, c){
@@ -53,27 +51,25 @@ var FL = {
   KGS: '<rect width="36" height="36" fill="#E8112D"/><circle cx="18" cy="18" r="8" fill="#FFEF00"/><circle cx="18" cy="18" r="4.4" fill="#E8112D"/>'
 };
 function flag(c){ return '<svg class="td-fl" viewBox="0 0 36 36" aria-hidden="true">' + (FL[c] || '<rect width="36" height="36" fill="#999"/>') + '</svg>'; }
-function opts(sel){ return ['UZS'].concat(CUR).map(function(c){ return '<option' + (c === sel ? ' selected' : '') + '>' + c + '</option>'; }).join(''); }
 function rates(){
   var R = D.rates; if(!R) return sec('Exchange rates', '', '<div class="v-hint">Not available yet.</div>');
   var warn = ratesStale() ? '<div class="td-warn">These rates could not be refreshed recently and may be out of date. Check cbu.uz before you exchange money.</div>' : '';
-  var h = warn + '<table class="td-tb">' + CUR.map(function(c){
-    var x = R.items[c]; if(!x) return '';
-    var d = x.diff / x.nominal;
-    return '<tr><td><div class="td-cn">' + flag(c) + '<div><b>' + c + '</b><span>' + NAMES[c] + '</span></div></div></td><td>' + fmtN(unit(c)) + ' UZS</td><td>' + (d ? '<i class="td-ch ' + (d > 0 ? 'up' : 'dn') + '">' + (d > 0 ? '▲ ' : '▼ ') + fmtN(Math.abs(d)) + '</i>' : '') + '</td></tr>';
-  }).join('') + '</table>';
-  h += '<div class="td-cvh">Converter</div><div class="td-cb"><div class="td-cl">You convert</div><div class="td-crow"><span class="td-flw" id="tdFlF">' + flag(conv.from) + '</span><select id="tdFrom" class="td-cs" aria-label="From">' + opts(conv.from) + '</select><input id="tdAmt" class="td-ca" type="text" inputmode="decimal" value="' + esc(conv.amt) + '" aria-label="Amount"></div></div>' +
-    conv.to.map(function(c, i){ return '<div class="td-cb"><div class="td-crow"><span class="td-flw" id="tdFl' + i + '">' + flag(c) + '</span><select class="td-cs td-to" data-i="' + i + '" aria-label="To">' + opts(c) + '</select><div class="td-cv2"><div class="td-co" id="tdO' + i + '"></div><div class="td-unit" id="tdU' + i + '"></div></div></div></div>'; }).join('');
-  return sec('Exchange rates', '', h);
+  var h = warn + '<div class="td-hint">Type an amount in any currency. Every other row updates.</div><div class="td-tb2">' + ALL.map(function(c){
+    var x = c === 'UZS' ? null : R.items[c]; if(c !== 'UZS' && !x) return '';
+    var d = x ? x.diff / x.nominal : 0;
+    return '<div class="td-r" data-c="' + c + '"><div class="td-cn">' + flag(c) + '<div><b>' + c + '</b><span>' + NAMES[c] + '</span>' + (d ? '<i class="td-ch ' + (d > 0 ? 'up' : 'dn') + '">' + (d > 0 ? '▲ ' : '▼ ') + fmtN(Math.abs(d)) + '</i>' : '') + '</div></div>' +
+      '<div class="td-rv"><input class="td-ra" type="text" inputmode="decimal" data-c="' + c + '" autocomplete="off" aria-label="Amount in ' + c + '"><div class="td-unit" id="tdU' + c + '"></div></div></div>';
+  }).join('') + '</div>';
+  return sec('Exchange rates and converter', '', h);
 }
-function convPaint(){
+function convPaint(skip){
   if(!D.rates) return;
-  var a = parseFloat(String(conv.amt).replace(/,/g, ''));
-  conv.to.forEach(function(c, i){
-    var o = document.getElementById('tdO' + i), u = document.getElementById('tdU' + i); if(!o) return;
-    var r = unit(conv.from) / unit(c);
-    o.textContent = isFinite(a) ? fmtAmt(a * r, c) : '';
-    u.textContent = '1 ' + conv.from + ' \u2192 ' + (c === 'UZS' ? r.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : fmtRate(r)) + ' ' + c;
+  var a = parseFloat(String(conv.amt).replace(/,/g, '').replace(/\s/g, ''));
+  ALL.forEach(function(c){
+    var inp = document.querySelector('.td-ra[data-c="' + c + '"]'), u = document.getElementById('tdU' + c); if(!inp) return;
+    var r = unit(conv.b) / unit(c);
+    if(c !== skip) inp.value = c === conv.b ? conv.amt : (isFinite(a) ? fmtAmt(a * r, c) : '');
+    u.textContent = c === conv.b ? '' : '1 ' + conv.b + ' → ' + (c === 'UZS' ? r.toLocaleString('en-GB', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : fmtRate(r)) + ' ' + c;
   });
 }
 
@@ -111,13 +107,10 @@ function air(){
 
 function view(){
   app.innerHTML = BACK + head('Tashkent Today', 'Exchange rates, prayer times and air quality.') + rates() + prayer() + air();
-  var amt = document.getElementById('tdAmt'), f = document.getElementById('tdFrom');
-  if(amt){
-    var save = function(){ lsSet('tashkentConv4', conv); convPaint(); };
-    amt.oninput = function(){ conv.amt = amt.value; save(); };
-    f.onchange = function(){ conv.from = f.value; document.getElementById('tdFlF').innerHTML = flag(conv.from); save(); };
-    document.querySelectorAll('.td-to').forEach(function(t){ t.onchange = function(){ var k = +t.getAttribute('data-i'); conv.to[k] = t.value; document.getElementById('tdFl' + k).innerHTML = flag(t.value); save(); }; });
-    convPaint();
-  }
+  document.querySelectorAll('.td-ra').forEach(function(inp){
+    inp.onfocus = function(){ try{ inp.select(); }catch(e){} };
+    inp.oninput = function(){ conv.b = inp.getAttribute('data-c'); conv.amt = inp.value; lsSet('tashkentConv5', conv); convPaint(conv.b); };
+  });
+  convPaint();
 }
 getJson('data/tashkent-today.json').then(function(d){ D = d; view(); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
