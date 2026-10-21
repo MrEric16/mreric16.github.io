@@ -24,14 +24,9 @@ P = passage('p89', 'Inside an Ant Colony', 'Biology', 2, 'You should spend about
   ('Why does the colony eventually prefer the shorter route?', ['Scent builds up faster there.', 'The queen orders it.', 'It is safer.', 'It is flatter.'], 0, 'D', 'scent builds up faster'),
   ('What does Dr Reiner call the colony?', ['A superorganism.', 'A machine.', 'A family.', 'An army.'], 0, 'G', 'superorganism'),
  ]),
- diag('Label the stages in the life of an ant, in order. Write ONE WORD from the passage for each answer.', *chain(4)[2:], chain(4)[0], chain(4)[1],
-  [(['egg'], 'C', 'starts as an egg'), (['larva'], 'C', 'worm-like larva'), (['pupa'], 'C', 'becomes a pupa'), (['adult'], 'C', 'adult ant')], 1) if False else
  table('Complete the table. Write ONE WORD from the passage for each answer.', ['Stage', 'Detail'],
   [['Egg', 'Hatches into a [[1]]'], ['Larva', 'Is fed by [[2]]'], ['Pupa', 'Body is completely [[3]]'], ['Adult', 'Emerges after a few [[4]]']],
   [(['larva'], 'C', 'worm-like larva'), (['workers'], 'C', 'fed by workers'), (['rebuilt'], 'C', 'completely rebuilt'), (['weeks'], 'C', 'a few weeks')], 1),
- flow('Complete the flow chart. Write ONE WORD from the passage for each answer.',
-  ['A worker finds [[1]].', 'She leaves a trail of [[2]] on the way home.', 'Other ants follow the [[3]].', 'The shortest route becomes the [[4]] one.'],
-  [(['food'], 'D', 'finds food'), (['scent'], 'D', 'trail of scent'), (['trail'], 'D', 'follow it'), (['strongest'], 'D', 'stronger')], 1) if False else
  flow('Complete the flow chart. Write ONE WORD from the passage for each answer.',
   ['A worker finds [[1]].', 'She leaves a trail of [[2]] on the way home.', 'The more ants that use the path, the [[3]] the trail becomes.', 'Most ants eventually prefer the [[4]] route.'],
   [(['food'], 'D', 'finds food'), (['scent'], 'D', 'trail of scent'), (['stronger'], 'D', 'stronger'), (['shorter'], 'D', 'shorter route')], 1),
@@ -45,7 +40,7 @@ P = passage('p89', 'Inside an Ant Colony', 'Biology', 2, 'You should spend about
  head(['A tiny giant', 'Who does what', 'A body rebuilt', 'Messages in scent', 'Gardeners and marchers', 'Rafts, cattle and wars', 'No ruler at all', 'The history of insects', 'Ants as pets'],
   [('A', 0, 'one of the most successful societies on Earth'), ('B', 1, 'three kinds of ant'), ('C', 2, 'completely rebuilt'), ('D', 3, 'communicate mainly by chemicals'), ('E', 4, 'remarkable ways of life'), ('F', 5, 'form a floating raft'), ('G', 6, 'does not rule at all')]),
  info([
-  ('a comparison between the weight of ants and humans', 'A', 'weight of all humans' if False else 'similar to that of all humans'),
+  ('a comparison between the weight of ants and humans', 'A', 'similar to that of all humans'),
   ('a reference to powerful jaws', 'B', 'powerful jaws'),
   ('a reference to delivery routes', 'D', 'delivery routes'),
   ('a reference to silk', 'E', 'silk produced by their larvae'),

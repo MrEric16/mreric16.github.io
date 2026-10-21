@@ -41,7 +41,7 @@ P = passage('p87', 'The Great Bird Migration', 'Biology', 2, 'You should spend a
   [('A', 0, 'cross whole continents and oceans'), ('B', 1, 'The main reason for migration is food'), ('C', 2, 'store the energy as fat'), ('D', 3, 'The main signal is the length of the day'), ('E', 4, 'use several compasses at once'), ('F', 5, 'Today migration faces new threats'), ('G', 6, 'Many countries are cooperating')]),
  info([
   ('a reference to the size of a bird\'s brain', 'A', 'size of a nut'),
-  ('a reference to shrinking digestive organs', 'B' if False else 'C', 'shrink their digestive organs'),
+  ('a reference to shrinking digestive organs', 'C', 'shrink their digestive organs'),
   ('a reference to birds in cages', 'D', 'kept in cages'),
   ('a reference to landmarks', 'E', 'rivers, coastlines and mountain ranges'),
   ('a reference to switching off lights', 'G', 'switch off their lights'),
