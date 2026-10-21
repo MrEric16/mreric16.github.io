@@ -11,7 +11,6 @@ function bullets(a, cls){ return a.map(function(x){ return '<div class="wr-li ' 
 var TABS = [['essays', 'Essays'], ['skills', 'Skills'], ['practice', 'Practice'], ['phrases', 'Phrases']];
 function home(){
   var G = DATA.guides, h = BACK + head('Writing Band 9', 'Task 2: learn the skills, study annotated Band 9 target essays, then practise.');
-  h += '<div class="wm-warn">Everything here was written for this site. It is not official IELTS material and was not marked by an examiner. Study the structure and the language. Never memorise a whole essay.</div>';
   h += '<div class="wr-sel">' + TABS.map(function(t){ return '<button data-tab="' + t[0] + '" class="' + (st.tab === t[0] ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '</div>';
   if(st.tab === 'essays'){
     h += '<div class="wm-grid">' + G.types.map(function(t){ return '<a class="wm-tile" href="#type/' + t.key + '"><span class="wm-type">' + essays(t.key).length + ' essays</span><b>' + esc(t.name) + '</b><span class="wm-w">' + esc(t.asks[0]) + '</span></a>'; }).join('') + '</div>';

@@ -68,7 +68,6 @@ function chartHtml(c){
 function list(){
   var items = DATA.models.filter(function(m){ return m.task === st.tab; });
   var h = BACK + head('IELTS Writing Models', 'Band 9 target answers for Task 1 and Task 2, with notes on why each one works.');
-  h += '<div class="wm-warn">Written for this site to match the Band 9 descriptors. They are not official IELTS material and were not marked by an examiner. Learn the structure and the language, never memorise a whole answer.</div>';
   h += '<div class="wr-sel">' + TABS.map(function(t){ return '<button data-tab="' + t[0] + '" class="' + (st.tab === t[0] ? 'on' : '') + '">' + t[1] + '</button>'; }).join('') + '</div>';
   h += '<div class="wm-grid">' + items.map(function(m){
     return '<a class="wm-tile" href="#' + m.id + '"><span class="wm-type">' + esc(m.type) + '</span><b>' + esc(m.title) + '</b><span class="wm-w">' + m.words + ' words</span></a>';
