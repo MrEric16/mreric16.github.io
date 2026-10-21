@@ -251,17 +251,17 @@ var EXAMS = {
     { n: 'Writing', m: 60, s: 'Task 1 and Task 2' },
     { n: 'Writing Task 1', m: 20, s: 'At least 150 words' },
     { n: 'Writing Task 2', m: 40, s: 'At least 250 words' },
-    { n: 'Speaking Part 2 prep', m: 1, s: '1 minute to prepare' },
-    { n: 'Speaking Part 2 talk', m: 2, s: 'Speak for 1 to 2 minutes' },
-    { n: 'Speaking (full)', m: 14, s: 'About 11 to 14 minutes' }
+    { n: 'Speaking Part 2 prep', m: 1, s: '' },
+    { n: 'Speaking Part 2 talk', m: 2, s: '' },
+    { n: 'Speaking (full)', m: 14, s: '' }
   ] },
   toefl: { label: 'TOEFL', secs: [
-    { n: 'Reading', m: 30, s: 'About 30 minutes (2026 format)' },
-    { n: 'Listening', m: 29, s: 'About 29 minutes (2026 format)' },
+    { n: 'Reading', m: 30, s: '' },
+    { n: 'Listening', m: 29, s: '' },
     { n: 'Writing', m: 23, s: 'Build a sentence, email, academic discussion' },
     { n: 'Write an Email', m: 7, s: 'Part of Writing' },
     { n: 'Academic Discussion', m: 10, s: 'Part of Writing' },
-    { n: 'Speaking', m: 8, s: 'About 8 minutes' }
+    { n: 'Speaking', m: 8, s: '' }
   ] }
 };
 var st = lsGet('mockTimerUI', { exam: 'ielts', sec: 0 });
@@ -281,7 +281,7 @@ function render(){
   var ex = EXAMS[st.exam], s = cur();
   var h = BACK + head('Exam Timer', 'One tap per section. Keep this page open; the screen stays awake while the timer runs.');
   h += '<div class="mt-tabs">' + Object.keys(EXAMS).map(function(k){ return '<button data-ex="' + k + '" class="' + (k === st.exam ? 'on' : '') + '">' + EXAMS[k].label + '</button>'; }).join('') + '</div>';
-  h += '<div class="mt-grid">' + ex.secs.map(function(x, i){ return '<button class="mt-sec' + (i === st.sec ? ' on' : '') + '" data-i="' + i + '">' + esc(x.n) + '<small>' + x.m + ' min. ' + esc(x.s) + '</small></button>'; }).join('') + '</div>';
+  h += '<div class="mt-grid">' + ex.secs.map(function(x, i){ return '<button class="mt-sec' + (i === st.sec ? ' on' : '') + '" data-i="' + i + '">' + esc(x.n) + '<small>' + x.m + ' min' + (x.s ? '. ' + esc(x.s) : '') + '</small></button>'; }).join('') + '</div>';
   h += '<div class="mt-cust"><input id="mtMin" type="number" min="1" max="240" inputmode="numeric" placeholder="min"><button class="v-btn alt" id="mtSet" style="width:auto;margin:0;padding:11px 16px;">Set custom time</button></div>';
   h += '<div class="mt-name" id="mtName"></div><div class="mt-clock" id="mtClock"></div><div class="mt-bar"><i id="mtBar"></i></div><div class="mt-msg" id="mtMsg"></div>';
   h += '<div class="v-row"><button class="v-btn" id="mtGo"></button><button class="v-btn alt" id="mtReset">Reset</button></div>';
