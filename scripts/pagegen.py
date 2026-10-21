@@ -8,6 +8,7 @@ PAGES = {
   'connections.html': 'Connections',
   'spellingbee.html': 'Spelling Bee',
   'writing.html': 'IELTS Writing Checker',
+  'writing-models.html': 'IELTS Writing Models',
   'listening.html': 'Listening Practice',
   'reading.html': 'Reading Practice',
   'amendments.html': 'Amendments',

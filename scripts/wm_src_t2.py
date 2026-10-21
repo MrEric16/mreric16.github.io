@@ -1,0 +1,130 @@
+# -*- coding: utf-8 -*-
+T2 = []
+def add(**k): T2.append(k)
+Q = 'Give reasons for your answer and include any relevant examples from your own knowledge or experience.'
+
+add(id='t2-free-uni', task='t2', type='Agree / disagree', title='Free university education',
+ prompt='Some people believe that university education should be free for all students. To what extent do you agree or disagree?\n' + Q,
+ model=[
+ 'Whether higher education should be paid for entirely by the state is a question that divides governments and families alike. I firmly believe that tuition should be free, because the benefits of a well-educated population extend far beyond the individual graduate.',
+ 'The strongest argument for free education is fairness. When fees are high, talented young people from poorer families either abandon their ambitions or begin adult life burdened by debt, while wealthier classmates face no such obstacle. Universities then reproduce existing inequality instead of reducing it. A system in which admission depends solely on ability would make far better use of a nation\'s talent. Germany, for instance, largely abolished tuition fees at its public universities in 2014, and its graduates remain in demand around the world.',
+ 'Society as a whole also profits. Graduates generally earn more and therefore pay more tax, and vital sectors such as medicine, engineering and teaching depend on a steady supply of qualified people. Public money spent on degrees is thus an investment that is repaid over a working lifetime, not simply an expense.',
+ 'Critics argue that free tuition places too heavy a burden on taxpayers, many of whom never attend university. This concern is understandable, but it can be addressed. Places can be limited to students who meet clear academic standards, and the system can be financed through progressive taxation, so that those who benefit most contribute most.',
+ 'In conclusion, free university education promotes equality and strengthens the economy, and its costs can be controlled with careful planning. For these reasons, I strongly support the idea.'],
+ notes={'Task Response':'Clear position in the introduction, maintained throughout. The opposing view is acknowledged and answered rather than ignored. Ideas are developed with reasons and one example.',
+  'Coherence':'Each body paragraph opens with a clear topic sentence (strongest argument; society as a whole; critics argue). Referencing ("This concern", "Universities then") keeps paragraphs tight.',
+  'Lexical Resource':'Topic-specific and flexible: tuition, burdened by debt, reproduce inequality, progressive taxation. No memorised phrases.',
+  'Grammar':'Wide range: passive, relative clauses ("many of whom"), cleft-like emphasis ("The strongest argument... is fairness"), and "so that" result clauses, all accurate.'},
+ lang=['divides governments and families alike','extend far beyond','burdened by debt','reproduce existing inequality','make far better use of','is repaid over a working lifetime','many of whom','progressive taxation'])
+
+add(id='t2-wfh', task='t2', type='Discussion + opinion', title='Working from home',
+ prompt='Some people think that employees should work from home, while others believe they should work in an office. Discuss both views and give your own opinion.\n' + Q,
+ model=[
+ 'The rise of fast internet connections has made it possible for many people to do their jobs from home. While some see this as the future of work, others insist that the office remains essential. I will examine both positions before explaining why I favour a combination of the two.',
+ 'Supporters of home working point first to flexibility. Employees save the time and money they would otherwise spend commuting, which can add up to several hours a week, and many find it easier to concentrate without the interruptions of an open-plan office. Companies benefit too, since they can employ talented people wherever they live and may spend less on office space.',
+ 'However, the office has advantages that are harder to replace. Spontaneous conversations at the coffee machine often lead to new ideas, and younger staff learn a great deal simply by watching experienced colleagues at work. Furthermore, working at home blurs the line between professional and private life, and some people feel isolated or find it hard to switch off in the evening.',
+ 'In my opinion, neither extreme is ideal. A hybrid arrangement, in which employees spend two or three days a week in the office and the rest at home, captures the benefits of both. Tasks that require quiet concentration can be done at home, while meetings, training and team projects are best handled face to face.',
+ 'In conclusion, although remote work offers genuine freedom, the office still has an important role to play. A balanced approach is likely to be more productive and more satisfying for both employers and employees.'],
+ notes={'Task Response':'Both views get roughly equal space and the writer\'s opinion is given in the introduction ("I favour a combination") and developed in paragraph 4.',
+  'Coherence':'Signposting in the introduction ("I will examine both positions...") and clear contrast markers (However, Furthermore). Each paragraph deals with one view.',
+  'Lexical Resource':'Natural collocations: add up to, open-plan office, blur the line, switch off, face to face. Paraphrasing of "work from home" (remote work, home working).',
+  'Grammar':'Variety: "while" contrast, "which" non-defining clause, "in which" relative clause, "tasks that require... can be done" passive, "since" reason.'},
+ lang=['has made it possible for','point first to','add up to','blurs the line between','switch off','a hybrid arrangement','in which','are best handled face to face'])
+
+add(id='t2-tourism', task='t2', type='Advantages / disadvantages', title='International tourism',
+ prompt='International tourism has become more popular in the past few decades. Do the advantages of this development outweigh the disadvantages?\n' + Q,
+ model=[
+ 'Cheaper flights and rising incomes mean that more people than ever now travel abroad. Although this growth has real drawbacks, I believe that its advantages are greater, provided that tourism is well managed.',
+ 'The most obvious benefit is economic. In many countries, tourism supports millions of jobs in hotels, restaurants and transport, and it brings in foreign currency that can be used to build schools and hospitals. For small economies with few natural resources, it may be the only realistic route to prosperity. Tourism can also protect heritage: the entrance fees paid by visitors often fund the restoration of historic buildings and the protection of wildlife.',
+ 'There is a cultural benefit as well. Meeting people from other countries encourages understanding and can break down stereotypes. Visitors return home with a broader outlook, and local communities gain pride in their own traditions. Some travellers even return year after year, forming lasting friendships with the people they meet.',
+ 'On the other hand, the drawbacks cannot be ignored. Large numbers of visitors damage fragile environments, increase pollution and push up prices, so that residents may no longer be able to afford to live in the places where they were born. In addition, the money spent by tourists does not always stay in the local area, since many hotels and tour operators belong to foreign companies.',
+ 'Nevertheless, these problems are not inevitable. Governments can limit visitor numbers, tax tourist activities and require businesses to employ local people. In conclusion, international tourism brings substantial economic and cultural gains, and with sensible regulation these gains can outweigh the harm it causes.'],
+ notes={'Task Response':'The question asks whether the advantages outweigh the disadvantages, and the answer takes a clear but conditional position ("provided that...") which is then supported.',
+  'Coherence':'Advantages (economic, then cultural) come before disadvantages, and the conclusion links back to the introduction. "On the other hand" and "Nevertheless" mark the turns in the argument.',
+  'Lexical Resource':'Less common but natural items: heritage, fragile environments, push up prices, foreign currency, route to prosperity.',
+  'Grammar':'Comparatives, "provided that", "so that" with modal, and a "since" clause. Passive and reduced relative clauses ("paid by visitors") appear without forcing.'},
+ lang=['more people than ever','provided that','the only realistic route to','break down stereotypes','a broader outlook','cannot be ignored','push up prices','not inevitable'])
+
+add(id='t2-obesity', task='t2', type='Problem / solution', title='Rising obesity',
+ prompt='In many countries, the number of people who are overweight is increasing. What are the causes of this problem, and what can be done to solve it?\n' + Q,
+ model=[
+ 'Excess weight has become one of the most serious health concerns of the modern world, affecting both rich and poor countries. This essay will consider the main causes of the trend and suggest several practical solutions.',
+ 'The first cause is a change in diet. Processed food that is high in sugar and fat is cheap, heavily advertised and available almost everywhere, so it has replaced home-cooked meals in many households. Portion sizes have also grown, and people often eat without noticing how much they have consumed. The second cause is a more inactive lifestyle. Many jobs now involve sitting at a desk for hours, and cars and screens have reduced the amount of walking and play that earlier generations took for granted.',
+ 'There are several ways to tackle these problems. Governments could place a tax on sugary drinks, as some countries have already done, and restrict the advertising of unhealthy products to children. They could also require clear labels showing the calorie content of food, which would help consumers to make informed choices.',
+ 'Education is equally important. Schools should teach children how to cook simple, healthy meals and should guarantee daily physical activity, so that good habits are formed early. At the same time, cities can encourage exercise by building safe cycle lanes and public parks. Employers, for their part, could offer gym membership or allow staff to take active breaks.',
+ 'In conclusion, rising weight is the result of unhealthy eating and a lack of movement. By combining sensible regulation with education and better urban planning, societies can help people to live healthier lives.'],
+ notes={'Task Response':'Both parts of the question are answered fully: two causes in paragraph 2, two groups of solutions in paragraphs 3 and 4. Nothing is exaggerated or unsupported.',
+  'Coherence':'The structure mirrors the question (causes, then solutions). Ordinal markers (first, second), "equally important" and "for their part" are natural, not mechanical.',
+  'Lexical Resource':'Accurate collocations: processed food, portion sizes, took for granted, tackle problems, make informed choices, active breaks.',
+  'Grammar':'Modals for suggestion (could, should), present perfect for change (have grown, have reduced), "which" referring to a whole clause, and relative clauses.'},
+ lang=['one of the most serious','processed food','portion sizes','took for granted','tackle these problems','make informed choices','so that good habits are formed','for their part'])
+
+add(id='t2-phones', task='t2', type='Two-part question', title='Children and smartphones',
+ prompt='Many children now spend several hours a day using smartphones. Why is this happening? Is it a positive or a negative development?\n' + Q,
+ model=[
+ 'Smartphones have become a normal part of childhood in many parts of the world. In my view, this trend is driven by a combination of convenience and peer pressure, and on balance it is more harmful than helpful.',
+ 'There are several reasons why children spend so long on their phones. Firstly, the devices are cheap, portable and packed with entertainment, from games to short videos that are designed to keep users watching. Secondly, parents who work long hours often use phones to keep their children occupied, or to stay in contact with them. Finally, social life now takes place online, so a child without a phone may feel excluded from friendships.',
+ 'Admittedly, there are some benefits. Phones give children immediate access to information, and educational apps can make learning more engaging. Used sensibly, they also allow families to stay in touch and help young people to learn technical skills that will be valuable in the future. For older children in particular, a phone can also provide reassurance about safety on the journey to school.',
+ 'However, I believe that the disadvantages are more serious. Prolonged screen time reduces the hours that children spend on exercise, face-to-face conversation and sleep, all of which are essential for healthy development. It may also shorten their attention span, since constant notifications train the brain to expect quick rewards. Moreover, unsupervised access exposes children to inappropriate content and online bullying.',
+ 'In conclusion, although smartphones have educational and social benefits, the amount of time children spend on them is a cause for concern. Parents and schools should set clear limits so that technology serves children rather than controls them.'],
+ notes={'Task Response':'The two questions (why, and positive or negative) are answered separately, and the opinion ("more harmful than helpful") is clear from the first paragraph.',
+  'Coherence':'Reasons are listed with Firstly / Secondly / Finally; the counter-argument is introduced by "Admittedly" and rejected by "However". The conclusion repeats the position in new words.',
+  'Lexical Resource':'Peer pressure, keep them occupied, attention span, inappropriate content, prolonged screen time. Paraphrase of "smartphones" (devices, phones) avoids repetition.',
+  'Grammar':'Relative clauses ("all of which are essential"), passive participle ("designed to keep users watching"), and "so that" purpose clause at the end.'},
+ lang=['on balance','packed with','keep their children occupied','feel excluded from','Admittedly','prolonged screen time','attention span','a cause for concern'])
+
+add(id='t2-uniform', task='t2', type='Discussion + opinion', title='School uniforms',
+ prompt='Some people think that students should wear a uniform at school. Others believe that students should be free to choose what they wear. Discuss both views and give your own opinion.\n' + Q,
+ model=[
+ 'Few topics divide teachers, parents and students as reliably as school uniforms. Although there are sound reasons for requiring them, I believe that students should generally be allowed to choose their own clothes, within sensible limits.',
+ 'Those in favour of uniforms usually begin with equality. When everyone dresses the same, differences in family income are less visible, and pupils are less likely to be teased for wearing cheaper clothes. Uniforms also save time and money, because families do not have to buy fashionable outfits every season and students do not have to decide what to wear each morning. In addition, a uniform can create a sense of belonging, which many schools hope will improve discipline and school spirit.',
+ 'On the other hand, there are strong arguments for freedom of choice. Clothing is one of the main ways in which young people express their personalities, and allowing them to do so can build confidence and creativity. Uniforms can also be uncomfortable or unsuitable, for example in hot weather, and they cost parents a considerable sum if the school requires an expensive, specific brand.',
+ 'Weighing up these points, I think that the benefits of uniforms are real but overstated. Bullying over clothing can be reduced through a simple dress code, which bans offensive slogans and very expensive items, while still giving students a degree of choice. Moreover, schools that rely on uniforms to produce discipline are ignoring the more important influence of good teaching and clear rules.',
+ 'In conclusion, a flexible dress code seems preferable to a strict uniform. It protects equality without suppressing individuality.'],
+ notes={'Task Response':'Both sides are discussed in full, and the writer takes a moderate but clear position, offering a middle solution (a dress code) rather than a vague "both are good".',
+  'Coherence':'The first body paragraph builds around "equality", the second around "freedom". The opinion paragraph uses a weighing phrase (Weighing up these points) to move from discussion to judgement.',
+  'Lexical Resource':'School spirit, sense of belonging, teased, dress code, suppress individuality, overstated. Nothing is overly formal or memorised.',
+  'Grammar':'Contrast with "Although", passive modals, relative clauses with prepositions ("ways in which"), and a participle phrase ("Weighing up these points").'},
+ lang=['divide teachers, parents and students','those in favour of','a sense of belonging','express their personalities','a considerable sum','real but overstated','dress code','without suppressing individuality'])
+
+add(id='t2-traffic', task='t2', type='Problem / solution', title='Traffic in big cities',
+ prompt='Traffic congestion is a serious problem in many large cities. What problems does it cause, and what measures could be taken to reduce it?\n' + Q,
+ model=[
+ 'As cities grow, roads that were built for far fewer vehicles are struggling to cope. This essay will outline the main consequences of congestion and propose measures that could ease it.',
+ 'Congestion affects individuals, businesses and the environment. Commuters lose hours every week sitting in traffic, which causes stress and leaves less time for family and rest. Companies suffer as well, because deliveries are delayed and employees arrive late, and the resulting loss of productivity is costly for the whole economy. Furthermore, vehicles that move slowly or stand still produce more exhaust fumes, which worsens air quality and harms public health.',
+ 'The most effective long-term solution is to offer a better alternative to the private car. Investment in metro lines, trams and reliable bus services would persuade many people to leave their cars at home, provided that fares are affordable and routes serve the places that people actually need to reach. Safe cycle lanes and wide pavements would encourage short journeys on foot or by bike.',
+ 'In the meantime, governments can use regulation to discourage unnecessary driving. Charging drivers to enter the city centre at peak hours has reduced traffic in several major cities, and the revenue can be used to improve public transport. Employers could also be encouraged to introduce flexible hours or home working, so that fewer people travel at the same time.',
+ 'To sum up, traffic jams waste time, damage the economy and pollute the air. A combination of better public transport and sensible restrictions on car use offers the best hope of solving the problem.'],
+ notes={'Task Response':'Both problems and measures are covered, with problems organised by who is affected (individuals, business, environment) and measures by time frame (long-term, short-term).',
+  'Coherence':'Logical grouping makes the essay easy to follow. "In the meantime" shows a deliberate change from long-term to immediate measures.',
+  'Lexical Resource':'Congestion, exhaust fumes, loss of productivity, peak hours, revenue, flexible hours. Accurate and appropriate for the topic.',
+  'Grammar':'Conditional modals (would persuade, would encourage), "provided that", present perfect for evidence ("has reduced traffic"), and defining/non-defining relative clauses.'},
+ lang=['struggling to cope','loss of productivity','exhaust fumes','a better alternative to the private car','provided that','in the meantime','peak hours','offers the best hope of'])
+
+add(id='t2-primary-lang', task='t2', type='Agree / disagree', title='Languages in primary school',
+ prompt='Some people say that children should begin learning a foreign language in primary school rather than secondary school. Do you agree or disagree?\n' + Q,
+ model=[
+ 'At what age should children begin to study a foreign language? Some educators argue that secondary school is early enough, but I strongly agree that lessons should start in primary school.',
+ 'The main reason is that young children learn languages more naturally. Their brains are flexible, and they are less afraid of making mistakes than teenagers, who are often embarrassed to speak in front of classmates. Children who begin early are also more likely to develop a good accent and to understand the sounds and rhythm of the language, which is much harder to achieve later in life. Many families in multilingual countries show that children can acquire a second or third language with surprising ease.',
+ 'In addition, an early start gives learners more time. A language needs thousands of hours of exposure to master, and a student who starts at seven has several more years of practice than one who starts at twelve. By the time they reach secondary school, such pupils can already communicate and can spend their lessons reading, writing and discussing more complex topics.',
+ 'It is sometimes argued that primary schools should concentrate on reading, writing and mathematics, and that an additional subject would overload young children. However, language lessons in the early years do not need to be formal. Songs, stories and games can make them enjoyable, and research suggests that learning a second language can even strengthen a child\'s skills in the first.',
+ 'In conclusion, starting a foreign language in primary school makes learning easier, gives pupils more time and need not add pressure. I therefore believe that it should be part of the curriculum from the first years of education.'],
+ notes={'Task Response':'The writer states a strong position in the introduction and answers the main counter-argument (overload) before concluding. "Research suggests" is used instead of invented statistics.',
+  'Coherence':'Reason one is quality of learning, reason two is quantity of time; paragraph 4 refutes the objection. Cohesive devices such as "In addition" and "However" are accurate and not overused.',
+  'Lexical Resource':'Exposure, acquire, multilingual, overload, curriculum, with ease. Word choice is precise and the topic is paraphrased (foreign language, second language, language lessons).',
+  'Grammar':'Embedded questions, comparatives ("more naturally", "much harder"), passive constructions ("It is sometimes argued that"), and a "need not" modal form.'},
+ lang=['strongly agree that','less afraid of','a good accent','with surprising ease','an early start','overload young children','research suggests that','need not add pressure'])
+
+add(id='t2-abroad', task='t2', type='Advantages / disadvantages', title='Studying abroad',
+ prompt='More and more students choose to study at universities abroad. What are the advantages and disadvantages of this trend?\n' + Q,
+ model=[
+ 'It is increasingly common for young people to leave their home country to earn a degree overseas. While this experience has certain drawbacks, I believe that its benefits are more substantial.',
+ 'The first advantage is educational. Students can gain access to universities and courses that are not available at home, and they often study in a language that will be valuable throughout their careers. Living abroad also develops independence: managing money, cooking and solving practical problems without parental help builds maturity far more quickly than staying at home. Some foreign universities also offer better research facilities and more flexible courses than those available locally.',
+ 'A second benefit lies in the experience of other cultures. Students meet classmates from many countries, which broadens their outlook and helps them to build an international network of contacts. Employers often look favourably on graduates who have shown that they can adapt to a different environment.',
+ 'Nevertheless, studying overseas is not without risks. The most obvious is cost, since tuition fees and living expenses are generally higher than at home, and not every family can afford them. Loneliness and homesickness are also common, especially in the first months, and some students struggle to adjust to the climate, food or teaching style. A further concern for countries that send students abroad is that the most talented may decide not to return, which can lead to a loss of skills.',
+ 'In conclusion, although studying abroad can be expensive and emotionally demanding, the academic, personal and professional gains are considerable. For students who are well prepared and supported, it is likely to be a rewarding investment.'],
+ notes={'Task Response':'Both sides of the trend are discussed and the writer gives a judgement. A different angle (the country that loses talent) shows a wider view than only the student\'s.',
+  'Coherence':'Advantages come first and take two paragraphs; disadvantages are balanced in one longer paragraph. Topic sentences (The first advantage, A second benefit, Nevertheless) lead each section.',
+  'Lexical Resource':'Earn a degree, broadens their outlook, look favourably on, adjust to, homesickness, emotionally demanding. Natural and varied.',
+  'Grammar':'Gerund subjects (Living abroad also develops...), relative clauses referring to whole ideas ("which broadens"), and a final conditional-style structure with "likely to be".'},
+ lang=['it is increasingly common','gain access to','builds maturity','broadens their outlook','look favourably on','is not without risks','struggle to adjust to','a rewarding investment'])

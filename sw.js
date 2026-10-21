@@ -16,6 +16,7 @@ const SHELL_FILES = [
   './connections.html',
   './spellingbee.html',
   './writing.html',
+  './writing-models.html',
   './mocktimer.html',
   './collocations.html',
   './wordforms.html',
