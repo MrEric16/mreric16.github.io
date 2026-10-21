@@ -1,6 +1,84 @@
 {
- "generatedAt": "2026-10-21T15:29:04.146622Z",
+ "generatedAt": "2026-10-21T19:28:08.776374Z",
  "results": [
+  {
+   "url": "espn:401915395",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T16:45Z",
+   "home": "Como",
+   "away": "Man United",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "N. Paz",
+     "minute": 2
+    },
+    {
+     "scorer": "A. Douvikas",
+     "minute": 49
+    },
+    {
+     "scorer": "N. Paz",
+     "minute": 57
+    },
+    {
+     "scorer": "J. Ramón",
+     "minute": 76
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Zirkzee",
+     "minute": "90+1"
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915396",
+   "date": "2026-10-21",
+   "utc": "2026-10-21T16:45Z",
+   "home": "Lille",
+   "away": "Galatasaray",
+   "htHome": 2,
+   "htAway": 2,
+   "ftHome": 2,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "S. Diaoune",
+     "minute": 7
+    },
+    {
+     "scorer": "S. Diaoune",
+     "minute": 39
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Y. Akgün",
+     "minute": 2
+    },
+    {
+     "scorer": "A. Batrakov",
+     "minute": 44
+    },
+    {
+     "scorer": "B. Özer (og)",
+     "minute": 52
+    },
+    {
+     "scorer": "V. Osimhen",
+     "minute": 61
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
   {
    "url": "espn:401915403",
    "date": "2026-10-20",
@@ -1400,7 +1478,7 @@
      "minute": 12
     },
     {
-     "scorer": "A. Pavlović",
+     "scorer": "A. Pavlovic",
      "minute": 26
     },
     {
@@ -10095,7 +10173,7 @@
      "minute": 57
     },
     {
-     "scorer": "A. Pavlović",
+     "scorer": "A. Pavlovic",
      "minute": 82
     },
     {
