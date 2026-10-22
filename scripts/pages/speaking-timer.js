@@ -16,8 +16,18 @@ function beep(n, hz){
   }catch(e){}
 }
 function num(id, d){ var v = parseInt(document.getElementById(id).value, 10); return v > 0 && v <= 3600 ? v : d; }
+var SAVE_KEY = 'game:speaking-timer.html';
+function bms(){ try{ var l = JSON.parse(localStorage.getItem('bookmarks') || '[]'); return Array.isArray(l) ? l : []; }catch(e){ return []; } }
+function isSaved(){ return bms().some(function(b){ return b && b.key === SAVE_KEY; }); }
+function toggleSave(){
+  var l = bms(), on = l.some(function(b){ return b && b.key === SAVE_KEY; });
+  l = on ? l.filter(function(b){ return !(b && b.key === SAVE_KEY); }) : l.concat([{ key: SAVE_KEY, type: 'game', url: 'speaking-timer.html', name: 'Speaking Timer' }]);
+  try{ localStorage.setItem('bookmarks', JSON.stringify(l)); }catch(e){}
+  paintSave();
+}
+function paintSave(){ var b = document.getElementById('stSave'); if(b){ var on = isSaved(); b.textContent = on ? 'Saved ✓' : 'Save'; b.className = 'st-save' + (on ? ' on' : ''); } }
 function render(){
-  var h = BACK + head('Speaking Timer');
+  var h = BACK + head('Speaking Timer') + '<button id="stSave" class="st-save" type="button">Save</button>';
   h += '<div class="st-tabs"><button data-t="timer" class="' + (tab === 'timer' ? 'on' : '') + '">Timer</button><button data-t="sw" class="' + (tab === 'sw' ? 'on' : '') + '">Stopwatch</button></div>';
   if(tab === 'timer'){
     h += '<div class="st-set"><label>Prepare (sec)<input id="stPrep" type="number" min="1" max="3600" inputmode="numeric" value="' + cfg.prep + '"></label>' +
@@ -31,6 +41,7 @@ function render(){
     h += '<div class="st-clock" id="swClock"></div><div class="v-row"><button class="v-btn" id="swGo"></button><button class="v-btn alt" id="swReset">Reset</button></div>';
   }
   app.innerHTML = h;
+  document.getElementById('stSave').onclick = toggleSave; paintSave();
   app.querySelectorAll('[data-t]').forEach(function(b){ b.onclick = function(){ tab = b.getAttribute('data-t'); lsSet('spTimerTab', tab); render(); }; });
   if(tab === 'timer'){
     document.getElementById('stGo').onclick = go;

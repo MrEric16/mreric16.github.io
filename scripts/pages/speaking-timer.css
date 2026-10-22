@@ -14,3 +14,5 @@
 .st-pill:active{transform:scale(.95);}
 .st-undo{padding:10px 16px; border-radius:999px; border:2px solid var(--line); background:transparent; color:var(--ink); font:800 14px Nunito,sans-serif; cursor:pointer;}
 .st-sub{font:700 13px Nunito,sans-serif; color:var(--ink-soft);}
+.st-save{display:block; margin:2px 0 6px auto; padding:7px 16px; border-radius:999px; border:2px solid var(--coral); background:transparent; color:var(--ink); font:800 13px Nunito,sans-serif; cursor:pointer;}
+.st-save.on{background:var(--coral); color:var(--on-coral,#fff);}
