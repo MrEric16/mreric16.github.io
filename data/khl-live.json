@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T17:40:58.017104+00:00",
+  "generatedAt": "2026-10-22T20:53:34.361788+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -146,40 +146,40 @@
       "points": 52
     },
     {
-      "team": "Sibir",
-      "played": 17,
-      "won": 18,
+      "team": "SKA",
+      "played": 19,
+      "won": 17,
       "otWon": 6,
-      "soWon": 0,
+      "soWon": 2,
       "soLost": 1,
-      "otLost": 2,
+      "otLost": 0,
       "lost": 0,
-      "gf": 40,
+      "gf": 54,
       "points": 51
     },
     {
       "team": "Dinamo Mn",
-      "played": 17,
-      "won": 17,
+      "played": 18,
+      "won": 18,
       "otWon": 6,
       "soWon": 0,
       "soLost": 0,
       "otLost": 3,
       "lost": 0,
-      "gf": 44,
-      "points": 49
+      "gf": 46,
+      "points": 51
     },
     {
-      "team": "SKA",
+      "team": "Sibir",
       "played": 17,
-      "won": 16,
-      "otWon": 5,
-      "soWon": 2,
+      "won": 19,
+      "otWon": 6,
+      "soWon": 0,
       "soLost": 1,
-      "otLost": 0,
+      "otLost": 2,
       "lost": 0,
-      "gf": 48,
-      "points": 47
+      "gf": 43,
+      "points": 53
     },
     {
       "team": "Admiral",
@@ -255,15 +255,15 @@
     },
     {
       "team": "HC Sochi",
-      "played": 6,
-      "won": 16,
+      "played": 8,
+      "won": 17,
       "otWon": 3,
-      "soWon": 0,
+      "soWon": 1,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 24,
-      "points": 38
+      "gf": 27,
+      "points": 42
     }
   ],
   "fixtures": [
@@ -3039,6 +3039,22 @@
     }
   ],
   "results": [
+    {
+      "home": "HC Sochi",
+      "away": "Dynamo Minsk",
+      "start": "2026-10-22T09:30:00+05:00",
+      "homeScore": 3,
+      "awayScore": 2,
+      "finished": true
+    },
+    {
+      "home": "SKA",
+      "away": "Sibir",
+      "start": "2026-10-22T09:30:00+05:00",
+      "homeScore": 6,
+      "awayScore": 3,
+      "finished": true
+    },
     {
       "home": "Avangard",
       "away": "Neftekhimik",
