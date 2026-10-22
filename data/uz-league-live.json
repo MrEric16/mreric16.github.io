@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T13:23:45.632707Z",
+  "generatedAt": "2026-10-22T18:02:19.178786Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -122,6 +122,16 @@
       "pts": 28
     },
     {
+      "name": "Bunyodkor",
+      "pld": 25,
+      "w": 8,
+      "d": 2,
+      "l": 15,
+      "gf": 26,
+      "ga": 41,
+      "pts": 26
+    },
+    {
       "name": "Kokand 1912",
       "pld": 24,
       "w": 5,
@@ -142,27 +152,24 @@
       "pts": 23
     },
     {
-      "name": "Bunyodkor",
-      "pld": 24,
-      "w": 7,
-      "d": 2,
-      "l": 15,
-      "gf": 24,
-      "ga": 40,
-      "pts": 23
-    },
-    {
       "name": "Mashal Muborak",
-      "pld": 24,
+      "pld": 25,
       "w": 1,
       "d": 1,
-      "l": 22,
-      "gf": 11,
-      "ga": 48,
+      "l": 23,
+      "gf": 12,
+      "ga": 50,
       "pts": 4
     }
   ],
   "results": [
+    {
+      "home": "Bunyodkor",
+      "away": "Mashal Muborak",
+      "raw_time": "22.10. 13:30",
+      "homeScore": 2,
+      "awayScore": 1
+    },
     {
       "home": "Din. Samarkand",
       "away": "Buxoro",
@@ -295,21 +302,9 @@
       "raw_time": "20.09. 14:00",
       "homeScore": 1,
       "awayScore": 2
-    },
-    {
-      "home": "Termez Surkhon",
-      "away": "Kokand 1912",
-      "raw_time": "20.09. 13:00",
-      "homeScore": 1,
-      "awayScore": 0
     }
   ],
   "fixtures": [
-    {
-      "home": "Bunyodkor",
-      "away": "Mashal Muborak",
-      "raw_time": "22.10. 13:30"
-    },
     {
       "home": "Buxoro",
       "away": "Termez Surkhon",
@@ -404,6 +399,11 @@
       "home": "Qizilqum",
       "away": "Navbahor Namangan",
       "raw_time": "07.11. 16:00"
+    },
+    {
+      "home": "Buxoro",
+      "away": "Nasaf Qarshi",
+      "raw_time": "08.11. 16:00"
     }
   ]
 }
