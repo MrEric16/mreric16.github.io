@@ -145,7 +145,13 @@
     var ownOp = bg.own, changedOpacity = false;
     var inlineColor = el.style.getPropertyValue('color'), inlineColorPri = el.style.getPropertyPriority('color');
     var inlineOp = el.style.getPropertyValue('opacity'), inlineOpPri = el.style.getPropertyPriority('opacity');
-    var opRest = op;   // never touch opacity: scripts animate it (toasts, fades) and a forced value would leave things stuck on screen
+    var opRest = op;
+    // A dimmed label that fails is restored to full strength. Anything that transitions or animates its opacity
+    // (toasts, fades) is never touched: forcing it would leave it stuck on screen.
+    var opTrans = /(^|,\s*)(opacity|all)(\s*,|$)/.test(cs.transitionProperty) && !/^(0s)(,\s*0s)*$/.test(cs.transitionDuration);
+    if(ownOp < 1 && ownOp >= 0.5 && !opTrans && !(el.getAnimations && el.getAnimations().some(function(a){ return (a.playState === 'running' || a.playState === 'pending') && (a.transitionProperty ? a.transitionProperty === 'opacity' : true); }))){
+      opRest = op / ownOp; el.style.setProperty('opacity', '1', 'important'); changedOpacity = true;
+    }
     if(worstRatio([fg[0], fg[1], fg[2], fg[3] * opRest], bg.v) < need){
       var fixed = fixColour(fg, bg.v, need, fg[3] * opRest);
       el.style.setProperty('color', rgb(fixed), 'important');

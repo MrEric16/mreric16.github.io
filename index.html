@@ -5478,6 +5478,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     text-decoration:none;
     box-shadow:0 2px 0 rgba(58,42,30,.06);
   }
+  .page-result{ gap:10px; }
+  .page-result-link{ display:flex; align-items:center; gap:14px; flex:1; min-width:0; text-decoration:none; color:inherit; }
+  .page-result .bookmark-btn{ flex-shrink:0; }
   .page-result-icon{ flex-shrink:0; display:inline-flex; align-items:center; color:var(--coral); }
   .page-result-icon svg{ width:24px; height:24px; }
   .page-result-name{ font-weight:700; font-size:15px; color:var(--ink); }
@@ -20933,6 +20936,7 @@ function isValidBookmark(b){
   if(b.type === 'video') return !!(b.videoId && b.title);
   if(b.type === 'instrument') return !!(b.name && b.url);
   if(b.type === 'game') return !!(b.name && b.url);
+  if(b.type === 'page') return !!(b.name && b.url);
   // 'article' or untyped legacy entries
   return !!(b.headline && b.url);
 }
@@ -21064,6 +21068,8 @@ function wireEntryActions(container){
         item = { key: btn.dataset.key, type:'instrument', url: btn.dataset.url, name: btn.dataset.title, desc: btn.dataset.desc, fac: btn.dataset.fac };
       } else if(type === 'game'){
         item = { key: btn.dataset.key, type:'game', url: btn.dataset.url, name: btn.dataset.title, emoji: btn.dataset.emoji };
+      } else if(type === 'page'){
+        item = { key: btn.dataset.key, type:'page', url: btn.dataset.url, name: btn.dataset.title, desc: btn.dataset.desc, icon: btn.dataset.icon, ext: !!btn.dataset.ext, js: btn.dataset.js || '' };
       } else {
         item = { key: btn.dataset.key, type:'article', url: btn.dataset.url, headline: btn.dataset.title, faculty: btn.dataset.faculty, date: btn.dataset.date };
       }
@@ -22775,30 +22781,30 @@ function viewSearch(){
   `;
 }
 
-function birthdayResultsHtml(list){
-  return list.map(b => {
-    return `
-      <a class="page-result" href="#birthdays">
-        <span class="page-result-icon">${icon('cake')}</span>
+// Every search result tile carries a save button. Pages, names and events are stored as
+// type:'page' bookmarks (name, desc, url, icon, ext, js) and shown on Saved under "Pages".
+function pageResultTile(p){
+  const url = p.url || '#';
+  const key = 'page:' + url + '|' + p.name;
+  const saved = isBookmarked(key);
+  return `
+    <div class="page-result">
+      <a class="page-result-link" href="${url}"${p.ext ? ' target="_blank" rel="noopener"' : ''}${p.js ? ` onclick="${p.js}; return false;"` : ''}>
+        <span class="page-result-icon">${icon(p.icon || 'compass2')}</span>
         <div>
-          <div class="page-result-name">${escapeHtml(b.name)}</div>
-          <div class="page-result-desc">Birthday: ${formatBdayDate(b.day, b.month)}</div>
+          <div class="page-result-name">${escapeHtml(p.name)}</div>
+          <div class="page-result-desc">${escapeHtml(p.desc || '')}</div>
         </div>
       </a>
-    `;
-  }).join('');
+      ${p.nosave ? '' : `<button class="bookmark-btn ${saved ? 'active' : ''}" data-key="${escapeHtml(key)}" data-type="page" data-url="${escapeHtml(url)}" data-title="${escapeHtml(p.name)}" data-desc="${escapeHtml(p.desc || '')}" data-icon="${escapeHtml(p.icon || 'compass2')}" data-ext="${p.ext ? '1' : ''}" data-js="${escapeHtml(p.js || '')}" title="Save for later" aria-label="Save for later">${saved ? icon('bookmarkFilled') : icon('bookmark')}</button>`}
+    </div>`;
+}
+function birthdayResultsHtml(list){
+  return list.map(b => pageResultTile({ name: b.name, desc: 'Birthday: ' + formatBdayDate(b.day, b.month), url: '#birthdays', icon: 'cake' })).join('');
 }
 
 function pageResultsHtml(list){
-  return list.map(p => `
-    <a class="page-result" href="${p.url || '#'}"${p.ext ? ' target="_blank" rel="noopener"' : ''}${p.js ? ` onclick="${p.js}; return false;"` : ''}>
-      <span class="page-result-icon">${icon(p.icon)}</span>
-      <div>
-        <div class="page-result-name">${escapeHtml(p.name)}</div>
-        <div class="page-result-desc">${escapeHtml(p.desc)}</div>
-      </div>
-    </a>
-  `).join('');
+  return list.map(pageResultTile).join('');
 }
 
 function exploreColorFor(fac){
@@ -23510,6 +23516,7 @@ function wireSearch(container){
         desc: 'Tap to play.',
         url: `#arcade/${id}`,
         icon: 'dice',
+        nosave: true,
       }));
       results.innerHTML = pageResultsHtml(gameResults);
       return;
@@ -23553,27 +23560,11 @@ function wireSearch(container){
     }
     if(tashkentEventMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('calendar')}</span><h2>Events in Tashkent</h2></div>`;
-      html += tashkentEventMatches.map(e => `
-        <a class="page-result" href="${e.url || '#events-tashkent'}" target="${e.url ? '_blank' : '_self'}" rel="noopener">
-          <span class="page-result-icon">${icon('calendar')}</span>
-          <div>
-            <div class="page-result-name">${escapeHtml(e.title)}</div>
-            <div class="page-result-desc">${escapeHtml(e.category || '')}${e.startDate ? ' · ' + formatShortDate(e.startDate) : ''}</div>
-          </div>
-        </a>
-      `).join('');
+      html += pageResultsHtml(tashkentEventMatches.map(e => ({ name: e.title, desc: (e.category || '') + (e.startDate ? ' · ' + formatShortDate(e.startDate) : ''), url: e.url || '#events-tashkent', ext: !!e.url, icon: 'calendar' })));
     }
     if(virtualEventMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('globe')}</span><h2>Online Events</h2></div>`;
-      html += virtualEventMatches.map(e => `
-        <a class="page-result" href="${e.url || '#events-virtual'}" target="${e.url ? '_blank' : '_self'}" rel="noopener">
-          <span class="page-result-icon">${icon('globe')}</span>
-          <div>
-            <div class="page-result-name">${escapeHtml(e.title)}</div>
-            <div class="page-result-desc">${escapeHtml(e.category || e.org || '')}${e.startDate ? ' · ' + formatShortDate(e.startDate) : ' · ongoing'}</div>
-          </div>
-        </a>
-      `).join('');
+      html += pageResultsHtml(virtualEventMatches.map(e => ({ name: e.title, desc: (e.category || e.org || '') + (e.startDate ? ' · ' + formatShortDate(e.startDate) : ' · ongoing'), url: e.url || '#events-virtual', ext: !!e.url, icon: 'globe' })));
     }
     if(exploreMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('compass2')}</span><h2>Websites</h2></div>`;
@@ -26452,6 +26443,7 @@ function viewSaved(){
     const savedVideos = saved.filter(b => b.type === 'video');
     const savedInstruments = saved.filter(b => b.type === 'instrument');
     const savedGames = saved.filter(b => b.type === 'game');
+    const savedPages = saved.filter(b => b.type === 'page');
     // A word bookmark with no word field is unrenderable (dictCardHtml needs entry.word)
     // and, before this fix, would silently crash the whole page rather than just being
     // skipped - filtered out here rather than trusting every entry to be well-formed.
@@ -26486,6 +26478,7 @@ function viewSaved(){
         ${savedArticles.length ? `<h3 style="margin:16px 0 8px;">Articles</h3>${dispatchListHtml(asDispatches)}` : ''}
         ${savedVideos.length ? `<h3 style="margin:20px 0 8px;">Videos</h3><div class="watch-grid">${watchGridHtml(asVideos, 'saved')}</div>` : ''}
         ${savedInstruments.length ? `<h3 style="margin:20px 0 8px;">Instruments</h3>${exploreResultsHtml(asInstruments)}` : ''}
+        ${savedPages.length ? `<h3 style="margin:20px 0 8px;">Pages</h3>${pageResultsHtml(savedPages)}` : ''}
         ${savedGames.length ? `<h3 style="margin:20px 0 8px;">Games</h3>${gameResultsHtml(asGames)}` : ''}
         ${savedWords.length ? `<h3 style="margin:20px 0 8px;">Words</h3><div id="savedWordsContainer" style="display:flex; flex-direction:column; gap:10px;">${savedWords.map(dictCardHtml).join('')}</div>` : ''}
       </section>
