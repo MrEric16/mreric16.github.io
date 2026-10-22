@@ -158,8 +158,9 @@
       t.style.cssText = 'position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabbar-h,0px) + 78px);background:var(--ink,#222);color:var(--bg,#fff);padding:8px 16px;border-radius:999px;font:800 13px Nunito,system-ui,sans-serif;z-index:9999;opacity:0;transition:opacity .25s;pointer-events:none;';
       document.body.appendChild(t);
     }
-    t.textContent = msg; t.style.opacity = '1';
-    clearTimeout(toastTimer); toastTimer = setTimeout(function(){ t.style.opacity = '0'; }, 1600);
+    t.textContent = msg; t.style.visibility = 'visible'; t.style.opacity = '1';
+    clearTimeout(toastTimer); clearTimeout(toast._h);
+    toastTimer = setTimeout(function(){ t.style.setProperty('opacity', '0', 'important'); toast._h = setTimeout(function(){ t.style.visibility = 'hidden'; }, 300); }, 1000);
   }
   var XP = {
     total: totalXP,

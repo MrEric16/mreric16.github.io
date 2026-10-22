@@ -145,8 +145,7 @@
     var ownOp = bg.own, changedOpacity = false;
     var inlineColor = el.style.getPropertyValue('color'), inlineColorPri = el.style.getPropertyPriority('color');
     var inlineOp = el.style.getPropertyValue('opacity'), inlineOpPri = el.style.getPropertyPriority('opacity');
-    var opRest = op;
-    if(ownOp < 1){ opRest = op / ownOp; el.style.setProperty('opacity', '1', 'important'); changedOpacity = true; }
+    var opRest = op;   // never touch opacity: scripts animate it (toasts, fades) and a forced value would leave things stuck on screen
     if(worstRatio([fg[0], fg[1], fg[2], fg[3] * opRest], bg.v) < need){
       var fixed = fixColour(fg, bg.v, need, fg[3] * opRest);
       el.style.setProperty('color', rgb(fixed), 'important');
