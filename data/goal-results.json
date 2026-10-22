@@ -1,85 +1,6 @@
 {
-  "generatedAt": "2026-10-22T18:19:55.000821Z",
+  "generatedAt": "2026-10-22T21:49:16.572202Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/werder-bremen-vs-rb-leipzig/pL50okCFWJXievJf3R7pC",
-      "date": null,
-      "home": "Werder Bremen",
-      "away": "Rb Leipzig",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "E. Dinkci",
-          "minute": 4
-        },
-        {
-          "scorer": "N. Fuellkrug",
-          "minute": 68
-        },
-        {
-          "scorer": "M. Gruell",
-          "minute": 80
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Baku",
-          "minute": 90
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/bayer-leverkusen-vs-union-berlin/vf9QRLZlBVP24JDIm1z06",
-      "date": null,
-      "home": "Bayer Leverkusen",
-      "away": "Union Berlin",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "E. Fernandez",
-          "minute": 1
-        },
-        {
-          "scorer": "F. Medina",
-          "minute": 28
-        },
-        {
-          "scorer": "P. Schick",
-          "minute": 48
-        },
-        {
-          "scorer": "I. Maza",
-          "minute": 66
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/paderborn-vs-freiburg/E3CWzi11CESYUbqLrboyD",
-      "date": null,
-      "home": "Paderborn",
-      "away": "Freiburg",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "M. Eggestein",
-          "minute": 26
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/hoffenheim-vs-borussia-dortmund/FTKhZ0EYda51i2oJhG_nC",
       "date": null,
@@ -7931,6 +7852,81 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/afc-bournemouth-vs-ac-milan/nur4apFFGmrMAiXpSFmMQ",
+      "date": "2026-10-22",
+      "home": "Afc Bournemouth",
+      "away": "Ac Milan",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "J. Kluivert",
+          "minute": 8
+        },
+        {
+          "scorer": "M. Tavernier",
+          "minute": 32
+        },
+        {
+          "scorer": "A. Adli",
+          "minute": 84
+        }
+      ],
+      "awayGoals": [],
+      "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sturm-graz-vs-marseille/-sUHkN1_lnOwakhCoyEBL",
+      "date": "2026-10-22",
+      "home": "Sturm Graz",
+      "away": "Marseille",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "O. Diakite",
+          "minute": 13
+        }
+      ],
+      "awayGoals": [],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-rennes/VtASw2dikWrfVuURLsfzH",
+      "date": "2026-10-22",
+      "home": "Juventus",
+      "away": "Rennes",
+      "htHome": 1,
+      "htAway": 2,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "M. Celik",
+          "minute": 6
+        },
+        {
+          "scorer": "N. Woltemade",
+          "minute": 67
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Tamari",
+          "minute": 15
+        },
+        {
+          "scorer": "B. Dia",
+          "minute": 43
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
