@@ -20,6 +20,7 @@ PAGES = {
   'collocations.html': 'Collocations and Phrasal Verbs',
   'wordforms.html': 'Word Forms',
   'mocktimer.html': 'Exam Timer',
+  'speaking-timer.html': 'Speaking Timer',
 }
 HELPERS = r"""
 var app = document.getElementById('app');

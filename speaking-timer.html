@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Speaking Timer | Mr Eric's Lounge</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="#3D2A22">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600;700;800&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
+<style>
+
+  :root{
+    --cream:#F3EADD; --cream-2:#E9D9C5; --card:#FBF5EA; --ink:#3D2A22; --ink-soft:#6A5644;
+    --coral:#7A2E35; --coral-dark:#5C2530; --teal:#6B7A3D; --gold:#B5862B; --line:#E0CBA4;
+    --ff-accent:var(--coral-dark); --f-des:#85389F;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{background:var(--cream); color:var(--ink); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;}
+  h1,h2,h3{font-family:'Baloo 2', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin:0;}
+  a{color:inherit;}
+  .wrap{max-width:720px; margin:0 auto; padding:18px 16px 48px;}
+  .section-head{display:flex; align-items:center; gap:10px; margin-bottom:18px;}
+  .section-head h2{min-width:0; font-size:22px; color:var(--ink);}
+  .section-head .emoji{display:inline-flex; align-items:center;} .section-head .emoji svg{width:22px;height:22px;}
+  .back-link{display:inline-flex; align-items:center; gap:6px; font-weight:700; font-size:14px; color:var(--ff-accent); text-decoration:none; cursor:pointer; margin-bottom:6px;}
+  .back-link:hover{text-decoration:underline;}
+  .sport-hub-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+  .sport-hub-tile{background:var(--card); border:none; border-radius:18px; box-shadow:0 3px 0 rgba(58,42,30,.08); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; text-decoration:none; color:var(--ink); height:100px; display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; -webkit-tap-highlight-color:transparent;}
+  .sport-hub-tile:active{transform:translateY(1px);}
+  .gg-tile{position:relative; padding-top:20px;}
+  .gg-no{position:absolute; top:7px; left:9px; min-width:1.6em; padding:0 6px; border-radius:999px; background:rgba(133,56,159,.16); color:#85389F; font-size:11px; font-weight:800; line-height:1.6; text-align:center;}
+  body.dark-mode .gg-no{color:#d9a8ec; background:rgba(217,168,236,.16);}
+  .sport-hub-tile .name{font-weight:700; font-size:15px; line-height:1.25; display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
+  .hub-icon{display:inline-flex; align-items:center; justify-content:center;}
+  .hub-icon svg{width:20px;height:20px;}
+  .search-input{width:100%; padding:14px 16px; border-radius:16px; border:none; background:var(--card); color:var(--ink); font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; box-shadow:0 3px 0 rgba(58,42,30,.08);}
+  .search-input:focus{outline:2px solid var(--coral);}
+  .ivb-search-wrap{position:relative; margin-bottom:12px;}
+  .ivb-search-wrap .search-input{padding-left:42px;}
+  .ivb-search-icon{position:absolute; left:14px; top:50%; transform:translateY(-50%); width:18px; height:18px; opacity:.55; pointer-events:none;}
+  .empty-card{background:var(--card); border-radius:18px; padding:34px 20px; text-align:center; color:var(--ink-soft); font-weight:600; font-size:14px;}
+  @media (min-width:560px){ .sport-hub-grid:not(.gg-levels){grid-template-columns:repeat(3,1fr);} }
+
+  /* - Grammar Gym (Brain Train style tiles + typed exercise list) - */
+  .gg-dot{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--coral); margin-left:4px; vertical-align:middle;}
+  .gg-levels{grid-template-columns:1fr;}
+  .gg-sub{font-weight:600; font-size:12px; color:var(--ink-soft);}
+  .gg-meta{display:flex; justify-content:space-between; align-items:center; margin:2px 2px 12px; font-size:13px; font-weight:700; color:var(--ink-soft);}
+  .gg-lvl{background:var(--coral); color:#fff; border-radius:999px; padding:3px 12px; font-size:12px; font-weight:800;}
+  .gg-banner{border-radius:14px; padding:12px 14px; margin-bottom:12px; font-weight:800; font-size:15px;}
+  .gg-banner-ok{background:rgba(107,122,61,.22); color:var(--ink);}
+  .gg-banner-mid{background:rgba(179,38,30,.14); color:var(--ink);}
+  .gg-list{display:flex; flex-direction:column; gap:10px;}
+  .gg-item{background:var(--card); border-radius:14px; padding:12px 14px; display:flex; gap:10px; align-items:flex-start; box-shadow:0 2px 0 rgba(58,42,30,.08); border:2px solid transparent;}
+  .gg-item-ok{border-color:var(--teal);}
+  .gg-item-bad{border-color:#B3261E;}
+  .gg-num{font-weight:800; color:var(--ink-soft); min-width:22px; padding-top:5px; font-size:14px;}
+  .gg-q{flex:1; min-width:0; line-height:2.2; font-size:16px; color:var(--ink);}
+  .gg-q-block{line-height:1.5;}
+  .gg-instr{font-weight:400; color:var(--ink); font-size:15px;}
+  .gg-sent{font-weight:800; font-size:17px; letter-spacing:.15px; color:var(--gg-sent, var(--ink));}
+  .gg-inp{font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size:16px; width:11em; max-width:100%; padding:4px 9px; margin:0 3px; border-radius:9px; border:2px solid rgba(133,111,92,.4); background:rgba(255,255,255,.55); color:var(--ink);}
+  .gg-inp:focus{outline:2px solid var(--coral); border-color:var(--coral);}
+  .gg-wide{display:block; width:100%; margin:8px 0 0;}
+  .gg-inp.gg-ok{border-color:var(--teal); background:rgba(107,122,61,.18);}
+  .gg-inp.gg-bad{border-color:#B3261E; background:rgba(179,38,30,.12);}
+  body.dark-mode .gg-inp{background:rgba(0,0,0,.25);}
+  body.dark-mode .gg-item-bad, body.dark-mode .gg-inp.gg-bad{border-color:#E57373;}
+  .gg-actions{display:flex; gap:10px; margin:16px 0 28px;}
+  .gg-btn{flex:1; border:none; border-radius:16px; padding:15px 12px; font-family:'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-weight:800; font-size:16px; cursor:pointer; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.12);}
+  .gg-btn-main{background:var(--coral); color:#fff;}
+  /* Colour themes: only the palette variables are carried over from the main app (no animations),
+     so the page matches the active theme and stays light on old phones. */
+body.dark-mode{--cream:#181110;--cream-2:#241A15;--card:#3A2B22;--ink:#EFE3D3;--ink-soft:#B8A48E;--line:#54402F;--coral-dark:#E8C766;--coral:#CC9544;--teal:#9CB06A;--gold:#E8C766;--board-bg:rgba(0,0,0,.4)}
+body.theme-firstday:not(.dark-mode){--cream:#EAF2F1;--cream-2:#D8E8E6;--card:#F7FBFA;--coral:#2E6F6B;--coral-dark:#1F4E4B;--gold:#D9A441;--teal:#3E7C6E;--line:#C7DEDA}
+body.theme-christmas:not(.dark-mode){--cream:#F5EDE3;--cream-2:#E9D9C5;--card:#FCF7EF;--coral:#8C2F39;--coral-dark:#6B1E27;--gold:#C9A227;--teal:#2F5D3A;--line:#E3CBAE}
+body.theme-newyear:not(.dark-mode){--cream:#EDEAF2;--cream-2:#D9D3E6;--card:#F8F6FB;--coral:#3B3268;--coral-dark:#241B4A;--gold:#D8B84A;--teal:#4A3F7A;--line:#CBC2DE}
+body.theme-ramadan:not(.dark-mode){--cream:#EDEBF5;--cream-2:#DAD5EC;--card:#F8F7FC;--coral:#2E2A5C;--coral-dark:#1D1A42;--gold:#D9A441;--teal:#4C4590;--line:#C7BEE0}
+body.theme-eidfitr:not(.dark-mode){--cream:#F1F6EC;--cream-2:#DEEBD2;--card:#F9FCF6;--coral:#3E7C4A;--coral-dark:#2A5A34;--gold:#D9A441;--teal:#5B9668;--line:#C9DFC0}
+body.theme-nowruz:not(.dark-mode){--cream:#F1F5E7;--cream-2:#DEE9C9;--card:#F9FBF3;--coral:#B23A2E;--coral-dark:#8A2A21;--gold:#D6A429;--teal:#6B8F3E;--line:#CFE0AE}
+body.theme-eidadha:not(.dark-mode){--cream:#F5EBDD;--cream-2:#E9D3B4;--card:#FCF6EC;--coral:#B5562E;--coral-dark:#8A3F1F;--gold:#D9A441;--teal:#8C6B3D;--line:#E3C89A}
+body.theme-nationalday:not(.dark-mode){--cream:#EAF2FE;--cream-2:#D6E6FD;--card:#FFFFFF;--coral:#0072CE;--coral-dark:#005092;--gold:#DA291C;--teal:#43B02A;--line:#C7DBFB;--board-bg:rgba(0,114,206,.35)}
+body.usertheme-vintage:not(.dark-mode){--cream:#F0F0F0;--cream-2:#E0E0E0;--card:#FFFFFF;--coral:#333333;--coral-dark:#000000;--gold:#666666;--teal:#999999;--line:#CCCCCC;--board-bg:rgba(0,0,0,.55)}
+body.usertheme-ihl:not(.dark-mode){--cream:#EEF1F7;--cream-2:#E0E4F1;--card:#FBFBFD;--coral:#304EA0;--coral-dark:#233873;--gold:#FF9E2C;--teal:#4D65A8;--line:#D1D8EA;--board-bg:rgba(48,78,160,.55)}
+body.usertheme-arsenal:not(.dark-mode){--cream:#FEFEFE;--cream-2:#FEFEFE;--card:#FEFEFE;--coral:#EC0024;--coral-dark:#CE0041;--gold:#99824C;--teal:#113476;--line:rgba(153,130,76,.35);--board-bg:rgba(17,52,118,.62)}
+body.usertheme-arsenal2:not(.dark-mode){--cream:#2E375D;--cream-2:#2E375D;--card:#4A5480;--ink:#FEFEFE;--ink-soft:#C9A542;--coral:#2E375D;--coral-dark:#1B2033;--gold:#C9A542;--teal:#BB2C38;--line:rgba(201,165,66,.35);--board-bg:rgba(46,55,93,.62)}
+body.usertheme-uzbekistan2:not(.dark-mode){--cream:#1F6DAE;--cream-2:#1F6DAE;--card:#1F6DAE;--ink:#FEFEFE;--ink-soft:#F7EBCF;--coral:#07093B;--coral-dark:#F7EBCF;--gold:#FDECC8;--teal:#D6F2E6;--line:rgba(247,235,207,.35);--board-bg:rgba(7,9,59,.55)}
+body.usertheme-soviet:not(.dark-mode){--cream:#E8DCC0;--cream-2:#E8DCC0;--card:#E8DCC0;--ink:#2B1D0E;--ink-soft:#6B1D1D;--coral:#AE352F;--coral-dark:#363636;--gold:#A54200;--teal:#6B1D1D;--line:rgba(43,29,14,.25);--board-bg:rgba(211,64,57,.55)}
+body.usertheme-bazaar:not(.dark-mode){--cream:#2B1D14;--cream-2:#2B1D14;--card:#2B1D14;--ink:#FEFEFE;--ink-soft:#F0D6A0;--coral:#6C0D07;--coral-dark:#F0D6A0;--gold:#F0D6A0;--teal:#F0D6A0;--line:rgba(240,214,160,.3);--board-bg:rgba(197,81,11,.55)}
+body.usertheme-hacker:not(.dark-mode){--cream:#0A0A0A;--cream-2:#0A0A0A;--card:#0A3D18;--ink:#33FF33;--ink-soft:#2ABF4E;--coral:#0F5C24;--coral-dark:#33FF33;--gold:#33FF33;--teal:#33FF33;--line:rgba(51,255,51,.3);--board-bg:rgba(0,204,65,.55)}
+body.usertheme-nebula:not(.dark-mode){--cream:#06040F;--cream-2:#06040F;--card:#1C2958;--ink:#FEFEFE;--ink-soft:#E0C8FF;--coral:#3D0A66;--coral-dark:#E0C8FF;--gold:#E0C8FF;--teal:#E0C8FF;--line:rgba(224,200,255,.3);--board-bg:rgba(61,10,102,.55)}
+body.usertheme-synthwave:not(.dark-mode){--cream:#170B2E;--cream-2:#170B2E;--card:#2A1450;--ink:#FEFEFE;--ink-soft:#9FF7FF;--coral:#9D00FF;--coral-dark:#9FF7FF;--gold:#9FF7FF;--teal:#9FF7FF;--line:rgba(159,247,255,.3);--board-bg:rgba(157,0,255,.55)}
+body.usertheme-bauhaus:not(.dark-mode){--cream:#F2EFE4;--cream-2:#F2EFE4;--card:#F2EFE4;--ink:#1A1A1A;--ink-soft:#0056A4;--coral:#D4141E;--coral-dark:#1A1A1A;--gold:#FFD100;--teal:#0056A4;--line:rgba(26,26,26,.3);--board-bg:rgba(212,20,30,.55)}
+body.dark-mode.usertheme-d1{--cream:#1B1512;--cream-2:#271E18;--card:#3A2C22;--ink:#F0E3D2;--ink-soft:#C2A98C;--coral:#CC9142;--coral-dark:#E8B355;--gold:#D6C171;--teal:#9FB06A;--line:#544031}
+body.dark-mode.usertheme-dvintage{--cream:#141414;--cream-2:#1E1E1E;--card:#262626;--ink:#EDEDED;--ink-soft:#B0B0B0;--coral:#CCCCCC;--coral-dark:#999999;--gold:#888888;--teal:#666666;--line:#3A3A3A}
+body.dark-mode.usertheme-dihl{--cream:#0D162D;--cream-2:#111C3A;--card:#16244A;--ink:#E4E8F2;--ink-soft:#B8C1DC;--coral:#687CB5;--coral-dark:#304EA0;--gold:#FF9E2C;--teal:#4D65A8;--line:#1A2B58}
+body.dark-mode.usertheme-darsenal{--cream:#113476;--cream-2:#113476;--card:#CE0041;--ink:#FEFEFE;--ink-soft:#99824C;--coral:#EC0024;--coral-dark:#CE0041;--gold:#99824C;--teal:#EC0024;--line:rgba(153,130,76,.35)}
+body.usertheme-arsenal2:not(.dark-mode){--ff-accent:var(--ink)}
+body.dark-mode.usertheme-darsenal{--ff-accent:var(--ink)}
+body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
+  /* - IELTS Vocabulary - */
+  .v-sub{color:var(--ink-soft); font-weight:600; font-size:13px; margin:-8px 0 14px;}
+  .v-filters{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin:6px 0 16px;}
+  .v-filters label{font-weight:800; font-size:12px; color:var(--ink-soft); display:flex; flex-direction:column; gap:5px;}
+  .v-sel{width:100%; padding:12px; border-radius:14px; border:none; background:var(--card); color:var(--ink); font-family:inherit; font-size:15px; font-weight:700;}
+  .v-card{background:var(--card); border-radius:20px; padding:22px 18px; box-shadow:0 3px 0 rgba(58,42,30,.08); margin-bottom:14px; text-align:center;}
+  .v-word{font-family:'Baloo 2', sans-serif; font-weight:700; font-size:30px; line-height:1.15; color:var(--ink); overflow-wrap:anywhere;}
+  .v-pos{display:inline-block; margin:6px 0 0; padding:2px 10px; border-radius:999px; background:rgba(133,56,159,.16); color:#85389F; font-size:12px; font-weight:800;}
+  body.dark-mode .v-pos{color:#d9a8ec; background:rgba(217,168,236,.16);}
+  .v-def{font-size:18px; font-weight:700; line-height:1.4; margin-top:14px; color:var(--ink);}
+  .v-ex{font-size:15px; font-style:italic; color:var(--ink-soft); margin-top:10px; line-height:1.4;}
+  .v-meta{display:flex; justify-content:space-between; font-weight:800; font-size:13px; color:var(--ink-soft); margin:0 2px 10px;}
+  .v-bar{height:6px; border-radius:99px; background:var(--cream-2); overflow:hidden; margin-bottom:14px;}
+  .v-bar>i{display:block; height:100%; background:var(--coral); width:0;}
+  .v-opts{display:flex; flex-direction:column; gap:10px; margin-bottom:12px;}
+  .v-opt{border:2px solid transparent; background:var(--card); color:var(--ink); border-radius:16px; padding:14px 14px; font-family:inherit; font-size:16px; font-weight:700; text-align:left; cursor:pointer; box-shadow:0 2px 0 rgba(58,42,30,.08); line-height:1.3;}
+  .v-opt:active{transform:translateY(1px);}
+  .v-opt.ok{border-color:var(--teal); background:rgba(107,122,61,.25);}
+  .v-opt.bad{border-color:#B3261E; background:rgba(179,38,30,.15);}
+  .v-opts.six{display:grid; grid-template-columns:1fr 1fr;}
+  .v-opts.six .v-opt{text-align:center; padding:14px 8px; overflow-wrap:anywhere;}
+  .v-btn{width:100%; border:none; border-radius:16px; padding:15px 12px; font-family:inherit; font-weight:800; font-size:16px; cursor:pointer; background:var(--coral); color:#fff; margin-top:4px;}
+  .v-btn.alt{background:var(--card); color:var(--ink); box-shadow:0 2px 0 rgba(58,42,30,.08);}
+  .v-row{display:flex; gap:10px;}
+  .v-row .v-btn{flex:1;}
+  .v-save{border:none; background:transparent; color:var(--ff-accent); font-family:inherit; font-weight:800; font-size:14px; cursor:pointer; padding:8px 4px;}
+  .v-save.on{color:var(--teal);}
+  .blur{filter:blur(9px); cursor:pointer; user-select:none; -webkit-user-select:none; transition:filter .2s; display:inline-block; max-width:100%;}
+  .blur.show{filter:none; user-select:text; -webkit-user-select:text;}
+  .v-hint{font-size:12px; font-weight:700; color:var(--ink-soft); margin:2px 2px 12px;}
+  .v-big{font-family:'Baloo 2', sans-serif; font-size:44px; font-weight:700; color:var(--coral);}
+  .v-miss{background:var(--card); border-radius:14px; padding:12px 14px; margin-bottom:8px; text-align:left;}
+  .v-miss b{font-size:16px;} .v-miss div{font-size:14px; color:var(--ink-soft); margin-top:3px;}
+  .v-learn{height:360px; display:flex; flex-direction:column; justify-content:center; align-items:center; position:relative; padding:20px 18px 52px; overflow:auto;}
+  .v-learn .v-save{position:absolute; bottom:8px; left:50%; transform:translateX(-50%);}
+  .v-fixed{position:fixed; bottom:22px; left:50%; transform:translateX(-50%); width:min(688px, calc(100% - 32px)); margin:0; z-index:5;}
+</style>
+<link rel="stylesheet" href="theme-pages.css">
+<style>body .v-opt.ok{outline:4px solid #4CAF50 !important; outline-offset:-2px;} body .v-opt.bad{outline:4px solid #E5484D !important; outline-offset:-2px; opacity:.9;} body{--ff-accent:var(--coral-dark);} .v-opt.sport-hub-tile{height:auto; display:block; padding:14px;} .v-opts.six .v-opt.sport-hub-tile{padding:14px 8px;} .v-btn{box-shadow:0 3px 0 rgba(0,0,0,.12);} .v-card.random-tile{display:block;}</style>
+<style>
+
+.sp-card{border:1px solid var(--line);}
+input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
+.tr-f input,.ls-in,.wf-in{border:2px solid var(--line);}
+.v-btn.alt{color:var(--ink) !important;}
+.gg-lvl,.gg-btn-main,.v-btn,.cl-tabs button.on,.cn-tile.sel,.mt-tabs button.on,.wr-sel button.on,.wf-base{color:var(--on-coral,#fff) !important;}
+.st-tabs{display:flex; gap:8px; margin:10px 0;}
+.st-tabs button{flex:1; padding:10px; border-radius:999px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 14px Nunito,sans-serif; cursor:pointer;}
+.st-tabs button.on{background:var(--coral); border-color:var(--coral);}
+.st-set{display:flex; gap:10px; margin:6px 0 4px;}
+.st-set label{flex:1; display:flex; flex-direction:column; gap:4px; font:700 12px Nunito,sans-serif; color:var(--ink-soft);}
+.st-set input{padding:10px; border-radius:12px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 20px Nunito,sans-serif; text-align:center; width:100%; box-sizing:border-box;}
+.st-phase{text-align:center; font:800 15px Nunito,sans-serif; color:var(--ink-soft); margin-top:14px;}
+.st-clock{text-align:center; font:900 clamp(64px,24vw,120px)/1.05 Nunito,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums; margin:4px 0 8px;}
+[data-ph="prep"] .st-clock, [data-ph="prep"].st-clock{color:var(--ink);}
+.st-oops{margin-top:22px; padding:16px; border:2px solid var(--line); border-radius:18px; background:var(--card); text-align:center;}
+.st-mark{font:900 56px/1 Nunito,sans-serif; color:var(--ink);} .st-mark span{font-size:20px; margin-left:6px; color:var(--ink-soft);}
+.st-oops-row{display:flex; gap:10px; justify-content:center; align-items:center; margin:12px 0 6px;}
+.st-pill{padding:16px 44px; border-radius:999px; border:3px solid var(--coral); background:var(--coral); color:var(--on-coral,#fff); font:900 24px Nunito,sans-serif; cursor:pointer; -webkit-tap-highlight-color:transparent;}
+.st-pill:active{transform:scale(.95);}
+.st-undo{padding:10px 16px; border-radius:999px; border:2px solid var(--line); background:transparent; color:var(--ink); font:800 14px Nunito,sans-serif; cursor:pointer;}
+.st-sub{font:700 13px Nunito,sans-serif; color:var(--ink-soft);}
+
+</style>
+</head>
+<body>
+<script src="lounge-core.js"></script>
+<script src="contrast-guard.js"></script>
+<script>
+// Applies whatever theme/dark-mode the main app currently has active, read straight
+// from the same-origin localStorage key it writes to. Mirrors applyThemeState() and
+// applySeasonalTheme() in index.html exactly (including the "no explicit choice yet
+// -> fall back to the date-driven seasonal theme" case), minus the bits that don't
+// apply to this page (persisting, the toggle icon, the title-color DOM hack, National
+// Day's one-time fireworks/centering - none of them have anything to act on here).
+// Runs synchronously before any content below is parsed, so there's no flash of the
+// wrong theme.
+(function(){
+  function tashkentEffectiveDay(){
+    var parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Tashkent', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', hour12:false
+    }).formatToParts(new Date());
+    function get(t){ for(var i=0;i<parts.length;i++){ if(parts[i].type===t) return parts[i].value; } }
+    var y = +get('year'), mo = +get('month'), d = +get('day'), h = +get('hour');
+    var dayObj = new Date(Date.UTC(y, mo-1, d));
+    if(h < 4){ dayObj.setUTCDate(dayObj.getUTCDate() - 1); }
+    return dayObj.toISOString().slice(0,10);
+  }
+  var SEASONAL_THEMES = [
+    { key:'firstday',  start:'2026-08-29', end:'2026-08-31' },
+    { key:'christmas', start:'2026-12-24', end:'2026-12-26' },
+    { key:'newyear',   start:'2026-12-31', end:'2027-01-02' },
+    { key:'ramadan',   start:'2027-02-08', end:'2027-03-09' },
+    { key:'eidfitr',   start:'2027-03-10', end:'2027-03-12' },
+    { key:'nowruz',    start:'2027-03-20', end:'2027-03-22' },
+    { key:'eidadha',   start:'2027-05-15', end:'2027-05-17' },
+  ];
+  var USER_THEME_KEYS = ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','vintage','d1','dihl','darsenal','dvintage'];
+  var body = document.body;
+  var key = null;
+  try{ key = localStorage.getItem('themeChoice'); }catch(e){}
+  if(key === null){
+    var today = tashkentEffectiveDay();
+    var active = null;
+    for(var i=0;i<SEASONAL_THEMES.length;i++){
+      var t = SEASONAL_THEMES[i];
+      if(today >= t.start && today <= t.end){ active = t; break; }
+    }
+    if(active) body.classList.add('theme-' + active.key);
+    return;
+  }
+  if(key !== 'default' && key !== 'nationalday' && USER_THEME_KEYS.indexOf(key) === -1){
+    key = 'default';
+  }
+  var isDark = key !== 'default' && key !== 'nationalday' && key.charAt(0) === 'd';
+  if(isDark) body.classList.add('dark-mode');
+  if(key === 'nationalday'){
+    body.classList.add('theme-nationalday');
+  } else if(key !== 'default'){
+    body.classList.add('usertheme-' + key);
+  }
+})();
+</script>
+<div class="wrap" id="app"><div class="empty-card">Loading…</div></div>
+<script>
+(function(){
+
+(function(){ try{
+  var c = getComputedStyle(document.body).getPropertyValue('--coral').trim(), e = document.createElement('i'); e.style.color = c; document.body.appendChild(e);
+  var m = getComputedStyle(e).color.match(/\d+(\.\d+)?/g); document.body.removeChild(e); if(!m) return;
+  function L(v){ v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+  var l = 0.2126 * L(+m[0]) + 0.7152 * L(+m[1]) + 0.0722 * L(+m[2]);
+  document.body.style.setProperty('--on-coral', (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.0556) ? '#fff' : '#111');
+}catch(e){} })();
+
+var app = document.getElementById('app');
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function shuffle(a){ a = a.slice(); for(var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
+function lsGet(k, d){ try{ var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } }
+function lsSet(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function back(href, text){ return '<a class="back-link" href="' + href + '">← ' + text + '</a>'; }
+function head(title, sub){ return '<div class="section-head" style="margin-top:8px;"><h2>' + title + '</h2></div>' + (sub ? '<div class="v-sub">' + sub + '</div>' : ''); }
+function getJson(u){ return fetch(u, { cache: 'no-cache' }).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
+function dayNumber(){ var d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); }
+function award(n, why){ if(window.LoungeXP) LoungeXP.award(n, why); }
+var BACK = back('index.html', 'Back to the Lounge');
+var cfg = lsGet('spTimerCfg', { prep: 30, talk: 60 });
+var tab = lsGet('spTimerTab', 'timer');
+var oops = 0;                       // mistakes this round (not saved: every student starts fresh)
+var run = null, tick = null, actx = null;   // run = {phase:'prep'|'talk', end:ms}
+var sw = { t0: 0, acc: 0, on: false };
+function fmt(ms){ var s = Math.max(0, Math.ceil(ms / 1000)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+function fmtSw(ms){ var t = Math.floor(ms / 10), cs = t % 100, s = Math.floor(t / 100) % 60, m = Math.floor(t / 6000); return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0') + '.' + String(cs).padStart(2, '0'); }
+function beep(n, hz){
+  try{
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    for(var i = 0; i < n; i++){
+      var o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = hz || 880; o.connect(g); g.connect(actx.destination);
+      var t = actx.currentTime + i * 0.3; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.3, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.22); o.start(t); o.stop(t + 0.25);
+    }
+  }catch(e){}
+}
+function num(id, d){ var v = parseInt(document.getElementById(id).value, 10); return v > 0 && v <= 3600 ? v : d; }
+function render(){
+  var h = BACK + head('Speaking Timer');
+  h += '<div class="st-tabs"><button data-t="timer" class="' + (tab === 'timer' ? 'on' : '') + '">Timer</button><button data-t="sw" class="' + (tab === 'sw' ? 'on' : '') + '">Stopwatch</button></div>';
+  if(tab === 'timer'){
+    h += '<div class="st-set"><label>Prepare (sec)<input id="stPrep" type="number" min="1" max="3600" inputmode="numeric" value="' + cfg.prep + '"></label>' +
+         '<label>Speak (sec)<input id="stTalk" type="number" min="1" max="3600" inputmode="numeric" value="' + cfg.talk + '"></label></div>';
+    h += '<div class="st-phase" id="stPhase"></div><div class="st-clock" id="stClock"></div><div class="mt-bar"><i id="stBar"></i></div>';
+    h += '<div class="v-row"><button class="v-btn" id="stGo">Prepare</button><button class="v-btn alt" id="stReset">Reset</button></div>';
+    h += '<div class="st-oops"><div class="st-mark"><b id="stMark"></b><span>/ 10</span></div>' +
+         '<div class="st-oops-row"><button class="st-pill" id="stOops">oops</button><button class="st-undo" id="stUndo" aria-label="Undo one oops">−1</button><button class="st-undo" id="stZero">Clear</button></div>' +
+         '<div class="st-sub" id="stSub"></div></div>';
+  } else {
+    h += '<div class="st-clock" id="swClock"></div><div class="v-row"><button class="v-btn" id="swGo"></button><button class="v-btn alt" id="swReset">Reset</button></div>';
+  }
+  app.innerHTML = h;
+  app.querySelectorAll('[data-t]').forEach(function(b){ b.onclick = function(){ tab = b.getAttribute('data-t'); lsSet('spTimerTab', tab); render(); }; });
+  if(tab === 'timer'){
+    document.getElementById('stGo').onclick = go;
+    document.getElementById('stReset').onclick = reset;
+    document.getElementById('stOops').onclick = function(){ oops++; paintOops(); if(navigator.vibrate) try{ navigator.vibrate(15); }catch(e){} };
+    document.getElementById('stUndo').onclick = function(){ if(oops > 0){ oops--; paintOops(); } };
+    document.getElementById('stZero').onclick = function(){ oops = 0; paintOops(); };
+    ['stPrep', 'stTalk'].forEach(function(id){ document.getElementById(id).onchange = saveCfg; });
+    paint(); paintOops();
+  } else {
+    document.getElementById('swGo').onclick = function(){ if(sw.on){ sw.acc += Date.now() - sw.t0; sw.on = false; } else { sw.t0 = Date.now(); sw.on = true; } paintSw(); };
+    document.getElementById('swReset').onclick = function(){ sw = { t0: 0, acc: 0, on: false }; paintSw(); };
+    paintSw();
+  }
+}
+function saveCfg(){ if(run) return; cfg = { prep: num('stPrep', cfg.prep), talk: num('stTalk', cfg.talk) }; lsSet('spTimerCfg', cfg); paint(); }
+function paintOops(){
+  var m = Math.max(0, 10 - oops);
+  var el = document.getElementById('stMark'); if(!el) return;
+  el.textContent = m;
+  document.getElementById('stSub').textContent = oops ? oops + (oops === 1 ? ' mistake' : ' mistakes') : 'No mistakes yet';
+}
+function paint(){
+  var c = document.getElementById('stClock'); if(!c) return;
+  var ph = document.getElementById('stPhase'), bar = document.getElementById('stBar'), go = document.getElementById('stGo');
+  var card = c.parentNode;
+  if(!run){ ph.textContent = 'Ready'; c.textContent = fmt(cfg.prep * 1000); bar.style.width = '0'; go.textContent = 'Prepare'; card.setAttribute('data-ph', 'idle'); return; }
+  var left = run.end - Date.now(), total = (run.phase === 'prep' ? cfg.prep : cfg.talk) * 1000;
+  ph.textContent = run.phase === 'prep' ? 'Preparing…' : 'Speak now';
+  c.textContent = fmt(left); bar.style.width = Math.min(100, Math.max(0, 100 * (1 - left / total))) + '%';
+  go.textContent = 'Stop'; card.setAttribute('data-ph', run.phase);
+}
+function loop(){
+  if(!run) return;
+  if(Date.now() >= run.end){
+    if(run.phase === 'prep'){ beep(2, 880); run = { phase: 'talk', end: Date.now() + cfg.talk * 1000 }; }
+    else { beep(3, 660); stop(); var ph = document.getElementById('stPhase'); if(ph) ph.textContent = 'Time is up'; var c = document.getElementById('stClock'); if(c) c.textContent = '00:00'; return; }
+  }
+  paint();
+}
+function go(){
+  if(run){ stop(); paint(); return; }
+  saveCfg(); beep(1, 600);   // unlocks audio on the tap
+  run = { phase: 'prep', end: Date.now() + cfg.prep * 1000 };
+  tick = setInterval(loop, 200); paint();
+}
+function stop(){ run = null; clearInterval(tick); tick = null; var g = document.getElementById('stGo'); if(g) g.textContent = 'Prepare'; var c = document.getElementById('stClock'); if(c && c.parentNode) c.parentNode.setAttribute('data-ph', 'idle'); }
+function reset(){ stop(); oops = 0; paint(); paintOops(); }
+function paintSw(){
+  clearInterval(tick); tick = null;
+  var c = document.getElementById('swClock'); if(!c) return;
+  var g = document.getElementById('swGo');
+  function p(){ c.textContent = fmtSw(sw.acc + (sw.on ? Date.now() - sw.t0 : 0)); }
+  p(); g.textContent = sw.on ? 'Stop' : (sw.acc ? 'Resume' : 'Start');
+  if(sw.on) tick = setInterval(function(){ if(!document.getElementById('swClock')){ clearInterval(tick); return; } p(); }, 30);
+}
+render();
+
+})();
+</script>
+</body>
+</html>
