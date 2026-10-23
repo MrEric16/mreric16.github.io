@@ -7,7 +7,7 @@
 // win on the first load after a change. Network-first means you always get the latest push
 // immediately when there's a connection; the cache only kicks in when there's genuinely none.
 
-const CACHE_NAME = 'erics-lounge-v17';
+const CACHE_NAME = 'erics-lounge-v18';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -69,20 +69,32 @@ self.addEventListener('fetch', (event) => {
     // Grammar data is versioned by ?v=, so the browser's own copy is always right: reuse it.
     const isGrammarData = url.pathname.indexOf('/data/grammar/') !== -1;
     const mode = isVersion ? 'no-store' : ((isMedia || isGrammarData) ? 'default' : 'no-cache');
+    // Network-first, but never wait longer than SLOW_MS for it: on a slow link the saved copy is shown and the
+    // network request keeps going in the background to refresh the cache for next time.
+    const SLOW_MS = 1500;
+    const fromCache = () => caches.match(req, { ignoreSearch: true });
+    const net = fetch(req, { cache: mode }).then((res) => {
+      if (res && res.status === 200 && !req.headers.has('range')) {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(req, copy));
+      }
+      return res;
+    });
+    const canRace = !isVersion && !req.headers.has('range');
     event.respondWith(
-      fetch(req, { cache: mode })
-        .then((res) => {
-          if (res && res.status === 200 && !req.headers.has('range')) {
-            caches.open(CACHE_NAME).then((cache) => cache.put(req, res.clone()));
-          }
-          return res;
-        })
-        .catch(() =>
-          caches.match(req, { ignoreSearch: true }).then((hit) =>
-            hit || (req.mode === 'navigate' ? caches.match('./index.html', { ignoreSearch: true }) : undefined)
-          )
+      (canRace
+        ? Promise.race([
+            net,
+            new Promise((resolve) => setTimeout(resolve, SLOW_MS)).then(() => fromCache().then((hit) => hit || net)),
+          ])
+        : net
+      ).catch(() =>
+        fromCache().then((hit) =>
+          hit || (req.mode === 'navigate' ? caches.match('./index.html', { ignoreSearch: true }) : undefined)
         )
+      )
     );
+    event.waitUntil(net.catch(() => {}));
   }
   // Everything else (weather API, Wikipedia, YouTube, news sites) — just let it
   // hit the network normally. No point caching data that changes every visit.

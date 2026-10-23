@@ -40,10 +40,10 @@
 <meta name="apple-mobile-web-app-title" content="Eric's Lounge">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="lounge-core.js"></script>
 <script src="contrast-guard.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <style>
   :root{
     --cream:#F3EADD;
@@ -8235,9 +8235,17 @@ const RECOMMENDATIONS = [
 const SUPABASE_URL = "https://uugjyucgeyopyvmhckdg.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_F-idKUOOIWIpm7sMRtR-mA_m5Zir3Na";
 const SUPABASE_BUCKET = "Photos";
-const supabaseClient = (window.supabase && window.supabase.createClient)
-  ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-  : null;
+// The Supabase library is loaded with `defer` so it never blocks the page from drawing (a slow CDN used to stall every
+// return to the Lounge). The client is created once the deferred scripts have run; early callers queue via onSupabaseReady().
+let supabaseClient = null, sbReady = false;
+const sbQueue = [];
+function onSupabaseReady(fn){ if(sbReady) fn(); else sbQueue.push(fn); }
+function initSupabaseClient(){
+  if(sbReady) return; sbReady = true;
+  try{ supabaseClient = (window.supabase && window.supabase.createClient) ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null; }catch(e){ supabaseClient = null; }
+  sbQueue.splice(0).forEach(function(fn){ try{ fn(); }catch(e){} });
+}
+if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initSupabaseClient); else initSupabaseClient();
 
 // - Live "N users on the site right now" counter (footer) -
 // Uses Supabase Realtime Presence - an ephemeral channel with no database table needed.
@@ -10565,6 +10573,7 @@ function getUserId(){
   }
 }
 function logEvent(event_type, label){
+  if(!sbReady){ onSupabaseReady(function(){ logEvent(event_type, label); }); return; }
   if(!supabaseClient) return;
   supabaseClient.from('analytics_events').insert({
     session_id: getSessionId(), user_id: getUserId(), event_type, label: label || null
@@ -36750,7 +36759,7 @@ document.addEventListener('visibilitychange', () => {
 // an earlier attempt crashed on a temporal-dead-zone error - BADGES and
 // other later const declarations weren't initialized yet at that point.
 renderRoute();
-initLiveUserCounter();
+onSupabaseReady(initLiveUserCounter);
 applySeasonalTheme();
 
 
