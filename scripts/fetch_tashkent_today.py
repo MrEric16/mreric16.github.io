@@ -90,4 +90,9 @@ res['updated'] = now.strftime('%Y-%m-%dT%H:%M:%SZ')
 res['rates_ok'] = rates_ok
 json.dump(res, open(OUT, 'w', encoding='utf8'), ensure_ascii=False, separators=(',', ':'))
 print('\n'.join(log))
-if any('rates FAIL' in l for l in log) and not rates_ok or any('prayer FAIL' in l for l in log): sys.exit(1)
+def _rates_age_h():
+    try: return (now - datetime.datetime.strptime(res['stamps']['rates'], '%Y-%m-%dT%H:%M:%SZ')).total_seconds() / 3600
+    except Exception: return 1e9
+# CBU publishes once a day and its host sometimes times out from GitHub runners: keep the last good rates and only fail once they are >30h old
+rates_bad = any('rates FAIL' in l for l in log) and not rates_ok and _rates_age_h() > 30
+if rates_bad or any('prayer FAIL' in l for l in log): sys.exit(1)

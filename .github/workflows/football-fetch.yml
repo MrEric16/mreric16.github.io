@@ -38,8 +38,11 @@ jobs:
           git config user.email "actions@github.com"
           git add data/football-live.json scripts/football-fetch-log.txt || true
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Auto-update live football data"
-          git pull --rebase --autostash origin main || true
-          git push
+          for i in 1 2 3 4 5 6; do
+            git pull -q --rebase --autostash origin main && git push -q && exit 0
+            sleep $((RANDOM % 8 + 3))
+          done
+          exit 1
 
       # Watchdog: GitHub's own `schedule` cron trigger is documented as best-effort, not
       # guaranteed -- it can be silently delayed or skipped entirely, especially for a
