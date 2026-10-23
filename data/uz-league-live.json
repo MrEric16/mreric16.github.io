@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-10-23T15:10:16.147112Z",
+  "generatedAt": "2026-10-23T22:34:25.659410Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
-      "pld": 24,
-      "w": 17,
+      "pld": 25,
+      "w": 18,
       "d": 4,
       "l": 3,
-      "gf": 56,
-      "ga": 21,
-      "pts": 55
+      "gf": 59,
+      "ga": 22,
+      "pts": 58
     },
     {
       "name": "Pakhtakor",
-      "pld": 24,
+      "pld": 25,
       "w": 15,
       "d": 8,
-      "l": 1,
-      "gf": 43,
-      "ga": 22,
+      "l": 2,
+      "gf": 44,
+      "ga": 25,
       "pts": 53
     },
     {
@@ -33,13 +33,13 @@
     },
     {
       "name": "Buxoro",
-      "pld": 24,
+      "pld": 25,
       "w": 12,
-      "d": 4,
+      "d": 5,
       "l": 8,
       "gf": 37,
       "ga": 32,
-      "pts": 40
+      "pts": 41
     },
     {
       "name": "Lok. Tashkent",
@@ -113,13 +113,13 @@
     },
     {
       "name": "Termez Surkhon",
-      "pld": 24,
+      "pld": 25,
       "w": 7,
-      "d": 7,
+      "d": 8,
       "l": 10,
       "gf": 19,
       "ga": 28,
-      "pts": 28
+      "pts": 29
     },
     {
       "name": "Bunyodkor",
@@ -163,6 +163,20 @@
     }
   ],
   "results": [
+    {
+      "home": "Buxoro",
+      "away": "Termez Surkhon",
+      "raw_time": "23.10. 14:00",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "home": "Pakhtakor",
+      "away": "Neftchi Fargona",
+      "raw_time": "23.10. 14:00",
+      "homeScore": 1,
+      "awayScore": 3
+    },
     {
       "home": "Bunyodkor",
       "away": "Mashal Muborak",
@@ -288,20 +302,6 @@
       "raw_time": "21.09. 15:15",
       "homeScore": 1,
       "awayScore": 3
-    },
-    {
-      "home": "Lok. Tashkent",
-      "away": "Neftchi Fargona",
-      "raw_time": "20.09. 14:30",
-      "homeScore": 0,
-      "awayScore": 1
-    },
-    {
-      "home": "Sogdiana",
-      "away": "OKMK",
-      "raw_time": "20.09. 14:00",
-      "homeScore": 1,
-      "awayScore": 2
     }
   ],
   "fixtures": [
