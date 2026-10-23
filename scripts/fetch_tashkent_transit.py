@@ -11,7 +11,7 @@ Q = {
 }
 out = {}
 for k, q in Q.items():
-    for ep in EPS:
+    for ep in EPS * 3:  # three passes over the mirrors: Overpass is often busy/rate-limited
         try:
             r = requests.post(ep, data={"data": q}, timeout=300, headers={"User-Agent": "mreric16-lounge-transit/1.0"})
             if r.status_code == 200:
@@ -19,7 +19,7 @@ for k, q in Q.items():
             print(k, ep, r.status_code, r.text[:150])
         except Exception as e:
             print(k, ep, "ERR", str(e)[:120])
-        time.sleep(5)
+        time.sleep(20)
     else:
         print("FAILED", k); sys.exit(1)
 json.dump(out, open("data/tashkent-transit-raw.json", "w", encoding="utf8"), ensure_ascii=False, separators=(",", ":"))
