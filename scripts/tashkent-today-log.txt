@@ -1,5 +1,6 @@
-rates cross-check vs open.er-api.com ok, worst 0.50% (EUR 0.17%, GBP 0.16%, RUB 0.50%, AED 0.02%, KZT 0.09%, CNY 0.21%, KGS 0.03%)
-rates ok https://cbu.uz/en/arkhiv-kursov-valyut/json/ 23.10.2026
+rates FAIL https://cbu.uz/en/arkhiv-kursov-valyut/json/ HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /en/arkhiv-kursov-valyut/json/ (Caused by ConnectTimeoutError(<HTTPSConnection(host
+rates FAIL https://cbu.uz/oz/arkhiv-kursov-valyut/json/ HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /oz/arkhiv-kursov-valyut/json/ (Caused by ConnectTimeoutError(<HTTPSConnection(host
+rates FAIL https://cbu.uz/ru/arkhiv-kursov-valyut/json/ HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /ru/arkhiv-kursov-valyut/json/ (Caused by ConnectTimeoutError(<HTTPSConnection(host
 air ok
 prayer ok 61 days
 prayer cross-check unavailable: 502 Server Error: Bad Gateway for url: https://islomapi.uz/api/present/day?regio
