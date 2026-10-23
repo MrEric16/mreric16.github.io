@@ -1,94 +1,6 @@
 {
-  "generatedAt": "2026-10-23T19:26:38.578088Z",
+  "generatedAt": "2026-10-23T22:27:52.911323Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/hoffenheim-vs-borussia-dortmund/FTKhZ0EYda51i2oJhG_nC",
-      "date": null,
-      "home": "Hoffenheim",
-      "away": "Borussia Dortmund",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "L. Avdullahu",
-          "minute": 45
-        },
-        {
-          "scorer": "T. Lemperle",
-          "minute": 54
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "S. Guirassy",
-          "minute": 61
-        },
-        {
-          "scorer": "F. Silva",
-          "minute": 66
-        },
-        {
-          "scorer": "A. Hajdari",
-          "minute": 86
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/fiorentina-vs-torino/o0q8KudbwxynX691-ERtk",
-      "date": null,
-      "home": "Fiorentina",
-      "away": "Torino",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "M. Pellegrino",
-          "minute": 48
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Mandragora",
-          "minute": 74
-        },
-        {
-          "scorer": "C. Adams",
-          "minute": 82
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/hull-city-vs-aston-villa/uTVM8Orb7-j7PgGfwAAc6",
-      "date": null,
-      "home": "Hull City",
-      "away": "Aston Villa",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/schalke-04-vs-bayern-munich/Adbri7J8q1sjiSGwqV7DE",
-      "date": null,
-      "home": "Schalke 04",
-      "away": "Bayern Munich",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/lens-vs-lorient/zjaDI9eqoECJef07kqRhd",
       "date": null,
@@ -7927,6 +7839,114 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ipswich-town-vs-nottingham-forest/ntyfsF8j3nbkyyLFI5h_U",
+      "date": "2026-10-23",
+      "home": "Ipswich Town",
+      "away": "Nottingham Forest",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "J. Enciso",
+          "minute": 41
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "N. Williams",
+          "minute": 13
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/deportivo-alaves-vs-malaga/8rBqMjwf7uRy4FYApx8g-",
+      "date": "2026-10-23",
+      "home": "Deportivo Alaves",
+      "away": "Malaga",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Manas",
+          "minute": 89
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Nino",
+          "minute": 44
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/torino-vs-monza/ir6EIN13UGAyh3FJj0O90",
+      "date": "2026-10-23",
+      "home": "Torino",
+      "away": "Monza",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "K. Fitz-Jim",
+          "minute": 39
+        },
+        {
+          "scorer": "R. Belghali",
+          "minute": 61
+        },
+        {
+          "scorer": "N. Vlasic",
+          "minute": 72
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "G. Varela",
+          "minute": 47
+        },
+        {
+          "scorer": "N. Patterson",
+          "minute": 90
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/brest-vs-nice/c5_arHmZbZjwu2SlmbwdS",
+      "date": "2026-10-23",
+      "home": "Brest",
+      "away": "Nice",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "L. Ajorque",
+          "minute": 15
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "E. Wahi",
+          "minute": 61
+        },
+        {
+          "scorer": "S. Diop",
+          "minute": 83
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7940,6 +7960,7 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
+    "https://www.goal.com/en/match/vfb-stuttgart-vs-borussia-moenchengladbach/9vN7Z9zrMlvqaCj0JBDFp": 1
   }
 }
