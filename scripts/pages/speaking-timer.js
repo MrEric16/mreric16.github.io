@@ -15,6 +15,22 @@ function beep(n, hz){
     }
   }catch(e){}
 }
+var pips = [];
+function tone(at, dur, hz){   // one beep on the audio clock, so the timing stays exact even if the page timers lag
+  var o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = hz; o.connect(g); g.connect(actx.destination);
+  g.gain.setValueAtTime(0.0001, at); g.gain.exponentialRampToValueAtTime(0.35, at + 0.01); g.gain.setValueAtTime(0.35, at + dur - 0.03); g.gain.exponentialRampToValueAtTime(0.0001, at + dur);
+  o.start(at); o.stop(at + dur + 0.02); pips.push(o);
+}
+function schedulePips(secs){   // three short pips at -3, -2, -1 s, then one long tone exactly at 0 (news-channel countdown)
+  clearPips();
+  try{
+    actx = actx || new (window.AudioContext || window.webkitAudioContext)();
+    var now = actx.currentTime;
+    for(var k = 3; k >= 1; k--) if(secs - k > 0.05) tone(now + secs - k, 0.12, 1000);
+    tone(now + secs, 1.0, 1000);
+  }catch(e){}
+}
+function clearPips(){ pips.forEach(function(o){ try{ o.stop(); }catch(e){} }); pips = []; }
 function num(id, d){ var v = parseInt(document.getElementById(id).value, 10); return v > 0 && v <= 3600 ? v : d; }
 var SAVE_KEY = 'game:speaking-timer.html';
 function bms(){ try{ var l = JSON.parse(localStorage.getItem('bookmarks') || '[]'); return Array.isArray(l) ? l : []; }catch(e){ return []; } }
@@ -77,7 +93,7 @@ function paint(){
 function loop(){
   if(!run) return;
   if(Date.now() >= run.end){
-    if(run.phase === 'prep'){ beep(2, 880); run = { phase: 'talk', end: Date.now() + cfg.talk * 1000 }; }
+    if(run.phase === 'prep'){ run = { phase: 'talk', end: Date.now() + cfg.talk * 1000 }; }
     else { beep(3, 660); stop(); var ph = document.getElementById('stPhase'); if(ph) ph.textContent = 'Time is up'; var c = document.getElementById('stClock'); if(c) c.textContent = '00:00'; return; }
   }
   paint();
@@ -85,10 +101,10 @@ function loop(){
 function go(){
   if(run){ stop(); paint(); return; }
   saveCfg(); beep(1, 600);   // unlocks audio on the tap
-  run = { phase: 'prep', end: Date.now() + cfg.prep * 1000 };
+  run = { phase: 'prep', end: Date.now() + cfg.prep * 1000 }; schedulePips(cfg.prep);
   tick = setInterval(loop, 200); paint();
 }
-function stop(){ run = null; clearInterval(tick); tick = null; var g = document.getElementById('stGo'); if(g) g.textContent = 'Prepare'; var c = document.getElementById('stClock'); if(c && c.parentNode) c.parentNode.setAttribute('data-ph', 'idle'); }
+function stop(){ clearPips(); run = null; clearInterval(tick); tick = null; var g = document.getElementById('stGo'); if(g) g.textContent = 'Prepare'; var c = document.getElementById('stClock'); if(c && c.parentNode) c.parentNode.setAttribute('data-ph', 'idle'); }
 function reset(){ stop(); oops = 0; paint(); paintOops(); }
 function paintSw(){
   clearInterval(tick); tick = null;
