@@ -1,6 +1,109 @@
 {
- "generatedAt": "2026-10-23T17:35:05.309815Z",
+ "generatedAt": "2026-10-23T20:45:33.121551Z",
  "results": [
+  {
+   "url": "espn:401884761",
+   "date": "2026-10-23",
+   "utc": "2026-10-23T18:30Z",
+   "home": "Stuttgart",
+   "away": "M'gladbach",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "E. Demirovic",
+     "minute": 5
+    },
+    {
+     "scorer": "E. Demirovic",
+     "minute": 83
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Scally",
+     "minute": 38
+    },
+    {
+     "scorer": "S. Machino",
+     "minute": 51
+    },
+    {
+     "scorer": "W. Mohya",
+     "minute": 66
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401874957",
+   "date": "2026-10-23",
+   "utc": "2026-10-23T18:45Z",
+   "home": "Torino",
+   "away": "Monza",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "K. Fitz-Jim",
+     "minute": 39
+    },
+    {
+     "scorer": "R. Belghali",
+     "minute": 61
+    },
+    {
+     "scorer": "N. Vlasic",
+     "minute": 72
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "G. Varela",
+     "minute": 47
+    },
+    {
+     "scorer": "N. Patterson (og)",
+     "minute": "90+4"
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876428",
+   "date": "2026-10-23",
+   "utc": "2026-10-23T18:45Z",
+   "home": "Brest",
+   "away": "Nice",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "L. Ajorque",
+     "minute": 15
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Wahi",
+     "minute": 61
+    },
+    {
+     "scorer": "S. Diop",
+     "minute": 83
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401882870",
    "date": "2026-10-21",
