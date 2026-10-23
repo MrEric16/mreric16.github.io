@@ -39,10 +39,16 @@ jobs:
         run: |
           git config user.name "events-bot"
           git config user.email "actions@github.com"
-          git add data/events-tashkent.json scripts/last-run-log.txt scripts/debug-*.html || true
+          git add data/events-tashkent.json data/translation-cache.json scripts/last-run-log.txt scripts/debug-*.html || true
           git diff --cached --quiet && echo "No changes to commit" || git commit -m "Auto-update Tashkent events"
-          git pull --rebase --autostash origin main || true
-          git push
+          # Many bot workflows push to main; a plain push loses the race and fails the run (04:59 UTC 23 Oct).
+          # Retry: re-sync, push again, with a short random pause so two bots do not collide in lock-step.
+          for i in 1 2 3 4 5 6; do
+            git pull --rebase --autostash origin main || git rebase --abort || true
+            git push && break
+            echo "push attempt $i lost the race, retrying"
+            sleep $((RANDOM % 8 + 3))
+          done
 
       # Explicitly trigger a Pages redeploy after a successful data commit. Necessary,
       # not optional: a push authenticated with the default GITHUB_TOKEN (which is what

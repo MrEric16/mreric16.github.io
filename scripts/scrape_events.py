@@ -18,6 +18,7 @@ Output: data/events-tashkent.json
      "startDate": "YYYY-MM-DD", "endDate": "YYYY-MM-DD"|None,
      "url": str, "source": str }]
 """
+import os
 import json
 import re
 import sys
@@ -181,19 +182,74 @@ def log(msg):
 
 _translator = GoogleTranslator(source="ru", target="en")
 
+# Translations are cached on disk (data/translation-cache.json, committed with the results) so each
+# Russian title is only ever sent to a translation service once. Google's free endpoint rate-limits
+# GitHub's shared runner IPs hard ("too many requests"); from October nearly every title failed and the
+# site showed Russian. With the cache, a bad run costs nothing and each good run fills more of it.
+_CACHE_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "data", "translation-cache.json")
+try:
+    with open(_CACHE_PATH, encoding="utf-8") as _f:
+        _tcache = json.load(_f)
+except Exception:
+    _tcache = {}
+_t_last = [0.0]
+_t_fail = [0]
+
+
+def _save_tcache():
+    try:
+        with open(_CACHE_PATH, "w", encoding="utf-8") as f:
+            json.dump(_tcache, f, ensure_ascii=False, indent=0, sort_keys=True)
+    except Exception as e:
+        log(f"could not save translation cache: {e}")
+
+
+def _mymemory(text):
+    r = requests.get("https://api.mymemory.translated.net/get", params={"q": text[:480], "langpair": "ru|en"}, timeout=15)
+    out = (r.json().get("responseData") or {}).get("translatedText") or ""
+    if not out or "MYMEMORY WARNING" in out.upper() or re.search(r"[\u0400-\u04FF]", out):
+        raise RuntimeError("mymemory gave no usable translation")
+    return out
+
 
 def translate_ru_to_en(text):
-    """Translates a Russian title to English. Falls back to the original
-    Russian text on any failure (network issue, translation service down,
-    etc.) rather than dropping the event or crashing the whole run."""
+    """Translates a Russian title to English. Cached; paced to under 2 requests/second; retries with
+    backoff; falls back to a second free service; and finally to the original Russian text rather than
+    dropping the event or crashing the run. Only successful translations are cached."""
     if not text:
         return text
-    try:
-        result = _translator.translate(text)
-        return result if result else text
-    except Exception as e:
-        log(f"Translation failed for {text[:40]!r}: {e}")
+    if not re.search(r"[\u0400-\u04FF]", text):
         return text
+    if text in _tcache:
+        return _tcache[text]
+    if _t_fail[0] >= 12:   # both services are refusing us this run: stop hammering them
+        return text
+    last = None
+    for attempt, wait in enumerate((0, 2, 6)):
+        if wait:
+            time.sleep(wait)
+        gap = 0.6 - (time.time() - _t_last[0])
+        if gap > 0:
+            time.sleep(gap)
+        _t_last[0] = time.time()
+        try:
+            result = _translator.translate(text)
+            if result and not re.search(r"[\u0400-\u04FF]", result):
+                _tcache[text] = result
+                _t_fail[0] = 0
+                return result
+        except Exception as e:
+            last = e
+    try:
+        result = _mymemory(text)
+        _tcache[text] = result
+        _t_fail[0] = 0
+        return result
+    except Exception as e:
+        last = last or e
+    _t_fail[0] += 1
+    log(f"Translation failed for {text[:40]!r}: {str(last)[:80]}")
+    return text
 
 
 def norm(s):
@@ -1279,6 +1335,8 @@ def main():
         }, f, ensure_ascii=False, indent=2)
 
     log("Wrote data/events-tashkent.json")
+    _save_tcache()
+    log(f"translation cache: {len(_tcache)} titles")
 
 
 if __name__ == "__main__":
