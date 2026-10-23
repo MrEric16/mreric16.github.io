@@ -124,4 +124,8 @@ function liveAir(){
     var f = document.activeElement; if(!(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT'))) view();
   }).catch(function(){});
 }
-getJson('data/tashkent-today.json').then(function(d){ D = d; view(); liveAir(); setInterval(liveAir, 600000); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
+// Stale-while-revalidate: draw the last saved copy straight away (the network can take seconds), then swap in the fresh file.
+var TD_KEY = 'tdCache1', hadCache = false;
+try{ var cached = JSON.parse(localStorage.getItem(TD_KEY) || 'null'); if(cached && cached.rates){ D = cached; hadCache = true; view(); liveAir(); } }catch(e){}
+if(!hadCache) app.innerHTML = BACK + head('Tashkent Today', 'Exchange rates, prayer times and air quality.') + '<div class="v-hint">Loading…</div>';
+getJson('data/tashkent-today.json').then(function(d){ D = d; try{ localStorage.setItem(TD_KEY, JSON.stringify(d)); }catch(e){} view(); liveAir(); setInterval(liveAir, 600000); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ if(hadCache) return; app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
