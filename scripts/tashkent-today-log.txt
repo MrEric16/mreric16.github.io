@@ -1,6 +1,11 @@
-rates FAIL https://cbu.uz/en/arkhiv-kursov-valyut/json/ HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /en/arkhiv-kursov-valyut/json/ (Caused by ConnectTimeoutError(<HTTPSConnection(host
-rates FAIL https://cbu.uz/oz/arkhiv-kursov-valyut/json/ HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /oz/arkhiv-kursov-valyut/json/ (Caused by ConnectTimeoutError(<HTTPSConnection(host
-rates FAIL https://cbu.uz/ru/arkhiv-kursov-valyut/json/ HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /ru/arkhiv-kursov-valyut/json/ (Caused by ConnectTimeoutError(<HTTPSConnection(host
+rates FAIL direct HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /en/arkhiv-kursov-valyut/json/ (Caused by C
+rates FAIL direct oz HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /oz/arkhiv-kursov-valyut/json/ (Caused by C
+rates FAIL direct ru HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /ru/arkhiv-kursov-valyut/json/ (Caused by C
+rates FAIL supabase edge HTTPSConnectionPool(host='uugjyucgeyopyvmhckdg.supabase.co', port=443): Read timed out. (read timeout=20)
+rates FAIL corsproxy.io 401 Client Error: Unauthorized for url: https://corsproxy.io/?url=https%3A%2F%2Fcbu.uz%2Fen%2Farkhiv-kursov-valyut%2Fjso
+rates FAIL allorigins 522 Server Error: <none> for url: https://api.allorigins.win/raw?url=https%3A%2F%2Fcbu.uz%2Fen%2Farkhiv-kursov-valyut%2F
+rates FAIL codetabs 522 Server Error: <none> for url: https://api.codetabs.com/v1/proxy?quest=https%3A%2F%2Fcbu.uz%2Fen%2Farkhiv-kursov-valy
+rates MARKET fallback used
 air ok
 prayer ok 61 days
 prayer cross-check unavailable: 502 Server Error: Bad Gateway for url: https://islomapi.uz/api/present/day?regio
