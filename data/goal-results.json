@@ -1,139 +1,6 @@
 {
-  "generatedAt": "2026-10-24T17:08:33.281076Z",
+  "generatedAt": "2026-10-24T19:39:14.582949Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-chelsea/UavF2HCb2iErIWZYViCQ2",
-      "date": null,
-      "home": "Arsenal",
-      "away": "Chelsea",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "K. Havertz",
-          "minute": 25
-        },
-        {
-          "scorer": "M. Oedegaard",
-          "minute": 50
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Rogers",
-          "minute": 2
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/malaga-vs-levante/WJJaI2VD-g7sUYxq-2CAn",
-      "date": null,
-      "home": "Malaga",
-      "away": "Levante",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/eintracht-frankfurt-vs-augsburg/Z7O37M7eO3H0ZEkjGGPRl",
-      "date": null,
-      "home": "Eintracht Frankfurt",
-      "away": "Augsburg",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "J. Burkardt",
-          "minute": 6
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Ibrahimovic",
-          "minute": 46
-        },
-        {
-          "scorer": "R. Fellhauer",
-          "minute": 47
-        },
-        {
-          "scorer": "A. Claude-Maurice",
-          "minute": 65
-        },
-        {
-          "scorer": "F. Rieder",
-          "minute": 89
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/bologna-vs-sassuolo/9Ry5AM4GvAwLk782F1nBs",
-      "date": null,
-      "home": "Bologna",
-      "away": "Sassuolo",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "R. Piccoli",
-          "minute": 50
-        },
-        {
-          "scorer": "A. Dovbyk",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Doig",
-          "minute": 19
-        },
-        {
-          "scorer": "V. Adzic",
-          "minute": 56
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/angers-vs-rennes/KLq6-ereelFl6DobAa3et",
-      "date": null,
-      "home": "Angers",
-      "away": "Rennes",
-      "htHome": 1,
-      "htAway": 2,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "C. Arcus",
-          "minute": 35
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "P. Frankowski",
-          "minute": 9
-        },
-        {
-          "scorer": "J. Lefort",
-          "minute": 17
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/valencia-vs-barcelona/PaKiQNegncrhyWNwvOsBO",
       "date": null,
@@ -7887,6 +7754,123 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/aston-villa-vs-manchester-city/o-2QIk2xFr5aYvZ2qK6jk",
+      "date": "2026-10-24",
+      "home": "Aston Villa",
+      "away": "Manchester City",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "N. Jackson",
+          "minute": 6
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "E. Haaland",
+          "minute": 52
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/chelsea-vs-tottenham-hotspur/j8pKWBYo51tygqD_m28DE",
+      "date": "2026-10-24",
+      "home": "Chelsea",
+      "away": "Tottenham Hotspur",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "M. Penders",
+          "minute": 77
+        },
+        {
+          "scorer": "M. Tel",
+          "minute": 87
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/valencia-vs-villarreal/-GTrd06QO0PJoxXqwt-Dc",
+      "date": "2026-10-24",
+      "home": "Valencia",
+      "away": "Villarreal",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "Pepelu",
+          "minute": 38
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Freeman",
+          "minute": 69
+        },
+        {
+          "scorer": "G. Mikautadze",
+          "minute": 90
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-eintracht-frankfurt/0wB03Pk3Z6CFto3G9fecg",
+      "date": "2026-10-24",
+      "home": "Borussia Dortmund",
+      "away": "Eintracht Frankfurt",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "M. Beier",
+          "minute": 80
+        }
+      ],
+      "awayGoals": [],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/roma-vs-atalanta/ItiEtMwNV50mSSAhXQcBS",
+      "date": null,
+      "home": "Roma",
+      "away": "Atalanta",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "M. Hermoso",
+          "minute": 90
+        },
+        {
+          "scorer": "M. Soule",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "Ederson",
+          "minute": 47
+        }
+      ],
+      "competition": "roma"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7901,9 +7885,10 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/aston-villa-vs-manchester-city/o-2QIk2xFr5aYvZ2qK6jk": 2,
-    "https://www.goal.com/en/match/mainz-05-vs-werder-bremen/Ubh_MlQFohIk1rwWzCVmI": 1,
-    "https://www.goal.com/en/match/rb-leipzig-vs-elversberg/sQgxgDtmDCd5mPcr1IhfD": 1,
-    "https://www.goal.com/en/match/como-vs-sassuolo/5d6NZAknOsE5mfCln6iTG": 1
+    "https://www.goal.com/en/match/mainz-05-vs-werder-bremen/Ubh_MlQFohIk1rwWzCVmI": 2,
+    "https://www.goal.com/en/match/rb-leipzig-vs-elversberg/sQgxgDtmDCd5mPcr1IhfD": 2,
+    "https://www.goal.com/en/match/como-vs-sassuolo/5d6NZAknOsE5mfCln6iTG": 2,
+    "https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz": 2,
+    "https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6": 1
   }
 }
