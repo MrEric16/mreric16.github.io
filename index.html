@@ -8239,6 +8239,7 @@ const SUPABASE_BUCKET = "Photos";
 // return to the Lounge). The client is created once the deferred scripts have run; early callers queue via onSupabaseReady().
 let supabaseClient = null, sbReady = false;
 const sbQueue = [];
+function whenSupabase(){ return new Promise(function(res){ onSupabaseReady(res); }); }
 function onSupabaseReady(fn){ if(sbReady) fn(); else sbQueue.push(fn); }
 function initSupabaseClient(){
   if(sbReady) return; sbReady = true;
@@ -22291,6 +22292,7 @@ function wireVoxOptions(card, poll, dateKey){
   });
 }
 async function loadVoxPopuli(){
+  await whenSupabase();
   const card = document.getElementById('voxPopuliCard');
   if(!card) return;
   if(!supabaseClient){ card.innerHTML = '<div class="vox-question">Voting isn\'t available right now.</div>'; return; }
@@ -23719,6 +23721,7 @@ function viewStats(){
   `;
 }
 async function loadStats(){
+  await whenSupabase();
   const body = document.getElementById('statsBody');
   if(!body) return;
   if(!supabaseClient){ body.textContent = 'Analytics not configured.'; return; }
@@ -31874,6 +31877,7 @@ function wirePhotoUpload(container){
   });
 }
 async function loadSubmittedPhotos(){
+  await whenSupabase();
   if(!supabaseClient) return;
   try{
     const { data: files, error } = await supabaseClient.storage.from(SUPABASE_BUCKET).list('approved', {
@@ -33251,6 +33255,7 @@ function viewAskMrEric(){
 }
 
 async function loadAnsweredQuestions(){
+  await whenSupabase();
   const container = document.getElementById('answeredQuestionsList');
   if(!container) return;
   if(!supabaseClient){
@@ -36486,12 +36491,14 @@ function getFavoriteDomain(){
    viewMyStats(). If it needs to be pulled later, delete this block and the
    #comparisonBox div + its script call. No other code depends on it. -*/
 function submitStatsSnapshot(){
+  if(!sbReady){ onSupabaseReady(submitStatsSnapshot); return; }
   if(!supabaseClient) return;
   const reads = getReadArticles().size;
   const watches = getWatchedVideos().size;
   logEvent('stats_snapshot', JSON.stringify({ reads, watches }));
 }
 async function renderComparisonBox(){
+  await whenSupabase();
   const box = document.getElementById('comparisonBox');
   if(!box || !supabaseClient) return;
   try{
