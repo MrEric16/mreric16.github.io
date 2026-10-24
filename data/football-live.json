@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-10-24T09:08:07.036682Z",
+  "generatedAt": "2026-10-24T13:20:24.165090Z",
   "standings": {
     "PL": [
       {
         "name": "Man City",
-        "pld": 7,
+        "pld": 8,
         "w": 7,
         "d": 0,
-        "l": 0,
-        "gf": 19,
-        "ga": 7,
+        "l": 1,
+        "gf": 20,
+        "ga": 9,
         "pts": 21
       },
       {
@@ -51,6 +51,16 @@
         "gf": 9,
         "ga": 8,
         "pts": 12
+      },
+      {
+        "name": "Aston Villa",
+        "pld": 8,
+        "w": 3,
+        "d": 2,
+        "l": 3,
+        "gf": 9,
+        "ga": 12,
+        "pts": 11
       },
       {
         "name": "Brentford",
@@ -110,16 +120,6 @@
         "l": 3,
         "gf": 10,
         "ga": 14,
-        "pts": 8
-      },
-      {
-        "name": "Aston Villa",
-        "pld": 7,
-        "w": 2,
-        "d": 2,
-        "l": 3,
-        "gf": 7,
-        "ga": 11,
         "pts": 8
       },
       {
@@ -315,6 +315,16 @@
         "pts": 10
       },
       {
+        "name": "Elche",
+        "pld": 10,
+        "w": 2,
+        "d": 4,
+        "l": 4,
+        "gf": 13,
+        "ga": 17,
+        "pts": 10
+      },
+      {
         "name": "Villarreal",
         "pld": 9,
         "w": 2,
@@ -335,16 +345,6 @@
         "pts": 9
       },
       {
-        "name": "Rayo Vallecano",
-        "pld": 8,
-        "w": 2,
-        "d": 3,
-        "l": 3,
-        "gf": 12,
-        "ga": 17,
-        "pts": 9
-      },
-      {
         "name": "Getafe",
         "pld": 9,
         "w": 2,
@@ -352,6 +352,16 @@
         "l": 4,
         "gf": 5,
         "ga": 11,
+        "pts": 9
+      },
+      {
+        "name": "Rayo Vallecano",
+        "pld": 9,
+        "w": 2,
+        "d": 3,
+        "l": 4,
+        "gf": 12,
+        "ga": 19,
         "pts": 9
       },
       {
@@ -373,16 +383,6 @@
         "gf": 13,
         "ga": 25,
         "pts": 8
-      },
-      {
-        "name": "Elche",
-        "pld": 9,
-        "w": 1,
-        "d": 4,
-        "l": 4,
-        "gf": 11,
-        "ga": 17,
-        "pts": 7
       },
       {
         "name": "Valencia",
@@ -630,11 +630,21 @@
       },
       {
         "name": "Como 1907",
-        "pld": 7,
+        "pld": 8,
         "w": 4,
-        "d": 2,
+        "d": 3,
         "l": 1,
         "gf": 12,
+        "ga": 7,
+        "pts": 15
+      },
+      {
+        "name": "Cagliari",
+        "pld": 8,
+        "w": 4,
+        "d": 2,
+        "l": 2,
+        "gf": 6,
         "ga": 7,
         "pts": 14
       },
@@ -656,16 +666,6 @@
         "l": 3,
         "gf": 13,
         "ga": 11,
-        "pts": 13
-      },
-      {
-        "name": "Cagliari",
-        "pld": 7,
-        "w": 4,
-        "d": 1,
-        "l": 2,
-        "gf": 6,
-        "ga": 7,
         "pts": 13
       },
       {
@@ -699,6 +699,16 @@
         "pts": 9
       },
       {
+        "name": "Sassuolo",
+        "pld": 8,
+        "w": 2,
+        "d": 3,
+        "l": 3,
+        "gf": 12,
+        "ga": 14,
+        "pts": 9
+      },
+      {
         "name": "Lecce",
         "pld": 7,
         "w": 3,
@@ -707,16 +717,6 @@
         "gf": 9,
         "ga": 12,
         "pts": 9
-      },
-      {
-        "name": "Sassuolo",
-        "pld": 7,
-        "w": 2,
-        "d": 2,
-        "l": 3,
-        "gf": 12,
-        "ga": 14,
-        "pts": 8
       },
       {
         "name": "Monza",
@@ -730,13 +730,13 @@
       },
       {
         "name": "Bologna",
-        "pld": 7,
+        "pld": 8,
         "w": 1,
-        "d": 2,
+        "d": 3,
         "l": 4,
         "gf": 6,
         "ga": 10,
-        "pts": 5
+        "pts": 6
       },
       {
         "name": "Udinese",
@@ -3310,7 +3310,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-24T13:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 8,
           "homeTeam": {
             "id": 104,
@@ -3323,11 +3323,11 @@
             "shortName": "Bologna"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -3341,7 +3341,7 @@
         },
         {
           "utcDate": "2026-10-24T13:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 8,
           "homeTeam": {
             "id": 7397,
@@ -3354,11 +3354,11 @@
             "shortName": "Sassuolo"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
