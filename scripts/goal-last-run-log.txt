@@ -1,24 +1,25 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 5 finished-match links
-[goal-scraper] WARNING: Aston Villa scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/aston-villa-vs-manchester-city/o-2QIk2xFr5aYvZ2qK6jk
-[goal-scraper] [PL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Aston Villa 2-1 Manchester City: https://www.goal.com/en/match/aston-villa-vs-manchester-city/o-2QIk2xFr5aYvZ2qK6jk
-[goal-scraper] [PL] Added: Aston Villa 2-1 Manchester City
-[goal-scraper] [PL] Added: Chelsea 0-2 Tottenham Hotspur
-[goal-scraper] [PD] Found 4 finished-match links
-[goal-scraper] [PD] Added: Valencia 1-2 Villarreal
+[goal-scraper] [PD] Found 5 finished-match links
+[goal-scraper] [PD] Added: Atletico Madrid 1-0 Deportivo De A Coruna
 [goal-scraper] [BL1] Found 7 finished-match links
 [goal-scraper] WARNING: Werder Bremen scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/mainz-05-vs-werder-bremen/Ubh_MlQFohIk1rwWzCVmI
-[goal-scraper] [BL1] SCORER PARSE FAILED (attempt 2/3) for Mainz 05 2-3 Werder Bremen -- NOT committing, will retry next run: https://www.goal.com/en/match/mainz-05-vs-werder-bremen/Ubh_MlQFohIk1rwWzCVmI
+[goal-scraper] [BL1] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Mainz 05 2-3 Werder Bremen: https://www.goal.com/en/match/mainz-05-vs-werder-bremen/Ubh_MlQFohIk1rwWzCVmI
+[goal-scraper] [BL1] Added: Mainz 05 2-3 Werder Bremen
 [goal-scraper] WARNING: Rb Leipzig scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/rb-leipzig-vs-elversberg/sQgxgDtmDCd5mPcr1IhfD
-[goal-scraper] [BL1] SCORER PARSE FAILED (attempt 2/3) for Rb Leipzig 4-0 Elversberg -- NOT committing, will retry next run: https://www.goal.com/en/match/rb-leipzig-vs-elversberg/sQgxgDtmDCd5mPcr1IhfD
-[goal-scraper] [BL1] Added: Borussia Dortmund 1-0 Eintracht Frankfurt
-[goal-scraper] [SA] Found 4 finished-match links
+[goal-scraper] [BL1] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Rb Leipzig 4-0 Elversberg: https://www.goal.com/en/match/rb-leipzig-vs-elversberg/sQgxgDtmDCd5mPcr1IhfD
+[goal-scraper] [BL1] Added: Rb Leipzig 4-0 Elversberg
+[goal-scraper] [SA] Found 5 finished-match links
 [goal-scraper] WARNING: Como scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/como-vs-sassuolo/5d6NZAknOsE5mfCln6iTG
-[goal-scraper] [SA] SCORER PARSE FAILED (attempt 2/3) for Como 2-0 Sassuolo -- NOT committing, will retry next run: https://www.goal.com/en/match/como-vs-sassuolo/5d6NZAknOsE5mfCln6iTG
+[goal-scraper] [SA] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Como 2-0 Sassuolo: https://www.goal.com/en/match/como-vs-sassuolo/5d6NZAknOsE5mfCln6iTG
+[goal-scraper] [SA] Added: Como 2-0 Sassuolo
 [goal-scraper] WARNING: Ssc Napoli scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
 [goal-scraper] WARNING: Roma scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
-[goal-scraper] [SA] SCORER PARSE FAILED (attempt 1/3) for Ssc Napoli 3-3 Roma -- NOT committing, will retry next run: https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
-[goal-scraper] [FL1] Found 1 finished-match links
+[goal-scraper] [SA] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Ssc Napoli 3-3 Roma: https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
+[goal-scraper] [SA] Added: Ssc Napoli 3-3 Roma
+[goal-scraper] [SA] Added: Lazio 2-1 Parma Calcio 1913
+[goal-scraper] [FL1] Found 2 finished-match links
+[goal-scraper] [FL1] Added: Lens 2-1 Paris Fc
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 25 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -97,7 +98,7 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Real Betis on 2026-08-15
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Cagliari vs Inter on 2026-08-30
 [goal-scraper] WARNING: Inter scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6
-[goal-scraper] [inter-milan] SCORER PARSE FAILED (attempt 1/3) for Inter 3-2 Ssc Napoli -- NOT committing, will retry next run: https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6
+[goal-scraper] [inter-milan] SCORER PARSE FAILED (attempt 2/3) for Inter 3-2 Ssc Napoli -- NOT committing, will retry next run: https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6
 [goal-scraper] [ac-milan] Found 14 finished-match links
 [goal-scraper] WARNING: Ac Milan scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/celtic-vs-ac-milan/AeYRZaZp8UbukBDDTNSA2
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Celtic vs Ac Milan on 2026-07-25
@@ -157,10 +158,6 @@
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Fiorentina on 2026-08-24
 [goal-scraper] WARNING: Roma scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/lecce-vs-roma/tW1qvyr9_Qo8wjo8JeDaG
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Lecce vs Roma on 2026-08-31
-[goal-scraper] [roma] Added: Roma 2-1 Atalanta
-[goal-scraper] WARNING: Ssc Napoli scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
-[goal-scraper] WARNING: Roma scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
-[goal-scraper] [roma] SCORER PARSE FAILED (attempt 2/3) for Ssc Napoli 3-3 Roma -- NOT committing, will retry next run: https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz
 [goal-scraper] [juventus] Found 21 finished-match links
 [goal-scraper] WARNING: Juventus scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/al-ain-vs-juventus/hZXoigptTekk6p6Awa3MU
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Al Ain vs Juventus on 2025-06-18
@@ -174,6 +171,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Palermo on 2026-08-11
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 5
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/mainz-05-vs-werder-bremen/Ubh_MlQFohIk1rwWzCVmI', 'https://www.goal.com/en/match/rb-leipzig-vs-elversberg/sQgxgDtmDCd5mPcr1IhfD', 'https://www.goal.com/en/match/como-vs-sassuolo/5d6NZAknOsE5mfCln6iTG', 'https://www.goal.com/en/match/ssc-napoli-vs-roma/TACyea846HCacriKaxZkz', 'https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6']
+[goal-scraper] TOTAL new results added this run: 7
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6']
 [goal-scraper] Wrote data/goal-results.json
