@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-24T18:53:45.066881Z",
+ "generatedAt": "2026-10-24T21:19:00.754576Z",
  "results": [
   {
    "url": "espn:401879256",
@@ -181,6 +181,26 @@
      "minute": "90+6"
     }
    ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882834",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T19:00Z",
+   "home": "Atleti",
+   "away": "Deportivo",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. Álvarez",
+     "minute": 48
+    }
+   ],
+   "awayGoals": [],
    "competition": "PD",
    "complete": true
   },
@@ -420,6 +440,64 @@
     }
    ],
    "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874955",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T18:45Z",
+   "home": "Lazio",
+   "away": "Parma",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "K. Taylor",
+     "minute": 50
+    },
+    {
+     "scorer": "D. Carlos (og)",
+     "minute": 58
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Lontani",
+     "minute": "90+5"
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876427",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T18:45Z",
+   "home": "RC Lens",
+   "away": "Paris FC",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "F. Thauvin",
+     "minute": 63
+    },
+    {
+     "scorer": "T. Hazard",
+     "minute": 83
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "L. Koleosho",
+     "minute": "45+2"
+    }
+   ],
+   "competition": "FL1",
    "complete": true
   },
   {
