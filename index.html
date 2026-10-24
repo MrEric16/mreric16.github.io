@@ -18731,7 +18731,7 @@ function viewUFC(){
     <a class="back-link" href="#">← Back to Mr Eric's Lounge</a>
     <section style="padding-top:14px;">
       <div class="section-head"><span class="emoji" id="ufcGloveIcon">${icon('glove')}</span><h2>UFC</h2></div>
-      <details class="domain-group" open>
+      <details class="domain-group">
         <summary class="section-head domain-summary">
           <span class="emoji">${icon('calendar')}</span>
           <h2>Upcoming</h2>
@@ -19747,7 +19747,7 @@ function clubPageBodyHtml(key){
   const tableHtml = teams.length ? oneTableHtml(teams, false, entry.nameMatch)
     : '<div class="empty-card">No table loaded yet.</div>';
   const grp = (icn, title, count, body) => `
-    <details class="domain-group" open>
+    <details class="domain-group">
       <summary class="section-head domain-summary">
         <span class="emoji">${icon(icn)}</span><h2>${title}</h2>${count == null ? '' : `<span class="domain-count">${count}</span>`}
         <span class="domain-chevron">${icon('chevronDown')}</span>
@@ -33107,7 +33107,7 @@ function virtualEventsBodyHtml(){
     : '<div class="empty-card">Nothing here yet.</div>';
 
   return `<div id="virtualEventsBody">
-    <details class="domain-group" open>
+    <details class="domain-group">
       <summary class="section-head domain-summary">
         <span class="emoji">${icon('calendar')}</span>
         <h2>This Week's Sessions</h2>
@@ -33119,7 +33119,7 @@ function virtualEventsBodyHtml(){
         ${datedHtml}
       </div>
     </details>
-    <details class="domain-group" open>
+    <details class="domain-group">
       <summary class="section-head domain-summary">
         <span class="emoji">${icon('globe')}</span>
         <h2>Always Open</h2>
