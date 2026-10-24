@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T19:15:32.675248Z",
+  "generatedAt": "2026-10-24T20:33:48.369563Z",
   "standings": {
     "PL": [
       {
@@ -217,12 +217,12 @@
       {
         "name": "Atleti",
         "pld": 10,
-        "w": 7,
-        "d": 2,
+        "w": 8,
+        "d": 1,
         "l": 1,
-        "gf": 19,
+        "gf": 20,
         "ga": 8,
-        "pts": 23
+        "pts": 25
       },
       {
         "name": "Real Madrid",
@@ -285,16 +285,6 @@
         "pts": 12
       },
       {
-        "name": "Deportivo",
-        "pld": 10,
-        "w": 2,
-        "d": 6,
-        "l": 2,
-        "gf": 13,
-        "ga": 12,
-        "pts": 12
-      },
-      {
         "name": "Celta",
         "pld": 9,
         "w": 2,
@@ -302,6 +292,16 @@
         "l": 2,
         "gf": 10,
         "ga": 7,
+        "pts": 11
+      },
+      {
+        "name": "Deportivo",
+        "pld": 10,
+        "w": 2,
+        "d": 5,
+        "l": 3,
+        "gf": 13,
+        "ga": 13,
         "pts": 11
       },
       {
@@ -591,12 +591,12 @@
       {
         "name": "Lazio",
         "pld": 8,
-        "w": 6,
-        "d": 2,
+        "w": 7,
+        "d": 1,
         "l": 0,
-        "gf": 14,
+        "gf": 16,
         "ga": 4,
-        "pts": 20
+        "pts": 22
       },
       {
         "name": "Inter",
@@ -739,16 +739,6 @@
         "pts": 7
       },
       {
-        "name": "Parma",
-        "pld": 8,
-        "w": 1,
-        "d": 2,
-        "l": 5,
-        "gf": 4,
-        "ga": 13,
-        "pts": 5
-      },
-      {
         "name": "Udinese",
         "pld": 7,
         "w": 1,
@@ -779,6 +769,16 @@
         "pts": 4
       },
       {
+        "name": "Parma",
+        "pld": 8,
+        "w": 1,
+        "d": 1,
+        "l": 6,
+        "gf": 4,
+        "ga": 15,
+        "pts": 4
+      },
+      {
         "name": "Venezia FC",
         "pld": 7,
         "w": 1,
@@ -796,8 +796,8 @@
         "w": 4,
         "d": 3,
         "l": 1,
-        "gf": 12,
-        "ga": 7,
+        "gf": 13,
+        "ga": 8,
         "pts": 15
       },
       {
@@ -856,8 +856,8 @@
         "w": 3,
         "d": 2,
         "l": 3,
-        "gf": 14,
-        "ga": 11,
+        "gf": 15,
+        "ga": 12,
         "pts": 11
       },
       {
@@ -3403,7 +3403,7 @@
         },
         {
           "utcDate": "2026-10-24T18:45:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 8,
           "homeTeam": {
             "id": 110,
@@ -3416,15 +3416,15 @@
             "shortName": "Parma"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 2,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             }
           },
           "competition": {
@@ -5806,18 +5806,18 @@
     }
   },
   "arsenalNextFixture": {
-    "utcDate": "2026-11-01T16:30:00Z",
+    "utcDate": "2026-10-24T14:00:00Z",
     "status": "TIMED",
-    "matchday": 9,
+    "matchday": 8,
     "homeTeam": {
-      "id": 64,
-      "name": "Liverpool FC",
-      "shortName": "Liverpool"
-    },
-    "awayTeam": {
       "id": 57,
       "name": "Arsenal FC",
       "shortName": "Arsenal"
+    },
+    "awayTeam": {
+      "id": 62,
+      "name": "Everton FC",
+      "shortName": "Everton"
     },
     "score": {
       "winner": null,
