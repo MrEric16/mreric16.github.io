@@ -2309,6 +2309,42 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-nebula:not(.dark-mode) .spinner::before{ content:''; position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:radial-gradient(circle,#fff,#FFC46B 60%,#A05A32); box-shadow:0 0 10px #FFC46B; }
   body.usertheme-nebula:not(.dark-mode) .spinner::after{ content:''; position:absolute; left:50%; top:-5px; width:9px; height:9px; margin-left:-4.5px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#E0C8FF,#8A2BE2 60%,#2A0F52); }
   @keyframes nebOrbit{ to{ transform:rotate(360deg); } }
+
+  /* 7. slow-drifting colour clouds (JS adds #neb2-cloud-a/b) */
+  #neb2-cloud-a, #neb2-cloud-b{ position:fixed; z-index:-1; pointer-events:none; inset:-25%; will-change:transform; }
+  #neb2-cloud-a{ background:radial-gradient(ellipse 38% 30% at 30% 35%, rgba(255,46,151,.17), transparent 70%), radial-gradient(ellipse 30% 26% at 70% 70%, rgba(138,43,226,.16), transparent 70%); animation:nebDriftA 140s ease-in-out infinite alternate; }
+  #neb2-cloud-b{ background:radial-gradient(ellipse 34% 28% at 70% 30%, rgba(0,229,255,.13), transparent 70%), radial-gradient(ellipse 36% 30% at 25% 75%, rgba(255,150,60,.10), transparent 70%); animation:nebDriftB 190s ease-in-out infinite alternate; }
+  @keyframes nebDriftA{ from{ transform:translate(-4%,2%) scale(1); } to{ transform:translate(5%,-4%) scale(1.15); } }
+  @keyframes nebDriftB{ from{ transform:translate(4%,-3%) scale(1.1); } to{ transform:translate(-5%,4%) scale(1); } }
+  /* 17. time-of-day sky (colours set by JS from Tashkent time) */
+  #neb2-sky{ position:fixed; inset:0; z-index:-2; pointer-events:none; }
+  /* 13. real moon phase, bottom left, behind the content */
+  #neb2-moon{ position:fixed; z-index:-1; pointer-events:none; left:14px; bottom:calc(84px + env(safe-area-inset-bottom,0px)); width:46px; height:46px; opacity:.9; filter:drop-shadow(0 0 8px rgba(224,200,255,.35)); }
+  /* 11. constellation under each heading, redrawn every few seconds (JS sets --nc) */
+  body.usertheme-nebula:not(.dark-mode) .section-head{ padding-bottom:20px; position:relative; }
+  body.usertheme-nebula:not(.dark-mode) .section-head::after{
+    content:''; position:absolute; left:0; bottom:-4px; height:18px; width:min(100%,480px); pointer-events:none;
+    background:var(--nc,none) no-repeat 0 50% / contain; opacity:0; animation:nebConst 8s ease-in-out infinite; animation-delay:var(--nd,0s);
+  }
+  @keyframes nebConst{ 0%{opacity:0;} 18%,78%{opacity:1;} 100%{opacity:0;} }
+  /* 12. domain tiles: a planet instead of the icon */
+  body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon{ position:relative; display:inline-block; width:24px; height:24px; vertical-align:-6px; --pa:#C9A3FF; --pb:#5B2E91; }
+  body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon svg{ display:none; }
+  body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::before{
+    content:''; position:absolute; inset:2px; border-radius:50%;
+    background:repeating-linear-gradient(35deg, var(--pa) 0 4px, var(--pb) 4px 8px);
+    box-shadow:inset -4px -4px 7px rgba(0,0,0,.45), 0 0 8px rgba(224,200,255,.35);
+    animation:nebSpin 24s linear infinite;
+  }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(3n+1) .fac-icon::after{
+    content:''; position:absolute; left:-5px; right:-5px; top:9px; height:7px; border:2px solid rgba(224,200,255,.7); border-radius:50%; transform:rotate(-22deg);
+  }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+1) .fac-icon{ --pa:#FFD9A0; --pb:#A05A32; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+2) .fac-icon{ --pa:#9EEAF2; --pb:#0A5C8A; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+3) .fac-icon{ --pa:#FFB3D9; --pb:#8B0A50; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+4) .fac-icon{ --pa:#B6F0C8; --pb:#0B6B3A; }
+  @keyframes nebSpin{ to{ transform:rotate(360deg); } }
+  @media (prefers-reduced-motion:reduce){ #neb2-cloud-a,#neb2-cloud-b,body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::before{ animation:none; } body.usertheme-nebula:not(.dark-mode) .section-head::after{ animation:none; opacity:.8; } }
   /* ===== END NEBULA v2 ===== */
 
   /* - Synthwave, pushed more toxic: Mr Eric wanted "deep, bright, toxic, highlighter"
@@ -37926,6 +37962,93 @@ function setCornersNoZoom(active){
     requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
+})();
+
+// ===== NEBULA v2 (JS): drifting clouds, time-of-day sky, moon phase, parallax stars, constellation headings =====
+(function(){
+  const body = document.body;
+  const on = () => body.classList.contains('usertheme-nebula') && !body.classList.contains('dark-mode');
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const IDS = ['neb2-sky','neb2-cloud-a','neb2-cloud-b','neb2-moon'];
+  // ---- time-of-day sky (Tashkent = UTC+5), all stops dark enough for white text ----
+  const SKY = [ // hour, top, bottom
+    [0,  [11,6,32],  [6,4,15]],
+    [5,  [11,6,32],  [6,4,15]],
+    [6.5,[38,18,74], [86,32,92]],   // dawn violet / rose
+    [9,  [15,22,74], [20,40,112]],  // day: deep blue-violet
+    [16, [15,22,74], [20,40,112]],
+    [18, [42,16,64], [110,36,64]],  // dusk magenta / ember
+    [20.5,[11,6,32], [6,4,15]],
+    [24, [11,6,32],  [6,4,15]]
+  ];
+  function sky(){
+    const d = new Date(Date.now() + 5*3600e3), h = d.getUTCHours() + d.getUTCMinutes()/60;
+    let a = SKY[0], b = SKY[1];
+    for(let i=0;i<SKY.length-1;i++){ if(h >= SKY[i][0] && h <= SKY[i+1][0]){ a = SKY[i]; b = SKY[i+1]; break; } }
+    const t = (h - a[0]) / Math.max(0.001, b[0] - a[0]);
+    const mix = (x,y) => x.map((v,i) => Math.round(v + (y[i]-v)*t)).join(',');
+    const el = document.getElementById('neb2-sky');
+    if(el) el.style.background = `linear-gradient(180deg, rgb(${mix(a[1],b[1])}), rgb(${mix(a[2],b[2])}))`;
+  }
+  // ---- moon phase ----
+  function moonSvg(){
+    const syn = 29.530588853, ref = Date.UTC(2000,0,6,18,14);
+    let p = (((Date.now() - ref) / 86400000) / syn) % 1; if(p < 0) p += 1;
+    const r = 20, k = Math.cos(2*Math.PI*p), rx = Math.abs(k) * r;
+    const waxing = p < 0.5, q = waxing ? p : p - 0.5; // q in [0,.5): crescent < .25 <= gibbous
+    const gibbous = q >= 0.25;
+    const sweep = gibbous ? 1 : 0;
+    const lit = `M0 ${-r} A${r} ${r} 0 0 1 0 ${r} A${rx.toFixed(2)} ${r} 0 0 ${sweep} 0 ${-r} Z`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-23 -23 46 46"><circle r="${r}" fill="#1B1633" stroke="rgba(224,200,255,.25)"/><g ${waxing ? '' : 'transform="scale(-1 1)"'}><path d="${lit}" fill="#F4ECFF"/></g></svg>`;
+  }
+  // ---- constellation underline ----
+  function constSvg(){
+    const n = 5 + Math.floor(Math.random()*3), pts = [];
+    for(let i=0;i<n;i++) pts.push([ 12 + i*(456/(n-1)) + (Math.random()*18-9), 3 + Math.random()*12 ]);
+    const line = pts.map(p => p[0].toFixed(1)+','+p[1].toFixed(1)).join(' ');
+    const dots = pts.map(p => `<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="${(1.2+Math.random()*1.3).toFixed(1)}" fill="#F3E8FF"/>`).join('');
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="480" height="18" viewBox="0 0 480 18"><polyline points="${line}" fill="none" stroke="rgba(224,200,255,.55)" stroke-width="1"/>${dots}</svg>`;
+    return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+  }
+  document.addEventListener('animationiteration', e => {
+    if(e.animationName === 'nebConst' && e.target && e.target.style) e.target.style.setProperty('--nc', constSvg());
+  });
+  // ---- parallax stars ----
+  let stars = [], vh = innerHeight;
+  function prepStars(){
+    vh = innerHeight;
+    stars = [...document.querySelectorAll('#nebula-star-field .nebula-star')].map(el => {
+      const size = parseFloat(el.style.width) || 1;
+      return { el, y: (parseFloat(el.style.top) || 0) / 100 * vh, k: size < 1.3 ? 0.05 : size < 2.3 ? 0.12 : 0.24 };
+    });
+  }
+  let ticking = false;
+  function parallax(){
+    ticking = false;
+    const sy = scrollY;
+    stars.forEach(s => {
+      const eff = (((s.y - sy * s.k) % vh) + vh) % vh;
+      s.el.style.transform = 'translate3d(0,' + (eff - s.y).toFixed(1) + 'px,0)';
+    });
+  }
+  addEventListener('scroll', () => { if(!ticking && on() && !rm){ ticking = true; requestAnimationFrame(parallax); } }, { passive: true });
+  addEventListener('resize', () => { if(on()) prepStars(); });
+  let moonDay = '';
+  function tick(){
+    if(!on()){ IDS.forEach(id => { const e = document.getElementById(id); if(e) e.remove(); }); stars = []; return; }
+    if(!document.getElementById('neb2-sky')){
+      ['neb2-sky','neb2-cloud-a','neb2-cloud-b','neb2-moon'].forEach(id => { const d = document.createElement('div'); d.id = id; d.setAttribute('aria-hidden','true'); body.appendChild(d); });
+      moonDay = '';
+    }
+    sky();
+    const day = new Date().toDateString();
+    if(day !== moonDay){ moonDay = day; document.getElementById('neb2-moon').innerHTML = moonSvg(); }
+    if(!stars.length || !stars[0].el.isConnected) prepStars();
+    document.querySelectorAll('.section-head').forEach(h => {
+      if(!h.style.getPropertyValue('--nc')){ h.style.setProperty('--nc', constSvg()); h.style.setProperty('--nd', '-' + (Math.random()*8).toFixed(1) + 's'); }
+    });
+  }
+  setInterval(tick, 1000); tick();
 })();
 </script>
 
