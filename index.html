@@ -2247,6 +2247,70 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
 
 
+  /* ===== NEBULA v2 (25 Oct 2026) - everything from here to 'END NEBULA v2' is the upgrade pass.
+     v1 is saved in backups/nebula-v1.txt. ===== */
+  /* 1. lighter cards + brighter secondary text, so they separate from the black */
+  body.usertheme-nebula:not(.dark-mode){ --card:#27397A; --ink-soft:#EEDFFF; }
+  /* 2. soft lilac glow round every card */
+  body.usertheme-nebula:not(.dark-mode) .fac-tile,
+  body.usertheme-nebula:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-nebula:not(.dark-mode) .sports-tile,
+  body.usertheme-nebula:not(.dark-mode) .sports-card,
+  body.usertheme-nebula:not(.dark-mode) .goodnews-tile,
+  body.usertheme-nebula:not(.dark-mode) .watch-tile,
+  body.usertheme-nebula:not(.dark-mode) .watch-card,
+  body.usertheme-nebula:not(.dark-mode) .otd-card,
+  body.usertheme-nebula:not(.dark-mode) .books-tile,
+  body.usertheme-nebula:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-nebula:not(.dark-mode) .explore-tile,
+  body.usertheme-nebula:not(.dark-mode) .explore-card,
+  body.usertheme-nebula:not(.dark-mode) .page-result,
+  body.usertheme-nebula:not(.dark-mode) .bday-tile-card,
+  body.usertheme-nebula:not(.dark-mode) .random-tile,
+  body.usertheme-nebula:not(.dark-mode) .rec-item,
+  body.usertheme-nebula:not(.dark-mode) .sotw-card,
+  body.usertheme-nebula:not(.dark-mode) .photo-tile,
+  body.usertheme-nebula:not(.dark-mode) .events-tile,
+  body.usertheme-nebula:not(.dark-mode) .domain-group{
+    box-shadow:0 0 16px rgba(176,140,255,.30), inset 0 0 0 1px rgba(224,200,255,.16) !important;
+  }
+  /* 3. dark dust lanes across the clouds */
+  body.usertheme-nebula:not(.dark-mode)::after{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; filter:blur(6px);
+    background-image:
+      linear-gradient(118deg, transparent 18%, rgba(2,1,8,.38) 22%, transparent 27%),
+      linear-gradient(104deg, transparent 58%, rgba(2,1,8,.30) 63%, transparent 68%),
+      linear-gradient(125deg, transparent 80%, rgba(2,1,8,.28) 84%, transparent 90%);
+  }
+  /* 4. deeper vignette (eyepiece edges) */
+  html:has(body.usertheme-nebula:not(.dark-mode))::after{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:radial-gradient(ellipse at center, transparent 38%, rgba(0,0,0,.5) 100%);
+  }
+  /* 5. every domain gets its own nebula colour */
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+1){ background:#3D0A66 !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+2){ background:#005F6B !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+3){ background:#8B0A50 !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+4){ background:#A05A32 !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+5){ background:#1F3A93 !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+6){ background:#0B6B3A !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+7){ background:#7A1F2E !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+8){ background:#5B2E91 !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+9){ background:#0A5C8A !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+10){ background:#8A5A00 !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+11){ background:#6B1F7A !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+12){ background:#1B6B5E !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+13){ background:#8A2E5E !important; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+14){ background:#3B4A9E !important; }
+  /* 8. planetarium headings: wide-spaced capitals with a faint glow */
+  body.usertheme-nebula:not(.dark-mode) .section-head h2{ text-transform:uppercase; letter-spacing:.16em; font-size:.92em; text-shadow:0 0 12px rgba(190,150,255,.55); }
+  /* 10. loader = a small planet orbiting a star */
+  body.usertheme-nebula:not(.dark-mode) .spinner{ position:relative; border:1px dashed rgba(224,200,255,.35) !important; border-radius:50%; animation:nebOrbit 1.6s linear infinite !important; }
+  body.usertheme-nebula:not(.dark-mode) .spinner::before{ content:''; position:absolute; left:50%; top:50%; width:10px; height:10px; margin:-5px 0 0 -5px; border-radius:50%; background:radial-gradient(circle,#fff,#FFC46B 60%,#A05A32); box-shadow:0 0 10px #FFC46B; }
+  body.usertheme-nebula:not(.dark-mode) .spinner::after{ content:''; position:absolute; left:50%; top:-5px; width:9px; height:9px; margin-left:-4.5px; border-radius:50%; background:radial-gradient(circle at 35% 30%,#E0C8FF,#8A2BE2 60%,#2A0F52); }
+  @keyframes nebOrbit{ to{ transform:rotate(360deg); } }
+  /* ===== END NEBULA v2 ===== */
+
   /* - Synthwave, pushed more toxic: Mr Eric wanted "deep, bright, toxic, highlighter"
      colours after seeing a real contrast bug (see below), and attached Carpenter Brut
      album art / retro-sunset references. Pushed each colour further into fluorescent
