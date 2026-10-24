@@ -30,10 +30,27 @@ def xcheck(items):
             if len(det) >= 3: return name, worst, ', '.join(det)
         except Exception as e: log.append('xcheck source %s unavailable: %s' % (name, str(e)[:80]))
     return None, None, ''
+def _age0():
+    try: return (now - datetime.datetime.strptime((old.get('stamps') or {})['rates'], '%Y-%m-%dT%H:%M:%SZ')).total_seconds() / 3600
+    except Exception: return 1e9
 rates_ok = False
-for u in ['https://cbu.uz/en/arkhiv-kursov-valyut/json/', 'https://cbu.uz/oz/arkhiv-kursov-valyut/json/', 'https://cbu.uz/ru/arkhiv-kursov-valyut/json/']:
+import urllib.parse
+CBU = 'https://cbu.uz/en/arkhiv-kursov-valyut/json/'
+EDGE = 'https://uugjyucgeyopyvmhckdg.supabase.co/functions/v1/cbu-rates'
+def q(u): return urllib.parse.quote(u, safe='')
+# The GitHub runner often cannot reach cbu.uz directly (connect timeouts), so the same official JSON is also tried through
+# other routes: our own Supabase edge function, then public relays. The data is still CBU's; only the road differs.
+CANDS = [
+    ('direct', CBU, lambda j: j), ('direct oz', 'https://cbu.uz/oz/arkhiv-kursov-valyut/json/', lambda j: j),
+    ('direct ru', 'https://cbu.uz/ru/arkhiv-kursov-valyut/json/', lambda j: j),
+    ('supabase edge', EDGE, lambda j: j['rates']),
+    ('corsproxy.io', 'https://corsproxy.io/?url=' + q(CBU), lambda j: j),
+    ('allorigins', 'https://api.allorigins.win/raw?url=' + q(CBU), lambda j: j),
+    ('codetabs', 'https://api.codetabs.com/v1/proxy?quest=' + q(CBU), lambda j: j),
+]
+for label, u, getrows in CANDS:
     try:
-        r = requests.get(u, headers=H, timeout=30); r.raise_for_status(); js = r.json()
+        r = requests.get(u, headers=H, timeout=20); r.raise_for_status(); js = getrows(r.json())
         rates = {}
         for x in js:
             if x.get('Ccy') in WANT: rates[x['Ccy']] = {'rate': float(x['Rate']), 'nominal': float(x.get('Nominal') or 1), 'diff': float(x.get('Diff') or 0)}
@@ -51,8 +68,24 @@ for u in ['https://cbu.uz/en/arkhiv-kursov-valyut/json/', 'https://cbu.uz/oz/ark
         else:
             if worst > MAX_DEV: raise ValueError('CBU disagrees with %s by %.1f%% (%s)' % (src, worst * 100, det))
             xc = {'source': src, 'worstPct': round(worst * 100, 2)}; log.append('rates cross-check vs %s ok, worst %.2f%% (%s)' % (src, worst * 100, det))
-        res['rates'] = {'date': date, 'source': 'Central Bank of Uzbekistan', 'items': rates, 'xcheck': xc}; stamp('rates'); log.append('rates ok ' + u + ' ' + date); rates_ok = True; break
-    except Exception as e: log.append('rates FAIL %s %s' % (u, str(e)[:160]))
+        res['rates'] = {'date': date, 'source': 'Central Bank of Uzbekistan', 'items': rates, 'xcheck': xc}; stamp('rates'); log.append('rates ok via ' + label + ' ' + date); rates_ok = True; break
+    except Exception as e: log.append('rates FAIL %s %s' % (label, str(e)[:120]))
+# Last resort: CBU unreachable by every route and the saved rates are over 20 h old -> market rates (clearly labelled, not official)
+if not rates_ok and _age0() > 20:
+    try:
+        ref = None
+        for name, u2, get in [('open.er-api.com', 'https://open.er-api.com/v6/latest/USD', lambda j: j['rates']),
+                              ('fawazahmed0', 'https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json', lambda j: {k.upper(): v for k, v in j['usd'].items()})]:
+            try:
+                rr = requests.get(u2, headers=H, timeout=20); rr.raise_for_status(); ref = get(rr.json()); break
+            except Exception as e: log.append('market source %s unavailable: %s' % (name, str(e)[:80]))
+        if ref and ref.get('UZS'):
+            prev = (old.get('rates') or {}).get('items') or {}
+            mk_items = {c: {'rate': round(ref['UZS'] / ref[c], 2), 'nominal': 1.0, 'diff': 0.0} for c in WANT if c in ref}
+            if len(mk_items) == len(WANT) and all(c not in prev or abs(per_uzs(mk_items[c]) / per_uzs(prev[c]) - 1) < 0.15 for c in WANT):
+                res['rates'] = {'date': (now + datetime.timedelta(hours=5)).strftime('%d.%m.%Y'), 'source': 'Market rates (CBU unreachable)', 'items': mk_items, 'xcheck': {'source': None}, 'approx': True}
+                stamp('rates'); rates_ok = True; log.append('rates MARKET fallback used')
+    except Exception as e: log.append('market fallback FAIL ' + str(e)[:100])
 # --- Air quality
 try:
     u = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=41.3111&longitude=69.2797&current=us_aqi,pm2_5,pm10,ozone,nitrogen_dioxide&hourly=us_aqi&timezone=Asia%2FTashkent&forecast_days=2'

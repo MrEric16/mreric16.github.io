@@ -320,7 +320,7 @@ var FL = {
 function flag(c){ return '<svg class="td-fl" viewBox="0 0 36 36" aria-hidden="true">' + (FL[c] || '<rect width="36" height="36" fill="#999"/>') + '</svg>'; }
 function rates(){
   var R = D.rates; if(!R) return sec('Exchange rates', '', '<div class="v-hint">Not available yet.</div>');
-  var warn = ratesStale() ? '<div class="td-warn">These rates could not be refreshed recently and may be out of date. Check cbu.uz before you exchange money.</div>' : '';
+  var warn = R.approx ? '<div class="td-warn">Market rates, not official. CBU is unreachable right now.</div>' : (ratesStale() ? '<div class="td-warn">Rates may be out of date. Check cbu.uz before you exchange money.</div>' : '');
   var h = warn + '<div class="td-hint">Type an amount in any currency. Every other row updates.</div><div class="td-tb2">' + ALL.map(function(c){
     var x = c === 'UZS' ? null : R.items[c]; if(c !== 'UZS' && !x) return '';
     var d = x ? x.diff / x.nominal : 0;
@@ -382,6 +382,31 @@ function view(){
 }
 var AIR_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=41.3111&longitude=69.2797&current=us_aqi,pm2_5,pm10,ozone,nitrogen_dioxide&hourly=us_aqi&timezone=Asia%2FTashkent&forecast_days=2';
 // Air quality is fetched live from the browser (the hourly server job is only the fallback), so it cannot go stale while the device is online.
+
+// Official CBU rates fetched live from this device (the server job cannot always reach cbu.uz). Direct first, then our relay.
+var CBU_URLS = [['https://cbu.uz/en/arkhiv-kursov-valyut/json/', function(j){ return j; }], ['https://uugjyucgeyopyvmhckdg.supabase.co/functions/v1/cbu-rates', function(j){ return j.rates; }]];
+function liveRates(){
+  if(!D || !navigator.onLine) return;
+  var t = tk().iso.split('-'), todayStr = t[2] + '.' + t[1] + '.' + t[0];
+  if(D.rates && D.rates.date === todayStr && !D.rates.approx && ageH('rates') < 6) return;
+  var WANTC = ['USD','EUR','GBP','RUB','AED','KZT','CNY','KGS'];
+  (function next(i){
+    if(i >= CBU_URLS.length) return;
+    var ctl = window.AbortController ? new AbortController() : null, to = setTimeout(function(){ if(ctl) ctl.abort(); }, 8000);
+    fetch(CBU_URLS[i][0], { cache: 'no-store', signal: ctl ? ctl.signal : undefined }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(j){
+      clearTimeout(to);
+      var rows = CBU_URLS[i][1](j), items = {};
+      rows.forEach(function(x){ if(WANTC.indexOf(x.Ccy) > -1) items[x.Ccy] = { rate: parseFloat(x.Rate), nominal: parseFloat(x.Nominal) || 1, diff: parseFloat(x.Diff) || 0 }; });
+      var prev = (D.rates && D.rates.items) || {};
+      var ok = WANTC.every(function(c){ var v = items[c]; if(!v || !(v.rate > 0)) return false; var p = prev[c]; return !p || Math.abs((v.rate / v.nominal) / (p.rate / p.nominal) - 1) < 0.06; });
+      if(!ok) throw 0;
+      D.rates = { date: rows[0].Date, source: 'Central Bank of Uzbekistan', items: items, xcheck: { source: null } };
+      D.stamps = D.stamps || {}; D.stamps.rates = new Date().toISOString();
+      try{ localStorage.setItem(TD_KEY, JSON.stringify(D)); }catch(e){}
+      var f = document.activeElement; if(!(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT'))) view();
+    }).catch(function(){ clearTimeout(to); next(i + 1); });
+  })(0);
+}
 function liveAir(){
   if(!D || !navigator.onLine) return;
   fetch(AIR_URL, { cache: 'no-store' }).then(function(r){ if(!r.ok) throw 0; return r.json(); }).then(function(js){
@@ -393,9 +418,9 @@ function liveAir(){
 }
 // Stale-while-revalidate: draw the last saved copy straight away (the network can take seconds), then swap in the fresh file.
 var TD_KEY = 'tdCache1', hadCache = false;
-try{ var cached = JSON.parse(localStorage.getItem(TD_KEY) || 'null'); if(cached && cached.rates){ D = cached; hadCache = true; view(); liveAir(); } }catch(e){}
+try{ var cached = JSON.parse(localStorage.getItem(TD_KEY) || 'null'); if(cached && cached.rates){ D = cached; hadCache = true; view(); liveAir(); liveRates(); } }catch(e){}
 if(!hadCache) app.innerHTML = BACK + head('Tashkent Today', 'Exchange rates, prayer times and air quality.') + '<div class="v-hint">Loading…</div>';
-getJson('data/tashkent-today.json').then(function(d){ D = d; try{ localStorage.setItem(TD_KEY, JSON.stringify(d)); }catch(e){} view(); liveAir(); setInterval(liveAir, 600000); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ if(hadCache) return; app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
+getJson('data/tashkent-today.json').then(function(d){ D = d; try{ localStorage.setItem(TD_KEY, JSON.stringify(d)); }catch(e){} view(); liveAir(); liveRates(); setInterval(liveAir, 600000); setInterval(liveRates, 1800000); setInterval(function(){ var f = document.activeElement; if(f && (f.tagName === 'INPUT' || f.tagName === 'SELECT')) return; view(); }, 60000); }).catch(function(){ if(hadCache) return; app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
 
 })();
 </script>
