@@ -19442,6 +19442,13 @@ async function loadGoalResults(){
   // (this exact bug happened: Arsenal's friendly result was appearing on
   // every league page because this refresh used to always call
   // arsenalAllResults() regardless of which page was visible).
+  const lcEl = document.getElementById('leagueDetailContainer');
+  if(lcEl && lcEl.dataset.code && GOAL_SCRAPED_LEAGUES.includes(lcEl.dataset.code)){
+    lcEl.innerHTML = leagueDetailBodyHtml(lcEl.dataset.code);
+    return;
+  }
+  const ccEl = document.getElementById('clubPageContainer');
+  if(ccEl && ccEl.dataset.key){ ccEl.innerHTML = clubPageBodyHtml(ccEl.dataset.key); return; }
   const el = document.getElementById('resultsDetailContainer');
   if(!el) return;
   const hash = location.hash.replace('#', '');
@@ -19727,9 +19734,12 @@ function clubPageBodyHtml(key){
   let fixtures = [], results = [];
   if(entry.dataType === 'football'){
     const full = window._footballFull;
-    const src = full ? [code, 'CL'].map(c => full[c]).filter(Boolean)
-                     : [code, 'CL'].map(c => cache.matches && cache.matches[c]).filter(Boolean);
-    src.forEach(m => { fixtures = fixtures.concat(m.fixtures || []); results = results.concat(m.results || []); });
+    [code, 'CL'].forEach(c => {
+      const m = full ? full[c] : (cache.matches && cache.matches[c]);
+      if(!m) return;
+      const rows = reconcileFootballRows(c, [...(m.fixtures || []), ...(m.results || [])]);
+      rows.forEach(r => (r.finished ? results : fixtures).push(r));
+    });
     const cf = cache.clubFixtures && cache.clubFixtures[entry.apiKey];
     if(cf){ if(cf.nextFixture) fixtures.push(cf.nextFixture); if(cf.lastResult) results.push(cf.lastResult); }
   } else {
@@ -19742,7 +19752,7 @@ function clubPageBodyHtml(key){
     if(seen.has(k)) return false; seen.add(k); return true;
   });
   const now = new Date();
-  fixtures = dedupe(fixtures.filter(r => clubRowIsMine(entry, r) && !r.finished && new Date(r.start) >= new Date(now - 3*3600000)))
+  fixtures = dedupe(fixtures.filter(r => clubRowIsMine(entry, r) && !r.finished && r.status !== 'AWAITING' && new Date(r.start) >= new Date(now - 3*3600000)))
     .sort((a,b) => new Date(a.start) - new Date(b.start));
   results = dedupe(results.filter(r => clubRowIsMine(entry, r) && r.finished))
     .sort((a,b) => new Date(b.start) - new Date(a.start));
@@ -19775,13 +19785,28 @@ function viewClub(key){
 // Gameweek view for the big football leagues (PL, La Liga, Bundesliga, Serie A, Ligue 1, CL):
 // fixtures = unplayed matches of the current gameweek; results = played matches of the
 // latest gameweek that has started. Postponed/cancelled games never hold a gameweek up.
+// football-data.org's free tier can lag hours behind full time, so a match it still calls
+// TIMED may already be in ESPN's finished list. Fold ESPN's score in, and treat anything
+// that kicked off more than 3 hours ago without a result as "not an upcoming fixture".
+function reconcileFootballRows(code, rows){
+  const espn = (typeof GOAL_RESULTS !== 'undefined' && GOAL_RESULTS.length) ? espnResultRows(d => d.competition === code) : [];
+  const nm = (a, b) => { a = (a||'').toLowerCase(); b = (b||'').toLowerCase(); return a && b && (a.includes(b) || b.includes(a)); };
+  return rows.map(r => {
+    if(r.finished) return r;
+    const t = new Date(r.start).getTime();
+    const e = espn.find(x => nm(x.home, r.home) && nm(x.away, r.away) && Math.abs(new Date(x.start).getTime() - t) < 36*3600000);
+    if(e) return { ...r, finished:true, status:'FINISHED', homeScore:e.homeScore, awayScore:e.awayScore, htHome:e.htHome, htAway:e.htAway };
+    if(t < Date.now() - 3*3600000) return { ...r, status:'AWAITING' };
+    return r;
+  });
+}
 function gameweekView(code){
   if(!GOAL_SCRAPED_LEAGUES.includes(code)) return null;
   const m = (window._footballFull && window._footballFull[code]) || (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[code]);
   if(!m) return null;
-  const all = [...(m.fixtures || []), ...(m.results || [])].filter(r => r.matchday != null);
+  const all = reconcileFootballRows(code, [...(m.fixtures || []), ...(m.results || [])]).filter(r => r.matchday != null);
   if(!all.length) return null;
-  const off = r => r.status === 'POSTPONED' || r.status === 'CANCELLED';
+  const off = r => r.status === 'POSTPONED' || r.status === 'CANCELLED' || r.status === 'AWAITING';
   const days = [...new Set(all.map(r => r.matchday))].sort((a,b) => a - b);
   const cur = days.find(d => all.some(r => r.matchday === d && !r.finished && !off(r)));
   const fixtures = cur == null ? [] : all.filter(r => r.matchday === cur && !r.finished && !off(r)).sort((a,b) => new Date(a.start) - new Date(b.start));
@@ -35153,7 +35178,7 @@ function renderRoute(opts){
   if(parts[0] === 'sports' && parts[1] === 'tables'){ loadLiveSportsData(); }
   if(parts[0] === 'arsenal'){ loadLiveSportsData(); loadGoalResults(); }
   if(parts[0] === 'sports' && parts[1] === 'league' && parts[2]){ loadLiveSportsData(); loadGoalResults(); loadFullFootball(); }
-  if(parts[0] === 'club' && parts[1]){ loadLiveSportsData(); loadFullFootball(); }
+  if(parts[0] === 'club' && parts[1]){ loadLiveSportsData(); loadGoalResults(); loadFullFootball(); }
 
   // Swipe right to go back - only when the page we arrived from was Home itself.
   cameFromHome = (lastRenderedHash === '');
