@@ -19313,6 +19313,8 @@ async function loadLiveSportsData(){
   if(leagueDetailEl && leagueDetailEl.dataset.code){
     leagueDetailEl.innerHTML = leagueDetailBodyHtml(leagueDetailEl.dataset.code);
   }
+  const clubPageEl = document.getElementById('clubPageContainer');
+  if(clubPageEl && clubPageEl.dataset.key) clubPageEl.innerHTML = clubPageBodyHtml(clubPageEl.dataset.key);
   const arsResultsEl = document.getElementById('resultsDetailContainer');
   if(arsResultsEl && location.hash.replace('#','').split('/')[0] === 'arsenal'){
     const results = arsenalAllResults();
@@ -19451,7 +19453,7 @@ async function loadGoalResults(){
     const meta = LEAGUE_DETAIL_META[code];
     const cache = window._sportsCache;
     const staticLeague = meta ? SPORTS_LEAGUES.find(l => l.name === meta.name) : null;
-    const matches = (cache && cache.matches && cache.matches[code]) || { results: [] };
+    const matches = (window._footballFull && window._footballFull[code]) || (cache && cache.matches && cache.matches[code]) || { results: [] };
     results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
   }
   if(results !== null){
@@ -19682,6 +19684,91 @@ const KHL_WESTERN_TEAMS = new Set([
   "CSKA", "Dinamo Mn", "Dynamo Msk", "Lokomotiv", "Severstal", "Dragons",
 ]);
 
+// Full-season football data (every fixture, every result) - data/football-full.json,
+// written by scripts/fetch_football_data.py. Loaded on demand by league and club pages
+// so the home page keeps using the small football-live.json.
+let _footballFullPromise = null;
+function loadFullFootball(){
+  if(!_footballFullPromise){
+    _footballFullPromise = fetch('./data/football-full.json', { cache: 'no-store' })
+      .then(r => { if(!r.ok) throw new Error('bad '+r.status); return r.json(); })
+      .then(j => {
+        const out = {};
+        Object.keys(j.matches || {}).forEach(code => {
+          out[code] = {
+            fixtures: (j.matches[code].fixtures || []).map(matchToRow),
+            results: (j.matches[code].results || []).map(matchToRow),
+          };
+        });
+        window._footballFull = out;
+      })
+      .catch(() => { _footballFullPromise = null; });
+  }
+  return _footballFullPromise.then(() => {
+    const lc = document.getElementById('leagueDetailContainer');
+    if(lc && lc.dataset.code) lc.innerHTML = leagueDetailBodyHtml(lc.dataset.code);
+    const cc = document.getElementById('clubPageContainer');
+    if(cc && cc.dataset.key) cc.innerHTML = clubPageBodyHtml(cc.dataset.key);
+  });
+}
+const CLUB_LEAGUE_CODE = {
+  man_utd:'PL', liverpool:'PL', chelsea:'PL', man_city:'PL', tottenham:'PL',
+  real_madrid:'PD', barcelona:'PD', psg:'FL1', bayern:'BL1',
+  pakhtakor:'UZ', bunyodkor:'UZ', al_nasr:'UAE', sibir:'KHL',
+};
+function clubPageBodyHtml(key){
+  const entry = CLUB_REGISTRY.find(e => e.key === key);
+  if(!entry) return '<div class="empty-card">Unknown club.</div>';
+  const code = CLUB_LEAGUE_CODE[key];
+  const cache = window._sportsCache || {};
+  let fixtures = [], results = [];
+  if(entry.dataType === 'football'){
+    const full = window._footballFull;
+    const src = full ? [code, 'CL'].map(c => full[c]).filter(Boolean)
+                     : [code, 'CL'].map(c => cache.matches && cache.matches[c]).filter(Boolean);
+    src.forEach(m => { fixtures = fixtures.concat(m.fixtures || []); results = results.concat(m.results || []); });
+    const cf = cache.clubFixtures && cache.clubFixtures[entry.apiKey];
+    if(cf){ if(cf.nextFixture) fixtures.push(cf.nextFixture); if(cf.lastResult) results.push(cf.lastResult); }
+  } else {
+    const m = cache.matches && cache.matches[code];
+    if(m){ fixtures = m.fixtures || []; results = m.results || []; }
+  }
+  const seen = new Set();
+  const dedupe = rows => rows.filter(r => {
+    const k = (r.home||'') + '|' + (r.away||'') + '|' + String(r.start).slice(0,10);
+    if(seen.has(k)) return false; seen.add(k); return true;
+  });
+  const now = new Date();
+  fixtures = dedupe(fixtures.filter(r => clubRowIsMine(entry, r) && !r.finished && new Date(r.start) >= new Date(now - 3*3600000)))
+    .sort((a,b) => new Date(a.start) - new Date(b.start));
+  results = dedupe(results.filter(r => clubRowIsMine(entry, r) && r.finished))
+    .sort((a,b) => new Date(b.start) - new Date(a.start));
+  const teams = (cache.leagues && cache.leagues[code]) || [];
+  const tableHtml = teams.length ? oneTableHtml(teams, false, entry.nameMatch)
+    : '<div class="empty-card">No table loaded yet.</div>';
+  const grp = (icn, title, count, body) => `
+    <details class="domain-group" open>
+      <summary class="section-head domain-summary">
+        <span class="emoji">${icon(icn)}</span><h2>${title}</h2>${count == null ? '' : `<span class="domain-count">${count}</span>`}
+        <span class="domain-chevron">${icon('chevronDown')}</span>
+      </summary>
+      <div class="domain-group-content">${body}</div>
+    </details>`;
+  return `
+    ${grp('calendar','Fixtures',fixtures.length, fixtures.length ? matchListHtml(fixtures,false,code==='KHL') : '<div class="empty-card">No fixtures loaded.</div>')}
+    ${grp('trophy','Results',results.length, results.length ? matchListHtml(results,true,code==='UZ'||code==='KHL') : '<div class="empty-card">No results loaded.</div>')}
+    ${grp('barchart','Table',null, tableHtml)}`;
+}
+function viewClub(key){
+  const entry = CLUB_REGISTRY.find(e => e.key === key);
+  if(!entry) return `<a class="back-link" href="#">← Back to Home</a><section style="padding-top:14px;"><div class="empty-card">Unknown club.</div></section>`;
+  return `
+    <a class="back-link" href="#">← Back to Home</a>
+    <section style="padding-top:14px;">
+      <div class="league-head"><h3 style="font-size:20px;">${escapeHtml(entry.name)}</h3></div>
+      <div id="clubPageContainer" data-key="${key}">${clubPageBodyHtml(key)}</div>
+    </section>`;
+}
 function leagueDetailBodyHtml(code){
   const meta = LEAGUE_DETAIL_META[code];
   const cache = window._sportsCache;
@@ -19714,7 +19801,7 @@ function leagueDetailBodyHtml(code){
           ${oneTableHtml(div.teams, showTrophy)}
         `).join('')
       : oneTableHtml((staticLeague && staticLeague.teams) || [], showTrophy);
-  const matches = (cache && cache.matches && cache.matches[code]) || { fixtures: [], results: [] };
+  const matches = (window._footballFull && window._footballFull[code]) || (cache && cache.matches && cache.matches[code]) || { fixtures: [], results: [] };
   // A "fixture" can never be in the past by definition - filtering this here, after the
   // merge, is a universal safety net regardless of which source (live or static) a
   // stale entry came from. Real bug this just caught: static fallback fixtures for PL
@@ -32224,10 +32311,10 @@ function teamNameHtml(name, showTrophy, enableEgg){
   if(n.includes('tottenham') || n === 'spurs') return `<span class="easter-egg-trigger" data-egg="tottenham">${escapeHtml(name)} 💩</span>`;
   return escapeHtml(name);
 }
-function oneTableHtml(teams, showTrophy){
+function oneTableHtml(teams, showTrophy, hlNames){
   if(showTrophy === undefined) showTrophy = true;
   const rows = teams.map((t, i) => `
-    <tr${(t.name || '').toLowerCase().includes('arsenal') ? ' class="own-team-row"' : ''}>
+    <tr${((t.name || '').toLowerCase().includes('arsenal') && !hlNames) || (hlNames && hlNames.some(v => nameLooselyMatches((t.name || '').toLowerCase(), v))) ? ' class="own-team-row"' : ''}>
       <td class="pos">${i + 1}</td>
       <td class="team-name">${teamNameHtml(t.name, showTrophy, true)}</td>
       <td>${t.pld}</td>
@@ -32609,7 +32696,7 @@ function clubCardHtml(entry, pos){
   const eggAttr = entry.egg ? `easter-egg-trigger" data-egg="${entry.egg}` : '';
   const driftRow = entry.dataType === 'arsenal' ? `<div id="arsenalDriftWarning">${arsenalDriftWarningHtml()}</div>` : '';
   const resultRow = clubResultLineHtml(entry);
-  const openLink = entry.openHref ? `<a class="club-open-link" href="${entry.openHref}">View ${entry.short} →</a>` : '';
+  const openLink = `<a class="club-open-link" href="${entry.openHref || '#club/' + entry.key}">View ${entry.short} →</a>`;
   return `
     <div class="carousel-slide club-card" data-pos="${pos}" data-club="${entry.key}" style="${style}">
       <div class="sports-header">
@@ -34906,6 +34993,8 @@ function renderRoute(opts){
     html = viewEventsVirtual();
   } else if(parts[0] === 'ufc'){
     html = viewUFC();
+  } else if(parts[0] === 'club' && parts[1]){
+    html = viewClub(parts[1]);
   } else if(parts[0] === 'arsenal'){
     html = viewArsenalHub();
   } else if(parts[0] === 'sports' && parts[1] === 'tables'){
@@ -35035,7 +35124,8 @@ function renderRoute(opts){
   if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireRandomGameButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
   if(parts[0] === 'sports' && parts[1] === 'tables'){ loadLiveSportsData(); }
   if(parts[0] === 'arsenal'){ loadLiveSportsData(); loadGoalResults(); }
-  if(parts[0] === 'sports' && parts[1] === 'league' && parts[2]){ loadLiveSportsData(); loadGoalResults(); }
+  if(parts[0] === 'sports' && parts[1] === 'league' && parts[2]){ loadLiveSportsData(); loadGoalResults(); loadFullFootball(); }
+  if(parts[0] === 'club' && parts[1]){ loadLiveSportsData(); loadFullFootball(); }
 
   // Swipe right to go back - only when the page we arrived from was Home itself.
   cameFromHome = (lastRenderedHash === '');

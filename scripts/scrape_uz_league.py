@@ -103,6 +103,18 @@ def scrape_matches(page, url, label):
     log(f"loading {label} page...")
     page.goto(url, wait_until="networkidle", timeout=45000)
     page.wait_for_timeout(3000)
+    # Flashscore loads only the latest/next ~25 matches; keep clicking "Show more matches"
+    # until it disappears so we capture the full season.
+    for _ in range(15):
+        btn = page.query_selector("a.event__more, .event__more")
+        if not btn:
+            break
+        try:
+            btn.scroll_into_view_if_needed()
+            btn.click()
+            page.wait_for_timeout(1500)
+        except Exception:
+            break
     with open(f"{DEBUG_DIR}/debug-uz-{label}.html", "w", encoding="utf-8") as f:
         f.write(page.content())
 
@@ -201,8 +213,8 @@ def main():
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
         "teams": teams,
-        "results": results[:20],   # most recent 20 only, matches trimming convention elsewhere
-        "fixtures": fixtures[:20],
+        "results": results,
+        "fixtures": fixtures,
     }
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:

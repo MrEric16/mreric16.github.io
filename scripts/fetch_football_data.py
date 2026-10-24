@@ -250,6 +250,7 @@ def main():
         "clubFixtures": {},
     }
 
+    full_output = {"generatedAt": output["generatedAt"], "matches": {}}
     team_registry = {}
     for code in LEAGUE_CODES:
         try:
@@ -269,6 +270,13 @@ def main():
             data = get(f"{BASE}/competitions/{code}/matches")
             all_matches = data.get("matches", [])
             output["matches"][code] = process_league_matches(all_matches)
+            # Full season (every fixture + every result) for league and club pages.
+            fin = [m for m in all_matches if m.get("status") == "FINISHED"]
+            rest = [m for m in all_matches if m.get("status") != "FINISHED"]
+            full_output["matches"][code] = {
+                "fixtures": [trim_match(m) for m in sorted(rest, key=lambda m: m.get("utcDate") or "")],
+                "results": [trim_match(m) for m in sorted(fin, key=lambda m: m.get("utcDate") or "", reverse=True)],
+            }
             log(f"matches[{code}]: OK (trimmed from {len(all_matches)} to "
                 f"{len(output['matches'][code]['fixtures'])} fixtures + "
                 f"{len(output['matches'][code]['results'])} results)")
@@ -325,6 +333,10 @@ def main():
         json.dump(output, f, ensure_ascii=False, indent=2)
     size_kb = os.path.getsize(OUTPUT_PATH) / 1024
     log(f"Wrote {OUTPUT_PATH} ({size_kb:.1f} KB)")
+    if full_output["matches"]:
+        with open("data/football-full.json", "w", encoding="utf-8") as f:
+            json.dump(full_output, f, ensure_ascii=False, separators=(",", ":"))
+        log(f"Wrote data/football-full.json ({os.path.getsize('data/football-full.json')/1024:.1f} KB)")
 
 
 if __name__ == "__main__":
