@@ -7,7 +7,8 @@ function hub(){
   var done = lsGet('speakDone', 0);
   app.innerHTML = BACK + head('Speaking Practice') +
     '<div class="sport-hub-grid"><a class="sport-hub-tile" href="#p1"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 1</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p1.length + ' topics</span></span></a>' +
-    '<a class="sport-hub-tile" href="#p2"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 2 and 3</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p2.length + ' cue cards</span></span></a></div>' +
+    '<a class="sport-hub-tile" href="#p2"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 2</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p2.length + ' cue cards</span></span></a>' +
+    '<a class="sport-hub-tile" href="#p3"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 3</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">discussion</span></span></a></div>' +
     (done ? '<div class="v-hint" style="margin-top:12px;">Sessions finished: ' + done + '</div>' : '');
 }
 function recorder(){
@@ -48,6 +49,20 @@ function part1(){
   };
   document.getElementById('spTopic').onclick = function(){ p1 = null; part1(); };
 }
+var p3 = null;
+function part3(){
+  stopAll();
+  if(p3 == null) p3 = Math.floor(Math.random() * D.p2.length);
+  var C = D.p2[p3];
+  app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
+    '<div class="v-hint" style="margin-bottom:8px;">Topic: ' + esc(C.c) + '</div>' +
+    C.q.map(function(x, i){ return '<div class="sp-card"><div class="sp-q">' + (i + 1) + '. ' + esc(x) + '</div></div>'; }).join('') +
+    recorder() +
+    '<div class="v-row"><button class="v-btn" id="spDone">Finish</button><button class="v-btn alt" id="spOther">Other topic</button></div>';
+  wireRec();
+  document.getElementById('spOther').onclick = function(){ stopAll(); p3 = null; part3(); };
+  document.getElementById('spDone').onclick = function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p3 = null; stopAll(); if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); };
+}
 var p2 = null;
 function part2(){
   stopAll();
@@ -63,12 +78,17 @@ function part2(){
     var prep = p2.ph === 'prep', total = prep ? 60 : 120;
     app.innerHTML = BACK + head(prep ? 'Prepare' : 'Speak now', prep ? 'Write key words only. Do not write full sentences.' : 'Keep going until the timer ends. Aim for at least 1 minute 30.') + card +
       '<div class="sp-clock" id="spClk">' + mmss(total) + '</div>' + (prep ? '' : recorder()) +
-      '<div class="v-row"><button class="v-btn" id="spSkip">' + (prep ? 'Start speaking now' : 'I have finished') + '</button></div>';
+      '<div class="v-row"><button class="v-btn" id="spSkip">' + (prep ? 'Start speaking now' : 'Next: Part 3') + '</button></div>';
     var t0 = Date.now();
     function end(){ stopAll(); p2.ph = prep ? 'talk' : 'part3'; part2(); }
-    tm = setInterval(function(){ var left = total - Math.floor((Date.now() - t0) / 1000), c = document.getElementById('spClk'); if(c) c.textContent = mmss(left); if(left <= 0 && prep) end(); if(left <= 0 && !prep){ clearInterval(tm); tm = null; if(c) c.textContent = '0:00'; } }, 500);
+    tm = setInterval(function(){ var left = total - Math.floor((Date.now() - t0) / 1000), c = document.getElementById('spClk'); if(c) c.textContent = mmss(left); if(left <= 0 && prep) end(); if(left <= 0 && !prep){ clearInterval(tm); tm = null; if(c) c.textContent = '0:00'; var sk = document.getElementById('spSkip'); if(sk) sk.textContent = 'Time is up. Next: Part 3'; } }, 500);
     if(!prep) wireRec();
-    document.getElementById('spSkip').onclick = function(){ if(!prep && rec && rec.state === 'recording'){ rec.stop(); } var keep = recUrl; if(tm){ clearInterval(tm); tm = null; } p2.ph = prep ? 'talk' : 'part3'; p2.keep = keep; part2(); };
+    document.getElementById('spSkip').onclick = function(){
+      function finish(){ if(tm){ clearInterval(tm); tm = null; } p2.ph = prep ? 'talk' : 'part3'; part2(); }
+      // wait for the recording to be saved first, so it shows up on the Part 3 page
+      if(!prep && rec && rec.state === 'recording'){ var os = rec.onstop; rec.onstop = function(){ os.apply(this, arguments); finish(); }; rec.stop(); return; }
+      finish();
+    };
   } else {
     app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
       (recUrl ? '<div class="sp-card"><div class="v-hint">Your Part 2 recording</div><audio controls src="' + recUrl + '" style="width:100%;"></audio></div>' : '') +
@@ -80,7 +100,7 @@ function part2(){
 }
 function route(){
   var h = location.hash.replace('#', '');
-  if(h === 'p1') part1(); else if(h === 'p2') part2(); else { p1 = null; p2 = null; hub(); }
+  if(h === 'p1') part1(); else if(h === 'p2') part2(); else if(h === 'p3') part3(); else { p1 = null; p2 = null; p3 = null; hub(); }
 }
 window.addEventListener('hashchange', route);
 getJson('data/games/speaking.json').then(function(d){ D = d; route(); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
