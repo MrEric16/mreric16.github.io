@@ -1,6 +1,284 @@
 {
- "generatedAt": "2026-10-24T12:09:25.297542Z",
+ "generatedAt": "2026-10-24T16:08:11.893085Z",
  "results": [
+  {
+   "url": "espn:401879256",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T11:30Z",
+   "home": "Aston Villa",
+   "away": "Man City",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "N. Jackson",
+     "minute": 6
+    },
+    {
+     "scorer": "N. Jackson",
+     "minute": 60
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Haaland",
+     "minute": 52
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878768",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T14:00Z",
+   "home": "Arsenal",
+   "away": "Everton",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "E. Konsa",
+     "minute": 7
+    },
+    {
+     "scorer": "G. Magalhães",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879255",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T14:00Z",
+   "home": "Coventry City",
+   "away": "Fulham",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "O. Bobb",
+     "minute": 80
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882830",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T12:00Z",
+   "home": "Rayo Vallecano",
+   "away": "Elche",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "F. Redondo (pen)",
+     "minute": 23
+    },
+    {
+     "scorer": "F. Niño (pen)",
+     "minute": 36
+    },
+    {
+     "scorer": "G. Valera",
+     "minute": 68
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884758",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:30Z",
+   "home": "Augsburg",
+   "away": "Union Berlin",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "H. Massengo",
+     "minute": 71
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Haberer",
+     "minute": 74
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884756",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:30Z",
+   "home": "1. FC Köln",
+   "away": "Schalke",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884757",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:30Z",
+   "home": "Mainz",
+   "away": "Bremen",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 2,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "A. Caci",
+     "minute": 33
+    },
+    {
+     "scorer": "L. Jae-Sung",
+     "minute": 63
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Füllkrug (pen)",
+     "minute": 7
+    },
+    {
+     "scorer": "N. Füllkrug (pen)",
+     "minute": 25
+    },
+    {
+     "scorer": "L. Reis",
+     "minute": 61
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884762",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:30Z",
+   "home": "RB Leipzig",
+   "away": "Elversberg",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "T. Gomis",
+     "minute": 48
+    },
+    {
+     "scorer": "Rômulo",
+     "minute": 66
+    },
+    {
+     "scorer": "C. Baumgartner",
+     "minute": 84
+    },
+    {
+     "scorer": "Rômulo",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884755",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:30Z",
+   "home": "SC Paderborn",
+   "away": "HSV",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "R. Philippe",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401874958",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:00Z",
+   "home": "Cagliari",
+   "away": "Bologna",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "Nicoló",
+     "minute": 57
+    },
+    {
+     "scorer": "F. Bernardeschi (pen)",
+     "minute": 80
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874961",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T13:00Z",
+   "home": "Como",
+   "away": "Sassuolo",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Douvikas",
+     "minute": 49
+    },
+    {
+     "scorer": "A. Douvikas",
+     "minute": 60
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401879253",
    "date": "2026-10-23",
