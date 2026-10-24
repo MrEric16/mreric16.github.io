@@ -19744,7 +19744,7 @@ function clubPageBodyHtml(key){
   results = dedupe(results.filter(r => clubRowIsMine(entry, r) && r.finished))
     .sort((a,b) => new Date(b.start) - new Date(a.start));
   const teams = (cache.leagues && cache.leagues[code]) || [];
-  const tableHtml = teams.length ? oneTableHtml(teams, false, entry.nameMatch)
+  const tableHtml = teams.length ? (code === 'KHL' ? khlTablesHtml(teams, false, entry.nameMatch) : oneTableHtml(teams, false, entry.nameMatch))
     : '<div class="empty-card">No table loaded yet.</div>';
   const grp = (icn, title, count, body) => `
     <details class="domain-group">
@@ -19769,6 +19769,18 @@ function viewClub(key){
       <div id="clubPageContainer" data-key="${key}">${clubPageBodyHtml(key)}</div>
     </section>`;
 }
+function khlTablesHtml(teams, showTrophy, hl){
+  const west = teams.filter(t => KHL_WESTERN_TEAMS.has(t.name));
+  const east = teams.filter(t => !KHL_WESTERN_TEAMS.has(t.name));
+  const all = [...teams].sort((a,b) => (b.pts-a.pts) || (a.pld-b.pld) || ((b.gf-b.ga)-(a.gf-a.ga)));
+  return `
+    <div class="division-label">Overall</div>
+    ${oneTableHtml(all, showTrophy, hl)}
+    <div class="division-label">Western Conference</div>
+    ${oneTableHtml(west, showTrophy, hl)}
+    <div class="division-label">Eastern Conference</div>
+    ${oneTableHtml(east, showTrophy, hl)}`;
+}
 function leagueDetailBodyHtml(code){
   const meta = LEAGUE_DETAIL_META[code];
   const cache = window._sportsCache;
@@ -19784,14 +19796,7 @@ function leagueDetailBodyHtml(code){
   const showTrophy = code !== 'CL';
   const tableHtml = (code === 'KHL' && liveTeams.length > 0)
     ? (() => {
-        const west = liveTeams.filter(t => KHL_WESTERN_TEAMS.has(t.name));
-        const east = liveTeams.filter(t => !KHL_WESTERN_TEAMS.has(t.name));
-        return `
-          <div class="division-label">Western Conference</div>
-          ${oneTableHtml(west, showTrophy)}
-          <div class="division-label">Eastern Conference</div>
-          ${oneTableHtml(east, showTrophy)}
-        `;
+      return khlTablesHtml(liveTeams, showTrophy);
       })()
     : liveTeams.length > 0
     ? oneTableHtml(liveTeams, showTrophy)
