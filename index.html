@@ -3040,11 +3040,15 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   /* page: bigger floating shapes + two diagonal colour bands */
   body.usertheme-bauhaus:not(.dark-mode)::before{ width:340px; height:340px; left:-150px; bottom:-130px; border-width:22px; opacity:.55; }
   body.usertheme-bauhaus:not(.dark-mode)::after{ width:150px; height:150px; right:-40px; top:14vh; opacity:.16; transform:rotate(28deg); }
-  body.usertheme-bauhaus:not(.dark-mode){
+  /* background grid + colour bands: painted on a FIXED layer behind everything, so they stay put while the page scrolls
+     (works on iPhone too, unlike background-attachment:fixed). Grid lines are 1.5px (50% thicker than before). */
+  body.usertheme-bauhaus:not(.dark-mode){ background-image:none !important; }
+  html:has(body.usertheme-bauhaus:not(.dark-mode))::before{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
     background-image:
       linear-gradient(112deg, transparent 0 82%, rgba(255,209,0,.16) 82% 90%, transparent 90% 94%, rgba(0,86,164,.12) 94% 100%),
-      repeating-linear-gradient(0deg, rgba(26,26,26,.06) 0px, rgba(26,26,26,.06) 1px, transparent 1px, transparent 48px),
-      repeating-linear-gradient(90deg, rgba(26,26,26,.06) 0px, rgba(26,26,26,.06) 1px, transparent 1px, transparent 48px);
+      repeating-linear-gradient(0deg, rgba(26,26,26,.07) 0 1.5px, transparent 1.5px 48px),
+      repeating-linear-gradient(90deg, rgba(26,26,26,.07) 0 1.5px, transparent 1.5px 48px);
   }
   /* ===== END BAUHAUS CHAOS v2 ===== */
 
