@@ -5301,6 +5301,39 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     font-size:15px; cursor:pointer;
   }
 
+  /* - Mind Temple v2 additions (emotion colours untouched) - */
+  .mt-stack{ display:flex; flex-direction:column; gap:10px; }
+  .mt-yn-btn:not(.mt-primary), .mt-chip:not(.on), .mt-int-btn{ color:var(--ink); }
+  .mt-resume button{ color:var(--ink); }
+  .mt-stack .mt-yn-btn{ flex:none; width:100%; }
+  .mt-skip-btn{ border:none; background:none; color:var(--ink-soft); font-family:'Nunito', sans-serif; font-weight:700; font-size:14px; cursor:pointer; padding:0 14px; }
+  .mt-chip{ border:2px solid var(--misc-mindtemple); background:none; color:var(--misc-mindtemple); border-radius:999px; padding:8px 14px; font-family:'Nunito', sans-serif; font-weight:700; font-size:13px; cursor:pointer; }
+  .mt-chip.on{ background:var(--misc-mindtemple); color:#fff; }
+  .mt-int-row{ display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin-top:6px; }
+  .mt-int-btn{ border:2px solid var(--misc-mindtemple); background:none; color:var(--misc-mindtemple); border-radius:14px; padding:14px 0; font-family:'Baloo 2', sans-serif; font-weight:700; font-size:20px; cursor:pointer; }
+  .mt-int-btn:active{ background:var(--misc-mindtemple); color:#fff; }
+  .mt-int-legend{ display:flex; justify-content:space-between; font-size:12px; color:var(--ink-soft); margin-top:6px; }
+  .mt-support{ text-align:left; background:var(--card); border:2px solid var(--misc-mindtemple); border-radius:14px; padding:16px; line-height:1.5; color:var(--ink); font-size:15px; }
+  .mt-support-h{ font-weight:800; font-size:18px; margin-bottom:6px; }
+  .mt-support-n{ font-weight:800; margin-top:8px; }
+  .mt-note{ font-size:13px; color:var(--ink-soft); line-height:1.5; margin-top:12px; text-align:center; background:var(--card); border-radius:12px; padding:10px 12px; }
+  .mt-link{ background:none; border:none; color:var(--misc-mindtemple); font-weight:800; font-family:'Nunito', sans-serif; font-size:13px; text-decoration:underline; cursor:pointer; padding:0; }
+  .mt-lang{ display:flex; gap:6px; margin:-10px 0 12px; }
+  .mt-lang button{ border:1px solid var(--line); background:none; color:var(--ink-soft); border-radius:999px; padding:4px 12px; font-family:'Nunito', sans-serif; font-weight:800; font-size:12px; cursor:pointer; }
+  .mt-lang button.on{ background:var(--misc-mindtemple); border-color:var(--misc-mindtemple); color:#fff; }
+  .mt-search{ width:100%; box-sizing:border-box; border-radius:999px; border:1px solid var(--line); background:var(--card); color:var(--ink); font-family:'Nunito', sans-serif; font-size:15px; padding:11px 16px; margin-bottom:6px; }
+  .mt-tr{ display:block; font-size:10.5px; font-weight:600; opacity:.9; margin-top:1px; }
+  .mt-cat-btn .mt-tr{ font-size:12px; }
+  .mt-resume{ display:flex; align-items:center; gap:8px; background:var(--card); border-radius:12px; padding:10px 12px; margin-bottom:14px; font-size:13px; font-weight:700; color:var(--ink); }
+  .mt-resume span{ flex:1; }
+  .mt-resume button{ border:2px solid var(--misc-mindtemple); background:none; color:var(--misc-mindtemple); border-radius:999px; padding:5px 14px; font-weight:800; font-family:'Nunito', sans-serif; cursor:pointer; }
+  .mt-pin-msg{ color:#A6342E; font-size:13px; font-weight:700; min-height:18px; margin-top:6px; }
+  .mt-breathe{ height:170px; display:flex; align-items:center; justify-content:center; }
+  .mt-breathe-circle{ width:70px; height:70px; border-radius:50%; background:var(--misc-mindtemple); opacity:.85; transition:transform 4s ease-in-out; }
+  .mt-breathe-circle.in{ transform:scale(2.1); }
+  .mt-breathe-circle.out{ transform:scale(1); transition-duration:6s; }
+  @media (prefers-reduced-motion: reduce){ .mt-breathe-circle{ transition:none; } }
+
   /* - Embedded mess-about games (inline, no new tab, no network) - */
   .mt-embedded-title{ font-weight:800; font-size:15px; color:var(--ink); margin-bottom:10px; }
   .mt-embedded-slot{ display:flex; flex-direction:column; align-items:center; margin-bottom:16px; }
@@ -26563,6 +26596,7 @@ function viewSaved(){
 // button it happens to appear under. mtIsPositive() and the 'declined' message both read
 // this instead of category.valence now.
 const MT_WORD_VALENCE = {
+  'Depressed':'negative','Vengeful':'negative','Rageful':'negative',
   // Joy
   'Cheerful':'positive','Content':'positive','Proud':'positive','Excited':'positive','Optimistic':'positive',
   'Calm':'positive','Relaxed':'positive','Grateful':'positive','Hopeful':'positive','Playful':'positive',
@@ -26609,23 +26643,12 @@ const MT_EMOTIONS = [
   { key:'trust', label:'Trusting', color:'#B89434', valence:'positive', words:['Secure','Safe','Accepted','Respected','Loyal','Supported','Comfortable','Close','Open','Reliable','Honest','Sincere','Devoted','Faithful','Assured','Valued','Connected','Steady','Genuine','Dependable'] },
   { key:'fear', label:'Scared', color:'#B5562E', valence:'negative', words:['Nervous','Anxious','Worried','Insecure','Terrified','Panicked','Shy','Uneasy','Threatened','Vulnerable','Alarmed','Apprehensive','Timid','Overwhelmed','Helpless','Dreadful','Cautious','Suspicious','Jumpy','Frozen'] },
   { key:'disgust', label:'Disgusted', color:'#5C6B2E', valence:'negative', words:['Repulsed','Revolted','Grossed out','Appalled','Nauseated','Offended','Uncomfortable','Bitter','Contemptuous','Judgmental','Disturbed','Disapproving','Squeamish','Distrustful','Turned off','Distasteful','Averse','Uneasy','Sickened','Put off'] },
-  { key:'anger', label:'Angry', color:'#A6342E', valence:'negative', words:['Frustrated','Annoyed','Irritated','Furious','Resentful','Jealous','Hostile','Agitated','Offended','Betrayed','Bitter','Outraged','Hateful','Enraged','Provoked','Defensive','Impatient','Grouchy','Vindictive','Fuming'] },
+  { key:'anger', label:'Angry', color:'#A6342E', valence:'negative', words:['Vengeful','Rageful','Frustrated','Annoyed','Irritated','Furious','Resentful','Jealous','Hostile','Agitated','Offended','Betrayed','Bitter','Outraged','Hateful','Enraged','Provoked','Defensive','Impatient','Grouchy','Vindictive','Fuming'] },
   { key:'surprise', label:'Surprised', color:'#2E7B8A', valence:'neutral', words:['Shocked','Startled','Confused','Amazed','Stunned','Speechless','Bewildered','Curious','Astonished','Baffled','Dazed','Perplexed','Awestruck','Unsettled','Disoriented','Rattled','Blindsided','Taken aback','Mystified','Floored'] },
-  { key:'sadness', label:'Sad', color:'#4A5578', valence:'negative', words:['Lonely','Disappointed','Hurt','Hopeless','Guilty','Ashamed','Miserable','Down','Rejected','Empty','Heartbroken','Discouraged','Regretful','Gloomy','Grieving','Numb','Unworthy','Tearful','Defeated','Isolated'] },
+  { key:'sadness', label:'Sad', color:'#4A5578', valence:'negative', words:['Depressed','Helpless','Lonely','Disappointed','Hurt','Hopeless','Guilty','Ashamed','Miserable','Down','Rejected','Empty','Heartbroken','Discouraged','Regretful','Gloomy','Grieving','Numb','Unworthy','Tearful','Defeated','Isolated'] },
   { key:'anticipation', label:'Eager', color:'#B6B235', valence:'neutral', words:['Excited','Nervous','Hopeful','Curious','Impatient','Restless','Motivated','Determined','Alert','Prepared','Focused','Wary','Uncertain','Expectant','Driven','Ambitious','On edge','Ready','Watchful','Optimistic'] },
 ];
 
-// Narrow, specific, clinically-standard phrasing - deliberately not exhaustive slang.
-// The exercise's value is in the writing itself; this is a safety net underneath it,
-// not the point of the feature. False positives from dramatic/joking phrasing are an
-// accepted tradeoff of keeping this list narrow rather than casting a wide net that
-// would flag normal teenage venting as a crisis.
-const MT_ACUTE_KEYWORDS = [
-  'kill myself','suicide','suicidal','end my life','want to die','wish i was dead','wish i were dead',
-  'hurt myself','hurting myself','harm myself','self harm','self-harm','cutting myself','cut myself',
-  'no reason to live','better off dead','not worth living',
-  'hurting me','hurts me','hits me','hitting me','touching me','touched me','abusing me','abused me',
-];
 // Curated specifically for the "comfort offer" (read/watch/do) at the end of a Mind
 // Temple session - deliberately a small subset of the site's full content, not the whole
 // pool. The point is comforting someone who's already feeling down; the full random pool
@@ -30451,10 +30474,169 @@ const MT_EMBEDDED_GAMES = {
   sand:     { title: 'Sandbox', mount: mtMountSandGame },
 };
 
-function mtIsAcute(text){
-  const t = (text || '').toLowerCase();
-  return MT_ACUTE_KEYWORDS.some(k => t.includes(k));
+// ---- Safety: three tiers, English + Russian + Uzbek. Text is normalised first (lower-case, apostrophes removed,
+// ---- repeated letters collapsed), so "can't" matches "cant" and "diiie" matches "die". A keyword list is a net, not a guarantee.
+const MT_SAFETY_PATTERNS = {
+  self: [
+    'kill myself','killing myself','suicid','end my life','end it all','want to die','wanna die','wish i was dead','wish i were dead',
+    'dont want to live','dont wanna live','dont want to be here','dont want to be alive','hurt myself','hurting myself','harm myself',
+    'self harm','selfharm','cut myself','cutting myself','no reason to live','better off dead','not worth living','cant go on',
+    'want to disappear','wish i could disappear','hate myself','nobody would miss me','no one would miss me','better without me','kms$',
+    'хочу умереть','не хочу жить','покончить с собой','убить себя','убью себя','суицид','самоубий','лучше бы меня не было','лучше умереть',
+    'порезать себя','режу себя','навредить себе','ненавижу себя','хочу исчезнуть','нет смысла жить','незачем жить',
+    'olgim keladi','olib qolsam','yashagim kelmaydi','yashagim yoq','ozimni oldir','ozimga zarar','ozimni yomon koraman','yoq bolib ketsam','yashashdan mano yoq',
+    'ўлгим келади','яшагим келмайди','ўзимни ўлдир'
+  ],
+  others: [
+    'kill him','kill her','kill them','kill you','kill my','murder','make them pay','make him pay','make her pay','make you pay','hurt him','hurt her','hurt them','hurt someone','hurt people',
+    'beat him up','beat her up','beat them up','stab$','shoot him','shoot her','shoot them','shoot up','bring a gun','bring a knife','take revenge','get revenge','get even','destroy him','destroy her',
+    'убить его','убью его','убью ее','убью их','убью тебя','хочу убить','отомщу','отомстить','побить его','ударю его','расправлюсь','прирежу','зарежу',
+    'uni oldiraman','oldirmoqchiman','oldiraman','qasos olaman','uni uraman','yoq qilaman uni'
+  ],
+  abuse: [
+    'hits me','hit me','hitting me','beats me','beating me','touches me','touching me','touched me','abusing me','abused me','hurts me','hurting me',
+    'forces me','forced me to','rapes','raped','molest','afraid to go home','scared to go home','scared of my dad','scared of my mum','scared of my mom',
+    'бьет меня','бьют меня','избивает','трогает меня','домогается','насилует','изнасиловал','боюсь идти домой','боюсь отца',
+    'meni uradi','meni kaltaklaydi','meni uryapti','menga tegadi','uyga borishdan qorqaman','otamdan qorqaman'
+  ],
+};
+function mtNorm(t){
+  return (' ' + String(t || '').toLowerCase().replace(/[’'`ʻʼ]/g, '').replace(/ё/g, 'е').replace(/(.)\1{2,}/g, '$1')
+    .replace(/[^\p{L}\p{N}]+/gu, ' ').trim() + ' ');
 }
+const MT_SAFETY_NORM = {};
+Object.keys(MT_SAFETY_PATTERNS).forEach(k => { MT_SAFETY_NORM[k] = MT_SAFETY_PATTERNS[k].map(p => ({ t: mtNorm(p.replace(/\$$/, '')).trim(), whole: p.endsWith('$') })); });
+function mtTier(text){
+  const n = mtNorm(text);
+  for(const tier of ['self','others','abuse']){
+    if(MT_SAFETY_NORM[tier].some(p => p.t && n.includes(' ' + p.t + (p.whole ? ' ' : '')))) return tier;
+  }
+  return null;
+}
+function mtIsAcute(text){ return !!mtTier(text); }
+
+// ---- Words that mean "heavy" (used for the pattern check-in and for picking gentler steps)
+const MT_HEAVY = ['Helpless','Hopeless','Empty','Numb','Depressed','Defeated','Unworthy','Miserable','Isolated','Overwhelmed','Frozen','Ashamed','Guilty'];
+const MT_ANGER_EXTRA = ['Vengeful','Rageful','Hateful','Vindictive'];
+function mtCatOf(word){
+  const hit = MT_EMOTIONS.find(c => c.words.includes(word));
+  return hit ? hit.key : null;
+}
+function mtGroup(word){
+  if(MT_HEAVY.includes(word)) return 'heavy';
+  if(MT_ANGER_EXTRA.includes(word)) return 'anger';
+  const c = mtCatOf(word);
+  if(c === 'anger') return 'anger';
+  if(c === 'fear') return 'fear';
+  if(c === 'sadness') return 'sad';
+  return 'other';
+}
+const MT_VALIDATE = {
+  anger:  "That's a lot of anger. It's okay to feel it.",
+  heavy:  "That sounds really heavy. You're not alone.",
+  fear:   "That sounds scary. Let's slow down.",
+  sad:    "I'm sorry you feel this way. It's okay.",
+  other:  "Thanks for telling me.",
+  positive: "Lovely. Let's hold on to it.",
+  unsure: "That's okay. Not knowing is fine.",
+};
+const MT_TINY = {
+  anger: ['Drink water','Walk for 5 minutes',"Write it, don't send it",'Breathe again','Tell someone I trust'],
+  heavy: ['Message a friend','Go outside for 5 minutes','Eat or drink something','Listen to a song','Tell an adult I trust'],
+  fear:  ['Name 5 things I can see','Breathe slowly','Tell someone','Do one small step','Drink water'],
+  sad:   ['Message a friend','Go outside for 5 minutes','Listen to a song','Have a snack and water','Do something kind'],
+  other: ['Take a short walk','Drink water','Talk to someone','Listen to a song'],
+};
+const MT_REFRAME = ['What would I tell a friend?','Is there another way to see this?','What is still okay?'];
+const MT_REFRAME_EXTRA = { anger: ['How will I feel tomorrow?'], heavy: ['What is one small good thing today?'] };
+// Games matched to the feeling. No "vs computer" games for sad/scared/heavy (losing makes it worse).
+const MT_GAME_POOLS = {
+  anger: ['blast','fight','scribble','pop','mole','tug','balloons'],
+  heavy: ['sand','balloons','pop','scribble'],
+  fear:  ['sand','balloons','pop','mole'],
+  sad:   ['sand','balloons','pop','scribble','mole'],
+  other: ['pop','balloons','sand','mole','connect4'],
+};
+// Typing "depressed" or "rage" finds the right words.
+const MT_ALIASES = {
+  depress:['Depressed','Hopeless','Empty','Numb','Miserable','Down'], sad:['Sad','Down','Gloomy','Tearful','Miserable'], cry:['Tearful','Down','Hurt'],
+  angry:['Furious','Frustrated','Annoyed','Irritated','Enraged'], mad:['Furious','Annoyed','Irritated','Enraged'], rage:['Rageful','Enraged','Furious'],
+  revenge:['Vengeful','Vindictive'], vengeance:['Vengeful','Vindictive'], hate:['Hateful','Hostile','Contemptuous'], helpless:['Helpless','Hopeless','Overwhelmed'],
+  stress:['Overwhelmed','Anxious','Worried'], tired:['Down','Numb','Empty'], alone:['Lonely','Isolated'], scared:['Terrified','Nervous','Anxious','Panicked'],
+  afraid:['Terrified','Nervous','Anxious'], happy:['Cheerful','Content','Delighted','Excited','Proud'], good:['Content','Cheerful','Satisfied'], love:['Warm','Close','Connected'],
+  bored:['Restless','Down'], nervous:['Nervous','Anxious','Worried'], embarrass:['Ashamed','Shy'], worthless:['Unworthy','Hopeless'], suffer:['Miserable','Hurt'],
+  злой:['Furious','Annoyed','Enraged'], груст:['Down','Gloomy','Hopeless'], страх:['Terrified','Nervous','Anxious'], месть:['Vengeful','Vindictive'],
+};
+// Russian / Uzbek (Latin) for every word and category label. Please have a native speaker check these.
+const MT_TR = {
+ 'Cheerful':['Весёлый','Quvnoq'],'Content':['Довольный','Mamnun'],'Proud':['Гордый',"G'ururli"],'Excited':['В предвкушении','Hayajonli'],'Optimistic':['Оптимистичный','Optimist'],'Calm':['Спокойный','Xotirjam'],
+ 'Relaxed':['Расслабленный','Bemalol'],'Grateful':['Благодарный','Minnatdor'],'Hopeful':['С надеждой','Umidvor'],'Playful':['Игривый',"O'ynoqi"],'Silly':['Дурашливый',"Sho'x"],'Confident':['Уверенный','Ishonchli'],
+ 'Enthusiastic':['Увлечённый',"G'ayratli"],'Peaceful':['Умиротворённый','Tinch'],'Satisfied':['Удовлетворённый','Qoniqqan'],'Amused':['Позабавленный','Kulgan'],'Delighted':['В восторге','Xursand'],
+ 'Relieved':['Облегчение','Yengil tortgan'],'Warm':['Тёплые чувства','Iliq his'],'Light-hearted':['Беззаботный',"Beg'am"],
+ 'Secure':['Защищённый','Himoyalangan'],'Safe':['В безопасности','Xavfsiz'],'Accepted':['Принятый','Qabul qilingan'],'Respected':['Уважаемый','Hurmatli'],'Loyal':['Преданный','Sodiq'],'Supported':['Поддержанный',"Qo'llab-quvvatlangan"],
+ 'Comfortable':['Комфортно','Qulay'],'Close':['Близкий','Yaqin'],'Open':['Открытый','Ochiq'],'Reliable':['Надёжный','Tayanchli'],'Honest':['Честный','Halol'],'Sincere':['Искренний','Samimiy'],'Devoted':['Преданный','Fidoyi'],
+ 'Faithful':['Верный','Vafodor'],'Assured':['Уверенный','Ishonch bilan'],'Valued':['Ценимый','Qadrlangan'],'Connected':['Связанный',"Bog'langan"],'Steady':['Устойчивый','Barqaror'],'Genuine':['Настоящий','Haqiqiy'],'Dependable':['Надёжный','Ishonchli'],
+ 'Nervous':['Нервничаю','Asabiy'],'Anxious':['Тревожный','Xavotirli'],'Worried':['Беспокоюсь','Tashvishli'],'Insecure':['Неуверенный','Ishonchsiz'],'Terrified':['В ужасе','Dahshatda'],'Panicked':['В панике','Vahimada'],'Shy':['Застенчивый','Uyatchan'],
+ 'Uneasy':['Не по себе','Bezovta'],'Threatened':['Под угрозой','Xavf ostida'],'Vulnerable':['Уязвимый','Himoyasiz'],'Alarmed':['Встревожен','Havotirda'],'Apprehensive':['Опасаюсь',"Cho'chigan"],'Timid':['Робкий','Tortinchoq'],
+ 'Overwhelmed':['Всё слишком','Toqatim toq'],'Helpless':['Беспомощный','Ojiz'],'Dreadful':['Жутко',"Qo'rqinchli"],'Cautious':['Осторожный','Ehtiyotkor'],'Suspicious':['Подозрительный','Shubhali'],'Jumpy':['Дёрганый','Seskanuvchan'],'Frozen':['Оцепенел',"Qotib qolgan"],
+ 'Repulsed':['Отвращение','Jirkangan'],'Revolted':['Возмущён','Nafratlangan'],'Grossed out':['Фу, мерзко','Jirkanch'],'Appalled':['Потрясён','Dahshatga tushgan'],'Nauseated':['Тошнит',"Ko'ngli aynigan"],'Offended':['Обижен','Xafa'],
+ 'Uncomfortable':['Неловко','Noqulay'],'Bitter':['Горечь','Achchiq'],'Contemptuous':['Презрение','Mensimagan'],'Judgmental':['Осуждающий','Hukm qiluvchi'],'Disturbed':['Встревожен','Bezovlangan'],'Disapproving':['Не одобряю',"Ma'qullamagan"],
+ 'Squeamish':['Брезгливый','Jirkanchoq'],'Distrustful':['Недоверчивый','Ishonmaydigan'],'Turned off':['Отвратило',"Ko'ngli sovigan"],'Distasteful':['Неприятно','Yoqimsiz'],'Averse':['Неприязнь','Yoqtirmagan'],'Sickened':['Тошно',"Ko'ngli aynigan"],'Put off':['Оттолкнуло','Qaytarilgan'],
+ 'Frustrated':['Досадно','Asabiylashgan'],'Annoyed':['Раздражён',"G'ashi kelgan"],'Irritated':['Взвинчен','Jahli chiqqan'],'Furious':['В ярости',"G'azabli"],'Resentful':['Обида','Ranjigan'],'Jealous':['Ревную','Rashkchi'],'Hostile':['Враждебный','Dushmanlik'],
+ 'Agitated':['Взволнован','Bezovta'],'Betrayed':['Предан (обманут)','Xiyonat qilingan'],'Outraged':['Возмущён',"G'azabi qaynagan"],'Hateful':['Ненависть','Nafratli'],'Enraged':['Взбешён','Jahli qaynagan'],'Provoked':['Спровоцирован',"Qo'zg'atilgan"],
+ 'Defensive':['В обороне','Mudofaada'],'Impatient':['Нетерпеливый','Sabrsiz'],'Grouchy':['Ворчливый','Jizzaki'],'Vindictive':['Мстительный','Qasoskor'],'Fuming':['Киплю','Qaynayapman'],'Vengeful':['Мстительный','Qasoskor'],'Rageful':['Бешенство','Qahri qaynagan'],
+ 'Shocked':['В шоке','Shokda'],'Startled':['Вздрогнул',"Cho'chigan"],'Confused':['Растерян','Sarosimada'],'Amazed':['Изумлён','Hayratda'],'Stunned':['Ошеломлён','Garang'],'Speechless':['Нет слов','Tilsiz qolgan'],'Bewildered':['Сбит с толку','Boshi qotgan'],
+ 'Curious':['Любопытно','Qiziqqan'],'Astonished':['Поражён','Lol'],'Baffled':['В недоумении','Hayron'],'Dazed':['Оглушён','Karaxt'],'Perplexed':['Озадачен','Taajjublangan'],'Awestruck':['В восхищении','Mahliyo'],'Unsettled':['Выбит из колеи','Bezovtalangan'],
+ 'Disoriented':['Потерялся','Adashgan'],'Rattled':['Взбудоражен','Hayajonlangan'],'Blindsided':['Как гром среди неба',"To'satdan zarba"],'Taken aback':['Опешил','Esankiragan'],'Mystified':['Загадочно','Sirli'],'Floored':['Сражён','Hayratdan lol'],
+ 'Lonely':['Одинокий',"Yolg'iz"],'Disappointed':['Разочарован','Hafsalasi pir'],'Hurt':['Больно','Xafa'],'Hopeless':['Безнадёжно','Umidsiz'],'Guilty':['Виноват','Aybdor'],'Ashamed':['Стыдно','Uyalgan'],'Miserable':['Несчастный','Baxtsiz'],
+ 'Down':['Подавлен','Ruhi tushgan'],'Rejected':['Отвергнут','Rad etilgan'],'Empty':['Пустота',"Bo'shliq"],'Heartbroken':['Разбито сердце',"Yuragi ezilgan"],'Discouraged':['Пал духом',"Ruhi cho'kkan"],'Regretful':['Сожалею','Afsuslanayotgan'],
+ 'Gloomy':['Мрачный','Xira'],'Grieving':['Скорблю',"Qayg'uli"],'Numb':['Ничего не чувствую','Hissiz'],'Unworthy':['Недостойный','Loyiq emas'],'Tearful':['Слёзы',"Ko'zi yoshli"],'Defeated':['Побеждён',"Mag'lub"],'Isolated':['Изолирован','Ajralib qolgan'],'Depressed':['Депрессия','Tushkunlik'],
+ 'Restless':['Беспокойный','Notinch'],'Motivated':['Мотивирован',"Rag'batlangan"],'Determined':['Решительный',"Qat'iyatli"],'Alert':['Начеку','Hushyor'],'Prepared':['Готов','Tayyor'],'Focused':['Сосредоточен','Diqqatli'],'Wary':['Настороже','Ehtiyotda'],
+ 'Uncertain':['Неуверенно','Noaniq'],'Expectant':['В ожидании','Kutayotgan'],'Driven':['Целеустремлён','Intiluvchan'],'Ambitious':['Амбициозный','Maqsadli'],'On edge':['На взводе','Tarang'],'Ready':['Готов','Tayyor'],'Watchful':['Бдительный','Hushyor'],
+ // category labels
+ 'Joyful':['Радость','Quvonch'],'Trusting':['Доверие','Ishonch'],'Scared':['Страх',"Qo'rquv"],'Disgusted':['Отвращение','Jirkanish'],'Angry':['Злость',"G'azab"],'Surprised':['Удивление','Hayrat'],'Sad':['Грусть',"Qayg'u"],'Eager':['Ожидание','Intizorlik'],
+};
+let mtLang = 'en';
+try{ mtLang = localStorage.getItem('mtLang') || 'en'; }catch(e){}
+function mtLabel(w){
+  const tr = MT_TR[w];
+  if(mtLang === 'en' || !tr) return escapeHtml(w);
+  return escapeHtml(w) + '<small class="mt-tr">' + escapeHtml(tr[mtLang === 'ru' ? 0 : 1]) + '</small>';
+}
+function mtSearch(q){
+  q = (q || '').toLowerCase().trim();
+  if(q.length < 2) return [];
+  const all = [...new Set(MT_EMOTIONS.flatMap(c => c.words))];
+  const out = [];
+  const add = w => { if(w && !out.includes(w) && all.includes(w)) out.push(w); };
+  all.forEach(w => { if(w.toLowerCase().startsWith(q)) add(w); });
+  Object.keys(MT_ALIASES).forEach(k => { if(k.startsWith(q) || q.startsWith(k)) MT_ALIASES[k].forEach(add); });
+  all.forEach(w => { const t = MT_TR[w]; if(t && (t[0].toLowerCase().includes(q) || t[1].toLowerCase().includes(q))) add(w); });
+  all.forEach(w => { if(w.toLowerCase().includes(q)) add(w); });
+  return out.slice(0, 12);
+}
+
+// ---- Good moments (what the student wrote when they felt good; shown back on hard days). On this device only.
+const MT_GOOD_KEY = 'mtGoodMoments_v1';
+function mtLoadGood(){ try{ const a = JSON.parse(localStorage.getItem(MT_GOOD_KEY) || '[]'); return Array.isArray(a) ? a : []; }catch(e){ return []; } }
+function mtSaveGood(word, text){
+  const t = (text || '').trim(); if(!t) return false;
+  const a = mtLoadGood(); a.push({ ts: Date.now(), word, text: t.slice(0, 400) });
+  try{ localStorage.setItem(MT_GOOD_KEY, JSON.stringify(a.slice(-50))); }catch(e){}
+  return true;
+}
+// ---- Draft (so an accidental reload does not wipe a long vent). Session only, cleared on exit or Done.
+const MT_DRAFT_KEY = 'mtDraft_v2';
+function mtSaveDraft(){ try{ if(mtState && mtState.step !== 'picker') sessionStorage.setItem(MT_DRAFT_KEY, JSON.stringify({ t: Date.now(), s: mtState })); }catch(e){} }
+function mtClearDraft(){ try{ sessionStorage.removeItem(MT_DRAFT_KEY); }catch(e){} }
+function mtLoadDraft(){ try{ const d = JSON.parse(sessionStorage.getItem(MT_DRAFT_KEY) || 'null'); return d && Date.now() - d.t < 2 * 3600 * 1000 ? d.s : null; }catch(e){ return null; } }
+// ---- Optional PIN for My Wellbeing
+async function mtHashPin(pin){
+  try{ const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode('mt-lounge:' + pin)); return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2, '0')).join(''); }
+  catch(e){ return 'x' + pin; }
+}
+function mtHasPin(){ try{ return !!localStorage.getItem('mtPinHash'); }catch(e){ return false; } }
+
 
 // -
 // "My Wellbeing" - private, on-device-only mood tracking, built on top of the emotion
@@ -30975,34 +31157,411 @@ function mtMountWellbeing(container){
 
 let mtState = null;
 let mtActiveEmbeddedCleanup = null; // cleanup() of whichever embedded mess-about game is currently mounted, if any
+function mtNewState(){
+  return { step:'picker', category:null, emotion:null, situation:'', thought:'', reframe:'', reframeQ:'', tiny:'', before:null, after:null,
+           messAboutPick:null, messAboutCycleIndex:0, shown:{}, safetyTier:null, afterSafety:null, goodPick:null, saved:false, unlocked:false, resume:null, pinMode:'open', breathed:false };
+}
 function mtInit(){
   if(mtActiveEmbeddedCleanup){ mtActiveEmbeddedCleanup(); mtActiveEmbeddedCleanup = null; }
-  mtState = { step:'picker', category:null, emotion:null, situation:'', thought:'', actionTaken:null, actionDescription:'', resolution:'', messAboutPick:null, messAboutCycleIndex:0 };
+  const keepUnlock = mtState && mtState.unlocked;
+  mtState = mtNewState();
+  mtState.unlocked = !!keepUnlock;
+  const d = mtLoadDraft();
+  if(d && d.step && d.step !== 'picker' && d.emotion) mtState.resume = d;
   mtRender();
 }
 function mtGoTo(step){
   mtState.step = step;
   mtRender();
 }
-// Positive emotions skip the "resolution" question entirely - "what could constructively
-// resolve this?" makes no sense after describing something that made you feel joyful or
-// trusting. Only negative/neutral flows (something that actually needs resolving) ask it.
-// Reads MT_WORD_VALENCE keyed on the actual word picked (mtState.emotion), not the
-// category it was found under - category-level valence was the original bug: "Excited"
-// and "Optimistic" sit in both Joy's list (positive) and Anticipation's list (was neutral),
-// so picking them via "Eager" got the wrong treatment even though the word itself is
-// unambiguously positive. Falls back to the category's valence only if a word somehow
-// isn't in the map, which shouldn't happen - verified all 151 words have an entry.
+const MT_TEXT_FIELD = { situation:'situation', thought:'thought', reframe:'reframe' };
 function mtIsPositive(){
   const wordValence = MT_WORD_VALENCE[mtState.emotion];
   if(wordValence) return wordValence === 'positive';
   const cat = MT_EMOTIONS.find(c => c.key === mtState.category);
-  return cat && cat.valence === 'positive';
+  return !!(cat && cat.valence === 'positive');
 }
-function mtAfterAction(){
-  mtGoTo(mtIsPositive() ? 'closing' : 'resolution');
+function mtSupportHtml(tier, extra){
+  const T = {
+    self:   ['You matter.', 'Please tell an adult now: Mr Eric, a teacher, or someone at home.', 'In danger? Call 103.'],
+    others: ['Stop for a moment.', "Don't act now. Breathe. Talk to Mr Eric or an adult first.", ''],
+    abuse:  ['Thank you for telling.', "It's not your fault. Tell an adult you trust today. Mr Eric can help.", 'In danger? Call 102 or 103.'],
+    support:["You're not alone.", 'Tell Mr Eric, a teacher, or someone at home.', 'In danger? Call 103.'],
+  }[tier] || [];
+  return `<div class="mt-support"><div class="mt-support-h">${escapeHtml(T[0])}</div><div>${escapeHtml(T[1])}</div>${T[2] ? `<div class="mt-support-n">${escapeHtml(T[2])}</div>` : ''}${extra || ''}</div>`;
+}
+function mtRateRow(){
+  return `<div class="mt-int-row">${[1,2,3,4,5,6,7,8,9,10].map(n => `<button class="mt-int-btn" data-rate="${n}">${n}</button>`).join('')}</div>
+          <div class="mt-int-legend"><span>a little</span><span>huge</span></div>`;
+}
+function mtTextStep(back, question, placeholder, field, nextLabel){
+  const s = mtState;
+  return `
+    <button class="mt-back-link" data-go="${back}">← Back</button>
+    <div class="mt-question">${escapeHtml(question)}</div>
+    <textarea class="mt-textarea" id="mtInput" placeholder="${escapeHtml(placeholder)}">${escapeHtml(s[field])}</textarea>
+    <div class="mt-nav-row">
+      <button class="mt-next-btn" data-action="next">${nextLabel || 'Next'}</button>
+      <button class="mt-skip-btn" data-action="skip">Skip</button>
+    </div>
+    <button class="mt-exit-btn" data-action="close">Close</button>`;
+}
+function mtStepHtml(){
+  const s = mtState;
+  const word = s.emotion;
+  const group = mtGroup(word);
+  const positive = mtIsPositive();
+
+  if(s.step === 'picker'){
+    const sortedCategories = [...MT_EMOTIONS].sort((a,b)=> MT_VALENCE_RANK[a.valence] - MT_VALENCE_RANK[b.valence]);
+    const resume = s.resume ? `<div class="mt-resume"><span>Carry on where you left off?</span><button data-action="resume-yes">Yes</button><button data-action="resume-no">No</button></div>` : '';
+    return `
+      ${resume}
+      <p class="mt-intro">Private. Stays on this phone.</p>
+      <div class="mt-lang">${['en','ru','uz'].map(l => `<button class="${mtLang === l ? 'on' : ''}" data-lang="${l}">${l.toUpperCase()}</button>`).join('')}</div>
+      <input class="mt-search" id="mtSearch" type="search" placeholder="Type a feeling…" autocomplete="off">
+      <div class="mt-sub-grid" id="mtSearchOut"></div>
+      <div class="mt-cat-grid">
+        ${sortedCategories.map(c => `<button class="mt-cat-btn" style="background:${mtValenceColor(c.valence)}" data-cat="${c.key}">${mtLabel(c.label)}</button>`).join('')}
+      </div>
+      <div class="mt-yn-row" style="margin-top:12px;">
+        <button class="mt-yn-btn" data-action="not-sure">Not sure</button>
+        <button class="mt-yn-btn" data-action="just-write">Just write</button>
+      </div>
+      <button class="mt-wellbeing-tile" data-action="open-wellbeing">📊 My Wellbeing</button>`;
+  }
+  if(s.step === 'wellbeing') return mtWellbeingHtml();
+  if(s.step === 'pin'){
+    const setting = s.pinMode === 'set';
+    return `
+      <button class="mt-back-link" data-action="${setting ? 'pin-cancel-set' : 'back-to-picker'}">← Back</button>
+      <div class="mt-question">${setting ? 'Choose a 4-digit PIN' : 'Enter your PIN'}</div>
+      <input class="mt-search" id="mtPin" type="password" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••">
+      <div class="mt-pin-msg" id="mtPinMsg"></div>
+      <div class="mt-nav-row"><button class="mt-next-btn" data-action="pin-go">${setting ? 'Save' : 'Open'}</button></div>`;
+  }
+  if(s.step === 'subpicker'){
+    const cat = MT_EMOTIONS.find(c => c.key === s.category);
+    const sortedWords = [...cat.words].sort((a,b)=> MT_VALENCE_RANK[MT_WORD_VALENCE[a]] - MT_VALENCE_RANK[MT_WORD_VALENCE[b]]);
+    return `
+      <button class="mt-back-link" data-action="back-to-picker">← Back</button>
+      <p class="mt-intro">Which word fits best?</p>
+      <div class="mt-sub-grid">
+        ${sortedWords.map(w => `<button class="mt-sub-btn" style="background:${mtValenceColor(MT_WORD_VALENCE[w])}" data-word="${escapeHtml(w)}" data-cat="${cat.key}">${mtLabel(w)}</button>`).join('')}
+      </div>`;
+  }
+  if(s.step === 'checkin'){
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-closing-msg">You've felt heavy a few times this week. Want to talk to someone?</div>
+        <div class="mt-stack">
+          <button class="mt-yn-btn mt-primary" data-action="checkin-yes">Yes, how?</button>
+          <button class="mt-yn-btn" data-action="checkin-no">Not now</button>
+        </div>
+      </div>`;
+  }
+  if(s.step === 'safety'){
+    const tier = s.safetyTier || 'support';
+    return `
+      <div class="mt-closing-box">
+        ${mtSupportHtml(tier)}
+        <div class="mt-stack" style="margin-top:16px;">
+          ${tier === 'others' ? `<button class="mt-yn-btn mt-primary" data-action="go-breathe">Breathe for 1 minute</button>` : ''}
+          <button class="mt-yn-btn ${tier === 'others' ? '' : 'mt-primary'}" data-action="safety-ok">OK</button>
+        </div>
+        <div class="mt-note">I can't see what you write. Only you can.</div>
+      </div>`;
+  }
+  if(s.step === 'intensity'){
+    return `
+      <button class="mt-back-link" data-action="back-to-picker">← Back</button>
+      <div class="mt-question">How strong is it?</div>
+      ${mtRateRow()}`;
+  }
+  if(s.step === 'help'){
+    const hour = new Date().getHours();
+    const late = !positive && (hour >= 23 || hour < 5) ? " It's late. Sleep helps." : '';
+    const line = word === 'Not sure' ? MT_VALIDATE.unsure : (positive ? MT_VALIDATE.positive : MT_VALIDATE[group]) + late;
+    if(positive){
+      return `
+        <div class="mt-closing-box">
+          <div class="mt-closing-msg">${escapeHtml(line)}</div>
+          <div class="mt-stack">
+            <button class="mt-yn-btn mt-primary" data-action="go-write">Write it down</button>
+            <button class="mt-yn-btn" data-action="not-now">Not now</button>
+          </div>
+        </div>`;
+    }
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-closing-msg">${escapeHtml(line)}</div>
+        <div class="mt-stack">
+          <button class="mt-yn-btn mt-primary" data-action="go-breathe">${s.breathed ? 'Breathe again' : 'Breathe (1 min)'}</button>
+          <button class="mt-yn-btn mt-primary" data-action="go-play">Play something</button>
+          <button class="mt-yn-btn mt-primary" data-action="go-write">Write it out</button>
+          <button class="mt-yn-btn" data-action="not-now">Not now</button>
+        </div>
+      </div>`;
+  }
+  if(s.step === 'breathe'){
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-breathe"><div class="mt-breathe-circle" id="mtBreatheCircle"></div></div>
+        <div class="mt-closing-msg" id="mtBreatheTxt">Get ready…</div>
+        <button class="mt-yn-btn" data-action="breathe-stop" style="width:100%;">Stop</button>
+      </div>`;
+  }
+  if(s.step === 'messAboutAfter'){
+    const pick = s.messAboutPick;
+    const isEmbedded = pick && pick.type === 'embedded';
+    const game = isEmbedded ? MT_EMBEDDED_GAMES[pick.id] : null;
+    return `
+      <div class="mt-closing-box">
+        ${game ? `<div class="mt-embedded-title">${escapeHtml(game.title)}</div><div id="mtEmbeddedGameSlot" class="mt-embedded-slot"></div>` : ''}
+        <div class="mt-yn-row">
+          <button class="mt-yn-btn mt-primary" data-action="messabout-another">Another one</button>
+          <button class="mt-yn-btn" data-action="messabout-ready">I'm done</button>
+        </div>
+      </div>`;
+  }
+  if(s.step === 'declined'){
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-closing-msg">${positive ? 'Enjoy it.' : "Okay. I'm here when you want."}</div>
+        <div class="mt-stack">
+          ${positive ? '' : `<button class="mt-yn-btn mt-primary" data-action="comfort-yes">Read, watch or do something</button><button class="mt-yn-btn" data-action="back-help">Back</button>`}
+          <button class="mt-yn-btn" data-action="mt-restart">Done</button>
+        </div>
+      </div>`;
+  }
+  if(s.step === 'situation') return mtTextStep('help', positive ? 'What made it good?' : 'What happened?', 'A few words is fine…', 'situation');
+  if(s.step === 'thought')   return mtTextStep('situation', positive ? 'Who could you tell?' : 'What did you tell yourself?', positive ? 'A name, or just a thought…' : 'The first thought…', 'thought');
+  if(s.step === 'reframe'){
+    const qs = MT_REFRAME.concat(MT_REFRAME_EXTRA[group] || []);
+    const good = mtLoadGood();
+    if(good.length && s.goodPick == null) s.goodPick = Math.floor(Math.random() * good.length);
+    const g = good.length ? good[s.goodPick % good.length] : null;
+    return `
+      <button class="mt-back-link" data-go="thought">← Back</button>
+      <div class="mt-question">Try another angle. Pick one:</div>
+      <div class="mt-sub-grid" style="margin-top:0;margin-bottom:12px;">${qs.map(q => `<button class="mt-chip ${s.reframeQ === q ? 'on' : ''}" data-rq="${escapeHtml(q)}">${escapeHtml(q)}</button>`).join('')}</div>
+      <textarea class="mt-textarea" id="mtInput" placeholder="${escapeHtml(s.reframeQ || 'Just what comes to mind…')}">${escapeHtml(s.reframe)}</textarea>
+      ${g ? `<div class="mt-note" style="text-align:left;">A good moment you wrote (${escapeHtml(g.word)}): “${escapeHtml(g.text)}”</div>` : ''}
+      <div class="mt-nav-row">
+        <button class="mt-next-btn" data-action="next">Next</button>
+        <button class="mt-skip-btn" data-action="skip">Skip</button>
+      </div>
+      <button class="mt-exit-btn" data-action="close">Close</button>`;
+  }
+  if(s.step === 'tiny'){
+    const opts = MT_TINY[group] || MT_TINY.other;
+    return `
+      <button class="mt-back-link" data-go="reframe">← Back</button>
+      <div class="mt-question">Pick one small thing. Do it now.</div>
+      <div class="mt-stack">${opts.map(o => `<button class="mt-yn-btn" data-tiny="${escapeHtml(o)}">${escapeHtml(o)}</button>`).join('')}</div>
+      <button class="mt-exit-btn" data-action="skip-tiny">Skip</button>`;
+  }
+  if(s.step === 'rate2'){
+    return `
+      <div class="mt-question">How strong is it now?</div>
+      ${mtRateRow()}`;
+  }
+  if(s.step === 'closing'){
+    if(positive){
+      return `
+        <div class="mt-closing-box">
+          <div class="mt-closing-msg">Nice. It's good to notice what's going well.</div>
+          <div class="mt-stack">
+            ${s.situation.trim() ? `<button class="mt-yn-btn mt-primary" data-action="save-good" ${s.saved ? 'disabled' : ''}>${s.saved ? 'Saved ✓' : 'Save this moment'}</button>` : ''}
+            <button class="mt-yn-btn" data-action="mt-restart">Done</button>
+          </div>
+        </div>`;
+    }
+    const b = s.before, a = s.after;
+    let msg;
+    if(a == null || b == null) msg = 'Thank you for writing that.';
+    else if(a < b) msg = `Down from ${b} to ${a}. Well done.`;
+    else if(a === b) msg = `Still ${a}. That's okay. It takes time.`;
+    else msg = `It feels stronger now (${b} → ${a}). That's okay. Please tell someone you trust.`;
+    if(s.tiny) msg += ` Your step: ${s.tiny}.`;
+    const needSupport = a != null && (a >= 8 || (b != null && a > b));
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-closing-msg">${escapeHtml(msg)}</div>
+        ${needSupport ? mtSupportHtml('support') : ''}
+        <div class="mt-stack" style="margin-top:${needSupport ? 16 : 0}px;">
+          <button class="mt-yn-btn mt-primary" data-action="comfort-yes">Read, watch or do something</button>
+          <button class="mt-yn-btn" data-action="back-help">Try something else</button>
+          <button class="mt-yn-btn" data-action="mt-restart">Done</button>
+        </div>
+      </div>`;
+  }
+  if(s.step === 'goodbye'){
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-closing-msg">Take care. Come back any time.</div>
+        <button class="mt-resolve-btn" data-action="exit-now">Close</button>
+      </div>`;
+  }
+  if(s.step === 'comfortChoice'){
+    return `
+      <div class="mt-closing-box">
+        <div class="mt-closing-msg">Read, watch, or do?</div>
+        <div class="mt-yn-row">
+          <button class="mt-yn-btn mt-primary" data-action="comfort-read">Read</button>
+          <button class="mt-yn-btn mt-primary" data-action="comfort-watch">Watch</button>
+          <button class="mt-yn-btn mt-primary" data-action="comfort-do">Do</button>
+        </div>
+        <button class="mt-exit-btn" data-action="mt-restart" style="margin-top:10px;">Done</button>
+      </div>`;
+  }
+  return '';
+}
+
+function mtWireStep(container){
+  const s = mtState;
+  const grab = () => { const el = container.querySelector('#mtInput'); const f = MT_TEXT_FIELD[s.step]; if(el && f) s[f] = el.value; };
+  // Every way out of a text step goes through here: the text is kept (Back no longer loses it) and checked for safety first.
+  const leave = (target) => {
+    grab();
+    const tier = mtTier([s.situation, s.thought, s.reframe].join(' . '));
+    if(tier && !s.shown[tier]){ s.shown[tier] = 1; s.safetyTier = tier; s.afterSafety = target; mtGoTo('safety'); return; }
+    if(target === '__exit') return mtExit();
+    mtGoTo(target);
+  };
+  const pickWord = (w, cat) => {
+    s.emotion = w; s.category = cat || mtCatOf(w);
+    const v = MT_WORD_VALENCE[w];
+    mtLogMoodEntry(s.category, w, v);
+    s.before = null; s.after = null; s.tiny = ''; s.reframe = ''; s.reframeQ = ''; s.saved = false; s.goodPick = null; s.breathed = false; s.shown = {};
+    // Pattern check-in: 3+ heavy words in 7 days, at most once every 3 days.
+    if(MT_HEAVY.includes(w)){
+      const wk = Date.now() - 7 * 86400000;
+      const n = mtLoadMoodLog().filter(e => e.ts >= wk && MT_HEAVY.includes(e.word)).length;
+      let last = 0; try{ last = +localStorage.getItem('mtCheckinAt') || 0; }catch(e){}
+      if(n >= 3 && Date.now() - last > 3 * 86400000){ try{ localStorage.setItem('mtCheckinAt', String(Date.now())); }catch(e){} s.nextAfterCheckin = v === 'positive' ? 'help' : 'intensity'; return mtGoTo('checkin'); }
+    }
+    mtGoTo(v === 'positive' ? 'help' : 'intensity');
+  };
+  const poolPick = () => {
+    const ids = MT_GAME_POOLS[mtGroup(s.emotion)] || MT_GAME_POOLS.other;
+    const id = ids[s.messAboutCycleIndex % ids.length];
+    s.messAboutCycleIndex = (s.messAboutCycleIndex + 1) % ids.length;
+    return { type:'embedded', id };
+  };
+
+  container.oninput = (e) => {
+    const t = e.target;
+    if(t.id === 'mtInput'){ const f = MT_TEXT_FIELD[s.step]; if(f){ s[f] = t.value; mtSaveDraft(); } }
+    if(t.id === 'mtSearch'){
+      const out = container.querySelector('#mtSearchOut'); if(!out) return;
+      out.innerHTML = mtSearch(t.value).map(w => `<button class="mt-sub-btn" style="background:${mtValenceColor(MT_WORD_VALENCE[w])}" data-word="${escapeHtml(w)}">${mtLabel(w)}</button>`).join('');
+    }
+  };
+  container.onclick = (e) => {
+    const t = e.target.closest('[data-action],[data-word],[data-cat],[data-rate],[data-tiny],[data-rq],[data-lang],[data-go]');
+    if(!t || !container.contains(t)) return;
+    if(t.dataset.word){ return pickWord(t.dataset.word, t.dataset.cat); }
+    if(t.dataset.cat && !t.dataset.action){ s.category = t.dataset.cat; return mtGoTo('subpicker'); }
+    if(t.dataset.lang){ mtLang = t.dataset.lang; try{ localStorage.setItem('mtLang', mtLang); }catch(er){} return mtRender(); }
+    if(t.dataset.go){ return leave(t.dataset.go); }
+    if(t.dataset.rq){ grab(); s.reframeQ = t.dataset.rq; return mtGoTo('reframe'); }
+    if(t.dataset.tiny){ s.tiny = t.dataset.tiny; return mtGoTo('rate2'); }
+    if(t.dataset.rate){
+      const n = +t.dataset.rate;
+      if(s.step === 'intensity'){ s.before = n; return mtGoTo('help'); }
+      if(s.step === 'rate2'){ s.after = n; return mtGoTo('closing'); }
+      return;
+    }
+    switch(t.dataset.action){
+      case 'back-to-picker': return mtGoTo('picker');
+      case 'back-help': return mtGoTo('help');
+      case 'resume-yes': { const d = s.resume; mtState = Object.assign(mtNewState(), d, { resume: null }); return mtRender(); }
+      case 'resume-no': mtClearDraft(); s.resume = null; return mtRender();
+      case 'not-sure': s.emotion = 'Not sure'; s.category = null; s.before = null; s.after = null; s.shown = {}; return mtGoTo('intensity');
+      case 'just-write': s.emotion = 'Not sure'; s.category = null; s.before = null; s.after = null; s.shown = {}; return mtGoTo('situation');
+      case 'open-wellbeing':
+        if(mtHasPin() && !s.unlocked){ s.pinMode = 'open'; return mtGoTo('pin'); }
+        return mtGoTo('wellbeing');
+      case 'set-pin': s.pinMode = 'set'; return mtGoTo('pin');
+      case 'pin-cancel-set': return mtGoTo('wellbeing');
+      case 'remove-pin': try{ localStorage.removeItem('mtPinHash'); }catch(er){} return mtGoTo('wellbeing');
+      case 'pin-go': {
+        const v = (container.querySelector('#mtPin') || {}).value || '';
+        const msg = container.querySelector('#mtPinMsg');
+        if(!/^\d{4}$/.test(v)){ if(msg) msg.textContent = '4 digits please.'; return; }
+        mtHashPin(v).then(h => {
+          if(s.pinMode === 'set'){ try{ localStorage.setItem('mtPinHash', h); }catch(er){} s.unlocked = true; return mtGoTo('wellbeing'); }
+          let want = null; try{ want = localStorage.getItem('mtPinHash'); }catch(er){}
+          if(h === want){ s.unlocked = true; mtGoTo('wellbeing'); } else if(msg) msg.textContent = 'Wrong PIN.';
+        });
+        return;
+      }
+      case 'clear-wellbeing':
+        if(confirm('Clear your mood log and saved moments on this phone? This can\'t be undone.')){ mtClearMoodLog(); try{ localStorage.removeItem(MT_GOOD_KEY); }catch(er){} mtGoTo('wellbeing'); }
+        return;
+      case 'wb-support': s.safetyTier = 'support'; s.afterSafety = 'wellbeing'; return mtGoTo('safety');
+      case 'checkin-yes': s.safetyTier = 'support'; s.afterSafety = s.nextAfterCheckin || 'intensity'; return mtGoTo('safety');
+      case 'checkin-no': return mtGoTo(s.nextAfterCheckin || 'intensity');
+      case 'safety-ok': { const to = s.afterSafety || 'help'; s.afterSafety = null; if(to === '__exit') return mtExit(); return mtGoTo(to); }
+      case 'go-breathe': return mtGoTo('breathe');
+      case 'breathe-stop': s.breathed = true; return mtGoTo('help');
+      case 'go-play': s.messAboutPick = poolPick(); return mtGoTo('messAboutAfter');
+      case 'messabout-another': s.messAboutPick = poolPick(); return mtRender();
+      case 'messabout-ready': return mtGoTo('help');
+      case 'go-write': return mtGoTo('situation');
+      case 'not-now': return mtGoTo('declined');
+      case 'next': {
+        if(s.step === 'situation') return leave('thought');
+        if(s.step === 'thought') return leave(mtIsPositive() ? 'closing' : 'reframe');
+        if(s.step === 'reframe') return leave('tiny');
+        return;
+      }
+      case 'skip': {
+        const f = MT_TEXT_FIELD[s.step]; if(f) s[f] = '';
+        if(s.step === 'situation') return mtGoTo('thought');
+        if(s.step === 'thought') return mtGoTo(mtIsPositive() ? 'closing' : 'reframe');
+        if(s.step === 'reframe') return mtGoTo('tiny');
+        return;
+      }
+      case 'skip-tiny': s.tiny = ''; return mtGoTo('rate2');
+      case 'close': return leave(s.emotion ? 'goodbye' : '__exit');
+      case 'exit-now': return mtExit();
+      case 'save-good': if(mtSaveGood(s.emotion, s.situation + (s.thought.trim() ? ' — ' + s.thought : ''))){ s.saved = true; mtRender(); } return;
+      case 'mt-restart': mtClearDraft(); return mtInit();
+      case 'comfort-yes': return mtGoTo('comfortChoice');
+      case 'comfort-read': {
+        const pool = DISPATCHES.filter(d => MT_COMFORT_DISPATCH_URLS.includes(d.url)); if(!pool.length) return;
+        window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); return;
+      }
+      case 'comfort-watch': {
+        const pool = WATCH_VIDEOS.filter(v => MT_COMFORT_VIDEO_IDS.includes(v.videoId)); if(!pool.length) return;
+        location.hash = '#play/' + pool[Math.floor(Math.random() * pool.length)].videoId; return;
+      }
+      case 'comfort-do': {
+        const pool = EXPLORE_SITES.filter(s2 => MT_COMFORT_INSTRUMENT_URLS.includes(s2.url)); if(!pool.length) return;
+        window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); return;
+      }
+    }
+  };
+
+  // Breathing: 4 s in, 6 s out, for 60 s.
+  if(s.step === 'breathe'){
+    const circle = container.querySelector('#mtBreatheCircle'), txt = container.querySelector('#mtBreatheTxt');
+    let t = 0;
+    const tick = () => {
+      const p = t % 10;
+      if(circle) circle.className = 'mt-breathe-circle ' + (p < 4 ? 'in' : 'out');
+      if(txt) txt.textContent = (p < 4 ? 'Breathe in… ' : 'Breathe out… ') + (60 - t) + 's';
+      t++;
+      if(t > 60){ clearInterval(timer); s.breathed = true; mtGoTo('help'); }
+    };
+    const timer = setInterval(tick, 1000); tick();
+    mtActiveEmbeddedCleanup = () => clearInterval(timer);
+  }
 }
 function mtExit(){
+  mtClearDraft();
   // Any embedded mess-about game's animation loop/AI timer must be torn down explicitly -
   // it does NOT stop on its own just because this panel's DOM gets replaced by whatever
   // route is navigated to next; a detached canvas's requestAnimationFrame loop keeps firing
@@ -31024,6 +31583,7 @@ function mtRender(){
   if(mtActiveEmbeddedCleanup){ mtActiveEmbeddedCleanup(); mtActiveEmbeddedCleanup = null; }
   container.innerHTML = mtStepHtml();
   mtWireStep(container);
+  mtSaveDraft();
   if(mtState.step === 'messAboutAfter' && mtState.messAboutPick){
     mtActivateMessAboutPick(container);
   }
@@ -31117,16 +31677,25 @@ function mtActivateMessAboutPick(container){
 function mtWellbeingHtml(){
   const log = mtLoadMoodLog();
   const stats = mtComputeWellbeingStats(log);
+  const good = mtLoadGood();
   const backLink = `<button class="mt-back-link" data-action="back-to-picker">← Back</button>`;
+  const fmtD = ts => new Date(ts).toLocaleDateString('en-GB', { day:'numeric', month:'short' });
+  const goodHtml = good.length ? `
+    <p class="wb-section-label">Good moments (${good.length})</p>
+    ${good.slice(-3).reverse().map(g => `<div class="mt-note" style="text-align:left;margin:0 0 8px;"><b>${escapeHtml(g.word)}</b> · ${fmtD(g.ts)}<br>${escapeHtml(g.text)}</div>`).join('')}` : '';
+  const pinBtn = mtHasPin()
+    ? `<button class="mt-back-link" data-action="remove-pin" style="margin-top:14px;margin-right:14px;">Remove PIN</button>`
+    : `<button class="mt-back-link" data-action="set-pin" style="margin-top:14px;margin-right:14px;">Lock with a PIN</button>`;
+  const clearBtn = `<button class="mt-back-link" data-action="clear-wellbeing" style="margin-top:14px; color:#A6342E;">Clear my data</button>`;
 
   if(stats.total < MT_WELLBEING_MIN_ENTRIES){
     const remaining = MT_WELLBEING_MIN_ENTRIES - stats.total;
     return `
       ${backLink}
       <p class="mt-intro">My Wellbeing</p>
-      <p class="mt-intro">Check in ${remaining} more time${remaining===1?'':'s'} and your patterns will start showing up here - most-logged feeling, how your mood shifts through the day and the week, that sort of thing. Just needs a bit more to work with first.</p>
-      ${stats.total > 0 ? `<p class="mt-intro">Checked in ${stats.total} time${stats.total===1?'':'s'} so far.</p>` : ''}
-    `;
+      <p class="mt-intro">Check in ${remaining} more time${remaining===1?'':'s'} to see your patterns.</p>
+      ${goodHtml}
+      <div>${pinBtn}${stats.total || good.length ? clearBtn : ''}</div>`;
   }
 
   const catInfo = MT_EMOTIONS.find(c => c.key === stats.mostCommonCategory);
@@ -31134,20 +31703,26 @@ function mtWellbeingHtml(){
   const posPct = Math.round(100 * stats.valenceCounts.positive / stats.total);
   const neuPct = Math.round(100 * stats.valenceCounts.neutral / stats.total);
   const negPct = Math.round(100 * stats.valenceCounts.negative / stats.total);
+  const wk = Date.now() - 7 * 86400000;
+  const recent = log.filter(e => e.ts >= wk);
+  const rough = recent.length >= 4 && recent.filter(e => e.valence === 'negative').length / recent.length >= 0.7;
 
   return `
     ${backLink}
     <p class="mt-intro">My Wellbeing</p>
+    ${rough ? `<div class="mt-note" style="text-align:left;margin-bottom:14px;">Rough week? Talking helps. <button class="mt-link" data-action="wb-support">Who can I tell?</button></div>` : ''}
 
     <div class="wb-stat-row">
       <div class="wb-stat"><div class="wb-stat-num">${stats.total}</div><div class="wb-stat-label">check-ins</div></div>
-      <div class="wb-stat"><div class="wb-stat-num">${stats.streak}</div><div class="wb-stat-label">day streak</div></div>
+      ${good.length ? `<div class="wb-stat"><div class="wb-stat-num">${good.length}</div><div class="wb-stat-label">good moments</div></div>` : ''}
+      ${stats.streak >= 2 ? `<div class="wb-stat"><div class="wb-stat-num">${stats.streak}</div><div class="wb-stat-label">days in a row</div></div>` : ''}
     </div>
+    ${goodHtml}
 
-    ${catInfo ? `<p class="mt-intro">Most logged: <strong style="color:${mtMajorityValenceColor(stats.categoryBreakdown[catInfo.key])}">${escapeHtml(catInfo.label)}</strong></p>` : ''}
-    ${shiftInfo ? `<p class="mt-intro">Lately (last 7 days) you've logged <strong style="color:${mtMajorityValenceColor(stats.categoryBreakdown[shiftInfo.key])}">${escapeHtml(shiftInfo.label)}</strong> more than usual.</p>` : ''}
+    ${catInfo ? `<p class="mt-intro" style="margin-top:14px;">Most logged: <strong style="color:${mtMajorityValenceColor(stats.categoryBreakdown[catInfo.key])}">${escapeHtml(catInfo.label)}</strong></p>` : ''}
+    ${shiftInfo ? `<p class="mt-intro">Lately: <strong style="color:${mtMajorityValenceColor(stats.categoryBreakdown[shiftInfo.key])}">${escapeHtml(shiftInfo.label)}</strong> more than usual.</p>` : ''}
 
-    <p class="wb-section-label">Mix of feelings overall</p>
+    <p class="wb-section-label">Mix of feelings</p>
     <div class="wb-split-bar">
       <div class="wb-split-seg" style="width:${posPct}%; background:#5A8F4E;"></div>
       <div class="wb-split-seg" style="width:${neuPct}%; background:#B6B235;"></div>
@@ -31159,15 +31734,15 @@ function mtWellbeingHtml(){
       <div class="wb-split-caption-seg" style="width:${negPct}%; color:${mtValenceColor('negative')};">${negPct}% negative</div>
     </div>
 
-    <p class="wb-section-label">Every emotion, all-time</p>
+    <p class="wb-section-label">Every emotion</p>
     <canvas id="wbCategoryChart" class="wb-chart"></canvas>
     <p class="wb-tap-hint">Tap for details</p>
 
-    <p class="wb-section-label">Emotional profile</p>
+    <p class="wb-section-label">Profile</p>
     <canvas id="wbRadarChart" class="wb-chart wb-chart-radar"></canvas>
     <p class="wb-tap-hint">Tap a point for details</p>
 
-    <p class="wb-section-label">By time of day</p>
+    <p class="wb-section-label">Time of day</p>
     <canvas id="wbTimeOfDayChart" class="wb-chart wb-chart-small"></canvas>
     <p class="wb-tap-hint">Tap for details</p>
 
@@ -31175,385 +31750,20 @@ function mtWellbeingHtml(){
     <canvas id="wbHeatmapChart" class="wb-chart wb-chart-heatmap"></canvas>
     <p class="wb-tap-hint">Tap a cell for details</p>
 
-    <p class="wb-section-label">By day of the week</p>
+    <p class="wb-section-label">Day of the week</p>
     <canvas id="wbDayOfWeekChart" class="wb-chart wb-chart-small"></canvas>
     <p class="wb-tap-hint">Tap for details</p>
 
     ${stats.trend.length >= 2 ? `
-      <p class="wb-section-label">Trend, last ${stats.trend.length} day${stats.trend.length===1?'':'s'} with a check-in</p>
+      <p class="wb-section-label">Trend, last ${stats.trend.length} day${stats.trend.length===1?'':'s'}</p>
       <canvas id="wbTrendChart" class="wb-chart wb-chart-small"></canvas>
       <p class="wb-tap-hint">Tap for details</p>
     ` : ''}
 
-    <button class="mt-back-link" data-action="clear-wellbeing" style="margin-top:18px; color:#A6342E;">Clear my data</button>
+    <div>${pinBtn}${clearBtn}</div>
   `;
 }
-function mtStepHtml(){
-  const s = mtState;
-  if(s.step === 'picker'){
-    const sortedCategories = [...MT_EMOTIONS].sort((a,b)=> MT_VALENCE_RANK[a.valence] - MT_VALENCE_RANK[b.valence]);
-    return `
-      <p class="mt-intro">Just for you. A private mood log that never leaves this device. Nobody can see it, not even me. Tap what's closest to how you feel, and spot your own patterns over time.</p>
-      <div class="mt-cat-grid">
-        ${sortedCategories.map(c => `<button class="mt-cat-btn" style="background:${mtValenceColor(c.valence)}" data-cat="${c.key}">${escapeHtml(c.label)}</button>`).join('')}
-      </div>
-      <button class="mt-wellbeing-tile" data-action="open-wellbeing">📊 My Wellbeing</button>
-    `;
-  }
-  if(s.step === 'wellbeing'){
-    return mtWellbeingHtml();
-  }
-  if(s.step === 'subpicker'){
-    const cat = MT_EMOTIONS.find(c => c.key === s.category);
-    // Sorted and colored by each individual WORD's own valence (Excited=positive=green,
-    // Nervous=negative=red), not the category's single blended color - a category like
-    // Eager genuinely contains both, and showing them identically was the reported bug.
-    const sortedWords = [...cat.words].sort((a,b)=> MT_VALENCE_RANK[MT_WORD_VALENCE[a]] - MT_VALENCE_RANK[MT_WORD_VALENCE[b]]);
-    return `
-      <button class="mt-back-link" data-action="back-to-picker">← Choose a different category</button>
-      <p class="mt-intro">Which word fits best?</p>
-      <div class="mt-sub-grid">
-        ${sortedWords.map(w => `<button class="mt-sub-btn" style="background:${mtValenceColor(MT_WORD_VALENCE[w])}" data-word="${escapeHtml(w)}">${escapeHtml(w)}</button>`).join('')}
-      </div>
-    `;
-  }
-  if(s.step === 'messAboutOffer'){
-    return `
-      <button class="mt-back-link" data-action="back-to-subpicker">← Back</button>
-      <div class="mt-question">Want to mess about for a few minutes first, before the questions?</div>
-      <div class="mt-yn-row">
-        <button class="mt-yn-btn mt-primary" data-action="messabout-yes">Yeah, let's mess about</button>
-        <button class="mt-yn-btn" data-action="messabout-no">Jump straight to questions</button>
-      </div>
-    `;
-  }
-  if(s.step === 'messAboutAfter'){
-    const pick = s.messAboutPick;
-    const isEmbedded = pick && pick.type === 'embedded';
-    const game = isEmbedded ? MT_EMBEDDED_GAMES[pick.id] : null;
-    return `
-      <div class="mt-closing-box">
-        ${game ? `<div class="mt-embedded-title">${escapeHtml(game.title)}</div><div id="mtEmbeddedGameSlot" class="mt-embedded-slot"></div>` : ''}
-        <div class="mt-closing-msg">Try another one, or ready to try figure it out?</div>
-        <div class="mt-yn-row">
-          <button class="mt-yn-btn mt-primary" data-action="messabout-another">Try another one</button>
-          <button class="mt-yn-btn" data-action="messabout-ready">I'm ready to try figure it out</button>
-        </div>
-      </div>
-    `;
-  }
-  if(s.step === 'talkAboutIt'){
-    return `
-      <button class="mt-back-link" data-action="back-to-subpicker">← Back</button>
-      <div class="mt-question">You picked "${escapeHtml(s.emotion)}." Want to talk about it?</div>
-      <div class="mt-yn-row">
-        <button class="mt-yn-btn mt-primary" data-action="talk-yes">Yes</button>
-        <button class="mt-yn-btn" data-action="talk-no">No</button>
-      </div>
-    `;
-  }
-  if(s.step === 'declined'){
-    // Not wanting to talk about the situation itself doesn't mean not wanting a small
-    // distraction - those are two different asks, and the tool was treating "no" to the
-    // first one as "no" to everything, ending the whole session right there. Now it offers
-    // the same read/watch/do choice used at the end of the full flow.
-    const msg = mtIsPositive()
-      ? "Glad to hear it. Want to read, watch, or do something anyway?"
-      : "I hope you feel better. Want to read, watch, or do something?";
-    return `
-      <div class="mt-closing-box">
-        <div class="mt-closing-msg">${escapeHtml(msg)}</div>
-        <div class="mt-yn-row">
-          <button class="mt-yn-btn mt-primary" data-action="comfort-yes">Yes</button>
-          <button class="mt-yn-btn" data-action="comfort-no">No</button>
-        </div>
-      </div>
-    `;
-  }
-  if(s.step === 'situation'){
-    return `
-      <button class="mt-back-link" data-action="back-to-talk">← Back</button>
-      <div class="mt-question">What's the situation that's making you feel this way?</div>
-      <textarea class="mt-textarea" id="mtInput" placeholder="Write as much or as little as you want…">${escapeHtml(s.situation)}</textarea>
-      <div class="mt-nav-row">
-        <button class="mt-next-btn" data-action="next-situation">Next</button>
-      </div>
-      <button class="mt-exit-btn" data-action="exit">Exit without finishing</button>
-    `;
-  }
-  if(s.step === 'thought'){
-    const positive = mtIsPositive();
-    const question = positive
-      ? "That's awesome! Want to share more about it?"
-      : "What was your immediate thought when this happened?";
-    const placeholder = positive
-      ? "Whatever comes to mind…"
-      : "The first thing that went through your head…";
-    return `
-      <button class="mt-back-link" data-action="back-to-situation">← Back</button>
-      <div class="mt-question">${escapeHtml(question)}</div>
-      <textarea class="mt-textarea" id="mtInput" placeholder="${escapeHtml(placeholder)}">${escapeHtml(s.thought)}</textarea>
-      <div class="mt-nav-row">
-        <button class="mt-next-btn" data-action="next-thought">Next</button>
-      </div>
-      <button class="mt-exit-btn" data-action="exit">Exit without finishing</button>
-    `;
-  }
-  if(s.step === 'actionAsked'){
-    // "Did you actually do anything about it?" presumes there was a problem needing
-    // action - doesn't make sense for a positive reflection. Positive flows get an
-    // open question about carrying the feeling forward instead of a yes/no action gate,
-    // and skip straight to closing rather than branching into actionDescription/resolution.
-    if(mtIsPositive()){
-      return `
-        <button class="mt-back-link" data-action="back-to-thought">← Back</button>
-        <div class="mt-question">How are you planning to channel your positivity?</div>
-        <textarea class="mt-textarea" id="mtInput" placeholder="Doesn't have to be a plan - just what comes to mind…">${escapeHtml(s.actionDescription)}</textarea>
-        <div class="mt-nav-row">
-          <button class="mt-next-btn" data-action="next-channelPositivity">Next</button>
-        </div>
-        <button class="mt-exit-btn" data-action="exit">Exit without finishing</button>
-      `;
-    }
-    return `
-      <button class="mt-back-link" data-action="back-to-thought">← Back</button>
-      <div class="mt-question">Did you actually do anything about it?</div>
-      <div class="mt-yn-row">
-        <button class="mt-yn-btn mt-primary" data-action="action-yes">Yes</button>
-        <button class="mt-yn-btn" data-action="action-no">Not yet</button>
-      </div>
-      <button class="mt-exit-btn" data-action="exit" style="margin-top:14px;">Exit without finishing</button>
-    `;
-  }
-  if(s.step === 'actionDescription'){
-    return `
-      <button class="mt-back-link" data-action="back-to-actionAsked">← Back</button>
-      <div class="mt-question">What did you do?</div>
-      <textarea class="mt-textarea" id="mtInput" placeholder="Describe what you did…">${escapeHtml(s.actionDescription)}</textarea>
-      <div class="mt-nav-row">
-        <button class="mt-next-btn" data-action="next-actionDescription">Next</button>
-      </div>
-      <button class="mt-exit-btn" data-action="exit">Exit without finishing</button>
-    `;
-  }
-  if(s.step === 'resolution'){
-    return `
-      <button class="mt-back-link" data-action="back-to-actionAsked">← Back</button>
-      <div class="mt-question">What do you think could constructively resolve this?</div>
-      <textarea class="mt-textarea" id="mtInput" placeholder="Doesn't have to be perfect - just what comes to mind…">${escapeHtml(s.resolution)}</textarea>
-      <div class="mt-nav-row">
-        <button class="mt-next-btn" data-action="next-resolution">Next</button>
-      </div>
-      <button class="mt-exit-btn" data-action="exit">Exit without finishing</button>
-    `;
-  }
-  if(s.step === 'closing'){
-    const acute = mtIsAcute(s.situation) || mtIsAcute(s.thought) || mtIsAcute(s.actionDescription);
-    const isPositive = mtIsPositive();
-    // Acute detection always wins regardless of which emotion word was picked - someone
-    // could pick a positive word and still write something concerning in their own words
-    // further down, and the safety net shouldn't be skippable by word choice.
-    if(acute){
-      return `
-        <div class="mt-closing-box">
-          <div class="mt-closing-msg">Thank you for writing that down. Please find Mr Eric in person today, as soon as you can. If he's not around, tell another adult you trust - right now, not later.</div>
-          <button class="mt-resolve-btn" data-action="mt-restart">Done</button>
-        </div>
-      `;
-    }
-    if(isPositive){
-      // The original version showed "talk to Mr Eric" after EVERY reflection, including
-      // ones that started with picking "Joyful" or "Trusting" - caught immediately because
-      // it makes no sense to push someone toward a serious conversation about something
-      // that made them feel good. Positive reflections just close out warmly instead.
-      return `
-        <div class="mt-closing-box">
-          <div class="mt-closing-msg">Thank you for writing that down. It's good to notice what's going well, too.</div>
-          <button class="mt-resolve-btn" data-action="mt-restart">Done</button>
-        </div>
-      `;
-    }
-    // Everyday negative/neutral discomfort (jealousy, mild frustration, being startled,
-    // etc.) doesn't warrant "go talk to a teacher" - that was a real overcorrection,
-    // reported directly and fixed here. "Talk to Mr Eric" is now reserved exclusively for
-    // the acute tier above. Everything else gets offered a small distraction instead.
-    return `
-      <div class="mt-closing-box">
-        <div class="mt-closing-msg">Thank you for writing that down. I hope you feel better soon. Want to read, watch, or do something?</div>
-        <div class="mt-yn-row">
-          <button class="mt-yn-btn mt-primary" data-action="comfort-yes">Yes</button>
-          <button class="mt-yn-btn" data-action="comfort-no">No</button>
-        </div>
-      </div>
-    `;
-  }
-  if(s.step === 'comfortDeclined'){
-    return `
-      <div class="mt-closing-box">
-        <div class="mt-closing-msg">Feel free to come back whenever you want.</div>
-        <button class="mt-resolve-btn" data-action="mt-restart">Done</button>
-      </div>
-    `;
-  }
-  if(s.step === 'comfortChoice'){
-    return `
-      <div class="mt-closing-box">
-        <div class="mt-closing-msg">Read, watch, or do something?</div>
-        <div class="mt-yn-row">
-          <button class="mt-yn-btn mt-primary" data-action="comfort-read">Read</button>
-          <button class="mt-yn-btn mt-primary" data-action="comfort-watch">Watch</button>
-          <button class="mt-yn-btn mt-primary" data-action="comfort-do">Do</button>
-        </div>
-      </div>
-    `;
-  }
-  return '';
-}
 
-function mtWireStep(container){
-  const s = mtState;
-  container.querySelectorAll('[data-cat]').forEach(btn => {
-    btn.addEventListener('click', ()=>{ s.category = btn.dataset.cat; mtGoTo('subpicker'); });
-  });
-  container.querySelectorAll('[data-word]').forEach(btn => {
-    btn.addEventListener('click', ()=>{
-      s.emotion = btn.dataset.word;
-      const wordValence = MT_WORD_VALENCE[s.emotion];
-      mtLogMoodEntry(s.category, s.emotion, wordValence);
-      // Genuinely negative feelings get offered a breather before the questions start -
-      // positive and neutral ones go straight to talkAboutIt, unchanged, since "want to
-      // mess about first?" only makes sense ahead of something that's actually difficult.
-      mtGoTo(wordValence === 'negative' ? 'messAboutOffer' : 'talkAboutIt');
-    });
-  });
-  const backToPicker = container.querySelector('[data-action="back-to-picker"]');
-  if(backToPicker) backToPicker.addEventListener('click', ()=> mtGoTo('picker'));
-
-  const openWellbeing = container.querySelector('[data-action="open-wellbeing"]');
-  if(openWellbeing) openWellbeing.addEventListener('click', ()=> mtGoTo('wellbeing'));
-
-  const clearWellbeing = container.querySelector('[data-action="clear-wellbeing"]');
-  if(clearWellbeing) clearWellbeing.addEventListener('click', ()=>{
-    if(confirm('Clear your private mood log on this device? This can\'t be undone.')){
-      mtClearMoodLog();
-      mtGoTo('wellbeing');
-    }
-  });
-
-  // "Mess about" flow - offer shown for negative-valence words, before the questions.
-  // Pool is now every embedded game, cycled through in a fixed order (not randomized) -
-  // each new session starts at the first game, and "try another" advances one at a time,
-  // wrapping back to the start after the last one.
-  function mtPickMessAboutPick(){
-    const pick = MT_MESSABOUT_POOL[s.messAboutCycleIndex % MT_MESSABOUT_POOL.length];
-    s.messAboutCycleIndex = (s.messAboutCycleIndex + 1) % MT_MESSABOUT_POOL.length;
-    return pick;
-  }
-  const messaboutYes = container.querySelector('[data-action="messabout-yes"]');
-  if(messaboutYes) messaboutYes.addEventListener('click', ()=>{
-    s.messAboutPick = mtPickMessAboutPick();
-    mtGoTo('messAboutAfter');
-  });
-  const messaboutNo = container.querySelector('[data-action="messabout-no"]');
-  if(messaboutNo) messaboutNo.addEventListener('click', ()=> mtGoTo('talkAboutIt'));
-  const messaboutAnother = container.querySelector('[data-action="messabout-another"]');
-  if(messaboutAnother) messaboutAnother.addEventListener('click', ()=>{
-    s.messAboutPick = mtPickMessAboutPick();
-    // already on messAboutAfter - mtRender tears down the previous embedded game (if any)
-    // and activates the new pick, no special-casing needed here.
-    mtRender();
-  });
-  const messaboutReady = container.querySelector('[data-action="messabout-ready"]');
-  if(messaboutReady) messaboutReady.addEventListener('click', ()=> mtGoTo('talkAboutIt'));
-
-  const backToSubpicker = container.querySelector('[data-action="back-to-subpicker"]');
-  if(backToSubpicker) backToSubpicker.addEventListener('click', ()=> mtGoTo('subpicker'));
-  const backToTalk = container.querySelector('[data-action="back-to-talk"]');
-  if(backToTalk) backToTalk.addEventListener('click', ()=> mtGoTo('talkAboutIt'));
-  const backToSituation = container.querySelector('[data-action="back-to-situation"]');
-  if(backToSituation) backToSituation.addEventListener('click', ()=> mtGoTo('situation'));
-  const backToThought = container.querySelector('[data-action="back-to-thought"]');
-  if(backToThought) backToThought.addEventListener('click', ()=> mtGoTo('thought'));
-  const backToActionAsked = container.querySelector('[data-action="back-to-actionAsked"]');
-  if(backToActionAsked) backToActionAsked.addEventListener('click', ()=> mtGoTo('actionAsked'));
-
-  const talkYes = container.querySelector('[data-action="talk-yes"]');
-  if(talkYes) talkYes.addEventListener('click', ()=> mtGoTo('situation'));
-  const talkNo = container.querySelector('[data-action="talk-no"]');
-  if(talkNo) talkNo.addEventListener('click', ()=> mtGoTo('declined'));
-
-  const nextSituation = container.querySelector('[data-action="next-situation"]');
-  if(nextSituation) nextSituation.addEventListener('click', ()=>{
-    s.situation = container.querySelector('#mtInput').value;
-    mtGoTo('thought');
-  });
-  const nextThought = container.querySelector('[data-action="next-thought"]');
-  if(nextThought) nextThought.addEventListener('click', ()=>{
-    s.thought = container.querySelector('#mtInput').value;
-    mtGoTo('actionAsked');
-  });
-  const actionYes = container.querySelector('[data-action="action-yes"]');
-  if(actionYes) actionYes.addEventListener('click', ()=>{ s.actionTaken = true; mtGoTo('actionDescription'); });
-  const actionNo = container.querySelector('[data-action="action-no"]');
-  if(actionNo) actionNo.addEventListener('click', ()=>{ s.actionTaken = false; mtAfterAction(); });
-  const nextChannelPositivity = container.querySelector('[data-action="next-channelPositivity"]');
-  if(nextChannelPositivity) nextChannelPositivity.addEventListener('click', ()=>{
-    s.actionDescription = container.querySelector('#mtInput').value;
-    mtGoTo('closing');
-  });
-  const nextActionDescription = container.querySelector('[data-action="next-actionDescription"]');
-  if(nextActionDescription) nextActionDescription.addEventListener('click', ()=>{
-    s.actionDescription = container.querySelector('#mtInput').value;
-    mtAfterAction();
-  });
-  const nextResolution = container.querySelector('[data-action="next-resolution"]');
-  if(nextResolution) nextResolution.addEventListener('click', ()=>{
-    s.resolution = container.querySelector('#mtInput').value;
-    mtGoTo('closing');
-  });
-
-  const comfortYes = container.querySelector('[data-action="comfort-yes"]');
-  if(comfortYes) comfortYes.addEventListener('click', ()=> mtGoTo('comfortChoice'));
-  const comfortNo = container.querySelector('[data-action="comfort-no"]');
-  if(comfortNo) comfortNo.addEventListener('click', ()=> mtGoTo('comfortDeclined'));
-
-  // Filtered to the curated "comfort" pools above - deliberately not the full site pool,
-  // per direct request, since a random pick site-wide could just as easily hand someone
-  // something heavy right when they're already down.
-  const comfortRead = container.querySelector('[data-action="comfort-read"]');
-  if(comfortRead) comfortRead.addEventListener('click', ()=>{
-    const pool = DISPATCHES.filter(d => MT_COMFORT_DISPATCH_URLS.includes(d.url));
-    if(pool.length === 0) return;
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    location.href = pick.url;
-  });
-  const comfortWatch = container.querySelector('[data-action="comfort-watch"]');
-  if(comfortWatch) comfortWatch.addEventListener('click', ()=>{
-    const pool = WATCH_VIDEOS.filter(v => MT_COMFORT_VIDEO_IDS.includes(v.videoId));
-    if(pool.length === 0) return;
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    location.hash = '#play/' + pick.videoId;
-  });
-  const comfortDo = container.querySelector('[data-action="comfort-do"]');
-  if(comfortDo) comfortDo.addEventListener('click', ()=>{
-    const pool = EXPLORE_SITES.filter(s2 => MT_COMFORT_INSTRUMENT_URLS.includes(s2.url));
-    if(pool.length === 0) return;
-    const pick = pool[Math.floor(Math.random() * pool.length)];
-    window.open(pick.url, '_blank', 'noopener');
-  });
-
-  container.querySelectorAll('[data-action="exit"]').forEach(btn => {
-    btn.addEventListener('click', mtExit);
-  });
-  // "Done" (completing a full questionnaire) is deliberately different from "Exit
-  // without finishing": it resets Mind Temple's own state back to the picker step via
-  // mtInit() and stays inside the overlay, instead of closing it via mtExit(). That's
-  // so someone can log more than one emotion in a row without getting ejected back to
-  // whatever page was open underneath each time - explicit ask, not the general exit path.
-  container.querySelectorAll('[data-action="mt-restart"]').forEach(btn => {
-    btn.addEventListener('click', mtInit);
-  });
-}
 
 function viewMindTemple(){
   return `
