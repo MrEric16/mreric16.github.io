@@ -245,18 +245,18 @@
         var i = XP.info(), pct = Math.min(100, Math.round(i.into / i.span * 100));
         x.innerHTML = '<div style="' + card + '"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;"><b style="font-size:17px;">Level ' + i.level + ': ' + esc(i.name) + '</b><span style="opacity:.7;font-size:13px;">' + totalXP() + ' XP</span></div>' +
           '<div style="height:10px;border-radius:99px;background:var(--line);margin:10px 0 6px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:var(--coral,#c0392b);"></div></div>' +
-          '<div style="font-size:12.5px;opacity:.75;">' + i.toNext + ' XP to level ' + (i.level + 1) + '. Today\'s multiplier: x' + multiplier().toFixed(1) + ' (grows with your daily streak, up to x2).</div></div>';
+          '<div style="font-size:12.5px;opacity:.75;">' + i.toNext + ' XP to level ' + (i.level + 1) + ' · x' + multiplier().toFixed(1) + ' today</div></div>';
       }
       if(s){
         var code = Sync.code(), st = Sync.status();
         if(code){
           var when = st.last ? new Date(st.last).toLocaleString() : 'not yet';
-          s.innerHTML = '<div style="' + card + '"><b>Sync is on</b><div style="font-size:13px;opacity:.8;margin-top:6px;">Your sync code: <b style="letter-spacing:2px;font-size:16px;user-select:all;">' + esc(code.replace(/(.{4})/g, '$1 ').trim()) + '</b></div>' +
-            '<div style="font-size:12.5px;opacity:.7;margin-top:4px;">Enter this code on your other device. Last synced: ' + esc(when) + (st.err ? '. Last attempt failed (' + esc(st.err) + ').' : '.') + '</div>' +
+          s.innerHTML = '<div style="' + card + '"><b>Sync</b><div style="font-size:13px;opacity:.8;margin-top:6px;">Code: <b style="letter-spacing:2px;font-size:16px;user-select:all;">' + esc(code.replace(/(.{4})/g, '$1 ').trim()) + '</b></div>' +
+            '<div style="font-size:12.5px;opacity:.7;margin-top:4px;">Last synced: ' + esc(when) + (st.err ? '. Last attempt failed (' + esc(st.err) + ').' : '.') + '</div>' +
             '<button style="' + btn + '" id="syncNow">Sync now</button><button style="' + btn + '" id="syncOff">Turn off on this device</button>' +
-            '<div style="font-size:12px;opacity:.65;margin-top:8px;">Syncs scores, streaks, XP, saved words and bookmarks. Anyone with the code can see them, so do not share it. Removing a saved word on one device does not remove it on another.</div></div>';
+            '</div>';
         } else {
-          s.innerHTML = '<div style="' + card + '"><b>Sync across devices</b><div style="font-size:13px;opacity:.8;margin:6px 0;">Keep your scores, XP, streaks and saved words on your phone, laptop and tablet. No account or email needed.</div>' +
+          s.innerHTML = '<div style="' + card + '"><b>Sync</b><div style="font-size:13px;opacity:.8;margin:6px 0;">Link your devices. No account needed.</div>' +
             '<button style="' + btn + '" id="syncNew">Create a sync code</button>' +
             '<div style="margin-top:8px;"><input id="syncIn" placeholder="Or enter a code" autocapitalize="characters" autocomplete="off" style="padding:9px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:700 14px Nunito,system-ui,sans-serif;width:170px;max-width:60%;"><button style="' + btn + 'margin-left:8px;" id="syncJoin">Connect</button></div>' +
             '<div id="syncMsg" style="font-size:12.5px;margin-top:6px;"></div></div>';
@@ -311,10 +311,10 @@
           if(!st){ el.innerHTML = ''; return; }
           var ready = st.have >= st.total;
           el.innerHTML = '<div style="' + card + '"><b>Offline mode</b><div style="font-size:13px;opacity:.8;margin:6px 0;">' +
-            (ready ? 'Ready. Vocabulary, Grammar practice and the pages around them open without internet.' : 'Download the study data (about 9 MB) so Vocabulary and Grammar work without internet.') +
-            '</div><div style="font-size:12.5px;opacity:.7;">' + st.have + ' of ' + st.total + ' files saved on this device.</div>' +
+            (ready ? 'Ready.' : 'Vocabulary and Grammar without internet (about 9 MB).') +
+            '</div><div style="font-size:12.5px;opacity:.7;">' + st.have + ' of ' + st.total + ' files saved.</div>' +
             (ready ? '' : '<button style="' + btn + '" id="offDl">Download for offline use</button>') +
-            '<div style="font-size:12px;opacity:.65;margin-top:8px;">Voice narrations, videos and live data (scores, weather) still need a connection.</div></div>';
+            '</div>';
           var b = document.getElementById('offDl');
           if(b) b.onclick = function(){
             b.disabled = true;
