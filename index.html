@@ -19434,7 +19434,7 @@ async function loadGoalResults(){
       const r2 = await fetch('./data/espn-goals.json', { cache: 'no-store' });
       if(r2.ok){ const d2 = await r2.json(); GOAL_RESULTS = GOAL_RESULTS.concat(d2.results || []); }
     }catch(e){}
-    goalResultsLoaded = true;
+    goalResultsLoaded = true; _fbVer++;
   }catch(e){ GOAL_RESULTS = []; }
   // Re-render whichever results list is actually on screen, using the SAME
   // results data that page would normally compute - never hardcode which
@@ -19710,7 +19710,7 @@ function loadFullFootball(){
             results: (j.matches[code].results || []).map(matchToRow),
           };
         });
-        window._footballFull = out;
+        window._footballFull = out; _fbVer++;
       })
       .catch(() => { _footballFullPromise = null; });
   }
@@ -32655,12 +32655,51 @@ function clubRowDisplay(entry, row){
     homeScore: row.homeScore, awayScore: row.awayScore, isHome,
   };
 }
+// Per-club fixtures/results for football clubs from the full-season data, reconciled with
+// ESPN (the API lags). Memoised: the countdown ticker calls this every second.
+let _fbVer = 0;
+const _clubRowsMemo = {};
+function footballClubRows(entry){
+  const full = window._footballFull;
+  if(!full) return null;
+  const memo = _clubRowsMemo[entry.key];
+  if(memo && memo.ver === _fbVer) return memo.v;
+  const code = CLUB_LEAGUE_CODE[entry.key];
+  let fixtures = [], results = [];
+  [code, 'CL'].forEach(c => {
+    const m = full[c]; if(!m) return;
+    reconcileFootballRows(c, [...(m.fixtures || []), ...(m.results || [])]).forEach(r => {
+      if(!clubRowIsMine(entry, r)) return;
+      if(r.finished) results.push(r); else if(r.status !== 'AWAITING' && r.status !== 'POSTPONED' && r.status !== 'CANCELLED') fixtures.push(r);
+    });
+  });
+  fixtures.sort((a,b) => new Date(a.start) - new Date(b.start));
+  results.sort((a,b) => new Date(b.start) - new Date(a.start));
+  const v = { fixtures, results };
+  _clubRowsMemo[entry.key] = { ver: _fbVer, v };
+  return v;
+}
+function refreshClubCards(){
+  _fbVer++;
+  CLUB_REGISTRY.forEach(entry => {
+    const fEl = document.getElementById(`clubFixtureText-${entry.key}`);
+    if(fEl) fEl.innerHTML = clubFixtureLineHtml(entry);
+    const rEl = document.getElementById(`clubResultText-${entry.key}`);
+    if(rEl) rEl.innerHTML = clubResultLineHtml(entry);
+  });
+  if(typeof updateClubCountdowns === 'function') updateClubCountdowns();
+}
+function loadClubCardData(){
+  Promise.all([loadFullFootball(), loadGoalResults()]).then(refreshClubCards).catch(()=>{});
+}
 function clubNextFixtureInfo(entry){
   if(entry.dataType === 'arsenal'){
     const f = getNextArsenalFixture();
     return f ? { title: f.title, venue: f.venue, start: f.start } : null;
   }
   if(entry.dataType === 'football'){
+    const fr = footballClubRows(entry);
+    if(fr) return fr.fixtures[0] ? clubRowDisplay(entry, fr.fixtures[0]) : null;
     const cf = window._sportsCache && window._sportsCache.clubFixtures && window._sportsCache.clubFixtures[entry.apiKey];
     const row = cf && cf.nextFixture;
     return row ? clubRowDisplay(entry, row) : null;
@@ -32680,6 +32719,8 @@ function clubPrevResultInfo(entry){
     return r ? clubRowDisplay({ ...entry, nameMatch:['arsenal'] }, r) : null;
   }
   if(entry.dataType === 'football'){
+    const fr = footballClubRows(entry);
+    if(fr) return fr.results[0] ? clubRowDisplay(entry, fr.results[0]) : null;
     const cf = window._sportsCache && window._sportsCache.clubFixtures && window._sportsCache.clubFixtures[entry.apiKey];
     const row = cf && cf.lastResult;
     return row ? clubRowDisplay(entry, row) : null;
@@ -35174,7 +35215,7 @@ function renderRoute(opts){
   if(parts[0] === 'ask-mr-eric'){ loadAnsweredQuestions(); showAskQuestionOverlay(); }
   if(parts[0] === 'my-stats'){ submitStatsSnapshot(); renderComparisonBox(); if(window.LoungeUI) LoungeUI.mountStats(); }
   if(parts[0] === 'events-virtual'){ loadVirtualEvents(); }
-  if(parts.length === 0){ loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireRandomGameButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
+  if(parts.length === 0){ setTimeout(loadClubCardData, 1200); loadOnThisDay(); loadWeather(); loadVoxPopuli(); loadLiveSportsData(); wireRandomButton(app); wireRandomVideoButton(app); wireRandomExploreButton(app); wireRandomGameButton(app); wireExtrasCarousel(app); wireClubCarousel(app); checkAchievements(); renderStreakBadge(); checkNewBadges(); updateStoryRings(); }
   if(parts[0] === 'sports' && parts[1] === 'tables'){ loadLiveSportsData(); }
   if(parts[0] === 'arsenal'){ loadLiveSportsData(); loadGoalResults(); }
   if(parts[0] === 'sports' && parts[1] === 'league' && parts[2]){ loadLiveSportsData(); loadGoalResults(); loadFullFootball(); }
