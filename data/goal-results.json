@@ -1,41 +1,6 @@
 {
-  "generatedAt": "2026-10-24T00:55:47.287549Z",
+  "generatedAt": "2026-10-24T05:16:32.553153Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/borussia-moenchengladbach-vs-elversberg/b6nTUslEG9Nb1qpg5p0-i",
-      "date": null,
-      "home": "Borussia Moenchengladbach",
-      "away": "Elversberg",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 3,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "H. Bolin",
-          "minute": 11
-        },
-        {
-          "scorer": "J. Scally",
-          "minute": 56
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "D. Mokwa",
-          "minute": 29
-        },
-        {
-          "scorer": "M. Krattenmacher",
-          "minute": 66
-        },
-        {
-          "scorer": "F. Keidel",
-          "minute": 80
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/inter-vs-ssc-napoli/vS679Egd_NblTPcjWU5E6",
       "date": null,
@@ -7946,6 +7911,37 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-borussia-moenchengladbach/9vN7Z9zrMlvqaCj0JBDFp",
+      "date": "2026-10-23",
+      "home": "Vfb Stuttgart",
+      "away": "Borussia Moenchengladbach",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "E. Demirovic",
+          "minute": 5
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Scally",
+          "minute": 38
+        },
+        {
+          "scorer": "S. Machino",
+          "minute": 51
+        },
+        {
+          "scorer": "W. Mohya",
+          "minute": 66
+        }
+      ],
+      "competition": "BL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7959,7 +7955,6 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/vfb-stuttgart-vs-borussia-moenchengladbach/9vN7Z9zrMlvqaCj0JBDFp": 2
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
   }
 }
