@@ -3006,19 +3006,25 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(4n+4), body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(4n+4) *{ color:#1A1A1A !important; }
   body.usertheme-bauhaus:not(.dark-mode) .events-tile{ border:4px solid #1A1A1A !important; }
   /* headings: loud, upper case, ruled */
-  /* heading rule = a railway track with a train running right to left, on a loop, at uneven speeds */
-  body.usertheme-bauhaus:not(.dark-mode) .section-head{ padding-bottom:14px; position:relative; margin-bottom:10px; }
+  /* heading rule = a double railway track; one train per rail, each running left or right, passing each other, at its own speed (driven by JS below) */
+  body.usertheme-bauhaus:not(.dark-mode) .section-head{ padding-bottom:22px; position:relative; margin-bottom:10px; }
   body.usertheme-bauhaus:not(.dark-mode) .section-head::after{
-    content:''; position:absolute; left:0; right:0; bottom:-2px; height:16px; pointer-events:none;
+    content:''; position:absolute; left:0; right:0; bottom:-4px; height:27px; pointer-events:none;
     background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='13' viewBox='0 0 96 13'%3E%3Cg transform='translate(96 0) scale(-1 1)'%3E%3Crect x='3' y='0' width='5' height='4' fill='%231A1A1A'/%3E%3Crect x='0' y='3' width='25' height='7' fill='%23D4141E'/%3E%3Crect x='16' y='1' width='9' height='3' fill='%231A1A1A'/%3E%3Crect x='25' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='28' y='3' width='19' height='7' fill='%230056A4'/%3E%3Crect x='47' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='50' y='3' width='19' height='7' fill='%23FFD100'/%3E%3Crect x='69' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='72' y='3' width='19' height='7' fill='%231A1A1A'/%3E%3Cg fill='%23F2EFE4' stroke='%231A1A1A' stroke-width='1'%3E%3Ccircle cx='5' cy='10.5' r='2'/%3E%3Ccircle cx='14' cy='10.5' r='2'/%3E%3Ccircle cx='20' cy='10.5' r='2'/%3E%3Ccircle cx='33' cy='10.5' r='2'/%3E%3Ccircle cx='42' cy='10.5' r='2'/%3E%3Ccircle cx='55' cy='10.5' r='2'/%3E%3Ccircle cx='64' cy='10.5' r='2'/%3E%3Ccircle cx='77' cy='10.5' r='2'/%3E%3Ccircle cx='86' cy='10.5' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
       url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='13' viewBox='0 0 96 13'%3E%3Crect x='3' y='0' width='5' height='4' fill='%231A1A1A'/%3E%3Crect x='0' y='3' width='25' height='7' fill='%23D4141E'/%3E%3Crect x='16' y='1' width='9' height='3' fill='%231A1A1A'/%3E%3Crect x='25' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='28' y='3' width='19' height='7' fill='%230056A4'/%3E%3Crect x='47' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='50' y='3' width='19' height='7' fill='%23FFD100'/%3E%3Crect x='69' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='72' y='3' width='19' height='7' fill='%231A1A1A'/%3E%3Cg fill='%23F2EFE4' stroke='%231A1A1A' stroke-width='1'%3E%3Ccircle cx='5' cy='10.5' r='2'/%3E%3Ccircle cx='14' cy='10.5' r='2'/%3E%3Ccircle cx='20' cy='10.5' r='2'/%3E%3Ccircle cx='33' cy='10.5' r='2'/%3E%3Ccircle cx='42' cy='10.5' r='2'/%3E%3Ccircle cx='55' cy='10.5' r='2'/%3E%3Ccircle cx='64' cy='10.5' r='2'/%3E%3Ccircle cx='77' cy='10.5' r='2'/%3E%3Ccircle cx='86' cy='10.5' r='2'/%3E%3C/g%3E%3C/svg%3E"),
-      linear-gradient(#1A1A1A,#1A1A1A),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='13' viewBox='0 0 96 13'%3E%3Cg transform='translate(96 0) scale(-1 1)'%3E%3Crect x='3' y='0' width='5' height='4' fill='%231A1A1A'/%3E%3Crect x='0' y='3' width='25' height='7' fill='%23D4141E'/%3E%3Crect x='16' y='1' width='9' height='3' fill='%231A1A1A'/%3E%3Crect x='25' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='28' y='3' width='19' height='7' fill='%230056A4'/%3E%3Crect x='47' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='50' y='3' width='19' height='7' fill='%23FFD100'/%3E%3Crect x='69' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='72' y='3' width='19' height='7' fill='%231A1A1A'/%3E%3Cg fill='%23F2EFE4' stroke='%231A1A1A' stroke-width='1'%3E%3Ccircle cx='5' cy='10.5' r='2'/%3E%3Ccircle cx='14' cy='10.5' r='2'/%3E%3Ccircle cx='20' cy='10.5' r='2'/%3E%3Ccircle cx='33' cy='10.5' r='2'/%3E%3Ccircle cx='42' cy='10.5' r='2'/%3E%3Ccircle cx='55' cy='10.5' r='2'/%3E%3Ccircle cx='64' cy='10.5' r='2'/%3E%3Ccircle cx='77' cy='10.5' r='2'/%3E%3Ccircle cx='86' cy='10.5' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='13' viewBox='0 0 96 13'%3E%3Crect x='3' y='0' width='5' height='4' fill='%231A1A1A'/%3E%3Crect x='0' y='3' width='25' height='7' fill='%23D4141E'/%3E%3Crect x='16' y='1' width='9' height='3' fill='%231A1A1A'/%3E%3Crect x='25' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='28' y='3' width='19' height='7' fill='%230056A4'/%3E%3Crect x='47' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='50' y='3' width='19' height='7' fill='%23FFD100'/%3E%3Crect x='69' y='6' width='3' height='2' fill='%231A1A1A'/%3E%3Crect x='72' y='3' width='19' height='7' fill='%231A1A1A'/%3E%3Cg fill='%23F2EFE4' stroke='%231A1A1A' stroke-width='1'%3E%3Ccircle cx='5' cy='10.5' r='2'/%3E%3Ccircle cx='14' cy='10.5' r='2'/%3E%3Ccircle cx='20' cy='10.5' r='2'/%3E%3Ccircle cx='33' cy='10.5' r='2'/%3E%3Ccircle cx='42' cy='10.5' r='2'/%3E%3Ccircle cx='55' cy='10.5' r='2'/%3E%3Ccircle cx='64' cy='10.5' r='2'/%3E%3Ccircle cx='77' cy='10.5' r='2'/%3E%3Ccircle cx='86' cy='10.5' r='2'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(#1A1A1A,#1A1A1A), linear-gradient(#1A1A1A,#1A1A1A),
+      repeating-linear-gradient(90deg,#1A1A1A 0 3px,transparent 3px 12px),
       repeating-linear-gradient(90deg,#1A1A1A 0 3px,transparent 3px 12px);
-    background-repeat:no-repeat,no-repeat,no-repeat;
-    background-size:96px 13px, 100% 3px, 100% 6px;
-    background-position:var(--bh-x,140%) 0, 0 100%, 0 100%;
+    background-repeat:no-repeat;
+    background-size:77px 10px,77px 10px,77px 10px,77px 10px, 100% 3px,100% 3px, 100% 5px,100% 5px;
+    background-position:
+      var(--bh-r2,400%) 14px, var(--bh-l2,400%) 14px, var(--bh-r1,400%) 0, var(--bh-l1,400%) 0,
+      0 10px, 0 24px, 0 8px, 0 22px;
   }
-  @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .section-head::after{ background-position:30% 0,0 100%,0 100% !important; } }
+  @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .section-head::after{ background-position:400% 14px,60% 14px,400% 0,30% 0,0 10px,0 24px,0 8px,0 22px !important; } }
   body.usertheme-bauhaus:not(.dark-mode) .section-head h2{ text-transform:uppercase; letter-spacing:.06em; font-weight:900; color:#1A1A1A !important; }
   body.usertheme-bauhaus:not(.dark-mode) .section-head .emoji{ transform:rotate(-8deg); }
   /* collapsible groups: thick colour bar, tilted */
@@ -37799,31 +37805,45 @@ function setCornersNoZoom(active){
   }
 })();
 
-// Bauhaus heading trains: each pass has ONE constant speed, re-rolled on every new pass.
-// Mix: ridiculously fast / very fast / fast / average. Never slow. Speeds are % of track per second.
+// Bauhaus heading trains: two rails per heading, one train each, running left or right, passing each other.
+// Each pass: random direction and ONE constant speed (ridiculously fast / very fast / fast / average, never slow).
 (function(){
   const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(rm) return;
-  const START = 140, END = -40; // background-position-x %, train enters off the right, leaves off the left
+  const LO = -40, HI = 140;
   const state = new WeakMap();
   function rollSpeed(){
     const r = Math.random();
-    if(r < 0.15) return 320 + Math.random() * 120;  // ridiculously fast
-    if(r < 0.40) return 140 + Math.random() * 60;   // very fast
-    if(r < 0.70) return 75 + Math.random() * 25;    // fast
-    return 42 + Math.random() * 14;                  // average (never below ~3.5 s per pass)
+    if(r < 0.15) return 320 + Math.random() * 120;
+    if(r < 0.40) return 140 + Math.random() * 60;
+    if(r < 0.70) return 75 + Math.random() * 25;
+    return 42 + Math.random() * 14;
   }
+  function newPass(t, initial){
+    t.dir = Math.random() < 0.5 ? -1 : 1;           // -1 = right to left, +1 = left to right
+    t.x = t.dir < 0 ? HI : LO;
+    if(initial) t.x = LO + Math.random() * (HI - LO);
+    t.v = rollSpeed();
+    t.wait = initial ? 0 : Math.random() * 1.5;
+  }
+  function mk(){ const t = {}; newPass(t, true); return t; }
   let last = performance.now();
   function frame(now){
     const dt = Math.min(0.1, (now - last) / 1000); last = now;
     if(document.body.classList.contains('usertheme-bauhaus') && !document.body.classList.contains('dark-mode') && !document.hidden){
       document.querySelectorAll('.section-head').forEach(el => {
         let st = state.get(el);
-        if(!st){ st = { x: START - Math.random() * 180, v: rollSpeed(), wait: 0 }; state.set(el, st); }
-        if(st.wait > 0){ st.wait -= dt; return; }
-        st.x -= st.v * dt;
-        if(st.x <= END){ st.x = START; st.v = rollSpeed(); st.wait = Math.random() * 1.2; }
-        el.style.setProperty('--bh-x', st.x.toFixed(1) + '%');
+        if(!st){ st = [mk(), mk()]; state.set(el, st); }
+        st.forEach((t, i) => {
+          if(t.wait > 0){ t.wait -= dt; }
+          else {
+            t.x += t.dir * t.v * dt;
+            if(t.x <= LO && t.dir < 0 || t.x >= HI && t.dir > 0){ newPass(t, false); }
+          }
+          const n = i + 1;
+          el.style.setProperty('--bh-l' + n, t.wait > 0 || t.dir > 0 ? '400%' : t.x.toFixed(1) + '%');
+          el.style.setProperty('--bh-r' + n, t.wait > 0 || t.dir < 0 ? '400%' : t.x.toFixed(1) + '%');
+        });
       });
     }
     requestAnimationFrame(frame);
