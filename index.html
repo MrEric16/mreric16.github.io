@@ -22791,13 +22791,14 @@ function wireClubCarousel(container){
   // first paint always shows data-pos exactly as the server-rendered markup had it
   // (Arsenal on top) even when a saved order says otherwise, until the next gesture.
 }
-function viewPlaySingle(videoId){
+function viewPlaySingle(videoId, from){
   const v = WATCH_VIDEOS.find(x => x.videoId === videoId);
   const title = v ? v.title : 'Video';
   const channel = v ? v.channel : '';
   const fac = v ? FAC_MAP[v.faculty] : null;
-  const backHref = fac ? `#faculty/${fac.key}` : '#';
-  const backLabel = fac ? `← Back to ${escapeHtml(fac.label)}` : '← Back to Mr Eric\'s Lounge';
+  const fromMind = from === 'mind';
+  const backHref = fromMind ? '#mind-temple' : (fac ? `#faculty/${fac.key}` : '#');
+  const backLabel = fromMind ? '← Back to Mind Temple' : (fac ? `← Back to ${escapeHtml(fac.label)}` : '← Back to Mr Eric\'s Lounge');
   return `
     <a class="back-link" href="${backHref}">${backLabel}</a>
     <section style="padding-top:14px;">
@@ -31536,7 +31537,7 @@ function mtWireStep(container){
       }
       case 'comfort-watch': {
         const pool = WATCH_VIDEOS.filter(v => MT_COMFORT_VIDEO_IDS.includes(v.videoId)); if(!pool.length) return;
-        location.hash = '#play/' + pool[Math.floor(Math.random() * pool.length)].videoId; return;
+        location.hash = '#play/' + pool[Math.floor(Math.random() * pool.length)].videoId + '/mind'; return;
       }
       case 'comfort-do': {
         const pool = EXPLORE_SITES.filter(s2 => MT_COMFORT_INSTRUMENT_URLS.includes(s2.url)); if(!pool.length) return;
@@ -34696,6 +34697,8 @@ document.addEventListener('click', (e) => {
     // previously on, not 'mind-temple' - every Mind Temple open was silently
     // misattributed. Logging it explicitly here instead, same fix, same reason.
     logEvent('view', 'mind-temple');
+    // Coming back from a video opened via Mind Temple: drop the #play/... hash so closing Mind Temple lands on home, not on the video again.
+    if(/^#play\/[^/]+\/mind$/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
     mtOpenOverlay(['mind-temple']);
     return;
   }
@@ -34771,7 +34774,7 @@ function renderRoute(opts){
   } else if(parts[0] === 'watch' && parts[1]){
     html = viewWatchFaculty(parts[1]);
   } else if(parts[0] === 'play' && parts[1]){
-    html = viewPlaySingle(parts[1]);
+    html = viewPlaySingle(parts[1], parts[2]);
     trackVideoOpen(parts[1]);
   } else if(parts[0] === 'search'){
     html = viewSearch();
