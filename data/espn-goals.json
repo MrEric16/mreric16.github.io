@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-24T16:08:11.893085Z",
+ "generatedAt": "2026-10-24T18:53:45.066881Z",
  "results": [
   {
    "url": "espn:401879256",
@@ -75,6 +75,30 @@
    "complete": true
   },
   {
+   "url": "espn:401878767",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T16:30Z",
+   "home": "Chelsea",
+   "away": "Tottenham",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "M. Penders (og)",
+     "minute": 77
+    },
+    {
+     "scorer": "M. Tel",
+     "minute": 87
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
    "url": "espn:401882830",
    "date": "2026-10-24",
    "utc": "2026-10-24T12:00Z",
@@ -97,6 +121,64 @@
     {
      "scorer": "G. Valera",
      "minute": 68
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882831",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T14:15Z",
+   "home": "Santander",
+   "away": "Espanyol",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Belocian",
+     "minute": 69
+    },
+    {
+     "scorer": "Y. Zabiri",
+     "minute": 84
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Expósito",
+     "minute": 62
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882827",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T16:30Z",
+   "home": "Valencia",
+   "away": "Villarreal",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "Pepelu (pen)",
+     "minute": 38
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Freeman",
+     "minute": 69
+    },
+    {
+     "scorer": "G. Mikautadze",
+     "minute": "90+6"
     }
    ],
    "competition": "PD",
@@ -232,6 +314,26 @@
    "complete": true
   },
   {
+   "url": "espn:401884763",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T16:30Z",
+   "home": "Dortmund",
+   "away": "Frankfurt",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "M. Beier",
+     "minute": 80
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
    "url": "espn:401874958",
    "date": "2026-10-24",
    "utc": "2026-10-24T13:00Z",
@@ -276,6 +378,47 @@
     }
    ],
    "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874948",
+   "date": "2026-10-24",
+   "utc": "2026-10-24T16:00Z",
+   "home": "Napoli",
+   "away": "Roma",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "F. Anguissa",
+     "minute": 28
+    },
+    {
+     "scorer": "S. McTominay",
+     "minute": 48
+    },
+    {
+     "scorer": "S. McTominay",
+     "minute": 83
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Soulè",
+     "minute": 69
+    },
+    {
+     "scorer": "L. Balerdi",
+     "minute": 74
+    },
+    {
+     "scorer": "L. Balerdi",
+     "minute": 89
+    }
+   ],
    "competition": "SA",
    "complete": true
   },
