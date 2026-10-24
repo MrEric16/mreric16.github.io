@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-24T20:33:48.369563Z",
+  "generatedAt": "2026-10-24T21:45:05.028657Z",
   "standings": {
     "PL": [
       {
@@ -595,7 +595,7 @@
         "d": 1,
         "l": 0,
         "gf": 16,
-        "ga": 4,
+        "ga": 5,
         "pts": 22
       },
       {
@@ -774,7 +774,7 @@
         "w": 1,
         "d": 1,
         "l": 6,
-        "gf": 4,
+        "gf": 5,
         "ga": 15,
         "pts": 4
       },
@@ -790,16 +790,6 @@
       }
     ],
     "FL1": [
-      {
-        "name": "Paris FC",
-        "pld": 8,
-        "w": 4,
-        "d": 3,
-        "l": 1,
-        "gf": 13,
-        "ga": 8,
-        "pts": 15
-      },
       {
         "name": "Olympique Lyon",
         "pld": 7,
@@ -831,6 +821,16 @@
         "pts": 14
       },
       {
+        "name": "Paris FC",
+        "pld": 8,
+        "w": 4,
+        "d": 2,
+        "l": 2,
+        "gf": 13,
+        "ga": 9,
+        "pts": 14
+      },
+      {
         "name": "Monaco",
         "pld": 7,
         "w": 4,
@@ -841,6 +841,16 @@
         "pts": 14
       },
       {
+        "name": "RC Lens",
+        "pld": 8,
+        "w": 4,
+        "d": 1,
+        "l": 3,
+        "gf": 16,
+        "ga": 12,
+        "pts": 13
+      },
+      {
         "name": "Stade Rennais",
         "pld": 7,
         "w": 4,
@@ -849,16 +859,6 @@
         "gf": 15,
         "ga": 14,
         "pts": 13
-      },
-      {
-        "name": "RC Lens",
-        "pld": 8,
-        "w": 3,
-        "d": 2,
-        "l": 3,
-        "gf": 15,
-        "ga": 12,
-        "pts": 11
       },
       {
         "name": "Lorient",
@@ -2714,68 +2714,6 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-24T13:30:00Z",
-          "status": "TIMED",
-          "matchday": 7,
-          "homeTeam": {
-            "id": 16,
-            "name": "FC Augsburg",
-            "shortName": "Augsburg"
-          },
-          "awayTeam": {
-            "id": 28,
-            "name": "1. FC Union Berlin",
-            "shortName": "Union Berlin"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-24T16:30:00Z",
-          "status": "TIMED",
-          "matchday": 7,
-          "homeTeam": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund"
-          },
-          "awayTeam": {
-            "id": 19,
-            "name": "Eintracht Frankfurt",
-            "shortName": "Frankfurt"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-10-25T14:30:00Z",
           "status": "TIMED",
           "matchday": 7,
@@ -2839,6 +2777,68 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-10-24T16:30:00Z",
+          "status": "FINISHED",
+          "matchday": 7,
+          "homeTeam": {
+            "id": 4,
+            "name": "Borussia Dortmund",
+            "shortName": "Dortmund"
+          },
+          "awayTeam": {
+            "id": 19,
+            "name": "Eintracht Frankfurt",
+            "shortName": "Frankfurt"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-24T13:30:00Z",
+          "status": "FINISHED",
+          "matchday": 7,
+          "homeTeam": {
+            "id": 16,
+            "name": "FC Augsburg",
+            "shortName": "Augsburg"
+          },
+          "awayTeam": {
+            "id": 28,
+            "name": "1. FC Union Berlin",
+            "shortName": "Union Berlin"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-10-23T18:30:00Z",
           "status": "FINISHED",
@@ -3241,68 +3241,6 @@
             "name": "Bundesliga"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-10-10T13:30:00Z",
-          "status": "FINISHED",
-          "matchday": 5,
-          "homeTeam": {
-            "id": 15,
-            "name": "1. FSV Mainz 05",
-            "shortName": "Mainz"
-          },
-          "awayTeam": {
-            "id": 3,
-            "name": "Bayer 04 Leverkusen",
-            "shortName": "Leverkusen"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 4
-            },
-            "halfTime": {
-              "home": 2,
-              "away": 2
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-10T13:30:00Z",
-          "status": "FINISHED",
-          "matchday": 5,
-          "homeTeam": {
-            "id": 29,
-            "name": "SC Paderborn 07",
-            "shortName": "SC Paderborn"
-          },
-          "awayTeam": {
-            "id": 10,
-            "name": "VfB Stuttgart",
-            "shortName": "Stuttgart"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 0,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
         }
       ]
     },
@@ -3403,7 +3341,7 @@
         },
         {
           "utcDate": "2026-10-24T18:45:00Z",
-          "status": "IN_PLAY",
+          "status": "TIMED",
           "matchday": 8,
           "homeTeam": {
             "id": 110,
@@ -3416,15 +3354,15 @@
             "shortName": "Parma"
           },
           "score": {
-            "winner": "HOME_TEAM",
+            "winner": null,
             "duration": "REGULAR",
             "fullTime": {
-              "home": 2,
-              "away": 0
+              "home": null,
+              "away": null
             },
             "halfTime": {
-              "home": 0,
-              "away": 0
+              "home": null,
+              "away": null
             }
           },
           "competition": {
@@ -6146,6 +6084,37 @@
         "name": "UEFA Champions League"
       },
       "venue": null
+    },
+    {
+      "utcDate": "2026-10-24T14:00:00Z",
+      "status": "FINISHED",
+      "matchday": 8,
+      "homeTeam": {
+        "id": 57,
+        "name": "Arsenal FC",
+        "shortName": "Arsenal"
+      },
+      "awayTeam": {
+        "id": 62,
+        "name": "Everton FC",
+        "shortName": "Everton"
+      },
+      "score": {
+        "winner": "HOME_TEAM",
+        "duration": "REGULAR",
+        "fullTime": {
+          "home": 2,
+          "away": 0
+        },
+        "halfTime": {
+          "home": 1,
+          "away": 0
+        }
+      },
+      "competition": {
+        "name": "Premier League"
+      },
+      "venue": null
     }
   ],
   "clubFixtures": {
@@ -6310,18 +6279,18 @@
         "venue": null
       },
       "lastResult": {
-        "utcDate": "2026-10-17T11:30:00Z",
+        "utcDate": "2026-10-24T16:30:00Z",
         "status": "FINISHED",
-        "matchday": 7,
+        "matchday": 8,
         "homeTeam": {
-          "id": 62,
-          "name": "Everton FC",
-          "shortName": "Everton"
-        },
-        "awayTeam": {
           "id": 61,
           "name": "Chelsea FC",
           "shortName": "Chelsea"
+        },
+        "awayTeam": {
+          "id": 73,
+          "name": "Tottenham Hotspur FC",
+          "shortName": "Tottenham"
         },
         "score": {
           "winner": "AWAY_TEAM",
@@ -6343,18 +6312,18 @@
     },
     "man_city": {
       "nextFixture": {
-        "utcDate": "2026-10-24T11:30:00Z",
+        "utcDate": "2026-10-31T15:00:00Z",
         "status": "TIMED",
-        "matchday": 8,
+        "matchday": 9,
         "homeTeam": {
-          "id": 58,
-          "name": "Aston Villa FC",
-          "shortName": "Aston Villa"
-        },
-        "awayTeam": {
           "id": 65,
           "name": "Manchester City FC",
           "shortName": "Man City"
+        },
+        "awayTeam": {
+          "id": 397,
+          "name": "Brighton & Hove Albion FC",
+          "shortName": "Brighton Hove"
         },
         "score": {
           "winner": null,
@@ -6374,51 +6343,51 @@
         "venue": null
       },
       "lastResult": {
-        "utcDate": "2026-10-20T19:00:00Z",
+        "utcDate": "2026-10-24T11:30:00Z",
         "status": "FINISHED",
-        "matchday": 3,
+        "matchday": 8,
         "homeTeam": {
+          "id": 58,
+          "name": "Aston Villa FC",
+          "shortName": "Aston Villa"
+        },
+        "awayTeam": {
           "id": 65,
           "name": "Manchester City FC",
           "shortName": "Man City"
-        },
-        "awayTeam": {
-          "id": 1899,
-          "name": "PAE AEK",
-          "shortName": "PAE AEK"
         },
         "score": {
           "winner": "HOME_TEAM",
           "duration": "REGULAR",
           "fullTime": {
-            "home": 5,
+            "home": 2,
             "away": 1
           },
           "halfTime": {
-            "home": 2,
+            "home": 1,
             "away": 0
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Premier League"
         },
         "venue": null
       }
     },
     "tottenham": {
       "nextFixture": {
-        "utcDate": "2026-10-24T16:30:00Z",
+        "utcDate": "2026-10-31T17:30:00Z",
         "status": "TIMED",
-        "matchday": 8,
+        "matchday": 9,
         "homeTeam": {
-          "id": 61,
-          "name": "Chelsea FC",
-          "shortName": "Chelsea"
-        },
-        "awayTeam": {
           "id": 73,
           "name": "Tottenham Hotspur FC",
           "shortName": "Tottenham"
+        },
+        "awayTeam": {
+          "id": 354,
+          "name": "Crystal Palace FC",
+          "shortName": "Crystal Palace"
         },
         "score": {
           "winner": null,
