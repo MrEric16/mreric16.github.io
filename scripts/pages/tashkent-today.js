@@ -116,8 +116,8 @@ function view(){
 var AIR_URL = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=41.3111&longitude=69.2797&current=us_aqi,pm2_5,pm10,ozone,nitrogen_dioxide&hourly=us_aqi&timezone=Asia%2FTashkent&forecast_days=2';
 // Air quality is fetched live from the browser (the hourly server job is only the fallback), so it cannot go stale while the device is online.
 
-// Official CBU rates fetched live from this device (the server job cannot always reach cbu.uz). Direct first, then our relay.
-var CBU_URLS = [['https://cbu.uz/en/arkhiv-kursov-valyut/json/', function(j){ return j; }], ['https://uugjyucgeyopyvmhckdg.supabase.co/functions/v1/cbu-rates', function(j){ return j.rates; }]];
+// Official CBU rates fetched live from this device (the server job cannot always reach cbu.uz). Datacentre IPs are refused by cbu.uz, a phone in Uzbekistan is not.
+var CBU_URLS = [['https://cbu.uz/en/arkhiv-kursov-valyut/json/', function(j){ return j; }]];
 function liveRates(){
   if(!D || !navigator.onLine) return;
   var t = tk().iso.split('-'), todayStr = t[2] + '.' + t[1] + '.' + t[0];
