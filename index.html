@@ -19060,6 +19060,7 @@ function matchToRow(m){
     start: utcToTashkentISOString(m.utcDate),
     finished: m.status === 'FINISHED',
     matchday: m.matchday || null,
+    status: m.status || null,
     htHome: m.score && m.score.halfTime && m.score.halfTime.home != null ? m.score.halfTime.home : null,
     htAway: m.score && m.score.halfTime && m.score.halfTime.away != null ? m.score.halfTime.away : null,
   };
@@ -19455,6 +19456,8 @@ async function loadGoalResults(){
     const staticLeague = meta ? SPORTS_LEAGUES.find(l => l.name === meta.name) : null;
     const matches = (window._footballFull && window._footballFull[code]) || (cache && cache.matches && cache.matches[code]) || { results: [] };
     results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
+    const gw = gameweekView(code);
+    if(gw) results = gw.results;
   }
   if(results !== null){
     // The "2" badge next to "Results" in the summary header is a sibling of this
@@ -19769,6 +19772,24 @@ function viewClub(key){
       <div id="clubPageContainer" data-key="${key}">${clubPageBodyHtml(key)}</div>
     </section>`;
 }
+// Gameweek view for the big football leagues (PL, La Liga, Bundesliga, Serie A, Ligue 1, CL):
+// fixtures = unplayed matches of the current gameweek; results = played matches of the
+// latest gameweek that has started. Postponed/cancelled games never hold a gameweek up.
+function gameweekView(code){
+  if(!GOAL_SCRAPED_LEAGUES.includes(code)) return null;
+  const m = (window._footballFull && window._footballFull[code]) || (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[code]);
+  if(!m) return null;
+  const all = [...(m.fixtures || []), ...(m.results || [])].filter(r => r.matchday != null);
+  if(!all.length) return null;
+  const off = r => r.status === 'POSTPONED' || r.status === 'CANCELLED';
+  const days = [...new Set(all.map(r => r.matchday))].sort((a,b) => a - b);
+  const cur = days.find(d => all.some(r => r.matchday === d && !r.finished && !off(r)));
+  const fixtures = cur == null ? [] : all.filter(r => r.matchday === cur && !r.finished && !off(r)).sort((a,b) => new Date(a.start) - new Date(b.start));
+  const finishedDays = days.filter(d => all.some(r => r.matchday === d && r.finished));
+  const last = finishedDays.length ? finishedDays[finishedDays.length - 1] : null;
+  const results = last == null ? [] : all.filter(r => r.matchday === last && r.finished).sort((a,b) => new Date(b.start) - new Date(a.start));
+  return { fixtures, results };
+}
 function khlTablesHtml(teams, showTrophy, hl){
   const west = teams.filter(t => KHL_WESTERN_TEAMS.has(t.name));
   const east = teams.filter(t => !KHL_WESTERN_TEAMS.has(t.name));
@@ -19814,7 +19835,7 @@ function leagueDetailBodyHtml(code){
   // merge doesn't automatically drop them just because live data exists - they don't
   // count as duplicates of the live entries (different team pairings entirely), so
   // they were appearing in the "Fixtures" list alongside the correct current gameweek.
-  const fixtures = mergeMatchLists(matches.fixtures, (staticLeague && staticLeague.fixtures) || [])
+  let fixtures = mergeMatchLists(matches.fixtures, (staticLeague && staticLeague.fixtures) || [])
     .filter(m => new Date(m.start) >= new Date());
   let results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
   if(code === 'CL'){
@@ -19834,6 +19855,8 @@ function leagueDetailBodyHtml(code){
       return !isNaN(t) && t >= LEAGUE_PHASE_START_CL;
     });
   }
+  const gw = gameweekView(code);
+  if(gw){ fixtures = gw.fixtures; results = gw.results; }
   return `
     ${staleBanner}
     <details class="domain-group">
