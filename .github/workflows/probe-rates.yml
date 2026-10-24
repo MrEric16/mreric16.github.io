@@ -1,0 +1,13 @@
+name: Probe rate sources (temporary)
+on: { workflow_dispatch: {} }
+permissions: { contents: write }
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests && python scripts/probe_rates.py 2>&1 | tee scripts/probe-rates-log.txt
+      - run: |
+          git config user.name "github-actions[bot]"; git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/probe-rates-log.txt; git commit -m "probe rates" || exit 0
+          for i in 1 2 3 4; do git pull -q --rebase --autostash origin main && git push -q && exit 0; sleep 4; done
