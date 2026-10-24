@@ -10,17 +10,14 @@
 [scrape] calendar 2026-11-01: 3 new event URLs discovered
 [scrape] calendar 2026-11-02: 2 new event URLs discovered
 [scrape] calendar 2026-11-03: 1 new event URLs discovered
-[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 20 total exhibition links seen on page
-[scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
-[scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 88 unique event URLs to check
+[scrape] exhibitions listing page (supplementary): FAILED to load (Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://www.afisha.uz/ru/exhibitions", waiting until "networkidle"
+)
+[scrape] calendar discovery complete: 79 unique event URLs to check
 [scrape]   'Мультимедийная выставка «Дневники Савицкого. Старое и новое»': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 277 events kept from 88 pages checked
+[scrape] calendar detail pass complete: 277 events kept from 79 pages checked
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
 [scrape] iticket.uz cat=concert: 25 events kept
 [scrape] iticket.uz cat=theatre: 13 events kept
