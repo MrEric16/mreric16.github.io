@@ -2336,9 +2336,14 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     box-shadow:inset -4px -4px 7px rgba(0,0,0,.45), 0 0 8px rgba(224,200,255,.35);
     animation:nebSpin 24s linear infinite;
   }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(3n+1) .fac-icon::after{
-    content:''; position:absolute; left:-5px; right:-5px; top:9px; height:7px; border:2px solid rgba(224,200,255,.7); border-radius:50%; transform:rotate(-22deg);
-  }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+1) .fac-icon::before{ animation-duration:9s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+2) .fac-icon::before{ animation-duration:14s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+3) .fac-icon::before{ animation-duration:21s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+4) .fac-icon::before{ animation-duration:33s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+5) .fac-icon::before{ animation-duration:12s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+6) .fac-icon::before{ animation-duration:26s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+7) .fac-icon::before{ animation-duration:40s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(3n+2) .fac-icon::before, body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+4) .fac-icon::before{ animation-direction:reverse; }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+1) .fac-icon{ --pa:#FFD9A0; --pb:#A05A32; }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+2) .fac-icon{ --pa:#9EEAF2; --pb:#0A5C8A; }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+3) .fac-icon{ --pa:#FFB3D9; --pb:#8B0A50; }
