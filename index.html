@@ -31183,10 +31183,10 @@ function mtIsPositive(){
 }
 function mtSupportHtml(tier, extra){
   const T = {
-    self:   ['You matter.', 'Please tell an adult now: Mr Eric, a teacher, or someone at home.', 'In danger? Call 103.'],
+    self:   ['You matter.', 'Please tell an adult now: Mr Eric, a teacher, or someone at home.', 'In danger? Call 103. To talk to someone: 1197.'],
     others: ['Stop for a moment.', "Don't act now. Breathe. Talk to Mr Eric or an adult first.", ''],
-    abuse:  ['Thank you for telling.', "It's not your fault. Tell an adult you trust today. Mr Eric can help.", 'In danger? Call 102 or 103.'],
-    support:["You're not alone.", 'Tell Mr Eric, a teacher, or someone at home.', 'In danger? Call 103.'],
+    abuse:  ['Thank you for telling.', "It's not your fault. Tell an adult you trust today. Mr Eric can help.", 'In danger? Call 102 or 103. To talk to someone: 1197.'],
+    support:["You're not alone.", 'Tell Mr Eric, a teacher, or someone at home.', 'In danger? Call 103. To talk to someone: 1197.'],
   }[tier] || [];
   return `<div class="mt-support"><div class="mt-support-h">${escapeHtml(T[0])}</div><div>${escapeHtml(T[1])}</div>${T[2] ? `<div class="mt-support-n">${escapeHtml(T[2])}</div>` : ''}${extra || ''}</div>`;
 }
