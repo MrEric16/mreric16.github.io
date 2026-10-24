@@ -1,0 +1,280 @@
+/* BAUHAUS v1 BACKUP - exact theme CSS as of commit 6329b9c2 (25 Oct 2026, before the 'chaos' pass).
+   To revert: git checkout 6329b9c2 -- index.html   (or paste this back over the Bauhaus blocks in index.html) */
+  body.usertheme-bauhaus:not(.dark-mode){
+    --cream:#F2EFE4; --cream-2:#F2EFE4; --card:#F2EFE4;
+    --ink:#1A1A1A; --ink-soft:#0056A4;
+    --coral:#D4141E; --coral-dark:#1A1A1A; --gold:#FFD100; --teal:#0056A4;
+    --line:rgba(26,26,26,.3);
+    --board-bg:rgba(212,20,30,.86);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .aurora-layer{ opacity:0; }
+  /* FIX 1: Vox Populi's "my pick" label was yellow-on-cream (1.27:1, a real fail) */
+  body.usertheme-bauhaus:not(.dark-mode) .vox-my-pick .vox-result-label{
+    color:#D4141E !important;
+  }
+  /* Grid-line texture across the whole page - thin black lines, De Stijl/Bauhaus staple */
+  body.usertheme-bauhaus:not(.dark-mode){
+    background-image:
+      repeating-linear-gradient(0deg, rgba(26,26,26,.05) 0px, rgba(26,26,26,.05) 1px, transparent 1px, transparent 48px),
+      repeating-linear-gradient(90deg, rgba(26,26,26,.05) 0px, rgba(26,26,26,.05) 1px, transparent 1px, transparent 48px);
+  }
+  body.usertheme-bauhaus:not(.dark-mode)::before,
+  body.usertheme-bauhaus:not(.dark-mode)::after{
+    content:''; position:fixed; z-index:-1; pointer-events:none;
+  }
+  body.usertheme-bauhaus:not(.dark-mode)::before{
+    width:220px; height:220px;
+    left:-70px; bottom:-70px;
+    border-radius:50%;
+    border:14px solid #1A1A1A;
+    background:transparent;
+    opacity:.5;
+  }
+  /* FIX 2: was 160px at full opacity reading as a foreground shape - shrunk to 70px,
+     opacity down to .12, z-index moved to -1 so it's unambiguously background. */
+  body.usertheme-bauhaus:not(.dark-mode)::after{
+    width:70px; height:70px;
+    right:-15px; top:20vh;
+    background:#D4141E;
+    transform:rotate(20deg);
+    opacity:.12;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) header{
+    background:#D4141E;
+    border-bottom:6px solid #1A1A1A;
+    position:relative;
+    overflow:hidden;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) header::before,
+  body.usertheme-bauhaus:not(.dark-mode) header::after{
+    content:'';
+    position:absolute;
+    z-index:0;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) header::before{
+    width:140px; height:140px;
+    top:-50px; right:-40px;
+    border-radius:50%;
+    background:#FFD100;
+    border:6px solid #1A1A1A;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) header::after{
+    width:120px; height:100px;
+    bottom:-20px; left:-20px;
+    background:#0056A4;
+    clip-path:polygon(0% 100%, 0% 20%, 100% 100%);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) header > *{ position:relative; z-index:1; }
+  body.usertheme-bauhaus:not(.dark-mode) header,
+  body.usertheme-bauhaus:not(.dark-mode) header *{
+    color:#FEFEFE;
+    text-shadow:none;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) header .search-icon-btn,
+  body.usertheme-bauhaus:not(.dark-mode) header .search-icon-btn *{
+    color:#D4141E !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1){
+    background:#D4141E !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+2){
+    background:#0056A4 !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+3){
+    background:#1A1A1A !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+4){
+    background:#FFD100 !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile.all{
+    background:linear-gradient(135deg, #D4141E 0%, #D4141E 48%, #1A1A1A 52%, #1A1A1A 100%) !important;
+  }
+  /* CHANGE (round 4): "randomize where the corner is cut" - CSS can't generate true
+     randomness, so this ties 4 different cut-corner positions (top-left, top-right,
+     bottom-right, bottom-left) to the same nth-child cycle already driving colour and
+     rotation, so which corner is cut varies tile-to-tile instead of always being the
+     same corner. Combined with the existing rotation, no two adjacent tiles now share
+     the same silhouette. */
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile{
+    border:3px solid #1A1A1A !important;
+    position:relative;
+    padding-bottom:20px !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1){
+    clip-path:polygon(44px 0, 100% 0, 100% 100%, 0 100%, 0 44px);
+    transform:rotate(-1.5deg);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+2){
+    clip-path:polygon(0 0, calc(100% - 44px) 0, 100% 44px, 100% 100%, 0 100%);
+    transform:rotate(1.2deg);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+3){
+    clip-path:polygon(0 0, 100% 0, 100% calc(100% - 44px), calc(100% - 44px) 100%, 0 100%);
+    transform:rotate(-1deg);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+4){
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 44px 100%, 0 calc(100% - 44px));
+    transform:rotate(1.8deg);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile.all{
+    clip-path:polygon(0 0, 100% 0, 100% calc(100% - 44px), calc(100% - 44px) 100%, 0 100%);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all)::after{
+    content:'';
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:10px;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1)::after{
+    background:#FFD100;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+2)::after{
+    background:#D4141E;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+3)::after{
+    background:#0056A4;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+4)::after{
+    background:#1A1A1A;
+  }
+  /* CHANGE 4: the same cut-corner + rotation treatment, extended to every other
+     tile-like component across the app - Sports hub, Good News, Books, Birthday tile,
+     etc - so the geometric language isn't confined to the homepage. Corner cut
+     position now varies by colour-group here too (same "randomised corner" idea),
+     matching whichever corner that colour group uses on the homepage grid. */
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-card,
+  body.usertheme-bauhaus:not(.dark-mode) .goodnews-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-card,
+  body.usertheme-bauhaus:not(.dark-mode) .otd-card,
+  body.usertheme-bauhaus:not(.dark-mode) .books-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-card,
+  body.usertheme-bauhaus:not(.dark-mode) .page-result,
+  body.usertheme-bauhaus:not(.dark-mode) .bday-tile-card,
+  body.usertheme-bauhaus:not(.dark-mode) .random-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .rec-item,
+  body.usertheme-bauhaus:not(.dark-mode) .empty-card,
+  body.usertheme-bauhaus:not(.dark-mode) .photo-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sotw-card{
+    border:3px solid #1A1A1A !important;
+  }
+  /* Group 1 (red) - top-left cut */
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-card{
+    clip-path:polygon(22px 0, 100% 0, 100% 100%, 0 100%, 0 22px);
+  }
+  /* Group 2 (blue) - top-right cut */
+  body.usertheme-bauhaus:not(.dark-mode) .goodnews-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-card,
+  body.usertheme-bauhaus:not(.dark-mode) .otd-card{
+    clip-path:polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
+  }
+  /* Group 3 (black) - bottom-right cut */
+  body.usertheme-bauhaus:not(.dark-mode) .books-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-card,
+  body.usertheme-bauhaus:not(.dark-mode) .page-result{
+    clip-path:polygon(0 0, 100% 0, 100% calc(100% - 22px), calc(100% - 22px) 100%, 0 100%);
+  }
+  /* Group 4 (yellow) - bottom-left cut */
+  body.usertheme-bauhaus:not(.dark-mode) .bday-tile-card,
+  body.usertheme-bauhaus:not(.dark-mode) .random-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .rec-item,
+  body.usertheme-bauhaus:not(.dark-mode) .empty-card,
+  body.usertheme-bauhaus:not(.dark-mode) .photo-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sotw-card{
+    clip-path:polygon(0 0, 100% 0, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile{ transform:rotate(-1.3deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .goodnews-tile{ transform:rotate(1deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .books-tile{ transform:rotate(-0.8deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .bday-tile-card{ transform:rotate(1.4deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .random-tile{ transform:rotate(-1deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .explore-card{ transform:rotate(0.9deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-card{
+    background:#D4141E !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .goodnews-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-card,
+  body.usertheme-bauhaus:not(.dark-mode) .otd-card{
+    background:#0056A4 !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .books-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-card,
+  body.usertheme-bauhaus:not(.dark-mode) .page-result{
+    background:#1A1A1A !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .bday-tile-card,
+  body.usertheme-bauhaus:not(.dark-mode) .random-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .rec-item,
+  body.usertheme-bauhaus:not(.dark-mode) .empty-card,
+  body.usertheme-bauhaus:not(.dark-mode) .photo-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sotw-card{
+    background:#FFD100 !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-card,
+  body.usertheme-bauhaus:not(.dark-mode) .sports-card *,
+  body.usertheme-bauhaus:not(.dark-mode) .goodnews-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .goodnews-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-card,
+  body.usertheme-bauhaus:not(.dark-mode) .watch-card *,
+  body.usertheme-bauhaus:not(.dark-mode) .otd-card,
+  body.usertheme-bauhaus:not(.dark-mode) .otd-card *,
+  body.usertheme-bauhaus:not(.dark-mode) .books-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .books-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .mindtemple-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-card,
+  body.usertheme-bauhaus:not(.dark-mode) .explore-card *,
+  body.usertheme-bauhaus:not(.dark-mode) .page-result,
+  body.usertheme-bauhaus:not(.dark-mode) .page-result *{
+    color:#FEFEFE !important;
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .bday-tile-card,
+  body.usertheme-bauhaus:not(.dark-mode) .bday-tile-card *,
+  body.usertheme-bauhaus:not(.dark-mode) .random-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .random-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .rec-item,
+  body.usertheme-bauhaus:not(.dark-mode) .rec-item *,
+  body.usertheme-bauhaus:not(.dark-mode) .empty-card,
+  body.usertheme-bauhaus:not(.dark-mode) .empty-card *,
+  body.usertheme-bauhaus:not(.dark-mode) .photo-tile,
+  body.usertheme-bauhaus:not(.dark-mode) .photo-tile *,
+  body.usertheme-bauhaus:not(.dark-mode) .sotw-card,
+  body.usertheme-bauhaus:not(.dark-mode) .sotw-card *{
+
+/* --- Train Your Brain category colours --- */
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#0056A4 !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#D4141E !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#F4EDE0 !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#1A1A1A !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#FFD100 !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#8E8E8E !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
