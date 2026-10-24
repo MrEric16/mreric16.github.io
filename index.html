@@ -3016,29 +3016,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
       repeating-linear-gradient(90deg,#1A1A1A 0 3px,transparent 3px 12px);
     background-repeat:no-repeat,no-repeat,no-repeat;
     background-size:96px 13px, 100% 3px, 100% 6px;
-    background-position:140% 0, 0 100%, 0 100%;
-    animation:bhTrainA 29s linear infinite;
+    background-position:var(--bh-x,140%) 0, 0 100%, 0 100%;
   }
-  body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(2n)::after{ animation:bhTrainB 37s linear infinite; animation-delay:-11s; }
-  body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(3n)::after{ animation:bhTrainA 23s linear infinite; animation-delay:-7s; }
-  @keyframes bhTrainA{
-    0%{background-position:140% 0,0 100%,0 100%;}
-    10%{background-position:118% 0,0 100%,0 100%;}
-    18%{background-position:70% 0,0 100%,0 100%;}
-    36%{background-position:62% 0,0 100%,0 100%;}
-    42%{background-position:8% 0,0 100%,0 100%;}
-    66%{background-position:-2% 0,0 100%,0 100%;}
-    72%{background-position:-40% 0,0 100%,0 100%;}
-    100%{background-position:-40% 0,0 100%,0 100%;}
-  }
-  @keyframes bhTrainB{
-    0%{background-position:140% 0,0 100%,0 100%;}
-    22%{background-position:132% 0,0 100%,0 100%;}
-    30%{background-position:40% 0,0 100%,0 100%;}
-    38%{background-position:-40% 0,0 100%,0 100%;}
-    100%{background-position:-40% 0,0 100%,0 100%;}
-  }
-  @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .section-head::after{ animation:none; background-position:30% 0,0 100%,0 100%; } }
+  @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .section-head::after{ background-position:30% 0,0 100%,0 100% !important; } }
   body.usertheme-bauhaus:not(.dark-mode) .section-head h2{ text-transform:uppercase; letter-spacing:.06em; font-weight:900; color:#1A1A1A !important; }
   body.usertheme-bauhaus:not(.dark-mode) .section-head .emoji{ transform:rotate(-8deg); }
   /* collapsible groups: thick colour bar, tilted */
@@ -37817,6 +37797,38 @@ function setCornersNoZoom(active){
       el.style.setProperty('background-clip', 'initial', 'important');
     });
   }
+})();
+
+// Bauhaus heading trains: each pass has ONE constant speed, re-rolled on every new pass.
+// Mix: ridiculously fast / very fast / fast / average. Never slow. Speeds are % of track per second.
+(function(){
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(rm) return;
+  const START = 140, END = -40; // background-position-x %, train enters off the right, leaves off the left
+  const state = new WeakMap();
+  function rollSpeed(){
+    const r = Math.random();
+    if(r < 0.15) return 320 + Math.random() * 120;  // ridiculously fast
+    if(r < 0.40) return 140 + Math.random() * 60;   // very fast
+    if(r < 0.70) return 75 + Math.random() * 25;    // fast
+    return 42 + Math.random() * 14;                  // average (never below ~3.5 s per pass)
+  }
+  let last = performance.now();
+  function frame(now){
+    const dt = Math.min(0.1, (now - last) / 1000); last = now;
+    if(document.body.classList.contains('usertheme-bauhaus') && !document.body.classList.contains('dark-mode') && !document.hidden){
+      document.querySelectorAll('.section-head').forEach(el => {
+        let st = state.get(el);
+        if(!st){ st = { x: START - Math.random() * 180, v: rollSpeed(), wait: 0 }; state.set(el, st); }
+        if(st.wait > 0){ st.wait -= dt; return; }
+        st.x -= st.v * dt;
+        if(st.x <= END){ st.x = START; st.v = rollSpeed(); st.wait = Math.random() * 1.2; }
+        el.style.setProperty('--bh-x', st.x.toFixed(1) + '%');
+      });
+    }
+    requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
 })();
 </script>
 
