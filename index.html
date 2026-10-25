@@ -38786,7 +38786,7 @@ function setCornersNoZoom(active){
   function boot(){
     if(booted || rm) return; booted = true;
     const b = document.createElement('div'); b.id = 'hk-boot'; document.body.appendChild(b);
-    const lines = ['Wake up, Eric...', 'The Matrix has you...', 'Follow the white rabbit.'];
+    const lines = ['Wake up...', 'The Matrix has you...', 'Follow the white rabbit.'];
     let full = '', times = [], t = 0;
     lines.forEach(L => { for(const ch of L){ full += ch; times.push(t); t += 22; } full += '\n\n'; times.push(t); times.push(t); t += 240; });
     const total = t + 250; let done = false; const t0 = performance.now();
@@ -38905,12 +38905,12 @@ function setCornersNoZoom(active){
     const txt = `> tashkent ${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}   > ${p(d.getDate())}/${p(d.getMonth() + 1)}/${d.getFullYear()}   ${L ? '> ' + L.toLowerCase() + '   ' : ''}> there is no spoon   > follow the white rabbit   > the matrix has you`;
     const sp = tk.firstChild; if(sp.textContent !== txt && Math.floor(d.getSeconds() % 15) === 0) sp.textContent = txt; else if(!sp.textContent) sp.textContent = txt;
   }
-  // ---- name-rain easter egg: tap the title 7 times quickly ----
+  // ---- name-rain easter egg: tap the logo 4 times quickly ----
   let taps = [];
   document.addEventListener('click', e => {
-    if(!on() || !e.target.closest('#titleLink')) return;
-    const n = Date.now(); taps = taps.filter(x => n - x < 4000); taps.push(n);
-    if(taps.length >= 7){ taps = []; egg(); }
+    if(!on() || !e.target.closest('#siteLogoMark')) return;
+    const n = Date.now(); taps = taps.filter(x => n - x < 2500); taps.push(n);
+    if(taps.length >= 4){ taps = []; egg(); }
   }, true);
   function egg(){
     if(document.getElementById('hk-egg')) return;
