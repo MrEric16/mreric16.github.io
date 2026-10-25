@@ -2332,9 +2332,15 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon svg{ display:none; }
   body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::before{
     content:''; position:absolute; inset:2px; border-radius:50%;
-    background:repeating-linear-gradient(35deg, var(--pa) 0 4px, var(--pb) 4px 8px);
+    transform:rotate(var(--ga,40deg));
+    background-image:
+      linear-gradient(90deg, transparent 38%, rgba(255,255,255,.75) 50%, transparent 62%),
+      radial-gradient(circle at 36% 30%, var(--pl,#D9B8FF), var(--pb,#8A5BD0) 58%, var(--pd,#2A0F52) 100%);
+    background-size:300% 100%, 100% 100%;
+    background-position:150% 0, 0 0;
+    background-repeat:no-repeat;
     box-shadow:inset -4px -4px 7px rgba(0,0,0,.45), 0 0 8px rgba(224,200,255,.35);
-    animation:nebSpin 24s linear infinite;
+    animation:nebGleam 24s linear infinite;
   }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+1) .fac-icon::before{ animation-duration:9s; }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+2) .fac-icon::before{ animation-duration:14s; }
@@ -2344,11 +2350,21 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+6) .fac-icon::before{ animation-duration:26s; }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+7) .fac-icon::before{ animation-duration:40s; }
   body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(3n+2) .fac-icon::before, body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+4) .fac-icon::before{ animation-direction:reverse; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+1) .fac-icon{ --pa:#FFD9A0; --pb:#A05A32; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+2) .fac-icon{ --pa:#9EEAF2; --pb:#0A5C8A; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+3) .fac-icon{ --pa:#FFB3D9; --pb:#8B0A50; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+4) .fac-icon{ --pa:#B6F0C8; --pb:#0B6B3A; }
-  @keyframes nebSpin{ to{ transform:rotate(360deg); } }
+  @keyframes nebGleam{ to{ background-position:-50% 0, 0 0; } }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+1) .fac-icon{ --pl:#D4C9DD; --pb:#9E84B2; --pd:#2B0747; --ga:10deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+2) .fac-icon{ --pl:#C7DCDE; --pb:#80AFB5; --pd:#00424B; --ga:77deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+3) .fac-icon{ --pl:#E5C9D8; --pb:#C584A8; --pd:#610738; --ga:98deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+4) .fac-icon{ --pl:#EADBD2; --pb:#D0AC98; --pd:#703F23; --ga:153deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+5) .fac-icon{ --pl:#CED4E7; --pb:#8F9CC9; --pd:#162967; --ga:208deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+6) .fac-icon{ --pl:#C9DED4; --pb:#85B59C; --pd:#084B29; --ga:236deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+7) .fac-icon{ --pl:#E2CED1; --pb:#BC8F96; --pd:#551620; --ga:284deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+8) .fac-icon{ --pl:#DBD1E7; --pb:#AD96C8; --pd:#402066; --ga:355deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+9) .fac-icon{ --pl:#C9DBE5; --pb:#84AEC4; --pd:#074061; --ga:33deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+10) .fac-icon{ --pl:#E5DBC7; --pb:#C4AC80; --pd:#613F00; --ga:66deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+11) .fac-icon{ --pl:#DECEE2; --pb:#B58FBC; --pd:#4B1655; --ga:121deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+12) .fac-icon{ --pl:#CDDEDC; --pb:#8DB5AE; --pd:#134B42; --ga:175deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+13) .fac-icon{ --pl:#E5D1DC; --pb:#C496AE; --pd:#612042; --ga:205deg; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+14) .fac-icon{ --pl:#D4D7EA; --pb:#9DA4CE; --pd:#29346F; --ga:280deg; }
   @media (prefers-reduced-motion:reduce){ #neb2-cloud-a,#neb2-cloud-b,body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::before{ animation:none; } body.usertheme-nebula:not(.dark-mode) .section-head::after{ animation:none; opacity:.8; } }
 
   /* 16. tiles lean toward your finger, and tip a little as you scroll (JS sets --rx/--ry on the tile, --lean on <html>) */
