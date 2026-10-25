@@ -3553,6 +3553,38 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     color:#EDEDED;
     text-shadow:none;
   }
+  /* ===== VINTAGE DARK v2 (25 Oct 2026). Revert: delete to 'END VINTAGE DARK v2' + the 'VINTAGE DARK v2' JS IIFE (v1 in backups/dvintage-v1.txt). ===== */
+  /* 9 torn paper edge on header */
+  body.dark-mode.usertheme-dvintage header{ border-bottom:none !important; background:linear-gradient(#000 calc(100% - 8px),#D6D6D6 calc(100% - 8px)) !important; clip-path:polygon(0 0,100% 0,100% calc(100% - 5px),100.0% calc(100% - 5px),96.4% calc(100% - 2px),92.9% calc(100% - 6px),89.3% calc(100% - 0px),85.7% calc(100% - 1px),82.1% calc(100% - 1px),78.6% calc(100% - 5px),75.0% calc(100% - 0px),71.4% calc(100% - 3px),67.9% calc(100% - 0px),64.3% calc(100% - 1px),60.7% calc(100% - 6px),57.1% calc(100% - 6px),53.6% calc(100% - 1px),50.0% calc(100% - 3px),46.4% calc(100% - 1px),42.9% calc(100% - 6px),39.3% calc(100% - 0px),35.7% calc(100% - 1px),32.1% calc(100% - 3px),28.6% calc(100% - 0px),25.0% calc(100% - 6px),21.4% calc(100% - 0px),17.9% calc(100% - 3px),14.3% calc(100% - 0px),10.7% calc(100% - 2px),7.1% calc(100% - 4px),3.6% calc(100% - 6px),0.0% calc(100% - 2px)); padding-bottom:calc(12px + env(safe-area-inset-bottom,0px) * 0) !important; }
+  /* 7 photo-album corners on tiles */
+  body.dark-mode.usertheme-dvintage .fac-tile{ position:relative; }
+  body.dark-mode.usertheme-dvintage .fac-tile::after{ content:''; position:absolute; inset:4px; pointer-events:none; opacity:.8;
+    background:linear-gradient(135deg,#C9C9C9 50%,transparent 50%) top left/13px 13px no-repeat,linear-gradient(225deg,#C9C9C9 50%,transparent 50%) top right/13px 13px no-repeat,linear-gradient(45deg,#C9C9C9 50%,transparent 50%) bottom left/13px 13px no-repeat,linear-gradient(315deg,#C9C9C9 50%,transparent 50%) bottom right/13px 13px no-repeat; }
+  /* 6 ink-stamp press */
+  body.dark-mode.usertheme-dvintage .fac-tile.dv-stamp{ animation:dvStamp .32s ease-out; }
+  @keyframes dvStamp{ 0%{ transform:scale(1.06) rotate(-.6deg); box-shadow:0 0 0 rgba(0,0,0,0); } 35%{ transform:scale(.965) rotate(.4deg); box-shadow:inset 0 0 14px rgba(0,0,0,.75); } 70%{ transform:scale(1.01); } 100%{ transform:none; } }
+  /* 5 typewriter headings */
+  body.dark-mode.usertheme-dvintage .section-head h2.dv-pre{ clip-path:inset(0 100% 0 0); }
+  body.dark-mode.usertheme-dvintage .section-head h2.dv-go{ animation:dvType .9s steps(18) both; }
+  @keyframes dvType{ from{ clip-path:inset(0 100% 0 0); } to{ clip-path:inset(0 0 0 0); } }
+  body.dark-mode.usertheme-dvintage .section-head h2.dv-go::after{ content:'\2588'; margin-left:3px; font-size:.75em; animation:dvCur 1s steps(1) infinite; }
+  @keyframes dvCur{ 50%{ opacity:0; } }
+  /* 10 masthead */
+  #dv-mast{ text-align:center; margin:6px 14px 2px; padding:4px 0; border-top:3px double #9A9A9A; border-bottom:1px solid #666; font-size:11px; letter-spacing:.22em; color:#BDBDBD; text-transform:uppercase; }
+  /* ambient film layers */
+  #dv-flick,#dv-spot,#dv-film{ position:fixed; inset:0; pointer-events:none; }
+  #dv-flick{ z-index:9000; background:#000; opacity:0; animation:dvFlick 3.1s steps(1) infinite; }
+  @keyframes dvFlick{ 0%{ opacity:0; } 8%{ opacity:.07; } 12%{ opacity:0; } 31%{ opacity:.04; } 33%{ opacity:.1; } 36%{ opacity:0; } 58%{ opacity:.05; } 61%{ opacity:0; } 83%{ opacity:.09; } 85%{ opacity:.02; } 88%{ opacity:0; } }
+  #dv-film{ z-index:9001; overflow:hidden; }
+  #dv-spot{ z-index:9002; opacity:0; transition:opacity .5s; background:radial-gradient(circle 170px at var(--sx,50%) var(--sy,50%),transparent 0,transparent 35%,rgba(0,0,0,.5) 100%); }
+  #dv-spot.on{ opacity:1; }
+  /* 8 title card */
+  #dv-title{ position:fixed; inset:0; z-index:100000; background:#000; display:flex; align-items:center; justify-content:center; font-family:'BohemianTypewriter','Courier New',monospace; color:#EDEDED; }
+  #dv-title .box{ border:3px double #EDEDED; padding:26px 24px; text-align:center; max-width:80vw; }
+  #dv-title .t{ font-size:20px; letter-spacing:.14em; min-height:1.3em; }
+  #dv-title .s{ font-size:11px; letter-spacing:.3em; margin-top:10px; color:#999; }
+  @media (prefers-reduced-motion:reduce){ #dv-flick{ animation:none !important; } body.dark-mode.usertheme-dvintage .section-head h2.dv-go::after{ animation:none !important; } }
+  /* ===== END VINTAGE DARK v2 ===== */
   /* IHL (Dark) - same two verified brand colors as light IHL, key is "dihl" (not
      "ihl-dark") so it falls through the existing key.charAt(0)==='d' dark-theme
      detection automatically, same trick as Arsenal's "darsenal". "Just go darker" per
@@ -39480,6 +39512,95 @@ function setCornersNoZoom(active){
   }
   setInterval(life, 800); life();
   window._bzCurtain = () => { curtained = false; curtain(); };
+})();
+
+// ===== VINTAGE DARK v2 (JS): title card, projector flicker, scratches, dust, cigarette burns, typewriter headings, stamp press, masthead, spotlight =====
+(function(){
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const body = document.body;
+  const on = () => body.classList.contains('dark-mode') && body.classList.contains('usertheme-dvintage');
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  let flick = null, film = null, spot = null, titled = false, io = null, hideT = 0;
+  // 8 title card (every load)
+  function title(){
+    if(titled || rm) return; titled = true;
+    const t = document.createElement('div'); t.id = 'dv-title';
+    t.innerHTML = '<div class="box"><div class="t"></div><div class="s">PRESENTS</div></div>';
+    body.appendChild(t);
+    const line = 'A MR ERIC PRODUCTION', el = t.querySelector('.t'), bx = t.querySelector('.box'), t0 = performance.now(); let done = false;
+    const end = () => { if(done) return; done = true; t.remove(); };
+    t.addEventListener('pointerdown', end); setTimeout(end, 3000);
+    const tick = now => {
+      if(done) return; const e = now - t0;
+      el.textContent = line.slice(0, Math.min(line.length, Math.floor(e / 45)));
+      bx.style.opacity = (.82 + Math.random() * .18).toFixed(2); if(e > 1150) t.style.opacity = Math.max(0, 1 - (e - 1150) / 350).toFixed(2);
+      if(e > 1500){ end(); return; }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+  // 2 scratches, 3 specks, 4 burn
+  function layer(){ if(!film){ film = document.createElement('div'); film.id = 'dv-film'; body.appendChild(film); } }
+  function scratch(){
+    if(!on() || !film) return;
+    const d = document.createElement('div'), w = Math.random() < .3 ? 2 : 1;
+    d.style.cssText = `position:absolute;top:0;bottom:0;left:${rnd(2, 98)}%;width:${w}px;background:rgba(255,255,255,${rnd(.25, .5).toFixed(2)});`;
+    film.appendChild(d); setTimeout(() => d.remove(), rnd(60, 140));
+  }
+  function speck(){
+    if(!on() || !film) return;
+    const d = document.createElement('div'), sz = rnd(1.5, 4), hair = Math.random() < .2, light = Math.random() < .5;
+    d.style.cssText = `position:absolute;left:${rnd(0, 100)}%;top:${rnd(0, 100)}%;width:${hair ? sz * 5 : sz}px;height:${hair ? 1 : sz}px;border-radius:${hair ? 1 : 50}%;transform:rotate(${rnd(0, 180)}deg);background:${light ? 'rgba(255,255,255,.7)' : 'rgba(0,0,0,.8)'};`;
+    film.appendChild(d); setTimeout(() => d.remove(), rnd(50, 120));
+  }
+  function burn(){
+    if(!on() || !film) return;
+    const d = document.createElement('div');
+    d.style.cssText = 'position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.95) 0 30%,rgba(255,255,255,.5) 31% 55%,transparent 56%);';
+    film.appendChild(d); setTimeout(() => d.remove(), 90);
+    setTimeout(() => { if(!on() || !film) return; const e = d.cloneNode(); film.appendChild(e); setTimeout(() => e.remove(), 60); }, 160);
+  }
+  function loop(fn, a, b){ const go = () => { if(on() && !rm) fn(); setTimeout(go, rnd(a, b)); }; setTimeout(go, rnd(a, b)); }
+  // 5 typewriter headings
+  function headings(){
+    if(rm) return;
+    const hs = document.querySelectorAll('.section-head h2:not([data-dv])');
+    if(!hs.length) return;
+    if(!io) io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.remove('dv-pre'); e.target.classList.add('dv-go'); io.unobserve(e.target); } }), { threshold: .4 });
+    hs.forEach(h => { h.dataset.dv = 1; const r = h.getBoundingClientRect(); if(r.top > innerHeight || r.bottom < 0){ h.classList.add('dv-pre'); } else h.classList.add('dv-go'); io.observe(h); });
+  }
+  // 10 masthead
+  function mast(){
+    const h = document.querySelector('header'); if(!h) return;
+    let m = document.getElementById('dv-mast');
+    if(!m){ m = document.createElement('div'); m.id = 'dv-mast'; h.insertAdjacentElement('afterend', m); }
+    let d = ''; try{ d = new Date().toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Tashkent' }).replace(/,/g, ''); }catch(e){}
+    const tx = 'Late Edition · ' + d; if(m.textContent !== tx) m.textContent = tx;
+  }
+  // 6 stamp + 11 spotlight
+  document.addEventListener('click', e => {
+    if(!on() || rm) return; const t = e.target.closest && e.target.closest('.fac-tile'); if(!t) return;
+    t.classList.remove('dv-stamp'); void t.offsetWidth; t.classList.add('dv-stamp'); setTimeout(() => t.classList.remove('dv-stamp'), 400);
+  }, true);
+  function aim(e){
+    if(!on() || !spot) return; const p = (e.touches && e.touches[0]) || e;
+    spot.style.setProperty('--sx', p.clientX + 'px'); spot.style.setProperty('--sy', p.clientY + 'px');
+    spot.classList.add('on'); clearTimeout(hideT); hideT = setTimeout(() => spot && spot.classList.remove('on'), 1200);
+  }
+  ['touchstart', 'touchmove', 'pointermove'].forEach(ev => document.addEventListener(ev, aim, { passive: true }));
+  function life(){
+    if(on()){
+      title(); layer(); mast(); headings();
+      if(!flick && !rm){ flick = document.createElement('div'); flick.id = 'dv-flick'; body.appendChild(flick); }
+      if(!spot && !rm){ spot = document.createElement('div'); spot.id = 'dv-spot'; body.appendChild(spot); }
+    }else{
+      ['dv-flick', 'dv-film', 'dv-spot', 'dv-mast'].forEach(id => { const e = document.getElementById(id); if(e) e.remove(); }); flick = film = spot = null;
+      document.querySelectorAll('h2[data-dv]').forEach(h => { h.classList.remove('dv-pre', 'dv-go'); delete h.dataset.dv; });
+    }
+  }
+  loop(scratch, 900, 2600); loop(speck, 250, 800); loop(burn, 9000, 20000);
+  setInterval(life, 800); life();
+  window._dvTitle = () => { titled = false; title(); };
 })();
 </script>
 
