@@ -39,7 +39,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Eric's Lounge">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Jost:wght@500;700;900&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="lounge-core.js"></script>
 <script src="contrast-guard.js"></script>
@@ -3153,8 +3153,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .photo-tile:nth-child(6n+1),
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(6n+1){
     clip-path:polygon(0 7%, 14% 0, 100% 0, 100% 86%, 86% 100%, 0 100%) !important;
-    transform:translate(0,0) rotate(-2.4deg) !important;
-    border-width:4px !important;
+    transform:translate(0,0) rotate(calc(-2.4deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile:nth-child(6n+2),
   body.usertheme-bauhaus:not(.dark-mode) .sports-tile:nth-child(6n+2),
@@ -3175,8 +3175,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .photo-tile:nth-child(6n+2),
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(6n+2){
     clip-path:polygon(0 0, 90% 0, 100% 16%, 100% 100%, 9% 100%, 0 88%) !important;
-    transform:translate(5px,0) rotate(1.9deg) !important;
-    border-width:4px !important;
+    transform:translate(5px,0) rotate(calc(1.9deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile:nth-child(6n+3),
   body.usertheme-bauhaus:not(.dark-mode) .sports-tile:nth-child(6n+3),
@@ -3197,8 +3197,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .photo-tile:nth-child(6n+3),
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(6n+3){
     clip-path:polygon(5% 0, 100% 5%, 100% 100%, 0 95%) !important;
-    transform:translate(-4px,2px) rotate(-3.4deg) !important;
-    border-width:4px !important;
+    transform:translate(-4px,2px) rotate(calc(-3.4deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile:nth-child(6n+4),
   body.usertheme-bauhaus:not(.dark-mode) .sports-tile:nth-child(6n+4),
@@ -3219,8 +3219,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .photo-tile:nth-child(6n+4),
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(6n+4){
     clip-path:polygon(0 5%, 95% 0, 100% 95%, 5% 100%) !important;
-    transform:translate(6px,-2px) rotate(2.8deg) !important;
-    border-width:4px !important;
+    transform:translate(6px,-2px) rotate(calc(2.8deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile:nth-child(6n+5),
   body.usertheme-bauhaus:not(.dark-mode) .sports-tile:nth-child(6n+5),
@@ -3241,8 +3241,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .photo-tile:nth-child(6n+5),
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(6n+5){
     clip-path:polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%) !important;
-    transform:translate(-6px,0) rotate(-1.2deg) !important;
-    border-width:4px !important;
+    transform:translate(-6px,0) rotate(calc(-1.2deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile:nth-child(6n+6),
   body.usertheme-bauhaus:not(.dark-mode) .sports-tile:nth-child(6n+6),
@@ -3263,40 +3263,40 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .photo-tile:nth-child(6n+6),
   body.usertheme-bauhaus:not(.dark-mode) .events-tile:nth-child(6n+6){
     clip-path:polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 28%) !important;
-    transform:translate(4px,3px) rotate(3.6deg) !important;
-    border-width:4px !important;
+    transform:translate(4px,3px) rotate(calc(3.6deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(6n+1){
     clip-path:polygon(0 7%, 14% 0, 100% 0, 100% 86%, 86% 100%, 0 100%) !important;
-    transform:translate(0,0) rotate(-2.4deg) !important;
-    border-width:4px !important;
+    transform:translate(0,0) rotate(calc(-2.4deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(6n+2){
     clip-path:polygon(0 0, 90% 0, 100% 16%, 100% 100%, 9% 100%, 0 88%) !important;
-    transform:translate(5px,0) rotate(1.9deg) !important;
-    border-width:4px !important;
+    transform:translate(5px,0) rotate(calc(1.9deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(6n+3){
     clip-path:polygon(5% 0, 100% 5%, 100% 100%, 0 95%) !important;
-    transform:translate(-4px,2px) rotate(-3.4deg) !important;
-    border-width:4px !important;
+    transform:translate(-4px,2px) rotate(calc(-3.4deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(6n+4){
     clip-path:polygon(0 5%, 95% 0, 100% 95%, 5% 100%) !important;
-    transform:translate(6px,-2px) rotate(2.8deg) !important;
-    border-width:4px !important;
+    transform:translate(6px,-2px) rotate(calc(2.8deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(6n+5){
     clip-path:polygon(0 0, 100% 0, 100% 78%, 78% 100%, 0 100%) !important;
-    transform:translate(-6px,0) rotate(-1.2deg) !important;
-    border-width:4px !important;
+    transform:translate(-6px,0) rotate(calc(-1.2deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
   body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(6n+6){
     clip-path:polygon(24% 0, 100% 0, 100% 100%, 0 100%, 0 28%) !important;
-    transform:translate(4px,3px) rotate(3.6deg) !important;
-    border-width:4px !important;
+    transform:translate(4px,3px) rotate(calc(3.6deg + var(--bh-w,0deg))) !important;
+    border-width:5px !important;
   }
-  body.usertheme-bauhaus:not(.dark-mode) .fac-tile.all{ clip-path:polygon(0 0, 100% 6%, 100% 100%, 12% 100%, 0 82%) !important; transform:rotate(-1.4deg) !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile.all{ clip-path:polygon(0 0, 100% 6%, 100% 100%, 12% 100%, 0 82%) !important; transform:rotate(calc(-1.4deg + var(--bh-w,0deg))) !important; }
   /* hard offset shadow on the grids (filter runs on the whole grid, so the clip-path cuts don't remove it) */
   body.usertheme-bauhaus:not(.dark-mode) .faculties,
   body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid{ filter:drop-shadow(5px 6px 0 #1A1A1A); }
@@ -3354,6 +3354,49 @@ body.usertheme-vintage:not(.dark-mode) header::before{
       repeating-linear-gradient(90deg, rgba(26,26,26,.07) 0 1.5px, transparent 1.5px 48px);
   }
   /* ===== END BAUHAUS CHAOS v2 ===== */
+
+  /* ===== BAUHAUS v3 (25 Oct 2026) - ideas pass, stage 1. To revert: delete from here to 'END BAUHAUS v3'
+     (the state before is saved in backups/bauhaus-v2.txt). ===== */
+  body.usertheme-bauhaus:not(.dark-mode) .section-head h2, body.usertheme-bauhaus:not(.dark-mode) .fac-tile .name, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile .name, body.usertheme-bauhaus:not(.dark-mode) .hub-seg a{ font-family:'Jost','Nunito',sans-serif !important; }
+  /* wobble transition (JS later sets --bh-w on a tile) + press lift */
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile{ transition:transform .7s cubic-bezier(.3,1.7,.5,1), translate .12s ease !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile:active, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile:active{ translate:-3px -3px; }
+  /* geometric markers instead of the icons */
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile .fac-icon{ display:inline-block !important; width:20px; height:20px; vertical-align:-3px; margin-right:8px; background:#FFD100; transition:transform .25s ease, border-radius .25s ease; }
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile .fac-icon svg{ display:none !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(3n+1) .fac-icon{ border-radius:50%; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(3n+2) .fac-icon{ border-radius:0; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(3n) .fac-icon{ border-radius:0; clip-path:polygon(50% 0,100% 100%,0 100%); }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(4n+1) .fac-icon{ background:#FFD100; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(4n+2) .fac-icon{ background:#F2EFE4; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(4n+3) .fac-icon{ background:#D4141E; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:nth-child(4n+4) .fac-icon{ background:#1A1A1A; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:active:nth-child(3n+1) .fac-icon{ border-radius:0; transform:rotate(90deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:active:nth-child(3n+2) .fac-icon{ border-radius:50%; transform:rotate(90deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:active:nth-child(3n) .fac-icon{ transform:rotate(180deg); }
+  /* halftone dots in the top-right corner */
+  body.usertheme-bauhaus:not(.dark-mode) .fac-tile:not(.all)::before, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile::before{
+    content:''; position:absolute; top:0; right:0; width:64px; height:64px; pointer-events:none;
+    background:radial-gradient(circle, currentColor 38%, transparent 42%) 0 0/8px 8px;
+    opacity:.28; -webkit-mask-image:linear-gradient(225deg,#000 0,transparent 70%); mask-image:linear-gradient(225deg,#000 0,transparent 70%);
+  }
+  body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile{ position:relative; }
+  /* headings: colour bar behind the text, screen-print misregistration, diagonal */
+  body.usertheme-bauhaus:not(.dark-mode) .section-head h2{ position:relative; isolation:isolate; display:inline-block; text-shadow:2px 2px 0 rgba(212,20,30,.8), -1px -1px 0 rgba(0,86,164,.7); transform-origin:left center; }
+  body.usertheme-bauhaus:not(.dark-mode) .section-head h2::after{ content:''; position:absolute; z-index:-1; left:-6px; right:-8px; bottom:1px; height:44%; background:#FFD100; }
+  body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(3n+2) h2::after{ background:#F6B8BB; }
+  body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(3n) h2::after{ background:#A9C8E6; }
+  body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(odd) h2{ transform:rotate(-2.5deg); }
+  body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(even) h2{ transform:rotate(2deg); }
+  /* header: diagonal red/black edge */
+  body.usertheme-bauhaus:not(.dark-mode) header{ border-bottom:12px solid #1A1A1A; border-image:repeating-linear-gradient(135deg,#D4141E 0 14px,#1A1A1A 14px 28px) 0 0 12 0 / 0 0 12px 0 / 0 stretch; }
+  /* staircase divider under each collapsible group */
+  body.usertheme-bauhaus:not(.dark-mode) .domain-group::after{ content:''; display:block; height:18px; margin:10px 0 0 -8px; background:#1A1A1A;
+    clip-path:polygon(0 100%,0 66%,16% 66%,16% 33%,32% 33%,32% 0,48% 0,48% 33%,64% 33%,64% 66%,80% 66%,80% 100%); width:60%; }
+  body.usertheme-bauhaus:not(.dark-mode) .domain-group:nth-of-type(2n)::after{ background:#D4141E; margin-left:auto; transform:scaleX(-1); }
+  @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .fac-tile, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile, body.usertheme-bauhaus:not(.dark-mode) .fac-icon{ transition:none !important; } }
+  /* ===== END BAUHAUS v3 ===== */
+
 
   body.dark-mode.usertheme-d1{
     --cream:#1B1512; --cream-2:#271E18; --card:#3A2C22; --ink:#F0E3D2; --ink-soft:#C2A98C;
