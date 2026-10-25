@@ -3576,8 +3576,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   #dv-flick{ z-index:9000; background:#000; opacity:0; animation:dvFlick 3.1s steps(1) infinite; }
   @keyframes dvFlick{ 0%{ opacity:0; } 8%{ opacity:.07; } 12%{ opacity:0; } 31%{ opacity:.04; } 33%{ opacity:.1; } 36%{ opacity:0; } 58%{ opacity:.05; } 61%{ opacity:0; } 83%{ opacity:.09; } 85%{ opacity:.02; } 88%{ opacity:0; } }
   #dv-film{ z-index:9001; overflow:hidden; }
-  #dv-spot{ z-index:9002; opacity:0; transition:opacity .5s; background:radial-gradient(circle 170px at var(--sx,50%) var(--sy,50%),transparent 0,transparent 35%,rgba(0,0,0,.5) 100%); }
-  #dv-spot.on{ opacity:1; }
+  #dv-spot{ z-index:9002; opacity:0; transition:opacity .15s; background:radial-gradient(circle 170px at var(--sx,50%) var(--sy,50%),transparent 0,transparent 35%,rgba(0,0,0,.5) 100%); }
+  #dv-spot.on{ opacity:1; transition:none; }
   /* 8 title card */
   #dv-title{ position:fixed; inset:0; z-index:100000; background:#000; display:flex; align-items:center; justify-content:center; font-family:'BohemianTypewriter','Courier New',monospace; color:#EDEDED; }
   #dv-title .box{ border:3px double #EDEDED; padding:26px 24px; text-align:center; max-width:80vw; }
@@ -39585,9 +39585,10 @@ function setCornersNoZoom(active){
   function aim(e){
     if(!on() || !spot) return; const p = (e.touches && e.touches[0]) || e;
     spot.style.setProperty('--sx', p.clientX + 'px'); spot.style.setProperty('--sy', p.clientY + 'px');
-    spot.classList.add('on'); clearTimeout(hideT); hideT = setTimeout(() => spot && spot.classList.remove('on'), 1200);
+    spot.classList.add('on');
   }
-  ['touchstart', 'touchmove', 'pointermove'].forEach(ev => document.addEventListener(ev, aim, { passive: true }));
+  ['touchstart', 'touchmove', 'pointerdown', 'pointermove'].forEach(ev => document.addEventListener(ev, aim, { passive: true }));
+  ['touchend', 'touchcancel', 'pointerup', 'pointercancel'].forEach(ev => document.addEventListener(ev, () => { if(spot) spot.classList.remove('on'); }, { passive: true }));
   function life(){
     if(on()){
       title(); layer(); mast(); headings();
