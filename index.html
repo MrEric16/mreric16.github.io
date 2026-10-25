@@ -3397,6 +3397,20 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .fac-tile, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile, body.usertheme-bauhaus:not(.dark-mode) .fac-icon{ transition:none !important; } }
   /* ===== END BAUHAUS v3 ===== */
 
+  /* ===== BAUHAUS v3 stage 2 (25 Oct 2026): drifting shapes, header clock + slogan, colour reshuffle. Delete to 'END BAUHAUS v3 stage 2' to revert. ===== */
+  #bh-shapes{ position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
+  #bh-shapes .w{ position:absolute; left:0; top:0; will-change:transform; }
+  #bh-shapes svg{ display:block; opacity:.5; }
+  #bh-clock{ position:absolute; right:14px; bottom:18px; width:58px; height:58px; z-index:5; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  #bh-clock svg{ width:100%; height:100%; overflow:visible; }
+  #bh-clock .h{ transition:transform .4s cubic-bezier(.3,1.6,.5,1); }
+  #bh-slogan{ position:absolute; left:3px; bottom:18px; z-index:4; writing-mode:vertical-rl; transform:rotate(180deg); background:#1A1A1A; color:#F2EFE4; font:700 9px/1 'Jost',sans-serif; letter-spacing:.16em; padding:7px 3px; max-height:150px; overflow:hidden; white-space:nowrap; pointer-events:none; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all)[data-bhc]:nth-child(n), body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-bhc]:nth-child(n){ background:var(--bh-c) !important; transition:background .5s ease, transform .7s cubic-bezier(.3,1.7,.5,1), translate .12s ease !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all)[data-bhc]:nth-child(n) *, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-bhc]:nth-child(n) *{ color:var(--bh-t) !important; }
+  body.usertheme-bauhaus:not(.dark-mode) .faculties .fac-tile:not(.all)[data-bhc]:nth-child(n) .fac-icon{ background:var(--bh-m) !important; }
+  /* ===== END BAUHAUS v3 stage 2 ===== */
+
+
 
   body.dark-mode.usertheme-d1{
     --cream:#1B1512; --cream-2:#271E18; --card:#3A2C22; --ink:#F0E3D2; --ink-soft:#C2A98C;
@@ -38472,6 +38486,124 @@ function setCornersNoZoom(active){
   setInterval(arcade, 1000); arcade();
   setTimeout(boot, 400);
   window._synCar = car; window._synBoot = () => { try{ localStorage.removeItem('synBootDay'); }catch(e){} boot(); };
+})();
+
+// ===== BAUHAUS v3 stage 2: drifting Kandinsky shapes w/ parallax, header shape clock (tap = reshuffle tile colours), poster slogan, shape wipe on link tap, tap stamps, random tile wobble =====
+(function(){
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const body = document.body;
+  const on = () => body.classList.contains('usertheme-bauhaus') && !body.classList.contains('dark-mode');
+  const R = '#D4141E', BL = '#0056A4', Y = '#FFD100', K = '#1A1A1A', C = '#F2EFE4';
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  function shape(kind, col, size, stroke){
+    const sw = stroke == null ? 3 : stroke;
+    const g = {
+      circle: `<circle cx="50" cy="50" r="46" fill="${col}"/>`,
+      square: `<rect x="6" y="6" width="88" height="88" fill="${col}"/>`,
+      tri: `<polygon points="50,6 96,92 4,92" fill="${col}"/>`,
+      ring: `<circle cx="50" cy="50" r="40" fill="none" stroke="${col}" stroke-width="14"/>`,
+      bar: `<rect x="0" y="38" width="100" height="24" fill="${col}"/>`
+    }[kind];
+    const st = kind === 'ring' ? '' : ` stroke="${K}" stroke-width="${sw}"`;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 100 100"><g${st}>${g}</g></svg>`;
+  }
+  // ---- drifting shapes ----
+  let layer = null, items = [], sy = -1, raf = 0;
+  function build(){
+    layer = document.createElement('div'); layer.id = 'bh-shapes'; layer.setAttribute('aria-hidden', 'true');
+    const kinds = ['circle', 'square', 'tri', 'ring', 'bar', 'circle', 'tri'];
+    const cols = [R, BL, Y, K, R, Y, BL];
+    kinds.forEach((k, i) => {
+      const size = Math.round(rnd(44, 120));
+      const w = document.createElement('div'); w.className = 'w';
+      w.innerHTML = '<div class="i">' + shape(k, cols[i], size) + '</div>';
+      const x = rnd(-10, innerWidth - size + 10), y0 = rnd(0, innerHeight);
+      layer.appendChild(w);
+      const it = { w, x, y0, k: rnd(.04, .3), size };
+      items.push(it);
+      if(!rm){
+        w.firstChild.animate([
+          { transform: 'translate(0,0) rotate(0deg)' },
+          { transform: `translate(${rnd(-40, 40)}px,${rnd(-30, 30)}px) rotate(${rnd(-80, 80)}deg)` },
+          { transform: 'translate(0,0) rotate(0deg)' }
+        ], { duration: rnd(14000, 30000), iterations: Infinity, easing: 'ease-in-out', delay: -rnd(0, 12000) });
+      }
+    });
+    body.appendChild(layer); sy = -1; place();
+  }
+  function place(){
+    const y = window.scrollY || 0; if(y === sy) return; sy = y;
+    const H = innerHeight + 240;
+    items.forEach(it => {
+      const v = (((it.y0 - y * it.k) % H) + H) % H - 120;
+      it.w.style.transform = `translate3d(${it.x}px,${v}px,0)`;
+    });
+  }
+  window.addEventListener('scroll', () => { if(layer && !raf) raf = requestAnimationFrame(() => { raf = 0; place(); }); }, { passive: true });
+  // ---- reshuffle tile colours ----
+  const SCHEMES = [[R, '#FEFEFE', Y], [BL, '#FEFEFE', Y], [K, '#FEFEFE', R], [Y, K, K]];
+  function reshuffle(){
+    const tiles = document.querySelectorAll('.faculties .fac-tile:not(.all), .sport-hub-grid .sport-hub-tile');
+    const order = SCHEMES.slice().sort(() => Math.random() - .5);
+    tiles.forEach((t, i) => {
+      const s = order[(i + Math.floor(Math.random() * 2)) % 4];
+      t.dataset.bhc = '1'; t.style.setProperty('--bh-c', s[0]); t.style.setProperty('--bh-t', s[1]); t.style.setProperty('--bh-m', s[2]);
+    });
+  }
+  // ---- header clock + slogan ----
+  const SLOGANS = ['FORM FOLLOWS FUNCTION', 'LESS IS MORE', 'CIRCLE  SQUARE  TRIANGLE', 'ART AND TECHNOLOGY: A NEW UNITY', 'THE WORKSHOP IS OPEN', 'LEARN  BUILD  REPEAT', 'GOD IS IN THE DETAILS'];
+  function header(){
+    const h = document.querySelector('header'); if(!h) return;
+    let c = document.getElementById('bh-clock');
+    if(!c){
+      c = document.createElement('div'); c.id = 'bh-clock'; c.setAttribute('role', 'button'); c.setAttribute('aria-label', 'Reshuffle colours');
+      c.innerHTML = `<svg viewBox="0 0 100 100"><g class="h" id="bh-ch" style="transform-origin:50px 50px"><rect x="8" y="8" width="84" height="84" fill="${C}" stroke="${K}" stroke-width="5"/></g>`
+        + `<g id="bh-cm" style="transform-origin:50px 50px"><polygon points="50,12 70,46 30,46" fill="${R}" stroke="${K}" stroke-width="4"/></g>`
+        + `<g id="bh-cs" style="transform-origin:50px 50px"><circle cx="50" cy="20" r="9" fill="${BL}" stroke="${K}" stroke-width="4"/></g></svg>`;
+      c.addEventListener('click', e => { e.stopPropagation(); reshuffle(); const g = c.querySelector('.h'); g.style.transform = 'rotate(' + (Math.random() < .5 ? -1 : 1) * rnd(90, 270) + 'deg) scale(1.15)'; setTimeout(() => { g.style.transform = ''; }, 450); });
+      h.appendChild(c);
+    }
+    const d = new Date();
+    const set = (id, deg) => { const e = document.getElementById(id); if(e) e.style.transform = `rotate(${deg}deg)`; };
+    set('bh-cs', d.getSeconds() * 6); set('bh-cm', d.getMinutes() * 6 + d.getSeconds() / 10); const hh = document.getElementById('bh-ch');
+    if(hh && !hh.style.transform) hh.style.transform = `rotate(${((d.getHours() % 12) * 30 + d.getMinutes() / 2) % 90}deg)`;
+    let s = document.getElementById('bh-slogan');
+    if(!s){ s = document.createElement('div'); s.id = 'bh-slogan'; s.textContent = pick(SLOGANS); s._t = Date.now(); h.appendChild(s); }
+    else if(Date.now() - s._t > 20000){ s._t = Date.now(); s.textContent = pick(SLOGANS); }
+  }
+  // ---- wipe on link tap + stamps on other taps ----
+  document.addEventListener('click', e => {
+    if(!on() || rm || e.target.closest('#bh-clock')) return;
+    const link = e.target.closest && e.target.closest('a[href^="#"], .fac-tile, .sport-hub-tile');
+    const kind = pick(['circle', 'square', 'tri']), col = { circle: R, square: BL, tri: Y }[kind];
+    const d = document.createElement('div');
+    const size = link ? 120 : 26;
+    d.innerHTML = shape(kind, col, size, link ? 4 : 2);
+    d.style.cssText = `position:fixed;left:${e.clientX - size / 2}px;top:${e.clientY - size / 2}px;pointer-events:none;z-index:9999;`;
+    body.appendChild(d);
+    const a = link
+      ? d.animate([{ transform: 'scale(.2) rotate(0deg)', opacity: .95 }, { transform: 'scale(9) rotate(45deg)', opacity: 0 }], { duration: 520, easing: 'ease-out' })
+      : d.animate([{ transform: 'scale(.4) rotate(0deg)', opacity: .9 }, { transform: `scale(1.4) rotate(${rnd(-60, 60)}deg)`, opacity: 0 }], { duration: 700, easing: 'ease-out' });
+    a.onfinish = () => d.remove();
+  }, true);
+  // ---- wobble a random tile ----
+  setInterval(() => {
+    if(!on() || rm || document.hidden) return;
+    const t = [...document.querySelectorAll('.faculties .fac-tile:not(.all), .sport-hub-grid .sport-hub-tile')].filter(e => { const r = e.getBoundingClientRect(); return r.bottom > 0 && r.top < innerHeight; });
+    if(!t.length) return;
+    const el = pick(t);
+    el.style.setProperty('--bh-w', (Math.random() < .5 ? -1 : 1) * rnd(4, 8).toFixed(1) + 'deg');
+    setTimeout(() => el.style.setProperty('--bh-w', '0deg'), 900);
+  }, 2600);
+  // ---- lifecycle ----
+  setInterval(() => {
+    if(on()){ if(!layer) build(); header(); }
+    else{
+      if(layer){ layer.remove(); layer = null; items = []; }
+      ['bh-clock', 'bh-slogan'].forEach(id => { const e = document.getElementById(id); if(e) e.remove(); });
+    }
+  }, 1000);
 })();
 </script>
 
