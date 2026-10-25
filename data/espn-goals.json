@@ -1,6 +1,122 @@
 {
- "generatedAt": "2026-10-25T15:10:48.434219Z",
+ "generatedAt": "2026-10-25T18:29:37.457892Z",
  "results": [
+  {
+   "url": "espn:401879254",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Crystal Palace",
+   "away": "Newcastle",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "W. Osula",
+     "minute": 47
+    },
+    {
+     "scorer": "H. Barnes",
+     "minute": 58
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878766",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Hull City",
+   "away": "Brentford",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "O. McBurnie (pen)",
+     "minute": 24
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Ouattara",
+     "minute": 63
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878765",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Liverpool",
+   "away": "Brighton Hove",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "P. Gross (og)",
+     "minute": 17
+    },
+    {
+     "scorer": "A. Isak",
+     "minute": 21
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879252",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Man United",
+   "away": "Bournemouth",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "Rayan",
+     "minute": 38
+    },
+    {
+     "scorer": "M. Tavernier",
+     "minute": 43
+    },
+    {
+     "scorer": "Evanilson",
+     "minute": 71
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878764",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:30Z",
+   "home": "Sunderland",
+   "away": "Leeds United",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
   {
    "url": "espn:401882835",
    "date": "2026-10-25",
@@ -34,6 +150,82 @@
    "complete": true
   },
   {
+   "url": "espn:401882833",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T15:15Z",
+   "home": "Celta",
+   "away": "Real Betis",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884760",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:30Z",
+   "home": "Hoffenheim",
+   "away": "Leverkusen",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Kramaric (pen)",
+     "minute": 79
+    },
+    {
+     "scorer": "A. Prass",
+     "minute": 89
+    },
+    {
+     "scorer": "M. Moerstedt",
+     "minute": "90+5"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884759",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:30Z",
+   "home": "Freiburg",
+   "away": "Bayern",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 1,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "T. Bischof (og)",
+     "minute": 82
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Upamecano",
+     "minute": 16
+    },
+    {
+     "scorer": "S. Gnabry",
+     "minute": 42
+    },
+    {
+     "scorer": "M. Olise",
+     "minute": "90+5"
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
    "url": "espn:401875036",
    "date": "2026-10-25",
    "utc": "2026-10-25T11:30Z",
@@ -60,6 +252,228 @@
     }
    ],
    "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874972",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Atalanta",
+   "away": "Frosinone",
+   "htHome": 3,
+   "htAway": 2,
+   "ftHome": 4,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "N. Krstovic",
+     "minute": 14
+    },
+    {
+     "scorer": "Éderson (pen)",
+     "minute": 33
+    },
+    {
+     "scorer": "N. Krstovic",
+     "minute": 45
+    },
+    {
+     "scorer": "E. Elmas",
+     "minute": 50
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Schmid",
+     "minute": 1
+    },
+    {
+     "scorer": "R. Schmid",
+     "minute": 17
+    },
+    {
+     "scorer": "G. Calo",
+     "minute": 48
+    },
+    {
+     "scorer": "A. Terzic",
+     "minute": 82
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874952",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Genoa",
+   "away": "Venezia FC",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "M. Ellertsson",
+     "minute": 25
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876425",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T14:00Z",
+   "home": "Monaco",
+   "away": "Lille",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Diop",
+     "minute": 74
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Mbappé",
+     "minute": 24
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876429",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:15Z",
+   "home": "Auxerre",
+   "away": "Le Mans",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "C. Archer",
+     "minute": 56
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "L. Buades",
+     "minute": 48
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876430",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:15Z",
+   "home": "Angers",
+   "away": "Lorient",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876426",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:15Z",
+   "home": "Marseille",
+   "away": "Le Havre",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "C. Egan-Riley",
+     "minute": 5
+    },
+    {
+     "scorer": "T. Weah",
+     "minute": 33
+    },
+    {
+     "scorer": "Igor Paixão",
+     "minute": 50
+    },
+    {
+     "scorer": "H. Abdelli",
+     "minute": 55
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Maja (pen)",
+     "minute": 77
+    },
+    {
+     "scorer": "M. N'Diaye",
+     "minute": 86
+    },
+    {
+     "scorer": "J. Maja",
+     "minute": 89
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876424",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:15Z",
+   "home": "Stade Rennais",
+   "away": "Strasbourg",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "B. Dia",
+     "minute": 34
+    },
+    {
+     "scorer": "S. Szymanski",
+     "minute": 41
+    },
+    {
+     "scorer": "S. Szymanski",
+     "minute": 61
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876423",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T16:15Z",
+   "home": "Toulouse",
+   "away": "Troyes",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "FL1",
    "complete": true
   },
   {
