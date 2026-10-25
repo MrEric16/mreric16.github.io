@@ -3449,10 +3449,6 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bauhaus:not(.dark-mode) .section-head:nth-of-type(even) h2{ transform:rotate(2deg); }
   /* header: diagonal red/black edge */
   body.usertheme-bauhaus:not(.dark-mode) header{ border-bottom:12px solid #1A1A1A; border-image:repeating-linear-gradient(135deg,#D4141E 0 14px,#1A1A1A 14px 28px) 0 0 12 0 / 0 0 12px 0 / 0 stretch; }
-  /* staircase divider under each collapsible group */
-  body.usertheme-bauhaus:not(.dark-mode) .domain-group::after{ content:''; display:block; height:18px; margin:10px 0 0 -8px; background:#1A1A1A;
-    clip-path:polygon(0 100%,0 66%,16% 66%,16% 33%,32% 33%,32% 0,48% 0,48% 33%,64% 33%,64% 66%,80% 66%,80% 100%); width:60%; }
-  body.usertheme-bauhaus:not(.dark-mode) .domain-group:nth-of-type(2n)::after{ background:#D4141E; margin-left:auto; transform:scaleX(-1); }
   @media (prefers-reduced-motion:reduce){ body.usertheme-bauhaus:not(.dark-mode) .fac-tile, body.usertheme-bauhaus:not(.dark-mode) .sport-hub-tile, body.usertheme-bauhaus:not(.dark-mode) .fac-icon{ transition:none !important; } }
   /* ===== END BAUHAUS v3 ===== */
 
