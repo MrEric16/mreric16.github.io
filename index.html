@@ -2817,6 +2817,23 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   @keyframes synLaser{ from{ transform:translateX(0); } to{ transform:translateX(194%); } }
   @media (prefers-reduced-motion:reduce){ #syn-floor,#syn-mtn,.syn-palm,body.usertheme-synthwave:not(.dark-mode) .section-head::after,body.usertheme-synthwave:not(.dark-mode) .fac-icon svg{ animation:none; } }
+
+  /* 14. neon car on the horizon */
+  .syn-car{ position:fixed; left:0; top:0; width:96px; height:33px; z-index:-1; pointer-events:none; filter:drop-shadow(0 0 6px #FF2E97) drop-shadow(0 6px 5px rgba(255,46,151,.6)); }
+  /* 17. arcade cabinet: tap for a colour flash */
+  #syn-arcade{ position:fixed; left:8px; bottom:76px; width:44px; height:56px; padding:4px; z-index:41; cursor:pointer; touch-action:manipulation; filter:drop-shadow(0 0 6px #00FFE1); animation:synBlink 2.2s steps(1,end) infinite; }
+  #syn-arcade svg{ width:100%; height:100%; display:block; }
+  @keyframes synBlink{ 0%,100%{ filter:drop-shadow(0 0 6px #00FFE1); } 50%{ filter:drop-shadow(0 0 10px #FF2E97); } }
+  .syn-pop{ position:fixed; z-index:99997; pointer-events:none; font:900 14px 'Courier New',monospace; letter-spacing:.12em; color:#FFE600; text-shadow:0 0 8px #FF2E97,0 0 3px #000; }
+  /* 19. warp: neon speed lines from the horizon when you tap a link */
+  .syn-warp{ position:fixed; inset:0; z-index:99998; pointer-events:none; opacity:0;
+    background:repeating-conic-gradient(from 0deg at 50% 72%, #FF2E97 0 .5deg, transparent .5deg 3deg, #00FFE1 3deg 3.5deg, transparent 3.5deg 6.5deg);
+    -webkit-mask-image:radial-gradient(circle at 50% 72%, transparent 6%, #000 55%); mask-image:radial-gradient(circle at 50% 72%, transparent 6%, #000 55%); }
+  /* 20. boot-up screen, first open of the day */
+  #syn-boot{ position:fixed; inset:0; z-index:99999; pointer-events:none; background:#07020F; color:#00FF66; font:800 15px 'Courier New',monospace; letter-spacing:.1em; padding:22vh 22px 0; text-shadow:0 0 8px #00FF66; overflow:hidden; }
+  #syn-boot .l2{ color:#FF2E97; text-shadow:0 0 8px #FF2E97; } #syn-boot .l3{ color:#00FFE1; text-shadow:0 0 8px #00FFE1; }
+  #syn-boot .scan{ position:absolute; left:0; right:0; top:0; height:60px; background:linear-gradient(180deg, transparent, rgba(0,255,102,.35), transparent); }
+  #syn-boot .cur{ animation:synCur .5s steps(1,end) infinite; } @keyframes synCur{ 50%{ opacity:0; } }
   /* ===== END SYNTHWAVE v2 ===== */
 
 
@@ -38353,6 +38370,65 @@ function setCornersNoZoom(active){
     });
     if(floorAnim){ rate += (target - rate) * 0.35; target = 1 + (target - 1) * 0.72; if(target < 1.02) target = 1; floorAnim.playbackRate = Math.max(0.2, rate); }
   }, 80);
+})();
+
+// ===== SYNTHWAVE v2 (JS part 2): car, arcade cabinet, warp, boot-up =====
+(function(){
+  const body = document.body, root = document.documentElement;
+  const on = () => body.classList.contains('usertheme-synthwave') && !body.classList.contains('dark-mode');
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const CAR = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 34"><path d="M4 24 L10 16 Q14 12 26 11 L44 9 Q56 8 66 12 L86 16 Q96 18 97 24 L97 27 L4 27 Z" fill="#12061F" stroke="#FF2E97" stroke-width="1.5"/><path d="M30 12 L44 10 Q54 10 60 13 L52 16 L30 16 Z" fill="#00FFE1" opacity=".75"/><rect x="2" y="19" width="6" height="4" fill="#FF1030"/><circle cx="24" cy="27" r="6" fill="#0A0314" stroke="#00FFE1" stroke-width="1.5"/><circle cx="76" cy="27" r="6" fill="#0A0314" stroke="#00FFE1" stroke-width="1.5"/></svg>';
+  function car(){
+    if(!on() || rm || document.hidden) return;
+    const w = innerWidth, h = innerHeight, c = document.createElement('div'); c.className = 'syn-car'; c.innerHTML = CAR; body.appendChild(c);
+    const ltr = Math.random() < 0.5, y = h * 0.82 - 33, dur = rnd(2500, 14000), flip = ltr ? '' : ' scaleX(-1)';
+    const x0 = ltr ? -120 : w + 120, x1 = ltr ? w + 120 : -120;
+    c.animate([{ transform: `translate(${x0}px,${y}px)${flip}` }, { transform: `translate(${x1}px,${y}px)${flip}` }], { duration: dur, easing: 'linear' }).onfinish = () => c.remove();
+  }
+  (function loopCar(){ setTimeout(() => { car(); loopCar(); }, rnd(30000, 90000)); })();
+  setTimeout(car, rnd(6000, 14000));
+  // ---- arcade cabinet ----
+  const ARC = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 14" shape-rendering="crispEdges"><path d="M1 13V3l1-2h7l1 2v10z" fill="#2A1450" stroke="#FF2E97" stroke-width=".5"/><rect x="2.5" y="3" width="6" height="4" fill="#00FFE1"/><rect x="3.5" y="4" width="1" height="1" fill="#14072A"/><rect x="6" y="5" width="1" height="1" fill="#14072A"/><rect x="2.5" y="8" width="6" height="1.5" fill="#12061F"/><circle cx="4" cy="8.7" r=".7" fill="#FF1030"/><rect x="6" y="8.4" width="1.2" height=".7" fill="#FFE600"/><rect x="2" y="11" width="7" height="1" fill="#12061F"/></svg>';
+  let flashing = false;
+  function arcade(){
+    let a = document.getElementById('syn-arcade');
+    if(!on()){ if(a) a.remove(); return; }
+    if(a) return;
+    a = document.createElement('div'); a.id = 'syn-arcade'; a.setAttribute('role','button'); a.setAttribute('aria-label','Insert coin'); a.innerHTML = ARC; body.appendChild(a);
+    a.addEventListener('click', e => {
+      e.stopPropagation(); if(flashing) return; flashing = true;
+      const hue = Math.floor(rnd(70, 290));
+      root.style.transition = 'filter .25s'; root.style.filter = `hue-rotate(${hue}deg) saturate(1.5)`;
+      const pop = document.createElement('div'); pop.className = 'syn-pop'; pop.textContent = 'INSERT COIN';
+      const r = a.getBoundingClientRect(); pop.style.left = (r.left + 4) + 'px'; pop.style.top = (r.top - 8) + 'px'; body.appendChild(pop);
+      pop.animate([{ opacity: 1, transform: 'translateY(0)' }, { opacity: 0, transform: 'translateY(-40px)' }], { duration: 1200, easing: 'ease-out' }).onfinish = () => pop.remove();
+      setTimeout(() => { root.style.filter = ''; setTimeout(() => { root.style.transition = ''; flashing = false; }, 300); }, 2200);
+    });
+  }
+  // ---- warp on link tap ----
+  document.addEventListener('click', e => {
+    if(!on() || rm) return;
+    const a = e.target.closest && e.target.closest('a[href^="#"]');
+    if(!a || a.id === 'syn-arcade') return;
+    if(window._synBoost) window._synBoost(40);
+    const w = document.createElement('div'); w.className = 'syn-warp'; body.appendChild(w);
+    w.animate([{ opacity: 0, transform: 'scale(.6)' }, { opacity: .95, transform: 'scale(1)', offset: .25 }, { opacity: 0, transform: 'scale(2.4)' }], { duration: 560, easing: 'ease-out' }).onfinish = () => w.remove();
+  }, true);
+  // ---- boot-up, once a day ----
+  function boot(){
+    if(!on() || rm) return;
+    const day = new Date().toDateString();
+    try{ if(localStorage.getItem('synBootDay') === day) return; localStorage.setItem('synBootDay', day); }catch(e){ return; }
+    const b = document.createElement('div'); b.id = 'syn-boot';
+    b.innerHTML = '<div class="scan"></div><div>ERIC\'S LOUNGE OS 2.0</div><div class="l2">LOADING ............ 100%</div><div class="l3">SYSTEM READY<span class="cur">_</span></div>';
+    body.appendChild(b);
+    b.querySelector('.scan').animate([{ transform: 'translateY(-60px)' }, { transform: 'translateY(' + innerHeight + 'px)' }], { duration: 1100, iterations: 2, easing: 'linear' });
+    b.animate([{ opacity: 1 }, { opacity: 1, offset: .78 }, { opacity: 0 }], { duration: 2100, easing: 'ease-out' }).onfinish = () => b.remove();
+  }
+  setInterval(arcade, 1000); arcade();
+  setTimeout(boot, 400);
+  window._synCar = car; window._synBoot = () => { try{ localStorage.removeItem('synBootDay'); }catch(e){} boot(); };
 })();
 </script>
 
