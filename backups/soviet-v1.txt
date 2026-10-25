@@ -1,0 +1,288 @@
+/* SOVIET (usertheme-soviet) v1 BACKUP - every CSS rule whose selector mentions usertheme-soviet, exact state at commit 6dfe882b (25 Oct 2026), before the ideas pass. Revert: delete the "SOVIET v2" CSS block + JS IIFE in index.html. */
+  /* - Soviet Poster, given an actual signature instead of just a colour swap. Six real
+     visual devices pulled from the genre (including the Gagarin/Rodina-Mat posters Mr
+     Eric supplied earlier), each a genuine recurring feature of real Soviet propaganda
+     print, not decoration invented for its own sake:
+
+     1. Radiating sunburst rays behind the header title (conic-gradient) - literally in
+        the Gagarin poster reference, the single most recognisable device of the genre.
+     2. A bold diagonal constructivist wedge in one page corner - the Rodchenko-style
+        diagonal red bar cutting across a composition.
+     3. Aged-paper texture on the whole page: a vignette darkening the edges plus a real
+        grain texture (SVG feTurbulence noise, not a gradient approximation) instead of
+        a flat modern colour.
+     4. Thick black keyline borders on every tile - propaganda posters are heavily
+        woodblock/linocut in style, bold black outlines throughout.
+     5. A small red star badge in the header corner - the recurring Soviet symbol,
+        independent of hammer-and-sickle.
+     6. A halftone dot texture layered into every tile's fill - mimics cheap mass-print
+        reproduction rather than a flat vector swatch.
+
+     All static, no animation, per the standing lesson against animating decorative
+     layers. None of this touches colour or text-colour pairings - every contrast
+     relationship from the previous audit is untouched, only what's drawn underneath the
+     same colours changed, so nothing here needed re-auditing. */
+  body.usertheme-soviet:not(.dark-mode){
+    --cream:#E8DCC0; --cream-2:#E8DCC0; --card:#E8DCC0;
+    --ink:#2B1D0E; --ink-soft:#6B1D1D;
+    --coral:#AE352F; --coral-dark:#363636; --gold:#A54200; --teal:#6B1D1D;
+    --line:rgba(43,29,14,.25);
+    --board-bg:rgba(211,64,57,.86);
+  }
+  body.usertheme-soviet:not(.dark-mode),
+  body.usertheme-soviet:not(.dark-mode) *{
+    font-family:'Propaganda','Impact',sans-serif !important;
+    font-weight:normal !important;
+  }
+  /* Thinning the font: Propaganda ships as a single static weight, so font-weight
+     alone has nowhere lower to go - font-weight:normal (above) already rules out the
+     browser synthesizing a fake bold on top, but the face's own inherent stroke
+     thickness is fixed at the file level and can't be changed via font-weight at all.
+     The actual way to visually thin a fixed-weight font is a text-stroke painted in
+     the SAME colour as whatever's behind the text - it shaves a thin sliver off each
+     glyph's outer edge, reducing how much ink-area the eye registers, without
+     touching the font file itself. Applied per background context since Soviet uses
+     several: beige page/card (majority of text) and the red header specifically. */
+  body.usertheme-soviet:not(.dark-mode){
+    -webkit-text-stroke:0.55px #E8DCC0;
+    text-stroke:0.55px #E8DCC0;
+  }
+  body.usertheme-soviet:not(.dark-mode) header,
+  body.usertheme-soviet:not(.dark-mode) header *{
+    -webkit-text-stroke:0.55px #D34039;
+    text-stroke:0.55px #D34039;
+  }
+  body.usertheme-soviet:not(.dark-mode) .aurora-layer{ opacity:0; }
+  /* DEVICE 3: aged-paper texture - vignette (::before) + real grain noise via SVG
+     feTurbulence (::after), fixed so both stay put while scrolling, low z-index so
+     they sit behind all real content. */
+  body.usertheme-soviet:not(.dark-mode)::before,
+  body.usertheme-soviet:not(.dark-mode)::after{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+  }
+  body.usertheme-soviet:not(.dark-mode)::before{
+    background:radial-gradient(ellipse at center, transparent 45%, rgba(43,29,14,.18) 100%);
+  }
+  body.usertheme-soviet:not(.dark-mode)::after{
+    opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* DEVICE 2: Rodchenko-style diagonal wedge, bottom-right page corner */
+  body.usertheme-soviet:not(.dark-mode) #app::after{
+    content:'';
+    position:fixed;
+    right:-60px; bottom:-60px;
+    width:280px; height:90px;
+    background:#AE352F;
+    transform:rotate(-35deg);
+    z-index:-1;
+    pointer-events:none;
+    opacity:.9;
+  }
+  body.usertheme-soviet:not(.dark-mode) header{
+    background:#D34039;
+    border-bottom:4px solid #363636;
+    position:relative;
+    overflow:hidden;
+  }
+  /* DEVICE 1: radiating sunburst behind the header title */
+  body.usertheme-soviet:not(.dark-mode) header::before{
+    content:'';
+    position:absolute;
+    top:50%; left:50%;
+    width:600px; height:600px;
+    transform:translate(-50%,-50%);
+    background:repeating-conic-gradient(rgba(232,220,192,.35) 0deg 9deg, transparent 9deg 18deg);
+    z-index:0;
+    pointer-events:none;
+  }
+  /* DEVICE 5: small red star badge, top-right of the header */
+  body.usertheme-soviet:not(.dark-mode) header::after{
+    content:'';
+    position:absolute;
+    top:14px; right:18px;
+    width:34px; height:34px;
+    background:#E8DCC0;
+    clip-path:polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    z-index:0;
+    pointer-events:none;
+  }
+  body.usertheme-soviet:not(.dark-mode) header > *{ position:relative; z-index:1; }
+  body.usertheme-soviet:not(.dark-mode) header,
+  body.usertheme-soviet:not(.dark-mode) header *{
+    color:#FEFEFE;
+    text-shadow:none;
+  }
+  body.usertheme-soviet:not(.dark-mode) header .search-icon-btn,
+  body.usertheme-soviet:not(.dark-mode) header .search-icon-btn *{
+    color:#D34039 !important;
+  }
+  /* DEVICE 6: halftone dot texture layered into every tile's fill, plus DEVICE 4's
+     thick black keyline. Solid colour is now the second layer under the dot pattern
+     rather than a flat background, so the colour: values below all changed shape from
+     "background:#HEX" to "background:PATTERN, #HEX" - still the same underlying hex,
+     just no longer a flat swatch. */
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1){
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #AE352F !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+2){
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #A54200 !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+3){
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #6B1D1D !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+4){
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #363636 !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .fac-tile.all{
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #2B1D0E !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .fac-tile{
+    border:2.5px solid #2B1D0E !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-soviet:not(.dark-mode) .sports-tile,
+  body.usertheme-soviet:not(.dark-mode) .sports-card{
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #AE352F !important;
+    border:2.5px solid #2B1D0E !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .goodnews-tile,
+  body.usertheme-soviet:not(.dark-mode) .watch-tile,
+  body.usertheme-soviet:not(.dark-mode) .watch-card,
+  body.usertheme-soviet:not(.dark-mode) .otd-card{
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #A54200 !important;
+    border:2.5px solid #2B1D0E !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .books-tile,
+  body.usertheme-soviet:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-soviet:not(.dark-mode) .explore-tile,
+  body.usertheme-soviet:not(.dark-mode) .explore-card,
+  body.usertheme-soviet:not(.dark-mode) .page-result{
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #6B1D1D !important;
+    border:2.5px solid #2B1D0E !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .bday-tile-card,
+  body.usertheme-soviet:not(.dark-mode) .random-tile,
+  body.usertheme-soviet:not(.dark-mode) .rec-item,
+  body.usertheme-soviet:not(.dark-mode) .empty-card,
+  body.usertheme-soviet:not(.dark-mode) .photo-tile,
+  body.usertheme-soviet:not(.dark-mode) .sotw-card{
+    background:
+      repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px),
+      #363636 !important;
+    border:2.5px solid #2B1D0E !important;
+  }
+  body.usertheme-soviet:not(.dark-mode) .fac-tile,
+  body.usertheme-soviet:not(.dark-mode) .fac-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sports-tile,
+  body.usertheme-soviet:not(.dark-mode) .sports-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sports-card,
+  body.usertheme-soviet:not(.dark-mode) .sports-card *,
+  body.usertheme-soviet:not(.dark-mode) .goodnews-tile,
+  body.usertheme-soviet:not(.dark-mode) .goodnews-tile *,
+  body.usertheme-soviet:not(.dark-mode) .watch-tile,
+  body.usertheme-soviet:not(.dark-mode) .watch-tile *,
+  body.usertheme-soviet:not(.dark-mode) .watch-card,
+  body.usertheme-soviet:not(.dark-mode) .watch-card *,
+  body.usertheme-soviet:not(.dark-mode) .otd-card,
+  body.usertheme-soviet:not(.dark-mode) .otd-card *,
+  body.usertheme-soviet:not(.dark-mode) .books-tile,
+  body.usertheme-soviet:not(.dark-mode) .books-tile *,
+  body.usertheme-soviet:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-soviet:not(.dark-mode) .mindtemple-tile *,
+  body.usertheme-soviet:not(.dark-mode) .explore-tile,
+  body.usertheme-soviet:not(.dark-mode) .explore-tile *,
+  body.usertheme-soviet:not(.dark-mode) .explore-card,
+  body.usertheme-soviet:not(.dark-mode) .explore-card *,
+  body.usertheme-soviet:not(.dark-mode) .page-result,
+  body.usertheme-soviet:not(.dark-mode) .page-result *,
+  body.usertheme-soviet:not(.dark-mode) .bday-tile-card,
+  body.usertheme-soviet:not(.dark-mode) .bday-tile-card *,
+  body.usertheme-soviet:not(.dark-mode) .random-tile,
+  body.usertheme-soviet:not(.dark-mode) .random-tile *,
+  body.usertheme-soviet:not(.dark-mode) .rec-item,
+  body.usertheme-soviet:not(.dark-mode) .rec-item *,
+  body.usertheme-soviet:not(.dark-mode) .empty-card,
+  body.usertheme-soviet:not(.dark-mode) .empty-card *,
+  body.usertheme-soviet:not(.dark-mode) .photo-tile,
+  body.usertheme-soviet:not(.dark-mode) .photo-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sotw-card,
+  body.usertheme-soviet:not(.dark-mode) .sotw-card *{
+    color:#FEFEFE !important;
+  }
+  /* Reset the text-stroke thinning for tile text specifically - it inherits from body
+     by default, but the stroke colour there (beige/red) would show as a visible halo
+     around WHITE text on these coloured tile backgrounds instead of a clean thinning
+     effect. Text here is mostly short labels/counts anyway, not paragraph copy, so
+     leaving it at the font's normal edge is the safer trade. */
+  body.usertheme-soviet:not(.dark-mode) .fac-tile,
+  body.usertheme-soviet:not(.dark-mode) .fac-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sports-tile,
+  body.usertheme-soviet:not(.dark-mode) .sports-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sports-card,
+  body.usertheme-soviet:not(.dark-mode) .sports-card *,
+  body.usertheme-soviet:not(.dark-mode) .goodnews-tile,
+  body.usertheme-soviet:not(.dark-mode) .goodnews-tile *,
+  body.usertheme-soviet:not(.dark-mode) .watch-tile,
+  body.usertheme-soviet:not(.dark-mode) .watch-tile *,
+  body.usertheme-soviet:not(.dark-mode) .watch-card,
+  body.usertheme-soviet:not(.dark-mode) .watch-card *,
+  body.usertheme-soviet:not(.dark-mode) .otd-card,
+  body.usertheme-soviet:not(.dark-mode) .otd-card *,
+  body.usertheme-soviet:not(.dark-mode) .books-tile,
+  body.usertheme-soviet:not(.dark-mode) .books-tile *,
+  body.usertheme-soviet:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-soviet:not(.dark-mode) .mindtemple-tile *,
+  body.usertheme-soviet:not(.dark-mode) .explore-tile,
+  body.usertheme-soviet:not(.dark-mode) .explore-tile *,
+  body.usertheme-soviet:not(.dark-mode) .explore-card,
+  body.usertheme-soviet:not(.dark-mode) .explore-card *,
+  body.usertheme-soviet:not(.dark-mode) .page-result,
+  body.usertheme-soviet:not(.dark-mode) .page-result *,
+  body.usertheme-soviet:not(.dark-mode) .bday-tile-card,
+  body.usertheme-soviet:not(.dark-mode) .bday-tile-card *,
+  body.usertheme-soviet:not(.dark-mode) .random-tile,
+  body.usertheme-soviet:not(.dark-mode) .random-tile *,
+  body.usertheme-soviet:not(.dark-mode) .rec-item,
+  body.usertheme-soviet:not(.dark-mode) .rec-item *,
+  body.usertheme-soviet:not(.dark-mode) .empty-card,
+  body.usertheme-soviet:not(.dark-mode) .empty-card *,
+  body.usertheme-soviet:not(.dark-mode) .photo-tile,
+  body.usertheme-soviet:not(.dark-mode) .photo-tile *,
+  body.usertheme-soviet:not(.dark-mode) .sotw-card,
+  body.usertheme-soviet:not(.dark-mode) .sotw-card *{
+    -webkit-text-stroke:0;
+    text-stroke:0;
+  }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #AE352F !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #363636 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px), #CE8682 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #A54200 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(0,0,0,.14) 0, rgba(0,0,0,.14) 1.1px, transparent 1.6px, transparent 8px), #B4B4B4 !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #6B1D1D !important; }
+  body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
