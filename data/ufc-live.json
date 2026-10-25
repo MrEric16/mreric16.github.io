@@ -1,18 +1,25 @@
 {
-  "generatedAt": "2026-10-24T08:18:12.794436+00:00",
+  "generatedAt": "2026-10-25T08:36:10.031121+00:00",
   "scheduled": [
     {
-      "name": "UFC Fight Night 296",
+      "name": "UFC Fight Night 297",
       "date_text": "Feb 7, 2027",
       "venue": "Afterpay Arena",
       "location": "Sydney, Australia"
     },
     {
-      "name": "UFC 336",
+      "name": "UFC 336: Van vs. Kape",
       "date_text": "Jan 30, 2027",
       "venue": "Scotiabank Arena",
       "location": "Toronto, Ontario, Canada",
       "start_tashkent": "2027-01-31T07:00:00+05:00"
+    },
+    {
+      "name": "UFC Fight Night 296",
+      "date_text": "Jan 16, 2027",
+      "venue": "American Airlines Center",
+      "location": "Dallas, Texas, U.S.",
+      "start_tashkent": "2027-01-17T06:00:00+05:00"
     },
     {
       "name": "UFC 335: Oliveira vs. Lopes",
@@ -51,19 +58,18 @@
     {
       "name": "UFC Fight Night: Moicano vs. Nolan",
       "date_text": "Oct 31, 2026",
-      "venue": "[19]",
+      "venue": "[20]",
       "location": null,
       "start_tashkent": "2026-11-01T05:00:00+05:00"
-    },
+    }
+  ],
+  "past": [
     {
       "name": "UFC 333: Volkanovski vs. Evloev",
       "date_text": "Oct 24, 2026",
       "venue": "Etihad Arena",
-      "location": "Abu Dhabi, United Arab Emirates",
-      "start_tashkent": "2026-10-24T23:00:00+05:00"
-    }
-  ],
-  "past": [
+      "location": "Abu Dhabi, United Arab Emirates"
+    },
     {
       "name": "UFC Fight Night: Buckley vs. Malott",
       "date_text": "Oct 17, 2026",
@@ -152,13 +158,6 @@
       "venue": "Paycom Center",
       "location": "Oklahoma City,Oklahoma, U.S.",
       "result": "Dricus du Plessis def. Kamaru Usman (Unanimous Decision)"
-    },
-    {
-      "name": "UFC 329: McGregor vs. Holloway 2",
-      "date_text": "Jul 11, 2026",
-      "venue": "T-Mobile Arena",
-      "location": "Las Vegas,Nevada, U.S.",
-      "result": "Max Holloway def. Conor McGregor (TKO - injury, R1 1:09)"
     }
   ]
 }
