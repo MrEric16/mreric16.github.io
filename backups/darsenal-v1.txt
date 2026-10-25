@@ -1,0 +1,217 @@
+/* ARSENAL DARK (usertheme-darsenal) v1 BACKUP - every CSS rule whose selector mentions usertheme-darsenal, exact state at commit 74210a6a (25 Oct 2026), before the ideas pass. Revert: delete the "ARSENAL DARK v2" CSS block + JS IIFE in index.html. */
+  /* SIGNATURE (Arsenal - matchday devices): the cannon silhouette watermark and the
+     confetti scatter that were both here got pulled - the cannon (barrel/wheel/breech
+     built from plain rectangles/circles) looked coherent in my own isolated PIL/SVG
+     preview but rendered as an unrecognisable overlapping-blob mess at actual on-
+     screen size, confirmed from Mr Eric's screenshot - same failure mode as the
+     confetti (worked in isolation, fell apart in the real context), so removed rather
+     than re-tuned a second time. Muzzle-flash burst (header) was already removed
+     separately. Nothing decorative left in Arsenal specifically right now - the
+     analog clock is the theme's real signature piece. */
+  /* Highbury-style analog clock, all 3 Arsenal themes: swaps visibility with the
+     digital #clock/#clockDate rather than removing either - the capital-city click
+     cycling is bound to .board-cell, unaffected either way. Not a literal trace of the
+     real clock or the club crest (no trademarked artwork reproduced), just the same
+     "big simple stadium-clock-end face" styling in the theme's own colours. */
+  body.usertheme-arsenal:not(.dark-mode) #analogClock,
+  body.usertheme-arsenal2:not(.dark-mode) #analogClock,
+  body.dark-mode.usertheme-darsenal #analogClock{
+    display:block !important;
+  }
+  body.usertheme-arsenal:not(.dark-mode) #clock,
+  body.usertheme-arsenal:not(.dark-mode) #clockDate,
+  body.usertheme-arsenal2:not(.dark-mode) #clock,
+  body.usertheme-arsenal2:not(.dark-mode) #clockDate,
+  body.dark-mode.usertheme-darsenal #clock,
+  body.dark-mode.usertheme-darsenal #clockDate{
+    display:none !important;
+  }
+  body.usertheme-arsenal:not(.dark-mode) .board-cell:first-child,
+  body.usertheme-arsenal2:not(.dark-mode) .board-cell:first-child,
+  body.dark-mode.usertheme-darsenal .board-cell:first-child{
+    display:flex; align-items:center; gap:10px;
+  }
+  body.dark-mode.usertheme-darsenal #analogClock .ac-face{ stroke:#113476; }
+  body.dark-mode.usertheme-darsenal #analogClock .ac-ticks line{ stroke:#113476; }
+  body.dark-mode.usertheme-darsenal #analogClock .ac-hand{ stroke:#113476; }
+  body.dark-mode.usertheme-darsenal #analogClock .ac-pin{ fill:#99824C; }
+  body.dark-mode.usertheme-darsenal #analogClock .ac-second{ stroke:#EC0024; }
+  /* Arsenal (Dark) - same principle as light Arsenal, same five exact colors, dark
+     version. Key is "darsenal" (not "arsenal-dark") purely so it falls through the
+     existing key.charAt(0)==='d' dark-theme detection with zero new special-casing.
+     Navy (113476) is the only genuinely dark color in the palette, so it becomes the
+     page background here instead of a tile-fill color - filling a tile navy would make
+     it blend invisibly into a navy page. White (fefefe) takes navy's old tile-fill slot
+     instead, which also means that one tile group needs dark (navy) text instead of
+     white, since white text on a white tile fill would be invisible. */
+  body.dark-mode.usertheme-darsenal{
+    --cream:#113476; --cream-2:#113476; --card:#CE0041;
+    --ink:#FEFEFE; --ink-soft:#99824C;
+    --coral:#EC0024; --coral-dark:#CE0041; --gold:#99824C; --teal:#EC0024;
+    --line:rgba(153,130,76,.35);
+  }
+  /* SIGNATURE (Arsenal Dark - Marble Halls devices): Highbury's Art Deco entrance
+     hall, not generic "football club" decoration - a genuine, specific piece of club
+     history rather than a borrowed device. Stepped-chevron border (the actual Deco
+     motif, verified rendered before shipping) along the page edges, a pinned match-day
+     rosette badge in the header corner, and a scarf-stripe band using the theme's own
+     three colours (navy/red/gold) as a subtle page texture. All static. */
+  body.dark-mode.usertheme-darsenal::before{
+    content:'';
+    position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background-image:
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2760%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M0%2C16%20L10%2C0%20L20%2C16%20L30%2C0%20L40%2C16%20L50%2C0%20L60%2C16%27%20fill%3D%27none%27%20stroke%3D%27rgba%28153%2C130%2C76%2C0.6%29%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E"),
+      url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2760%27%20height%3D%2716%27%3E%3Cpath%20d%3D%27M0%2C16%20L10%2C0%20L20%2C16%20L30%2C0%20L40%2C16%20L50%2C0%20L60%2C16%27%20fill%3D%27none%27%20stroke%3D%27rgba%28153%2C130%2C76%2C0.6%29%27%20stroke-width%3D%272%27%2F%3E%3C%2Fsvg%3E"),
+      repeating-linear-gradient(0deg, rgba(236,0,36,.05) 0px, rgba(236,0,36,.05) 14px, rgba(153,130,76,.05) 14px, rgba(153,130,76,.05) 28px, transparent 28px, transparent 56px);
+    background-position:top left, bottom left, 0 0;
+    background-repeat:repeat-x, repeat-x, repeat;
+    background-size:60px 16px, 60px 16px, auto;
+  }
+  body.dark-mode.usertheme-darsenal header{
+    background:#EC0024 !important;
+    border-bottom:4px solid #99824C;
+    position:relative;
+    overflow:hidden;
+  }
+  body.dark-mode.usertheme-darsenal header::before{
+    content:'';
+    position:absolute; z-index:0; pointer-events:none;
+    top:8px; right:16px;
+    width:44px; height:66px;
+    background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2760%27%20height%3D%2790%27%3E%3Cg%20stroke%3D%27%2399824C%27%20stroke-width%3D%271.5%27%20fill%3D%27none%27%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2752.0%27%20y2%3D%2722.0%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2749.05255888325765%27%20y2%3D%2733.0%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2741.0%27%20y2%3D%2741.052558883257646%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2730.0%27%20y2%3D%2744.0%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2719.000000000000007%27%20y2%3D%2741.05255888325765%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2710.947441116742347%27%20y2%3D%2733.0%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%278.0%27%20y2%3D%2722.000000000000004%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2710.94744111674235%27%20y2%3D%2710.999999999999998%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2718.99999999999999%27%20y2%3D%272.947441116742354%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2729.999999999999996%27%20y2%3D%270.0%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2741.0%27%20y2%3D%272.9474411167423504%27%2F%3E%3Cline%20x1%3D%2730%27%20y1%3D%2722%27%20x2%3D%2749.052558883257646%27%20y2%3D%2710.99999999999999%27%2F%3E%3C%2Fg%3E%3Ccircle%20cx%3D%2730%27%20cy%3D%2722%27%20r%3D%2713%27%20fill%3D%27%23EC0024%27%20stroke%3D%27%2399824C%27%20stroke-width%3D%272%27%2F%3E%3Ccircle%20cx%3D%2730%27%20cy%3D%2722%27%20r%3D%276%27%20fill%3D%27%2399824C%27%2F%3E%3Cpath%20d%3D%27M20%2C32%20L14%2C80%20L28%2C68%20L30%2C80%20L32%2C68%20L46%2C80%20L40%2C32%20Z%27%20fill%3D%27%23EC0024%27%20fill-opacity%3D%270.85%27%20stroke%3D%27%2399824C%27%20stroke-width%3D%271%27%2F%3E%3C%2Fsvg%3E");
+    background-size:contain;
+    background-repeat:no-repeat;
+  }
+  body.dark-mode.usertheme-darsenal header::after{ content:none; }
+  body.dark-mode.usertheme-darsenal header > *{ position:relative; z-index:1; }
+  body.dark-mode.usertheme-darsenal header,
+  body.dark-mode.usertheme-darsenal header *{
+    color:#FEFEFE !important;
+    text-shadow:none;
+  }
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+1),
+  body.dark-mode.usertheme-darsenal .sport-hub-tile,
+  body.dark-mode.usertheme-darsenal .sports-tile,
+  body.dark-mode.usertheme-darsenal .sports-card{
+    background:#EC0024 !important;
+  }
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+2),
+  body.dark-mode.usertheme-darsenal .goodnews-tile,
+  body.dark-mode.usertheme-darsenal .watch-tile,
+  body.dark-mode.usertheme-darsenal .watch-card,
+  body.dark-mode.usertheme-darsenal .otd-card{
+    background:#FEFEFE !important;
+  }
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+3),
+  body.dark-mode.usertheme-darsenal .books-tile,
+  body.dark-mode.usertheme-darsenal .mindtemple-tile,
+  body.dark-mode.usertheme-darsenal .explore-tile,
+  body.dark-mode.usertheme-darsenal .explore-card,
+  body.dark-mode.usertheme-darsenal .page-result{
+    background:#CE0041 !important;
+  }
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+4),
+  body.dark-mode.usertheme-darsenal .bday-tile-card,
+  body.dark-mode.usertheme-darsenal .random-tile,
+  body.dark-mode.usertheme-darsenal .rec-item,
+  body.dark-mode.usertheme-darsenal .empty-card,
+  body.dark-mode.usertheme-darsenal .photo-tile,
+  body.dark-mode.usertheme-darsenal .sotw-card{
+    background:#99824C !important;
+  }
+  body.dark-mode.usertheme-darsenal .fac-tile.all{
+    background:#EC0024 !important;
+  }
+  /* Birthday list contrast fix: .bday-item's background is var(--card), which is
+     crimson in Arsenal Dark, and both staff and myStudents categories color their text
+     via var(--coral)/var(--teal) - both of which are the same bright red in this theme
+     (ran out of unique colors from the 5-hex palette when building it originally). Red
+     text on a crimson card is nearly unreadable. otherStudents (gold) already had
+     acceptable contrast and needs no change. Reassigning staff to white and
+     myStudents to navy - both already-verified Arsenal colors, still nothing outside
+     the five exact hexes, just picking better-contrast roles for this one component
+     rather than changing the shared --coral/--teal variables everything else on the
+     page also depends on. Legend dots use inline style="background:var(--teal))" etc,
+     so matching them needs !important to win over an inline style - positional
+     (nth-child) since the legend is fixed, hand-authored markup, not a loop. */
+  body.dark-mode.usertheme-darsenal .bday-item.bday-cat-staff{
+    border-left-color:#FEFEFE !important;
+  }
+  body.dark-mode.usertheme-darsenal .bday-item.bday-cat-staff .bday-name{
+    color:#FEFEFE !important;
+  }
+  body.dark-mode.usertheme-darsenal .bday-item.bday-cat-myStudents{
+    border-left-color:#113476 !important;
+  }
+  body.dark-mode.usertheme-darsenal .bday-item.bday-cat-myStudents .bday-name{
+    color:#113476 !important;
+  }
+  body.dark-mode.usertheme-darsenal .bday-legend-item:nth-child(1) .bday-legend-dot{
+    background:#113476 !important;
+  }
+  body.dark-mode.usertheme-darsenal .bday-legend-item:nth-child(2) .bday-legend-dot{
+    background:#FEFEFE !important;
+  }
+  /* white-fill group needs navy text for contrast, not the white text everything else gets */
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+2),
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+2) *,
+  body.dark-mode.usertheme-darsenal .goodnews-tile,
+  body.dark-mode.usertheme-darsenal .goodnews-tile *,
+  body.dark-mode.usertheme-darsenal .watch-tile,
+  body.dark-mode.usertheme-darsenal .watch-tile *,
+  body.dark-mode.usertheme-darsenal .watch-card,
+  body.dark-mode.usertheme-darsenal .watch-card *,
+  body.dark-mode.usertheme-darsenal .otd-card,
+  body.dark-mode.usertheme-darsenal .otd-card *{
+    color:#113476 !important;
+  }
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+1),
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+1) *,
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+3),
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+3) *,
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+4),
+  body.dark-mode.usertheme-darsenal .faculties .fac-tile:not(.all):nth-child(4n+4) *,
+  body.dark-mode.usertheme-darsenal .fac-tile.all,
+  body.dark-mode.usertheme-darsenal .fac-tile.all *,
+  body.dark-mode.usertheme-darsenal .sport-hub-tile,
+  body.dark-mode.usertheme-darsenal .sport-hub-tile *,
+  body.dark-mode.usertheme-darsenal .sports-tile,
+  body.dark-mode.usertheme-darsenal .sports-tile *,
+  body.dark-mode.usertheme-darsenal .sports-card,
+  body.dark-mode.usertheme-darsenal .sports-card *,
+  body.dark-mode.usertheme-darsenal .books-tile,
+  body.dark-mode.usertheme-darsenal .books-tile *,
+  body.dark-mode.usertheme-darsenal .mindtemple-tile,
+  body.dark-mode.usertheme-darsenal .mindtemple-tile *,
+  body.dark-mode.usertheme-darsenal .explore-tile,
+  body.dark-mode.usertheme-darsenal .explore-tile *,
+  body.dark-mode.usertheme-darsenal .explore-card,
+  body.dark-mode.usertheme-darsenal .explore-card *,
+  body.dark-mode.usertheme-darsenal .page-result,
+  body.dark-mode.usertheme-darsenal .page-result *,
+  body.dark-mode.usertheme-darsenal .bday-tile-card,
+  body.dark-mode.usertheme-darsenal .bday-tile-card *,
+  body.dark-mode.usertheme-darsenal .random-tile,
+  body.dark-mode.usertheme-darsenal .random-tile *,
+  body.dark-mode.usertheme-darsenal .rec-item,
+  body.dark-mode.usertheme-darsenal .rec-item *,
+  body.dark-mode.usertheme-darsenal .empty-card,
+  body.dark-mode.usertheme-darsenal .empty-card *,
+  body.dark-mode.usertheme-darsenal .photo-tile,
+  body.dark-mode.usertheme-darsenal .photo-tile *,
+  body.dark-mode.usertheme-darsenal .sotw-card,
+  body.dark-mode.usertheme-darsenal .sotw-card *{
+    color:#FEFEFE !important;
+  }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#99824C !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="word"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#EC0024 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="language"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#FFFFFF !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#CCC0A5 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#CE0041 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#FFFFFF !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#FEFEFE !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="board"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#F57F91 !important; }
+  body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="card"], body.dark-mode.usertheme-darsenal .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
