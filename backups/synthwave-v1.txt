@@ -1,0 +1,301 @@
+/* SYNTHWAVE v1 BACKUP - exact Synthwave theme as of commit 3eca96ca (25 Oct 2026), before the v2 upgrade. Revert: git checkout 3eca96ca -- index.html (loses later changes) or paste blocks back. CSS lines 2414-2695, Train Your Brain colours 4202-4213, refs 35820/35963/36100. */
+/* ---- CSS ---- */
+  /* - Synthwave, pushed more toxic: Mr Eric wanted "deep, bright, toxic, highlighter"
+     colours after seeing a real contrast bug (see below), and attached Carpenter Brut
+     album art / retro-sunset references. Pushed each colour further into fluorescent
+     territory - hot magenta #FF00C8, neon cyan #00FFE1, acid highlighter green #CCFF00
+     (swapped in for the original sunset orange - reads more "toxic" than warm orange
+     does), vivid purple #9D00FF. All four re-verified: pushing brighter actually
+     IMPROVES contrast for the three that pair with dark text (brighter bg + dark text =
+     more contrast, not less) - purple is the one that pairs with white text, so it's
+     the one that can't be pushed as bright without losing its own contrast, and stayed
+     comparatively the most restrained of the four for exactly that reason.
+
+     Real bug fixed here too: the "Full Archive" tile (.fac-tile.all) has a fixed dark
+     background (#2A1450) independent of the 4-colour cycle, but the white-text
+     exception only covered the cycle's own white-text position (nth-child 4n+1) - so
+     .fac-tile.all fell through to the blanket DARK text rule meant for the bright
+     tiles, landing dark-on-dark at 1.17:1, functionally invisible. That's exactly what
+     Mr Eric's screenshot showed. Same root-cause family as the Hacker/Uzbekistan2 bug -
+     a fixed-background element not covered by the cycle's own exception logic - and
+     Hacker turned out to have the identical gap once checked, fixed there too. */
+  body.usertheme-synthwave:not(.dark-mode){
+    --cream:#170B2E; --cream-2:#170B2E; --card:#2A1450;
+    --ink:#FEFEFE; --ink-soft:#9FF7FF;
+    --coral:#9D00FF; --coral-dark:#9FF7FF; --gold:#9FF7FF; --teal:#9FF7FF;
+    --line:rgba(159,247,255,.3);
+    --board-bg:rgba(157,0,255,.86);
+  }
+  body.usertheme-synthwave:not(.dark-mode) .aurora-layer{ opacity:0; }
+  /* SIGNATURE: retro sun (horizontal-striped circle, classic 80s-sunset look) low in
+     the page background, and a perspective grid floor beneath it - the two devices
+     actually requested, not a colour reskin. Both purely decorative shapes with no
+     text on them, so neither needed any contrast check - unlike the header title (see
+     below), which does.
+     Round 2: sun colours now flow/pulsate via a hue-rotate animation (cheap - filter
+     animations aren't quite as free as pure transform/opacity, but hue-rotate on one
+     small 260px element is a long way from the noise-texture/canvas costs this
+     codebase actually avoids) plus a gentle opacity breathe, so the stripes visibly
+     shift colour over time rather than sitting static. */
+  body.usertheme-synthwave:not(.dark-mode)::before{
+    content:'';
+    position:fixed; z-index:-1; pointer-events:none;
+    left:50%; bottom:18vh;
+    width:260px; height:260px;
+    transform:translateX(-50%);
+    border-radius:50%;
+    background:
+      repeating-linear-gradient(0deg, #170B2E 0px, #170B2E 7px, transparent 7px, transparent 16px),
+      linear-gradient(180deg, #FF2E97 0%, #FF6EC7 40%, #FFB86B 75%, #FFD700 100%);
+    animation:synthwaveSunFlow 5s ease-in-out infinite;
+  }
+  @keyframes synthwaveSunFlow{
+    0%,100%{ filter:hue-rotate(0deg); opacity:.8; }
+    50%{ filter:hue-rotate(50deg); opacity:.98; }
+  }
+  /* Grid floor: a large rectangle tilted back via perspective, converging toward the
+     horizon where the sun sits - rebuilt properly after the first pass (thin, faint
+     lines plus a separate barely-visible rays layer) turned out not to read at all
+     against the reference Mr Eric sent. This version matches that reference directly:
+     bold glowing lines (a wide soft "bloom" layer underneath a thin bright core layer,
+     in both directions - the standard way to fake a neon glow in pure CSS without an
+     actual blur filter, which would soften the whole grid rather than just the line
+     edges), and a continuous hue-rotate sweeping the full colour wheel so the lines
+     genuinely cycle colour rather than sitting on one fixed hue. The rays layer from
+     round 2 is gone entirely rather than kept alongside this - it wasn't what "the
+     lines" meant and was visually redundant with a grid this bold anyway.
+     Round 4: height bumped 45vh -> 140vh after Mr Eric reported the grid rendering as
+     a thin sliver way down at the very bottom, nowhere near the sun. Real cause:
+     rotateX(65deg) dramatically foreshortens an element's apparent on-screen height -
+     tipping a rectangle back that steeply compresses most of its height into a sliver
+     regardless of the raw height value, so 45vh of pre-rotation rectangle was never
+     going to read as tall once actually tilted. Overshooting the raw height
+     substantially compensates for that compression so the visible (post-rotation)
+     grid actually reaches up toward the sun rather than hugging the very bottom edge. */
+  /* Round 5: two more fixes from Mr Eric's screenshots.
+     (a) Centre lines rendering visibly brighter than the sides on desktop - this is a
+     rendering artifact of the perspective transform itself, not a colour/opacity bug:
+     rotateX compresses the repeating pattern non-uniformly, so near the vanishing
+     point (dead centre) many more repetitions of the 44px grid get packed into the
+     same on-screen space than at the edges, and those compressed/overlapping lines
+     anti-alias into a visibly brighter, denser-looking band. Widened the repeat
+     interval 44px->70px (fewer total repetitions competing for the same compressed
+     space near centre reduces how much pile-up there is) and took the glow layer's
+     opacity down slightly (.35->.22) since it's the layer that compounds most
+     visibly when lines overlap.
+     (b) Height still wasn't reaching the sun at 140vh - going substantially further
+     (400vh) this time rather than nudging it again, since the exact foreshortening
+     ratio clearly needs a bigger margin than estimated last round. */
+  body.usertheme-synthwave:not(.dark-mode)::after{
+    content:'';
+    position:fixed; z-index:-1; pointer-events:none;
+    left:0; right:0; bottom:0;
+    height:400vh;
+    transform-origin:bottom;
+    transform:perspective(300px) rotateX(65deg);
+    background-image:
+      repeating-linear-gradient(90deg, rgba(255,20,200,.22) 0px, rgba(255,20,200,.22) 9px, transparent 9px, transparent 70px),
+      repeating-linear-gradient(90deg, rgba(255,170,235,1) 0px, rgba(255,170,235,1) 2px, transparent 2px, transparent 70px),
+      repeating-linear-gradient(0deg, rgba(255,20,200,.22) 0px, rgba(255,20,200,.22) 9px, transparent 9px, transparent 70px),
+      repeating-linear-gradient(0deg, rgba(255,170,235,1) 0px, rgba(255,170,235,1) 2px, transparent 2px, transparent 70px);
+    animation:synthwaveGridFlow 6s linear infinite;
+    /* Round 6: one horizontal line was still rendering as a single sharp white-hot
+       band, clearly brighter than everything else - a more extreme version of the
+       same root cause as round 5 (rotateX compression), not a new bug. At the very
+       far edge of a 400vh-tall rotated rectangle, the repeating pattern compresses so
+       hard that dozens of repetitions collapse into one row of screen pixels right
+       near the vanishing point, and that pile-up anti-aliases into a single
+       over-bright line rather than a uniformly brighter zone. Making the grid taller
+       last round to reach the sun made this specific artifact worse, not better -
+       taller means the far edge sits even further into extreme-compression territory.
+       Rather than fight the aliasing directly again, masking the worst zone out
+       entirely: fade the grid to transparent well before it reaches that point. This
+       is also just correct for the reference look anyway - a real synthwave grid
+       fades toward the horizon rather than staying full-brightness all the way up. */
+    mask-image:linear-gradient(to top, black 0%, black 45%, transparent 78%);
+    -webkit-mask-image:linear-gradient(to top, black 0%, black 45%, transparent 78%);
+  }
+  @keyframes synthwaveGridFlow{
+    0%{ filter:hue-rotate(0deg); }
+    100%{ filter:hue-rotate(360deg); }
+  }
+  /* SIGNATURE: neon glow on section headings ("Domains", "Vox Populi", etc) - these
+     use --ink (white) against the dark page background at 18.53:1, so there's a lot of
+     contrast margin to spend on a glow. The header title itself is NOT glowed - it
+     uses dark navy text on the bright pink header (the only pairing that passes there;
+     checked cyan/white/pale-cyan against the pink header first, all three failed at
+     2.69-3.42:1), and a glow reads as an emission effect that only makes sense on
+     light text over dark, so it would look wrong there even if contrast allowed it. */
+  body.usertheme-synthwave:not(.dark-mode) .section-head h2{
+    text-shadow:0 0 10px rgba(255,46,151,.7), 0 0 20px rgba(0,255,225,.4);
+  }
+  body.usertheme-synthwave:not(.dark-mode) header{
+    background:#FF00C8;
+    border-bottom:4px solid #00FFE1;
+  }
+  body.usertheme-synthwave:not(.dark-mode) header::before,
+  body.usertheme-synthwave:not(.dark-mode) header::after{ content:none; }
+  body.usertheme-synthwave:not(.dark-mode) header,
+  body.usertheme-synthwave:not(.dark-mode) header *{
+    color:#170B2E;
+    text-shadow:none;
+  }
+  body.usertheme-synthwave:not(.dark-mode) header .search-icon-btn,
+  body.usertheme-synthwave:not(.dark-mode) header .search-icon-btn *{
+    color:#FEFEFE !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1){
+    background:#9D00FF !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+2){
+    background:#FF00C8 !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+3){
+    background:#00FFE1 !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+4){
+    background:#CCFF00 !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .fac-tile.all{
+    background:#2A1450 !important;
+  }
+  /* Purple still measures weak edge-contrast against the page on its own - bright cyan
+     border guarantees a visible edge on every tile regardless. */
+  body.usertheme-synthwave:not(.dark-mode) .fac-tile{
+    border:1.5px solid rgba(159,247,255,.6) !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-synthwave:not(.dark-mode) .sports-tile,
+  body.usertheme-synthwave:not(.dark-mode) .sports-card{
+    background:#9D00FF !important;
+    border:1.5px solid rgba(159,247,255,.6) !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .goodnews-tile,
+  body.usertheme-synthwave:not(.dark-mode) .watch-tile,
+  body.usertheme-synthwave:not(.dark-mode) .watch-card,
+  body.usertheme-synthwave:not(.dark-mode) .otd-card{
+    background:#FF00C8 !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .books-tile,
+  body.usertheme-synthwave:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-synthwave:not(.dark-mode) .explore-tile,
+  body.usertheme-synthwave:not(.dark-mode) .explore-card,
+  body.usertheme-synthwave:not(.dark-mode) .page-result{
+    background:#00FFE1 !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .bday-tile-card,
+  body.usertheme-synthwave:not(.dark-mode) .random-tile,
+  body.usertheme-synthwave:not(.dark-mode) .rec-item,
+  body.usertheme-synthwave:not(.dark-mode) .empty-card,
+  body.usertheme-synthwave:not(.dark-mode) .photo-tile,
+  body.usertheme-synthwave:not(.dark-mode) .sotw-card{
+    background:#CCFF00 !important;
+  }
+  /* Groups 2-4 (pink/cyan/green) all need dark text. Group 1 (purple) AND the fixed-
+     background "all" tile are the two exceptions needing WHITE text - both covered
+     explicitly below, after the blanket rule, so they win the tie. */
+  body.usertheme-synthwave:not(.dark-mode) .fac-tile,
+  body.usertheme-synthwave:not(.dark-mode) .fac-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .goodnews-tile,
+  body.usertheme-synthwave:not(.dark-mode) .goodnews-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .watch-tile,
+  body.usertheme-synthwave:not(.dark-mode) .watch-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .watch-card,
+  body.usertheme-synthwave:not(.dark-mode) .watch-card *,
+  body.usertheme-synthwave:not(.dark-mode) .otd-card,
+  body.usertheme-synthwave:not(.dark-mode) .otd-card *,
+  body.usertheme-synthwave:not(.dark-mode) .books-tile,
+  body.usertheme-synthwave:not(.dark-mode) .books-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-synthwave:not(.dark-mode) .mindtemple-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .explore-tile,
+  body.usertheme-synthwave:not(.dark-mode) .explore-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .explore-card,
+  body.usertheme-synthwave:not(.dark-mode) .explore-card *,
+  body.usertheme-synthwave:not(.dark-mode) .page-result,
+  body.usertheme-synthwave:not(.dark-mode) .page-result *,
+  body.usertheme-synthwave:not(.dark-mode) .bday-tile-card,
+  body.usertheme-synthwave:not(.dark-mode) .bday-tile-card *,
+  body.usertheme-synthwave:not(.dark-mode) .random-tile,
+  body.usertheme-synthwave:not(.dark-mode) .random-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .rec-item,
+  body.usertheme-synthwave:not(.dark-mode) .rec-item *,
+  body.usertheme-synthwave:not(.dark-mode) .empty-card,
+  body.usertheme-synthwave:not(.dark-mode) .empty-card *,
+  body.usertheme-synthwave:not(.dark-mode) .photo-tile,
+  body.usertheme-synthwave:not(.dark-mode) .photo-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .sotw-card,
+  body.usertheme-synthwave:not(.dark-mode) .sotw-card *{
+    color:#170B2E !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .sports-tile,
+  body.usertheme-synthwave:not(.dark-mode) .sports-tile *,
+  body.usertheme-synthwave:not(.dark-mode) .sports-card,
+  body.usertheme-synthwave:not(.dark-mode) .sports-card *,
+  body.usertheme-synthwave:not(.dark-mode) .fac-tile.all,
+  body.usertheme-synthwave:not(.dark-mode) .fac-tile.all *,
+  body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1),
+  body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+1) *{
+    color:#FEFEFE !important;
+  }
+
+  /* - Targeted overrides: same ~30 call sites audited for the prior dark-background
+     themes, reapplied here with the pushed-toxic colours. - */
+
+  /* --coral text call-sites (variable is vivid purple, background-role-optimised) */
+  body.usertheme-synthwave:not(.dark-mode) .random-btn:hover,
+  body.usertheme-synthwave:not(.dark-mode) .domain-summary:hover h2,
+  body.usertheme-synthwave:not(.dark-mode) a.headline:hover,
+  body.usertheme-synthwave:not(.dark-mode) .share-btn:hover,
+  body.usertheme-synthwave:not(.dark-mode) .rec-item a:hover,
+  body.usertheme-synthwave:not(.dark-mode) .wordle-message,
+  body.usertheme-synthwave:not(.dark-mode) .anagram-message,
+  body.usertheme-synthwave:not(.dark-mode) .page-result-icon,
+  body.usertheme-synthwave:not(.dark-mode) .bday-item.bday-cat-staff .bday-name,
+  body.usertheme-synthwave:not(.dark-mode) .bottom-tabs a:hover,
+  body.usertheme-synthwave:not(.dark-mode) .explore-card-name,
+  body.usertheme-synthwave:not(.dark-mode) .question-item div:nth-child(3){
+    color:#9FF7FF !important;
+  }
+
+  /* --coral-dark background call-site (variable is pale cyan, text-role-optimised) */
+  body.usertheme-synthwave:not(.dark-mode) .install-step-num{
+    background:#9D00FF !important;
+  }
+
+  /* --gold background call-sites (variable is pale cyan, text-role-optimised) */
+  body.usertheme-synthwave:not(.dark-mode) .bookmark-btn.active,
+  body.usertheme-synthwave:not(.dark-mode) .fg-bonus-tag,
+  body.usertheme-synthwave:not(.dark-mode) .bday-item.today{
+    background:#CCFF00 !important;
+    color:#170B2E !important;
+  }
+  body.usertheme-synthwave:not(.dark-mode) .bday-item.today .bday-name,
+  body.usertheme-synthwave:not(.dark-mode) .bday-item.today .bday-date{
+    color:#170B2E !important;
+  }
+
+  /* --teal background call-sites (variable is pale cyan, text-role-optimised) */
+  body.usertheme-synthwave:not(.dark-mode) .fg-option-btn.fg-correct,
+  body.usertheme-synthwave:not(.dark-mode) .anagram-btn.check,
+  body.usertheme-synthwave:not(.dark-mode) .hanoi-disc[data-size="3"],
+  body.usertheme-synthwave:not(.dark-mode) .event-cat-badge{
+/* ---- Train Your Brain colours ---- */
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#4E80F0 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#CCFF00 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"]{ background:#FF00C8 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="geo"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"]{ background:#00FFE1 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="puzzle"] *{ color:#0B0B0B !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"]{ background:#9D00FF !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#FFFFFF !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#B48080 !important; }
+  body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-synthwave:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+/* ---- refs ---- */
+    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus'];
+    ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','vintage','d1','dihl','darsenal','dvintage'].forEach(k => document.body.classList.remove('usertheme-' + k));
+    { key:'synthwave', label:'Synthwave', c1:'#FF00C8', c2:'#00FFE1' },
