@@ -2327,45 +2327,52 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     background:var(--nc,none) no-repeat 0 50% / contain; opacity:0; animation:nebConst 8s ease-in-out infinite; animation-delay:var(--nd,0s);
   }
   @keyframes nebConst{ 0%{opacity:0;} 18%,78%{opacity:1;} 100%{opacity:0;} }
-  /* 12. domain tiles: a planet instead of the icon */
-  body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon{ position:relative; display:inline-block; width:24px; height:24px; vertical-align:-6px; --pa:#C9A3FF; --pb:#5B2E91; }
+  /* 12. domain tiles: a solid planet (brighter shade of the tile colour) with a gleam sweeping across it at a different angle, speed and delay per planet */
+  body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon{ position:relative; display:inline-block; width:24px; height:24px; vertical-align:-6px; --pc:#C9A3FF; --ga:90deg; --g0:0% 50%; --g1:100% 50%; }
   body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon svg{ display:none; }
   body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::before{
     content:''; position:absolute; inset:2px; border-radius:50%;
-    transform:rotate(var(--ga,40deg));
-    background-image:
-      linear-gradient(90deg, transparent 38%, rgba(255,255,255,.75) 50%, transparent 62%),
-      radial-gradient(circle at 36% 30%, var(--pl,#D9B8FF), var(--pb,#8A5BD0) 58%, var(--pd,#2A0F52) 100%);
-    background-size:300% 100%, 100% 100%;
-    background-position:150% 0, 0 0;
-    background-repeat:no-repeat;
-    box-shadow:inset -4px -4px 7px rgba(0,0,0,.45), 0 0 8px rgba(224,200,255,.35);
-    animation:nebGleam 24s linear infinite;
+    background:radial-gradient(circle at 34% 30%, color-mix(in srgb, var(--pc) 70%, #fff), var(--pc) 52%, color-mix(in srgb, var(--pc) 45%, #000) 100%);
+    box-shadow:inset -3px -3px 6px rgba(0,0,0,.4), 0 0 9px color-mix(in srgb, var(--pc) 60%, transparent);
   }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+1) .fac-icon::before{ animation-duration:9s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+2) .fac-icon::before{ animation-duration:14s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+3) .fac-icon::before{ animation-duration:21s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+4) .fac-icon::before{ animation-duration:33s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+5) .fac-icon::before{ animation-duration:12s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+6) .fac-icon::before{ animation-duration:26s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+7) .fac-icon::before{ animation-duration:40s; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(3n+2) .fac-icon::before, body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+4) .fac-icon::before{ animation-direction:reverse; }
-  @keyframes nebGleam{ to{ background-position:-50% 0, 0 0; } }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+1) .fac-icon{ --pl:#D4C9DD; --pb:#9E84B2; --pd:#2B0747; --ga:10deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+2) .fac-icon{ --pl:#C7DCDE; --pb:#80AFB5; --pd:#00424B; --ga:77deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+3) .fac-icon{ --pl:#E5C9D8; --pb:#C584A8; --pd:#610738; --ga:98deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+4) .fac-icon{ --pl:#EADBD2; --pb:#D0AC98; --pd:#703F23; --ga:153deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+5) .fac-icon{ --pl:#CED4E7; --pb:#8F9CC9; --pd:#162967; --ga:208deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+6) .fac-icon{ --pl:#C9DED4; --pb:#85B59C; --pd:#084B29; --ga:236deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+7) .fac-icon{ --pl:#E2CED1; --pb:#BC8F96; --pd:#551620; --ga:284deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+8) .fac-icon{ --pl:#DBD1E7; --pb:#AD96C8; --pd:#402066; --ga:355deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+9) .fac-icon{ --pl:#C9DBE5; --pb:#84AEC4; --pd:#074061; --ga:33deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+10) .fac-icon{ --pl:#E5DBC7; --pb:#C4AC80; --pd:#613F00; --ga:66deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+11) .fac-icon{ --pl:#DECEE2; --pb:#B58FBC; --pd:#4B1655; --ga:121deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+12) .fac-icon{ --pl:#CDDEDC; --pb:#8DB5AE; --pd:#134B42; --ga:175deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+13) .fac-icon{ --pl:#E5D1DC; --pb:#C496AE; --pd:#612042; --ga:205deg; }
-  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(14n+14) .fac-icon{ --pl:#D4D7EA; --pb:#9DA4CE; --pd:#29346F; --ga:280deg; }
-  @media (prefers-reduced-motion:reduce){ #neb2-cloud-a,#neb2-cloud-b,body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::before{ animation:none; } body.usertheme-nebula:not(.dark-mode) .section-head::after{ animation:none; opacity:.8; } }
+  body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::after{
+    content:''; position:absolute; inset:2px; border-radius:50%;
+    background:linear-gradient(var(--ga), transparent 40%, rgba(255,255,255,.75) 50%, transparent 60%) var(--g0) / 300% 300% no-repeat;
+    animation:nebGleam 4s ease-in-out infinite; animation-delay:var(--gd,0s);
+  }
+  @keyframes nebGleam{ 0%{ background-position:var(--g0); } 72%,100%{ background-position:var(--g1); } }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+1) .fac-icon{ --pc:#B06CFF; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+2) .fac-icon{ --pc:#2CD0E4; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+3) .fac-icon{ --pc:#FF5CA8; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+4) .fac-icon{ --pc:#FFA066; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+5) .fac-icon{ --pc:#6C8CFF; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+6) .fac-icon{ --pc:#3DDC84; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+7) .fac-icon{ --pc:#FF6B7F; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+8) .fac-icon{ --pc:#9B7BFF; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+9) .fac-icon{ --pc:#4DB8FF; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+10) .fac-icon{ --pc:#FFC233; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+11) .fac-icon{ --pc:#E36BFF; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+12) .fac-icon{ --pc:#4FE3C5; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+13) .fac-icon{ --pc:#FF7EC0; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(14n+14) .fac-icon{ --pc:#8FA0FF; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+1) .fac-icon{ --ga:90deg; --g0:0% 50%; --g1:100% 50%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+2) .fac-icon{ --ga:180deg; --g0:50% 0%; --g1:50% 100%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+3) .fac-icon{ --ga:135deg; --g0:0% 0%; --g1:100% 100%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+4) .fac-icon{ --ga:225deg; --g0:100% 0%; --g1:0% 100%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+5) .fac-icon{ --ga:270deg; --g0:100% 50%; --g1:0% 50%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+6) .fac-icon{ --ga:0deg; --g0:50% 100%; --g1:50% 0%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+7) .fac-icon{ --ga:315deg; --g0:100% 100%; --g1:0% 0%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(8n+8) .fac-icon{ --ga:45deg; --g0:0% 100%; --g1:100% 0%; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+1) .fac-icon::after{ animation-duration:2.6s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+2) .fac-icon::after{ animation-duration:4.1s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+3) .fac-icon::after{ animation-duration:6.2s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+4) .fac-icon::after{ animation-duration:3.3s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+5) .fac-icon::after{ animation-duration:5.2s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+6) .fac-icon::after{ animation-duration:7.4s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(7n+7) .fac-icon::after{ animation-duration:3.8s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(3n+2) .fac-icon::after, body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(5n+4) .fac-icon::after{ animation-delay:-1.7s; }
+  body.usertheme-nebula:not(.dark-mode) .faculties .fac-tile:nth-child(4n+3) .fac-icon::after{ animation-delay:-0.6s; }
+  @media (prefers-reduced-motion:reduce){ #neb2-cloud-a,#neb2-cloud-b,body.usertheme-nebula:not(.dark-mode) .fac-tile .fac-icon::after{ animation:none; background-position:50% 50%; } body.usertheme-nebula:not(.dark-mode) .section-head::after{ animation:none; opacity:.8; } }
 
   /* 16. tiles lean toward your finger, and tip a little as you scroll (JS sets --rx/--ry on the tile, --lean on <html>) */
   body.usertheme-nebula:not(.dark-mode) .fac-tile,
