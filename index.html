@@ -4503,6 +4503,46 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#FFFFFF !important; }
   body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:#DC976D !important; }
   body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#0B0B0B !important; }
+
+  /* ===== BAZAAR v2 (25 Oct 2026) - ideas pass. To revert: delete to 'END BAZAAR v2' + the 'BAZAAR v2' JS IIFE (v1 saved in backups/bazaar-v1.txt). ===== */
+  /* 5 woven-cloth page texture */
+  html:has(body.usertheme-bazaar:not(.dark-mode))::before{ content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:repeating-linear-gradient(0deg,rgba(255,235,200,.022) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 1px,transparent 1px 3px); }
+  /* 1 spice mounds in tile corners */
+  body.usertheme-bazaar:not(.dark-mode) .faculties .fac-tile:not(.all){ position:relative; }
+  body.usertheme-bazaar:not(.dark-mode) .faculties .fac-tile:not(.all)::after{ content:''; position:absolute; right:10px; bottom:8px; width:44px; height:30px; pointer-events:none; opacity:.6; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='30'%3E%3Cpath d='M2 29 Q12 6 22 3 Q32 6 42 29 Z' fill='%23E8B923'/%3E%3Cg fill='%23fff' opacity='.35'%3E%3Ccircle cx='16' cy='20' r='1.2'/%3E%3Ccircle cx='24' cy='14' r='1.2'/%3E%3Ccircle cx='28' cy='23' r='1.2'/%3E%3Ccircle cx='20' cy='25' r='1.2'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat; }
+  body.usertheme-bazaar:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+2)::after{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='30'%3E%3Cpath d='M2 29 Q12 6 22 3 Q32 6 42 29 Z' fill='%23D0301F'/%3E%3Cg fill='%23fff' opacity='.35'%3E%3Ccircle cx='16' cy='20' r='1.2'/%3E%3Ccircle cx='24' cy='14' r='1.2'/%3E%3Ccircle cx='28' cy='23' r='1.2'/%3E%3Ccircle cx='20' cy='25' r='1.2'/%3E%3C/g%3E%3C/svg%3E"); }
+  body.usertheme-bazaar:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+3)::after{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='30'%3E%3Cpath d='M2 29 Q12 6 22 3 Q32 6 42 29 Z' fill='%23A9C04F'/%3E%3Cg fill='%23fff' opacity='.35'%3E%3Ccircle cx='16' cy='20' r='1.2'/%3E%3Ccircle cx='24' cy='14' r='1.2'/%3E%3Ccircle cx='28' cy='23' r='1.2'/%3E%3Ccircle cx='20' cy='25' r='1.2'/%3E%3C/g%3E%3C/svg%3E"); }
+  body.usertheme-bazaar:not(.dark-mode) .faculties .fac-tile:not(.all):nth-child(4n+4)::after{ background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='30'%3E%3Cpath d='M2 29 Q12 6 22 3 Q32 6 42 29 Z' fill='%23EDBBCB'/%3E%3Cg fill='%23fff' opacity='.35'%3E%3Ccircle cx='16' cy='20' r='1.2'/%3E%3Ccircle cx='24' cy='14' r='1.2'/%3E%3Ccircle cx='28' cy='23' r='1.2'/%3E%3Ccircle cx='20' cy='25' r='1.2'/%3E%3C/g%3E%3C/svg%3E"); }
+  /* 8 stall awnings (sway) + 2 suzani flower border + 4 brass scale on headings */
+  body.usertheme-bazaar:not(.dark-mode) .section-head{ position:relative; margin-top:20px; padding-bottom:16px; }
+  body.usertheme-bazaar:not(.dark-mode) .section-head::before{ content:''; position:absolute; left:0; right:0; top:-12px; height:11px; pointer-events:none; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='11'%3E%3Crect width='12' height='6' fill='%23B3261E'/%3E%3Crect x='12' width='12' height='6' fill='%23F0D6A0'/%3E%3Cpath d='M0 6 A6 5 0 0 0 12 6 Z' fill='%23B3261E'/%3E%3Cpath d='M12 6 A6 5 0 0 0 24 6 Z' fill='%23F0D6A0'/%3E%3C/svg%3E") 0 0/24px 11px repeat-x; opacity:.9; transform-origin:top center; animation:bzSway 5s ease-in-out infinite alternate; }
+  body.usertheme-bazaar:not(.dark-mode) .section-head:nth-of-type(2n)::before{ animation-duration:6.4s; animation-delay:-2s; }
+  @keyframes bzSway{ from{ transform:rotate(-.35deg); } to{ transform:rotate(.35deg); } }
+  body.usertheme-bazaar:not(.dark-mode) .section-head::after{ content:''; position:absolute; left:0; right:0; bottom:0; height:12px; pointer-events:none; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='12'%3E%3Cg fill='none' stroke='%23F0D6A0' stroke-width='1.2'%3E%3Ccircle cx='17' cy='6' r='2.2' fill='%23C5510B'/%3E%3Cpath d='M17 3.8 Q14 1 12 3 Q13 5 15 5.5 M17 8.2 Q20 11 22 9 Q21 7 19 6.5 M14.8 6 Q11 5 10 8 Q13 9 15 7.5 M19.2 6 Q23 7 24 4 Q21 3 19 4.5'/%3E%3Cpath d='M0 6 H8 M26 6 H34' stroke-dasharray='2 2'/%3E%3C/g%3E%3C/svg%3E") 0 0/34px 12px repeat-x; opacity:.85; }
+  body.usertheme-bazaar:not(.dark-mode) .section-head h2::after{ content:''; display:inline-block; width:24px; height:18px; margin-left:10px; vertical-align:-2px; background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='18' viewBox='0 0 24 18'%3E%3Cg stroke='%23F0D6A0' fill='none' stroke-width='1.4'%3E%3Cpath d='M12 2V16M7 16H17M3 5H21'/%3E%3Cpath d='M3 5L1 11H7Z' fill='%23F0D6A0' fill-opacity='.35'/%3E%3Cpath d='M21 5L17 11H23Z' fill='%23F0D6A0' fill-opacity='.35'/%3E%3C/g%3E%3Ccircle cx='12' cy='2' r='1.6' fill='%23F0D6A0'/%3E%3C/svg%3E") center/contain no-repeat; transform:rotate(var(--bz-tilt,0deg)); transform-origin:50% 25%; transition:transform .25s ease-out; }
+  /* 2 ikat band along the header's bottom edge */
+  body.usertheme-bazaar:not(.dark-mode) header{ background-image:repeating-linear-gradient(90deg,#6C0D07 0 15px,#F0D6A0 15px 19px,#7D6824 19px 33px,#98576A 33px 37px,#F0D6A0 37px 39px); background-size:100% 9px; background-position:0 100%; background-repeat:no-repeat; padding-bottom:20px !important; }
+  /* 3 swinging lanterns */
+  .bz-lan{ position:fixed; top:0; z-index:22; pointer-events:none; transform-origin:50% 0; }
+  .bz-lan .s{ width:1px; margin:0 auto; background:#F0D6A0; opacity:.7; }
+  .bz-lan .g{ position:absolute; left:50%; top:100%; width:120px; height:120px; margin:-30px 0 0 -60px; border-radius:50%; background:radial-gradient(circle,rgba(255,200,110,.32),transparent 68%); animation:bazaarLanternFlicker 2.8s ease-in-out infinite; }
+  /* 6 coin sheen, 7 haggle tag */
+  #bz-sheen{ position:absolute; top:16px; right:18px; width:30px; height:30px; border-radius:50%; overflow:hidden; z-index:2; pointer-events:none; }
+  #bz-sheen i{ position:absolute; top:-10px; bottom:-10px; width:12px; left:-16px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),transparent); transform:rotate(25deg); animation:bzGlint 4.6s ease-in-out infinite; }
+  @keyframes bzGlint{ 0%,70%{ left:-16px; } 100%{ left:34px; } }
+  #bz-tag{ position:fixed; z-index:99990; min-width:96px; padding:6px 12px; background:#F0D6A0; color:#6C0D07 !important; border:2px solid #6C0D07; border-radius:3px 12px 3px 12px; font-weight:800; font-size:16px; text-align:center; pointer-events:none; box-shadow:2px 3px 0 rgba(0,0,0,.35); }
+  /* 10 tea glass (interactive) */
+  #bz-tea{ position:fixed; left:12px; z-index:30; width:30px; height:42px; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  #bz-tea svg{ width:100%; height:100%; overflow:visible; }
+  /* 13 scroll haze */
+  #bz-haze{ position:fixed; inset:0; z-index:5; pointer-events:none; opacity:0; background:radial-gradient(ellipse at 50% 60%,rgba(240,214,160,.55),rgba(200,140,70,.25) 60%,transparent 90%); }
+  /* 12 beaded curtain */
+  #bz-curtain{ position:fixed; inset:0; z-index:100000; display:flex; background:#1A100A; overflow:hidden; }
+  #bz-curtain .b{ flex:1; height:100%; position:relative; transform-origin:50% 0; }
+  #bz-curtain .b::before{ content:''; position:absolute; left:50%; top:0; bottom:0; width:1px; background:rgba(240,214,160,.35); }
+  @media (prefers-reduced-motion:reduce){ body.usertheme-bazaar:not(.dark-mode) .section-head::before, #bz-sheen i, .bz-lan .g{ animation:none !important; } }
+  /* ===== END BAZAAR v2 ===== */
   body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#1C9A40 !important; }
   body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#0B0B0B !important; }
   body.usertheme-hacker:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#0A3D18 !important; }
@@ -39304,6 +39344,142 @@ function setCornersNoZoom(active){
   }
   setInterval(life, 700); life();
   window._svReel = () => { reeled = false; reel(); };
+})();
+
+// ===== BAZAAR v2 (JS): beaded-curtain intro, swinging lanterns, coin sheen + haggle, interactive tea pour, pomegranate pop, scale tilt on scroll, scroll dust haze =====
+(function(){
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const body = document.body, root = document.documentElement;
+  const on = () => body.classList.contains('usertheme-bazaar') && !body.classList.contains('dark-mode');
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const BEAD = ['#C5510B', '#F0D6A0', '#B3261E', '#7D6824', '#98576A', '#E8B923'];
+  // ---- 12 beaded curtain on load ----
+  let curtained = false;
+  function curtain(){
+    if(curtained || rm) return; curtained = true;
+    const c = document.createElement('div'); c.id = 'bz-curtain';
+    const N = 22, strings = [];
+    for(let i = 0; i < N; i++){
+      const b = document.createElement('div'); b.className = 'b';
+      const cols = Array.from({ length: 4 }, () => pick(BEAD)).map(x => `radial-gradient(circle at 50% 8px,${x} 5px,rgba(0,0,0,.45) 5.6px,transparent 6.4px) 0 0/100% 17px repeat-y`);
+      b.style.background = cols[0]; b.style.backgroundImage = cols.map((x, k) => k === 0 ? x.split(' 0 0/')[0] : x.split(' 0 0/')[0]).join(',');
+      c.appendChild(b); strings.push(b);
+    }
+    // simple: one colour per string
+    strings.forEach(b => { const x = pick(BEAD); b.style.backgroundImage = `radial-gradient(circle at 50% 8px,${x} 5px,rgba(0,0,0,.45) 5.6px,transparent 6.4px)`; b.style.backgroundSize = '100% 17px'; b.style.backgroundRepeat = 'repeat-y'; });
+    body.appendChild(c);
+    let done = false; const end = () => { if(done) return; done = true; c.remove(); };
+    c.addEventListener('pointerdown', end);
+    strings.forEach((b, i) => {
+      const side = i < N / 2 ? -1 : 1, d = Math.abs(i - (N - 1) / 2);
+      b.animate([{ transform: 'rotate(0deg)' }, { transform: 'rotate(2deg)', offset: .3 }, { transform: 'rotate(-2deg)', offset: .5 }, { transform: `translateX(${side * (50 + d * 18)}vw) rotate(${side * 30}deg)`, opacity: 0 }], { duration: 1500, delay: d * 22, easing: 'ease-in', fill: 'forwards' });
+    });
+    c.animate([{ backgroundColor: '#1A100A' }, { backgroundColor: '#1A100A', offset: .45 }, { backgroundColor: 'rgba(26,16,10,0)' }], { duration: 1500, fill: 'forwards' }).onfinish = end;
+    setTimeout(end, 2400);
+  }
+  // ---- 3 lanterns ----
+  let lans = [];
+  function lanternSvg(){ return '<svg xmlns="http://www.w3.org/2000/svg" width="26" height="40" viewBox="0 0 26 40"><path d="M9 3h8l2 4H7z" fill="#6C0D07" stroke="#F0D6A0" stroke-width="1"/><path d="M7 7h12l4 11-4 11H7L3 18z" fill="#C5510B" stroke="#F0D6A0" stroke-width="1.2"/><path d="M13 7v22M7 7L5 18l2 11M19 7l2 11-2 11" stroke="#F0D6A0" stroke-width=".8" fill="none" opacity=".8"/><ellipse cx="13" cy="18" rx="3.5" ry="6" fill="#FFE29A" opacity=".85"/><path d="M8 29h10l-2 3H10z" fill="#6C0D07" stroke="#F0D6A0" stroke-width="1"/><path d="M13 32v5" stroke="#F0D6A0" stroke-width="1.4"/><circle cx="13" cy="38" r="1.6" fill="#E8B923"/></svg>'; }
+  function buildLanterns(){
+    [[14, 52], [null, 84]].forEach((d, i) => {
+      const l = document.createElement('div'); l.className = 'bz-lan';
+      if(d[0] != null) l.style.left = d[0] + 'px'; else l.style.right = '10px';
+      l.innerHTML = `<div class="s" style="height:${d[1]}px"></div><div style="position:relative;width:26px;height:40px">${lanternSvg()}<div class="g"></div></div>`;
+      body.appendChild(l); lans.push(l);
+      if(!rm) l.animate([{ transform: 'rotate(-6deg)' }, { transform: 'rotate(6deg)' }], { duration: 3600 + i * 900, iterations: Infinity, direction: 'alternate', easing: 'ease-in-out', delay: -i * 1300 });
+    });
+  }
+  // ---- 6 coin sheen + 7 haggle ----
+  let lastXp = 0, haggling = false;
+  function header(){
+    const h = document.querySelector('header'); if(!h || document.getElementById('bz-sheen')) return;
+    const s = document.createElement('div'); s.id = 'bz-sheen'; s.innerHTML = '<i></i>'; h.appendChild(s);
+  }
+  function haggle(x, y){
+    if(haggling) return; haggling = true;
+    const t = document.createElement('div'); t.id = 'bz-tag'; t.style.left = Math.max(8, x - 110) + 'px'; t.style.top = (y + 22) + 'px'; body.appendChild(t);
+    const steps = ['PRICE 50', 'PRICE 40', 'PRICE 30', 'SOLD!'], t0 = performance.now(); let shown = -1, fin = false;
+    const tick = now => {
+      const el = now - t0, k = Math.min(3, Math.floor(el / 420));
+      if(k !== shown){ shown = k; t.textContent = steps[k]; t.animate([{ transform: 'rotateX(90deg)' }, { transform: 'rotateX(0)' }], { duration: 220, easing: 'ease-out' });
+        if(k === 3 && Date.now() - lastXp > 20 * 60000){ lastXp = Date.now(); try{ const g = (window.LoungeXP && LoungeXP.award) ? LoungeXP.award(3, 'haggle') : 0; if(g) t.textContent = 'SOLD! +' + g + ' XP'; }catch(e){} } }
+      if(el > 420 * 4 + 700){ if(!fin){ fin = true; t.remove(); haggling = false; } return; }
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    setTimeout(() => { if(!fin){ fin = true; t.remove(); haggling = false; } }, 5000);
+  }
+  // ---- 10 tea ----
+  let tea = null, pouring = false;
+  function buildTea(){
+    tea = document.createElement('div'); tea.id = 'bz-tea'; tea.setAttribute('role', 'button'); tea.setAttribute('aria-label', 'Pour tea');
+    tea.innerHTML = '<svg viewBox="0 0 30 42"><defs><clipPath id="bzc"><path d="M5 12h20l-2 26a3 3 0 0 1-3 2H10a3 3 0 0 1-3-2z"/></clipPath></defs><g clip-path="url(#bzc)"><rect id="bz-fill" x="0" y="12" width="30" height="30" fill="#C46A1D" style="transform-origin:0 40px;transform:scaleY(.55)"/></g><path d="M5 12h20l-2 26a3 3 0 0 1-3 2H10a3 3 0 0 1-3-2z" fill="rgba(240,214,160,.12)" stroke="#F0D6A0" stroke-width="1.6"/><path d="M5 12 Q15 9 25 12" stroke="#F0D6A0" stroke-width="1.6" fill="none"/></svg>';
+    tea.addEventListener('click', e => { e.stopPropagation(); pour(); });
+    body.appendChild(tea); placeTea();
+  }
+  function placeTea(){ if(!tea) return; const t = document.getElementById('bottomTabs'), r = t && t.getBoundingClientRect(); tea.style.bottom = ((r && r.height ? innerHeight - r.top : 62) + 12) + 'px'; }
+  function pour(){
+    if(pouring || rm) return; pouring = true;
+    const pot = document.createElement('div'); const r = tea.getBoundingClientRect();
+    pot.style.cssText = `position:fixed;left:${r.left - 6}px;top:${r.top - 58}px;width:44px;height:40px;z-index:31;pointer-events:none;transform-origin:20% 80%;`;
+    pot.innerHTML = '<svg viewBox="0 0 44 40" width="44" height="40"><path d="M6 14h22l2 14a6 6 0 0 1-6 6H10a6 6 0 0 1-6-6z" fill="#B3261E" stroke="#F0D6A0" stroke-width="1.4"/><path d="M28 16l10-6 2 3-9 8" fill="#B3261E" stroke="#F0D6A0" stroke-width="1.4"/><path d="M6 17Q0 18 3 26" fill="none" stroke="#F0D6A0" stroke-width="2"/><rect x="12" y="10" width="10" height="4" rx="2" fill="#E8B923"/></svg>';
+    body.appendChild(pot);
+    const stream = document.createElement('div'); stream.style.cssText = `position:fixed;left:${r.left + 22}px;top:${r.top - 38}px;width:2px;height:34px;z-index:31;pointer-events:none;background:linear-gradient(#E0A64A,#C46A1D);transform-origin:top;border-radius:1px;`; body.appendChild(stream);
+    pot.animate([{ transform: 'rotate(0deg)', opacity: 0 }, { transform: 'rotate(-28deg)', opacity: 1, offset: .25 }, { transform: 'rotate(-28deg)', opacity: 1, offset: .75 }, { transform: 'rotate(0deg)', opacity: 0 }], { duration: 1900, easing: 'ease-in-out' }).onfinish = () => pot.remove();
+    stream.animate([{ transform: 'scaleY(0)', opacity: 0 }, { transform: 'scaleY(0)', opacity: 0, offset: .22 }, { transform: 'scaleY(1)', opacity: 1, offset: .32 }, { transform: 'scaleY(1)', opacity: 1, offset: .7 }, { transform: 'scaleY(0)', opacity: 0 }], { duration: 1900 }).onfinish = () => stream.remove();
+    const f = tea.querySelector('#bz-fill'); f.animate([{ transform: 'scaleY(.3)' }, { transform: 'scaleY(.3)', offset: .3 }, { transform: 'scaleY(.9)', offset: .7 }, { transform: 'scaleY(.9)' }], { duration: 1900, fill: 'forwards' });
+    const lb = document.createElement('div'); lb.textContent = 'chai'; lb.style.cssText = `position:fixed;left:${r.left + 34}px;top:${r.top + 4}px;z-index:31;pointer-events:none;color:#F0D6A0;font-weight:800;font-size:16px;text-shadow:0 1px 3px rgba(0,0,0,.6);`; body.appendChild(lb);
+    lb.animate([{ opacity: 0, transform: 'translateY(0)' }, { opacity: 1, offset: .5 }, { opacity: 0, transform: 'translateY(-26px)' }], { duration: 1900, delay: 700, fill: 'both' }).onfinish = () => lb.remove();
+    setTimeout(() => { pouring = false; }, 2200);
+  }
+  // ---- 9 pomegranate pop ----
+  function pop(x, y){
+    for(let i = 0; i < 11; i++){
+      const d = document.createElement('div'), a = rnd(0, Math.PI * 2), v = rnd(30, 95), sz = rnd(4, 7);
+      d.style.cssText = `position:fixed;left:${x}px;top:${y}px;width:${sz}px;height:${sz * 1.4}px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#FF6B6B,#B3122B 60%);z-index:99990;pointer-events:none;`;
+      body.appendChild(d);
+      const dx = Math.cos(a) * v, dy = Math.sin(a) * v - 25;
+      d.animate([{ transform: 'translate(0,0)', opacity: 1 }, { transform: `translate(${dx * .6}px,${dy * .6}px)`, opacity: 1, offset: .35 }, { transform: `translate(${dx}px,${dy + 70}px) rotate(${rnd(-90, 90)}deg)`, opacity: 0 }], { duration: rnd(650, 950), easing: 'ease-out' }).onfinish = () => d.remove();
+    }
+  }
+  // ---- 13 haze + puffs, 4 scale tilt ----
+  let haze = null, lsy = window.scrollY || 0, v = 0, ticking = false, live = 0;
+  function buildHaze(){ haze = document.createElement('div'); haze.id = 'bz-haze'; body.appendChild(haze); }
+  window.addEventListener('scroll', () => {
+    if(!on()) return;
+    const y = window.scrollY || 0, dy = y - lsy; lsy = y;
+    root.style.setProperty('--bz-tilt', (Math.sin(y / 90) * 14).toFixed(1) + 'deg');
+    if(rm) return;
+    v = v * .6 + Math.abs(dy) * .4;
+    if(haze) haze.style.opacity = Math.min(.14, v / 600).toFixed(3);
+    if(Math.abs(dy) > 22 && live < 30){
+      for(let i = 0; i < 2; i++){
+        live++; const p = document.createElement('div'), sz = rnd(8, 18);
+        p.style.cssText = `position:fixed;left:${rnd(0, innerWidth)}px;top:${rnd(innerHeight * .25, innerHeight * .9)}px;width:${sz}px;height:${sz}px;border-radius:50%;background:radial-gradient(circle,rgba(240,214,160,.55),transparent 70%);z-index:6;pointer-events:none;`;
+        body.appendChild(p);
+        p.animate([{ transform: 'translateY(0) scale(.6)', opacity: .8 }, { transform: `translateY(${dy > 0 ? -70 : 70}px) scale(1.8)`, opacity: 0 }], { duration: rnd(600, 1000), easing: 'ease-out' }).onfinish = () => { p.remove(); live--; };
+      }
+    }
+  }, { passive: true });
+  setInterval(() => { if(haze && v > .5){ v *= .8; haze.style.opacity = Math.min(.14, v / 600).toFixed(3); } }, 120);
+  // ---- clicks: coin = haggle, tiles = pomegranate ----
+  document.addEventListener('click', e => {
+    if(!on() || rm) return;
+    const h = document.querySelector('header');
+    if(h){ const r = h.getBoundingClientRect(); if(e.clientX > r.right - 52 && e.clientX < r.right - 14 && e.clientY > r.top + 12 && e.clientY < r.top + 50){ haggle(e.clientX, e.clientY); return; } }
+    if(e.target.closest && e.target.closest('.fac-tile, .sport-hub-tile, .sports-tile, .goodnews-tile, .watch-tile, .books-tile, .mindtemple-tile, .explore-tile')) pop(e.clientX, e.clientY);
+  }, true);
+  window.addEventListener('resize', placeTea);
+  function life(){
+    if(on()){ curtain(); if(!lans.length) buildLanterns(); header(); if(!tea) buildTea(); else placeTea(); if(!haze) buildHaze(); }
+    else{
+      lans.forEach(l => l.remove()); lans = [];
+      ['bz-sheen', 'bz-tea', 'bz-haze'].forEach(id => { const e = document.getElementById(id); if(e) e.remove(); }); tea = null; haze = null;
+    }
+  }
+  setInterval(life, 800); life();
+  window._bzCurtain = () => { curtained = false; curtain(); };
 })();
 </script>
 
