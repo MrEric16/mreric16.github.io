@@ -39203,7 +39203,13 @@ function setCornersNoZoom(active){
     items.forEach(it => { const v = (((it.y0 - y * it.k) % H) + H) % H - 120; it.w.style.transform = `translate3d(${it.x}px,${v}px,0)`; });
   }
   window.addEventListener('scroll', () => { if(layer) requestAnimationFrame(place); }, { passive: true });
-  // ---- newsprint ticker ----
+  // ---- newsprint ticker (date, Tashkent weather from data/weather-live.json, level) ----
+  const WXI = { 'clear-day': '\u2600\uFE0F', 'partly-cloudy': '\u26C5', 'cloudy': '\u2601\uFE0F', 'fog': '\uD83C\uDF2B\uFE0F', 'drizzle': '\uD83C\uDF26\uFE0F', 'rain': '\uD83C\uDF27\uFE0F', 'snow': '\uD83C\uDF28\uFE0F', 'storm': '\u26C8\uFE0F' };
+  let wx = null, wxT = 0;
+  function loadWx(){
+    if(Date.now() - wxT < 60000) return; wxT = Date.now();
+    fetch('./data/weather-live.json', { cache: 'no-store' }).then(r => r.json()).then(j => { wx = (j.locations || []).find(l => l.city === 'Tashkent') || null; const n = document.getElementById('sv-news'); if(n) n._t = 0; }).catch(() => {});
+  }
   function news(){
     const h = document.querySelector('header'); if(!h) return;
     let n = document.getElementById('sv-news');
@@ -39211,10 +39217,8 @@ function setCornersNoZoom(active){
     if(Date.now() - n._t < 20000 && n.firstChild.textContent) return; n._t = Date.now();
     const parts = [], d = new Date();
     parts.push('TODAY: ' + d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Tashkent' }).toUpperCase());
-    try{
-      const nx = clubNextFixtureInfo(CLUB_REGISTRY.find(c => c.key === 'arsenal'));
-      if(nx && nx.start){ const ms = new Date(nx.start) - Date.now(); if(ms > 0){ const dd = Math.floor(ms / 864e5), hh = Math.floor(ms % 864e5 / 36e5); parts.push('NEXT MATCH: ' + nx.title.replace(/\s*\(.*\)/, '').toUpperCase() + ' IN ' + (dd ? dd + 'D ' : '') + hh + 'H'); } }
-    }catch(e){}
+    if(wx) parts.push('TASHKENT: ' + (WXI[wx.iconKey] || '') + ' ' + wx.tempC + '\u00B0C, ' + String(wx.label).toUpperCase() + ', WIND ' + wx.windKn + ' KN');
+    else loadWx();
     const lv = document.querySelector('.lv-pill'); if(lv) parts.push(lv.textContent.replace(/\W+/g, ' ').trim().toUpperCase());
     parts.push('STUDY. READ. PLAY.');
     n.firstChild.textContent = parts.join('   ★   ');
