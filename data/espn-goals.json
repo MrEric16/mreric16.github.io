@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T01:24:12.698321Z",
+ "generatedAt": "2026-10-25T06:22:49.888315Z",
  "results": [
   {
    "url": "espn:401879256",
@@ -5907,6 +5907,34 @@
     }
    ],
    "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401879275",
+   "date": "2026-09-18",
+   "utc": "2026-09-18T19:00Z",
+   "home": "Brentford",
+   "away": "Chelsea",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. Anthony",
+     "minute": 61
+    },
+    {
+     "scorer": "I. Thiago",
+     "minute": 83
+    },
+    {
+     "scorer": "F. Carvalho",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
    "complete": true
   },
   {
