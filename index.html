@@ -39060,14 +39060,14 @@ function setCornersNoZoom(active){
     G.animate([{ transform: 'scaleX(.15)', opacity: .4 }, { transform: 'scaleX(1)', opacity: 1, offset: .5 }, { transform: 'scaleX(1)', opacity: 1 }], { duration: 650, fill: 'forwards' });
     const op = { duration: 700, delay: 650, easing: 'cubic-bezier(.7,0,.9,.4)', fill: 'forwards' };
     L.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(-102%)' }], op);
-    R.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(102%)' }], op);
+    R.animate([{ transform: 'translateX(0)' }, { transform: 'translateX(102%)' }], op).onfinish = end;
     G.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 500, delay: 800, fill: 'forwards' });
-    setTimeout(end, 1500);
+    setTimeout(end, 2200);
   }
   // ---- crowd pulse: tap the rosette (top right of header) ----
   document.addEventListener('click', e => {
     if(!on() || rm) return;
-    const h = document.querySelector('header'); if(!h || !h.contains(e.target)) return;
+    const h = document.querySelector('header'); if(!h) return;
     const r = h.getBoundingClientRect(), x = e.clientX, y = e.clientY;
     if(x < r.right - 70 || x > r.right - 6 || y < r.top + 2 || y > r.top + 90) return;
     const cx = r.right - 38, cy = r.top + 41;
