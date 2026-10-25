@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T21:05:56.350492Z",
+ "generatedAt": "2026-10-25T23:24:15.817991Z",
  "results": [
   {
    "url": "espn:401879254",
@@ -194,6 +194,35 @@
    "complete": true
   },
   {
+   "url": "espn:401882832",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T20:00Z",
+   "home": "Barça",
+   "away": "Real Madrid",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "Raphinha",
+     "minute": 61
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "K. Mbappé",
+     "minute": 41
+    },
+    {
+     "scorer": "K. Mbappé",
+     "minute": 87
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
    "url": "espn:401884760",
    "date": "2026-10-25",
    "utc": "2026-10-25T14:30Z",
@@ -371,6 +400,30 @@
     {
      "scorer": "D. Luiz",
      "minute": 41
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874779",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T19:45Z",
+   "home": "Udinese",
+   "away": "Milan",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "C. Pulisic",
+     "minute": 6
+    },
+    {
+     "scorer": "O. Hutchinson",
+     "minute": 65
     }
    ],
    "competition": "SA",
