@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-25T18:29:37.457892Z",
+ "generatedAt": "2026-10-25T21:05:56.350492Z",
  "results": [
   {
    "url": "espn:401879254",
@@ -165,6 +165,35 @@
    "complete": true
   },
   {
+   "url": "espn:401882829",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T17:30Z",
+   "home": "Real Sociedad",
+   "away": "Levante",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "O. Óskarsson",
+     "minute": 6
+    },
+    {
+     "scorer": "B. Turrientes",
+     "minute": 27
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Pérez",
+     "minute": 22
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
    "url": "espn:401884760",
    "date": "2026-10-25",
    "utc": "2026-10-25T14:30Z",
@@ -320,6 +349,30 @@
     }
    ],
    "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874772",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T17:00Z",
+   "home": "Lecce",
+   "away": "Juventus",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "W. McKennie",
+     "minute": 29
+    },
+    {
+     "scorer": "D. Luiz",
+     "minute": 41
+    }
+   ],
    "competition": "SA",
    "complete": true
   },
