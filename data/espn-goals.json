@@ -1,6 +1,67 @@
 {
- "generatedAt": "2026-10-25T11:52:01.296921Z",
+ "generatedAt": "2026-10-25T15:10:48.434219Z",
  "results": [
+  {
+   "url": "espn:401882835",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T13:00Z",
+   "home": "Athletic",
+   "away": "Getafe",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "Á. Berenguer",
+     "minute": 17
+    },
+    {
+     "scorer": "I. Williams",
+     "minute": 35
+    },
+    {
+     "scorer": "A. Paredes",
+     "minute": 70
+    },
+    {
+     "scorer": "Y. Berchiche",
+     "minute": 88
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401875036",
+   "date": "2026-10-25",
+   "utc": "2026-10-25T11:30Z",
+   "home": "Inter",
+   "away": "Fiorentina",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Thuram",
+     "minute": "90+1"
+    },
+    {
+     "scorer": "P. Zielinski (pen)",
+     "minute": "90+7"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Á. Jiménez",
+     "minute": 65
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401879256",
    "date": "2026-10-24",
