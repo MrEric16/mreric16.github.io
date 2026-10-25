@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T09:55:28.982975Z",
+  "generatedAt": "2026-10-25T14:16:01.699130Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -32,6 +32,16 @@
       "pts": 46
     },
     {
+      "name": "OKMK",
+      "pld": 25,
+      "w": 12,
+      "d": 6,
+      "l": 7,
+      "gf": 36,
+      "ga": 32,
+      "pts": 42
+    },
+    {
       "name": "Nasaf Qarshi",
       "pld": 25,
       "w": 11,
@@ -59,16 +69,6 @@
       "l": 7,
       "gf": 39,
       "ga": 30,
-      "pts": 39
-    },
-    {
-      "name": "OKMK",
-      "pld": 24,
-      "w": 11,
-      "d": 6,
-      "l": 7,
-      "gf": 34,
-      "ga": 31,
       "pts": 39
     },
     {
@@ -133,12 +133,12 @@
     },
     {
       "name": "Kokand 1912",
-      "pld": 24,
+      "pld": 25,
       "w": 5,
       "d": 8,
-      "l": 11,
-      "gf": 24,
-      "ga": 34,
+      "l": 12,
+      "gf": 25,
+      "ga": 36,
       "pts": 23
     },
     {
@@ -163,6 +163,13 @@
     }
   ],
   "results": [
+    {
+      "home": "OKMK",
+      "away": "Kokand 1912",
+      "raw_time": "25.10. 11:00",
+      "homeScore": 2,
+      "awayScore": 1
+    },
     {
       "home": "Nasaf Qarshi",
       "away": "Sogdiana",
@@ -876,45 +883,9 @@
       "raw_time": "18.07. 15:00",
       "homeScore": 1,
       "awayScore": 2
-    },
-    {
-      "home": "Mashal Muborak",
-      "away": "Kokand 1912",
-      "raw_time": "17.07. 15:00",
-      "homeScore": 1,
-      "awayScore": 0
-    },
-    {
-      "home": "Navbahor Namangan",
-      "away": "OKMK",
-      "raw_time": "17.07. 15:00",
-      "homeScore": 2,
-      "awayScore": 3
-    },
-    {
-      "home": "Pakhtakor",
-      "away": "Lok. Tashkent",
-      "raw_time": "17.07. 15:00",
-      "homeScore": 1,
-      "awayScore": 1
     }
   ],
   "fixtures": [
-    {
-      "home": "OKMK",
-      "away": "Kokand 1912",
-      "raw_time": "25.10. 11:00"
-    },
-    {
-      "home": "Qizilqum",
-      "away": "Lok. Tashkent",
-      "raw_time": "25.10. 13:00"
-    },
-    {
-      "home": "Din. Samarkand",
-      "away": "Andijan",
-      "raw_time": "25.10. 13:15"
-    },
     {
       "home": "Xorazm Urganch",
       "away": "Navbahor Namangan",
