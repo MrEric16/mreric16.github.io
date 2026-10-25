@@ -4429,6 +4429,68 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="board"] *{ color:#0B0B0B !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"]{ background:repeating-radial-gradient(circle at 4px 4px, rgba(232,220,192,.14) 0, rgba(232,220,192,.14) 1.1px, transparent 1.6px, transparent 8px), #6B1D1D !important; }
   body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"], body.usertheme-soviet:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="card"] *{ color:#FFFFFF !important; }
+
+  /* ===== SOVIET v2 (25 Oct 2026) - ideas pass. To revert: delete to 'END SOVIET v2' + the 'SOVIET v2' JS IIFE (v1 saved in backups/soviet-v1.txt). ===== */
+  /* the star badge (header::after) was always at opacity 0 via the generic header rule - make it show, it is the tap target for the shout */
+  body.usertheme-soviet:not(.dark-mode) header::after{ opacity:1; left:auto; bottom:auto; }
+  /* 1 rotating sunburst */
+  body.usertheme-soviet:not(.dark-mode) header::before{ animation:svSun 160s linear infinite; }
+  @keyframes svSun{ from{ transform:translate(-50%,-50%) rotate(0deg); } to{ transform:translate(-50%,-50%) rotate(360deg); } }
+  /* 3 fold creases + torn header edge */
+  html:has(body.usertheme-soviet:not(.dark-mode))::before{ content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      linear-gradient(90deg,transparent calc(50% - 7px),rgba(43,29,14,.07) calc(50% - 1px),rgba(255,250,235,.22) calc(50% + 1px),transparent calc(50% + 8px)),
+      linear-gradient(0deg,transparent calc(33% - 6px),rgba(43,29,14,.06) calc(33% - 1px),rgba(255,250,235,.2) calc(33% + 1px),transparent calc(33% + 7px)),
+      linear-gradient(0deg,transparent calc(66% - 6px),rgba(43,29,14,.06) calc(66% - 1px),rgba(255,250,235,.2) calc(66% + 1px),transparent calc(66% + 7px)); }
+  body.usertheme-soviet:not(.dark-mode) header{ clip-path:polygon(0 0,100% 0,100% 98%,96% 99.4%,92% 97.6%,87% 99.2%,81% 98%,76% 99.5%,70% 97.7%,64% 99.1%,58% 98.2%,52% 99.6%,46% 97.8%,40% 99.2%,34% 98%,28% 99.4%,22% 97.7%,16% 99.1%,10% 98.1%,5% 99.5%,0 98%); padding-bottom:36px !important; }
+  /* 15 film flicker (opacity only) */
+  html:has(body.usertheme-soviet:not(.dark-mode))::after{ content:''; position:fixed; inset:0; z-index:9990; pointer-events:none; background:#1B1208; opacity:0; animation:svFlick 3.1s steps(1) infinite; }
+  @keyframes svFlick{ 0%{opacity:0;} 6%{opacity:.035;} 9%{opacity:0;} 31%{opacity:.02;} 33%{opacity:0;} 58%{opacity:.04;} 60%{opacity:.01;} 62%{opacity:0;} 84%{opacity:.025;} 86%{opacity:0;} }
+  /* 2 misregistered ink + 4 poster headings (red block, tilted) */
+  body.usertheme-soviet:not(.dark-mode) .section-head h2{ position:relative; isolation:isolate; display:inline-block; padding:3px 12px; color:#E8DCC0 !important; text-shadow:1px 1px 0 rgba(43,29,14,.7) !important; transform:rotate(-3.5deg); transform-origin:left center; }
+  body.usertheme-soviet:not(.dark-mode) .section-head h2::before{ content:''; position:absolute; inset:0; z-index:-1; background:#AE352F; box-shadow:4px 4px 0 #363636; }
+  body.usertheme-soviet:not(.dark-mode) .section-head:nth-of-type(even) h2{ transform:rotate(2.8deg); }
+  body.usertheme-soviet:not(.dark-mode) .section-head:nth-of-type(even) h2::before{ background:#363636; box-shadow:4px 4px 0 #AE352F; }
+  body.usertheme-soviet:not(.dark-mode) .section-head{ padding-bottom:10px; }
+  /* 5 stamp + 6 rivets */
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all){ position:relative; }
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all)::after{ content:''; position:absolute; right:8px; bottom:8px; width:46px; height:46px; pointer-events:none; opacity:.14; transform:rotate(-16deg); background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60'%3E%3Cg fill='none' stroke='%23E8DCC0' stroke-width='2'%3E%3Ccircle cx='30' cy='30' r='27'/%3E%3Ccircle cx='30' cy='30' r='21' stroke-dasharray='3 3'/%3E%3C/g%3E%3Cpolygon points='30,15 34,26 46,26 36,33 40,45 30,38 20,45 24,33 14,26 26,26' fill='%23E8DCC0'/%3E%3C/svg%3E") center/contain no-repeat; }
+  body.usertheme-soviet:not(.dark-mode) .faculties .fac-tile:not(.all)::before{ content:''; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+    background:radial-gradient(circle at 8px 8px,rgba(232,220,192,.6) 2.2px,rgba(0,0,0,.35) 2.4px,transparent 3.4px),
+               radial-gradient(circle at calc(100% - 8px) 8px,rgba(232,220,192,.6) 2.2px,rgba(0,0,0,.35) 2.4px,transparent 3.4px),
+               radial-gradient(circle at 8px calc(100% - 8px),rgba(232,220,192,.6) 2.2px,rgba(0,0,0,.35) 2.4px,transparent 3.4px),
+               radial-gradient(circle at calc(100% - 8px) calc(100% - 8px),rgba(232,220,192,.6) 2.2px,rgba(0,0,0,.35) 2.4px,transparent 3.4px); }
+  /* 14 ink bleed on typed counts */
+  body.usertheme-soviet:not(.dark-mode) .fac-tile .count{ text-shadow:0 0 1px currentColor; }
+  /* 10 newsprint ticker, 8 shout, 11 stamps, 12 reel intro, 13 poster */
+  #sv-news{ position:absolute; left:10px; right:10px; bottom:12px; z-index:3; height:20px; overflow:hidden; background:#E8DCC0; border:1px solid #363636; color:#2B1D0E !important; font-size:12px; line-height:18px; white-space:nowrap; pointer-events:none; }
+  #sv-news span{ position:absolute; left:0; top:0; animation:svNews 38s linear infinite; font-weight:700; letter-spacing:.04em; }
+  @keyframes svNews{ from{ transform:translateX(100vw); } to{ transform:translateX(-100%); } }
+  #sv-shout{ position:fixed; left:0; right:0; top:90px; height:110px; z-index:99990; pointer-events:none; }
+  #sv-shout .w{ position:absolute; inset:0; transform-origin:100% 50%; }
+  #sv-shout .b{ position:absolute; inset:0; background:#363636; clip-path:polygon(100% 38%,0 -8%,0 108%,100% 62%); transform:translate(5px,6px); }
+  #sv-shout .r{ position:absolute; inset:0; background:#D34039; clip-path:polygon(100% 38%,0 -8%,0 108%,100% 62%); }
+  #sv-shout .t{ position:absolute; left:16px; top:0; bottom:0; display:flex; align-items:center; color:#E8DCC0; font-weight:900; font-size:34px; letter-spacing:.06em; transform:rotate(-4deg); text-shadow:3px 3px 0 #363636; white-space:nowrap; }
+  #sv-reel{ position:fixed; inset:0; z-index:100000; background:#D9CFB4; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  #sv-reel::before{ content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,transparent 35%,rgba(43,29,14,.55) 100%); }
+  #sv-reel .h, #sv-reel .v{ position:absolute; background:#2B1D0E; opacity:.7; }
+  #sv-reel .h{ left:0; right:0; top:50%; height:2px; } #sv-reel .v{ top:0; bottom:0; left:50%; width:2px; }
+  #sv-reel .c{ position:relative; width:230px; height:230px; border:5px solid #2B1D0E; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:140px; font-weight:900; color:#2B1D0E; line-height:1; }
+  #sv-reel .c::after{ content:''; position:absolute; inset:14px; border:2px solid #2B1D0E; border-radius:50%; }
+  #sv-reel .s{ position:absolute; top:0; bottom:0; width:1px; background:rgba(43,29,14,.45); }
+  #sv-poster{ position:fixed; inset:0; z-index:99995; background:#E8DCC0; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+  #sv-poster .a{ position:absolute; width:130vmax; height:34vmax; background:#D34039; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-24deg); }
+  #sv-poster .b{ position:absolute; width:130vmax; height:7vmax; background:#363636; left:50%; top:50%; transform:translate(-50%,-50%) rotate(-24deg) translateY(21vmax); }
+  #sv-poster .o{ position:absolute; width:60vmin; height:60vmin; border-radius:50%; background:#363636; right:-14vmin; top:-10vmin; }
+  #sv-poster .t{ position:relative; font-weight:900; font-size:23vw; line-height:1; color:#E8DCC0; text-shadow:.04em .04em 0 #363636; transform:rotate(-24deg); letter-spacing:.02em; }
+  #sv-poster .u{ position:absolute; left:6vw; bottom:6vh; font-weight:900; font-size:5vw; color:#363636; letter-spacing:.14em; }
+  #sv-shapes{ position:fixed; inset:0; z-index:-1; pointer-events:none; overflow:hidden; }
+  #sv-shapes .w{ position:absolute; left:0; top:0; will-change:transform; }
+  #sv-shapes svg{ display:block; opacity:.28; }
+  #sv-poster *, #sv-shout *, #sv-reel *{ -webkit-text-stroke:0 !important; transition:none !important; }
+  #sv-poster .t, #sv-shout .t{ color:#E8DCC0 !important; } #sv-poster .u{ color:#363636 !important; } #sv-reel .c{ color:#2B1D0E !important; }
+  @media (prefers-reduced-motion:reduce){ body.usertheme-soviet:not(.dark-mode) header::before, html:has(body.usertheme-soviet:not(.dark-mode))::after, #sv-news span{ animation:none !important; } }
+  /* ===== END SOVIET v2 ===== */
   body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"]{ background:#914334 !important; }
   body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"], body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="word"] *{ color:#FFFFFF !important; }
   body.usertheme-bazaar:not(.dark-mode) .sport-hub-grid .sport-hub-tile[data-cat="language"]{ background:#B1A47C !important; }
@@ -39090,6 +39152,132 @@ function setCornersNoZoom(active){
   }
   setInterval(life, 1500); life();
   window._daTunnel = () => { tunneled = false; tunnel(); };
+})();
+
+// ===== SOVIET v2 (JS): film-reel countdown on load, newsprint ticker, header-star shout, tap stamps, constructivist shapes w/ parallax, long-press poster, typewriter counts =====
+(function(){
+  const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const body = document.body;
+  const on = () => body.classList.contains('usertheme-soviet') && !body.classList.contains('dark-mode');
+  const rnd = (a, b) => a + Math.random() * (b - a);
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+  const RED = '#AE352F', BLK = '#363636', CRM = '#E8DCC0';
+  // ---- film-reel countdown, every load ----
+  let reeled = false;
+  function reel(){
+    if(reeled || rm) return; reeled = true;
+    const r = document.createElement('div'); r.id = 'sv-reel';
+    r.innerHTML = '<div class="h"></div><div class="v"></div><div class="c"></div>'; body.appendChild(r);
+    const c = r.querySelector('.c'), t0 = performance.now(), STEP = 300, N = [5, 4, 3, 2], total = STEP * N.length + 200;
+    let done = false;
+    const end = () => { if(done) return; done = true; r.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220 }).onfinish = () => r.remove(); setTimeout(() => r.remove(), 600); };
+    r.addEventListener('pointerdown', end);
+    let lastN = -1;
+    (function f(){
+      if(done) return;
+      const el = performance.now() - t0, i = Math.min(N.length - 1, Math.floor(el / STEP));
+      if(i !== lastN){ lastN = i; c.textContent = N[i]; }
+      c.style.transform = `translate(${rnd(-2, 2)}px,${rnd(-3, 3)}px)`;
+      if(Math.random() < .35){ const s = document.createElement('div'); s.className = 's'; s.style.left = rnd(0, 100) + '%'; r.appendChild(s); setTimeout(() => s.remove(), 90); }
+      if(el >= total) end(); else requestAnimationFrame(f);
+    })();
+  }
+  // ---- constructivist shapes ----
+  let layer = null, items = [], sy = -1;
+  function shapeSvg(k, col, size){
+    const g = { circle: `<circle cx="50" cy="50" r="46" fill="${col}"/>`, bar: `<rect x="0" y="36" width="100" height="28" fill="${col}"/>`, tri: `<polygon points="50,6 96,92 4,92" fill="${col}"/>`, ring: `<circle cx="50" cy="50" r="38" fill="none" stroke="${col}" stroke-width="14"/>` }[k];
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 100 100"><g stroke="#2B1D0E" stroke-width="2.5">${g}</g></svg>`;
+  }
+  function buildShapes(){
+    layer = document.createElement('div'); layer.id = 'sv-shapes'; layer.setAttribute('aria-hidden', 'true');
+    [['circle', RED], ['bar', BLK], ['tri', CRM], ['ring', RED], ['bar', RED], ['tri', BLK]].forEach(d => {
+      const size = Math.round(rnd(50, 120)), w = document.createElement('div'); w.className = 'w';
+      w.innerHTML = '<div class="i">' + shapeSvg(d[0], d[1], size) + '</div>'; layer.appendChild(w);
+      items.push({ w, x: rnd(-10, innerWidth - size + 10), y0: rnd(0, innerHeight), k: rnd(.05, .28) });
+      if(!rm) w.firstChild.animate([{ transform: 'translate(0,0) rotate(0deg)' }, { transform: `translate(${rnd(-30, 30)}px,${rnd(-24, 24)}px) rotate(${rnd(-70, 70)}deg)` }, { transform: 'translate(0,0) rotate(0deg)' }], { duration: rnd(16000, 32000), iterations: Infinity, easing: 'ease-in-out', delay: -rnd(0, 14000) });
+    });
+    body.appendChild(layer); sy = -1; place();
+  }
+  function place(){
+    const y = window.scrollY || 0; if(y === sy || !layer) return; sy = y; const H = innerHeight + 240;
+    items.forEach(it => { const v = (((it.y0 - y * it.k) % H) + H) % H - 120; it.w.style.transform = `translate3d(${it.x}px,${v}px,0)`; });
+  }
+  window.addEventListener('scroll', () => { if(layer) requestAnimationFrame(place); }, { passive: true });
+  // ---- newsprint ticker ----
+  function news(){
+    const h = document.querySelector('header'); if(!h) return;
+    let n = document.getElementById('sv-news');
+    if(!n){ n = document.createElement('div'); n.id = 'sv-news'; n.innerHTML = '<span></span>'; h.appendChild(n); n._t = 0; }
+    if(Date.now() - n._t < 20000 && n.firstChild.textContent) return; n._t = Date.now();
+    const parts = [], d = new Date();
+    parts.push('TODAY: ' + d.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Tashkent' }).toUpperCase());
+    try{
+      const nx = clubNextFixtureInfo(CLUB_REGISTRY.find(c => c.key === 'arsenal'));
+      if(nx && nx.start){ const ms = new Date(nx.start) - Date.now(); if(ms > 0){ const dd = Math.floor(ms / 864e5), hh = Math.floor(ms % 864e5 / 36e5); parts.push('NEXT MATCH: ' + nx.title.replace(/\s*\(.*\)/, '').toUpperCase() + ' IN ' + (dd ? dd + 'D ' : '') + hh + 'H'); } }
+    }catch(e){}
+    const lv = document.querySelector('.lv-pill'); if(lv) parts.push(lv.textContent.replace(/\W+/g, ' ').trim().toUpperCase());
+    parts.push('STUDY. READ. PLAY.');
+    n.firstChild.textContent = parts.join('   ★   ');
+  }
+  // ---- header star shout ----
+  function shout(){
+    const o = document.createElement('div'); o.id = 'sv-shout';
+    o.innerHTML = `<div class="w"><div class="b"></div><div class="r"></div><div class="t" style="color:#E8DCC0 !important;transition:none !important">${pick(['ONWARD!', 'STUDY!', 'LEARN!', 'READ MORE!', 'NO EXCUSES!', 'HOMEWORK!'])}</div></div>`;
+    body.appendChild(o);
+    const a = o.firstChild.animate([{ transform: 'scaleX(.04)', opacity: 1 }, { transform: 'scaleX(1)', opacity: 1, offset: .25 }, { transform: 'scaleX(1)', opacity: 1, offset: .8 }, { transform: 'scaleX(1)', opacity: 0 }], { duration: 1800, easing: 'ease-out' });
+    a.onfinish = () => o.remove(); setTimeout(() => o.remove(), 2400);
+  }
+  // ---- tap: star = shout, tiles = stamp thump ----
+  document.addEventListener('click', e => {
+    if(!on() || rm) return;
+    const h = document.querySelector('header');
+    if(h){ const r = h.getBoundingClientRect(); if(e.clientX > r.right - 58 && e.clientX < r.right - 10 && e.clientY > r.top + 8 && e.clientY < r.top + 56 && !document.getElementById('sv-shout')){ shout(); return; } }
+    const t = e.target.closest && e.target.closest('.fac-tile, .sport-hub-tile, .sports-tile, .goodnews-tile, .watch-tile, .books-tile, .mindtemple-tile, .explore-tile'); if(!t) return;
+    const s = document.createElement('div'); s.textContent = pick(['APPROVED', 'READ', 'NOTED', 'DONE']);
+    const rot = rnd(-14, 14);
+    s.style.cssText = `position:fixed;left:${e.clientX - 60}px;top:${e.clientY - 20}px;z-index:99999;pointer-events:none;padding:4px 12px;border:4px solid #D34039;color:#D34039;font-weight:900;font-size:24px;letter-spacing:.12em;background:rgba(232,220,192,.35);mix-blend-mode:multiply;`;
+    body.appendChild(s);
+    s.animate([{ transform: `rotate(${rot}deg) scale(2.4)`, opacity: 0 }, { transform: `rotate(${rot}deg) scale(1)`, opacity: .95, offset: .18 }, { transform: `rotate(${rot}deg) scale(1)`, opacity: .95, offset: .7 }, { transform: `rotate(${rot}deg) scale(1)`, opacity: 0 }], { duration: 1100, easing: 'ease-out' }).onfinish = () => s.remove();
+  }, true);
+  // ---- long-press logo: poster ----
+  let lp = 0, sup = false;
+  function poster(){
+    if(document.getElementById('sv-poster')) return;
+    const p = document.createElement('div'); p.id = 'sv-poster';
+    p.innerHTML = `<div class="o"></div><div class="a"></div><div class="b"></div><div class="t" style="color:#E8DCC0 !important;transition:none !important">${pick(['STUDY!', 'ONWARD!', 'LEARN!'])}</div><div class="u" style="color:#363636 !important;transition:none !important">MR ERIC'S LOUNGE</div>`;
+    body.appendChild(p); const end = () => { p.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 250 }).onfinish = () => p.remove(); setTimeout(() => p.remove(), 600); };
+    p.animate([{ opacity: 0, transform: 'scale(1.06)' }, { opacity: 1, transform: 'scale(1)' }], { duration: 260 });
+    p.addEventListener('pointerdown', end); setTimeout(end, 4500);
+  }
+  document.addEventListener('pointerdown', e => { if(!on() || rm) return; clearTimeout(lp); if(e.target.closest('#siteLogoMark')) lp = setTimeout(() => { sup = true; poster(); }, 650); }, true);
+  ['pointerup', 'pointercancel', 'pointermove'].forEach(ev => document.addEventListener(ev, () => { if(ev !== 'pointermove') clearTimeout(lp); }, true));
+  document.addEventListener('click', e => { if(sup){ sup = false; e.stopPropagation(); e.preventDefault(); } }, true);
+  // ---- typewriter counts ----
+  function typeCounts(){
+    if(!on() || rm) return;
+    document.querySelectorAll('.fac-tile .count:not([data-sv])').forEach(el => {
+      const r = el.getBoundingClientRect(); if(r.bottom < 0 || r.top > innerHeight) return;
+      el.setAttribute('data-sv', '1'); const full = el.textContent; if(!full.trim()) return;
+      const t0 = performance.now(), per = 24, delay = Math.random() * 220;
+      el.textContent = '';
+      (function f(){
+        const n = Math.floor((performance.now() - t0 - delay) / per);
+        if(n >= full.length){ el.textContent = full; return; }
+        el.textContent = n > 0 ? full.slice(0, n) + '▌' : '';
+        requestAnimationFrame(f);
+      })();
+    });
+  }
+  window.addEventListener('scroll', () => { requestAnimationFrame(typeCounts); }, { passive: true });
+  function life(){
+    if(on()){ reel(); if(!layer) buildShapes(); news(); typeCounts(); }
+    else{
+      if(layer){ layer.remove(); layer = null; items = []; }
+      const n = document.getElementById('sv-news'); if(n) n.remove();
+    }
+  }
+  setInterval(life, 700); life();
+  window._svReel = () => { reeled = false; reel(); };
 })();
 </script>
 
