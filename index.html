@@ -38617,38 +38617,12 @@ function setCornersNoZoom(active){
   }, 1000);
 })();
 
-// ===== BAUHAUS v3 stage 3: a tiny Triadic-ballet figure walks each heading rail; three flickable shapes bottom-left =====
+// ===== BAUHAUS v3 stage 3: three flickable shapes bottom-left (the rail walker was removed) =====
 (function(){
   const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   const body = document.body;
   const on = () => body.classList.contains('usertheme-bauhaus') && !body.classList.contains('dark-mode');
   const R = '#D4141E', BL = '#0056A4', Y = '#FFD100', K = '#1A1A1A';
-  // ---- rail walker ----
-  function fig(frame, flip){
-    const legs = frame ? '<path d="M3 9L2 13M7 9L8 13" stroke="#1A1A1A" stroke-width="1.2"/>' : '<path d="M4 9L4 13M6 9L6 13" stroke="#1A1A1A" stroke-width="1.2"/>';
-    const g = `<circle cx="5" cy="2.2" r="2" fill="${Y}" stroke="${K}" stroke-width=".6"/><rect x="2.5" y="4.4" width="5" height="4.8" fill="${R}" stroke="${K}" stroke-width=".6"/>${legs}`
-      + (frame ? '<path d="M2.5 5.5L0.5 7.5M7.5 5.5L9.5 4" stroke="#1A1A1A" stroke-width="1"/>' : '<path d="M2.5 5.5L0.5 4M7.5 5.5L9.5 7.5" stroke="#1A1A1A" stroke-width="1"/>');
-    return 'url("data:image/svg+xml,' + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="10" height="13" viewBox="0 0 10 13">${g}</svg>`) + '")';
-  }
-  const F = [fig(0), fig(1)];
-  const ws = new WeakMap();
-  let last = performance.now();
-  function walk(now){
-    const dt = Math.min(0.1, (now - last) / 1000); last = now;
-    if(on() && !document.hidden && !rm){
-      const fr = Math.floor(now / 230) % 2;
-      document.querySelectorAll('.section-head').forEach(el => {
-        let w = ws.get(el);
-        if(!w){ w = { x: Math.random() * 100, d: Math.random() < .5 ? -1 : 1, v: 5 + Math.random() * 7, f: -1 }; ws.set(el, w); }
-        w.x += w.d * w.v * dt;
-        if(w.x > 100){ w.x = 100; w.d = -1; } else if(w.x < 0){ w.x = 0; w.d = 1; }
-        if(w.f !== fr){ w.f = fr; el.style.setProperty('--bh-i3', F[fr]); }
-        el.style.setProperty('--bh-p3', w.x.toFixed(1) + '%');
-      });
-    }
-    requestAnimationFrame(walk);
-  }
-  if(!rm) requestAnimationFrame(walk);
   // ---- flick shapes ----
   let box = null, parts = [], running = false, lt = 0;
   const FL = (k, col) => ({
