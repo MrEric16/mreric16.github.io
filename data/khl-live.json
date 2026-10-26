@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T11:05:40.504824+00:00",
+  "generatedAt": "2026-10-26T17:29:06.926089+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -124,14 +124,14 @@
     {
       "team": "Barys",
       "played": 21,
-      "won": 18,
+      "won": 19,
       "otWon": 8,
       "soWon": 1,
       "soLost": 1,
       "otLost": 0,
       "lost": 0,
-      "gf": 65,
-      "points": 55
+      "gf": 66,
+      "points": 57
     },
     {
       "team": "Salavat Yulaev",
@@ -144,6 +144,18 @@
       "lost": 0,
       "gf": 58,
       "points": 59
+    },
+    {
+      "team": "Avtomobilist",
+      "played": 20,
+      "won": 19,
+      "otWon": 9,
+      "soWon": 0,
+      "soLost": 0,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 51,
+      "points": 56
     },
     {
       "team": "Dinamo Mn",
@@ -170,16 +182,16 @@
       "points": 53
     },
     {
-      "team": "Avtomobilist",
+      "team": "Traktor",
       "played": 18,
       "won": 18,
-      "otWon": 8,
-      "soWon": 0,
+      "otWon": 6,
+      "soWon": 2,
       "soLost": 0,
-      "otLost": 0,
+      "otLost": 1,
       "lost": 0,
-      "gf": 47,
-      "points": 52
+      "gf": 38,
+      "points": 53
     },
     {
       "team": "Dynamo Msk",
@@ -196,14 +208,14 @@
     {
       "team": "Sibir",
       "played": 17,
-      "won": 20,
+      "won": 21,
       "otWon": 6,
       "soWon": 0,
       "soLost": 1,
       "otLost": 2,
       "lost": 0,
-      "gf": 44,
-      "points": 55
+      "gf": 45,
+      "points": 57
     },
     {
       "team": "Admiral",
@@ -216,18 +228,6 @@
       "lost": 0,
       "gf": 43,
       "points": 52
-    },
-    {
-      "team": "Traktor",
-      "played": 16,
-      "won": 17,
-      "otWon": 5,
-      "soWon": 2,
-      "soLost": 0,
-      "otLost": 1,
-      "lost": 0,
-      "gf": 36,
-      "points": 49
     },
     {
       "team": "Avangard",
@@ -267,21 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Avtomobilist",
-      "away": "Barys",
-      "start": "2026-10-26T15:00:00+05:00"
-    },
-    {
-      "home": "Traktor",
-      "away": "Sibir",
-      "start": "2026-10-26T15:00:00+05:00"
-    },
-    {
-      "home": "Dynamo Msk",
-      "away": "Avangard",
-      "start": "2026-10-26T12:30:00+05:00"
-    },
     {
       "home": "Salavat Yulaev",
       "away": "HC Sochi",
@@ -2974,6 +2959,22 @@
     }
   ],
   "results": [
+    {
+      "home": "Traktor",
+      "away": "Sibir",
+      "start": "2026-10-26T15:00:00+05:00",
+      "homeScore": 2,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Avtomobilist",
+      "away": "Barys",
+      "start": "2026-10-26T15:00:00+05:00",
+      "homeScore": 4,
+      "awayScore": 1,
+      "finished": true
+    },
     {
       "home": "SKA",
       "away": "CSKA",
