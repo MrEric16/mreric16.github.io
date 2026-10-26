@@ -2842,7 +2842,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   /* floor is now a small 2D canvas (#syn-floor) drawn in JS: same perspective grid, far cheaper than a 3D-transformed 400vh layer */
   #syn-floor{ position:fixed; left:0; bottom:0; width:100%; height:24vh; z-index:-1; pointer-events:none; }
   /* 8. neon wireframe mountains in front of the sun */
-  #syn-mtn{ position:fixed; left:0; right:0; bottom:18vh; height:110px; z-index:-1; pointer-events:none; }
+  #syn-mtn{ position:fixed; left:0; right:0; bottom:18vh; height:110px; z-index:-1; pointer-events:none; animation:synthwaveGridFlow 6s linear infinite; }
+  body.usertheme-synthwave.syn-lite #syn-mtn{ animation:none; }
   #syn-mtn svg{ display:block; width:100%; height:100%; }
   /* 7. palms either side, swaying */
   .syn-palm{ position:fixed; bottom:5vh; width:170px; height:250px; z-index:-1; pointer-events:none; transform-origin:50% 100%; filter:drop-shadow(0 0 7px #FF2E97) drop-shadow(0 0 3px #00FFE1); animation:synPalm 6s ease-in-out infinite alternate; }
@@ -2885,9 +2886,8 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   #syn-boot .cur{ animation:synCur .5s steps(1,end) infinite; } @keyframes synCur{ 50%{ opacity:0; } }
   /* ===== END SYNTHWAVE v2 ===== */
 
-  /* ===== SYNTHWAVE perf (26 Oct 2026): the old v1 body::after floor is merged into #syn-floor (one layer, no colour-cycling filter). Tiers are set by the JS frame-time probe: body.syn-lite (tier 1), body.syn-min (tier 2). Revert: delete to 'END SYNTHWAVE perf' + restore from git history. ===== */
+  /* ===== SYNTHWAVE perf (26 Oct 2026, revised): nothing is removed in any tier, only made cheaper. v69 hid mountains/palms/car and froze the floor in the lowest tier - reverted. body.syn-lite = tier 1, body.syn-min = tier 2. ===== */
   body.usertheme-synthwave:not(.dark-mode)::after{ content:none !important; display:none !important; }
-  /* tier 1: lite */
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .fac-tile,
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .sport-hub-tile,
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .sports-tile,
@@ -2907,19 +2907,31 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .sotw-card,
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .photo-tile,
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .events-tile,
-  body.usertheme-synthwave.syn-lite:not(.dark-mode) .domain-group{ box-shadow:-3px 0 0 rgba(255,0,200,.85), 3px 0 0 rgba(0,255,225,.85) !important; }
-  html:has(body.usertheme-synthwave.syn-lite:not(.dark-mode))::after{ content:none !important; }
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .domain-group{ box-shadow:-4px 0 6px rgba(255,0,200,.8), 4px 0 6px rgba(0,255,225,.8) !important; }
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .fac-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .sports-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .sports-card,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .goodnews-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .watch-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .watch-card,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .otd-card,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .books-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .explore-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .explore-card,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .page-result,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .bday-tile-card,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .random-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .rec-item,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .sotw-card,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .photo-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .events-tile,
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .domain-group{ box-shadow:-3px 0 4px rgba(255,0,200,.85), 3px 0 4px rgba(0,255,225,.85) !important; }
   body.usertheme-synthwave.syn-lite:not(.dark-mode) .section-head h2{ filter:drop-shadow(0 0 5px rgba(255,46,151,.8)); }
-  body.usertheme-synthwave.syn-lite:not(.dark-mode) .fac-icon svg{ filter:none; animation:none; }
-  body.usertheme-synthwave.syn-lite:not(.dark-mode)::before{ animation:none; }
-  body.usertheme-synthwave.syn-lite:not(.dark-mode) .section-head::after{ box-shadow:none; }
-  body.usertheme-synthwave.syn-lite .syn-palm{ filter:none; animation:none; }
-  body.usertheme-synthwave.syn-lite .syn-car{ filter:none; }
-  body.usertheme-synthwave.syn-lite #syn-arcade{ animation:none; }
-  /* tier 2: minimal */
-  body.usertheme-synthwave.syn-min:not(.dark-mode) .section-head h2{ filter:none; }
-  body.usertheme-synthwave.syn-min:not(.dark-mode) .section-head::after{ animation:none; }
-  body.usertheme-synthwave.syn-min #syn-mtn, body.usertheme-synthwave.syn-min .syn-palm{ display:none; }
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .fac-icon svg{ filter:none; }
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .section-head::after{ box-shadow:none; }
+  html:has(body.usertheme-synthwave.syn-min:not(.dark-mode))::after{ content:none !important; }
   /* ===== END SYNTHWAVE perf ===== */
 
 
@@ -38676,7 +38688,7 @@ function setCornersNoZoom(active){
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 36"><circle cx="27" cy="9" r="8" fill="#F4F4F8"/><rect x="21" y="5" width="12" height="8" rx="4" fill="#2A3A7A"/><rect x="19" y="17" width="16" height="14" rx="5" fill="#F4F4F8"/><rect x="11" y="18" width="9" height="5" rx="2.5" fill="#F4F4F8"/><rect x="34" y="18" width="9" height="5" rx="2.5" fill="#F4F4F8"/><rect x="21" y="30" width="5" height="6" rx="2" fill="#E0E0EC"/><rect x="28" y="30" width="5" height="6" rx="2" fill="#E0E0EC"/></svg>'
   ];
   function critter(){
-    if(!on() || rm || document.hidden || body.classList.contains('syn-lite')) return;
+    if(!on() || rm || document.hidden) return;
     const w = innerWidth, h = innerHeight, kind = Math.floor(Math.random() * 3), c = document.createElement('div');
     c.className = 'neb2-critter'; c.innerHTML = CRIT[kind]; body.appendChild(c);
     const y = rnd(0.12, 0.78) * h, ltr = Math.random() < 0.5, dur = rnd(6000, 30000), wob = rnd(10, 40);
@@ -38691,7 +38703,7 @@ function setCornersNoZoom(active){
   setTimeout(critter, rnd(6000, 14000));
   // ---- 19. warp streaks when you tap a link ----
   document.addEventListener('click', e => {
-    if(!on() || rm || body.classList.contains('syn-lite')) return;
+    if(!on() || rm || body.classList.contains('syn-min')) return;
     const a = e.target.closest && e.target.closest('a[href^="#"]');
     if(!a || a.getAttribute('href') === '#' && location.hash === '' ) return;
     const w = document.createElement('div'); w.className = 'neb2-warp';
@@ -38745,8 +38757,8 @@ function setCornersNoZoom(active){
   function floorLoop(t){
     fRaf = 0; if(!cv || !on()) return;
     const tr = tierNow();
-    if(!rm && tr < 2 && !document.hidden){
-      const gap = tr === 0 ? 30 : 62;
+    if(!rm && !document.hidden){
+      const gap = tr === 0 ? 30 : tr === 1 ? 50 : 90;
       if(t - fLast >= gap){ const dt = Math.min(100, t - fLast); fLast = t; phase += dt / 1500 * speed; hueT += dt / 1000 * (speed > 1.5 ? 1.6 : 1); drawFloor(); }
     }
     fRaf = requestAnimationFrame(floorLoop);
@@ -38837,10 +38849,10 @@ function setCornersNoZoom(active){
 (function(){
   const body = document.body;
   const on = () => body.classList.contains('usertheme-synthwave') && !body.classList.contains('dark-mode');
-  let tier = 0; try{ tier = Math.min(2, Math.max(0, parseInt(localStorage.getItem('synTier') || '0', 10) || 0)); }catch(e){}
+  let tier = 0; try{ tier = Math.min(2, Math.max(0, parseInt(localStorage.getItem('synTier2') || '0', 10) || 0)); }catch(e){}
   function apply(t){
     tier = t; body.classList.toggle('syn-lite', t >= 1); body.classList.toggle('syn-min', t >= 2);
-    try{ localStorage.setItem('synTier', String(t)); }catch(e){}
+    try{ localStorage.setItem('synTier2', String(t)); }catch(e){}
     window.dispatchEvent(new Event('synTier'));
   }
   apply(tier);
@@ -38850,14 +38862,16 @@ function setCornersNoZoom(active){
       (function f(t){ if(last) d.push(t - last); last = t; if(d.length >= n) { d.sort((a, b) => a - b); res(d[Math.floor(d.length * .6)]); } else requestAnimationFrame(f); })(performance.now());
     });
   }
-  let busy = false;
+  let busy = false, lastScroll = 0;
+  addEventListener('scroll', () => { lastScroll = Date.now(); }, { passive: true });
   async function check(){
     if(busy || !on() || document.hidden || tier >= 2) return; busy = true;
     try{
       const a = await sample(40);
-      if(on() && !document.hidden && a > 27){
+      const lim = tier === 0 ? 45 : 60;
+      if(on() && !document.hidden && a > lim && Date.now() - lastScroll > 1500){
         const b = await sample(40);
-        if(b > 27){ apply(tier + 1); }
+        if(b > lim && Date.now() - lastScroll > 1500){ apply(tier + 1); }
       }
     }finally{ busy = false; }
   }
