@@ -17,7 +17,7 @@
   .bar button:active,.bar a.b:active{background:rgba(255,255,255,.25);}
   .bar .title{flex:1;min-width:0;font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .pgbox{display:flex;align-items:center;gap:5px;font-weight:700;font-size:14px;}
-  .pgbox input{width:46px;height:36px;border:0;border-radius:8px;text-align:center;font:inherit;font-size:16px;background:#FBF5EA;color:var(--ink);}
+  .pgbox input{width:54px;height:36px;border:0;border-radius:8px;text-align:center;font:inherit;font-size:16px;background:#FBF5EA;color:var(--ink);}
   .pgbox span{opacity:.8;white-space:nowrap;}
   #sbar{display:none;flex:none;align-items:center;gap:6px;padding:0 8px 8px;background:var(--bar);color:var(--bar-ink);}
   #sbar.on{display:flex;}
@@ -83,13 +83,10 @@
 <script>
 (function(){
   'use strict';
-  var BOOK = (/[?&]b=harder/.test(location.search)) ? 'harder' : 'easier';
-  var PDF_URL = BOOK === 'harder' ? 'books/academic-vocabulary-book1.pdf' : 'books/academic-vocabulary-book2.pdf';
-  var OFFSET = 2;               // printed page 1 = PDF page 3 (cover + contents come first)
-  var STORE = BOOK === 'harder' ? 'bookPos_vocabHarder' : 'bookPos_vocabEasier';
-  var TITLE = BOOK === 'harder' ? 'Vocabulary \u2013 Harder' : 'Vocabulary \u2013 Easier';
-  document.title = TITLE + " | Mr Eric's Lounge"; document.querySelector('.title').textContent = TITLE;
-  var CONTENTS_HARDER = [
+  var BK = /[?&]b=(harder|grammar)/.exec(location.search); BK = BK ? BK[1] : 'easier';
+  var VOCAB_FRONT = ['Cover', 'TOC'];
+  var BOOKS = {
+    easier: { title: 'Vocabulary \u2013 Easier', pdf: 'books/academic-vocabulary-book1.pdf', offset: 2, front: VOCAB_FRONT, store: 'bookPos_vocabEasier', contents: [
     ['Cover',0],['Contents',-1],
     ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
     ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],
@@ -99,8 +96,8 @@
     ['21. Food & Lifestyle',124],['22. Change & Progress',130],
     ['Word Index',136],['Basic - Academic Word Swap Sheet',149],['Commonly Confused Words',158],['Prefix & Suffix Reference',159],
     ['Academic Linking Words for Writing',160],['Master Debate Phrasebank',161],['Sources',162]
-  ];
-  var CONTENTS = BOOK === 'harder' ? CONTENTS_HARDER : [
+  ] },
+    harder: { title: 'Vocabulary \u2013 Harder', pdf: 'books/academic-vocabulary-book2.pdf', offset: 2, front: VOCAB_FRONT, store: 'bookPos_vocabHarder', contents: [
     ['Cover',0],['Contents',-1],
     ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
     ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],
@@ -110,14 +107,18 @@
     ['21. Food & Lifestyle',121],['22. Change & Progress',127],
     ['Word Index',133],['Basic - Academic Word Swap Sheet',148],['Commonly Confused Words',153],['Prefix & Suffix Reference',154],
     ['Academic Linking Words for Writing',155],['Master Debate Phrasebank',156],['Sources',157]
-  ];
+  ] },
+    grammar: { title: 'Grammar Exercise Book', pdf: 'books/grammar-exercise-book.pdf', offset: 5, front: ['Cover', 'TOC', 'TOC 2', 'TOC 3', 'TOC 4'], store: 'bookPos_grammar', contents: [["UNIT 1: PRESENT TENSES",1,1],["Present Simple",1,0],["Present Continuous",4,0],["Present Simple vs Present Continuous",6,0],["Present Continuous",6,0],["Present Perfect",6,0],["Present Perfect Continuous",9,0],["Present Perfect vs Present Perfect Continuous",11,0],["Present Perfect Continuous",12,0],["Present Simple vs Present Continuous",12,0],["Present Perfect vs Past Simple",13,0],["Present Perfect vs Present Perfect Continuous",13,0],["Four Present Tenses",13,0],["Error Correction",13,0],["Sentence Transformation",14,0],["Paragraph Building",14,0],["Guided Writing",14,0],["Real-Life Communication Task",15,0],["End-of-Unit Assessment",15,0],["UNIT 2: PAST TENSES",15,1],["Past Simple",15,0],["Past Continuous",18,0],["Past Perfect",21,0],["Past Perfect Continuous",24,0],["Past Perfect vs Past Perfect Continuous",25,0],["Past Perfect Continuous",25,0],["Past Simple vs Past Continuous",27,0],["Past Perfect vs Past Simple",27,0],["Past Perfect Continuous vs Past Perfect",27,0],["Four Past Tenses",28,0],["Error Correction",28,0],["Timeline Exercise",28,0],["Narrative Writing",28,0],["Guided Writing",29,0],["Real-Life Communication Task",29,0],["End-of-Unit Assessment",29,0],["UNIT 3: FUTURE TENSES",30,1],["Future Simple",30,0],["Future Continuous",33,0],["Future Perfect",35,0],["Future Perfect Continuous",38,0],["Future Perfect vs Future Perfect Continuous",40,0],["Future Perfect Continuous",40,0],["Future Tenses",42,0],["Future Timelines",42,0],["Future Planning",42,0],["Future Tenses in Context",43,0],["Error Correction",43,0],["Sentence Transformation",43,0],["Future Project Management",44,0],["Guided Writing",44,0],["Real-Life Communication",44,0],["End-of-Unit Assessment",45,0],["UNIT 4: CONDITIONALS",45,1],["Zero Conditional",45,0],["Scientific Facts",46,0],["Everyday Truths",46,0],["Cause and Effect",46,0],["Error Correction",46,0],["Sentence Transformation",47,0],["Real-Life Communication",47,0],["Zero Conditional",47,0],["First Conditional",48,0],["Error Correction",49,0],["Sentence Transformation",49,0],["Real-Life Communication",50,0],["First Conditional",50,0],["Second Conditional",51,0],["Dreams and Ambitions",52,0],["Error Correction",52,0],["Sentence Transformation",52,0],["Real-Life Communication",53,0],["Second Conditional",53,0],["Third Conditional",54,0],["Cause and Consequence in the Past",54,0],["Historical and Imaginary Situations",55,0],["Missed Opportunities",55,0],["Error Correction",55,0],["Sentence Transformation",55,0],["Real-Life Communication",56,0],["Third Conditional",56,0],["Conditional Recognition",56,0],["Choose the Correct Conditional",57,0],["Conditional Sentence Building",57,0],["Error Correction",57,0],["Sentence Transformation",58,0],["Real-Life Communication",58,0],["Guided Writing",58,0],["Mixed Conditional Challenge",58,0],["Conditional Review Test",59,0],["Mixed Conditionals",59,0],["UNIT 5: DIRECT & REPORTED SPEECH",59,1],["Present Simple",59,0],["Present Continuous",62,0],["Present Perfect",65,0],["Present Perfect Continuous",68,0],["Past Simple",71,0],["Past Continuous",74,0],["Past Perfect",77,0],["Past Perfect Continuous",80,0],["Future Simple",83,0],["Future Continuous",86,0],["Future Perfect",89,0],["Future Perfect Continuous",93,0],["UNIT 6: ACTIVE & PASSIVE VOICE",96,1],["Present Simple Active \u2192 Passive",96,0],["Present Simple Passive \u2192 Active",99,0],["Present Simple Negative",102,0],["Present Simple Negative Passive \u2192 Active",105,0],["Present Simple Questions",108,0],["Modal Verbs",112,0],["Mixed Tenses Review I",113,0],["Mixed Tenses Review II",113,0],["Mixed Tenses Review III",113,0],["Active & Passive Voice",113,0],["UNIT 7: ADVANCED GRAMMAR",114,1],["Conditionals Type 1",114,0],["Gerunds & Infinitives",115,0],["Causative Have / Get",116,0],["Wish & If Only",117,0],["Modals Review",117,0],["Modals",118,0],["Phrasal Verbs",118,0],["Prepositions",119,0],["Articles",120,0],["Determiners",122,0],["Connectors / Linking Words",123,0],["Mixed Grammar Review",124,0],["Advanced Sentence Transformations",125,0],["Inversion",126,0],["Ellipsis & Substitution",127,0],["Emphasis",128,0],["Discourse Markers & Advanced Writing Structures",130,0],["Advanced Collocations",131,0],["Word Formation",132,0],["UNIT 8: ERROR CORRECTION & ADVANCED PRACTICE",133,1],["Error Correction",133,0],["Sentence Completion & Open Cloze",134,0],["Key Word Transformations",135,0],["Common Idioms",136,0],["Proverbs",139,0],["Expressions, Synonyms & Antonyms",140,0],["Academic & Professional Vocabulary",142,0],["Advanced Collocations",144,0],["Advanced Phrasal Verbs",146,0],["Advanced Verb Patterns",148,0],["Formal vs Informal English",149,0],["Commonly Confused Advanced Words",150,0],["Advanced Sentence Starters",152,0],["Advanced Discussion & Debate Language",154,0],["Common Mistakes by Advanced Learners",156,0],["APPENDICES",158,1],["Appendix 1 \u2014 Irregular Verbs",158,0],["Appendix 2 \u2014 Common Uncountable Nouns",161,0],["Appendix 3 \u2014 Prepositions of Time, Place & Location",162,0],["Appendix 4 \u2014 Adverbs of Frequency & Time",163,0],["Appendix 5 \u2014 Comparatives & Superlatives",165,0]], rich: true }
+  };
+  var CFG = BOOKS[BK], PDF_URL = CFG.pdf, OFFSET = CFG.offset, STORE = CFG.store, CONTENTS = CFG.contents, TITLE = CFG.title;
+  document.title = TITLE + " | Mr Eric's Lounge"; document.querySelector('.title').textContent = TITLE;
   var $ = function(id){ return document.getElementById(id); };
   var scroller = $('scroller'), pagesEl = $('pages'), msg = $('msg');
   var pdf = null, N = 0, W0 = 595.28, H0 = 841.89, z = 1, scale = 1, fit = 1, GAP = 8, PAD = 8;
   var els = [], texts = [], hits = [], cur = -1, curPage = 1, indexed = 0, indexDone = false, query = '';
   function ls(k, v){ try{ if(v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
   function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
-  function label(n){ return n === 1 ? 'Cover' : n === 2 ? 'Contents' : String(n - OFFSET); }
+  function label(n){ return n <= OFFSET ? CFG.front[n - 1] : String(n - OFFSET); }
   function toPdfPage(p){ return clamp(p + OFFSET, 1, N); }
 
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdfjs/pdf.worker.min.js';
@@ -278,7 +279,7 @@
   $('pgin').addEventListener('keydown', function(e){
     if(e.key === 'Enter'){
       var v = this.value.trim().toLowerCase(), n;
-      if(v === 'c' || v === 'cover') n = 1; else if(/^[0-9]+$/.test(v)) n = toPdfPage(parseInt(v, 10)); else { setPageBox(); return; }
+      if(v === 'c' || v === 'cover') n = 1; else if(v === 't') n = 2; else if(/^[0-9]+$/.test(v)) n = toPdfPage(parseInt(v, 10)); else { setPageBox(); return; }
       goPage(n); this.blur();
     }
   });
@@ -293,10 +294,12 @@
   $('sheetX').onclick = closeSheet; $('scrim').onclick = closeSheet;
   function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   $('bContents').onclick = function(){
-    var h = CONTENTS.map(function(c, i){
+    var h = CONTENTS.map(function(c){
       var pdfN = c[1] === 0 ? 1 : c[1] === -1 ? 2 : toPdfPage(c[1]);
+      if(CFG.rich){ return '<button class="row' + (c[2] ? ' sec' : '') + '" data-n="' + toPdfPage(c[1]) + '" style="cursor:pointer"><b>' + (c[2] ? '' : 'p.' + c[1]) + '</b><span class="sn">' + esc(c[0]) + '</span></button>'; }
       return '<button class="row" data-n="' + pdfN + '"><b>' + (c[1] > 0 ? 'p.' + c[1] : '') + '</b><span class="sn">' + esc(c[0]) + '</span></button>';
     }).join('');
+    if(CFG.rich) h = '<button class="row" data-n="1"><b></b><span class="sn">Cover</span></button><button class="row" data-n="2"><b></b><span class="sn">Contents</span></button>' + h;
     h += '<a class="row" style="text-decoration:none" href="' + PDF_URL + '" target="_blank" rel="noopener"><b></b><span class="sn">Open the original PDF</span></a>';
     openSheet('Contents', h);
   };
@@ -415,7 +418,7 @@
   function parseHash(){
     var o = {}; location.hash.replace(/^#/, '').split('&').forEach(function(p){ var kv = p.split('='); if(kv[0]) o[kv[0]] = decodeURIComponent(kv[1] || ''); }); return o;
   }
-  pdfjsLib.getDocument({ url: PDF_URL, standardFontDataUrl: 'lib/pdfjs/standard_fonts/' }).promise.then(async function(doc){
+  pdfjsLib.getDocument({ url: PDF_URL, standardFontDataUrl: 'lib/pdfjs/standard_fonts/', disableRange: true, disableStream: true }).promise.then(async function(doc){
     pdf = doc; N = doc.numPages;
     var p1 = await doc.getPage(1), v = p1.getViewport({ scale: 1 }); W0 = v.width; H0 = v.height;
     $('pgtot').textContent = '/ ' + (N - OFFSET);
