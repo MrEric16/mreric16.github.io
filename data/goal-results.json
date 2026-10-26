@@ -1,51 +1,6 @@
 {
-  "generatedAt": "2026-10-26T18:24:54.721501Z",
+  "generatedAt": "2026-10-26T22:48:47.705198Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/athletic-bilbao-vs-elche/BAspkwXCAOempc_EHxNi1",
-      "date": null,
-      "home": "Athletic Bilbao",
-      "away": "Elche",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "V. Chust",
-          "minute": 79
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "F. Buonanotte",
-          "minute": 50
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-paderborn/mVltOBR1-p_bkbFIrD2FF",
-      "date": null,
-      "home": "Borussia Dortmund",
-      "away": "Paderborn",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "F. Silva",
-          "minute": 5
-        },
-        {
-          "scorer": "F. Nmecha",
-          "minute": 80
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/fc-koeln-vs-werder-bremen/R_dpAm284uT9tTJQ1dub2",
       "date": null,
@@ -7810,6 +7765,50 @@
         }
       ],
       "competition": "psg"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sevilla-vs-osasuna/gxXDKFRus5yh4Onpy47Ad",
+      "date": "2026-10-26",
+      "home": "Sevilla",
+      "away": "Osasuna",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "I. Romero",
+          "minute": 24
+        },
+        {
+          "scorer": "F. Correia",
+          "minute": 82
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-lyon/vF0wyd1-2wWdNVWenz2kd",
+      "date": "2026-10-26",
+      "home": "Paris Saint Germain",
+      "away": "Lyon",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "S. Mayulu",
+          "minute": 72
+        },
+        {
+          "scorer": "M. Godts",
+          "minute": 84
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
