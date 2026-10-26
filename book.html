@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Vocabulary - Easier | Mr Eric's Lounge</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="#3D2A22">
+<style>
+  :root{ --bar:#3D2A22; --bar-ink:#F3EADD; --accent:#E8B355; --desk:#5B534B; --sheet:#FBF5EA; --ink:#3D2A22; --line:#E0CBA4; }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;height:100%;background:var(--desk);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--ink);}
+  #app{position:fixed;inset:0;display:flex;flex-direction:column;}
+  .bar{flex:none;display:flex;align-items:center;gap:6px;padding:calc(6px + env(safe-area-inset-top,0px)) 8px 6px;background:var(--bar);color:var(--bar-ink);}
+  .bar button,.bar a.b{flex:none;min-width:40px;height:40px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:inherit;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;}
+  .bar button:active,.bar a.b:active{background:rgba(255,255,255,.25);}
+  .bar .title{flex:1;min-width:0;font-weight:800;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .pgbox{display:flex;align-items:center;gap:5px;font-weight:700;font-size:14px;}
+  .pgbox input{width:52px;height:36px;border:0;border-radius:8px;text-align:center;font:inherit;font-size:16px;background:#FBF5EA;color:var(--ink);}
+  .pgbox span{opacity:.8;white-space:nowrap;}
+  #sbar{display:none;flex:none;align-items:center;gap:6px;padding:0 8px 8px;background:var(--bar);color:var(--bar-ink);}
+  #sbar.on{display:flex;}
+  #sbar input{flex:1;min-width:0;height:40px;border:0;border-radius:10px;padding:0 12px;font-size:16px;background:#FBF5EA;color:var(--ink);}
+  #sbar button{flex:none;min-width:38px;height:40px;border:0;border-radius:10px;background:rgba(255,255,255,.12);color:inherit;font-size:17px;font-weight:700;cursor:pointer;}
+  #scount{flex:none;font-size:13px;font-weight:700;min-width:54px;text-align:center;}
+  #scroller{flex:1;min-height:0;overflow:auto;position:relative;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;}
+  #pages{width:max-content;min-width:100%;padding:8px 0;}
+  .pg{position:relative;margin:0 auto 8px;background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.35);overflow:hidden;}
+  .pg canvas{display:block;}
+  .pg .tl{position:absolute;inset:0;overflow:hidden;line-height:1;}
+  .tl span,.tl br{color:transparent;position:absolute;white-space:pre;cursor:text;transform-origin:0 0;}
+  .tl ::selection{background:rgba(60,120,255,.35);}
+  .pg .hl{position:absolute;inset:0;pointer-events:none;}
+  .hl i{position:absolute;background:rgba(255,214,0,.45);mix-blend-mode:multiply;border-radius:2px;}
+  .hl i.cur{background:rgba(255,120,0,.6);outline:2px solid rgba(255,90,0,.85);}
+  .pg .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:15px;pointer-events:none;}
+  #zoom{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;background:rgba(61,42,34,.94);color:var(--bar-ink);border-radius:26px;padding:4px;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:5;}
+  #zoom button{width:44px;height:40px;border:0;border-radius:20px;background:transparent;color:inherit;font-size:20px;font-weight:800;cursor:pointer;}
+  #zoom button:active{background:rgba(255,255,255,.2);}
+  #zoom .pct{min-width:58px;text-align:center;font-size:13px;font-weight:800;}
+  #zoom .fit{font-size:13px;width:auto;padding:0 12px;}
+  #sheet{position:fixed;left:0;right:0;bottom:0;max-height:68vh;background:var(--sheet);border-radius:18px 18px 0 0;box-shadow:0 -6px 28px rgba(0,0,0,.45);transform:translateY(105%);transition:transform .2s ease-out;z-index:10;display:flex;flex-direction:column;padding-bottom:env(safe-area-inset-bottom,0px);}
+  #sheet.on{transform:none;}
+  #sheet h3{margin:0;padding:14px 16px 8px;font-size:16px;display:flex;justify-content:space-between;align-items:center;}
+  #sheet h3 button{border:0;background:#E9D9C5;border-radius:8px;width:34px;height:34px;font-size:16px;font-weight:800;color:var(--ink);cursor:pointer;}
+  #sheetbody{overflow:auto;-webkit-overflow-scrolling:touch;padding:0 8px 12px;}
+  .row{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;border:0;background:transparent;padding:10px 10px;border-bottom:1px solid var(--line);font:inherit;font-size:15px;color:var(--ink);cursor:pointer;}
+  .row:active{background:#F0E3C9;}
+  .row b{flex:none;min-width:48px;color:#7A2E35;}
+  .row.sec{font-weight:800;background:#F3EADD;cursor:default;}
+  .row mark{background:#FFD83D;color:inherit;border-radius:2px;padding:0 1px;}
+  .row .sn{flex:1;min-width:0;line-height:1.35;}
+  #msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#F3EADD;font-weight:700;z-index:3;pointer-events:none;}
+  #scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9;display:none;}
+  #scrim.on{display:block;}
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="bar">
+    <a class="b" href="index.html" aria-label="Back to the Lounge">&#8592;</a>
+    <div class="title">Vocabulary &#8211; Easier</div>
+    <div class="pgbox"><input id="pgin" inputmode="numeric" pattern="[0-9]*" aria-label="Jump to page" value="1"><span id="pgtot">/ 157</span></div>
+    <button id="bContents" aria-label="Contents">&#9776;</button>
+    <button id="bSearch" aria-label="Search the book">&#9906;</button>
+  </div>
+  <div id="sbar">
+    <input id="sq" type="search" placeholder="Search the book&hellip;" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+    <span id="scount"></span>
+    <button id="sPrev" aria-label="Previous match">&#8593;</button>
+    <button id="sNext" aria-label="Next match">&#8595;</button>
+    <button id="sList" aria-label="List of matches">&#9776;</button>
+    <button id="sClose" aria-label="Close search">&#10005;</button>
+  </div>
+  <div id="scroller"><div id="pages"></div><div id="msg">Opening the book&hellip;</div></div>
+</div>
+<div id="zoom"><button id="zOut" aria-label="Zoom out">&#8722;</button><span class="pct" id="zpct">100%</span><button id="zIn" aria-label="Zoom in">+</button><button class="fit" id="zFit" aria-label="Fit to width">Fit</button></div>
+<div id="scrim"></div>
+<div id="sheet"><h3><span id="sheetT">Contents</span><button id="sheetX" aria-label="Close">&#10005;</button></h3><div id="sheetbody"></div></div>
+
+<script src="lib/pdfjs/pdf.min.js"></script>
+<script>
+(function(){
+  'use strict';
+  var PDF_URL = 'books/academic-vocabulary-book2.pdf';
+  var OFFSET = 2;               // printed page 1 = PDF page 3 (cover + contents come first)
+  var STORE = 'bookPos_vocabEasier';
+  var CONTENTS = [
+    ['Cover',0],['Contents',-1],
+    ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
+    ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],
+    ['9. Jurisprudence',49],['10. Media & Communication',55],['11. Arts & Culture',61],['12. Design',67],
+    ['13. Travel & Tourism',73],['14. Society & Relationships',79],['15. Psychology',85],['16. Government & Public Life',91],
+    ['17. International Relations',97],['18. Business & Commerce',103],['19. Economics',109],['20. Science & Discovery',115],
+    ['21. Food & Lifestyle',121],['22. Change & Progress',127],
+    ['Word Index',133],['Basic - Academic Word Swap Sheet',148],['Commonly Confused Words',153],['Prefix & Suffix Reference',154],
+    ['Academic Linking Words for Writing',155],['Master Debate Phrasebank',156],['Sources',157]
+  ];
+  var $ = function(id){ return document.getElementById(id); };
+  var scroller = $('scroller'), pagesEl = $('pages'), msg = $('msg');
+  var pdf = null, N = 0, W0 = 595.28, H0 = 841.89, z = 1, scale = 1, fit = 1, GAP = 8, PAD = 8;
+  var els = [], texts = [], hits = [], cur = -1, curPage = 1, indexed = 0, indexDone = false, query = '';
+  function ls(k, v){ try{ if(v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); }catch(e){ return null; } }
+  function clamp(v, a, b){ return Math.max(a, Math.min(b, v)); }
+  function label(n){ return n === 1 ? 'Cover' : n === 2 ? 'Contents' : String(n - OFFSET); }
+  function toPdfPage(p){ return clamp(p + OFFSET, 1, N); }
+
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdfjs/pdf.worker.min.js';
+
+  /* ---------- layout ---------- */
+  function computeFit(){ var w = Math.min(scroller.clientWidth - 2 * PAD, 900); return w / W0; }
+  function stride(){ return H0 * scale + GAP; }
+  function layout(){
+    fit = computeFit(); scale = fit * z;
+    var w = W0 * scale, h = H0 * scale;
+    for(var i = 0; i < els.length; i++){ els[i].style.width = w + 'px'; els[i].style.height = h + 'px'; }
+    pagesEl.style.paddingLeft = pagesEl.style.paddingRight = PAD + 'px';
+    $('zpct').textContent = Math.round(z * 100) + '%';
+  }
+  function pageLeft(){ var w = W0 * scale; var cw = Math.max(scroller.clientWidth, w + 2 * PAD); return (cw - w) / 2; }
+
+  function buildPages(){
+    pagesEl.innerHTML = ''; els = [];
+    for(var i = 1; i <= N; i++){
+      var d = document.createElement('div'); d.className = 'pg'; d.dataset.n = i;
+      d.innerHTML = '<div class="ph">' + label(i) + '</div>';
+      pagesEl.appendChild(d); els.push(d);
+    }
+    layout();
+  }
+
+  /* ---------- render (only pages near the screen) ---------- */
+  var queue = [], running = 0;
+  function key(){ return Math.round(scale * 1000); }
+  function pump(){
+    while(running < 2 && queue.length){
+      var n = queue.shift(); running++;
+      renderPage(n).then(function(){ running--; pump(); }, function(){ running--; pump(); });
+    }
+  }
+  function want(n){ var el = els[n - 1]; if(!el || el._key === key() || el._queued) return; el._queued = true; queue.push(n); }
+  function release(n){
+    var el = els[n - 1]; if(!el || !el._key) return;
+    el._key = 0; var c = el.querySelector('canvas'); if(c){ c.width = c.height = 0; c.remove(); }
+    var t = el.querySelector('.tl'); if(t) t.remove();
+  }
+  async function renderPage(n){
+    var el = els[n - 1]; el._queued = false; var k = key(); if(el._key === k) return;
+    var page = await pdf.getPage(n);
+    if(k !== key()) return;
+    var vp = page.getViewport({ scale: scale });
+    var ratio = Math.min(window.devicePixelRatio || 1, 2.5), maxPx = 12e6;
+    if(vp.width * vp.height * ratio * ratio > maxPx) ratio = Math.sqrt(maxPx / (vp.width * vp.height));
+    var c = document.createElement('canvas');
+    c.width = Math.floor(vp.width * ratio); c.height = Math.floor(vp.height * ratio);
+    c.style.width = Math.floor(vp.width) + 'px'; c.style.height = Math.floor(vp.height) + 'px';
+    await page.render({ canvasContext: c.getContext('2d'), viewport: vp, transform: [ratio, 0, 0, ratio, 0, 0] }).promise;
+    if(k !== key()) return;
+    var old = el.querySelector('canvas'); if(old) old.remove();
+    var oldT = el.querySelector('.tl'); if(oldT) oldT.remove();
+    el.insertBefore(c, el.firstChild);
+    var ph = el.querySelector('.ph'); if(ph) ph.remove();
+    var tl = document.createElement('div'); tl.className = 'tl'; tl.style.setProperty('--scale-factor', vp.scale); el.appendChild(tl);
+    try{
+      var tc = (texts[n] && texts[n].tc) || await page.getTextContent();
+      pdfjsLib.renderTextLayer({ textContentSource: tc, container: tl, viewport: vp, textDivs: [] });
+    }catch(e){}
+    el._key = k; drawHL(n);
+  }
+  var raf = 0;
+  function onScroll(){ if(raf) return; raf = requestAnimationFrame(function(){ raf = 0; update(); }); }
+  function update(){
+    if(!N) return;
+    var st = scroller.scrollTop, vh = scroller.clientHeight, s = stride();
+    var lo = clamp(Math.floor((st - vh * .6 - PAD) / s) + 1, 1, N), hi = clamp(Math.floor((st + vh * 1.6 - PAD) / s) + 1, 1, N);
+    queue = queue.filter(function(n){ var ok = n >= lo - 1 && n <= hi + 1; if(!ok && els[n - 1]) els[n - 1]._queued = false; return ok; });
+    for(var n = lo; n <= hi; n++) want(n);
+    for(var m = 1; m <= N; m++){ if((m < lo - 4 || m > hi + 4) && els[m - 1]._key) release(m); }
+    pump();
+    var p = clamp(Math.floor((st + vh / 3 - PAD) / s) + 1, 1, N);
+    if(p !== curPage){ curPage = p; setPageBox(); ls(STORE, String(p - OFFSET)); }
+  }
+  function setPageBox(){ var pi = $('pgin'); if(document.activeElement !== pi) pi.value = label(curPage); }
+  scroller.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function(){ var a = anchorCentre(); layout(); restoreAnchor(a); invalidate(); });
+
+  function invalidate(){ queue = []; for(var i = 0; i < els.length; i++){ els[i]._queued = false; } update(); }
+
+  /* ---------- zoom (buttons, pinch, double-tap, ctrl+wheel) ---------- */
+  function pos(vx, vy){  // what's under a viewport point, in page-relative terms
+    var rect = scroller.getBoundingClientRect(), s = stride(), w = W0 * scale;
+    var oy = vy - rect.top + scroller.scrollTop, ox = vx - rect.left + scroller.scrollLeft;
+    return { u: (oy - PAD) / s, xin: (ox - pageLeft()) / w, vx: vx - rect.left, vy: vy - rect.top };
+  }
+  function place(a){
+    scroller.scrollTop = PAD + a.u * stride() - a.vy;
+    scroller.scrollLeft = pageLeft() + a.xin * (W0 * scale) - a.vx;
+  }
+  function anchorCentre(){ var r = scroller.getBoundingClientRect(); return pos(r.left + r.width / 2, r.top + r.height / 2); }
+  function restoreAnchor(a){ place(a); }
+  function setZoom(nz, vx, vy){
+    nz = clamp(nz, .5, 5); if(Math.abs(nz - z) < .001) return;
+    var a;
+    if(vx === undefined){ a = anchorCentre(); } else a = pos(vx, vy);
+    z = nz; layout(); place(a); invalidate();
+  }
+  $('zIn').onclick = function(){ setZoom(z * 1.25); };
+  $('zOut').onclick = function(){ setZoom(z / 1.25); };
+  $('zFit').onclick = function(){ setZoom(1); };
+  scroller.addEventListener('wheel', function(e){
+    if(!e.ctrlKey) return; e.preventDefault();
+    setZoom(z * Math.exp(-e.deltaY * .01), e.clientX, e.clientY);
+  }, { passive: false });
+  var pinch = null, lastTap = 0, lastTapX = 0, lastTapY = 0;
+  function dist(a, b){ return Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY); }
+  scroller.addEventListener('touchstart', function(e){
+    if(e.touches.length === 2){
+      var a = e.touches[0], b = e.touches[1], r = scroller.getBoundingClientRect();
+      var cx = (a.clientX + b.clientX) / 2, cy = (a.clientY + b.clientY) / 2;
+      pinch = { d: dist(a, b), z0: z, zNow: z, cx: cx, cy: cy };
+      pagesEl.style.transformOrigin = (cx - r.left + scroller.scrollLeft) + 'px ' + (cy - r.top + scroller.scrollTop) + 'px';
+      pagesEl.style.willChange = 'transform';
+    }
+  }, { passive: true });
+  scroller.addEventListener('touchmove', function(e){
+    if(pinch && e.touches.length === 2){
+      e.preventDefault();
+      pinch.zNow = clamp(pinch.z0 * dist(e.touches[0], e.touches[1]) / pinch.d, .5, 5);
+      pagesEl.style.transform = 'scale(' + (pinch.zNow / pinch.z0) + ')';
+    }
+  }, { passive: false });
+  function endPinch(e){
+    if(pinch && e.touches.length < 2){
+      var p = pinch; pinch = null;
+      pagesEl.style.transform = ''; pagesEl.style.transformOrigin = ''; pagesEl.style.willChange = '';
+      // content point under the pinch centre BEFORE the transform was applied equals the one under the fingers now
+      var a = pos(p.cx, p.cy);
+      var s0 = p.z0 / p.zNow;  // unused factor kept for clarity
+      z = clamp(p.zNow, .5, 5); layout(); place(a); invalidate();
+      lastTap = 0;
+    }
+  }
+  scroller.addEventListener('touchend', function(e){
+    if(pinch){ endPinch(e); return; }
+    if(e.touches.length === 0 && e.changedTouches.length === 1){
+      var t = e.changedTouches[0], now = Date.now();
+      if(now - lastTap < 300 && Math.hypot(t.clientX - lastTapX, t.clientY - lastTapY) < 30){
+        e.preventDefault(); lastTap = 0;
+        var sel = window.getSelection && window.getSelection(); if(sel) sel.removeAllRanges();
+        setZoom(z > 1.4 ? 1 : 2.2, t.clientX, t.clientY);
+      } else { lastTap = now; lastTapX = t.clientX; lastTapY = t.clientY; }
+    }
+  }, { passive: false });
+  scroller.addEventListener('touchcancel', function(e){ if(pinch){ pinch = null; pagesEl.style.transform = ''; pagesEl.style.willChange = ''; } });
+
+  /* ---------- jump ---------- */
+  function goPage(n, offsetY){
+    n = clamp(n, 1, N);
+    scroller.scrollTop = PAD + (n - 1) * stride() + (offsetY || 0);
+    update();
+  }
+  $('pgin').addEventListener('focus', function(){ this.select(); });
+  $('pgin').addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){
+      var v = this.value.trim().toLowerCase(), n;
+      if(v === 'c' || v === 'cover') n = 1; else if(/^[0-9]+$/.test(v)) n = toPdfPage(parseInt(v, 10)); else { setPageBox(); return; }
+      goPage(n); this.blur();
+    }
+  });
+  $('pgin').addEventListener('blur', setPageBox);
+
+  /* ---------- sheet (contents / match list) ---------- */
+  function openSheet(title, html){
+    $('sheetT').textContent = title; $('sheetbody').innerHTML = html;
+    $('sheet').classList.add('on'); $('scrim').classList.add('on');
+  }
+  function closeSheet(){ $('sheet').classList.remove('on'); $('scrim').classList.remove('on'); }
+  $('sheetX').onclick = closeSheet; $('scrim').onclick = closeSheet;
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  $('bContents').onclick = function(){
+    var h = CONTENTS.map(function(c, i){
+      var pdfN = c[1] === 0 ? 1 : c[1] === -1 ? 2 : toPdfPage(c[1]);
+      return '<button class="row" data-n="' + pdfN + '"><b>' + (c[1] > 0 ? 'p.' + c[1] : '') + '</b><span class="sn">' + esc(c[0]) + '</span></button>';
+    }).join('');
+    h += '<a class="row" style="text-decoration:none" href="' + PDF_URL + '" target="_blank" rel="noopener"><b></b><span class="sn">Open the original PDF</span></a>';
+    openSheet('Contents', h);
+  };
+  $('sheetbody').addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('.row[data-n], .row[data-h]'); if(!b) return;
+    if(b.dataset.h !== undefined){ closeSheet(); goHit(parseInt(b.dataset.h, 10)); }
+    else { closeSheet(); goPage(parseInt(b.dataset.n, 10)); }
+  });
+
+  /* ---------- text index + search ---------- */
+  async function buildIndex(){
+    for(var i = 1; i <= N; i++){
+      try{
+        var page = await pdf.getPage(i), tc = await page.getTextContent();
+        var full = '', ranges = [];
+        for(var j = 0; j < tc.items.length; j++){
+          var it = tc.items[j]; if(typeof it.str !== 'string') continue;
+          if(full.length) full += ' ';
+          ranges.push({ s: full.length, e: full.length + it.str.length, it: it });
+          full += it.str;
+        }
+        texts[i] = { full: full, low: full.toLowerCase(), ranges: ranges, tc: tc, h: page.view[3] - page.view[1] };
+      }catch(e){ texts[i] = { full: '', low: '', ranges: [], h: H0 }; }
+      indexed = i;
+      if(i % 8 === 0){ if(query) runSearch(true); await new Promise(function(r){ setTimeout(r, 0); }); }
+    }
+    indexDone = true; if(query) runSearch(true);
+  }
+  function rectsFor(t, a, b){
+    var out = [];
+    for(var i = 0; i < t.ranges.length; i++){
+      var r = t.ranges[i]; if(r.e <= a || r.s >= b) continue;
+      var len = r.e - r.s; if(!len) continue;
+      var s0 = Math.max(a, r.s) - r.s, e0 = Math.min(b, r.e) - r.s, it = r.it;
+      var h = it.height || Math.abs(it.transform[3]) || 10;
+      out.push({ x1: it.transform[4] + (s0 / len) * it.width, x2: it.transform[4] + (e0 / len) * it.width, ya: it.transform[5] - .22 * h, yb: it.transform[5] + .85 * h });
+    }
+    return out;
+  }
+  function runSearch(keepCur){
+    var q = query.toLowerCase().replace(/\s+/g, ' ').trim(), prev = cur;
+    var oldPages = {}; hits.forEach(function(h){ oldPages[h.page] = 1; });
+    hits = [];
+    if(q.length >= 2){
+      for(var p = 1; p <= indexed; p++){
+        var t = texts[p]; if(!t || !t.low) continue;
+        var from = 0, idx;
+        while((idx = t.low.indexOf(q, from)) !== -1){
+          hits.push({ page: p, a: idx, b: idx + q.length, rects: rectsFor(t, idx, idx + q.length) });
+          from = idx + q.length; if(hits.length > 2000) break;
+        }
+        if(hits.length > 2000) break;
+      }
+    }
+    cur = hits.length ? (keepCur && prev >= 0 && prev < hits.length ? prev : -1) : -1;
+    hits.forEach(function(h){ oldPages[h.page] = 1; });
+    Object.keys(oldPages).forEach(function(p){ drawHL(+p); });
+    countUI();
+  }
+  function countUI(){
+    var s = $('scount');
+    if(query.trim().length < 2){ s.textContent = indexDone ? '' : 'Indexing ' + Math.round(indexed / N * 100) + '%'; return; }
+    if(!hits.length){ s.textContent = indexDone ? 'None' : 'Indexing ' + Math.round(indexed / N * 100) + '%'; return; }
+    s.textContent = (cur >= 0 ? cur + 1 : '-') + ' / ' + hits.length + (hits.length > 2000 ? '+' : '') + (indexDone ? '' : '…');
+  }
+  function drawHL(n){
+    var el = els[n - 1]; if(!el) return;
+    var layer = el.querySelector('.hl'); if(layer) layer.remove();
+    if(!el._key) return;
+    var mine = [];
+    for(var i = 0; i < hits.length; i++) if(hits[i].page === n) mine.push(i);
+    if(!mine.length) return;
+    layer = document.createElement('div'); layer.className = 'hl';
+    var H = (texts[n] && texts[n].h) || H0;
+    mine.forEach(function(i){
+      hits[i].rects.forEach(function(r){
+        var d = document.createElement('i'); if(i === cur) d.className = 'cur';
+        d.style.left = (r.x1 * scale - 1) + 'px'; d.style.top = ((H - r.yb) * scale) + 'px';
+        d.style.width = ((r.x2 - r.x1) * scale + 2) + 'px'; d.style.height = ((r.yb - r.ya) * scale) + 'px';
+        layer.appendChild(d);
+      });
+    });
+    el.appendChild(layer);
+  }
+  function goHit(i){
+    if(!hits.length) return; i = (i + hits.length) % hits.length;
+    var old = cur; cur = i; var h = hits[i], H = (texts[h.page] && texts[h.page].h) || H0;
+    var r = h.rects[0], y = r ? (H - r.yb) * scale : 0;
+    scroller.scrollTop = PAD + (h.page - 1) * stride() + y - scroller.clientHeight / 3;
+    if(r){ var x = pageLeft() + r.x1 * scale; if(x < scroller.scrollLeft + 20 || x > scroller.scrollLeft + scroller.clientWidth - 40) scroller.scrollLeft = x - scroller.clientWidth / 3; }
+    if(old >= 0 && hits[old]) drawHL(hits[old].page);
+    drawHL(h.page); countUI(); update();
+  }
+  function snippet(h){
+    var t = texts[h.page].full, a = Math.max(0, h.a - 40), b = Math.min(t.length, h.b + 60);
+    return (a ? '…' : '') + esc(t.slice(a, h.a)) + '<mark>' + esc(t.slice(h.a, h.b)) + '</mark>' + esc(t.slice(h.b, b)) + (b < t.length ? '…' : '');
+  }
+  $('sList').onclick = function(){
+    if(!hits.length){ return; }
+    var shown = hits.slice(0, 300), h = shown.map(function(x, i){
+      return '<button class="row" data-h="' + i + '"><b>p.' + label(x.page) + '</b><span class="sn">' + snippet(x) + '</span></button>';
+    }).join('');
+    if(hits.length > 300) h += '<div class="row sec">Showing the first 300 of ' + hits.length + '. Type more to narrow it down.</div>';
+    openSheet(hits.length + ' matches', h);
+  };
+  var sTimer = 0;
+  $('sq').addEventListener('input', function(){ query = this.value; clearTimeout(sTimer); sTimer = setTimeout(function(){ runSearch(false); if(hits.length) goHit(0); }, 220); });
+  $('sq').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); if(query !== this.value) query = this.value; if(cur < 0){ runSearch(false); goHit(0); } else goHit(e.shiftKey ? cur - 1 : cur + 1); } });
+  $('sNext').onclick = function(){ if(cur < 0) goHit(0); else goHit(cur + 1); };
+  $('sPrev').onclick = function(){ if(cur < 0) goHit(hits.length - 1); else goHit(cur - 1); };
+  $('bSearch').onclick = function(){ var on = $('sbar').classList.toggle('on'); if(on){ $('sq').focus(); countUI(); } else clearSearch(); layout(); invalidate(); };
+  $('sClose').onclick = function(){ $('sbar').classList.remove('on'); clearSearch(); layout(); invalidate(); };
+  function clearSearch(){ query = ''; $('sq').value = ''; runSearch(false); $('scount').textContent = ''; }
+
+  /* ---------- boot ---------- */
+  function parseHash(){
+    var o = {}; location.hash.replace(/^#/, '').split('&').forEach(function(p){ var kv = p.split('='); if(kv[0]) o[kv[0]] = decodeURIComponent(kv[1] || ''); }); return o;
+  }
+  pdfjsLib.getDocument({ url: PDF_URL, standardFontDataUrl: 'lib/pdfjs/standard_fonts/' }).promise.then(async function(doc){
+    pdf = doc; N = doc.numPages;
+    var p1 = await doc.getPage(1), v = p1.getViewport({ scale: 1 }); W0 = v.width; H0 = v.height;
+    $('pgtot').textContent = '/ ' + (N - OFFSET);
+    buildPages(); msg.remove();
+    var h = parseHash(), start = h.p ? parseInt(h.p, 10) : parseInt(ls(STORE) || '1', 10);
+    if(!(start >= 1)) start = 1;
+    goPage(toPdfPage(start));
+    if(h.p === 'c') goPage(1);
+    update();
+    buildIndex();
+    if(h.q){ $('sbar').classList.add('on'); $('sq').value = h.q; query = h.q; layout(); invalidate(); }
+  }).catch(function(err){
+    msg.textContent = 'Could not open the book. Check your connection and reload.';
+    console.error(err);
+  });
+  window._bk = { goPage: goPage, setZoom: function(v){ setZoom(v); }, state: function(){ return { z: z, scale: scale, curPage: curPage, indexed: indexed, hits: hits.length, cur: cur }; }, search: function(q){ $('sbar').classList.add('on'); $('sq').value = q; query = q; runSearch(false); if(hits.length) goHit(0); } };
+})();
+</script>
+</body>
+</html>
