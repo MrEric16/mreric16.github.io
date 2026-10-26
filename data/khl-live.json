@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T17:29:06.926089+00:00",
+  "generatedAt": "2026-10-26T21:47:44.891803+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -182,6 +182,18 @@
       "points": 53
     },
     {
+      "team": "Dynamo Msk",
+      "played": 19,
+      "won": 22,
+      "otWon": 2,
+      "soWon": 2,
+      "soLost": 3,
+      "otLost": 2,
+      "lost": 0,
+      "gf": 44,
+      "points": 57
+    },
+    {
       "team": "Traktor",
       "played": 18,
       "won": 18,
@@ -194,16 +206,16 @@
       "points": 53
     },
     {
-      "team": "Dynamo Msk",
+      "team": "Avangard",
       "played": 18,
-      "won": 21,
-      "otWon": 2,
-      "soWon": 2,
-      "soLost": 3,
-      "otLost": 2,
+      "won": 17,
+      "otWon": 4,
+      "soWon": 4,
+      "soLost": 1,
+      "otLost": 0,
       "lost": 0,
-      "gf": 42,
-      "points": 55
+      "gf": 33,
+      "points": 51
     },
     {
       "team": "Sibir",
@@ -228,18 +240,6 @@
       "lost": 0,
       "gf": 43,
       "points": 52
-    },
-    {
-      "team": "Avangard",
-      "played": 16,
-      "won": 16,
-      "otWon": 4,
-      "soWon": 3,
-      "soLost": 1,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 30,
-      "points": 47
     },
     {
       "team": "HC Sochi",
@@ -2959,6 +2959,14 @@
     }
   ],
   "results": [
+    {
+      "home": "Dynamo Msk",
+      "away": "Avangard",
+      "start": "2026-10-26T09:30:00+05:00",
+      "homeScore": 2,
+      "awayScore": 3,
+      "finished": true
+    },
     {
       "home": "Traktor",
       "away": "Sibir",
