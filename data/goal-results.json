@@ -1,42 +1,6 @@
 {
-  "generatedAt": "2026-10-26T00:55:50.309616Z",
+  "generatedAt": "2026-10-26T05:43:05.183593Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/tottenham-hotspur-vs-everton/o8HciJcmqhvtveIJZkT2c",
-      "date": null,
-      "home": "Tottenham Hotspur",
-      "away": "Everton",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/racing-santander-vs-deportivo-alaves/cTxD2fTSlxkb-eBfpDVhC",
-      "date": null,
-      "home": "Racing Santander",
-      "away": "Deportivo Alaves",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "Y. Zabiri",
-          "minute": 38
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "V. Koski",
-          "minute": 18
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/athletic-bilbao-vs-elche/BAspkwXCAOempc_EHxNi1",
       "date": null,
@@ -7785,6 +7749,67 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/bayern-munich-vs-bodoe-glimt/m_ZMn5GKSEOK2P5D1fqiL",
+      "date": null,
+      "home": "Bayern Munich",
+      "away": "Bodoe Glimt",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "J. Musiala",
+          "minute": 47
+        },
+        {
+          "scorer": "H. Kane",
+          "minute": 61
+        },
+        {
+          "scorer": "A. Davies",
+          "minute": 77
+        },
+        {
+          "scorer": "M. Olise",
+          "minute": 83
+        }
+      ],
+      "awayGoals": [],
+      "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-slovan-bratislava/6Xke_d5-JmaNtv-aTjueH",
+      "date": null,
+      "home": "Paris Saint Germain",
+      "away": "Slovan Bratislava",
+      "htHome": 3,
+      "htAway": 0,
+      "ftHome": 6,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "O. Dembele",
+          "minute": 17
+        },
+        {
+          "scorer": "F. Torres",
+          "minute": 31
+        },
+        {
+          "scorer": "F. Ruiz",
+          "minute": 88
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Camara",
+          "minute": 59
+        }
+      ],
+      "competition": "psg"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7798,8 +7823,6 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/bayern-munich-vs-bodoe-glimt/m_ZMn5GKSEOK2P5D1fqiL": 2,
-    "https://www.goal.com/en/match/paris-saint-germain-vs-slovan-bratislava/6Xke_d5-JmaNtv-aTjueH": 2
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
   }
 }
