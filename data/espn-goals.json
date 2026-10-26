@@ -1,6 +1,54 @@
 {
- "generatedAt": "2026-10-26T19:39:38.800002Z",
+ "generatedAt": "2026-10-26T23:27:04.542637Z",
  "results": [
+  {
+   "url": "espn:401882828",
+   "date": "2026-10-26",
+   "utc": "2026-10-26T20:00Z",
+   "home": "Sevilla FC",
+   "away": "Osasuna",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "I. Romero",
+     "minute": 24
+    },
+    {
+     "scorer": "F. Correia",
+     "minute": 82
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401876422",
+   "date": "2026-10-26",
+   "utc": "2026-10-26T19:30Z",
+   "home": "PSG",
+   "away": "Lyon",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "S. Mayulu",
+     "minute": 72
+    },
+    {
+     "scorer": "M. Godts",
+     "minute": 84
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401879254",
    "date": "2026-10-25",
