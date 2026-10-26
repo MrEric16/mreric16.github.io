@@ -13,11 +13,11 @@
   html,body{margin:0;height:100%;background:var(--desk);overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:var(--ink);}
   #app{position:fixed;inset:0;display:flex;flex-direction:column;}
   .bar{flex:none;display:flex;align-items:center;gap:6px;padding:calc(6px + env(safe-area-inset-top,0px)) 8px 6px;background:var(--bar);color:var(--bar-ink);}
-  .bar button,.bar a.b{flex:none;min-width:40px;height:40px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:inherit;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;}
+  .bar button,.bar a.b{flex:none;min-width:36px;height:40px;border:0;border-radius:10px;background:rgba(255,255,255,.1);color:inherit;font-size:18px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;text-decoration:none;cursor:pointer;}
   .bar button:active,.bar a.b:active{background:rgba(255,255,255,.25);}
-  .bar .title{flex:1;min-width:0;font-weight:800;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .bar .title{flex:1;min-width:0;font-weight:800;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
   .pgbox{display:flex;align-items:center;gap:5px;font-weight:700;font-size:14px;}
-  .pgbox input{width:52px;height:36px;border:0;border-radius:8px;text-align:center;font:inherit;font-size:16px;background:#FBF5EA;color:var(--ink);}
+  .pgbox input{width:46px;height:36px;border:0;border-radius:8px;text-align:center;font:inherit;font-size:16px;background:#FBF5EA;color:var(--ink);}
   .pgbox span{opacity:.8;white-space:nowrap;}
   #sbar{display:none;flex:none;align-items:center;gap:6px;padding:0 8px 8px;background:var(--bar);color:var(--bar-ink);}
   #sbar.on{display:flex;}
@@ -83,10 +83,24 @@
 <script>
 (function(){
   'use strict';
-  var PDF_URL = 'books/academic-vocabulary-book2.pdf';
+  var BOOK = (/[?&]b=harder/.test(location.search)) ? 'harder' : 'easier';
+  var PDF_URL = BOOK === 'harder' ? 'books/academic-vocabulary-book1.pdf' : 'books/academic-vocabulary-book2.pdf';
   var OFFSET = 2;               // printed page 1 = PDF page 3 (cover + contents come first)
-  var STORE = 'bookPos_vocabEasier';
-  var CONTENTS = [
+  var STORE = BOOK === 'harder' ? 'bookPos_vocabHarder' : 'bookPos_vocabEasier';
+  var TITLE = BOOK === 'harder' ? 'Vocabulary \u2013 Harder' : 'Vocabulary \u2013 Easier';
+  document.title = TITLE + " | Mr Eric's Lounge"; document.querySelector('.title').textContent = TITLE;
+  var CONTENTS_HARDER = [
+    ['Cover',0],['Contents',-1],
+    ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
+    ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],
+    ['9. Jurisprudence',49],['10. Media & Communication',55],['11. Arts & Culture',61],['12. Design',67],
+    ['13. Travel & Tourism',73],['14. Society & Relationships',79],['15. Psychology',85],['16. Government & Public Life',91],
+    ['17. International Relations',98],['18. Business & Commerce',105],['19. Economics',111],['20. Science & Discovery',118],
+    ['21. Food & Lifestyle',124],['22. Change & Progress',130],
+    ['Word Index',136],['Basic - Academic Word Swap Sheet',149],['Commonly Confused Words',158],['Prefix & Suffix Reference',159],
+    ['Academic Linking Words for Writing',160],['Master Debate Phrasebank',161],['Sources',162]
+  ];
+  var CONTENTS = BOOK === 'harder' ? CONTENTS_HARDER : [
     ['Cover',0],['Contents',-1],
     ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
     ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],

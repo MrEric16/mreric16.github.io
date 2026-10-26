@@ -7,13 +7,14 @@
 // win on the first load after a change. Network-first means you always get the latest push
 // immediately when there's a connection; the cache only kicks in when there's genuinely none.
 
-const CACHE_NAME = 'erics-lounge-v65';
+const CACHE_NAME = 'erics-lounge-v66';
 const SHELL_FILES = [
   './',
   './index.html',
   './vocabulary.html',
   './book.html',
   './books/academic-vocabulary-book2.pdf',
+  './books/academic-vocabulary-book1.pdf',
   './lib/pdfjs/pdf.min.js',
   './lib/pdfjs/pdf.worker.min.js',
   './grammar.html',
