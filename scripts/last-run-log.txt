@@ -1,15 +1,15 @@
-[scrape] Run started. Today (Tashkent): 2026-10-26  Window end: 2026-11-09
+[scrape] Run started. Today (Tashkent): 2026-10-27  Window end: 2026-11-10
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-10-26: 20 new event URLs discovered
-[scrape] calendar 2026-10-27: 4 new event URLs discovered
+[scrape] calendar 2026-10-27: 21 new event URLs discovered
 [scrape] calendar 2026-10-28: 4 new event URLs discovered
-[scrape] calendar 2026-10-29: 9 new event URLs discovered
-[scrape] calendar 2026-10-30: 10 new event URLs discovered
+[scrape] calendar 2026-10-29: 10 new event URLs discovered
+[scrape] calendar 2026-10-30: 11 new event URLs discovered
 [scrape] calendar 2026-10-31: 15 new event URLs discovered
 [scrape] calendar 2026-11-01: 4 new event URLs discovered
 [scrape] calendar 2026-11-02: 3 new event URLs discovered
 [scrape] calendar 2026-11-03: 1 new event URLs discovered
 [scrape] calendar 2026-11-04: 2 new event URLs discovered
+[scrape] calendar 2026-11-05: 1 new event URLs discovered
 [scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 20 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
@@ -19,16 +19,16 @@
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 258 events kept from 81 pages checked
+[scrape] calendar detail pass complete: 252 events kept from 81 pages checked
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 22 events kept
-[scrape] iticket.uz cat=theatre: 14 events kept
+[scrape] iticket.uz cat=concert: 25 events kept
+[scrape] iticket.uz cat=theatre: 21 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
 [scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 295  |  after dedup: 283
+[scrape] TOTAL before dedup: 299  |  after dedup: 287
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 102 titles
+[scrape] translation cache: 103 titles
