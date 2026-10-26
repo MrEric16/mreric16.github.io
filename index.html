@@ -2778,7 +2778,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-synthwave:not(.dark-mode) .photo-tile,
   body.usertheme-synthwave:not(.dark-mode) .events-tile,
   body.usertheme-synthwave:not(.dark-mode) .domain-group{
-    box-shadow:-5px 0 16px rgba(255,0,200,.75), 5px 0 16px rgba(0,255,225,.75) !important;
+    box-shadow:-4px 0 9px rgba(255,0,200,.8), 4px 0 9px rgba(0,255,225,.8) !important;
   }
   /* 2+4. chrome-gradient headings with a red/blue ghost edge */
   body.usertheme-synthwave:not(.dark-mode) .section-head h2{
@@ -2839,20 +2839,10 @@ body.usertheme-vintage:not(.dark-mode) header::before{
       repeating-linear-gradient(90deg, rgba(255,20,200,.22) 0px, rgba(255,20,200,.22) 9px, transparent 9px, transparent 70px),
       repeating-linear-gradient(90deg, rgba(255,170,235,1) 0px, rgba(255,170,235,1) 2px, transparent 2px, transparent 70px);
   }
-  #syn-floor{
-    position:fixed; left:0; right:0; bottom:0; height:400vh; z-index:-1; pointer-events:none; overflow:hidden;
-    transform-origin:bottom; transform:perspective(300px) rotateX(65deg);
-    animation:synthwaveGridFlow 6s linear infinite;
-    -webkit-mask-image:linear-gradient(to top, black 0%, black 45%, transparent 78%); mask-image:linear-gradient(to top, black 0%, black 45%, transparent 78%);
-  }
-  #syn-floor .in{
-    position:absolute; left:0; right:0; top:-70px; bottom:0;
-    background-image:
-      repeating-linear-gradient(0deg, rgba(255,20,200,.22) 0px, rgba(255,20,200,.22) 9px, transparent 9px, transparent 70px),
-      repeating-linear-gradient(0deg, rgba(255,170,235,1) 0px, rgba(255,170,235,1) 2px, transparent 2px, transparent 70px);
-  }
+  /* floor is now a small 2D canvas (#syn-floor) drawn in JS: same perspective grid, far cheaper than a 3D-transformed 400vh layer */
+  #syn-floor{ position:fixed; left:0; bottom:0; width:100%; height:24vh; z-index:-1; pointer-events:none; }
   /* 8. neon wireframe mountains in front of the sun */
-  #syn-mtn{ position:fixed; left:0; right:0; bottom:18vh; height:110px; z-index:-1; pointer-events:none; animation:synthwaveGridFlow 6s linear infinite; }
+  #syn-mtn{ position:fixed; left:0; right:0; bottom:18vh; height:110px; z-index:-1; pointer-events:none; }
   #syn-mtn svg{ display:block; width:100%; height:100%; }
   /* 7. palms either side, swaying */
   .syn-palm{ position:fixed; bottom:5vh; width:170px; height:250px; z-index:-1; pointer-events:none; transform-origin:50% 100%; filter:drop-shadow(0 0 7px #FF2E97) drop-shadow(0 0 3px #00FFE1); animation:synPalm 6s ease-in-out infinite alternate; }
@@ -2861,7 +2851,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   @keyframes synPalm{ from{ transform:rotate(-1.8deg); } to{ transform:rotate(2deg); } }
   @keyframes synPalmR{ from{ transform:scaleX(-1) rotate(-1.8deg); } to{ transform:scaleX(-1) rotate(2deg); } }
   /* 10. flickering neon-tube icons */
-  body.usertheme-synthwave:not(.dark-mode) .fac-icon svg{ filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px rgba(255,255,255,.8)); animation:synFlicker 5.5s steps(1,end) infinite; }
+  body.usertheme-synthwave:not(.dark-mode) .fac-icon svg{ filter:drop-shadow(0 0 4px rgba(255,255,255,.9)); animation:synFlicker 5.5s steps(1,end) infinite; }
   body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:nth-child(3n+1) .fac-icon svg{ animation-duration:7.3s; animation-delay:-2s; }
   body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:nth-child(4n+2) .fac-icon svg{ animation-duration:4.1s; animation-delay:-1s; }
   body.usertheme-synthwave:not(.dark-mode) .faculties .fac-tile:nth-child(5n+3) .fac-icon svg{ animation-duration:9.7s; animation-delay:-5s; }
@@ -2875,7 +2865,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     animation:synLaser var(--ld,3s) ease-in-out infinite alternate; animation-delay:var(--dl,0s);
   }
   @keyframes synLaser{ from{ transform:translateX(0); } to{ transform:translateX(194%); } }
-  @media (prefers-reduced-motion:reduce){ #syn-floor,#syn-mtn,.syn-palm,body.usertheme-synthwave:not(.dark-mode) .section-head::after,body.usertheme-synthwave:not(.dark-mode) .fac-icon svg{ animation:none; } }
+  @media (prefers-reduced-motion:reduce){ #syn-mtn,.syn-palm,body.usertheme-synthwave:not(.dark-mode) .section-head::after,body.usertheme-synthwave:not(.dark-mode) .fac-icon svg{ animation:none; } }
 
   /* 14. neon car on the horizon */
   .syn-car{ position:fixed; left:0; top:0; width:96px; height:33px; z-index:-1; pointer-events:none; filter:drop-shadow(0 0 6px #FF2E97) drop-shadow(0 6px 5px rgba(255,46,151,.6)); }
@@ -2894,6 +2884,43 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   #syn-boot .scan{ position:absolute; left:0; right:0; top:0; height:60px; background:linear-gradient(180deg, transparent, rgba(0,255,102,.35), transparent); }
   #syn-boot .cur{ animation:synCur .5s steps(1,end) infinite; } @keyframes synCur{ 50%{ opacity:0; } }
   /* ===== END SYNTHWAVE v2 ===== */
+
+  /* ===== SYNTHWAVE perf (26 Oct 2026): the old v1 body::after floor is merged into #syn-floor (one layer, no colour-cycling filter). Tiers are set by the JS frame-time probe: body.syn-lite (tier 1), body.syn-min (tier 2). Revert: delete to 'END SYNTHWAVE perf' + restore from git history. ===== */
+  body.usertheme-synthwave:not(.dark-mode)::after{ content:none !important; display:none !important; }
+  /* tier 1: lite */
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .fac-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .sports-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .sports-card,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .goodnews-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .watch-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .watch-card,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .otd-card,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .books-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .mindtemple-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .explore-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .explore-card,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .page-result,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .bday-tile-card,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .random-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .rec-item,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .sotw-card,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .photo-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .events-tile,
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .domain-group{ box-shadow:-3px 0 0 rgba(255,0,200,.85), 3px 0 0 rgba(0,255,225,.85) !important; }
+  html:has(body.usertheme-synthwave.syn-lite:not(.dark-mode))::after{ content:none !important; }
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .section-head h2{ filter:drop-shadow(0 0 5px rgba(255,46,151,.8)); }
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .fac-icon svg{ filter:none; animation:none; }
+  body.usertheme-synthwave.syn-lite:not(.dark-mode)::before{ animation:none; }
+  body.usertheme-synthwave.syn-lite:not(.dark-mode) .section-head::after{ box-shadow:none; }
+  body.usertheme-synthwave.syn-lite .syn-palm{ filter:none; animation:none; }
+  body.usertheme-synthwave.syn-lite .syn-car{ filter:none; }
+  body.usertheme-synthwave.syn-lite #syn-arcade{ animation:none; }
+  /* tier 2: minimal */
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .section-head h2{ filter:none; }
+  body.usertheme-synthwave.syn-min:not(.dark-mode) .section-head::after{ animation:none; }
+  body.usertheme-synthwave.syn-min #syn-mtn, body.usertheme-synthwave.syn-min .syn-palm{ display:none; }
+  /* ===== END SYNTHWAVE perf ===== */
 
 
 
@@ -38649,7 +38676,7 @@ function setCornersNoZoom(active){
     '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 54 36"><circle cx="27" cy="9" r="8" fill="#F4F4F8"/><rect x="21" y="5" width="12" height="8" rx="4" fill="#2A3A7A"/><rect x="19" y="17" width="16" height="14" rx="5" fill="#F4F4F8"/><rect x="11" y="18" width="9" height="5" rx="2.5" fill="#F4F4F8"/><rect x="34" y="18" width="9" height="5" rx="2.5" fill="#F4F4F8"/><rect x="21" y="30" width="5" height="6" rx="2" fill="#E0E0EC"/><rect x="28" y="30" width="5" height="6" rx="2" fill="#E0E0EC"/></svg>'
   ];
   function critter(){
-    if(!on() || rm || document.hidden) return;
+    if(!on() || rm || document.hidden || body.classList.contains('syn-lite')) return;
     const w = innerWidth, h = innerHeight, kind = Math.floor(Math.random() * 3), c = document.createElement('div');
     c.className = 'neb2-critter'; c.innerHTML = CRIT[kind]; body.appendChild(c);
     const y = rnd(0.12, 0.78) * h, ltr = Math.random() < 0.5, dur = rnd(6000, 30000), wob = rnd(10, 40);
@@ -38664,7 +38691,7 @@ function setCornersNoZoom(active){
   setTimeout(critter, rnd(6000, 14000));
   // ---- 19. warp streaks when you tap a link ----
   document.addEventListener('click', e => {
-    if(!on() || rm) return;
+    if(!on() || rm || body.classList.contains('syn-lite')) return;
     const a = e.target.closest && e.target.closest('a[href^="#"]');
     if(!a || a.getAttribute('href') === '#' && location.hash === '' ) return;
     const w = document.createElement('div'); w.className = 'neb2-warp';
@@ -38680,17 +38707,58 @@ function setCornersNoZoom(active){
   const body = document.body;
   const on = () => body.classList.contains('usertheme-synthwave') && !body.classList.contains('dark-mode');
   const rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let floorAnim = null, target = 1, rate = 1, lastY = scrollY, lastT = performance.now();
+  let target = 1, rate = 1, lastY = scrollY, lastT = performance.now();
   const palm = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200"><g fill="none" stroke="#12061F" stroke-linecap="round"><path d="M58 200 C60 150 52 110 64 70" stroke-width="7"/><g stroke-width="5"><path d="M64 70 Q38 38 8 62"/><path d="M64 70 Q46 30 26 36"/><path d="M64 70 Q70 28 98 30"/><path d="M64 70 Q92 40 116 66"/><path d="M64 70 Q40 62 14 98"/><path d="M64 70 Q90 62 112 100"/><path d="M64 70 Q64 40 64 20"/></g></g></svg>';
   const mtn = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 110" preserveAspectRatio="none"><polygon points="0,110 0,70 40,40 70,64 110,20 150,60 190,34 230,72 270,28 310,66 350,44 400,70 400,110" fill="#14072A" stroke="#FF2E97" stroke-width="2.5" vector-effect="non-scaling-stroke"/><polyline points="0,80 40,52 70,74 110,34 150,70 190,48 230,82 270,42 310,76 350,56 400,80" fill="none" stroke="#00FFE1" stroke-opacity=".6" stroke-width="1.5" vector-effect="non-scaling-stroke"/></svg>';
   function make(id, cls, html){ const d = document.createElement('div'); d.id = id; if(cls) d.className = cls; d.setAttribute('aria-hidden','true'); if(html) d.innerHTML = html; body.appendChild(d); return d; }
+  let cv = null, cx2 = null, phase = 0, speed = 1, hueT = 0, fLast = 0, fRaf = 0;
+  function tierNow(){ return body.classList.contains('syn-min') ? 2 : body.classList.contains('syn-lite') ? 1 : 0; }
+  function sizeFloor(){
+    if(!cv) return; const k = tierNow() ? 0.35 : 0.5;
+    cv.width = Math.max(240, Math.round(innerWidth * k)); cv.height = Math.max(60, Math.round(innerHeight * 0.24 * k)); drawFloor();
+  }
+  function drawFloor(){
+    if(!cv || !cx2) return;
+    const w = cv.width, h = cv.height, c = cx2, mid = w / 2, hue = (hueT * 18) % 360, unit = Math.max(1, w / 640);
+    c.clearRect(0, 0, w, h);
+    c.lineCap = 'butt';
+    const N = 12;
+    for(let i = 0; i < N; i++){
+      const u = ((i + phase) % N) / N, y = h * u * u;
+      c.strokeStyle = 'hsla(' + hue + ',100%,58%,' + (.18 + u * .22).toFixed(2) + ')'; c.lineWidth = (3 + u * 3) * unit;
+      c.beginPath(); c.moveTo(0, y); c.lineTo(w, y); c.stroke();
+      c.strokeStyle = 'hsla(' + ((hue + 20) % 360) + ',100%,86%,' + (.45 + u * .55).toFixed(2) + ')'; c.lineWidth = (.6 + u * 1.4) * unit;
+      c.beginPath(); c.moveTo(0, y); c.lineTo(w, y); c.stroke();
+    }
+    const J = 26, spread = w * 2.6 / J;
+    for(let j = 0; j <= J; j++){
+      const xb = mid + (j - J / 2) * spread;
+      c.strokeStyle = 'hsla(' + hue + ',100%,58%,.2)'; c.lineWidth = 4 * unit;
+      c.beginPath(); c.moveTo(mid, 0); c.lineTo(xb, h); c.stroke();
+      c.strokeStyle = 'hsla(' + ((hue + 20) % 360) + ',100%,86%,.9)'; c.lineWidth = 1.1 * unit;
+      c.beginPath(); c.moveTo(mid, 0); c.lineTo(xb, h); c.stroke();
+    }
+    c.globalCompositeOperation = 'destination-out';
+    const g = c.createLinearGradient(0, 0, 0, h); g.addColorStop(0, 'rgba(0,0,0,1)'); g.addColorStop(.5, 'rgba(0,0,0,0)');
+    c.fillStyle = g; c.fillRect(0, 0, w, h); c.globalCompositeOperation = 'source-over';
+  }
+  function floorLoop(t){
+    fRaf = 0; if(!cv || !on()) return;
+    const tr = tierNow();
+    if(!rm && tr < 2 && !document.hidden){
+      const gap = tr === 0 ? 30 : 62;
+      if(t - fLast >= gap){ const dt = Math.min(100, t - fLast); fLast = t; phase += dt / 1500 * speed; hueT += dt / 1000 * (speed > 1.5 ? 1.6 : 1); drawFloor(); }
+    }
+    fRaf = requestAnimationFrame(floorLoop);
+  }
   function ensure(){
     if(document.getElementById('syn-floor')) return;
-    const f = make('syn-floor', '', '<div class="in"></div>');
+    cv = document.createElement('canvas'); cv.id = 'syn-floor'; cv.setAttribute('aria-hidden', 'true'); body.appendChild(cv); cx2 = cv.getContext('2d');
+    sizeFloor(); if(!fRaf) fRaf = requestAnimationFrame(floorLoop);
     make('syn-mtn', '', mtn); make('syn-palm-l', 'syn-palm', palm); make('syn-palm-r', 'syn-palm', palm);
-    if(!rm){ floorAnim = f.firstChild.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(70px)' }], { duration: 1500, iterations: Infinity }); }
   }
-  function teardown(){ ['syn-floor','syn-mtn','syn-palm-l','syn-palm-r'].forEach(id => { const e = document.getElementById(id); if(e) e.remove(); }); floorAnim = null; }
+  function teardown(){ ['syn-floor','syn-mtn','syn-palm-l','syn-palm-r'].forEach(id => { const e = document.getElementById(id); if(e) e.remove(); }); cv = null; cx2 = null; }
+  addEventListener('resize', sizeFloor); addEventListener('synTier', sizeFloor);
   addEventListener('scroll', () => {
     const now = performance.now(), v = Math.abs(scrollY - lastY) / Math.max(8, now - lastT);
     lastY = scrollY; lastT = now; target = Math.max(target, 1 + Math.min(14, v * 6));
@@ -38702,8 +38770,8 @@ function setCornersNoZoom(active){
     document.querySelectorAll('.section-head').forEach(h => {
       if(!h.style.getPropertyValue('--ld')){ h.style.setProperty('--ld', (1.4 + Math.random() * 3.6).toFixed(1) + 's'); h.style.setProperty('--dl', '-' + (Math.random() * 4).toFixed(1) + 's'); }
     });
-    if(floorAnim){ rate += (target - rate) * 0.35; target = 1 + (target - 1) * 0.72; if(target < 1.02) target = 1; floorAnim.playbackRate = Math.max(0.2, rate); }
-  }, 80);
+    rate += (target - rate) * 0.5; target = 1 + (target - 1) * 0.55; if(target < 1.02) target = 1; speed = Math.max(0.2, rate);
+  }, 200);
 })();
 
 // ===== SYNTHWAVE v2 (JS part 2): car, arcade cabinet, warp, boot-up =====
@@ -38763,6 +38831,39 @@ function setCornersNoZoom(active){
   setInterval(arcade, 1000); arcade();
   setTimeout(boot, 400);
   window._synCar = car; window._synBoot = () => { try{ localStorage.removeItem('synBootDay'); }catch(e){} boot(); };
+})();
+
+// ===== SYNTHWAVE perf: frame-time probe. Downgrades only: full -> syn-lite -> syn-min. Saved per device (synTier). Reset: _synTier(0) =====
+(function(){
+  const body = document.body;
+  const on = () => body.classList.contains('usertheme-synthwave') && !body.classList.contains('dark-mode');
+  let tier = 0; try{ tier = Math.min(2, Math.max(0, parseInt(localStorage.getItem('synTier') || '0', 10) || 0)); }catch(e){}
+  function apply(t){
+    tier = t; body.classList.toggle('syn-lite', t >= 1); body.classList.toggle('syn-min', t >= 2);
+    try{ localStorage.setItem('synTier', String(t)); }catch(e){}
+    window.dispatchEvent(new Event('synTier'));
+  }
+  apply(tier);
+  function sample(n){
+    return new Promise(res => {
+      const d = []; let last = 0;
+      (function f(t){ if(last) d.push(t - last); last = t; if(d.length >= n) { d.sort((a, b) => a - b); res(d[Math.floor(d.length * .6)]); } else requestAnimationFrame(f); })(performance.now());
+    });
+  }
+  let busy = false;
+  async function check(){
+    if(busy || !on() || document.hidden || tier >= 2) return; busy = true;
+    try{
+      const a = await sample(40);
+      if(on() && !document.hidden && a > 27){
+        const b = await sample(40);
+        if(b > 27){ apply(tier + 1); }
+      }
+    }finally{ busy = false; }
+  }
+  let started = false;
+  setInterval(() => { if(on() && !started){ started = true; setTimeout(function again(){ check().then(() => setTimeout(again, tier >= 2 ? 60000 : 4000)); }, 2500); } if(!on()) started = false; }, 1000);
+  window._synTier = t => apply(t == null ? tier : t);
 })();
 
 // ===== BAUHAUS v3 stage 2: drifting Kandinsky shapes w/ parallax, header shape clock (tap = reshuffle tile colours), poster slogan, shape wipe on link tap, tap stamps, random tile wobble =====
