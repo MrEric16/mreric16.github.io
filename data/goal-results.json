@@ -1,92 +1,6 @@
 {
-  "generatedAt": "2026-10-25T22:44:10.500608Z",
+  "generatedAt": "2026-10-26T00:55:50.309616Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/aston-villa-vs-nottingham-forest/y_ECR9nxhDcjrB3wUYXj7",
-      "date": null,
-      "home": "Aston Villa",
-      "away": "Nottingham Forest",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "Alysson Edward",
-          "minute": 74
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "L. Delap",
-          "minute": 46
-        },
-        {
-          "scorer": "I. Jesus",
-          "minute": 88
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/liverpool-vs-fulham/w9GSIb6yf7FYsfTiDJOLZ",
-      "date": null,
-      "home": "Liverpool",
-      "away": "Fulham",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/genoa-vs-frosinone/EoASQ8IvLjSJFcbukLPlY",
-      "date": null,
-      "home": "Genoa",
-      "away": "Frosinone",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "J. Vasquez",
-          "minute": 50
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "G. Kvernadze",
-          "minute": 14
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/strasbourg-vs-monaco/otWMmsGf36CmmkFHdCap3",
-      "date": null,
-      "home": "Strasbourg",
-      "away": "Monaco",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "S. Sane",
-          "minute": 52
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "P. Brunner",
-          "minute": 71
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/tottenham-hotspur-vs-everton/o8HciJcmqhvtveIJZkT2c",
       "date": null,
@@ -7765,6 +7679,112 @@
         }
       ],
       "competition": "roma"
+    },
+    {
+      "url": "https://www.goal.com/en/match/rennes-vs-strasbourg/HN5pdhjnz9qrSdjmLqE6m",
+      "date": "2026-10-25",
+      "home": "Rennes",
+      "away": "Strasbourg",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "B. Dia",
+          "minute": 34
+        },
+        {
+          "scorer": "S. Szymanski",
+          "minute": 41
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/barcelona-vs-feyenoord/BmZmNapiiYVNhac92aduw",
+      "date": null,
+      "home": "Barcelona",
+      "away": "Feyenoord",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "Raphinha",
+          "minute": 3
+        },
+        {
+          "scorer": "K. Adeyemi",
+          "minute": 22
+        },
+        {
+          "scorer": "L. Yamal",
+          "minute": 77
+        },
+        {
+          "scorer": "G. Jesus",
+          "minute": 85
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Steijn",
+          "minute": 82
+        }
+      ],
+      "competition": "barcelona"
+    },
+    {
+      "url": "https://www.goal.com/en/match/rennes-vs-marseille/w_yPIJ3CIgWAZ1cceM6ks",
+      "date": null,
+      "home": "Rennes",
+      "away": "Marseille",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "A. Thomasson",
+          "minute": 52
+        }
+      ],
+      "awayGoals": [],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-villarreal/lxudoRYk1HPZQ_HMpTcwW",
+      "date": null,
+      "home": "Borussia Dortmund",
+      "away": "Villarreal",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "R. Veiga",
+          "minute": 53
+        },
+        {
+          "scorer": "S. Guirassy",
+          "minute": 80
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Mourino",
+          "minute": 66
+        },
+        {
+          "scorer": "S. Guirassy",
+          "minute": 90
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7779,10 +7799,7 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/rennes-vs-strasbourg/HN5pdhjnz9qrSdjmLqE6m": 2,
-    "https://www.goal.com/en/match/barcelona-vs-feyenoord/BmZmNapiiYVNhac92aduw": 2,
-    "https://www.goal.com/en/match/borussia-dortmund-vs-villarreal/lxudoRYk1HPZQ_HMpTcwW": 2,
-    "https://www.goal.com/en/match/bayern-munich-vs-bodoe-glimt/m_ZMn5GKSEOK2P5D1fqiL": 1,
-    "https://www.goal.com/en/match/paris-saint-germain-vs-slovan-bratislava/6Xke_d5-JmaNtv-aTjueH": 1
+    "https://www.goal.com/en/match/bayern-munich-vs-bodoe-glimt/m_ZMn5GKSEOK2P5D1fqiL": 2,
+    "https://www.goal.com/en/match/paris-saint-germain-vs-slovan-bratislava/6Xke_d5-JmaNtv-aTjueH": 2
   }
 }
