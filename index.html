@@ -7465,6 +7465,12 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   html:has(body.usertheme-soviet:not(.dark-mode))::after, #dv-flick{ contain:strict; }
   /* bazaar garland: only the 60px strip is drawn and rotated, not a whole screen */
   body.usertheme-bazaar:not(.dark-mode)::after{ bottom:auto; height:60px; contain:strict; }
+
+  /* FX governor tier 2 (very slow screens only): texture overlays off, everything else stays */
+  body.fx-min #dv-flick, body.fx-min #dv-film, body.fx-min #bz-haze, body.fx-min #sv-shapes,
+  body.fx-min.usertheme-vintage::after, body.fx-min.usertheme-dvintage::after,
+  body.fx-min.usertheme-vintage header::after, body.fx-min.usertheme-dvintage header::after{ display:none !important; }
+  html:has(body.fx-min.usertheme-soviet)::after{ display:none !important; }
   /* ===== END PERF v2 ===== */
 </style>
 </head>
@@ -38530,8 +38536,13 @@ function setCornersNoZoom(active){
   function mk(){ const t = {}; newPass(t, true); return t; }
   let last = performance.now();
   function frame(now){
-    const dt = Math.min(0.1, (now - last) / 1000); last = now;
-    if(document.body.classList.contains('usertheme-bauhaus') && !document.body.classList.contains('dark-mode') && !document.hidden){
+    const cl = document.body.classList;
+    const isOn = cl.contains('usertheme-bauhaus') && !cl.contains('dark-mode') && !document.hidden;
+    if(!isOn){ last = now; setTimeout(() => requestAnimationFrame(frame), 700); return; }   // idle: no per-frame work when Bauhaus is off
+    const gap = cl.contains('fx-min') ? 125 : cl.contains('fx-lite') ? 66 : 33;               // trains move at 30 / 15 / 8 fps
+    if(now - last < gap){ requestAnimationFrame(frame); return; }
+    const dt = Math.min(0.2, (now - last) / 1000); last = now;
+    if(isOn){
       document.querySelectorAll('.section-head').forEach(el => {
         let st = state.get(el);
         if(!st){ st = [mk(), mk()]; state.set(el, st); }
@@ -39113,7 +39124,7 @@ function setCornersNoZoom(active){
   function rainFrame(t){
     if(!cv || !on()){ running = false; return; }
     requestAnimationFrame(rainFrame);
-    if(document.hidden || t - lastT < 33) return; lastT = t;
+    if(document.hidden || t - lastT < (document.body.classList.contains('fx-min') ? 100 : document.body.classList.contains('fx-lite') ? 66 : 33)) return; lastT = t;
     mult += (tgt - mult) * .12; if(tgt === 1 && mult > 1.02) mult += (1 - mult) * .12;
     cx.globalCompositeOperation = 'destination-out'; cx.fillStyle = 'rgba(0,0,0,.13)'; cx.fillRect(0, 0, W, H);
     cx.globalCompositeOperation = 'source-over';
@@ -39746,6 +39757,73 @@ function setCornersNoZoom(active){
   loop(scratch, 900, 2600); loop(speck, 250, 800); loop(burn, 9000, 20000);
   setInterval(life, 800); life();
   window._dvTitle = () => { titled = false; title(); };
+})();
+
+// ===== FX GOVERNOR (27 Oct 2026): adapts to slow screens. Fast screens never notice it. =====
+// Measures real frame times. Tier 1 freezes endless background animations (the picture stays, it just stops moving);
+// tier 2 also slows canvas effects and drops texture overlays. Saved per device for 14 days. Reset: _fxTier(0). Off: localStorage.fxGov = 'off'.
+(function(){
+  try{ if(localStorage.getItem('fxGov') === 'off') return; }catch(e){}
+  const body = document.body, KEY = 'fxTier4';
+  const FANCY = /usertheme-(bauhaus|synthwave|bazaar|nebula|hacker|soviet|vintage|dvintage|darsenal|arsenal|arsenal2|uzbekistan2)(\s|$)/;
+  const PROTECT = '.spinner,.loading,.loader,.skeleton,[aria-busy="true"],[role="dialog"],[id$="Overlay"],[data-keep-anim],[data-egg-popup],.dsurprise-overlay,.dsurprise-card,.confetti';
+  let tier = 0;
+  try{ const s = JSON.parse(localStorage.getItem(KEY) || 'null'); if(s && Date.now() - s.t < 14 * 864e5) tier = s.v | 0; }catch(e){}
+  const paused = new Set();
+  let lastScroll = 0, sweepT = 0;
+  addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
+  const fancy = () => FANCY.test(body.className);
+  function sweep(){
+    const on = tier >= 1 && fancy();
+    if(!on){ if(paused.size){ paused.forEach(a => { try{ a.play(); }catch(e){} }); paused.clear(); } return; }
+    document.getAnimations().forEach(a => {
+      const e = a.effect; if(!e || !e.getTiming || a.playState !== 'running') return;
+      if(e.getTiming().iterations !== Infinity) return;
+      const t = e.target; if(t && t.closest && t.closest(PROTECT)) return;
+      a.pause(); paused.add(a);
+    });
+  }
+  function apply(t, save){
+    tier = t;
+    body.classList.toggle('fx-lite', t >= 1); body.classList.toggle('fx-min', t >= 2);
+    clearInterval(sweepT); sweepT = 0;
+    if(t >= 1){ sweep(); sweepT = setInterval(sweep, 1500); } else sweep();
+    if(save){ try{ localStorage.setItem(KEY, JSON.stringify({ v: t, t: Date.now() })); }catch(e){} }
+  }
+  window._fxTier = n => apply(n | 0, true);
+  function sample(ms){
+    return new Promise(res => {
+      const d = []; let last = 0; const t0 = performance.now(); let bad = false;
+      (function f(t){
+        if(document.hidden || performance.now() - lastScroll < 1200) bad = true;
+        if(last) d.push(t - last); last = t;
+        if(performance.now() - t0 < ms) requestAnimationFrame(f);
+        else { d.sort((a, b) => a - b); res(bad || d.length < 8 ? null : d[Math.floor(d.length * .6)]); }
+      })(performance.now());
+    });
+  }
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+  async function slow(limit){
+    for(let i = 0; i < 2; i++){
+      let m = null, tries = 0;
+      while(m === null && tries++ < 4){ m = await sample(2200); if(m === null) await wait(1500); }
+      if(m === null || m <= limit) return false;
+      await wait(1500);
+    }
+    return true;
+  }
+  async function watch(){
+    await wait(7000);
+    while(tier < 2){
+      if(!fancy()){ await wait(5000); continue; }          // plain themes are left alone
+      if(await slow(tier === 0 ? 30 : 42)) apply(tier + 1, true);
+      else if(tier >= 1) break;                              // settled
+      else await wait(20000);                                // fast screen: look again now and then
+      await wait(3500);
+    }
+  }
+  apply(tier, false);
+  watch();
 })();
 </script>
 
