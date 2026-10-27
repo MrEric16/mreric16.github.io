@@ -39020,8 +39020,8 @@ function setCornersNoZoom(active){
       p.vy += 1500 * dt; p.x += p.vx * dt; p.y += p.vy * dt; p.a += p.va * dt;
       if(p.x < 0){ p.x = 0; p.vx = -p.vx * .6; } if(p.x > rx){ p.x = rx; p.vx = -p.vx * .6; }
       if(p.y < 0){ p.y = 0; p.vy = -p.vy * .5; }
-      if(p.y >= fy){ p.y = fy; p.vy = Math.abs(p.vy) < 120 ? 0 : -p.vy * .5; const k = Math.exp(-7 * dt); p.vx *= k; p.va *= k; }
-      const rest = p.y >= fy - .5 && p.vy === 0 && Math.abs(p.vx) < 6 && Math.abs(p.va) < 3;
+      if(p.y > fy){ p.y = fy; p.vy = -p.vy * .55; p.vx *= .85; p.va *= .85; if(Math.abs(p.vy) < 40) p.vy = 0; }
+      const rest = p.y >= fy - .5 && Math.abs(p.vy) < 1 && Math.abs(p.vx) < 4;
       if(rest){ p.vx = 0; p.va = 0; } else moving = true;
     });
     // shape-to-shape collisions (treated as circles)
@@ -39071,12 +39071,7 @@ function setCornersNoZoom(active){
     });
     body.appendChild(box);
   }
-  let lw = innerWidth, lh = innerHeight;
-  window.addEventListener('resize', () => {
-    if(innerWidth === lw && Math.abs(innerHeight - lh) < 150) return; // ignore phone address-bar resizes
-    lw = innerWidth; lh = innerHeight;
-    parts.forEach(p => { p.x = Math.min(p.x, innerWidth - p.sz); p.y = Math.min(p.y, floorY(p.sz)); draw(p); }); kick();
-  });
+  window.addEventListener('resize', () => { parts.forEach(p => { p.x = Math.min(p.x, innerWidth - p.sz); p.y = Math.min(p.y, floorY(p.sz)); draw(p); }); kick(); });
   setInterval(() => {
     if(on()){ if(!box) build(); }
     else if(box){ box.remove(); box = null; parts = []; }
