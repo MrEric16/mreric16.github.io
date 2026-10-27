@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T12:33:44.010545Z",
+  "generatedAt": "2026-10-27T18:18:42.131374Z",
   "standings": {
     "PL": [
       {
@@ -589,6 +589,16 @@
     ],
     "SA": [
       {
+        "name": "Lazio",
+        "pld": 9,
+        "w": 8,
+        "d": 1,
+        "l": 0,
+        "gf": 19,
+        "ga": 6,
+        "pts": 25
+      },
+      {
         "name": "Inter",
         "pld": 8,
         "w": 7,
@@ -596,16 +606,6 @@
         "l": 0,
         "gf": 23,
         "ga": 10,
-        "pts": 22
-      },
-      {
-        "name": "Lazio",
-        "pld": 8,
-        "w": 7,
-        "d": 1,
-        "l": 0,
-        "gf": 16,
-        "ga": 5,
         "pts": 22
       },
       {
@@ -720,12 +720,12 @@
       },
       {
         "name": "Sassuolo",
-        "pld": 8,
+        "pld": 9,
         "w": 2,
         "d": 2,
-        "l": 4,
-        "gf": 12,
-        "ga": 16,
+        "l": 5,
+        "gf": 13,
+        "ga": 19,
         "pts": 8
       },
       {
@@ -3372,7 +3372,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-27T17:30:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 9,
           "homeTeam": {
             "id": 471,
@@ -3385,11 +3385,11 @@
             "shortName": "Lazio"
           },
           "score": {
-            "winner": null,
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 3
             },
             "halfTime": {
               "home": null,
@@ -4183,38 +4183,7 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-30T20:05:00Z",
-          "status": "TIMED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille"
-          },
-          "awayTeam": {
-            "id": 546,
-            "name": "Racing Club de Lens",
-            "shortName": "RC Lens"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Ligue 1"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-31T16:15:00Z",
+          "utcDate": "2026-10-30T18:00:00Z",
           "status": "TIMED",
           "matchday": 9,
           "homeTeam": {
@@ -4245,49 +4214,18 @@
           "venue": null
         },
         {
-          "utcDate": "2026-10-31T19:45:00Z",
+          "utcDate": "2026-10-30T20:05:00Z",
           "status": "TIMED",
           "matchday": 9,
           "homeTeam": {
-            "id": 523,
-            "name": "Olympique Lyonnais",
-            "shortName": "Olympique Lyon"
+            "id": 521,
+            "name": "Lille OSC",
+            "shortName": "Lille"
           },
           "awayTeam": {
-            "id": 532,
-            "name": "Angers SCO",
-            "shortName": "Angers SCO"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Ligue 1"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-31T19:45:00Z",
-          "status": "TIMED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 525,
-            "name": "FC Lorient",
-            "shortName": "Lorient"
-          },
-          "awayTeam": {
-            "id": 512,
-            "name": "Stade Brestois 29",
-            "shortName": "Brest"
+            "id": 546,
+            "name": "Racing Club de Lens",
+            "shortName": "RC Lens"
           },
           "score": {
             "winner": null,
@@ -4373,6 +4311,37 @@
           "status": "TIMED",
           "matchday": 9,
           "homeTeam": {
+            "id": 523,
+            "name": "Olympique Lyonnais",
+            "shortName": "Olympique Lyon"
+          },
+          "awayTeam": {
+            "id": 532,
+            "name": "Angers SCO",
+            "shortName": "Angers SCO"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "Ligue 1"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-11-01T16:15:00Z",
+          "status": "TIMED",
+          "matchday": 9,
+          "homeTeam": {
             "id": 1045,
             "name": "Paris FC",
             "shortName": "Paris FC"
@@ -4412,6 +4381,37 @@
             "id": 511,
             "name": "Toulouse FC",
             "shortName": "Toulouse"
+          },
+          "score": {
+            "winner": null,
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": null,
+              "away": null
+            },
+            "halfTime": {
+              "home": null,
+              "away": null
+            }
+          },
+          "competition": {
+            "name": "Ligue 1"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-11-02T19:45:00Z",
+          "status": "TIMED",
+          "matchday": 9,
+          "homeTeam": {
+            "id": 525,
+            "name": "FC Lorient",
+            "shortName": "Lorient"
+          },
+          "awayTeam": {
+            "id": 512,
+            "name": "Stade Brestois 29",
+            "shortName": "Brest"
           },
           "score": {
             "winner": null,
