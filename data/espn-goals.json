@@ -1,6 +1,55 @@
 {
- "generatedAt": "2026-10-27T14:44:12.129220Z",
+ "generatedAt": "2026-10-27T19:45:09.706210Z",
  "results": [
+  {
+   "url": "espn:401874980",
+   "date": "2026-10-27",
+   "utc": "2026-10-27T17:30Z",
+   "home": "Sassuolo",
+   "away": "Lazio",
+   "htHome": 2,
+   "htAway": 4,
+   "ftHome": 2,
+   "ftAway": 6,
+   "homeGoals": [
+    {
+     "scorer": "K. Thorstvedt",
+     "minute": 7
+    },
+    {
+     "scorer": "S. Esposito",
+     "minute": 43
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "K. Taylor",
+     "minute": 2
+    },
+    {
+     "scorer": "G. Isaksen",
+     "minute": 13
+    },
+    {
+     "scorer": "R. Floriani",
+     "minute": 16
+    },
+    {
+     "scorer": "M. Zaccagni",
+     "minute": "45+1"
+    },
+    {
+     "scorer": "T. Noslin",
+     "minute": 55
+    },
+    {
+     "scorer": "T. Noslin",
+     "minute": 65
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401882828",
    "date": "2026-10-26",
