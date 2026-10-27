@@ -40067,7 +40067,9 @@ function setCornersNoZoom(active){
     setTimeout(() => { party(); intro(); }, 1800);
     every(bat, 18000, 30000, 6000); every(drift, 28000, 45000, 12000); every(spider, 35000, 55000, 20000); every(eyes, 25000, 50000, 16000); every(peek, 50000, 100000, 30000);
   }
-  setInterval(() => { if(on()) start(); }, 1500);
+  // remove every Halloween element as soon as another theme is active
+  function clean(){ document.querySelectorAll('#hw-count,#hw-word,#hw-boo,#hw-fx,.hw-fl,.hw-bat,.hw-sp,.hw-eyes,.hw-gh').forEach(e => e.remove()); started = false; }
+  setInterval(() => { if(on()) start(); else if(document.getElementById('hw-count')) clean(); }, 1500);
   window._hw = { bat, drift, spider, eyes, peek, word, countdown, party, intro, start };
 })();
 // ===== END HALLOWEEN 2026 =====
