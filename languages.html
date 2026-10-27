@@ -255,7 +255,7 @@ function build(L){
   function addGroup(sec, g){
     var gid = sec + '.' + g.id, list = [];
     (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sec: sec, gid: gid, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
-    L.groups[gid] = { id: g.id, gid: gid, sec: sec, title: g.title, items: list };
+    L.groups[gid] = { id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
   }
   ['numbers','greetings','phrases','vocab'].forEach(function(sec){ (L[sec] || []).forEach(function(g){ addGroup(sec, g); }); });
   (L.grammar || []).forEach(function(les){ if(les.ex && les.ex.length) addGroup('grammar', { id: les.id, title: les.title, items: les.ex }); });
@@ -281,13 +281,13 @@ function hub(){
   var p = lsGet('xp.dev', null);
   app.innerHTML = HUB_BACK + head('Learn a Language') + '<div class="sport-hub-grid">' + INDEX.map(function(x){
     var pr = prog(x.id), n = 0; for(var k in pr){ if(pr[k] >= 3) n++; }
-    return tile('#l/' + x.id, x.name, x.badge + (n ? ' · ' + Math.min(100, Math.round(n * 100 / x.count)) + '%' : ''));
+    return tile('#l/' + x.id, x.name, (n ? Math.min(100, Math.round(n * 100 / x.count)) + '%' : ''));
   }).join('') + '</div>';
 }
 function home(L){
   var learned = counts(L, L.items);
   app.innerHTML = back('#', 'Back to languages') + head(L.name, L.note || '') +
-    '<div class="v-meta"><span>' + learned + ' / ' + L.items.length + ' learned</span><span>' + esc(L.badge) + '</span></div>' + bar(L.items.length ? learned * 100 / L.items.length : 0) +
+    '<div class="v-meta"><span>' + learned + ' / ' + L.items.length + ' learned</span></div>' + bar(L.items.length ? learned * 100 / L.items.length : 0) +
     '<div class="sport-hub-grid">' + SECS.filter(function(s){
       if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; return (L[s[0]] || []).length; }).map(function(s){
       var sub = ''; if(s[0] !== 'sounds' && s[0] !== 'test'){ var its = []; secGroups(L, s[0]).forEach(function(g){ if(L.groups[g.gid]) its = its.concat(L.groups[g.gid].items); }); if(its.length) sub = counts(L, its) + ' / ' + its.length; }
@@ -318,7 +318,7 @@ function group(L, sec, gid, single){
   var G = L.groups[sec + '.' + gid]; if(!G) return home(L);
   var p = prog(L.id), n = counts(L, G.items);
   app.innerHTML = back(single ? '#l/' + L.id : '#l/' + L.id + '/' + sec, single ? L.name : SECS.filter(function(s){ return s[0] === sec; })[0][1]) + head(G.title) +
-    '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
+    (G.note ? '<div class="v-hint">' + esc(G.note) + '</div>' : '') + '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
     '<div class="v-row" style="margin-bottom:12px;"><button class="v-btn" id="qGo">Quiz this set</button></div>' + rowsHtml(G.items, p);
   document.getElementById('qGo').onclick = function(){ quiz(L, G.items, '#l/' + L.id + '/' + sec + (single ? '' : '/' + gid), G.title); };
 }
@@ -376,7 +376,7 @@ function quiz(L, items, backHash, title){
     Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(b){ b.onclick = function(){
       if(done) return; done = true;
       var o = q.opts[+b.getAttribute('data-n')], ok = o === q.ans, p = prog(L.id), box = p[q.it.k] || 0;
-      if(ok){ score++; if(box < 5) xp++; setBox(L.id, q.it.k, Math.min(5, box + 1)); } else { missed.push(q.it); setBox(L.id, q.it.k, Math.max(0, box - 1)); }
+      if(ok){ score++; if(box < 5) xp++; setBox(L.id, q.it.k, Math.min(5, box + 1)); } else { missed.push(q.it); if(window.LoungeAmend) LoungeAmend.add(q.it.t, q.it.en + (q.it.s ? '  \u2022  ' + q.it.s : ''), L.name); setBox(L.id, q.it.k, Math.max(0, box - 1)); }
       Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(x){ var v = q.opts[+x.getAttribute('data-n')]; if(v === q.ans) x.classList.add('ok'); else if(x === b) x.classList.add('bad'); });
       var show2 = q.f ? q.it.t + (q.it.s ? '  •  ' + q.it.s : '') : q.it.en;
       document.getElementById('fb').innerHTML = '<div class="v-hint" style="font-size:14px;">' + (ok ? 'Correct. ' : 'Answer: ') + esc(show2) + '</div><button class="v-btn" id="nx">' + (i + 1 < qs.length ? 'Next' : 'Finish') + '</button>';

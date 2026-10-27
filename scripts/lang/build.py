@@ -39,6 +39,8 @@ def parse(path):
                 if len(p) < 2: raise SystemExit('%s:%d bad ex' % (path, n))
                 cur['ex'].append(p)
             else: raise SystemExit('%s:%d bad grammar line: %s' % (path, n, line))
+        elif line.startswith('>'):
+            cur['note'] = (cur.get('note', '') + ' ' + line[1:].strip()).strip()
         else:
             p = parts(line)
             if len(p) < 2 or not p[0] or not p[1]: raise SystemExit('%s:%d bad item: %s' % (path, n, line))
