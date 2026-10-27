@@ -236,6 +236,16 @@
   function observe(){
     obs.observe(document.documentElement, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ['class', 'style', 'hidden', 'disabled', 'aria-selected', 'data-theme'] });
   }
+  // true for elements that carry no readable text and no form controls (confetti, sparks, glows, shapes)
+  function decorative(n){
+    var t = n.tagName;
+    if(t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT') return false;
+    var st = n.getAttribute && n.getAttribute('style');
+    if(st && /pointer-events:\s*none/.test(st) && !TEXT_RE.test(n.textContent || '')) return true;
+    if(!TEXT_RE.test(n.textContent || '') && !(n.querySelector && n.querySelector('input,textarea,select'))) return true;
+    return false;
+  }
+  function decorativeRemoval(r){ return r.removedNodes.length > 0 && Array.prototype.every.call(r.removedNodes, function(n){ return n.nodeType !== 1 || decorative(n); }); }
   obs = new MutationObserver(function(recs){
     var content = false, attr = false;
     for(var i = 0; i < recs.length; i++){
@@ -245,9 +255,18 @@
           full = true; content = true;
           var sig = themeSig();
           if(sig !== lastSig){ lastSig = sig; doReset = true; clearTimeout(themeTimer); themeTimer = setTimeout(function(){ full = true; doReset = true; schedule(); }, 900); } // after the theme cross-fade settles
-        } else { pendingAttr.push(r.target); attr = true; }
+        } else if(r.target.nodeType === 1 && !(r.attributeName === 'style' && decorative(r.target))){ pendingAttr.push(r.target); attr = true; }
       } else if(r.type === 'characterData'){ pending.push(r.target); content = true; }
-      else { r.addedNodes.forEach(function(n){ if(n.nodeType === 1 || n.nodeType === 3) pending.push(n); }); if(r.target.nodeType === 1) pending.push(r.target); content = true; }
+      else {
+        // Particles, sparks and other textless decoration never need judging; and never re-scan the whole page because a child was added to <body>/<html>.
+        var added = false;
+        r.addedNodes.forEach(function(n){
+          if(n.nodeType === 3){ if(TEXT_RE.test(n.nodeValue)){ pending.push(n); added = true; } }
+          else if(n.nodeType === 1){ if(decorative(n)) return; pending.push(n); added = true; }
+        });
+        if(r.removedNodes.length && !added && r.target.nodeType === 1 && r.target !== document.body && r.target !== document.documentElement && !decorativeRemoval(r)) { pending.push(r.target); added = true; }
+        if(added){ if(r.target.nodeType === 1 && r.target !== document.body && r.target !== document.documentElement && r.addedNodes.length) pending.push(r.target); content = true; }
+      }
     }
     if(content) schedule();
     else if(attr && !attrTimer){ attrTimer = setTimeout(function(){ attrTimer = 0; schedule(); }, 120); }

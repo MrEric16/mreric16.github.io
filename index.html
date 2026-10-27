@@ -7454,6 +7454,18 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .bs-fleet-status{ display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 4px; }
   .bs-fleet-chip{ font-size:11px; font-weight:700; padding:3px 8px; border-radius:20px; background:var(--card); color:var(--ink-soft); }
   .bs-fleet-chip.bs-fleet-sunk{ background:#B23A2E; color:#fff; text-decoration:line-through; }
+
+  /* ===== PERF v2 (27 Oct 2026): same look, cheaper. Delete to 'END PERF v2' to revert (pre-change commit is in git). ===== */
+  /* full-screen jitter / noise layers: contain so they never invalidate the page */
+  body.usertheme-vintage:not(.dark-mode)::after, body.dark-mode.usertheme-dvintage::after,
+  body.usertheme-vintage:not(.dark-mode) header::after, body.dark-mode.usertheme-dvintage header::after{ contain:strict; }
+  /* flicker layers: only exist while they are actually visible (opacity 0 phases become visibility:hidden) */
+  @keyframes svFlick{ 0%{opacity:0;visibility:hidden;} 6%{opacity:.035;visibility:visible;} 9%{opacity:0;visibility:hidden;} 31%{opacity:.02;visibility:visible;} 33%{opacity:0;visibility:hidden;} 58%{opacity:.04;visibility:visible;} 60%{opacity:.01;} 62%{opacity:0;visibility:hidden;} 84%{opacity:.025;visibility:visible;} 86%{opacity:0;visibility:hidden;} }
+  @keyframes dvFlick{ 0%{opacity:0;visibility:hidden;} 8%{opacity:.07;visibility:visible;} 12%{opacity:0;visibility:hidden;} 31%{opacity:.04;visibility:visible;} 33%{opacity:.1;} 36%{opacity:0;visibility:hidden;} 58%{opacity:.05;visibility:visible;} 61%{opacity:0;visibility:hidden;} 83%{opacity:.09;visibility:visible;} 85%{opacity:.02;} 88%{opacity:0;visibility:hidden;} }
+  html:has(body.usertheme-soviet:not(.dark-mode))::after, #dv-flick{ contain:strict; }
+  /* bazaar garland: only the 60px strip is drawn and rotated, not a whole screen */
+  body.usertheme-bazaar:not(.dark-mode)::after{ bottom:auto; height:60px; contain:strict; }
+  /* ===== END PERF v2 ===== */
 </style>
 </head>
 <body>
