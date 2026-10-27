@@ -1,0 +1,673 @@
+NAME: Korean
+ID: ko
+BADGE: Solid
+NOTE: Written in Latin letters (no Hangul). Standard polite speech (-yo style), as spoken in Seoul. Capitals mark the stress; Korean stress is light, so say every syllable evenly.
+
+[sounds]
+INTRO: Korean has no tones. These are the sounds that are new for English speakers.
+a | ah, like "father" | sa-ram (person)
+eo | "uh", like "up" said with an open mouth | eo-di (where)
+o | oh | no-rae (song)
+u | oo, like "food" | u-yu (milk)
+eu | "uh", lips flat (no English match) | eum-sik (food)
+i | ee, like "see" | i-reum (name)
+ae | like "bed" | ae-gi (baby)
+e | like "bed" (same as ae now) | ne (yes)
+oe / we | "weh" | oe-guk (foreign country)
+wi | "wee" | wi (up)
+g / k | between g and k, soft | gi-cha (train)
+kk | tense k, no puff of air | kko-ri (tail)
+n, m | as in English | nara, mul
+d / t | between d and t, soft | dal (moon)
+tt | tense t | ttal (daughter)
+b / p | between b and p, soft | bap (rice)
+pp | tense p | ppang (bread)
+s | s; ss is tense s | sa, ssa
+j | between j and ch, soft | jip (house)
+jj | tense j | jjim (stew)
+ch | ch with a puff of air | chin-gu (friend)
+r / l | between r and l; "r" before a vowel, "l" at the end | ri-bon, mul
+ng | as in "sing"; at the end of a syllable only | ban-gu
+NOTE: Each syllable is a unit. Final consonants are said short and unreleased: "bap" has no puff at the end.
+NOTE: Korean puts the verb at the END of the sentence. Particles mark the role of each word (eun/neun = topic, i/ga = subject, eul/reul = object).
+
+[numbers]
+## 0 to 10 (native Korean, for counting items and hours)
+one | hana | HAH-nah
+two | dul | dool
+three | set | set
+four | net | net
+five | daseot | DAH-suht
+six | yeoseot | YUH-suht
+seven | ilgop | IL-gohp
+eight | yeodeol | YUH-duhl
+nine | ahop | AH-hohp
+ten | yeol | yuhl
+## 0 to 10 (Sino-Korean, for dates, money, phones)
+zero | gong / yeong | gohng / yuhng
+one | il | eel
+two | i | ee
+three | sam | sahm
+four | sa | sah
+five | o | oh
+six | yuk | yook
+seven | chil | cheel
+eight | pal | pahl
+nine | gu | goo
+ten | sip | sheep
+## 11 to 20 (Sino-Korean)
+eleven | sip-il | sheep-EEL
+twelve | sip-i | sheep-EE
+thirteen | sip-sam | sheep-SAHM
+fourteen | sip-sa | sheep-SAH
+fifteen | sip-o | sheep-OH
+sixteen | sip-yuk | sheep-YOOK
+seventeen | sip-chil | sheep-CHEEL
+eighteen | sip-pal | sheep-PAHL
+nineteen | sip-gu | sheep-GOO
+twenty | i-sip | ee-SHEEP
+## Tens and big numbers (Sino-Korean)
+thirty | sam-sip | sahm-SHEEP
+forty | sa-sip | sah-SHEEP
+fifty | o-sip | oh-SHEEP
+sixty | yuk-sip | yook-SHEEP
+seventy | chil-sip | cheel-SHEEP
+eighty | pal-sip | pahl-SHEEP
+ninety | gu-sip | goo-SHEEP
+one hundred | baek | baek
+one thousand | cheon | chuhn
+ten thousand | man | mahn
+one million | baeng-man | baek-MAHN
+## Order and amounts
+first | cheot-beonjjae | chuht-BUHN-jjae
+second | du-beonjjae | doo-BUHN-jjae
+third | se-beonjjae | seh-BUHN-jjae
+half | ban | bahn
+a few | myeot gae | myuht gae
+many | mani | MAH-nee
+a pair | han ssang | hahn ssahng
+how many? | myeot gae? | myuht gae
+
+[greetings]
+## Hello and goodbye
+hello | annyeonghaseyo | ahn-NYUNG-hah-seh-yoh
+hi / bye (informal) | annyeong | ahn-NYUNG
+goodbye (to the one staying) | annyeonghi gyeseyo | ahn-NYUNG-hee gyeh-seh-yoh
+goodbye (to the one leaving) | annyeonghi gaseyo | ahn-NYUNG-hee gah-seh-yoh
+good morning | joeun achim | joh-UN ah-CHEEM
+good night | annyeonghi jumuseyo | ahn-NYUNG-hee joo-moo-seh-yoh
+see you later | najung-e boayo | nah-JOONG-eh boh-ah-yoh
+see you tomorrow | naeil boyo | NAE-eel boh-yoh
+## Meeting people
+how are you? | jal jinaesseoyo? | jahl jee-NAE-suh-yoh
+I am fine, thanks | jal jinaesseoyo, gamsahamnida | jahl jee-NAE-suh-yoh gahm-sah-HAHM-nee-dah
+and you? | geurigo dangsin-eun? | geu-ree-goh dahng-sheen-eun
+not bad | geunyang geuraeyo | geu-NYAHNG geu-rae-yoh
+what is your name? | seonghami eotteoke doeseyo? | SUHNG-hah-mee uh-TUH-keh dweh-seh-yoh
+my name is... | je ireum-eun... imnida | jeh ee-REUM-eun eem-nee-dah
+nice to meet you | mannaseo bangapseumnida | mahn-nah-suh bahn-gahp-seum-nee-dah
+where are you from? | eodi-eseo oseyo? | uh-dee-eh-suh oh-seh-yoh
+I am from England | yeongguk-eseo wasseoyo | yuhng-goo-geh-suh wah-suh-yoh
+## Politeness
+please | juseyo | joo-seh-yoh
+thank you | gamsahamnida | gahm-sah-HAHM-nee-dah
+thank you (casual) | gomawoyo | goh-mah-woh-yoh
+you are welcome | cheonmaneyo | chuhn-mah-neh-yoh
+excuse me / sorry | joesonghamnida | jweh-sohng-HAHM-nee-dah
+excuse me (to get attention) | sillyehamnida | sheel-lyeh-HAHM-nee-dah
+sorry (casual) | mianhaeyo | mee-AHN-hae-yoh
+yes | ne | neh
+no | aniyo | ah-nee-yoh
+congratulations | chukhahamnida | choo-kah-HAHM-nee-dah
+cheers | geonbae | guhn-BAE
+good luck | haeng-un-eul bibnida | hang-oo-neul bee-bnee-dah
+happy birthday | saengil chukhahamnida | saeng-eel choo-kah-HAHM-nee-dah
+
+[phrases]
+## Essential phrases
+hello | annyeonghaseyo | ahn-NYUNG-hah-seh-yoh
+goodbye | annyeonghi gaseyo | ahn-NYUNG-hee gah-seh-yoh
+please (give me) | juseyo | joo-seh-yoh
+thank you | gamsahamnida | gahm-sah-HAHM-nee-dah
+you are welcome | cheonmaneyo | chuhn-mah-neh-yoh
+yes | ne | neh
+no | aniyo | ah-nee-yoh
+excuse me | sillyehamnida | sheel-lyeh-HAHM-nee-dah
+sorry | joesonghamnida | jweh-sohng-HAHM-nee-dah
+I do not understand | jal moreugesseoyo | jahl moh-reu-geh-suh-yoh
+do you speak English? | yeongeo hasil su isseoyo? | yuhng-uh hah-seel soo ee-suh-yoh
+speak slowly, please | cheoncheonhi malhae juseyo | chuhn-chuhn-hee mahl-hae joo-seh-yoh
+can you help me? | dowa jusil su isseoyo? | doh-wah joo-seel soo ee-suh-yoh
+where is the toilet? | hwajangsil-i eodi-eyo? | hwah-jahng-shee-ree uh-dee-eh-yoh
+how much is it? | eolma-eyo? | uhl-mah-eh-yoh
+I would like... | ...juseyo | joo-seh-yoh
+I need... | ...i piryohaeyo | ee pee-ryoh-hae-yoh
+my name is... | je ireum-eun... imnida | jeh ee-REUM-eun eem-nee-dah
+I am lost | gireul ireosseoyo | gee-reul ee-ruh-suh-yoh
+what is this? | igeo mwoeyo? | ee-guh mwoh-eh-yoh
+I do not know | moreugesseoyo | moh-reu-geh-suh-yoh
+that is OK | gwaenchanayo | gwaen-chahn-ah-yoh
+## Formal and informal
+> Three levels: formal (-mnida / -seumnida): news, business, meeting strangers. Polite (-yo): everyday, shops, adults you do not know well. Informal (drop the -yo): close friends of the same age, younger people, children. Use -yo when unsure.
+thank you (formal) | gamsahamnida | gahm-sah-HAHM-nee-dah
+thank you (polite) | gomawoyo | goh-mah-woh-yoh
+thanks (informal) | gomawo | goh-mah-woh
+sorry (formal) | joesonghamnida | jweh-sohng-HAHM-nee-dah
+sorry (polite) | mianhaeyo | mee-AHN-hae-yoh
+sorry (informal) | mianhae | mee-AHN-hae
+hello (polite) | annyeonghaseyo | ahn-NYUNG-hah-seh-yoh
+hi (informal) | annyeong | ahn-NYUNG
+I eat (formal) | meogeumnida | muh-geum-nee-dah
+I eat (polite) | meogeoyo | muh-guh-yoh
+I eat (informal) | meogeo | muh-guh
+yes (polite) | ne | neh
+yes (informal) | eung | eung
+## Survival
+I understand | algesseoyo | ahl-geh-suh-yoh
+I speak a little Korean | hangugeo jogeum haeyo | hahn-goo-guh joh-geum hae-yoh
+please repeat | dasi malhae juseyo | dah-shee mahl-hae joo-seh-yoh
+what does... mean? | ...i mwo-eyo? | ee mwoh-eh-yoh
+please write it down | jeogeo juseyo | juh-guh joo-seh-yoh
+help! | dowa juseyo! | doh-wah joo-seh-yoh
+I need help | dowajuseyo | doh-wah-joo-seh-yoh
+## Getting around
+where is...? | ...i eodi-eyo? | ee uh-dee-eh-yoh
+where is the station? | yeogi eodi-eyo? | yuh-gee uh-dee-eh-yoh
+turn left | oenjjogeuro gaseyo | wen-jjoh-geu-roh gah-seh-yoh
+turn right | oreunjjogeuro gaseyo | oh-reun-jjoh-geu-roh gah-seh-yoh
+straight ahead | ssok gaseyo | ssok gah-seh-yoh
+near | gakkawoyo | gah-kkah-woh-yoh
+far | meoreoyo | muh-ruh-yoh
+how far is it? | eolmana meoreoyo? | uhl-mah-nah muh-ruh-yoh
+a ticket to Seoul, please | seoul-ro ganeun pyo juseyo | suh-ool-roh gah-neun pyoh joo-seh-yoh
+what time does the train leave? | gicha-neun myeot si-e tteonayo? | gee-chah-neun myuht shee-eh tuh-nah-yoh
+to the airport, please | gonghang-euro ganeun gil juseyo | gohng-hahng-eu-roh gah-neun geel joo-seh-yoh
+stop here, please | yeogi-seo seweo juseyo | yuh-gee-suh seh-wuh joo-seh-yoh
+## Eating out
+a table for two, please | du bun jari juseyo | doo boon jah-ree joo-seh-yoh
+the menu, please | menyu juseyo | meh-nyoo joo-seh-yoh
+I will have this | igeo juseyo | ee-guh joo-seh-yoh
+water, please | mul juseyo | mool joo-seh-yoh
+the bill, please | gyesan-haejuseyo | gyeh-sahn-hae-joo-seh-yoh
+it is delicious | masisseoyo | mah-shee-suh-yoh
+I am hungry | baegopayo | bae-goh-pah-yoh
+I am thirsty | mogi malla-yo | moh-gee mahl-lah-yoh
+I am vegetarian | jeo-neun chaesikjuuija-eyo | juh-neun chae-sheek-joo-ee-jah-eh-yoh
+I am allergic to nuts | gyeongwa allereugi-ga isseoyo | gyuhng-gwah ahl-leh-reu-gee-gah ee-suh-yoh
+no meat, please | gogi ppaego juseyo | goh-gee ppae-goh joo-seh-yoh
+another one, please | hana deo juseyo | hah-nah duh joo-seh-yoh
+## Shopping
+how much is this? | igeo eolma-eyo? | ee-guh uhl-mah-eh-yoh
+it is too expensive | neomu bissayo | nuh-moo bee-ssah-yoh
+do you have a smaller size? | deo jageun sa-i-jeu isseoyo? | duh jah-geun sah-ee-jeu ee-suh-yoh
+I am just looking | geunyang gugyeonghaneun jung-eyo | geu-nyahng goo-gyuhng-hah-neun joong-eh-yoh
+I will take it | igeollo hae juseyo | ee-guhl-loh hae joo-seh-yoh
+can I pay by card? | kadeuro gyesan hal su isseoyo? | kah-deu-roh gyeh-sahn hahl soo ee-suh-yoh
+cash | hyeongeum | hyuhn-geum
+a bag, please | bonjigi juseyo | bohn-jee-gee joo-seh-yoh
+open | yeollyeoyo | yuhl-lyuh-yoh
+closed | dadasseoyo | dah-dah-suh-yoh
+## Hotel and travel
+I have a reservation | yeyak-haesseoyo | yeh-yahk-hae-suh-yoh
+a room for one night | han bak bang juseyo | hahn bahk bahng joo-seh-yoh
+what time is breakfast? | achim sikssa myeot si-eyo? | ah-cheem shik-sah myuht shee-eh-yoh
+the key, please | yeolsoe juseyo | yuhl-sweh joo-seh-yoh
+is there wifi? | waipai isseoyo? | wah-ee-pah-ee ee-suh-yoh
+my passport | je yeogwon | jeh yuh-gwuhn
+my luggage | je jim | jeh jeem
+I would like to change money | hwanjeon haego sipeoyo | hwahn-juhn hae-goh shee-puh-yoh
+## Health and emergency
+I feel sick | momi an joayo | moh-mee ahn joh-ah-yoh
+I need a doctor | uisa-ga piryohaeyo | ee-sah-gah pee-ryoh-hae-yoh
+call an ambulance | gugeubcha bulleo juseyo | goo-geup-chah bool-luh joo-seh-yoh
+it hurts here | yeogi apayo | yuh-gee ah-pah-yoh
+I have a headache | meori-ga apayo | muh-ree-gah ah-pah-yoh
+I have a fever | yeol-i nayo | yuh-ree nah-yoh
+where is the pharmacy? | yakguk-i eodi-eyo? | yahk-goo-gee uh-dee-eh-yoh
+call the police | gyeongchal bulleo juseyo | gyuhng-chahl bool-luh joo-seh-yoh
+my phone was stolen | jeonhwa-reul domandanghaesseoyo | juhn-hwah-reul doh-mahn-dahng-hae-suh-yoh
+## Chatting
+what do you do? | museun il haseyo? | moo-seun eel hah-seh-yoh
+I am a student | jeo-neun haksaeng-ieyo | juh-neun hahk-saeng-ee-eh-yoh
+I am a teacher | jeo-neun seonsaengnim-ieyo | juh-neun suhn-saeng-neem-ee-eh-yoh
+I live in Tashkent | jeo-neun tasyikenteu-e sarayo | juh-neun tah-shee-kehn-teu-eh sah-rah-yoh
+how old are you? | myeot sal-ieyo? | myuht sah-ree-eh-yoh
+I am sixteen | yeolyeoseot sal-ieyo | yuhl-yuh-suht sah-ree-eh-yoh
+do you like football? | chukgu joahaeyo? | chook-goo joh-ah-hae-yoh
+I like music | eumak-eul joahaeyo | eu-mah-geul joh-ah-hae-yoh
+I love it | jeongmal joahaeyo | juhng-mahl joh-ah-hae-yoh
+what time is it? | myeot si-eyo? | myuht shee-eh-yoh
+it is three o'clock | se si-eyo | seh shee-eh-yoh
+## Useful words
+and | geurigo | geu-ree-goh
+but | hajiman | hah-jee-mahn
+because | wae-nya-hamyeon | wae-nyah-hah-myuhn
+very | maeu | mae-oo
+here | yeogi | yuh-gee
+there | geogi | guh-gee
+now | jigeum | jee-geum
+today | oneul | oh-neul
+tomorrow | naeil | NAE-eel
+yesterday | eoje | uh-jeh
+always | hangsang | hahng-sahng
+never | jeoldae | juhl-dae
+maybe | ama | ah-mah
+also | do | doh
+
+[vocab]
+## Feelings and moods
+happy | haengbokhaeyo | haeng-boh-kae-yoh
+sad | seulpeoyo | seul-puh-yoh
+angry | hwa-nasseoyo | hwah-nah-suh-yoh
+tired | pigonhaeyo | pee-gohn-hae-yoh
+scared | museowoyo | moo-suh-woh-yoh
+bored | jiruhaeyo | jee-roo-hae-yoh
+excited | seolleyo | suhl-leh-yoh
+worried | geokjeonghaeyo | guhk-juhng-hae-yoh
+surprised | nollasseoyo | nohl-lah-suh-yoh
+nervous | ginjang-haeyo | geen-jahng-hae-yoh
+proud | jarangseureowoyo | jah-rahng-seu-ruh-woh-yoh
+lonely | oerowoyo | weh-roh-woh-yoh
+in love | sarang-e ppajyeosseoyo | sah-rahng-eh ppah-juh-suh-yoh
+calm | pyeonganhaeyo | pyuhn-ahn-hae-yoh
+embarrassed | changpihaeyo | chahng-pee-hae-yoh
+jealous | jil-tuhaeyo | jeel-too-hae-yoh
+I am in a good mood | gibuni joayo | gee-boo-nee joh-ah-yoh
+I am in a bad mood | gibuni an joayo | gee-boo-nee ahn joh-ah-yoh
+## Colours
+red | ppalgan-saek | ppahl-gahn-saek
+blue | paran-saek | pah-rahn-saek
+green | chorok-saek | choh-rohk-saek
+yellow | norang-saek | noh-rahng-saek
+black | geomeun-saek | guh-meun-saek
+white | hayan-saek | hah-yahn-saek
+orange | juhwang-saek | joo-hwahng-saek
+purple | borasaek | boh-rah-saek
+pink | bunhong-saek | boon-hohng-saek
+brown | galsaek | gahl-saek
+grey | hoesaek | hweh-saek
+gold | geumsaek | geum-saek
+dark | eoduun | uh-doo-un
+light | balgeun | bahl-geun
+## Animals
+dog | gae | gae
+cat | goyangi | goh-yahng-ee
+horse | mal | mahl
+cow | so | soh
+pig | dwaeji | dwae-jee
+sheep | yang | yahng
+chicken | dak | dahk
+bird | sae | sae
+fish | mulgogi | mool-goh-gee
+rabbit | tokki | tohk-kee
+mouse | jwi | jwee
+lion | saja | sah-jah
+elephant | kokkiri | kohk-kee-ree
+bear | gom | gohm
+monkey | wonsungi | wuhn-soong-ee
+snake | baem | baem
+wolf | neukdae | neuk-dae
+duck | ori | oh-ree
+butterfly | nabi | nah-bee
+spider | geomi | guh-mee
+## Family
+mother | eomma | UHM-mah
+father | appa | AHP-pah
+sister (of a man) | nuna | NOO-nah
+sister (of a woman) | eonni | UHN-nee
+brother (of a man) | hyeong | hyuhng
+brother (of a woman) | oppa | OHP-pah
+younger sibling | dongsaeng | DOHNG-saeng
+daughter | ttal | ttahl
+son | adeul | AH-deul
+grandmother | halmeoni | hahl-MUH-nee
+grandfather | harabeoji | hah-rah-BUH-jee
+aunt | imo | EE-moh
+uncle | samchon | SAHM-chohn
+husband | nampyeon | NAHM-pyuhn
+wife | anae | AH-nae
+friend | chingu | CHEEN-goo
+baby | agi | AH-gee
+child | ai | AH-ee
+man | namja | NAHM-jah
+woman | yeoja | YUH-jah
+## Food and drink
+rice | bap | bahp
+bread | ppang | ppahng
+water | mul | mool
+milk | uyu | oo-yoo
+coffee | keopi | KUH-pee
+tea | cha | chah
+juice | juseu | JOO-seu
+beer | maekju | MAEK-joo
+wine | wain | WAH-een
+egg | gyeran | gyuh-RAHN
+cheese | chijeu | CHEE-jeu
+meat | gogi | GOH-gee
+chicken (meat) | dakgogi | dahk-GOH-gee
+fish (food) | saengseon | saeng-SUHN
+soup | guk | gook
+salad | selleodeu | SEL-luh-deu
+potato | gamja | GAHM-jah
+tomato | tomato | TOH-mah-toh
+apple | sagwa | SAH-gwah
+banana | banana | bah-NAH-nah
+sugar | seoltang | SUHL-tahng
+salt | sogeum | SOH-geum
+ice cream | aiseukeurim | ah-ee-seu-KEU-reem
+kimchi | gimchi | GEEM-chee
+## Body
+head | meori | MUH-ree
+face | eolgul | UHL-gool
+eye | nun | noon
+ear | gwi | gwee
+nose | ko | koh
+mouth | ip | eep
+tooth | i | ee
+hand | son | sohn
+arm | pal | pahl
+leg | dari | DAH-ree
+foot | bal | bahl
+heart | simjang | SHEEM-jahng
+back | deung | deung
+stomach | bae | bae
+hair | meorikarak | MUH-ree-kah-rahk
+finger | songarak | SOHN-gah-rahk
+## Home
+house | jip | jeep
+room | bang | bahng
+kitchen | bueok | boo-UHK
+bathroom | yokshil | yohk-SHEEL
+door | mun | moon
+window | changmun | chahng-MOON
+table | takja | TAHK-jah
+chair | uija | EE-jah
+bed | chimdae | cheem-DAE
+sofa | sopa | SOH-pah
+lamp | jomyeong | JOH-myuhng
+key | yeolsoe | YUHL-sweh
+garden | jeongwon | JUHNG-wuhn
+floor | badak | BAH-dahk
+wall | byeok | byuhk
+## Clothes
+shirt | syeocheu | SHYUH-cheu
+trousers | baji | BAH-jee
+dress | wonpiseu | WUHN-pee-seu
+skirt | chima | CHEE-mah
+shoes | sinbal | SHEEN-bahl
+socks | yangmal | YAHNG-mahl
+jacket | jaket | JAH-ket
+coat | koteu | KOH-teu
+hat | moja | MOH-jah
+glasses | angyeong | AHN-gyuhng
+bag | gabang | gah-BAHNG
+pocket | jumeoni | JOO-muh-nee
+## Town
+street | geori | guh-REE
+shop | gage | GAH-geh
+market | sijang | SHEE-jahng
+bank | eunhaeng | EUN-haeng
+hospital | byeongwon | BYUHNG-wuhn
+school | hakgyo | HAHK-gyoh
+station | yeok | yuhk
+airport | gonghang | GOHNG-hahng
+bus | beoseu | BUH-seu
+train | gicha | GEE-chah
+car | jadongcha | JAH-dohng-chah
+bicycle | jajeongeo | JAH-juhn-guh
+taxi | taeksi | TAEK-shee
+restaurant | sikdang | SHEEK-dahng
+bridge | dari | DAH-ree
+park | gongwon | GOHNG-wuhn
+## Time
+day | nal | nahl
+night | bam | bahm
+morning | achim | AH-cheem
+afternoon | ohu | OH-hoo
+week | ju | joo
+month | dal | dahl
+year | nyeon | nyuhn
+Monday | woryoil | WUH-ryoh-eel
+Tuesday | hwayoil | HWAH-yoh-eel
+Wednesday | suyoil | SOO-yoh-eel
+Thursday | mogyoil | MOH-gyoh-eel
+Friday | geumyoil | GEUM-yoh-eel
+Saturday | toyoil | TOH-yoh-eel
+Sunday | iryoil | EE-ryoh-eel
+January | irwol | EE-rwuhl
+summer | yeoreum | YUH-reum
+winter | gyeoul | GYUH-ool
+## Weather and nature
+sun | haet-sal | HAET-sahl
+rain | bi | bee
+snow | nun | noon
+wind | baram | BAH-rahm
+cloud | gureum | GOO-reum
+hot | deowoyo | DUH-woh-yoh
+cold | chuwoyo | CHOO-woh-yoh
+sea | bada | BAH-dah
+river | gang | gahng
+mountain | san | sahn
+tree | namu | NAH-moo
+flower | kkot | kkoht
+sky | haneul | HAH-neul
+## Work and school
+teacher | seonsaengnim | SUHN-saeng-neem
+student | haksaeng | HAHK-saeng
+book | chaek | chaek
+pen | pen | pen
+pencil | yeonpil | YUHN-peel
+paper | jong-i | JOHNG-ee
+computer | keompyuteo | KUHM-pyoo-tuh
+phone | jeonhwa | JUHN-hwah
+work | il | eel
+office | samusil | SAH-moo-sheel
+doctor | uisa | EE-sah
+police officer | gyeongchal | GYUHNG-chahl
+lesson | suieop | SOO-uhp
+exam | siheom | SHEE-huhm
+## Describing
+big | keoyo | KUH-yoh
+small | jagayo | JAH-gah-yoh
+good | joayo | JOH-ah-yoh
+bad | nappayo | NAH-ppah-yoh
+new | saeroun | SAE-roh-oon
+old | oraedoen | OH-rae-dwen
+beautiful | yeppeoyo | YEH-ppuh-yoh
+ugly | mot saenggyeosseoyo | moht saeng-gyuh-suh-yoh
+fast | ppaleunyo | PPAH-reun-yoh
+slow | neurinyo | NEU-reen-yoh
+easy | swiwoyo | SWEE-woh-yoh
+difficult | eoryeowoyo | UH-ryuh-woh-yoh
+cheap | ssayo | SSAH-yoh
+expensive | bissayo | BEE-ssah-yoh
+clean | kkaekkeuthaeyo | KKAEK-keu-tae-yoh
+dirty | deoreowoyo | DUH-ruh-woh-yoh
+## Common verbs
+to be | ida | EE-dah
+to have / exist | itda | EET-dah
+to go | gada | GAH-dah
+to want | wonhada | WUHN-hah-dah
+to eat | meokda | MUHK-dah
+to drink | masida | MAH-shee-dah
+to speak | malhada | MAHL-hah-dah
+to see | boda | BOH-dah
+to come | oda | OH-dah
+to give | juda | JOO-dah
+to know | alda | AHL-dah
+to do | hada | HAH-dah
+to like | joahada | JOH-ah-hah-dah
+to live | salda | SAHL-dah
+to work | ilhada | EEL-hah-dah
+to buy | sada | SAH-dah
+to read | ilgda | ILK-dah
+to write | sseuda | SSEU-dah
+to sleep | jada | JAH-dah
+to learn | baeuda | BAE-oo-dah
+to help | dopda | DOHP-dah
+to need | piryohada | PEE-ryoh-hah-dah
+to love | saranghada | SAH-rahng-hah-dah
+
+[grammar]
+## Pronouns
+> Korean often drops pronouns. For "you" it is better to use the person's name or title + -ssi, because "dangsin" can sound rude or intimate. 
+row: I (polite) | jeo | juh
+row: I (informal) | na | nah
+row: you (polite) | dangsin | DAHNG-sheen
+row: you (informal) | neo | nuh
+row: he | geu | geu
+row: she | geunyeo | GEU-nyuh
+row: we (polite) | jeohui | JUH-hwee
+row: we (informal) | uri | OO-ree
+row: they | geudeul | GEU-deul
+ex: I am a student | jeo-neun haksaeng-ieyo | juh-neun hahk-saeng-ee-eh-yoh
+ex: you are tall | ki-ga keoyo | kee-gah kuh-yoh
+ex: she is my sister | geunyeo-neun je yeodongsaeng-ieyo | GEU-nyuh-neun jeh yuh-dohng-saeng-ee-eh-yoh
+ex: we are friends | uri-neun chingu-yeyo | OO-ree-neun cheen-goo-yeh-yoh
+ex: they are teachers | geudeul-eun seonsaengnim-ieyo | GEU-deu-reun suhn-saeng-neem-ee-eh-yoh
+## Singular and plural
+> Korean usually does not mark the plural. Add -deul to show "many" (chingu → chingudeul). Numbers and context show how many.
+row: friend | chingu | CHEEN-goo
+row: friends | chingudeul | CHEEN-goo-deul
+row: student | haksaeng | HAHK-saeng
+row: students | haksaengdeul | HAHK-saeng-deul
+row: counter for things | gae | gae
+row: counter for people | myeong | myuhng
+ex: one friend, friends | chingu, chingudeul | CHEEN-goo CHEEN-goo-deul
+ex: one student, students | haksaeng, haksaengdeul | HAHK-saeng HAHK-saeng-deul
+ex: two people | dumyeong | doo-myuhng
+ex: three apples | sagwa se gae | SAH-gwah seh gae
+ex: five books | chaek da-seot gwon | chaek DAH-suht gwuhn
+## Ida: to be
+> "Ieyo" after a consonant, "yeyo" after a vowel.
+row: I am a student | jeo-neun haksaeng-ieyo | juh-neun hahk-saeng-ee-eh-yoh
+row: it is a book | chaek-ieyo | chae-gee-eh-yoh
+row: it is tea | cha-yeyo | chah-yeh-yoh
+row: formal "is" | imnida | eem-nee-dah
+row: not (is not) | ...i/ga anieyo | ah-nee-eh-yoh
+ex: I am English | jeo-neun yeongguk saram-ieyo | juh-neun yuhng-gook sah-rah-mee-eh-yoh
+ex: he is a doctor | geu-neun uisa-yeyo | geu-neun ee-sah-yeh-yoh
+ex: we are tired | uri-neun pigonhaeyo | OO-ree-neun pee-gohn-hae-yoh
+ex: are you from Seoul? | seoul-eseo wasseoyo? | suh-oo-leh-suh wah-suh-yoh
+ex: they are at home | geudeul-eun jibe isseoyo | GEU-deu-reun jee-beh ee-suh-yoh
+## Itda: to have, to exist
+> "Isseoyo" = there is / I have. "Eopseoyo" = there is not / I do not have.
+row: I have | jeo-neun ...i/ga isseoyo | ee-suh-yoh
+row: there is | isseoyo | ee-suh-yoh
+row: there is not | eopseoyo | uhp-suh-yoh
+row: I have a car | chaga isseoyo | chah-gah ee-suh-yoh
+row: I do not have time | sigani eopseoyo | shee-gah-nee uhp-suh-yoh
+ex: I have a brother | hyeong-i isseoyo | hyuh-ng-ee ee-suh-yoh
+ex: she has two cats | goyangi du mari isseoyo | goh-yahng-ee doo mah-ree ee-suh-yoh
+ex: we have time | sigan-i isseoyo | shee-gah-nee ee-suh-yoh
+ex: do you have a pen? | pen-i isseoyo? | pe-nee ee-suh-yoh
+ex: they have a car | geudeul-eun cha-ga isseoyo | GEU-deu-reun chah-gah ee-suh-yoh
+## Regular verbs (present tense)
+> Take the verb stem (drop -da), add -ayo or -eoyo (a / o vowel → -ayo, other vowels → -eoyo). Gada (go) → gayo, meokda (eat) → meogeoyo. Hada becomes haeyo.
+row: gada (go) | gayo | gah-yoh
+row: meokda (eat) | meogeoyo | muh-guh-yoh
+row: hada (do) | haeyo | hae-yoh
+row: ilgda (read) | ilgeoyo | il-guh-yoh
+row: masida (drink) | masyeoyo | mah-shyuh-yoh
+row: junbi-hada (prepare) | junbi-haeyo | joon-bee-hae-yoh
+ex: I work in a bank | jeo-neun eunhaeng-eseo ilhaeyo | juh-neun eun-haeng-eh-suh eel-hae-yoh
+ex: you live in Seoul | seoul-e saseyo | suh-oo-leh sah-seh-yoh
+ex: she reads a book | geunyeo-neun chaek-eul ilgeoyo | GEU-nyuh-neun chae-geul ik-uh-yoh
+ex: we learn Korean | uri-neun hangugeo-reul baeweoyo | OO-ree-neun hahn-goo-guh-reul bae-wuh-yoh
+ex: they buy bread | geudeul-eun ppang-eul sayo | GEU-deu-reun ppah-ngeul sah-yoh
+## Gada: to go
+row: I go | gayo | gah-yoh
+row: do you go? | gayo? | gah-yoh
+row: let's go | gayo (let's go) | gah-yoh
+row: I went | gasseoyo | gah-suh-yoh
+row: I will go | gal geoyeyo | gahl guh-yeh-yoh
+row: I am going | gago isseoyo | gah-goh ee-suh-yoh
+ex: I am going to school | hakgyo-e gayo | hahk-gyoh-eh gah-yoh
+ex: where are you going? | eodi gayo? | uh-dee gah-yoh
+ex: we are going home | uri-neun jibe gayo | OO-ree-neun jee-beh gah-yoh
+ex: she is going shopping | geunyeo-neun swopinghae gayo | GEU-nyuh-neun shoh-peeng-hae gah-yoh
+ex: let's go! | gayo! | gah-yoh
+## Basic sentences
+> Word order is subject, object, verb (verb last). Particles mark roles: -eun/-neun (topic), -i/-ga (subject), -eul/-reul (object).
+row: subject + object + verb | Jeo-neun bap-eul meogeoyo. | juh-neun bah-beul muh-guh-yoh
+row: adjective before noun | keun jip | keun jeep
+row: add time or place | Jeo-neun oneul yeogi-eseo ilhaeyo. | juh-neun oh-neul yuh-gee-eh-suh eel-hae-yoh
+ex: I eat rice | jeo-neun bap-eul meogeoyo | juh-neun bah-beul muh-guh-yoh
+ex: Anna reads a book | Anna-neun chaek-eul ilgeoyo | AH-nah-neun chae-geul il-guh-yoh
+ex: we live in a big house | uri-neun keun jibe sarayo | OO-ree-neun keun jee-beh sah-rah-yoh
+ex: he works here today | geu-neun oneul yeogi-eseo ilhaeyo | geu-neun oh-neul yuh-gee-eh-suh eel-hae-yoh
+ex: the dog is black | gae-neun geomeoyo | gae-neun guh-muh-yoh
+## Negation
+> Put an before the verb (short form) or add -ji anayo to the stem (long form). Never use "an" with "isseoyo": use "eopseoyo".
+row: not (short) | an + verb | ahn
+row: not (long) | stem + -ji anayo | jee ah-nah-yoh
+row: nothing | amugeotdo | ah-moo-guht-doh
+row: nobody | amudo | ah-moo-doh
+row: never | jeoldae ...ji anayo | juhl-dae
+ex: I do not speak French | peurangseueo-reul an haeyo | peu-rahng-seu-uh-reul ahn hae-yoh
+ex: she does not live here | geunyeo-neun yeogi an sarayo | GEU-nyuh-neun yuh-gee ahn sah-rah-yoh
+ex: I do not want anything | amugeotdo wonhaji anayo | ah-moo-guht-doh wuhn-hah-jee ah-nah-yoh
+ex: nobody is here | yeogi amudo eopseoyo | yuh-gee ah-moo-doh uhp-suh-yoh
+ex: I never eat meat | jeoldae gogi-reul meokji anayo | juhl-dae goh-gee-reul muhk-jee ah-nah-yoh
+## Asking questions
+> A yes / no question has the same words as a statement, with rising voice. No question word is needed.
+row: statement | Hangugeo-reul haeyo. | hahn-goo-guh-reul hae-yoh
+row: question | Hangugeo-reul haeyo? | hahn-goo-guh-reul hae-yoh
+row: do you? | ...haeyo? | hae-yoh
+ex: do you speak English? | yeongeo hasil su isseoyo? | yuhng-uh hah-seel soo ee-suh-yoh
+ex: is she a doctor? | geunyeo-neun uisa-yeyo? | GEU-nyuh-neun ee-sah-yeh-yoh
+ex: do you have a pen? | pen-i isseoyo? | pe-nee ee-suh-yoh
+ex: are you tired? | pigonhaeyo? | pee-gohn-hae-yoh
+ex: is it far? | meoreoyo? | muh-ruh-yoh
+## Question words
+row: what | mwo | mwoh
+row: who | nugu | NOO-goo
+row: where | eodi | UH-dee
+row: when | eonje | UHN-jeh
+row: why | wae | weh
+row: how | eotteoke | uh-TUH-keh
+row: which | eoneu | UH-neu
+row: how much / how many | eolma / myeot | UHL-mah / myuht
+ex: what is this? | igeo mwoeyo? | ee-guh mwoh-eh-yoh
+ex: who is she? | geu yeoja-neun nugu-yeyo? | geu yuh-jah-neun noo-goo-yeh-yoh
+ex: where do you live? | eodi saseyo? | uh-dee sah-seh-yoh
+ex: when is the exam? | siheom-i eonje-eyo? | shee-huh-mee uhn-jeh-eh-yoh
+ex: why are you late? | wae neujeosseoyo? | weh neu-juh-suh-yoh
+ex: how much is it? | eolma-eyo? | uhl-mah-eh-yoh
+## Possessives
+> Use the pronoun + -ui, often shortened. Je = my (polite), nae = my (informal).
+row: my (polite) | je | jeh
+row: my (informal) | nae | nae
+row: your | dangsin-ui | DAHNG-sheen-eui
+row: his | geu-ui | geu-eui
+row: her | geunyeo-ui | GEU-nyuh-eui
+row: our | uri | OO-ree
+row: their | geudeul-ui | GEU-deu-reui
+ex: my house | je jip | jeh jeep
+ex: your friends | dangsin-ui chingu | DAHNG-sheen-eui CHEEN-goo
+ex: his sister | geu-ui yeodongsaeng | geu-eui yuh-dohng-saeng
+ex: our teacher | uri seonsaengnim | OO-ree suhn-saeng-neem
+ex: my mother | je eomma | jeh UHM-mah
+## Formal vs informal
+> Add -nim (title) to teachers and elders. Use -ssi after a name for equals: Minsu-ssi. Do not use -ssi to older people. Always speak politely to adults.
+row: polite ending | -yo | yoh
+row: formal ending | -mnida | mnee-dah
+row: informal ending | (no ending) | -
+row: respectful title | -nim | neem
+row: after a name | -ssi | shee
+ex: hello (formal) | annyeonghasimnikka | ahn-NYUNG-hah-seem-nee-kah
+ex: hello (polite) | annyeonghaseyo | ahn-NYUNG-hah-seh-yoh
+ex: hello (informal) | annyeong | ahn-NYUNG
+ex: teacher (respectful) | seonsaengnim | SUHN-saeng-neem
+ex: thank you, Mr Kim | Kim-ssi, gamsahamnida | geem-shee gahm-sah-HAHM-nee-dah
+## Past and future (simple)
+> Past: stem + -ass/-eoss + eoyo. Future: stem + -l geoyeyo.
+row: I went | gasseoyo | gah-suh-yoh
+row: I ate | meogeosseoyo | muh-guh-suh-yoh
+row: I did | haesseoyo | hae-suh-yoh
+row: I will go | gal geoyeyo | gahl guh-yeh-yoh
+ex: yesterday I worked | eoje ilhaesseoyo | uh-jeh eel-hae-suh-yoh
+ex: she bought a book | geunyeo-neun chaek-eul sasseoyo | GEU-nyuh-neun chae-geul sah-suh-yoh
+ex: I went home | jibe gasseoyo | jee-beh gah-suh-yoh
+ex: I will call you tomorrow | naeil jeonhwa hal geoyeyo | NAE-eel juhn-hwah hahl guh-yeh-yoh
+ex: we will eat at eight | yeodeol si-e meogeul geoyeyo | yuh-duhl shee-eh muh-geul guh-yeh-yoh
