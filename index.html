@@ -39023,8 +39023,25 @@ function setCornersNoZoom(active){
       if(p.y >= fy){ p.y = fy; p.vy = Math.abs(p.vy) < 120 ? 0 : -p.vy * .5; const k = Math.exp(-7 * dt); p.vx *= k; p.va *= k; }
       const rest = p.y >= fy - .5 && p.vy === 0 && Math.abs(p.vx) < 6 && Math.abs(p.va) < 3;
       if(rest){ p.vx = 0; p.va = 0; } else moving = true;
-      draw(p);
     });
+    // shape-to-shape collisions (treated as circles)
+    for(let i = 0; i < parts.length; i++) for(let j = i + 1; j < parts.length; j++){
+      const A = parts[i], B = parts[j], r = (A.sz + B.sz) * .42;
+      let dx = (B.x + B.sz / 2) - (A.x + A.sz / 2), dy = (B.y + B.sz / 2) - (A.y + A.sz / 2), d = Math.hypot(dx, dy) || .01;
+      if(d >= r) continue;
+      const nx = dx / d, ny = dy / d, ov = r - d;
+      const wa = A.drag ? 0 : 1, wb = B.drag ? 0 : 1, w = wa + wb; if(!w) continue;
+      A.x -= nx * ov * wa / w; A.y -= ny * ov * wa / w; B.x += nx * ov * wb / w; B.y += ny * ov * wb / w;
+      const rv = (B.vx - A.vx) * nx + (B.vy - A.vy) * ny;
+      if(rv < 0){
+        const jn = -(1 + .75) * rv / w;
+        A.vx -= nx * jn * wa; A.vy -= ny * jn * wa; B.vx += nx * jn * wb; B.vy += ny * jn * wb;
+        A.va += (A.vx - B.vx) * .1 * wa; B.va += (B.vx - A.vx) * .1 * wb;
+      }
+      if(!A.drag && A.y > floorY(A.sz)) A.y = floorY(A.sz); if(!B.drag && B.y > floorY(B.sz)) B.y = floorY(B.sz);
+      if(Math.abs(rv) > 1 || ov > .5) moving = true;
+    }
+    parts.forEach(draw);
     if(moving) requestAnimationFrame(loop); else running = false;
   }
   function kick(){ if(!running){ running = true; lt = performance.now(); requestAnimationFrame(loop); } }
