@@ -2,7 +2,11 @@
 [goal-scraper] [PL] Found 0 finished-match links
 [goal-scraper] [PD] Found 0 finished-match links
 [goal-scraper] [BL1] Found 0 finished-match links
-[goal-scraper] [SA] Found 0 finished-match links
+[goal-scraper] [SA] Found 3 finished-match links
+[goal-scraper] WARNING: Lazio scored 6 but only 5 scorer(s) were parsed for https://www.goal.com/en/match/sassuolo-vs-lazio/MLshQjMpMusfXiX1CqfNV
+[goal-scraper] [SA] SCORER PARSE FAILED (attempt 1/3) for Sassuolo 2-6 Lazio -- NOT committing, will retry next run: https://www.goal.com/en/match/sassuolo-vs-lazio/MLshQjMpMusfXiX1CqfNV
+[goal-scraper] [SA] Added: Roma 4-2 Cagliari
+[goal-scraper] [SA] Added: Torino 1-3 Como
 [goal-scraper] [FL1] Found 0 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 26 finished-match links
@@ -113,7 +117,7 @@
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Atletico Madrid on 2026-08-14
 [goal-scraper] WARNING: Monaco scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/monaco-vs-marseille/o_QlMszaNoxjSs5L9TLym
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Monaco vs Marseille on 2026-08-30
-[goal-scraper] [dortmund] Found 23 finished-match links
+[goal-scraper] [dortmund] Found 24 finished-match links
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fluminense vs Borussia Dortmund on 2025-06-17
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Mamelodi Sundowns Fc vs Borussia Dortmund on 2025-06-21
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Ulsan Hd Fc on 2025-06-25
@@ -124,7 +128,9 @@
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Cerezo Osaka vs Borussia Dortmund on 2026-07-29
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fc Tokyo vs Borussia Dortmund on 2026-08-01
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Roma on 2026-08-15
-[goal-scraper] [roma] Found 17 finished-match links
+[goal-scraper] WARNING: Werder Bremen scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/BmkJjZVzBCA5qpSE8eigi
+[goal-scraper] [dortmund] SCORER PARSE FAILED (attempt 1/3) for Borussia Dortmund 3-2 Werder Bremen -- NOT committing, will retry next run: https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/BmkJjZVzBCA5qpSE8eigi
+[goal-scraper] [roma] Found 18 finished-match links
 [goal-scraper] WARNING: Roma scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/roma-vs-asd-trastevere/rEpIoomMZP4MF3iBnJkkk
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Asd Trastevere on 2026-07-23
 [goal-scraper] WARNING: Cannes scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/cannes-vs-roma/mcwkL_f4LVruCD6tSOr07
@@ -153,6 +159,7 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Palermo on 2026-08-11
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 0
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI']
+[goal-scraper] [arsenal-friendlies] Added: Fleetwood Town 1-1 Arsenal
+[goal-scraper] TOTAL new results added this run: 3
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/sassuolo-vs-lazio/MLshQjMpMusfXiX1CqfNV', 'https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/BmkJjZVzBCA5qpSE8eigi']
 [goal-scraper] Wrote data/goal-results.json

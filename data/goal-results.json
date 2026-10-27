@@ -1,82 +1,6 @@
 {
-  "generatedAt": "2026-10-27T18:50:46.437952Z",
+  "generatedAt": "2026-10-27T22:47:21.427413Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/afc-bournemouth-vs-brentford/S5OKGP9DZ3KjwyIFcK06y",
-      "date": null,
-      "home": "Afc Bournemouth",
-      "away": "Brentford",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "J. Kluivert",
-          "minute": 38
-        },
-        {
-          "scorer": "M. Tavernier",
-          "minute": 52
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "K. Schade",
-          "minute": 34
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/chelsea-vs-hull-city/sf34-VeBGJZV0MkmnLRwZ",
-      "date": null,
-      "home": "Chelsea",
-      "away": "Hull City",
-      "htHome": 1,
-      "htAway": 2,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "M. Rogers",
-          "minute": 7
-        },
-        {
-          "scorer": "J. Pedro",
-          "minute": 66
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Belloumi",
-          "minute": 28
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/sunderland-vs-arsenal/c8bkvwAzpfwfqLxwNk4uu",
-      "date": null,
-      "home": "Sunderland",
-      "away": "Arsenal",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "B. Guimaraes",
-          "minute": 58
-        },
-        {
-          "scorer": "B. Saka",
-          "minute": 90
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/osasuna-vs-espanyol/WzK-gU-bYMDziDpYFmoWJ",
       "date": null,
@@ -7808,6 +7732,99 @@
       ],
       "awayGoals": [],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/roma-vs-cagliari/AZvIf_-QT1NGAAGvfwyhE",
+      "date": "2026-10-27",
+      "home": "Roma",
+      "away": "Cagliari",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 4,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "E. Lulli",
+          "minute": 15
+        },
+        {
+          "scorer": "N. Pisilli",
+          "minute": 22
+        },
+        {
+          "scorer": "R. Mora",
+          "minute": 85
+        },
+        {
+          "scorer": "D. Malen",
+          "minute": 87
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Nzola",
+          "minute": 10
+        },
+        {
+          "scorer": "D. Maldini",
+          "minute": 82
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/torino-vs-como/4PTprbqG-azjMNU9lZeTS",
+      "date": "2026-10-27",
+      "home": "Torino",
+      "away": "Como",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "C. Adams",
+          "minute": 24
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Ramon",
+          "minute": 81
+        },
+        {
+          "scorer": "N. Paz",
+          "minute": 87
+        },
+        {
+          "scorer": "M. Baturina",
+          "minute": 90
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/fleetwood-town-vs-arsenal/mbb5wFD_5Yv78OWgAGMAM",
+      "date": "2026-10-27",
+      "home": "Fleetwood Town",
+      "away": "Arsenal",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Loupalo-Bi",
+          "minute": 21
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "V. Gyoekeres",
+          "minute": 50
+        }
+      ],
+      "competition": "arsenal-friendlies"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7821,6 +7838,8 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
+    "https://www.goal.com/en/match/sassuolo-vs-lazio/MLshQjMpMusfXiX1CqfNV": 1,
+    "https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/BmkJjZVzBCA5qpSE8eigi": 1
   }
 }
