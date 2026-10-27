@@ -1,0 +1,930 @@
+NAME: Esperanto
+ID: eo
+FLAG: eo
+
+[sounds]
+INTRO: Esperanto is 100% regular. Every letter has one sound. The stress always falls on the second-last syllable.
+a | ah, like "father" | akvo
+e | eh, like "bed" | verda
+i | ee, like "see" | vivo
+o | oh, like "more" | bona
+u | oo, like "food" | kuri
+c | ts, like "cats" | cent
+ĉ | ch, like "church" | ĉielo
+ĝ | j, like "judge" | ĝardeno
+ĥ | kh, like Scottish "loch" | monaĥo
+ĵ | zh, like "measure" | ĵaŭdo
+ŝ | sh, like "ship" | ŝipo
+ŭ | w, only after a vowel | naŭ
+j | y, like "yes" | jes
+g | always hard, like "go" | granda
+NOTE: Nouns end in -o, adjectives in -a, adverbs in -e, verbs in -as (present), -is (past), -os (future). Plural: add -j. Object: add -n.
+NOTE: There is no gender, no irregular verbs and no articles except "la" (the).
+
+[numbers]
+## 0 to 10
+zero | nulo | NOO-lo
+one | unu | OO-noo
+two | du | doo
+three | tri | tree
+four | kvar | kvar
+five | kvin | kveen
+six | ses | ses
+seven | sep | sep
+eight | ok | ok
+nine | naŭ | now
+ten | dek | dek
+## 11 to 20
+eleven | dek unu | dek OO-noo
+twelve | dek du | dek doo
+thirteen | dek tri | dek tree
+fourteen | dek kvar | dek kvar
+fifteen | dek kvin | dek kveen
+sixteen | dek ses | dek ses
+seventeen | dek sep | dek sep
+eighteen | dek ok | dek ok
+nineteen | dek naŭ | dek now
+twenty | dudek | DOO-dek
+## Tens and big numbers
+twenty-one | dudek unu | DOO-dek OO-noo
+thirty | tridek | TREE-dek
+thirty-one | tridek unu | TREE-dek OO-noo
+forty | kvardek | KVAR-dek
+fifty | kvindek | KVEEN-dek
+sixty | sesdek | SES-dek
+seventy | sepdek | SEP-dek
+eighty | okdek | OK-dek
+ninety | naŭdek | NOW-dek
+one hundred | cent | tsent
+one hundred and one | cent unu | tsent OO-noo
+two hundred | ducent | doo-TSENT
+five hundred | kvincent | kveen-TSENT
+one thousand | mil | meel
+two thousand | du mil | doo meel
+one million | miliono | mee-lee-O-no
+## Order and amounts
+first | unua | OO-noo-a
+second | dua | DOO-a
+third | tria | TREE-a
+half | duono | doo-O-no
+a few | kelkaj | KEL-kai
+many | multaj | MOOL-tai
+a pair | paro | PA-ro
+how many? | kiom? | KEE-om
+
+[greetings]
+## Hello and goodbye
+hello | saluton | sa-LOO-ton
+good morning | bonan matenon | BO-nan ma-TE-non
+good afternoon | bonan posttagmezon | BO-nan post-tag-ME-zon
+good evening / good night | bonan vesperon / bonan nokton | BO-nan ves-PE-ron / BO-nan NOK-ton
+goodbye | ĝis revido | jees re-VEE-do
+see you later | ĝis poste | jees POS-te
+see you tomorrow | ĝis morgaŭ | jees MOR-gow
+see you soon | ĝis baldaŭ | jees BAL-dow
+bye (informal) | ĝis | jees
+## Meeting people
+how are you? (informal) | kiel vi fartas? | KEE-el vee FAR-tas
+how are you? (formal) | kiel vi fartas, sinjoro? | KEE-el vee FAR-tas seen-YO-ro
+I am fine, thanks | mi fartas bone, dankon | mee FAR-tas BO-ne DAN-kon
+and you? | kaj vi? | kai vee
+not bad | ne malbone | ne mal-BO-ne
+so-so | tiel-tiel | TEE-el TEE-el
+what is your name? | kiel vi nomiĝas? | KEE-el vee no-MEE-jas
+my name is... | mi nomiĝas... | mee no-MEE-jas
+nice to meet you | plaĉas al mi renkonti vin | PLA-chas al mee ren-KON-tee veen
+where are you from? | de kie vi estas? | de KEE-e vee ES-tas
+I am from England | mi estas el Anglio | mee ES-tas el AN-glee-o
+## Politeness
+please | bonvolu | bon-VO-loo
+thank you | dankon | DAN-kon
+thank you very much | multan dankon | MOOL-tan DAN-kon
+you are welcome | ne dankinde | ne dan-KEEN-de
+excuse me | pardonu | par-DO-noo
+sorry | mi bedaŭras | mee be-DOW-ras
+yes | jes | yes
+no | ne | ne
+congratulations | gratulon | gra-TOO-lon
+cheers | je via sano | ye VEE-a SA-no
+good luck | bonŝancon | bon-SHAN-tson
+happy birthday | feliĉan naskiĝtagon | fe-LEE-chan nas-keej-TA-gon
+
+[phrases]
+## Essential phrases
+hello | saluton | sa-LOO-ton
+goodbye | ĝis revido | jees re-VEE-do
+please | bonvolu | bon-VO-loo
+thank you | dankon | DAN-kon
+you are welcome | ne dankinde | ne dan-KEEN-de
+yes | jes | yes
+no | ne | ne
+excuse me | pardonu | par-DO-noo
+sorry | mi bedaŭras | mee be-DOW-ras
+I do not understand | mi ne komprenas | mee ne kom-PRE-nas
+do you speak English? | ĉu vi parolas la anglan? | choo vee pa-RO-las la AN-glan
+speak slowly, please | bonvolu paroli malrapide | bon-VO-loo pa-RO-lee mal-ra-PEE-de
+can you help me? | ĉu vi povas helpi min? | choo vee PO-vas HEL-pee meen
+where is the toilet? | kie estas la necesejo? | KEE-e ES-tas la ne-tse-SE-yo
+how much is it? | kiom ĝi kostas? | KEE-om jee KOS-tas
+I would like... | mi ŝatus havi... | mee SHA-toos HA-vee
+I need... | mi bezonas... | mee be-ZO-nas
+my name is... | mi nomiĝas... | mee no-MEE-jas
+I am lost | mi perdiĝis | mee per-DEE-jees
+what is this? | kio estas tio? | KEE-o ES-tas TEE-o
+I do not know | mi ne scias | mee ne SKEE-as
+that is OK | tio estas en ordo | TEE-o ES-tas en OR-do
+## Formal and informal
+> Esperanto has one word for "you": vi. There is a rarely used informal "ci", but nobody needs it. For politeness, use "bonvolu", "sinjoro" (sir) and "sinjorino" (madam).
+how are you? (informal) | kiel vi fartas? | KEE-el vee FAR-tas
+how are you? (formal) | kiel vi fartas, sinjoro? | KEE-el vee FAR-tas seen-YO-ro
+what is your name? (informal) | kiel vi nomiĝas? | KEE-el vee no-MEE-jas
+what is your name? (formal) | kiel vi nomiĝas, sinjorino? | KEE-el vee no-MEE-jas seen-yo-REE-no
+do you speak English? (informal) | ĉu vi parolas la anglan? | choo vee pa-RO-las la AN-glan
+do you speak English? (formal) | ĉu vi bonvolus paroli la anglan? | choo vee bon-VO-loos pa-RO-lee la AN-glan
+where are you from? (informal) | de kie vi estas? | de KEE-e vee ES-tas
+where are you from? (formal) | de kie vi venas, sinjoro? | de KEE-e vee VE-nas seen-YO-ro
+can you help me? (informal) | ĉu vi povas helpi min? | choo vee PO-vas HEL-pee meen
+can you help me? (formal) | ĉu vi bonvolus helpi min? | choo vee bon-VO-loos HEL-pee meen
+hi (informal) | saluton | sa-LOO-ton
+good morning (formal) | bonan matenon, sinjoro | BO-nan ma-TE-non seen-YO-ro
+see you (informal) | ĝis | jees
+goodbye (formal) | ĝis revido, sinjoro | jees re-VEE-do seen-YO-ro
+## Survival
+I do not understand | mi ne komprenas | mee ne kom-PRE-nas
+I understand | mi komprenas | mee kom-PRE-nas
+I do not know | mi ne scias | mee ne SKEE-as
+do you speak English? | ĉu vi parolas la anglan? | choo vee pa-RO-las la AN-glan
+I speak a little Esperanto | mi parolas iomete Esperanton | mee pa-RO-las ee-o-ME-te es-pe-RAN-ton
+speak slowly, please | bonvolu paroli malrapide | bon-VO-loo pa-RO-lee mal-ra-PEE-de
+can you repeat that? | ĉu vi povas ripeti tion? | choo vee PO-vas ree-PE-tee TEE-on
+how do you say... in Esperanto? | kiel oni diras... en Esperanto? | KEE-el O-nee DEE-ras en es-pe-RAN-to
+what does... mean? | kion signifas...? | KEE-on seeg-NEE-fas
+please write it down | bonvolu skribi ĝin | bon-VO-loo SKREE-bee jeen
+help! | helpu! | HEL-poo
+I am lost | mi perdiĝis | mee per-DEE-jees
+I need help | mi bezonas helpon | mee be-ZO-nas HEL-pon
+## Getting around
+where is...? | kie estas...? | KEE-e ES-tas
+where is the toilet? | kie estas la necesejo? | KEE-e ES-tas la ne-tse-SE-yo
+where is the station? | kie estas la stacidomo? | KEE-e ES-tas la sta-tsee-DO-mo
+turn left | turnu maldekstren | TOOR-noo mal-DEK-stren
+turn right | turnu dekstren | TOOR-noo DEK-stren
+straight ahead | rekte antaŭen | REK-te an-TOW-en
+near | proksime | PROK-see-me
+far | malproksime | mal-PROK-see-me
+how far is it? | kiom malproksime ĝi estas? | KEE-om mal-PROK-see-me jee ES-tas
+a ticket to Paris, please | bileton al Parizo, bonvolu | bee-LE-ton al pa-REE-zo bon-VO-loo
+what time does the train leave? | kiam foriras la trajno? | KEE-am fo-REE-ras la TRAI-no
+how much is the ticket? | kiom kostas la bileto? | KEE-om KOS-tas la bee-LE-to
+to the airport, please | al la flughaveno, bonvolu | al la floog-ha-VE-no bon-VO-loo
+stop here, please | haltu ĉi tie, bonvolu | HAL-too chee TEE-e bon-VO-loo
+## Eating out
+a table for two, please | tablon por du, bonvolu | TA-blon por doo bon-VO-loo
+the menu, please | la menuon, bonvolu | la me-NOO-on bon-VO-loo
+I would like... | mi ŝatus havi... | mee SHA-toos HA-vee
+I will have this | mi prenos ĉi tion | mee PRE-nos CHEE tee-on
+water, please | akvon, bonvolu | AK-von bon-VO-loo
+the bill, please | la fakturon, bonvolu | la fak-TOO-ron bon-VO-loo
+it is delicious | ĝi estas bongusta | jee ES-tas bon-GOOS-ta
+I am hungry | mi malsatas | mee mal-SA-tas
+I am thirsty | mi soifas | mee so-EE-fas
+I am vegetarian | mi estas vegetarano | mee ES-tas ve-ge-ta-RA-no
+I am allergic to nuts | mi estas alergia kontraŭ nuksoj | mee ES-tas a-LER-gee-a kon-TRAW NOOK-soi
+no meat, please | sen viando, bonvolu | sen vee-AN-do bon-VO-loo
+another one, please | alian, bonvolu | a-LEE-an bon-VO-loo
+## Shopping
+how much is this? | kiom kostas ĉi tio? | KEE-om KOS-tas CHEE TEE-o
+it is too expensive | ĝi estas tro multekosta | jee ES-tas tro mool-te-KOS-ta
+do you have a smaller size? | ĉu vi havas pli malgrandan grandon? | choo vee HA-vas plee mal-GRAN-dan GRAN-don
+I am just looking | mi nur rigardas | mee noor ree-GAR-das
+I will take it | mi prenos ĝin | mee PRE-nos jeen
+can I pay by card? | ĉu mi povas pagi per karto? | choo mee PO-vas PA-gee per KAR-to
+cash | kontanta mono | kon-TAN-ta MO-no
+a bag, please | sakon, bonvolu | SA-kon bon-VO-loo
+open | malfermita | mal-fer-MEE-ta
+closed | fermita | fer-MEE-ta
+## Hotel and travel
+I have a reservation | mi havas rezervon | mee HA-vas re-ZER-von
+a room for one night | ĉambro por unu nokto | CHAM-bro por OO-noo NOK-to
+what time is breakfast? | je kioma horo estas la matenmanĝo? | ye KEE-o-ma HO-ro ES-tas la ma-ten-MAN-jo
+the key, please | la ŝlosilon, bonvolu | la shlo-SEE-lon bon-VO-loo
+is there wifi? | ĉu estas Wi-Fi? | choo ES-tas VEE-fee
+my passport | mia pasporto | MEE-a pas-POR-to
+my luggage | miaj pakaĵoj | MEE-ai pa-KA-zhoi
+I would like to change money | mi ŝatus ŝanĝi monon | mee SHA-toos SHAN-jee MO-non
+## Health and emergency
+I feel sick | mi sentas min malsana | mee SEN-tas meen mal-SA-na
+I need a doctor | mi bezonas kuraciston | mee be-ZO-nas koo-ra-TSEES-ton
+call an ambulance | alvoku ambulancon | al-VO-koo am-boo-LAN-tson
+it hurts here | doloras ĉi tie | do-LO-ras CHEE TEE-e
+I have a headache | mi havas kapdoloron | mee HA-vas kap-do-LO-ron
+I have a fever | mi havas febron | mee HA-vas FE-bron
+where is the pharmacy? | kie estas la apoteko? | KEE-e ES-tas la a-po-TE-ko
+call the police | alvoku la policon | al-VO-koo la po-LEE-tson
+my phone was stolen | oni ŝtelis mian telefonon | O-nee SHTE-lees MEE-an te-le-FO-non
+## Chatting
+what do you do? | kio estas via okupo? | KEE-o ES-tas VEE-a o-KOO-po
+I am a student | mi estas studento | mee ES-tas stoo-DEN-to
+I am a teacher | mi estas instruisto | mee ES-tas een-stroo-EES-to
+I live in Tashkent | mi loĝas en Taŝkento | mee LO-jas en tash-KEN-to
+how old are you? | kiom aĝa vi estas? | KEE-om A-ja vee ES-tas
+I am sixteen | mi estas dekses jarojn aĝa | mee ES-tas dek-SES YA-roin A-ja
+do you like football? | ĉu vi ŝatas futbalon? | choo vee SHA-tas foot-BA-lon
+I like music | mi ŝatas muzikon | mee SHA-tas moo-ZEE-kon
+I love it | mi amas ĝin | mee A-mas jeen
+what time is it? | kioma horo estas? | KEE-o-ma HO-ro ES-tas
+it is three o'clock | estas la tria | ES-tas la TREE-a
+what is the date today? | kiu estas la dato hodiaŭ? | KEE-oo ES-tas la DA-to ho-DEE-ow
+I am happy | mi estas feliĉa | mee ES-tas fe-LEE-cha
+I am tired | mi estas laca | mee ES-tas LA-tsa
+## Useful words
+and | kaj | kai
+but | sed | sed
+because | ĉar | char
+very | tre | tre
+here | ĉi tie | chee TEE-e
+there | tie | TEE-e
+now | nun | noon
+today | hodiaŭ | ho-DEE-ow
+tomorrow | morgaŭ | MOR-gow
+yesterday | hieraŭ | hee-E-row
+always | ĉiam | CHEE-am
+never | neniam | ne-NEE-am
+maybe | eble | E-ble
+what | kio | KEE-o
+who | kiu | KEE-oo
+when | kiam | KEE-am
+why | kial | KEE-al
+how | kiel | KEE-el
+which | kiu el ili | KEE-oo el EE-lee
+## In the classroom
+may I come in? | ĉu mi rajtas eniri? | choo mee RAI-tas e-NEE-ree
+may I go to the toilet? | ĉu mi rajtas iri al la necesejo? | choo mee RAI-tas EE-ree al la ne-tse-SE-yo
+I have a question | mi havas demandon | mee HA-vas de-MAN-don
+I do not know the answer | mi ne scias la respondon | mee ne SKEE-as la res-PON-don
+I forgot my homework | mi forgesis mian hejmtaskon | mee for-GE-sees MEE-an hey-m-TAS-kon
+sorry, I am late | pardonu, mi malfruas | par-DO-noo mee mal-FROO-as
+please repeat the question | bonvolu ripeti la demandon | bon-VO-loo ree-PE-tee la de-MAN-don
+what page are we on? | je kiu paĝo ni estas? | ye KEE-oo PA-jo nee ES-tas
+open your books | malfermu viajn librojn | mal-FER-moo VEE-ain LEE-broin
+close your books | fermu viajn librojn | FER-moo VEE-ain LEE-broin
+listen, please | aŭskultu, bonvolu | ows-KOOL-too bon-VO-loo
+look at the board | rigardu la tabulon | ree-GAR-doo la ta-BOO-lon
+how do you spell it? | kiel oni literumas ĝin? | KEE-el O-nee lee-te-ROO-mas jeen
+what does this word mean? | kion signifas ĉi tiu vorto? | KEE-on seeg-NEE-fas chee TEE-oo VOR-to
+I have finished | mi finis | mee FEE-nees
+can I borrow a pen? | ĉu mi povas prunti plumon? | choo mee PO-vas PROON-tee PLOO-mon
+## Phone and internet
+what is your phone number? | kio estas via telefonnumero? | KEE-o ES-tas VEE-a te-le-fon-noo-ME-ro
+my phone number is... | mia telefonnumero estas... | MEE-a te-le-fon-noo-ME-ro ES-tas
+can I use your phone? | ĉu mi povas uzi vian telefonon? | choo mee PO-vas OO-zee VEE-an te-le-FO-non
+my battery is dead | mia baterio estas malplena | MEE-a ba-te-REE-o ES-tas mal-PLE-na
+what is the wifi password? | kio estas la pasvorto de la Wi-Fi? | KEE-o ES-tas la pas-VOR-to de la VEE-fee
+I will text you | mi mesaĝos al vi | mee me-SA-jos al vee
+call me later | voku min poste | VO-koo meen POS-te
+I have no signal | mi ne havas signalon | mee ne HA-vas seeg-NA-lon
+send me a message | sendu al mi mesaĝon | SEN-doo al mee me-SA-jon
+where can I charge my phone? | kie mi povas ŝargi mian telefonon? | KEE-e mee PO-vas SHAR-gee MEE-an te-le-FO-non
+## Opinions and plans
+I think so | mi pensas tiel | mee PEN-sas TEE-el
+I do not think so | mi ne pensas tiel | mee ne PEN-sas TEE-el
+I know | mi scias | mee SKEE-as
+I agree | mi konsentas | mee kon-SEN-tas
+I do not agree | mi ne konsentas | mee ne kon-SEN-tas
+what do you think? | kion vi pensas? | KEE-on vee PEN-sas
+in my opinion... | laŭ mia opinio... | low MEE-a o-pee-NEE-o
+good idea! | bona ideo! | BO-na ee-DE-o
+of course | kompreneble | kom-pre-NE-ble
+I am not sure | mi ne certas | mee ne TSER-tas
+it depends | tio dependas | TEE-o de-PEN-das
+are you free tomorrow? | ĉu vi estas libera morgaŭ? | choo vee ES-tas lee-BE-ra MOR-gow
+I am busy | mi estas okupata | mee ES-tas o-koo-PA-ta
+let us meet at five | ni renkontiĝu je la kvina | nee ren-kon-TEE-joo ye la KVEE-na
+I would prefer tea | mi preferus teon | mee pre-FE-roos TE-on
+## Dates and time
+what day is it today? | kiu tago estas hodiaŭ? | KEE-oo TA-go ES-tas ho-DEE-ow
+what is the date today? | kiu estas la dato hodiaŭ? | KEE-oo ES-tas la DA-to ho-DEE-ow
+today is Monday | hodiaŭ estas lundo | ho-DEE-ow ES-tas LOON-do
+at what time? | je kioma horo? | ye KEE-o-ma HO-ro
+at six o'clock | je la sesa | ye la SE-sa
+in the morning | matene | ma-TE-ne
+in the evening | vespere | ves-PE-re
+every day | ĉiutage | chee-oo-TA-ge
+next week | venontsemajne | ve-non-se-MAI-ne
+last year | pasintjare | pa-seent-YA-re
+[vocab]
+## Feelings and moods
+happy | feliĉa | fe-LEE-cha
+sad | malĝoja | mal-JO-ya
+angry | kolera | ko-LE-ra
+tired | laca | LA-tsa
+scared | timigita | tee-mee-GEE-ta
+bored | enuigita | e-noo-ee-GEE-ta
+excited | ekscitita | ek-stsee-TEE-ta
+worried | maltrankvila | mal-TRANK-vee-la
+surprised | surprizita | soor-pree-ZEE-ta
+nervous | nervoza | ner-VO-za
+proud | fiera | fee-E-ra
+lonely | soleca | so-LE-tsa
+in love | enamiĝinta | e-na-mee-JEEN-ta
+calm | trankvila | TRANK-vee-la
+embarrassed | embarasita | em-ba-ra-SEE-ta
+jealous | ĵaluza | zha-LOO-za
+I am in a good mood | mi estas bonhumora | mee ES-tas bon-hoo-MO-ra
+I am in a bad mood | mi estas malbonhumora | mee ES-tas mal-bon-hoo-MO-ra
+## Colours
+red | ruĝa | ROO-ja
+blue | blua | BLOO-a
+green | verda | VER-da
+yellow | flava | FLA-va
+black | nigra | NEE-gra
+white | blanka | BLAN-ka
+orange | oranĝa | o-RAN-ja
+purple | purpura | poor-POO-ra
+pink | rozkolora | roz-ko-LO-ra
+brown | bruna | BROO-na
+grey | griza | GREE-za
+gold | ora | O-ra
+dark | malhela | mal-HE-la
+light (colour) | hela | HE-la
+## Animals
+dog | hundo | HOON-do
+cat | kato | KA-to
+horse | ĉevalo | che-VA-lo
+cow | bovino | bo-VEE-no
+pig | porko | POR-ko
+sheep | ŝafo | SHA-fo
+chicken | kokino | ko-KEE-no
+bird | birdo | BEER-do
+fish | fiŝo | FEE-sho
+rabbit | kuniklo | koo-NEE-klo
+mouse | muso | MOO-so
+lion | leono | le-O-no
+elephant | elefanto | e-le-FAN-to
+bear | urso | OOR-so
+monkey | simio | SEE-mee-o
+snake | serpento | ser-PEN-to
+wolf | lupo | LOO-po
+duck | anaso | a-NA-so
+butterfly | papilio | pa-pee-LEE-o
+spider | araneo | a-ra-NE-o
+## Family
+mother | patrino | pa-TREE-no
+father | patro | PA-tro
+sister | fratino | fra-TEE-no
+brother | frato | FRA-to
+daughter | filino | fee-LEE-no
+son | filo | FEE-lo
+grandmother | avino | a-VEE-no
+grandfather | avo | A-vo
+aunt | onklino | on-KLEE-no
+uncle | onklo | ON-klo
+cousin | kuzo | KOO-zo
+husband | edzo | ED-zo
+wife | edzino | ed-ZEE-no
+friend | amiko | a-MEE-ko
+baby | bebo | BE-bo
+child | infano | een-FA-no
+man | viro | VEE-ro
+woman | virino | vee-REE-no
+## Food
+bread | pano | PA-no
+water | akvo | AK-vo
+milk | lakto | LAK-to
+coffee | kafo | KA-fo
+tea | teo | TE-o
+juice | suko | SOO-ko
+beer | biero | bee-E-ro
+wine | vino | VEE-no
+egg | ovo | O-vo
+cheese | fromaĝo | fro-MA-jo
+meat | viando | vee-AN-do
+chicken (meat) | kokaĵo | ko-KA-zho
+fish (food) | fiŝaĵo | fee-SHA-zho
+rice | rizo | REE-zo
+soup | supo | SOO-po
+salad | salato | sa-LA-to
+potato | terpomo | ter-PO-mo
+tomato | tomato | to-MA-to
+apple | pomo | PO-mo
+banana | banano | ba-NA-no
+orange (fruit) | oranĝo | o-RAN-jo
+sugar | sukero | soo-KE-ro
+salt | salo | SA-lo
+ice cream | glaciaĵo | gla-tsee-A-zho
+## Body
+head | kapo | KA-po
+face | vizaĝo | vee-ZA-jo
+eye | okulo | o-KOO-lo
+ear | orelo | o-RE-lo
+nose | nazo | NA-zo
+mouth | buŝo | BOO-sho
+tooth | dento | DEN-to
+hand | mano | MA-no
+arm | brako | BRA-ko
+leg | kruro | KROO-ro
+foot | piedo | pee-E-do
+heart | koro | KO-ro
+back | dorso | DOR-so
+stomach | stomako | sto-MA-ko
+hair | haroj | HA-roi
+finger | fingro | FEEN-gro
+## Home
+house | domo | DO-mo
+room | ĉambro | CHAM-bro
+kitchen | kuirejo | koo-EE-re-yo
+bathroom | banĉambro | ban-CHAM-bro
+bedroom | dormoĉambro | dor-mo-CHAM-bro
+door | pordo | POR-do
+window | fenestro | fe-NES-tro
+table | tablo | TA-blo
+chair | seĝo | SE-jo
+bed | lito | LEE-to
+sofa | sofo | SO-fo
+lamp | lampo | LAM-po
+key | ŝlosilo | shlo-SEE-lo
+garden | ĝardeno | jar-DE-no
+floor | planko | PLAN-ko
+wall | muro | MOO-ro
+## Clothes
+shirt | ĉemizo | che-MEE-zo
+trousers | pantalono | pan-ta-LO-no
+dress | robo | RO-bo
+skirt | jupo | YOO-po
+shoes | ŝuoj | SHOO-oi
+socks | ŝtrumpoj | SHTROOM-poi
+jacket | jako | YA-ko
+coat | mantelo | man-TE-lo
+hat | ĉapelo | cha-PE-lo
+glasses | okulvitroj | o-kool-VEE-troi
+bag | sako | SA-ko
+pocket | poŝo | PO-sho
+## Town
+street | strato | STRA-to
+shop | butiko | boo-TEE-ko
+market | bazaro | ba-ZA-ro
+bank | banko | BAN-ko
+hospital | hospitalo | hos-pee-TA-lo
+school | lernejo | ler-NE-yo
+station | stacidomo | sta-tsee-DO-mo
+airport | flughaveno | floog-ha-VE-no
+bus | aŭtobuso | ow-to-BOO-so
+train | trajno | TRAI-no
+car | aŭto | OW-to
+bicycle | biciklo | bee-TSEE-klo
+taxi | taksio | tak-SEE-o
+restaurant | restoracio | res-to-RA-tsee-o
+bridge | ponto | PON-to
+park | parko | PAR-ko
+## Time
+day | tago | TA-go
+night | nokto | NOK-to
+morning | mateno | ma-TE-no
+afternoon | posttagmezo | post-tag-ME-zo
+week | semajno | se-MAI-no
+month | monato | mo-NA-to
+year | jaro | YA-ro
+Monday | lundo | LOON-do
+Tuesday | mardo | MAR-do
+Wednesday | merkredo | mer-KRE-do
+Thursday | ĵaŭdo | ZHOW-do
+Friday | vendredo | ven-DRE-do
+Saturday | sabato | sa-BA-to
+Sunday | dimanĉo | dee-MAN-cho
+January | januaro | ya-noo-A-ro
+summer | somero | so-ME-ro
+winter | vintro | VEEN-tro
+## Weather and nature
+sun | suno | SOO-no
+rain | pluvo | PLOO-vo
+snow | neĝo | NE-jo
+wind | vento | VEN-to
+cloud | nubo | NOO-bo
+hot | varma | VAR-ma
+cold | malvarma | mal-VAR-ma
+sea | maro | MA-ro
+river | rivero | ree-VE-ro
+mountain | monto | MON-to
+tree | arbo | AR-bo
+flower | floro | FLO-ro
+sky | ĉielo | chee-E-lo
+## Work and school
+teacher | instruisto | een-stroo-EES-to
+student | studento | stoo-DEN-to
+book | libro | LEE-bro
+pen | plumo | PLOO-mo
+pencil | krajono | kra-YO-no
+paper | papero | pa-PE-ro
+computer | komputilo | kom-poo-TEE-lo
+phone | telefono | te-le-FO-no
+work | laboro | la-BO-ro
+office | oficejo | o-fee-TSE-yo
+doctor | kuracisto | koo-ra-TSEES-to
+police officer | policisto | po-lee-TSEES-to
+lesson | leciono | le-TSEE-o-no
+exam | ekzameno | ek-za-ME-no
+## Describing
+big | granda | GRAN-da
+small | malgranda | mal-GRAN-da
+good | bona | BO-na
+bad | malbona | mal-BO-na
+new | nova | NO-va
+old | malnova | mal-NO-va
+beautiful | bela | BE-la
+ugly | malbela | mal-BE-la
+fast | rapida | ra-PEE-da
+slow | malrapida | mal-ra-PEE-da
+easy | facila | fa-TSEE-la
+difficult | malfacila | mal-fa-TSEE-la
+cheap | malmultekosta | mal-mool-te-KOS-ta
+expensive | multekosta | mool-te-KOS-ta
+open (adj.) | malfermita | mal-fer-MEE-ta
+clean | pura | POO-ra
+dirty | malpura | mal-POO-ra
+happy | gaja | GA-ya
+sad | malgaja | mal-GA-ya
+## Common verbs
+> Dictionary form ends in -i. The present tense is -as for every person: mi estas, vi estas, li estas.
+to be | esti | ES-tee
+to have | havi | HA-vee
+to go | iri | EE-ree
+to want | voli | VO-lee
+to eat | manĝi | MAN-jee
+to drink | trinki | TREEN-kee
+to speak | paroli | pa-RO-lee
+to see | vidi | VEE-dee
+to come | veni | VE-nee
+to give | doni | DO-nee
+to know (a fact) | scii | SKEE-ee
+to do / make | fari | FA-ree
+to say | diri | DEE-ree
+to like | ŝati | SHA-tee
+to live | loĝi | LO-jee
+to work | labori | la-BO-ree
+to buy | aĉeti | a-CHE-tee
+to read | legi | LE-gee
+to write | skribi | SKREE-bee
+to sleep | dormi | DOR-mee
+to learn | lerni | LER-nee
+to help | helpi | HEL-pee
+to need | bezoni | be-ZO-nee
+to love | ami | A-mee
+## School subjects
+maths | matematiko | ma-te-ma-TEE-ko
+physics | fiziko | fee-ZEE-ko
+chemistry | kemio | ke-MEE-o
+biology | biologio | bee-o-lo-GEE-o
+history | historio | hees-to-REE-o
+geography | geografio | ge-o-gra-FEE-o
+literature | literaturo | lee-te-ra-TOO-ro
+English | la angla | la AN-gla
+foreign languages | fremdaj lingvoj | FREM-dai LEEN-gvoi
+art | arto | AR-to
+music | muziko | moo-ZEE-ko
+PE | korpa edukado | KOR-pa e-doo-KA-do
+computer science | informadiko | een-for-ma-DEE-ko
+economics | ekonomiko | e-ko-no-MEE-ko
+law | juro | YOO-ro
+philosophy | filozofio | fee-lo-zo-FEE-o
+psychology | psikologio | psee-ko-lo-GEE-o
+science | scienco | stsee-EN-tso
+## Classroom
+classroom | klasĉambro | klas-CHAM-bro
+desk | skribotablo | skree-bo-TA-blo
+board | tabulo | ta-BOO-lo
+notebook | kajero | ka-YE-ro
+textbook | lernolibro | ler-no-LEE-bro
+homework | hejmtasko | hey-m-TAS-ko
+test | testo | TES-to
+grade | noto | NO-to
+timetable | horaro | ho-RA-ro
+break | paŭzo | POW-zo
+bell | sonorilo | so-no-REE-lo
+ruler | liniilo | lee-nee-EE-lo
+rubber | gumo | GOO-mo
+rucksack | tornistro | tor-NEES-tro
+dictionary | vortaro | vor-TA-ro
+question | demando | de-MAN-do
+answer | respondo | res-PON-do
+mistake | eraro | e-RA-ro
+## University
+university | universitato | oo-nee-ver-see-TA-to
+lecture | prelego | pre-LE-go
+professor | profesoro | pro-fe-SO-ro
+degree | grado | GRA-do
+scholarship | stipendio | stee-PEN-dee-o
+library | biblioteko | bee-blee-o-TE-ko
+dormitory | studenta loĝejo | stoo-DEN-ta lo-JE-yo
+campus | kampuso | kam-POO-so
+tuition fees | instrukotizo | een-stroo-ko-TEE-zo
+semester | semestro | se-MES-tro
+course | kurso | KOOR-so
+essay | eseo | e-SE-o
+thesis | tezo | TE-zo
+diploma | diplomo | dee-PLO-mo
+seminar | seminario | se-mee-NA-ree-o
+entrance exam | enirekzameno | e-nee-rek-za-ME-no
+application | kandidatiĝo | kan-dee-da-TEE-jo
+student card | studenta karto | stoo-DEN-ta KAR-to
+## School verbs
+> Shown in the dictionary form, which ends in -i.
+to study | studi | STOO-dee
+to teach | instrui | een-stroo-EE
+to ask | demandi | de-MAN-dee
+to answer | respondi | res-PON-dee
+to repeat | ripeti | ree-PE-tee
+to understand | kompreni | kom-PRE-nee
+to remember | memori | me-MO-ree
+to forget | forgesi | for-GE-see
+to explain | klarigi | kla-REE-gee
+to practise | ekzerci | ek-ZER-tsee
+to pass an exam | trapasi ekzamenon | tra-PA-see ek-za-ME-non
+to fail an exam | malsukcesi en ekzameno | mal-sook-TSE-see en ek-za-ME-no
+to write down | noti | NO-tee
+to listen | aŭskulti | ows-KOOL-tee
+to read aloud | laŭtlegi | lowt-LE-gee
+to think | pensi | PEN-see
+to count | kalkuli | kal-KOO-lee
+to spell | literumi | lee-te-ROO-mee
+to translate | traduki | tra-DOO-kee
+to graduate | diplomiĝi | dee-plo-MEE-jee
+[grammar]
+## Pronouns
+> Mi (I), vi (you, one or many), li (he), ŝi (she), ĝi (it), ni (we), ili (they), oni (one, people in general). The pronoun is always needed, because the verb does not change.
+row: I | mi | mee
+row: you | vi | vee
+row: he | li | lee
+row: she | ŝi | shee
+row: it | ĝi | jee
+row: we | ni | nee
+row: they | ili | EE-lee
+ex: I am a student | mi estas studento | mee ES-tas stoo-DEN-to
+ex: you are tall | vi estas alta | vee ES-tas AL-ta
+ex: she is my sister | ŝi estas mia fratino | shee ES-tas MEE-a fra-TEE-no
+ex: we are friends | ni estas amikoj | nee ES-tas a-MEE-koi
+ex: they are teachers | ili estas instruistoj | EE-lee ES-tas een-stroo-EES-toi
+ex: I am happy | mi estas feliĉa | mee ES-tas fe-LEE-cha
+ex: he is a doctor | li estas kuracisto | lee ES-tas koo-ra-TSEES-to
+ex: you all are late | vi estas malfruaj | vee ES-tas mal-FROO-ai
+## Singular and plural
+> The plural ends in -j: libro, libroj. The object adds -n: mi vidas la libron. The only article is "la" (the), the same for everything. There is no word for "a".
+row: the | la | la
+row: plural | -j | y
+row: object | -n | n
+ex: the boy | la knabo | la KNA-bo
+ex: the girl | la knabino | la kna-BEE-no
+ex: the books | la libroj | la LEE-broi
+ex: a red house | ruĝa domo | ROO-ja DO-mo
+ex: the cities | la urboj | la OOR-boi
+ex: one cat, two cats | unu kato, du katoj | OO-noo KA-to doo KA-toi
+ex: one pen, two pens | unu plumo, du plumoj | OO-noo PLOO-mo doo PLOO-moi
+ex: a lesson, lessons | leciono, lecionoj | le-TSEE-o-no le-TSEE-o-noi
+ex: red houses | ruĝaj domoj | ROO-jai DO-moi
+## Esti: to be
+> Esti is the only verb "to be". It does not change: mi estas, vi estas, li estas, ni estas, ili estas. Past: estis. Future: estos.
+row: I am | mi estas | mee ES-tas
+row: you are | vi estas | vee ES-tas
+row: he / she is | li / ŝi estas | lee / shee ES-tas
+row: we are | ni estas | nee ES-tas
+row: they are | ili estas | EE-lee ES-tas
+ex: I am English | mi estas anglo | mee ES-tas AN-glo
+ex: he is a doctor | li estas kuracisto | lee ES-tas koo-ra-TSEES-to
+ex: it is Monday | estas lundo | ES-tas LOON-do
+ex: we are from Uzbekistan | ni estas el Uzbekio | nee ES-tas el ooz-be-KEE-o
+ex: they are tall | ili estas altaj | EE-lee ES-tas AL-tai
+ex: I am at home | mi estas hejme | mee ES-tas HEY-me
+ex: she is tired | ŝi estas laca | shee ES-tas LA-tsa
+ex: where are you? | kie vi estas? | KEE-e vee ES-tas
+ex: we are well | ni fartas bone | nee FAR-tas BO-ne
+ex: the soup is cold | la supo estas malvarma | la SOO-po ES-tas mal-VAR-ma
+## Havi: to have
+> Havi (to have) is regular: mi havas, vi havas, li havas. For hunger, Esperanto has its own verb: malsati.
+row: I have | mi havas | mee HA-vas
+row: you have | vi havas | vee HA-vas
+row: he / she has | li / ŝi havas | lee / shee HA-vas
+row: we have | ni havas | nee HA-vas
+row: they have | ili havas | EE-lee HA-vas
+ex: I have a brother | mi havas fraton | mee HA-vas FRA-ton
+ex: she has two cats | ŝi havas du katojn | shee HA-vas doo KA-toin
+ex: we have time | ni havas tempon | nee HA-vas TEM-pon
+ex: I am hungry | mi malsatas | mee mal-SA-tas
+ex: they have a car | ili havas aŭton | EE-lee HA-vas OW-ton
+ex: there is a lesson today | hodiaŭ estas leciono | ho-DEE-ow ES-tas le-TSEE-o-no
+ex: there is no teacher | ne estas instruisto | ne ES-tas een-stroo-EES-to
+ex: I have a question | mi havas demandon | mee HA-vas de-MAN-don
+## Verbs: present tense
+> Every verb has the same ending in the present tense, for every person: -as. Take the infinitive (-i) and change it to -as. Parolas = speak/speaks.
+row: paroli (to speak): mi | mi parolas | mee pa-RO-las
+row: paroli: vi | vi parolas | vee pa-RO-las
+row: paroli: li | li parolas | lee pa-RO-las
+row: paroli: ni | ni parolas | nee pa-RO-las
+row: paroli: ili | ili parolas | EE-lee pa-RO-las
+ex: I speak English | mi parolas la anglan | mee pa-RO-las la AN-glan
+ex: you eat a lot | vi manĝas multe | vee MAN-jas MOOL-te
+ex: she lives in Paris | ŝi loĝas en Parizo | shee LO-jas en pa-REE-zo
+ex: we work every day | ni laboras ĉiutage | nee la-BO-ras chee-oo-TA-ge
+ex: they drink water | ili trinkas akvon | EE-lee TREEN-kas AK-von
+ex: I read a book | mi legas libron | mee LE-gas LEE-bron
+ex: you see the sea | vi vidas la maron | vee VEE-das la MA-ron
+ex: we hear music | ni aŭdas muzikon | nee OW-das moo-ZEE-kon
+## Iri: to go
+> Iri (to go) is regular. To say you are about to do something, use the future: mi manĝos (I will eat). To suggest "let us", use ni + -u: ni iru!
+row: I go | mi iras | mee EE-ras
+row: you go | vi iras | vee EE-ras
+row: he / she goes | li / ŝi iras | lee / shee EE-ras
+row: we go | ni iras | nee EE-ras
+row: they go | ili iras | EE-lee EE-ras
+ex: I am going to school | mi iras al la lernejo | mee EE-ras al la ler-NE-yo
+ex: where are you going? | kien vi iras? | KEE-en vee EE-ras
+ex: we are going to eat | ni iros manĝi | nee EE-ros MAN-jee
+ex: she is going to travel | ŝi vojaĝos | shee vo-YA-jos
+ex: let us go! | ni iru! | nee EE-roo
+ex: they go home | ili iras hejmen | EE-lee EE-ras HEY-men
+ex: I go to the market | mi iras al la bazaro | mee EE-ras al la ba-ZA-ro
+ex: he goes to Paris | li iras al Parizo | lee EE-ras al pa-REE-zo
+## Basic sentences
+> Order: subject, verb, object, as in English. The adjective can come before or after the noun. Word order is flexible, because the -n shows the object.
+row: subject + verb + object | mi manĝas panon | mee MAN-jas PA-non
+row: adjective + noun | granda domo | GRAN-da DO-mo
+row: add time or place | mi laboras ĉi tie hodiaŭ | mee la-BO-ras chee TEE-e ho-DEE-ow
+ex: I eat bread | mi manĝas panon | mee MAN-jas PA-non
+ex: Maria reads a book | Maria legas libron | ma-REE-a LE-gas LEE-bron
+ex: we live in a big house | ni loĝas en granda domo | nee LO-jas en GRAN-da DO-mo
+ex: he works here today | li laboras ĉi tie hodiaŭ | lee la-BO-ras chee TEE-e ho-DEE-ow
+ex: the dog is black | la hundo estas nigra | la HOON-do ES-tas NEE-gra
+## Negation
+> Put "ne" before the verb. Other negatives: neniu (nobody), nenio (nothing), neniam (never). Always compare with the positive form.
+row: not | ne | ne
+row: nobody | neniu | ne-NEE-oo
+row: nothing | nenio | ne-NEE-o
+row: never | neniam | ne-NEE-am
+ex: I want | mi volas | mee VO-las
+ex: I do not want | mi ne volas | mee ne VO-las
+ex: I speak English | mi parolas la anglan | mee pa-RO-las la AN-glan
+ex: I do not speak English | mi ne parolas la anglan | mee ne pa-RO-las la AN-glan
+ex: I like it | ĝi plaĉas al mi | jee PLA-chas al mee
+ex: I do not like it | ĝi ne plaĉas al mi | jee ne PLA-chas al mee
+ex: she is here | ŝi estas ĉi tie | shee ES-tas chee TEE-e
+ex: she is not here | ŝi ne estas ĉi tie | shee ne ES-tas chee TEE-e
+ex: I have a car | mi havas aŭton | mee HA-vas OW-ton
+ex: I do not have a car | mi ne havas aŭton | mee ne HA-vas OW-ton
+ex: I understand | mi komprenas | mee kom-PRE-nas
+ex: I do not understand | mi ne komprenas | mee ne kom-PRE-nas
+ex: we are tired | ni estas lacaj | nee ES-tas LA-tsai
+ex: we are not tired | ni ne estas lacaj | nee ne ES-tas LA-tsai
+ex: he works on Sundays | li laboras dimanĉe | lee la-BO-ras dee-MAN-che
+ex: he does not work on Sundays | li ne laboras dimanĉe | lee ne la-BO-ras dee-MAN-che
+## Asking questions
+> Start the sentence with "ĉu" to make a yes-or-no question. The rest stays the same.
+row: statement | vi estas laca | vee ES-tas LA-tsa
+row: question | ĉu vi estas laca? | choo vee ES-tas LA-tsa
+row: answer yes / no | jes / ne | yes / ne
+ex: do you speak English? | ĉu vi parolas la anglan? | choo vee pa-RO-las la AN-glan
+ex: is she a doctor? | ĉu ŝi estas kuracisto? | choo shee ES-tas koo-ra-TSEES-to
+ex: do you have a pen? | ĉu vi havas plumon? | choo vee HA-vas PLOO-mon
+ex: are you tired? | ĉu vi estas laca? | choo vee ES-tas LA-tsa
+ex: is it far? | ĉu ĝi estas malproksime? | choo jee ES-tas mal-PROK-see-me
+ex: is the restaurant open? | ĉu la restoracio estas malfermita? | choo la res-to-RA-tsee-o ES-tas mal-fer-MEE-ta
+## Question words
+> All start with ki-: kio (what), kiu (who / which), kie (where), kiam (when), kial (why), kiel (how), kiom (how much), kia (what kind).
+row: what | kio | KEE-o
+row: who | kiu | KEE-oo
+row: where | kie | KEE-e
+row: when | kiam | KEE-am
+row: why | kial | KEE-al
+row: how | kiel | KEE-el
+row: which | kiu | KEE-oo
+row: how much / how many | kiom | KEE-om
+ex: what is this? | kio estas ĉi tio? | KEE-o ES-tas CHEE TEE-o
+ex: who is she? | kiu ŝi estas? | KEE-oo shee ES-tas
+ex: where do you live? | kie vi loĝas? | KEE-e vee LO-jas
+ex: when is the exam? | kiam estas la ekzameno? | KEE-am ES-tas la ek-za-ME-no
+ex: why are you late? | kial vi malfruas? | KEE-al vee mal-FROO-as
+ex: how much is it? | kiom ĝi kostas? | KEE-om jee KOS-tas
+ex: which book? | kiu libro? | KEE-oo LEE-bro
+## Possessives
+> Add -a to the pronoun: mi, mia (my); vi, via (your); li, lia (his); ŝi, ŝia (her); ni, nia (our); ili, ilia (their). They take -j and -n like adjectives.
+row: my | mia | MEE-a
+row: your | via | VEE-a
+row: his | lia | LEE-a
+row: her | ŝia | SHEE-a
+row: our | nia | NEE-a
+row: their | ilia | EE-lee-a
+ex: my house | mia domo | MEE-a DO-mo
+ex: your friends | viaj amikoj | VEE-ai a-MEE-koi
+ex: his sister | lia fratino | LEE-a fra-TEE-no
+ex: our teacher | nia instruisto | NEE-a een-stroo-EES-to
+ex: their car | ilia aŭto | EE-lee-a OW-to
+## Formal vs informal
+> Esperanto has no formal "you". Use "vi" for everybody. Add "sinjoro" (sir), "sinjorino" (madam), "bonvolu" (please) for politeness.
+row: sir | sinjoro | seen-YO-ro
+row: madam | sinjorino | seen-yo-REE-no
+row: please | bonvolu | bon-VO-loo
+ex: how are you? (informal) | kiel vi fartas? | KEE-el vee FAR-tas
+ex: how are you? (formal) | kiel vi fartas, sinjoro? | KEE-el vee FAR-tas seen-YO-ro
+ex: thank you, sir | dankon, sinjoro | DAN-kon seen-YO-ro
+ex: excuse me, madam | pardonu, sinjorino | par-DO-noo seen-yo-REE-no
+ex: please sit down | bonvolu sidiĝi | bon-VO-loo see-DEE-jee
+## Past and future (simple)
+> Past: change -i to -is. Future: change -i to -os. Conditional: -us. The same for every person.
+row: I worked | mi laboris | mee la-BO-rees
+row: you worked | vi laboris | vee la-BO-rees
+row: I will work | mi laboros | mee la-BO-ros
+row: we will work | ni laboros | nee la-BO-ros
+row: I would work | mi laborus | mee la-BO-roos
+ex: yesterday I worked | hieraŭ mi laboris | hee-E-row mee la-BO-rees
+ex: she bought a book | ŝi aĉetis libron | shee a-CHE-tees LEE-bron
+ex: I will call you tomorrow | mi telefonos al vi morgaŭ | mee te-le-FO-nos al vee MOR-gow
+ex: we will eat at eight | ni manĝos je la oka | nee MAN-jos ye la O-ka
+ex: they travelled to Spain | ili vojaĝis al Hispanio | EE-lee vo-YA-jees al hees-pa-NEE-o
+ex: I went to the market | mi iris al la bazaro | mee EE-rees al la ba-ZA-ro
+ex: he will come later | li venos poste | lee VE-nos POS-te
+## Commands
+> Change -i to -u for a command. It is the same for one person or many: venu! Make it negative with "ne": ne venu!
+row: speak! | parolu! | pa-RO-loo
+row: do not speak! | ne parolu! | ne pa-RO-loo
+row: come! | venu! | VE-noo
+ex: come here | venu ĉi tien | VE-noo CHEE TEE-en
+ex: do not come here | ne venu ĉi tien | ne VE-noo CHEE TEE-en
+ex: sit down | sidiĝu | see-DEE-joo
+ex: do not sit down | ne sidiĝu | ne see-DEE-joo
+ex: be quiet | silentu | see-LEN-too
+ex: do not be late | ne malfruu | ne mal-FROO-oo
+ex: open the door | malfermu la pordon | mal-FER-moo la POR-don
+ex: close the window | fermu la fenestron | FER-moo la fe-NES-tron
+ex: listen to me | aŭskultu min | ows-KOOL-too meen
+ex: do not worry | ne maltrankviliĝu | ne mal-trank-vee-LEE-joo
+ex: speak slowly | parolu malrapide | pa-RO-loo mal-ra-PEE-de
+ex: wait a moment | atendu momenton | a-TEN-doo mo-MEN-ton
+## Can, must, want
+> Povi (can), devi (must), voli (want) are followed by the infinitive: mi povas naĝi. "Ne rajti" = not allowed.
+row: I can | mi povas | mee PO-vas
+row: I must | mi devas | mee DE-vas
+row: I want | mi volas | mee VO-las
+ex: I can swim | mi povas naĝi | mee PO-vas NA-jee
+ex: I cannot swim | mi ne povas naĝi | mee ne PO-vas NA-jee
+ex: can you help me? | ĉu vi povas helpi min? | choo vee PO-vas HEL-pee meen
+ex: we must go | ni devas iri | nee DE-vas EE-ree
+ex: we must not go | ni ne rajtas iri | nee ne RAI-tas EE-ree
+ex: I want to eat | mi volas manĝi | mee VO-las MAN-jee
+ex: I do not want to eat | mi ne volas manĝi | mee ne VO-las MAN-jee
+ex: you can come | vi povas veni | vee PO-vas VE-nee
+ex: you cannot come | vi ne povas veni | vee ne PO-vas VE-nee
+ex: she wants to study | ŝi volas studi | shee VO-las STOO-dee
+ex: I must work today | hodiaŭ mi devas labori | ho-DEE-ow mee DE-vas la-BO-ree
+ex: you must not run | vi ne rajtas kuri | vee ne RAI-tas KOO-ree
+## In, on, at
+> en = in, sur = on, sub = under, apud = next to, proksime de = near, ĉe = at / by, je = at (time).
+row: in | en | en
+row: on | sur | soor
+row: under | sub | soob
+row: next to | apud | A-pood
+ex: the book is on the table | la libro estas sur la tablo | la LEE-bro ES-tas soor la TA-blo
+ex: the cat is under the table | la kato estas sub la tablo | la KA-to ES-tas soob la TA-blo
+ex: I am at school | mi estas en la lernejo | mee ES-tas en la ler-NE-yo
+ex: I am at home | mi estas hejme | mee ES-tas HEY-me
+ex: the shop is next to the bank | la butiko estas apud la banko | la boo-TEE-ko ES-tas A-pood la BAN-ko
+ex: the park is near the station | la parko estas proksime de la stacidomo | la PAR-ko ES-tas PROK-see-me de la sta-tsee-DO-mo
+ex: we meet in the morning | ni renkontiĝas matene | nee ren-kon-TEE-jas ma-TE-ne
+ex: the lesson is at nine | la leciono estas je la naŭa | la le-TSEE-o-no ES-tas ye la NOW-a
+ex: the key is in the bag | la ŝlosilo estas en la sako | la shlo-SEE-lo ES-tas en la SA-ko
+## Comparing things
+> pli ... ol = more ... than. plej = the most. malpli = less. The same for every adjective: pli bona (better), plej bona (best).
+row: bigger than | pli granda ol | plee GRAN-da ol
+row: better | pli bona | plee BO-na
+row: the biggest | plej granda | play GRAN-da
+ex: big, bigger, the biggest | granda, pli granda, plej granda | GRAN-da plee GRAN-da play GRAN-da
+ex: small, smaller, the smallest | malgranda, pli malgranda, plej malgranda | mal-GRAN-da plee mal-GRAN-da play mal-GRAN-da
+ex: this is better than that | ĉi tio estas pli bona ol tio | CHEE TEE-o ES-tas plee BO-na ol TEE-o
+ex: this is worse than that | ĉi tio estas pli malbona ol tio | CHEE TEE-o ES-tas plee mal-BO-na ol TEE-o
+ex: she is taller than me | ŝi estas pli alta ol mi | shee ES-tas plee AL-ta ol mee
+ex: Tashkent is bigger than Samarkand | Taŝkento estas pli granda ol Samarkando | tash-KEN-to ES-tas plee GRAN-da ol sa-mar-KAN-do
+ex: it is the cheapest | ĝi estas la plej malmultekosta | jee ES-tas la play mal-mool-te-KOS-ta
+ex: the same as | same kiel | SA-me KEE-el
+## Everyday sentences
+> Extra practice with the most useful patterns.
+ex: he is a teacher | li estas instruisto | lee ES-tas een-stroo-EES-to
+ex: you (plural) are students | vi estas studentoj | vee ES-tas stoo-DEN-toi
+ex: I am happy | mi estas feliĉa | mee ES-tas fe-LEE-cha
+ex: she is at school | ŝi estas en la lernejo | shee ES-tas en la ler-NE-yo
+ex: you are my friend | vi estas mia amiko | vee ES-tas MEE-a a-MEE-ko
+ex: it is cold | estas malvarme | ES-tas mal-VAR-me
+ex: I study English | mi lernas la anglan | mee LER-nas la AN-glan
+ex: he teaches maths | li instruas matematikon | lee een-STROO-as ma-te-ma-TEE-kon
+ex: they work every day | ili laboras ĉiutage | EE-lee la-BO-ras chee-oo-TA-ge
+ex: is this your book? | ĉu ĉi tio estas via libro? | choo CHEE TEE-o ES-tas VEE-a LEE-bro
+ex: are they here? | ĉu ili estas ĉi tie? | choo EE-lee ES-tas chee TEE-e
+ex: do you like tea? | ĉu vi ŝatas teon? | choo vee SHA-tas TE-on
+ex: what time is it? | kioma horo estas? | KEE-o-ma HO-ro ES-tas
+ex: whose book is this? | kies libro estas ĉi tio? | KEE-es LEE-bro ES-tas CHEE TEE-o
+ex: how old are you? | kiom aĝa vi estas? | KEE-om A-ja vee ES-tas
+ex: how do you say it? | kiel oni diras ĝin? | KEE-el O-nee DEE-ras jeen
+ex: your book (formal) | via libro, sinjoro | VEE-a LEE-bro seen-YO-ro
+ex: their house | ilia domo | EE-lee-a DO-mo
+ex: my phone | mia telefono | MEE-a te-le-FO-no
+ex: excuse me, sir | pardonu, sinjoro | par-DO-noo seen-YO-ro
+ex: please sit down (formal) | bonvolu sidiĝi | bon-VO-loo see-DEE-jee
+ex: come here (informal) | venu ĉi tien | VE-noo CHEE TEE-en
+ex: yesterday I was tired | hieraŭ mi estis laca | hee-E-row mee ES-tees LA-tsa
+ex: I will study tomorrow | morgaŭ mi studos | MOR-gow mee STOO-dos
+ex: we went to the park | ni iris al la parko | nee EE-rees al la PAR-ko

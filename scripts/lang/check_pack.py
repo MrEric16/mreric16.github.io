@@ -25,7 +25,7 @@ for raw in open(os.path.join(here, 'pack_en.txt'), encoding='utf-8'):
     if line.startswith('## '): grp = (sec, line[3:].strip()); pack[grp] = []; continue
     pack[grp].append(line.strip())
 for i in sys.argv[1:]:
-    a = read(os.path.join(here, 'src', i + '.add.txt'))
+    p = os.path.join(here, 'src', i + '.add.txt'); p = p if os.path.exists(p) else os.path.join(here, 'src', i + '.txt'); a = read(p)
     bad = 0
     for g, lst in pack.items():
         got = a.get(g, [])

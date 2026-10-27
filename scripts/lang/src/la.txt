@@ -1,0 +1,938 @@
+NAME: Latin
+ID: la
+FLAG: la
+
+[sounds]
+INTRO: This is classical Latin pronunciation, as spoken in Cicero's time. Latin is spelled almost exactly as it sounds. Modern objects (phone, wifi) use the modern Latin words coined by the Vatican and by schools.
+a | ah, like "father" | casa
+e | eh, like "bed" | mensa
+i | ee, like "see" | via
+o | oh, like "more" | domus
+u | oo, like "food" | luna
+c | always hard "k", never "s" | Caesar (KAI-sar)
+g | always hard "g", like "go" | gens
+v | "w", like English "w" | vita (WEE-tah)
+j / i | "y" at the start of a word before a vowel | iam (yahm)
+ae | like "eye" | aqua
+au | like "ow" in "cow" | aurum
+oe | like "oy" in "boy" | poena
+ch, ph, th | k + h, p + h, t + h (breathy, not "f") | pulcher
+qu | "kw" | quid
+r | rolled, like Italian | rosa
+NOTE: Long vowels are held twice as long as short ones. The stress falls on the second-last syllable if it is long, and otherwise on the third-last.
+NOTE: Latin has no word for "the" or "a". It has six cases that change the ending of a noun.
+
+[numbers]
+## 0 to 10
+zero | nihil | NEE-hil
+one | unus | OO-noos
+two | duo | DOO-oh
+three | tres | trehs
+four | quattuor | KWAHT-too-or
+five | quinque | KWEEN-kweh
+six | sex | sehks
+seven | septem | SEHP-tem
+eight | octo | OHK-toh
+nine | novem | NOH-wem
+ten | decem | DEH-kem
+## 11 to 20
+eleven | undecim | OON-deh-kim
+twelve | duodecim | doo-OH-deh-kim
+thirteen | tredecim | TREH-deh-kim
+fourteen | quattuordecim | kwaht-too-OR-deh-kim
+fifteen | quindecim | KWIN-deh-kim
+sixteen | sedecim | SEH-deh-kim
+seventeen | septendecim | sep-TEN-deh-kim
+eighteen | duodeviginti | doo-oh-deh-wee-GIN-tee
+nineteen | undeviginti | oon-deh-wee-GIN-tee
+twenty | viginti | wee-GIN-tee
+## Tens and big numbers
+twenty-one | unus et viginti | OO-noos et wee-GIN-tee
+thirty | triginta | tree-GIN-tah
+thirty-one | unus et triginta | OO-noos et tree-GIN-tah
+forty | quadraginta | kwah-drah-GIN-tah
+fifty | quinquaginta | kween-kwah-GIN-tah
+sixty | sexaginta | sehk-sah-GIN-tah
+seventy | septuaginta | sep-too-ah-GIN-tah
+eighty | octoginta | ok-toh-GIN-tah
+ninety | nonaginta | noh-nah-GIN-tah
+one hundred | centum | KEN-toom
+one hundred and one | centum et unus | KEN-toom et OO-noos
+two hundred | ducenti | doo-KEN-tee
+five hundred | quingenti | kween-GEN-tee
+one thousand | mille | MIL-leh
+two thousand | duo milia | DOO-oh MIL-ee-ah
+one million | decies centena milia | DEH-kee-ehs ken-TEH-nah MIL-ee-ah
+## Order and amounts
+first | primus | PREE-moos
+second | secundus | seh-KOON-doos
+third | tertius | TEHR-tee-oos
+half | dimidium | dee-MID-ee-oom
+a few | pauci | POW-kee
+many | multi | MOOL-tee
+a pair | par | pahr
+how many? | quot? | kwot
+
+[greetings]
+## Hello and goodbye
+hello | salve | SAHL-weh
+good morning | bonum mane | BOH-noom MAH-neh
+good afternoon | bonum diem | BOH-noom DEE-ehm
+good evening / good night | bonum vesperum / bona nox | BOH-noom WES-peh-room / BOH-nah noks
+goodbye | vale | WAH-leh
+see you later | mox te videbo | moks teh wi-DEH-boh
+see you tomorrow | cras te videbo | krahs teh wi-DEH-boh
+see you soon | mox | moks
+bye (informal) | vale | WAH-leh
+## Meeting people
+how are you? (informal) | quid agis? | kwid AH-gis
+how are you? (formal) | quomodo vales? | KWOH-moh-doh WAH-lehs
+I am fine, thanks | bene valeo, gratias | BEH-neh wah-LEH-oh GRAH-tee-ahs
+and you? | et tu? | et too
+not bad | non male | nohn MAH-leh
+so-so | sic satis | seek SAH-tis
+what is your name? | quod nomen tibi est? | kwod NOH-men TI-bi est
+my name is... | nomen mihi est... | NOH-men MI-hi est
+nice to meet you | gaudeo te cognoscere | GOW-deh-oh teh kog-NOS-keh-reh
+where are you from? | unde es? | OON-deh ehs
+I am from England | ex Anglia sum | eks AHN-glee-ah soom
+## Politeness
+please | quaeso | KWAI-soh
+thank you | gratias tibi ago | GRAH-tee-ahs TI-bi AH-goh
+thank you very much | maximas gratias | MAHK-si-mahs GRAH-tee-ahs
+you are welcome | nihil est | NEE-hil est
+excuse me | ignosce mihi | ig-NOS-keh MI-hi
+sorry | paenitet me | PAI-ni-tet meh
+yes | ita | I-tah
+no | non | nohn
+congratulations | gratulor | GRAH-too-lor
+cheers | prosit | PROH-sit
+good luck | bonam fortunam | BOH-nahm for-TOO-nahm
+happy birthday | felix dies natalis | FEH-leeks DEE-ehs nah-TAH-lis
+
+[phrases]
+## Essential phrases
+hello | salve | SAHL-weh
+goodbye | vale | WAH-leh
+please | quaeso | KWAI-soh
+thank you | gratias | GRAH-tee-ahs
+you are welcome | nihil est | NEE-hil est
+yes | ita | I-tah
+no | non | nohn
+excuse me | ignosce mihi | ig-NOS-keh MI-hi
+sorry | paenitet me | PAI-ni-tet meh
+I do not understand | non intellego | nohn in-TEL-leh-goh
+do you speak English? | loquerisne Anglice? | loh-KWEH-ris-neh AHN-gli-keh
+speak slowly, please | loquere lente, quaeso | LOH-kweh-reh LEN-teh KWAI-soh
+can you help me? | potesne me adiuvare? | poh-TES-neh meh ad-yoo-WAH-reh
+where is the toilet? | ubi est latrina? | OO-bi est lah-TREE-nah
+how much is it? | quanti constat? | KWAN-tee KON-stat
+I would like... | velim... | WEH-lim
+I need... | mihi opus est... | MI-hi OH-poos est
+my name is... | nomen mihi est... | NOH-men MI-hi est
+I am lost | erravi | eh-RAH-wee
+what is this? | quid est hoc? | kwid est hohk
+I do not know | nescio | NEHS-kee-oh
+that is OK | bene est | BEH-neh est
+## Formal and informal
+> Latin has tu (one person) and vos (several). There is no polite "you" for one person in classical Latin. Show respect with domine (sir), domina (madam) and quaeso.
+how are you? (informal) | quid agis? | kwid AH-gis
+how are you? (formal) | quomodo vales, domine? | KWOH-moh-doh WAH-lehs DOH-mi-neh
+what is your name? (informal) | quod nomen tibi est? | kwod NOH-men TI-bi est
+what is your name? (formal) | quod nomen tibi est, domine? | kwod NOH-men TI-bi est DOH-mi-neh
+do you speak English? (to one person) | loquerisne Anglice? | loh-KWEH-ris-neh AHN-gli-keh
+do you speak English? (to several people) | loquiminine Anglice? | loh-KWI-mi-ni-neh AHN-gli-keh
+where are you from? (to one person) | unde es? | OON-deh ehs
+where are you from? (to several people) | unde estis? | OON-deh ES-tis
+can you help me? (to one person) | potesne me adiuvare? | poh-TES-neh meh ad-yoo-WAH-reh
+can you help me? (to several people) | potestisne me adiuvare? | poh-TES-tis-neh meh ad-yoo-WAH-reh
+hi (informal) | salve | SAHL-weh
+good morning (formal) | salvete, domini | sahl-WEH-teh DOH-mi-nee
+see you (informal) | vale | WAH-leh
+goodbye (formal) | valete, domini | wah-LEH-teh DOH-mi-nee
+## Survival
+I do not understand | non intellego | nohn in-TEL-leh-goh
+I understand | intellego | in-TEL-leh-goh
+I do not know | nescio | NEHS-kee-oh
+do you speak English? | loquerisne Anglice? | loh-KWEH-ris-neh AHN-gli-keh
+I speak a little Latin | paulum Latine loquor | POW-loom lah-TEE-neh LOH-kwor
+speak slowly, please | loquere lente, quaeso | LOH-kweh-reh LEN-teh KWAI-soh
+can you repeat that? | potesne iterare? | poh-TES-neh i-teh-RAH-reh
+how do you say... in Latin? | quomodo dicitur... Latine? | KWOH-moh-doh DEE-ki-toor lah-TEE-neh
+what does... mean? | quid significat...? | kwid sig-NI-fi-kat
+please write it down | scribe id, quaeso | SKREE-beh id KWAI-soh
+help! | auxilium! | owk-SIL-ee-oom
+I am lost | erravi | eh-RAH-wee
+I need help | auxilio mihi opus est | owk-SIL-ee-oh MI-hi OH-poos est
+## Getting around
+where is...? | ubi est...? | OO-bi est
+where is the toilet? | ubi est latrina? | OO-bi est lah-TREE-nah
+where is the station? | ubi est statio? | OO-bi est STAH-tee-oh
+turn left | flecte ad sinistram | FLEK-teh ad si-NIS-trahm
+turn right | flecte ad dextram | FLEK-teh ad DEKS-trahm
+straight ahead | recta | REK-tah
+near | prope | PROH-peh
+far | procul | PROH-kool
+how far is it? | quantum abest? | KWAN-toom AH-best
+a ticket to Rome, please | tessera Romam, quaeso | TES-seh-rah ROH-mahm KWAI-soh
+what time does the train leave? | qua hora discedit tramen? | kwah HOH-rah dis-KEH-dit TRAH-men
+how much is the ticket? | quanti constat tessera? | KWAN-tee KON-stat TES-seh-rah
+to the airport, please | ad aeroportum, quaeso | ad AI-roh-POR-toom KWAI-soh
+stop here, please | siste hic, quaeso | SIS-teh heek KWAI-soh
+## Eating out
+a table for two, please | mensam duobus, quaeso | MEN-sahm doo-OH-boos KWAI-soh
+the menu, please | indicem ciborum, quaeso | IN-di-kem ki-BOH-room KWAI-soh
+I would like... | velim... | WEH-lim
+I will have this | hoc sumam | hohk SOO-mahm
+water, please | aquam, quaeso | AH-kwahm KWAI-soh
+the bill, please | rationem, quaeso | rah-tee-OH-nem KWAI-soh
+it is delicious | suavissimum est | swah-WIS-si-moom est
+I am hungry | esurio | eh-SOO-ree-oh
+I am thirsty | sitio | SI-tee-oh
+I am vegetarian | holeribus tantum vescor | hoh-LEH-ri-boos TAHN-toom WES-kor
+I am allergic to nuts | nucibus allergicus sum | NOO-ki-boos ahl-LEHR-gi-koos soom
+no meat, please | sine carne, quaeso | SI-neh KAR-neh KWAI-soh
+another one, please | alterum, quaeso | AHL-teh-room KWAI-soh
+## Shopping
+how much is this? | quanti constat hoc? | KWAN-tee KON-stat hohk
+it is too expensive | nimis carum est | NI-mis KAH-room est
+do you have a smaller size? | habesne minorem formam? | hah-BES-neh mi-NOH-rem FOR-mahm
+I am just looking | tantum specto | TAHN-toom SPEK-toh
+I will take it | hoc emam | hohk EH-mahm
+can I pay by card? | licetne tessera solvere? | li-KET-neh TES-seh-rah SOL-weh-reh
+cash | pecunia praesens | peh-KOO-nee-ah PRAI-sens
+a bag, please | saccum, quaeso | SAHK-koom KWAI-soh
+open | apertum | ah-PEHR-toom
+closed | clausum | KLOW-soom
+## Hotel and travel
+I have a reservation | locum conduxi | LOH-koom kon-DOOK-see
+a room for one night | cubiculum in unam noctem | koo-BIK-oo-loom in OO-nahm NOK-tem
+what time is breakfast? | qua hora est ientaculum? | kwah HOH-rah est yen-TAH-koo-loom
+the key, please | clavem, quaeso | KLAH-wem KWAI-soh
+is there wifi? | estne rete sine filo? | EST-neh REH-teh SI-neh FEE-loh
+my passport | diploma meum itinerarium | dee-PLOH-mah MEH-oom ee-ti-neh-RAH-ree-oom
+my luggage | sarcinae meae | sahr-KEE-nai MEH-ai
+I would like to change money | pecuniam mutare velim | peh-KOO-nee-ahm moo-TAH-reh WEH-lim
+## Health and emergency
+I feel sick | aegrotus sum | ai-GROH-toos soom
+I need a doctor | medico mihi opus est | MEH-di-koh MI-hi OH-poos est
+call an ambulance | voca ambulantiam | WOH-kah am-boo-LAHN-tee-ahm
+it hurts here | hic dolet | heek DOH-let
+I have a headache | caput mihi dolet | KAH-poot MI-hi DOH-let
+I have a fever | febrem habeo | FEH-brem hah-BEH-oh
+where is the pharmacy? | ubi est pharmacopolium? | OO-bi est fahr-mah-koh-POH-lee-oom
+call the police | voca vigiles | WOH-kah WI-gi-lehs
+my phone was stolen | telephonum meum surreptum est | teh-leh-PHOH-noom MEH-oom soor-REP-toom est
+## Chatting
+what do you do? | quid agis? | kwid AH-gis
+I am a student | discipulus sum | dis-KIP-oo-loos soom
+I am a teacher | magister sum | mah-GIS-ter soom
+I live in Tashkent | Tashkenti habito | tahsh-KEN-tee HAH-bi-toh
+how old are you? | quot annos natus es? | kwot AHN-nohs NAH-toos ehs
+I am sixteen | sedecim annos natus sum | SEH-deh-kim AHN-nohs NAH-toos soom
+do you like football? | placetne tibi pedifollis? | plah-KET-neh TI-bi peh-di-FOL-lis
+I like music | musica mihi placet | MOO-si-kah MI-hi PLAH-ket
+I love it | id amo | id AH-moh
+what time is it? | quota hora est? | KWOH-tah HOH-rah est
+it is three o'clock | hora tertia est | HOH-rah TEHR-tee-ah est
+what is the date today? | quota dies est hodie? | KWOH-tah DEE-ehs est HOH-dee-eh
+I am happy | laetus sum | LAI-toos soom
+I am tired | fessus sum | FES-soos soom
+## Useful words
+and | et | et
+but | sed | sed
+because | quia | KWEE-ah
+very | valde | WAHL-deh
+here | hic | heek
+there | ibi | I-bi
+now | nunc | noonk
+today | hodie | HOH-dee-eh
+tomorrow | cras | krahs
+yesterday | heri | HEH-ri
+always | semper | SEM-per
+never | numquam | NOOM-kwahm
+maybe | fortasse | for-TAHS-seh
+what | quid | kwid
+who | quis | kwis
+when | quando | KWAHN-doh
+why | cur | koor
+how | quomodo | KWOH-moh-doh
+which | qui | kwee
+## In the classroom
+may I come in? | licetne intrare? | li-KET-neh in-TRAH-reh
+may I go to the toilet? | licetne ad latrinam ire? | li-KET-neh ad lah-TREE-nahm EE-reh
+I have a question | quaestionem habeo | kwai-stee-OH-nem hah-BEH-oh
+I do not know the answer | responsum nescio | rehs-POHN-soom NEHS-kee-oh
+I forgot my homework | pensum domesticum oblitus sum | PEN-soom doh-MES-ti-koom OB-li-toos soom
+sorry, I am late | ignosce, serus sum | ig-NOS-keh SEH-roos soom
+please repeat the question | repete quaestionem, quaeso | REH-peh-teh kwai-stee-OH-nem KWAI-soh
+what page are we on? | in qua pagina sumus? | in kwah PAH-gi-nah SOO-moos
+open your books | aperite libros | ah-peh-REE-teh LEE-brohs
+close your books | claudite libros | KLOW-di-teh LEE-brohs
+listen, please | audite, quaeso | ow-DEE-teh KWAI-soh
+look at the board | spectate tabulam | spek-TAH-teh TAH-boo-lahm
+how do you spell it? | quomodo scribitur? | KWOH-moh-doh SKREE-bi-toor
+what does this word mean? | quid significat hoc verbum? | kwid sig-NI-fi-kat hohk WEHR-boom
+I have finished | confeci | kon-FEH-kee
+can I borrow a pen? | licetne stilum mutuari? | li-KET-neh STEE-loom moo-too-AH-ree
+## Phone and internet
+> Latin had no phones. These are modern Latin words used in the Vatican and in schools.
+what is your phone number? | quis est numerus telephoni tui? | kwis est NOO-meh-roos teh-leh-PHOH-ni TOO-ee
+my phone number is... | numerus telephoni mei est... | NOO-meh-roos teh-leh-PHOH-ni MEH-ee est
+can I use your phone? | licetne telephono tuo uti? | li-KET-neh teh-leh-PHOH-noh TOO-oh OO-ti
+my battery is dead | pila mea exhausta est | PEE-lah MEH-ah eks-HOW-stah est
+what is the wifi password? | quod est signum secretum retis? | kwod est SIG-noom seh-KREH-toom REH-tis
+I will text you | nuntium tibi mittam | NOON-tee-oom TI-bi MIT-tahm
+call me later | voca me postea | WOH-kah meh POS-teh-ah
+I have no signal | signum non habeo | SIG-noom nohn hah-BEH-oh
+send me a message | mitte mihi nuntium | MIT-teh MI-hi NOON-tee-oom
+where can I charge my phone? | ubi telephonum onerare possum? | OO-bi teh-leh-PHOH-noom oh-neh-RAH-reh POS-soom
+## Opinions and plans
+I think so | ita puto | I-tah POO-toh
+I do not think so | non puto | nohn POO-toh
+I know | scio | SKEE-oh
+I agree | consentio | kon-SEN-tee-oh
+I do not agree | non consentio | nohn kon-SEN-tee-oh
+what do you think? | quid censes? | kwid KEN-sehs
+in my opinion... | ut mihi videtur... | oot MI-hi wi-DEH-toor
+good idea! | bonum consilium! | BOH-noom kon-SIL-ee-oom
+of course | certe | KEHR-teh
+I am not sure | non sum certus | nohn soom KEHR-toos
+it depends | pendet | PEN-det
+are you free tomorrow? | esne liber cras? | ES-neh LEE-ber krahs
+I am busy | occupatus sum | ok-koo-PAH-toos soom
+let us meet at five | conveniamus hora quinta | kon-weh-nee-AH-moos HOH-rah KWIN-tah
+I would prefer tea | malim theam | MAH-lim THEH-ahm
+## Dates and time
+what day is it today? | quis dies est hodie? | kwis DEE-ehs est HOH-dee-eh
+what is the date today? | quota dies mensis est hodie? | KWOH-tah DEE-ehs MEN-sis est HOH-dee-eh
+today is Monday | hodie est dies Lunae | HOH-dee-eh est DEE-ehs LOO-nai
+at what time? | qua hora? | kwah HOH-rah
+at six o'clock | hora sexta | HOH-rah SEKS-tah
+in the morning | mane | MAH-neh
+in the evening | vespere | WES-peh-reh
+every day | cotidie | koh-TEE-dee-eh
+next week | proxima hebdomade | PROK-si-mah heb-DOH-mah-deh
+last year | anno praeterito | AHN-noh prai-TEH-ri-toh
+[vocab]
+## Feelings and moods
+happy | laetus | LAI-toos
+sad | tristis | TRIS-tis
+angry | iratus | ee-RAH-toos
+tired | fessus | FES-soos
+scared | territus | teh-RREE-toos
+bored | taedio affectus | TAI-dee-oh af-FEK-toos
+excited | commotus | kom-MOH-toos
+worried | sollicitus | sol-LI-ki-toos
+surprised | attonitus | at-TOH-ni-toos
+nervous | trepidus | TREH-pi-doos
+proud | superbus | soo-PEHR-boos
+lonely | solus | SOH-loos
+in love | amans | AH-mahns
+calm | tranquillus | trahn-KWIL-loos
+embarrassed | verecundus | weh-reh-KOON-doos
+jealous | invidus | IN-wi-doos
+I am in a good mood | bono animo sum | BOH-noh AH-ni-moh soom
+I am in a bad mood | malo animo sum | MAH-loh AH-ni-moh soom
+## Colours
+red | ruber | ROO-ber
+blue | caeruleus | kai-ROO-leh-oos
+green | viridis | WI-ri-dis
+yellow | flavus | FLAH-woos
+black | niger | NI-ger
+white | albus | AHL-boos
+orange | aurantiacus | ow-rahn-tee-AH-koos
+purple | purpureus | poor-POO-reh-oos
+pink | roseus | ROH-seh-oos
+brown | fuscus | FOOS-koos
+grey | cinereus | ki-NEH-reh-oos
+gold | aureus | OW-reh-oos
+dark | obscurus | ob-SKOO-roos
+light (colour) | lucidus | LOO-ki-doos
+## Animals
+dog | canis | KAH-nis
+cat | feles | FEH-lehs
+horse | equus | EH-kwoos
+cow | vacca | WAHK-kah
+pig | porcus | POR-koos
+sheep | ovis | OH-wis
+chicken | gallina | gahl-LEE-nah
+bird | avis | AH-wis
+fish | piscis | PIS-kis
+rabbit | cuniculus | koo-NI-koo-loos
+mouse | mus | moos
+lion | leo | LEH-oh
+elephant | elephantus | eh-leh-FAHN-toos
+bear | ursus | OOR-soos
+monkey | simia | SI-mee-ah
+snake | serpens | SEHR-pens
+wolf | lupus | LOO-poos
+duck | anas | AH-nahs
+butterfly | papilio | pah-PI-lee-oh
+spider | aranea | ah-RAH-neh-ah
+## Family
+mother | mater | MAH-ter
+father | pater | PAH-ter
+sister | soror | SOH-ror
+brother | frater | FRAH-ter
+daughter | filia | FEE-lee-ah
+son | filius | FEE-lee-oos
+grandmother | avia | AH-wee-ah
+grandfather | avus | AH-woos
+aunt | matertera | mah-TEHR-teh-rah
+uncle | avunculus | ah-WOON-koo-loos
+cousin | consobrinus | kon-soh-BREE-noos
+husband | maritus | mah-REE-toos
+wife | uxor | OOK-sor
+friend | amicus | ah-MEE-koos
+baby | infans | IN-fahns
+child | puer | POO-er
+man | vir | wir
+woman | femina | FEH-mi-nah
+## Food
+bread | panis | PAH-nis
+water | aqua | AH-kwah
+milk | lac | lahk
+coffee | coffea | KOF-feh-ah
+tea | thea | THEH-ah
+juice | sucus | SOO-koos
+beer | cervisia | KEHR-wi-see-ah
+wine | vinum | WEE-noom
+egg | ovum | OH-woom
+cheese | caseus | KAH-seh-oos
+meat | caro | KAH-roh
+chicken (meat) | caro gallinacea | KAH-roh gahl-li-NAH-keh-ah
+fish (food) | pisces | PIS-kehs
+rice | oryza | oh-REE-zah
+soup | ius | yoos
+salad | acetaria | ah-keh-TAH-ree-ah
+potato | tuber terrae | TOO-ber TEHR-rai
+tomato | lycopersicum | lee-koh-PEHR-si-koom
+apple | malum | MAH-loom
+banana | musa | MOO-sah
+orange (fruit) | malum aurantium | MAH-loom ow-RAHN-tee-oom
+sugar | saccharum | SAHK-kah-room
+salt | sal | sahl
+ice cream | glacies lactea | GLAH-kee-ehs LAHK-teh-ah
+## Body
+head | caput | KAH-poot
+face | facies | FAH-kee-ehs
+eye | oculus | OH-koo-loos
+ear | auris | OW-ris
+nose | nasus | NAH-soos
+mouth | os | ohs
+tooth | dens | dens
+hand | manus | MAH-noos
+arm | bracchium | BRAHK-kee-oom
+leg | crus | kroos
+foot | pes | pehs
+heart | cor | kor
+back | tergum | TEHR-goom
+stomach | venter | WEN-ter
+hair | capilli | kah-PIL-lee
+finger | digitus | DI-gi-toos
+## Home
+house | domus | DOH-moos
+room | conclave | kon-KLAH-weh
+kitchen | culina | koo-LEE-nah
+bathroom | balneum | BAHL-neh-oom
+bedroom | cubiculum | koo-BIK-oo-loom
+door | ianua | YAH-noo-ah
+window | fenestra | feh-NES-trah
+table | mensa | MEN-sah
+chair | sella | SEL-lah
+bed | lectus | LEK-toos
+sofa | sophas | SOH-phahs
+lamp | lucerna | loo-KEHR-nah
+key | clavis | KLAH-wis
+garden | hortus | HOR-toos
+floor | pavimentum | pah-wi-MEN-toom
+wall | murus | MOO-roos
+## Clothes
+shirt | camisia | kah-MEE-see-ah
+trousers | bracae | BRAH-kai
+dress | stola | STOH-lah
+skirt | tunica feminea | TOO-ni-kah feh-MI-neh-ah
+shoes | calcei | KAHL-keh-ee
+socks | udones | oo-DOH-nehs
+jacket | tunica brevis | TOO-ni-kah BREH-wis
+coat | pallium | PAHL-lee-oom
+hat | petasus | PEH-tah-soos
+glasses | specilla | speh-KIL-lah
+bag | saccus | SAHK-koos
+pocket | sinus | SEE-noos
+## Town
+street | via | WEE-ah
+shop | taberna | tah-BEHR-nah
+market | forum | FOH-room
+bank | argentaria | ahr-gen-TAH-ree-ah
+hospital | valetudinarium | wah-leh-too-di-NAH-ree-oom
+school | schola | SKOH-lah
+station | statio | STAH-tee-oh
+airport | aeroportus | AI-roh-POR-toos
+bus | autoraeda publica | ow-toh-RAI-dah POO-bli-kah
+train | tramen | TRAH-men
+car | autocinetum | ow-toh-KEE-neh-toom
+bicycle | birota | bee-ROH-tah
+taxi | taxi | TAHK-see
+restaurant | caupona | kow-POH-nah
+bridge | pons | pohns
+park | hortus publicus | HOR-toos POO-bli-koos
+## Time
+day | dies | DEE-ehs
+night | nox | noks
+morning | mane | MAH-neh
+afternoon | post meridiem | pohst meh-RI-dee-em
+week | hebdomas | HEB-doh-mahs
+month | mensis | MEN-sis
+year | annus | AHN-noos
+Monday | dies Lunae | DEE-ehs LOO-nai
+Tuesday | dies Martis | DEE-ehs MAHR-tis
+Wednesday | dies Mercurii | DEE-ehs mehr-KOO-ree-ee
+Thursday | dies Iovis | DEE-ehs YOH-wis
+Friday | dies Veneris | DEE-ehs WEH-neh-ris
+Saturday | dies Saturni | DEE-ehs sah-TOOR-nee
+Sunday | dies Solis | DEE-ehs SOH-lis
+January | Ianuarius | yah-noo-AH-ree-oos
+summer | aestas | AI-stahs
+winter | hiems | hee-EMS
+## Weather and nature
+sun | sol | sohl
+rain | pluvia | PLOO-wee-ah
+snow | nix | niks
+wind | ventus | WEN-toos
+cloud | nubes | NOO-behs
+hot | calidus | KAH-li-doos
+cold | frigidus | FREE-gi-doos
+sea | mare | MAH-reh
+river | flumen | FLOO-men
+mountain | mons | mohns
+tree | arbor | AHR-bor
+flower | flos | flohs
+sky | caelum | KAI-loom
+## Work and school
+teacher | magister | mah-GIS-ter
+student | discipulus | dis-KIP-oo-loos
+book | liber | LI-ber
+pen | stilus | STEE-loos
+pencil | graphium | GRAH-phee-oom
+paper | charta | KAHR-tah
+computer | computatrum | kom-poo-TAH-troom
+phone | telephonum | teh-leh-PHOH-noom
+work | opus | OH-poos
+office | officium | of-FI-kee-oom
+doctor | medicus | MEH-di-koos
+police officer | vigil | WI-gil
+lesson | lectio | LEK-tee-oh
+exam | examen | ek-SAH-men
+## Describing
+big | magnus | MAHG-noos
+small | parvus | PAHR-woos
+good | bonus | BOH-noos
+bad | malus | MAH-loos
+new | novus | NOH-woos
+old | vetus | WEH-toos
+beautiful | pulcher | POOL-kher
+ugly | deformis | deh-FOR-mis
+fast | celer | KEH-ler
+slow | tardus | TAHR-doos
+easy | facilis | FAH-ki-lis
+difficult | difficilis | dif-FI-ki-lis
+cheap | vilis | WEE-lis
+expensive | carus | KAH-roos
+open (adj.) | apertus | ah-PEHR-toos
+clean | purus | POO-roos
+dirty | sordidus | SOR-di-doos
+happy | felix | FEH-leeks
+sad | maestus | MAI-stoos
+## Common verbs
+> Shown as the verb for "I" (first person), which is how Latin dictionaries list a verb.
+to be | sum | soom
+to have | habeo | hah-BEH-oh
+to go | eo | EH-oh
+to want | volo | WOH-loh
+to eat | edo | EH-doh
+to drink | bibo | BEE-boh
+to speak | loquor | LOH-kwor
+to see | video | WEE-deh-oh
+to come | venio | WEH-nee-oh
+to give | do | doh
+to know (a fact) | scio | SKEE-oh
+to do / make | facio | FAH-kee-oh
+to say | dico | DEE-koh
+to like | diligo | DI-li-goh
+to live | habito | HAH-bi-toh
+to work | laboro | lah-BOH-roh
+to buy | emo | EH-moh
+to read | lego | LEH-goh
+to write | scribo | SKREE-boh
+to sleep | dormio | DOR-mee-oh
+to learn | disco | DIS-koh
+to help | adiuvo | ad-YOO-woh
+to need | egeo | EH-geh-oh
+to love | amo | AH-moh
+## School subjects
+maths | mathematica | mah-theh-MAH-ti-kah
+physics | physica | PHEE-si-kah
+chemistry | chemia | KEH-mee-ah
+biology | biologia | bee-oh-LOH-gee-ah
+history | historia | his-TOH-ree-ah
+geography | geographia | geh-oh-GRAH-phee-ah
+literature | litterae | LIT-teh-rai
+English | lingua Anglica | LIN-gwah AHN-gli-kah
+foreign languages | linguae externae | LIN-gwai eks-TEHR-nai
+art | ars | ahrs
+music | musica | MOO-si-kah
+PE | educatio corporalis | eh-doo-KAH-tee-oh kor-poh-RAH-lis
+computer science | informatica | in-for-MAH-ti-kah
+economics | oeconomia | oi-koh-NOH-mee-ah
+law | ius | yoos
+philosophy | philosophia | phi-loh-SOH-phee-ah
+psychology | psychologia | psee-khoh-LOH-gee-ah
+science | scientia naturalis | skee-EN-tee-ah nah-too-RAH-lis
+## Classroom
+classroom | classis | KLAHS-sis
+desk | subsellium | soob-SEL-lee-oom
+board | tabula | TAH-boo-lah
+notebook | libellus | li-BEL-loos
+textbook | liber scholaris | LI-ber skoh-LAH-ris
+homework | pensum domesticum | PEN-soom doh-MES-ti-koom
+test | probatio | proh-BAH-tee-oh
+grade | nota | NOH-tah
+timetable | tabula horaria | TAH-boo-lah hoh-RAH-ree-ah
+break | intervallum | in-ter-WAHL-loom
+bell | tintinnabulum | tin-tin-NAH-boo-loom
+ruler | regula | REH-goo-lah
+rubber | penicillus delebilis | peh-ni-KIL-loos deh-LEH-bi-lis
+rucksack | saccus dorsualis | SAHK-koos dor-SOO-ah-lis
+dictionary | lexicon | LEK-si-kon
+question | quaestio | kwai-STEE-oh
+answer | responsum | rehs-POHN-soom
+mistake | error | EHR-ror
+## University
+university | universitas | oo-ni-WEHR-si-tahs
+lecture | praelectio | prai-LEK-tee-oh
+professor | professor | proh-FES-sor
+degree | gradus | GRAH-doos
+scholarship | stipendium | sti-PEN-dee-oom
+library | bibliotheca | bib-lee-oh-THEH-kah
+dormitory | domus alumnorum | DOH-moos ah-LOOM-noh-room
+campus | area universitatis | AH-reh-ah oo-ni-wehr-si-TAH-tis
+tuition fees | pretium doctrinae | PREH-tee-oom dok-TREE-nai
+semester | semestre | seh-MES-treh
+course | cursus | KOOR-soos
+essay | commentatio | kom-men-TAH-tee-oh
+thesis | dissertatio | dis-sehr-TAH-tee-oh
+diploma | diploma | dee-PLOH-mah
+seminar | colloquium | kol-LOH-kwee-oom
+entrance exam | examen ingressus | ek-SAH-men in-GREHS-soos
+application | petitio | peh-TEE-tee-oh
+student card | tessera discipuli | TES-seh-rah dis-KIP-oo-lee
+## School verbs
+> Shown as the verb for "I".
+to study | studeo | STOO-deh-oh
+to teach | doceo | DOH-keh-oh
+to ask | rogo | ROH-goh
+to answer | respondeo | rehs-POHN-deh-oh
+to repeat | repeto | REH-peh-toh
+to understand | intellego | in-TEL-leh-goh
+to remember | memoria teneo | meh-MOH-ree-ah TEH-neh-oh
+to forget | obliviscor | ob-lee-WEES-kor
+to explain | explico | EKS-pli-koh
+to practise | exerceo | ek-SEHR-keh-oh
+to pass an exam | examen supero | ek-SAH-men SOO-peh-roh
+to fail an exam | in examine deficio | in ek-SAH-mi-neh DEH-fi-kee-oh
+to write down | adnoto | ad-NOH-toh
+to listen | audio | OW-dee-oh
+to read aloud | clare lego | KLAH-reh LEH-goh
+to think | cogito | KOH-gi-toh
+to count | numero | NOO-meh-roh
+to spell | litteras enuntio | LIT-teh-rahs eh-NOON-tee-oh
+to translate | verto | WEHR-toh
+to graduate | gradum consequor | GRAH-doom kon-SEH-kwor
+[grammar]
+## Pronouns
+> Latin usually drops the subject pronoun, because the verb ending shows the person. Use it only for emphasis. There is no word for "the" or "a".
+row: I | ego | EH-goh
+row: you (one person) | tu | too
+row: he / she / it | is / ea / id | is / EH-ah / id
+row: we | nos | nohs
+row: you all | vos | wohs
+row: they | ei / eae / ea | EH-ee / EH-ai / EH-ah
+ex: I am a student | ego discipulus sum | EH-goh dis-KIP-oo-loos soom
+ex: you are tall | tu altus es | too AHL-toos ehs
+ex: she is my sister | ea soror mea est | EH-ah SOH-ror MEH-ah est
+ex: we are friends | nos amici sumus | nohs ah-MEE-kee SOO-moos
+ex: they are teachers | ei magistri sunt | EH-ee mah-GIS-tree soont
+ex: I am happy | laetus sum | LAI-toos soom
+ex: you all are late | vos seri estis | wohs SEH-ree ES-tis
+ex: he is a doctor | is medicus est | is MEH-di-koos est
+## Singular and plural
+> A noun changes its ending to show its job in the sentence (case). The basic forms: puella, puellae (girl); dominus, domini (master); rex, reges (king); hortus, horti (garden). Learn each noun in two forms. Adjectives must agree with the noun.
+row: girl, girls | puella, puellae | poo-EL-lah poo-EL-lai
+row: master, masters | dominus, domini | DOH-mi-noos DOH-mi-nee
+row: king, kings | rex, reges | reks REH-gehs
+row: city, cities | urbs, urbes | oorbs OOR-behs
+ex: the boy | puer | POO-er
+ex: the girl | puella | poo-EL-lah
+ex: the books | libri | LEE-bree
+ex: a red house | domus rubra | DOH-moos ROO-brah
+ex: the cities | urbes | OOR-behs
+ex: one cat, two cats | una feles, duae felis | OO-nah FEH-lehs DOO-ai FEH-lehs
+ex: one pen, two pens | unus stilus, duo stili | OO-noos STEE-loos DOO-oh STEE-lee
+ex: a lesson, lessons | lectio, lectiones | LEK-tee-oh lek-tee-OH-nehs
+ex: a friend, friends | amicus, amici | ah-MEE-koos ah-MEE-kee
+## Sum: to be
+> Sum is irregular. It works for both "who/what" and "where/how".
+row: I am | sum | soom
+row: you are | es | ehs
+row: he / she is | est | est
+row: we are | sumus | SOO-moos
+row: you all are | estis | ES-tis
+row: they are | sunt | soont
+ex: I am English | Anglus sum | AHN-gloos soom
+ex: he is a doctor | medicus est | MEH-di-koos est
+ex: it is Monday | dies Lunae est | DEE-ehs LOO-nai est
+ex: we are from Uzbekistan | ex Uzbekistania sumus | eks ooz-beh-kis-TAH-nee-ah SOO-moos
+ex: they are tall | alti sunt | AHL-tee soont
+ex: I am at home | domi sum | DOH-mee soom
+ex: she is tired | fessa est | FES-sah est
+ex: where are you? | ubi es? | OO-bi ehs
+ex: we are well | bene valemus | BEH-neh wah-LEH-moos
+ex: the soup is cold | ius frigidum est | yoos FREE-gi-doom est
+## Habeo: to have
+> Habeo means "I have". You can also say "mihi est" (there is to me). Latin does not use "to have" for age or hunger: use "annos natus sum" (I was born so many years ago) and "esurio" (I am hungry).
+row: I have | habeo | hah-BEH-oh
+row: you have | habes | HAH-behs
+row: he / she has | habet | HAH-bet
+row: we have | habemus | hah-BEH-moos
+row: you all have | habetis | hah-BEH-tis
+row: they have | habent | HAH-bent
+ex: I have a brother | fratrem habeo | FRAH-trem hah-BEH-oh
+ex: she has two cats | duas feles habet | DOO-ahs FEH-lehs HAH-bet
+ex: we have time | tempus habemus | TEM-poos hah-BEH-moos
+ex: I am hungry | esurio | eh-SOO-ree-oh
+ex: they have a car | autocinetum habent | ow-toh-KEE-neh-toom HAH-bent
+ex: there is a lesson today | hodie lectio est | HOH-dee-eh LEK-tee-oh est
+ex: there is no teacher | magister non est | mah-GIS-ter nohn est
+ex: I have a question | quaestionem habeo | kwai-STEE-oh-nem hah-BEH-oh
+## Regular verbs (present tense)
+> Latin verbs have four families. Take off the ending (-re) and add: -o, -s, -t, -mus, -tis, -nt. The vowel before the ending changes by family.
+row: amare (to love): ego | amo | AH-moh
+row: amare: tu | amas | AH-mahs
+row: amare: is / ea | amat | AH-maht
+row: amare: nos | amamus | ah-MAH-moos
+row: amare: vos | amatis | ah-MAH-tis
+row: amare: ei | amant | AH-mahnt
+ex: I speak English | Anglice loquor | AHN-gli-keh LOH-kwor
+ex: you eat a lot | multum edis | MOOL-toom EH-dis
+ex: she lives in Rome | Romae habitat | ROH-mai HAH-bi-taht
+ex: we work every day | cotidie laboramus | koh-TEE-dee-eh lah-boh-RAH-moos
+ex: they drink water | aquam bibunt | AH-kwahm BEE-boont
+ex: I read a book | librum lego | LEE-broom LEH-goh
+ex: you see the sea | mare vides | MAH-reh WEE-dehs
+ex: we hear music | musicam audimus | MOO-si-kahm ow-DEE-moos
+## Eo: to go
+> Eo is irregular. To say "I am going to do something", Latin uses the future tense, not "go + infinitive".
+row: I go | eo | EH-oh
+row: you go | is | ees
+row: he / she goes | it | it
+row: we go | imus | EE-moos
+row: you all go | itis | EE-tis
+row: they go | eunt | EH-oont
+ex: I am going to school | ad scholam eo | ad SKOH-lahm EH-oh
+ex: where are you going? | quo is? | kwoh ees
+ex: we are going to eat | cenabimus | keh-NAH-bi-moos
+ex: she is going to travel | iter faciet | I-ter FAH-kee-et
+ex: let us go! | eamus! | eh-AH-moos
+ex: they go home | domum eunt | DOH-moom EH-oont
+ex: I go to the market | ad forum eo | ad FOH-room EH-oh
+ex: he goes to Rome | Romam it | ROH-mahm it
+## Basic sentences
+> Latin word order is flexible, because endings show who does what. The usual order is subject, object, verb (the verb last).
+row: subject + object + verb | ego panem edo | EH-goh PAH-nem EH-doh
+row: adjective after or before the noun | canis niger / niger canis | KAH-nis NI-ger
+row: place or time | hodie Romae laboro | HOH-dee-eh ROH-mai lah-BOH-roh
+ex: I eat bread | panem edo | PAH-nem EH-doh
+ex: Maria reads a book | Maria librum legit | mah-REE-ah LEE-broom LEH-git
+ex: we live in a big house | in magna domo habitamus | in MAHG-nah DOH-moh hah-bi-TAH-moos
+ex: he works here today | hodie hic laborat | HOH-dee-eh heek lah-BOH-raht
+ex: the dog is black | canis niger est | KAH-nis NI-ger est
+## Negation
+> Put "non" before the verb. "Nihil" = nothing, "nemo" = nobody, "numquam" = never. Always compare with the positive form.
+row: not | non | nohn
+row: nothing | nihil | NEE-hil
+row: nobody | nemo | NEH-moh
+row: never | numquam | NOOM-kwahm
+ex: I want | volo | WOH-loh
+ex: I do not want | nolo | NOH-loh
+ex: I speak English | Anglice loquor | AHN-gli-keh LOH-kwor
+ex: I do not speak English | Anglice non loquor | AHN-gli-keh nohn LOH-kwor
+ex: I like it | id mihi placet | id MI-hi PLAH-ket
+ex: I do not like it | id mihi non placet | id MI-hi nohn PLAH-ket
+ex: she is here | ea hic est | EH-ah heek est
+ex: she is not here | ea hic non est | EH-ah heek nohn est
+ex: I have a car | autocinetum habeo | ow-toh-KEE-neh-toom hah-BEH-oh
+ex: I do not have a car | autocinetum non habeo | ow-toh-KEE-neh-toom nohn hah-BEH-oh
+ex: I understand | intellego | in-TEL-leh-goh
+ex: I do not understand | non intellego | nohn in-TEL-leh-goh
+ex: we are tired | fessi sumus | FES-see SOO-moos
+ex: we are not tired | fessi non sumus | FES-see nohn SOO-moos
+ex: he works on Sundays | die Solis laborat | DEE-eh SOH-lis lah-BOH-raht
+ex: he does not work on Sundays | die Solis non laborat | DEE-eh SOH-lis nohn lah-BOH-raht
+## Asking questions
+> Add -ne to the first word of the sentence for a yes-or-no question. Use "nonne" when you expect "yes" and "num" when you expect "no".
+row: statement | magister est | mah-GIS-ter est
+row: question | estne magister? | EST-neh mah-GIS-ter
+row: you expect yes | nonne magister est? | NOHN-neh mah-GIS-ter est
+row: you expect no | num magister est? | noom mah-GIS-ter est
+ex: do you speak English? | loquerisne Anglice? | loh-KWEH-ris-neh AHN-gli-keh
+ex: is she a doctor? | estne ea medica? | EST-neh EH-ah MEH-di-kah
+ex: do you have a pen? | habesne stilum? | hah-BES-neh STEE-loom
+ex: are you tired? | esne fessus? | ES-neh FES-soos
+ex: is it far? | estne procul? | EST-neh PROH-kool
+ex: is the restaurant open? | estne caupona aperta? | EST-neh kow-POH-nah ah-PEHR-tah
+## Question words
+row: what | quid | kwid
+row: who | quis | kwis
+row: where | ubi | OO-bi
+row: when | quando | KWAHN-doh
+row: why | cur | koor
+row: how | quomodo | KWOH-moh-doh
+row: which | qui / quae / quod | kwee / kwai / kwod
+row: how much / how many | quantus / quot | KWAHN-toos / kwot
+ex: what is this? | quid est hoc? | kwid est hohk
+ex: who is she? | quae est ea? | kwai est EH-ah
+ex: where do you live? | ubi habitas? | OO-bi HAH-bi-tahs
+ex: when is the exam? | quando est examen? | KWAHN-doh est ek-SAH-men
+ex: why are you late? | cur serus es? | koor SEH-roos ehs
+ex: how much is it? | quanti constat? | KWAN-tee KON-stat
+ex: which book? | qui liber? | kwee LI-ber
+## Possessives
+> Meus (my), tuus (your), suus (his, her own), noster (our), vester (your, plural). They agree with the noun: liber meus, domus mea, nomen meum.
+row: my | meus / mea / meum | MEH-oos / MEH-ah / MEH-oom
+row: your (one person) | tuus / tua / tuum | TOO-oos
+row: his / her | eius | EH-yoos
+row: our | noster / nostra / nostrum | NOS-ter
+row: their | eorum / earum | EH-oh-room
+ex: my house | domus mea | DOH-moos MEH-ah
+ex: your friends | amici tui | ah-MEE-kee TOO-ee
+ex: his sister | soror eius | SOH-ror EH-yoos
+ex: our teacher | magister noster | mah-GIS-ter NOS-ter
+ex: their car | autocinetum eorum | ow-toh-KEE-neh-toom EH-oh-room
+## Formal vs informal
+> Latin has no polite "you" for one person. Use "domine" (sir), "domina" (madam), "quaeso" (please) and the plural "vos" for respect to several people.
+row: sir | domine | DOH-mi-neh
+row: madam | domina | DOH-mi-nah
+row: gentlemen | domini | DOH-mi-nee
+row: good sir (very polite) | vir clarissime | wir klah-RIS-si-meh
+ex: you speak (to one person) | loqueris | loh-KWEH-ris
+ex: you speak (to several people) | loquimini | loh-KWI-mi-nee
+ex: you are tired (to one person) | fessus es | FES-soos ehs
+ex: you are tired (to several people) | fessi estis | FES-see ES-tis
+ex: thank you, sir | gratias, domine | GRAH-tee-ahs DOH-mi-neh
+ex: excuse me, madam | ignosce, domina | ig-NOS-keh DOH-mi-nah
+## Past and future (simple)
+> Past (perfect): -avi, -avisti, -avit, -avimus, -avistis, -averunt for amare (amavi = I loved). Future: -bo, -bis, -bit, -bimus, -bitis, -bunt (amabo = I will love).
+row: I loved | amavi | ah-MAH-wee
+row: you loved | amavisti | ah-mah-WIS-tee
+row: he / she loved | amavit | ah-MAH-wit
+row: I will love | amabo | ah-MAH-boh
+row: we will love | amabimus | ah-MAH-bi-moos
+ex: yesterday I worked | heri laboravi | HEH-ri lah-boh-RAH-wee
+ex: she bought a book | librum emit | LEE-broom EH-mit
+ex: I will call you tomorrow | cras te vocabo | krahs teh woh-KAH-boh
+ex: we will eat at eight | hora octava cenabimus | HOH-rah ok-TAH-wah keh-NAH-bi-moos
+ex: they travelled to Spain | in Hispaniam iter fecerunt | in his-PAH-nee-ahm I-ter feh-KEH-roont
+ex: I went to the market | ad forum ivi | ad FOH-room EE-wee
+ex: he will come later | postea veniet | POS-teh-ah WEH-nee-et
+## Commands
+> Command to one person: take off -re (ama!). To several: -te (amate!). Say "do not" with "noli" (one person) or "nolite" (several) plus the infinitive: noli venire!
+row: speak! (one person) | loquere! | LOH-kweh-reh
+row: speak! (several) | loquimini! | loh-KWI-mi-nee
+row: do not speak! | noli loqui! | NOH-lee LOH-kwee
+ex: come here | veni huc | WEH-nee hook
+ex: do not come here | noli huc venire | NOH-lee hook weh-NEE-reh
+ex: sit down | sede | SEH-deh
+ex: do not sit down | noli sedere | NOH-lee seh-DEH-reh
+ex: be quiet | tace | TAH-keh
+ex: do not be late | noli sero venire | NOH-lee SEH-roh weh-NEE-reh
+ex: open the door | aperi ianuam | AH-peh-ri YAH-noo-ahm
+ex: close the window | claude fenestram | KLOW-deh feh-NES-trahm
+ex: listen to me | audi me | OW-dee meh
+ex: do not worry | noli timere | NOH-lee ti-MEH-reh
+ex: speak slowly | loquere lente | LOH-kweh-reh LEN-teh
+ex: wait a moment | exspecta paulisper | eks-SPEK-tah pow-LIS-per
+## Can, must, want
+> Possum (can), debeo (must), volo (want) are followed by an infinitive. Negative: add "non". Nolo = I do not want. Non licet = it is not allowed.
+row: I can | possum | POS-soom
+row: I must | debeo | deh-BEH-oh
+row: I want | volo | WOH-loh
+ex: I can swim | natare possum | nah-TAH-reh POS-soom
+ex: I cannot swim | natare non possum | nah-TAH-reh nohn POS-soom
+ex: can you help me? | potesne me adiuvare? | poh-TES-neh meh ad-yoo-WAH-reh
+ex: we must go | ire debemus | EE-reh deh-BEH-moos
+ex: we must not go | non licet nobis ire | nohn LEE-ket NOH-bees EE-reh
+ex: I want to eat | edere volo | EH-deh-reh WOH-loh
+ex: I do not want to eat | edere nolo | EH-deh-reh NOH-loh
+ex: you can come | venire potes | weh-NEE-reh POH-tehs
+ex: you cannot come | venire non potes | weh-NEE-reh nohn POH-tehs
+ex: she wants to study | studere vult | STOO-deh-reh woolt
+ex: I must work today | hodie laborare debeo | HOH-dee-eh lah-boh-RAH-reh deh-BEH-oh
+ex: you must not run | non licet tibi currere | nohn LEE-ket TI-bi KOOR-reh-reh
+## In, on, at
+> Latin uses prepositions with cases. In + ablative = in / on (where): in mensa. In + accusative = into. Sub = under. Apud / prope = next to / near. Ad = to / at.
+row: in / on (place) | in + ablative | in
+row: under | sub | soob
+row: next to | apud | AH-poohd
+row: near | prope | PROH-peh
+ex: the book is on the table | liber in mensa est | LI-ber in MEN-sah est
+ex: the cat is under the table | feles sub mensa est | FEH-lehs soob MEN-sah est
+ex: I am at school | in schola sum | in SKOH-lah soom
+ex: I am at home | domi sum | DOH-mee soom
+ex: the shop is next to the bank | taberna apud argentariam est | tah-BEHR-nah AH-poohd ahr-gen-TAH-ree-ahm est
+ex: the park is near the station | hortus publicus prope stationem est | HOR-toos POO-bli-koos PROH-peh stah-tee-OH-nem est
+ex: we meet in the morning | mane conveniemus | MAH-neh kon-weh-nee-EH-moos
+ex: the lesson is at nine | lectio hora nona est | LEK-tee-oh HOH-rah NOH-nah est
+ex: the key is in the bag | clavis in sacco est | KLAH-wis in SAHK-koh est
+## Comparing things
+> Add -ior to the adjective for "more" (maior = bigger). Add -issimus for "most" (maximus = the biggest). Than = "quam". Irregular: bonus, melior, optimus (good, better, best).
+row: bigger than | maior quam | MAH-yor kwahm
+row: better | melior | MEH-lee-or
+row: the biggest | maximus | MAHK-si-moos
+row: worse | peior | PEH-yor
+ex: big, bigger, the biggest | magnus, maior, maximus | MAHG-noos MAH-yor MAHK-si-moos
+ex: small, smaller, the smallest | parvus, minor, minimus | PAHR-woos MI-nor MI-ni-moos
+ex: this is better than that | hoc melius est quam illud | hohk MEH-lee-oos est kwahm IL-lood
+ex: this is worse than that | hoc peius est quam illud | hohk PEH-yoos est kwahm IL-lood
+ex: she is taller than me | altior est quam ego | AHL-tee-or est kwahm EH-goh
+ex: Tashkent is bigger than Samarkand | Tashkentum maior est quam Samarcanda | tahsh-KEN-toom MAH-yor est kwahm sah-mahr-KAHN-dah
+ex: it is the cheapest | vilissimum est | wi-LIS-si-moom est
+ex: the same as | idem ac | EE-dem ahk
+## Everyday sentences
+> Extra practice with the most useful patterns.
+ex: he is a teacher | magister est | mah-GIS-ter est
+ex: you (plural) are students | vos discipuli estis | wohs dis-KIP-oo-lee ES-tis
+ex: I am happy | laetus sum | LAI-toos soom
+ex: she is at school | in schola est | in SKOH-lah est
+ex: you are my friend | tu amicus meus es | too ah-MEE-koos MEH-oos ehs
+ex: it is cold | frigus est | FREE-goos est
+ex: I study English | linguam Anglicam disco | LIN-gwahm AHN-gli-kahm DIS-koh
+ex: he teaches maths | mathematicam docet | mah-theh-MAH-ti-kahm DOH-ket
+ex: they work every day | cotidie laborant | koh-TEE-dee-eh lah-BOH-rahnt
+ex: is this your book? | estne hic liber tuus? | EST-neh heek LI-ber TOO-oos
+ex: are they here? | suntne hic? | SOONT-neh heek
+ex: do you like tea? | placetne tibi thea? | plah-KET-neh TI-bi THEH-ah
+ex: what time is it? | quota hora est? | KWOH-tah HOH-rah est
+ex: whose book is this? | cuius liber est hic? | KOO-yoos LI-ber est heek
+ex: how old are you? | quot annos natus es? | kwot AHN-nohs NAH-toos ehs
+ex: how do you say it? | quomodo id dicis? | KWOH-moh-doh id DEE-kis
+ex: your book (formal) | liber tuus, domine | LI-ber TOO-oos DOH-mi-neh
+ex: their house | domus eorum | DOH-moos EH-oh-room
+ex: my phone | telephonum meum | teh-leh-PHOH-noom MEH-oom
+ex: excuse me, sir | ignosce, domine | ig-NOS-keh DOH-mi-neh
+ex: please sit down (formal) | sedete, quaeso | seh-DEH-teh KWAI-soh
+ex: come here (informal) | veni huc | WEH-nee hook
+ex: yesterday I was tired | heri fessus eram | HEH-ri FES-soos EH-rahm
+ex: I will study tomorrow | cras studebo | krahs stoo-DEH-boh
+ex: we went to the park | in hortum publicum ivimus | in HOR-toom POO-bli-koom ee-WEE-moos

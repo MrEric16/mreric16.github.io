@@ -1,0 +1,976 @@
+NAME: Amharic
+ID: am
+FLAG: et
+SCRIPT: Ge'ez
+
+[sounds]
+INTRO: Amharic is the working language of Ethiopia. It is written in the Ge'ez script (fidel), where each symbol is one consonant plus one vowel. Every word here has three layers: the English, the Latin letters, and the Ge'ez writing.
+t' / ch' / p' / ts' | ejective sounds: pop the consonant out with a sharp burst of air, with no breath | ጠ ጨ ጰ ጸ
+q | an ejective k made deep in the throat | ቀ
+sh / zh / ny / j | like "ship", "vision", "canyon", "judge" | ሸ ዠ ኘ ጀ
+e | like "e" in "bed" (first and fifth orders) | ሰ ሴ
+u | like "oo" in "food" | ሱ
+i | like "ee" in "see" | ሲ
+a | like "a" in "father" | ሳ
+ə | a short, weak vowel (sixth order), often almost silent | ስ
+o | like "o" in "more" | ሶ
+w | after a consonant it rounds the lips (a labial form) | ቋ ኳ ጓ
+NOTE: Each Ge'ez symbol has seven forms (orders), one for each vowel. The consonant stays the same shape, and the vowel changes the shape slightly. Learn the consonants first.
+NOTE: Amharic is written left to right, and a gap is used to separate words. Verbs end each sentence. "You" has three forms: to a man, to a woman, and formal.
+NOTE: Doubled consonants (gemination) change the meaning but are not shown in the script. The Latin shows them doubled.
+
+[numbers]
+## 0 to 10
+zero | zero | | ዜሮ
+one | and | | አንድ
+two | hulet | | ሁለት
+three | sost | | ሶስት
+four | arat | | አራት
+five | amist | | አምስት
+six | sidist | | ስድስት
+seven | sebat | | ሰባት
+eight | simint | | ስምንት
+nine | zet'egn | | ዘጠኝ
+ten | asir | | አስር
+## 11 to 20
+eleven | asra and | | አስራ አንድ
+twelve | asra hulet | | አስራ ሁለት
+thirteen | asra sost | | አስራ ሶስት
+fourteen | asra arat | | አስራ አራት
+fifteen | asra amist | | አስራ አምስት
+sixteen | asra sidist | | አስራ ስድስት
+seventeen | asra sebat | | አስራ ሰባት
+eighteen | asra simint | | አስራ ስምንት
+nineteen | asra zet'egn | | አስራ ዘጠኝ
+twenty | haya | | ሃያ
+## Tens and big numbers
+twenty-one | haya and | | ሃያ አንድ
+thirty | selasa | | ሰላሳ
+forty | arba | | አርባ
+fifty | hamsa | | ሃምሳ
+sixty | silsa | | ስልሳ
+seventy | seba | | ሰባ
+eighty | semanya | | ሰማንያ
+ninety | zet'ena | | ዘጠና
+one hundred | meto | | መቶ
+one hundred and one | meto and | | መቶ አንድ
+two hundred | hulet meto | | ሁለት መቶ
+five hundred | amist meto | | አምስት መቶ
+one thousand | shih | | ሺህ
+two thousand | hulet shih | | ሁለት ሺህ
+one million | miliyon | | ሚሊዮን
+## Order and amounts
+first | mejemeriya | | መጀመሪያ
+second | huletegna | | ሁለተኛ
+third | sostegna | | ሶስተኛ
+half | gimash | | ግማሽ
+a few | t'iqit | | ጥቂት
+many | bizu | | ብዙ
+a pair | t'inid | | ጥንድ
+how many? | sint? | | ስንት?
+
+[greetings]
+## Hello and goodbye
+hello | selam | | ሰላም
+hello (informal) | tadiyas | | ታዲያስ
+good morning | dehna aderk | | ደህና አደርክ
+good afternoon | dehna walk | | ደህና ዋልክ
+good evening | dehna ameshah | | ደህና አመሸህ
+good night | dehna eder | | ደህና እደር
+goodbye | dehna hun | | ደህና ሁን
+see you later | behwala engenagnalen | | በኋላ እንገናኛለን
+see you tomorrow | nege engenagnalen | | ነገ እንገናኛለን
+see you soon | bekirbu engenagnalen | | በቅርቡ እንገናኛለን
+bye (informal) | chaw | | ቻው
+## Meeting people
+how are you? (to a man) | endet neh? | | እንዴት ነህ?
+how are you? (to a woman) | endet nesh? | | እንዴት ነሽ?
+how are you? (formal) | endet newot? | | እንዴት ነዎት?
+I am fine, thanks | dehna negn, ameseginalehu | | ደህና ነኝ አመሰግናለሁ
+and you? | antes? | | አንተስ?
+not bad | kifu aydelem | | ክፉ አይደለም
+what is your name? (to a man) | simih man new? | | ስምህ ማን ነው?
+what is your name? (to a woman) | simish man new? | | ስምሽ ማን ነው?
+what is your name? (formal) | simwo man new? | | ስምዎ ማን ነው?
+my name is... | sime ... new | | ስሜ ... ነው
+nice to meet you | silagenyehuh des bilognal | | ስላገኘሁህ ደስ ብሎኛል
+where are you from? | keyet neh? | | ከየት ነህ?
+I am from England | ene keengiliz negn | | እኔ ከእንግሊዝ ነኝ
+## Politeness
+please | ebakih | | እባክህ
+thank you | ameseginalehu | | አመሰግናለሁ
+thank you very much | bet'am ameseginalehu | | በጣም አመሰግናለሁ
+you are welcome | minim aydelem | | ምንም አይደለም
+excuse me | yiqirta | | ይቅርታ
+sorry | yiqirta | | ይቅርታ
+yes | awo | | አዎ
+no | ay | | አይ
+congratulations | inkwan des alleh | | እንኳን ደስ አለህ
+cheers | let'ena | | ለጤና
+good luck | melkam idil | | መልካም እድል
+happy birthday | melkam lidet | | መልካም ልደት
+
+[phrases]
+## Essential phrases
+hello | selam | | ሰላም
+goodbye | dehna hun | | ደህና ሁን
+please | ebakih | | እባክህ
+thank you | ameseginalehu | | አመሰግናለሁ
+you are welcome | minim aydelem | | ምንም አይደለም
+yes | awo | | አዎ
+no | ay | | አይ
+excuse me | yiqirta | | ይቅርታ
+sorry | yiqirta | | ይቅርታ
+I do not understand | algebagnim | | አልገባኝም
+do you speak English? | englizigna tinageraleh? | | እንግሊዝኛ ትናገራለህ?
+speak slowly, please | ebakih bezigita tenager | | እባክህ በዝግታ ተናገር
+can you help me? | tiredagnaleh? | | ትረዳኛለህ?
+where is the toilet? | shint bet yet new? | | ሽንት ቤት የት ነው?
+how much is it? | sint new? | | ስንት ነው?
+I would like... | ... efeligalehu | | ... እፈልጋለሁ
+I need... | ... yasfeligegnal | | ... ያስፈልገኛል
+my name is... | sime ... new | | ስሜ ... ነው
+I am lost | t'efichalehu | | ጠፍቻለሁ
+what is this? | yih min new? | | ይህ ምን ነው?
+I do not know | alawuqim | | አላውቅም
+that is OK | chigir yelem | | ችግር የለም
+## Formal and informal
+> Amharic has three kinds of "you": to a man (-h), to a woman (-sh) and formal (-wo, with the verb in the plural). Use the formal form with elders and strangers.
+please (to a man) | ebakih | | እባክህ
+please (to a woman) | ebakish | | እባክሽ
+please (formal) | ebakwo | | እባክዎ
+do you speak English? (to a man) | englizigna tinageraleh? | | እንግሊዝኛ ትናገራለህ?
+do you speak English? (to a woman) | englizigna tinageralesh? | | እንግሊዝኛ ትናገራለሽ?
+do you speak English? (formal) | englizigna yinageralu? | | እንግሊዝኛ ይናገራሉ?
+where are you from? (to a man) | keyet neh? | | ከየት ነህ?
+where are you from? (to a woman) | keyet nesh? | | ከየት ነሽ?
+where are you from? (formal) | keyet newot? | | ከየት ነዎት?
+can you help me? (to a man) | tiredagnaleh? | | ትረዳኛለህ?
+can you help me? (to a woman) | tiredagnalesh? | | ትረዳኛለሽ?
+can you help me? (formal) | yiredugnal? | | ይረዱኛል?
+## Survival
+I do not understand | algebagnim | | አልገባኝም
+I understand | gebtognal | | ገብቶኛል
+I do not know | alawuqim | | አላውቅም
+do you speak English? | englizigna tinageraleh? | | እንግሊዝኛ ትናገራለህ?
+I speak a little Amharic | tinish amarigna enageralehu | | ትንሽ አማርኛ እናገራለሁ
+speak slowly, please | ebakih bezigita tenager | | እባክህ በዝግታ ተናገር
+can you repeat that? | ebakih digem | | እባክህ ድገም
+how do you say... in Amharic? | ... beamarigna endet yibalal? | | ... በአማርኛ እንዴት ይባላል?
+what does... mean? | ... min malet new? | | ... ምን ማለት ነው?
+please write it down | ebakih ts'afew | | እባክህ ጻፈው
+help! | irdata! | | እርዳታ!
+I am lost | t'efichalehu | | ጠፍቻለሁ
+I need help | irdata yasfeligegnal | | እርዳታ ያስፈልገኛል
+## Getting around
+where is...? | ... yet new? | | ... የት ነው?
+where is the station? | t'abiyaw yet new? | | ጣቢያው የት ነው?
+turn left | wede gira t'at'if | | ወደ ግራ ጠፍ
+turn right | wede qegn t'at'if | | ወደ ቀኝ ጠፍ
+straight ahead | q'et't' bileh hid | | ቀጥ ብለህ ሂድ
+near | qirib | | ቅርብ
+far | ruq | | ሩቅ
+how far is it? | min yahil yirq'al? | | ምን ያህል ይርቃል?
+a ticket to Addis Ababa, please | wede addis abeba tikêt ebakih | | ወደ አዲስ አበባ ትኬት እባክህ
+what time does the train leave? | baburu sint se'at yinesal? | | ባቡሩ ስንት ሰዓት ይነሳል?
+how much is the ticket? | tikêtu sint new? | | ትኬቱ ስንት ነው?
+to the airport, please | wede ayer marefiya ebakih | | ወደ አየር ማረፊያ እባክህ
+stop here, please | izih aqum | | እዚህ አቁም
+## Eating out
+a table for two, please | lehulet sew t'erep'eza ebakih | | ለሁለት ሰው ጠረጴዛ እባክህ
+the menu, please | menu ebakih | | ሜኑ እባክህ
+I would like... | ... efeligalehu | | ... እፈልጋለሁ
+I will have this | yihin ewesdalehu | | ይህን እወስዳለሁ
+water, please | wuha ebakih | | ውሃ እባክህ
+the bill, please | hisab ebakih | | ሂሳብ እባክህ
+it is delicious | yit'afit'al | | ይጣፍጣል
+I am hungry | rebognal | | ርቦኛል
+I am thirsty | t'emtognal | | ጠምቶኛል
+I am vegetarian | siga albelam | | ስጋ አልበላም
+I am allergic to nuts | lelewuz alerjik negn | | ለለውዝ አለርጂክ ነኝ
+no meat, please | siga ayinur ebakih | | ስጋ አይኑር እባክህ
+another one, please | lela ebakih | | ሌላ እባክህ
+## Shopping
+how much is this? | yih sint new? | | ይህ ስንት ነው?
+it is too expensive | bet'am wud new | | በጣም ውድ ነው
+do you have a smaller size? | tinish yalew ale? | | ትንሽ ያለው አለ?
+I am just looking | eyayehu new | | እያየሁ ነው
+I will take it | ewesdewalehu | | እወስደዋለሁ
+can I pay by card? | bekard mekfel yichilal? | | በካርድ መክፈል ይቻላል?
+cash | bet'ire genzeb | | በጥሬ ገንዘብ
+a bag, please | kerit'it ebakih | | ከረጢት እባክህ
+open | kifit | | ክፍት
+closed | zig | | ዝግ
+## Hotel and travel
+I have a reservation | bota asyizhalehu | | ቦታ አስይዣለሁ
+a room for one night | leand lelit kifil | | ለአንድ ሌሊት ክፍል
+what time is breakfast? | qurs sint se'at new? | | ቁርስ ስንት ሰዓት ነው?
+the key, please | qulf ebakih | | ቁልፍ እባክህ
+is there wifi? | wayfay ale? | | ዋይፋይ አለ?
+my passport | pasporte | | ፓስፖርቴ
+my luggage | shanit'aye | | ሻንጣዬ
+I would like to change money | genzeb meqeyer efeligalehu | | ገንዘብ መቀየር እፈልጋለሁ
+## Health and emergency
+I feel sick | tamimeyalehu | | ታምሜያለሁ
+I need a doctor | hakim yasfeligegnal | | ሐኪም ያስፈልገኛል
+call an ambulance | ambulans t'ira | | አምቡላንስ ጥራ
+it hurts here | izih yamegnal | | እዚህ ያመኛል
+I have a headache | rasen yamegnal | | ራሴን ያመኛል
+I have a fever | tikusat alebign | | ትኩሳት አለብኝ
+where is the pharmacy? | medhanit bet yet new? | | መድሃኒት ቤት የት ነው?
+call the police | polis t'ira | | ፖሊስ ጥራ
+my phone was stolen | silke tesereqe | | ስልኬ ተሰረቀ
+## Chatting
+what do you do? | min sira tiseraleh? | | ምን ስራ ትሰራለህ?
+I am a student | temari negn | | ተማሪ ነኝ
+I am a teacher | astemari negn | | አስተማሪ ነኝ
+I live in Tashkent | tashkent enoralehu | | ታሽከንት እኖራለሁ
+how old are you? | edmeh sint new? | | እድሜህ ስንት ነው?
+I am sixteen | edmeye asra sidist new | | እድሜዬ አስራ ስድስት ነው
+do you like football? | igir kwas tiwedaleh? | | እግር ኳስ ትወዳለህ?
+I like music | muziqa ewedalehu | | ሙዚቃ እወዳለሁ
+I love it | bet'am ewedewalehu | | በጣም እወደዋለሁ
+what time is it? | se'at sint new? | | ሰዓት ስንት ነው?
+it is three o'clock | sost se'at new | | ሶስት ሰዓት ነው
+what is the date today? | zare sint qen new? | | ዛሬ ስንት ቀን ነው?
+I am happy | destegna negn | | ደስተኛ ነኝ
+I am tired | dekimognal | | ደክሞኛል
+## Useful words
+and | ina | | እና
+but | gin | | ግን
+because | mikniyatum | | ምክንያቱም
+very | bet'am | | በጣም
+here | izih | | እዚህ
+there | iziya | | እዚያ
+now | ahun | | አሁን
+today | zare | | ዛሬ
+tomorrow | nege | | ነገ
+yesterday | tinant | | ትናንት
+always | hulgize | | ሁልጊዜ
+never | mechem | | መቼም
+maybe | minalbat | | ምናልባት
+what | min | | ምን
+who | man | | ማን
+when | meche | | መቼ
+why | lemin | | ለምን
+how | endet | | እንዴት
+which | yetegnaw | | የትኛው
+## In the classroom
+may I come in? | ligba? | | ልግባ?
+may I go to the toilet? | shint bet mehed ichilalehu? | | ሽንት ቤት መሄድ እችላለሁ?
+I have a question | t'iyaqe alegn | | ጥያቄ አለኝ
+I do not know the answer | melsun alawuqim | | መልሱን አላውቅም
+I forgot my homework | yebet sirayen resichalehu | | የቤት ስራዬን ረስቻለሁ
+sorry, I am late | yiqirta, zegyichalehu | | ይቅርታ ዘግይቻለሁ
+please repeat the question | t'iyaqewn digem | | ጥያቄውን ድገም
+what page are we on? | sintegna gets' lay nen? | | ስንተኛ ገጽ ላይ ነን?
+open your books | mets'hafachihun kifetu | | መጽሐፋችሁን ክፈቱ
+close your books | mets'hafachihun ziguu | | መጽሐፋችሁን ዝጉ
+listen, please | simu | | ስሙ
+look at the board | t'iqur seledawun temelketu | | ጥቁር ሰሌዳውን ተመልከቱ
+how do you spell it? | endet yits'afal? | | እንዴት ይጻፋል?
+what does this word mean? | yih qal min malet new? | | ይህ ቃል ምን ማለት ነው?
+I have finished | ch'erishalehu | | ጨርሻለሁ
+can I borrow a pen? | iskribito liwas? | | እስክሪብቶ ልዋስ?
+## Phone and internet
+what is your phone number? | silk qut'irih sint new? | | ስልክ ቁጥርህ ስንት ነው?
+my phone number is... | silk qut'ire ... new | | ስልክ ቁጥሬ ... ነው
+can I use your phone? | silkihin lit'eqem? | | ስልክህን ልጠቀም?
+my battery is dead | batriye aleqe | | ባትሪዬ አለቀ
+what is the wifi password? | yewayfay yilef qal mindin new? | | የዋይፋይ የይለፍ ቃል ምንድን ነው?
+I will text you | meliket elikilihalehu | | መልእክት እልክልሃለሁ
+call me later | behwala dewilign | | በኋላ ደውልልኝ
+I have no signal | netwerk yelem | | ኔትወርክ የለም
+send me a message | meliket lakilign | | መልእክት ላክልኝ
+where can I charge my phone? | silken yet charj madreg ichilalehu? | | ስልኬን የት ቻርጅ ማድረግ እችላለሁ?
+## Opinions and plans
+I think so | yimeslegnal | | ይመስለኛል
+I do not think so | ayimeslegnim | | አይመስለኝም
+I know | awuqalehu | | አውቃለሁ
+I agree | isimamalehu | | እስማማለሁ
+I do not agree | alisimamam | | አልስማማም
+what do you think? | min yimeslihal? | | ምን ይመስልሃል?
+in my opinion... | beene asteyayet... | | በእኔ አስተያየት...
+good idea! | t'iru hasab! | | ጥሩ ሃሳብ!
+of course | indeta | | እንዴታ
+I am not sure | irgit'egna aydelehum | | እርግጠኛ አይደለሁም
+it depends | indehunetaw yiwesenal | | እንደ ሁኔታው ይወሰናል
+are you free tomorrow? | nege nets'a neh? | | ነገ ነጻ ነህ?
+I am busy | sira bizitobignal | | ስራ በዝቶብኛል
+let us meet at five | amist se'at inigenagn | | አምስት ሰዓት እንገናኝ
+I would prefer tea | shay yishalegnal | | ሻይ ይሻለኛል
+## Dates and time
+what day is it today? | zare min qen new? | | ዛሬ ምን ቀን ነው?
+what is the date today? | zare sint qen new? | | ዛሬ ስንት ቀን ነው?
+today is Monday | zare segno new | | ዛሬ ሰኞ ነው
+at what time? | sint se'at lay? | | ስንት ሰዓት ላይ?
+at six o'clock | sidist se'at lay | | ስድስት ሰዓት ላይ
+in the morning | t'ewat | | ጠዋት
+in the evening | mata | | ማታ
+every day | beyeqenu | | በየቀኑ
+next week | yemimet'aw samint | | የሚመጣው ሳምንት
+last year | balefew amet | | ባለፈው አመት
+
+[vocab]
+## Feelings and moods
+I am happy | destegna negn | | ደስተኛ ነኝ
+I am sad | hazentegna negn | | ሃዘንተኛ ነኝ
+I am angry | tenadijalehu | | ተናድጃለሁ
+I am tired | dekimognal | | ደክሞኛል
+I am scared | ferchalehu | | ፈርቻለሁ
+I am bored | selichtognal | | ሰልችቶኛል
+I am excited | gwaguchalehu | | ጓጉቻለሁ
+I am worried | tech'eniqeyalehu | | ተጨንቄያለሁ
+I am surprised | tegermeyalehu | | ተገርሜያለሁ
+I am proud | korchalehu | | ኮርቻለሁ
+I am lonely | bichegna negn | | ብቸኛ ነኝ
+I am in love | fiqir yizognal | | ፍቅር ይዞኛል
+I am calm | teregagichalehu | | ተረጋግቻለሁ
+I am embarrassed | afireyalehu | | አፍሬያለሁ
+I am jealous | qenchalehu | | ቀንቻለሁ
+I am in a good mood | des bilognal | | ደስ ብሎኛል
+I am in a bad mood | simete t'iru aydelem | | ስሜቴ ጥሩ አይደለም
+## Colours
+red | qey | | ቀይ
+blue | semayawi | | ሰማያዊ
+green | arengwade | | አረንጓዴ
+yellow | bich'a | | ቢጫ
+black | t'iqur | | ጥቁር
+white | nech' | | ነጭ
+orange | birtukanama | | ብርቱካናማ
+purple | weyin t'ej | | ወይን ጠጅ
+pink | roz | | ሮዝ
+brown | bunama | | ቡናማ
+grey | grach'a | | ግራጫ
+gold | werqama | | ወርቃማ
+dark | t'eqor yale | | ጠቆር ያለ
+light (colour) | feka yale | | ፈካ ያለ
+## Animals
+dog | wusha | | ውሻ
+cat | dimet | | ድመት
+horse | feres | | ፈረስ
+cow | lam | | ላም
+pig | iriya | | እሪያ
+sheep | beg | | በግ
+goat | fiyel | | ፍየል
+chicken | doro | | ዶሮ
+bird | wef | | ወፍ
+fish | asa | | አሳ
+rabbit | t'inchel | | ጥንቸል
+mouse | ayit' | | አይጥ
+lion | anbessa | | አንበሳ
+elephant | zihon | | ዝሆን
+bear | dib | | ድብ
+monkey | t'ot'a | | ጦጣ
+snake | ebab | | እባብ
+wolf | tekula | | ተኩላ
+duck | dakiye | | ዳክዬ
+butterfly | birabiro | | ቢራቢሮ
+spider | shereriti | | ሸረሪት
+camel | gimel | | ግመል
+donkey | ahiya | | አህያ
+hyena | jib | | ጅብ
+leopard | nebir | | ነብር
+## Family
+mother | inat | | እናት
+father | abat | | አባት
+sister | ihit | | እህት
+brother | wendim | | ወንድም
+daughter | set lij | | ሴት ልጅ
+son | wend lij | | ወንድ ልጅ
+grandmother | set ayat | | ሴት አያት
+grandfather | wend ayat | | ወንድ አያት
+aunt | aksit | | አክስት
+uncle | agot | | አጎት
+cousin | yeagot lij | | የአጎት ልጅ
+husband | bal | | ባል
+wife | mist | | ሚስት
+friend | gwadegna | | ጓደኛ
+baby | hits'an | | ህጻን
+child | lij | | ልጅ
+man | wend | | ወንድ
+woman | set | | ሴት
+## Food
+bread | dabo | | ዳቦ
+water | wuha | | ውሃ
+milk | wetet | | ወተት
+coffee | buna | | ቡና
+tea | shay | | ሻይ
+juice | jus | | ጁስ
+beer | bira | | ቢራ
+wine | weyin | | ወይን
+egg | inqulal | | እንቁላል
+cheese | ayib | | አይብ
+meat | siga | | ስጋ
+chicken (meat) | yedoro siga | | የዶሮ ስጋ
+fish (food) | asa | | አሳ
+rice | ruz | | ሩዝ
+soup | shorba | | ሾርባ
+salad | selat'a | | ሰላጣ
+potato | dinich | | ድንች
+tomato | timatim | | ቲማቲም
+apple | pom | | ፖም
+banana | muz | | ሙዝ
+orange (fruit) | birtukan | | ብርቱካን
+sugar | sukwar | | ስኳር
+salt | ch'ew | | ጨው
+ice cream | ayis kirem | | አይስ ክሬም
+injera (flatbread) | injera | | እንጀራ
+stew | wet' | | ወጥ
+lentils | misir | | ምስር
+honey | mar | | ማር
+butter | qibe | | ቅቤ
+## Body
+head | ras | | ራስ
+face | fit | | ፊት
+eye | ayin | | አይን
+ear | joro | | ጆሮ
+nose | afinch'a | | አፍንጫ
+mouth | af | | አፍ
+tooth | t'irs | | ጥርስ
+hand | ij | | እጅ
+arm | kind | | ክንድ
+leg / foot | igir | | እግር
+heart | lib | | ልብ
+back | jerba | | ጀርባ
+stomach | hod | | ሆድ
+hair | ts'egur | | ፀጉር
+finger | t'at | | ጣት
+## Home
+house | bet | | ቤት
+room | kifil | | ክፍል
+kitchen | mabsiya bet | | ማብሰያ ቤት
+bathroom | metat'ebiya bet | | መታጠቢያ ቤት
+bedroom | megnta bet | | መኝታ ቤት
+door | ber | | በር
+window | meskot | | መስኮት
+table | t'erep'eza | | ጠረጴዛ
+chair | wenber | | ወንበር
+bed | alga | | አልጋ
+sofa | sofa | | ሶፋ
+lamp | mebrat | | መብራት
+key | qulf | | ቁልፍ
+garden | yeatikilt bota | | የአትክልት ቦታ
+floor | welel | | ወለል
+wall | gidigida | | ግድግዳ
+## Clothes
+shirt | shemiz | | ሸሚዝ
+trousers | suri | | ሱሪ
+dress | qemis | | ቀሚስ
+skirt | gurd qemis | | ጉርድ ቀሚስ
+shoes | ch'ama | | ጫማ
+socks | kalsi | | ካልሲ
+jacket | jaket | | ጃኬት
+coat | kot | | ኮት
+hat | kofiya | | ኮፍያ
+glasses | menets'ir | | መነጽር
+bag | shanit'a | | ሻንጣ
+pocket | kis | | ኪስ
+traditional dress | habesha qemis | | ሀበሻ ቀሚስ
+shawl | net'ela | | ነጠላ
+## Town
+street | menged | | መንገድ
+shop | suq | | ሱቅ
+market | gebeya | | ገበያ
+bank | bank | | ባንክ
+hospital | hospital | | ሆስፒታል
+school | timihirt bet | | ትምህርት ቤት
+station | t'abiya | | ጣቢያ
+airport | ayer marefiya | | አየር ማረፊያ
+bus | awtobus | | አውቶቡስ
+train | babur | | ባቡር
+car | mekina | | መኪና
+bicycle | biskilet | | ብስክሌት
+taxi | taksi | | ታክሲ
+restaurant | restorant | | ሬስቶራንት
+bridge | dildiy | | ድልድይ
+park | menafesha | | መናፈሻ
+city | ketema | | ከተማ
+church | betekirstiyan | | ቤተ ክርስቲያን
+## Time
+day | qen | | ቀን
+night | lelit | | ሌሊት
+morning | t'ewat | | ጠዋት
+afternoon | kese'at | | ከሰዓት
+week | samint | | ሳምንት
+month | wer | | ወር
+year | amet | | አመት
+Monday | segno | | ሰኞ
+Tuesday | maksegno | | ማክሰኞ
+Wednesday | rob | | ረቡዕ
+Thursday | hamus | | ሐሙስ
+Friday | arb | | አርብ
+Saturday | qidame | | ቅዳሜ
+Sunday | ihud | | እሁድ
+January | jenuwari | | ጃንዋሪ
+rainy season (summer) | kiremt | | ክረምት
+dry season | bega | | በጋ
+## Weather and nature
+sun | ts'ehay | | ፀሐይ
+rain | zinab | | ዝናብ
+snow | bereda | | በረዶ
+wind | nefas | | ነፋስ
+cloud | demena | | ደመና
+hot | muqet | | ሙቀት
+cold | qizqaze | | ቅዝቃዜ
+sea | bahir | | ባህር
+river | wenz | | ወንዝ
+mountain | terara | | ተራራ
+tree | zaf | | ዛፍ
+flower | abeba | | አበባ
+sky | semay | | ሰማይ
+lake | hayq | | ሃይቅ
+## Work and school
+teacher | astemari | | አስተማሪ
+student | temari | | ተማሪ
+book | mets'haf | | መጽሐፍ
+pen | iskribito | | እስክሪብቶ
+pencil | irsas | | እርሳስ
+paper | wereqet | | ወረቀት
+computer | kompiwter | | ኮምፒውተር
+phone | silk | | ስልክ
+work | sira | | ስራ
+office | biro | | ቢሮ
+doctor | hakim | | ሐኪም
+police officer | polis | | ፖሊስ
+lesson | timihirt | | ትምህርት
+exam | fetena | | ፈተና
+## Describing
+big | tiliq | | ትልቅ
+small | tinish | | ትንሽ
+good | t'iru | | ጥሩ
+bad | met'fo | | መጥፎ
+new | adis | | አዲስ
+old | yareje | | ያረጀ
+beautiful | qonjo | | ቆንጆ
+ugly | asqeyami | | አስቀያሚ
+fast | fet'an | | ፈጣን
+slow | zegemtegna | | ዘገምተኛ
+easy | qelal | | ቀላል
+difficult | kebad | | ከባድ
+cheap | rikash | | ርካሽ
+expensive | wud | | ውድ
+tall | rejim | | ረጅም
+short | ach'ir | | አጭር
+clean | nits'uh | | ንጹህ
+dirty | qoshasha | | ቆሻሻ
+open (adj.) | kifit | | ክፍት
+closed (adj.) | zig | | ዝግ
+## Common verbs
+> Dictionary form (verbal noun). "To have" has no verb: say "alegn" (there is to me).
+to be | mehon | | መሆን
+to have | alegn | | አለኝ
+to go | mehed | | መሄድ
+to want | mefeleg | | መፈለግ
+to eat | mebelat | | መብላት
+to drink | met'et'at | | መጠጣት
+to speak | menager | | መናገር
+to see | mayet | | ማየት
+to come | memt'at | | መምጣት
+to give | mest'et | | መስጠት
+to know | mawuq | | ማወቅ
+to do / make | madreg | | ማድረግ
+to say | malet | | ማለት
+to like | mewdid | | መውደድ
+to live | menor | | መኖር
+to work | mesrat | | መስራት
+to buy | megzat | | መግዛት
+to read | manbeb | | ማንበብ
+to write | mets'af | | መጻፍ
+to sleep | metegnat | | መተኛት
+to learn | memar | | መማር
+to help | merdat | | መርዳት
+to wait | met'ebeq | | መጠበቅ
+to open | mekfet | | መክፈት
+to close | mezgat | | መዝጋት
+to walk | meramed | | መራመድ
+to sing | mezemer | | መዘመር
+to dance | medenes | | መደነስ
+## School subjects
+maths | hisab | | ሂሳብ
+physics | fiziks | | ፊዚክስ
+chemistry | kemistiri | | ኬሚስትሪ
+biology | bayoloji | | ባዮሎጂ
+history | tarik | | ታሪክ
+geography | jiografi | | ጂኦግራፊ
+literature | sine ts'ihuf | | ስነ ጽሁፍ
+English | englizigna | | እንግሊዝኛ
+foreign languages | yewch' qwanqwawoch | | የውጭ ቋንቋዎች
+art | sine t'ibeb | | ስነ ጥበብ
+music | muziqa | | ሙዚቃ
+PE | sport | | ስፖርት
+computer science | kompiwter sayins | | ኮምፒውተር ሳይንስ
+economics | ikonomiks | | ኢኮኖሚክስ
+law | hig | | ህግ
+philosophy | filsifina | | ፍልስፍና
+psychology | saykoloji | | ሳይኮሎጂ
+science | sayins | | ሳይንስ
+## Classroom
+classroom | yetimihirt kifil | | የትምህርት ክፍል
+desk | yetemari t'erep'eza | | የተማሪ ጠረጴዛ
+board | t'iqur seleda | | ጥቁር ሰሌዳ
+notebook | debter | | ደብተር
+textbook | yetimihirt mets'haf | | የትምህርት መጽሐፍ
+homework | yebet sira | | የቤት ስራ
+test | mukera | | ሙከራ
+grade | dereja | | ደረጃ
+timetable | yetimihirt program | | የትምህርት ፕሮግራም
+break | irift | | እረፍት
+bell | dewel | | ደወል
+ruler | mesmer mawch'a | | መስመር ማውጫ
+rubber | lap'is | | ላጲስ
+rucksack | yetemari shanit'a | | የተማሪ ሻንጣ
+dictionary | mezgebe qalat | | መዝገበ ቃላት
+question | t'iyaqe | | ጥያቄ
+answer | meles | | መልስ
+mistake | sihtet | | ስህተት
+## University
+university | yunivirsiti | | ዩኒቨርሲቲ
+lecture | nigigir | | ንግግር
+professor | professor | | ፕሮፌሰር
+degree | digiri | | ዲግሪ
+scholarship | sikolarship | | ስኮላርሺፕ
+library | bete mets'ahift | | ቤተ መጻሕፍት
+dormitory | yetemariwoch maderiya | | የተማሪዎች ማደሪያ
+campus | kampas | | ካምፓስ
+tuition fees | yetimihirt kifiya | | የትምህርት ክፍያ
+semester | semister | | ሴሚስተር
+course | kors | | ኮርስ
+essay | met'at'if | | መጣጥፍ
+thesis | t'inat | | ጥናት
+diploma | diploma | | ዲፕሎማ
+seminar | seminar | | ሴሚናር
+entrance exam | yemigbiya fetena | | የመግቢያ ፈተና
+application | mamelekecha | | ማመልከቻ
+student card | yetemari metaweqiya | | የተማሪ መታወቂያ
+## School verbs
+> Dictionary form (verbal noun).
+to study | memar | | መማር
+to teach | mastemar | | ማስተማር
+to ask | met'eyeq | | መጠየቅ
+to answer | memeles | | መመለስ
+to repeat | medgem | | መድገም
+to understand | meredat | | መረዳት
+to remember | masetawes | | ማስታወስ
+to forget | mereset | | መርሳት
+to explain | mabrarat | | ማብራራት
+to practise | melememed | | መለማመድ
+to pass an exam | fetena malef | | ፈተና ማለፍ
+to fail an exam | fetena mewdeq | | ፈተና መውደቅ
+to write down | memezgeb | | መመዝገብ
+to listen | madamet' | | ማዳመጥ
+to read aloud | bedimts' manbeb | | በድምጽ ማንበብ
+to think | maseb | | ማሰብ
+to count | mequt'er | | መቁጠር
+to spell | fidel mequt'er | | ፊደል መቁጠር
+to translate | metirgum | | መተርጎም
+to graduate | memeriq | | መመረቅ
+
+[grammar]
+## Pronouns
+> Amharic has three forms of "you": to a man (አንተ), to a woman (አንቺ) and formal (እርስዎ). The verb also changes for each. There is no article.
+row: I | ene | እኔ
+row: you (to a man) | ante | አንተ
+row: you (to a woman) | anchi | አንቺ
+row: you (formal) | irswo | እርስዎ
+row: he | isu | እሱ
+row: she | iswa | እሷ
+row: we | inya | እኛ
+row: you (plural) | inante | እናንተ
+row: they | inesu | እነሱ
+ex: I am a student | ene temari negn | | እኔ ተማሪ ነኝ
+ex: you are tall | ante rejim neh | | አንተ ረጅም ነህ
+ex: she is my sister | iswa ihite nat | | እሷ እህቴ ናት
+ex: we are friends | inya gwadegnamoch nen | | እኛ ጓደኛሞች ነን
+ex: they are teachers | inesu astemariwoch nachew | | እነሱ አስተማሪዎች ናቸው
+ex: I am happy | ene destegna negn | | እኔ ደስተኛ ነኝ
+ex: he is a doctor | isu hakim new | | እሱ ሐኪም ነው
+ex: you all are late | inante zegyitachihwal | | እናንተ ዘግይታችኋል
+## Singular and plural
+> The plural ending is -och (-woch after a vowel). Amharic nouns do not change after a number: hulet mets'haf (two book).
+row: -och | mets'haf → mets'hafoch | መጽሐፍ → መጽሐፎች
+row: -woch (after a vowel) | temari → temariwoch | ተማሪ → ተማሪዎች
+row: after a number | hulet mets'haf | ሁለት መጽሐፍ
+ex: the boy | wend lij | | ወንድ ልጅ
+ex: the girl | set lij | | ሴት ልጅ
+ex: the books | mets'hafoch | | መጽሐፎች
+ex: a red house | qey bet | | ቀይ ቤት
+ex: the cities | ketemoch | | ከተሞች
+ex: one cat, two cats | and dimet, hulet dimet | | አንድ ድመት ሁለት ድመት
+ex: one pen, two pens | and iskribito, hulet iskribito | | አንድ እስክሪብቶ ሁለት እስክሪብቶ
+ex: a lesson, lessons | timihirt, timihirtoch | | ትምህርት ትምህርቶች
+## To be (who or what)
+> The word "to be" is separate. It changes for person: negn (I am), neh (you, man), nesh (you, woman), new (he is), nat (she is), nen (we are), nachihu (you are, plural), nachew (they are).
+row: I am | negn | ነኝ
+row: you are (to a man) | neh | ነህ
+row: you are (to a woman) | nesh | ነሽ
+row: he is | new | ነው
+row: she is | nat | ናት
+row: we are | nen | ነን
+row: you are (plural) | nachihu | ናችሁ
+row: they are | nachew | ናቸው
+ex: I am English | engilizawi negn | | እንግሊዛዊ ነኝ
+ex: he is a doctor | hakim new | | ሐኪም ነው
+ex: it is Monday | zare segno new | | ዛሬ ሰኞ ነው
+ex: we are from Uzbekistan | inya keuzbekistan nen | | እኛ ከኡዝቤኪስታን ነን
+ex: they are tall | rejim nachew | | ረጅም ናቸው
+ex: I am at home | bet negn | | ቤት ነኝ
+ex: where are you? | yet neh? | | የት ነህ?
+ex: we are well | dehna nen | | ደህና ነን
+ex: the soup is cold | shorbaw qezqaza new | | ሾርባው ቀዝቃዛ ነው
+ex: she is tired | dekimwatal | | ደክሟታል
+## Ale: to have and to be there
+> "Alegn" (to me there is) means "I have". It changes: alegn (I), aleh (you, man), alesh (you, woman), alew (he), alat (she), alen (we), alachihu (you pl.), alachew (they). "There is" is ale. Negative: yelem (there is not).
+row: I have | alegn | አለኝ
+row: you have (to a man) | aleh | አለህ
+row: you have (to a woman) | alesh | አለሽ
+row: he has | alew | አለው
+row: she has | alat | አላት
+row: we have | alen | አለን
+row: they have | alachew | አላቸው
+ex: I have a brother | wendim alegn | | ወንድም አለኝ
+ex: she has two cats | hulet dimet alat | | ሁለት ድመት አላት
+ex: we have time | gize alen | | ጊዜ አለን
+ex: they have a car | mekina alachew | | መኪና አላቸው
+ex: there is a lesson today | zare timihirt ale | | ዛሬ ትምህርት አለ
+ex: there is no teacher | astemari yelem | | አስተማሪ የለም
+ex: I have a question | t'iyaqe alegn | | ጥያቄ አለኝ
+ex: I am hungry | rebognal | | ርቦኛል
+## Verbs: present and future
+> The same form is used for habit and future: i-sera-lehu (I work / I will work). The prefixes are: i- (I), ti- (you), yi- (he), ti- (she), in- (we), yi- ... -u (they). For "now", use eye- + verb + new: eyaneb ebku new (I am reading).
+row: I work | iseralehu | እሰራለሁ
+row: you work (man) | tiseraleh | ትሰራለህ
+row: you work (woman) | tiseralesh | ትሰራለሽ
+row: he works | yiseral | ይሰራል
+row: she works | tiseralech | ትሰራለች
+row: we work | inseralen | እንሰራለን
+row: they work | yiseralu | ይሰራሉ
+ex: I work | iseralehu | | እሰራለሁ
+ex: you speak | tinageraleh | | ትናገራለህ
+ex: she reads | tanebalech | | ታነባለች
+ex: we eat | inbelalen | | እንበላለን
+ex: they live in Tashkent | tashkent yinoralu | | ታሽከንት ይኖራሉ
+ex: I am reading now | ahun eyanebebku new | | አሁን እያነበብኩ ነው
+ex: he is sleeping | eyetegna new | | እየተኛ ነው
+ex: I drink tea every day | beyeqenu shay et'et'alehu | | በየቀኑ ሻይ እጠጣለሁ
+## Going: mehed
+> "Mehed" is to go. The forms are ihedalehu (I go), tihedaleh (you go), yihedal (he goes), tihedalech (she goes), inihedalen (we go), yihedalu (they go). "To" is wede.
+row: I go | ihedalehu | እሄዳለሁ
+row: you go (man) | tihedaleh | ትሄዳለህ
+row: he goes | yihedal | ይሄዳል
+row: she goes | tihedalech | ትሄዳለች
+row: we go | inihedalen | እንሄዳለን
+row: they go | yihedalu | ይሄዳሉ
+ex: I am going to school | wede timihirt bet ihedalehu | | ወደ ትምህርት ቤት እሄዳለሁ
+ex: she is going to the shop | wede suq tihedalech | | ወደ ሱቅ ትሄዳለች
+ex: we go to the park | wede menafesha inihedalen | | ወደ መናፈሻ እንሄዳለን
+ex: he goes to work | wede sira yihedal | | ወደ ስራ ይሄዳል
+ex: I am going home | wede bet ihedalehu | | ወደ ቤት እሄዳለሁ
+ex: they are going to the city | wede ketema yihedalu | | ወደ ከተማ ይሄዳሉ
+ex: where are you going? | wede yet tihedaleh? | | ወደ የት ትሄዳለህ?
+ex: I come from London | kelenden imet'alehu | | ከለንደን እመጣለሁ
+ex: she comes from Tashkent | ketashkent timet'alech | | ከታሽከንት ትመጣለች
+## Basic sentences
+> Word order is subject – object – verb. The verb comes last. Adjectives come before nouns. "To be" also comes last.
+row: subject – object – verb | mets'haf ianebalehu | መጽሐፍ አነባለሁ
+row: adjective before noun | tiliq bet | ትልቅ ቤት
+row: time first | nege imarallehu | ነገ እማራለሁ
+ex: I read a book | mets'haf anebalehu | | መጽሐፍ አነባለሁ
+ex: the teacher asks a question | astemariw t'iyaqe yit'eyiqal | | አስተማሪው ጥያቄ ይጠይቃል
+ex: she drinks tea | shay tit'et'alech | | ሻይ ትጠጣለች
+ex: we watch television | televizhin inayalen | | ቴሌቪዥን እናያለን
+ex: I live in Tashkent | tashkent enoralehu | | ታሽከንት እኖራለሁ
+ex: the dog is big | wushaw tiliq new | | ውሻው ትልቅ ነው
+ex: tomorrow I will study | nege imaralehu | | ነገ እማራለሁ
+## Negation
+> A verb is negated with al- at the front and -m at the end: efeligalehu → alefeligim (I do not want). "Is not" is aydelem. "There is none" is yelem. Always compare with the positive form.
+row: not (verb) | al- ... -m | አል- ... -ም
+row: is not | aydelem | አይደለም
+row: there is none | yelem | የለም
+row: no | ay | አይ
+ex: I want | efeligalehu | | እፈልጋለሁ
+ex: I do not want | alefeligim | | አልፈልግም
+ex: I speak English | englizigna enageralehu | | እንግሊዝኛ እናገራለሁ
+ex: I do not speak English | englizigna alenagerim | | እንግሊዝኛ አልናገርም
+ex: I like it | ewedewalehu | | እወደዋለሁ
+ex: I do not like it | alewedewim | | አልወደውም
+ex: she is here | izih nat | | እዚህ ናት
+ex: she is not here | izih aydelechim | | እዚህ አይደለችም
+ex: I have a car | mekina alegn | | መኪና አለኝ
+ex: I do not have a car | mekina yelegnim | | መኪና የለኝም
+ex: I understand | gebtognal | | ገብቶኛል
+ex: I do not understand | algebagnim | | አልገባኝም
+ex: we are tired | dekimonal | | ደክሞናል
+ex: we are not tired | aldekemenim | | አልደከመንም
+ex: he works on Sundays | ihud yiseral | | እሁድ ይሰራል
+ex: he does not work on Sundays | ihud ayiserram | | እሁድ አይሰራም
+ex: he is a student | temari new | | ተማሪ ነው
+ex: he is not a student | temari aydelem | | ተማሪ አይደለም
+ex: I know | awuqalehu | | አውቃለሁ
+ex: I do not know | alawuqim | | አላውቅም
+## Asking questions
+> Yes / no questions have the same word order as a statement. Only the rising tone shows it is a question. Answer with awo (yes) or ay (no).
+row: statement → question | shay tiwedaleh. → shay tiwedaleh? | ሻይ ትወዳለህ። → ሻይ ትወዳለህ?
+ex: is this your book? | yih yante mets'haf new? | | ይህ የአንተ መጽሐፍ ነው?
+ex: are they here? | izih nachew? | | እዚህ ናቸው?
+ex: do you like tea? | shay tiwedaleh? | | ሻይ ትወዳለህ?
+ex: do you speak English? | englizigna tinageraleh? | | እንግሊዝኛ ትናገራለህ?
+ex: is there a bank near here? | izih qirib bank ale? | | እዚህ ቅርብ ባንክ አለ?
+ex: can I come in? | ligba? | | ልግባ?
+ex: are you a student? | temari neh? | | ተማሪ ነህ?
+ex: is the shop open? | suqu kifit new? | | ሱቁ ክፍት ነው?
+## Question words
+row: who | man | ማን
+row: what | min | ምን
+row: where | yet | የት
+row: when | meche | መቼ
+row: why | lemin | ለምን
+row: how | endet | እንዴት
+row: which | yetegnaw | የትኛው
+row: how many | sint | ስንት
+row: whose | yeman | የማን
+ex: who is that? | ya man new? | | ያ ማን ነው?
+ex: what is this? | yih min new? | | ይህ ምን ነው?
+ex: where do you live? | yet tinoraleh? | | የት ትኖራለህ?
+ex: when is the exam? | fetenaw meche new? | | ፈተናው መቼ ነው?
+ex: why are you late? | lemin zegayeh? | | ለምን ዘገየህ?
+ex: how do you say it? | endet yibalal? | | እንዴት ይባላል?
+ex: which book? | yetegnaw mets'haf? | | የትኛው መጽሐፍ?
+ex: how many students are there? | sint temariwoch alu? | | ስንት ተማሪዎች አሉ?
+ex: whose book is this? | yih yeman mets'haf new? | | ይህ የማን መጽሐፍ ነው?
+## Possessives and liking
+> Possessives are endings on the noun: -e (my), -h (your, man), -sh (your, woman), -wo (your, formal), -u (his), -wa (her), -achin (our), -achihu (your, plural), -achew (their). To like: mewdid (to love / like).
+row: my | -e | -ዬ / -ዬ
+row: your (man) | -h | -ህ
+row: your (woman) | -sh | -ሽ
+row: your (formal) | -wo | -ዎ
+row: his | -u | -ው
+row: her | -wa | -ዋ
+row: our | -achin | -ችን
+row: their | -achew | -ቸው
+ex: my phone | silke | | ስልኬ
+ex: your book (formal) | mets'hafwo | | መጽሐፍዎ
+ex: their house | betachew | | ቤታቸው
+ex: I like tea | shay ewedalehu | | ሻይ እወዳለሁ
+ex: she likes music | muziqa tiwedalech | | ሙዚቃ ትወዳለች
+ex: our teacher | astemariyachin | | አስተማሪያችን
+ex: his car | mekinaw | | መኪናው
+ex: I do not like coffee | buna alewedim | | ቡና አልወድም
+## Formal vs informal
+> Use the formal "irswo" for elders and strangers, with the verb in the plural. The ending changes for a man (-h) and a woman (-sh). The command changes too.
+ex: you (informal) are my friend | ante gwadegnaye neh | | አንተ ጓደኛዬ ነህ
+ex: you (formal) are a teacher | irswo astemari newot | | እርስዎ አስተማሪ ነዎት
+ex: how are you? (to a man) | endet neh? | | እንዴት ነህ?
+ex: how are you? (formal) | endet newot? | | እንዴት ነዎት?
+ex: come here (to a man) | na | | ና
+ex: come here (formal) | yimt'u | | ይምጡ
+ex: sit down (to a man) | teqemet' | | ተቀመጥ
+ex: please sit down (formal) | ebakwo yiqemet'u | | እባክዎ ይቀመጡ
+ex: what is your name? (to a man) | simih man new? | | ስምህ ማን ነው?
+ex: what is your name? (formal) | simwo man new? | | ስምዎ ማን ነው?
+## Past and future (simple)
+> Past: the stem + the personal ending -ehu (I): berahu. Future: use the present form. "Was" is neber: dekimogn neber (I was tired).
+row: I did | -ehu | -ሁ
+row: I will | i- ... -alehu | እ- ... -ለሁ
+ex: yesterday I was tired | tinant dekimogn neber | | ትናንት ደክሞኝ ነበር
+ex: I will study tomorrow | nege imaralehu | | ነገ እማራለሁ
+ex: we went to the park | wede menafesha hedin | | ወደ መናፈሻ ሄድን
+ex: I ate | belahu | | በላሁ
+ex: she will come | timet'alech | | ትመጣለች
+ex: they bought it | gezut | | ገዙት
+ex: he called me | dewelelign | | ደወለልኝ
+ex: next week we will travel | bemiqet'ilew samint ingwazalen | | በሚቀጥለው ሳምንት እንጓዛለን
+## Commands
+> The command to one man is the bare stem: na (come). To a woman it ends in -i: ni. To several people: -u. Negative: at- or at- ... -i: atimt'a (do not come).
+ex: come here | izih na | | እዚህ ና
+ex: do not come here | izih atimt'a | | እዚህ አትምጣ
+ex: sit down | teqemet' | | ተቀመጥ
+ex: do not sit down | atiqemet' | | አትቀመጥ
+ex: be quiet | zim bel | | ዝም በል
+ex: do not be late | atizegay | | አትዘግይ
+ex: open the door | berun kifet | | በሩን ክፈት
+ex: close the window | meskotun ziga | | መስኮቱን ዝጋ
+ex: listen to me | simagn | | ስማኝ
+ex: do not worry | atich'eneq | | አትጨነቅ
+ex: speak slowly | bezigita tenager | | በዝግታ ተናገር
+ex: wait a moment | tinish t'ebiq | | ትንሽ ጠብቅ
+## Can, must, want
+> Can: tichilaleh (you can); negative: atichilim. Must: alebign (I must); must not: yelebignim. Want: efeligalehu. These take a verbal noun: mehed (to go).
+ex: I can swim | mewanyet ichilalehu | | መዋኘት እችላለሁ
+ex: I cannot swim | mewanyet alichilim | | መዋኘት አልችልም
+ex: can you help me? | tiredagnaleh? | | ትረዳኛለህ?
+ex: we must go | mehed alebin | | መሄድ አለብን
+ex: we must not go | mehed yelebinim | | መሄድ የለብንም
+ex: I want to eat | mebelat efeligalehu | | መብላት እፈልጋለሁ
+ex: I do not want to eat | mebelat alefeligim | | መብላት አልፈልግም
+ex: you can come | memt'at tichilaleh | | መምጣት ትችላለህ
+ex: you cannot come | memt'at atichilim | | መምጣት አትችልም
+ex: she wants to study | memar tifeligalech | | መማር ትፈልጋለች
+ex: I must work today | zare mesrat alebign | | ዛሬ መስራት አለብኝ
+ex: you must not run | merot' yelebihim | | መሮጥ የለብህም
+## In, on, at
+> Amharic uses words after the noun (postpositions): lay (on), sir (under), wist' (in), at'egeb (next to), qirib (near). Place with "to be" ends the sentence.
+row: on | lay | ላይ
+row: under | sir | ስር
+row: in | wist' | ውስጥ
+row: next to | at'egeb | አጠገብ
+row: near | qirib | ቅርብ
+ex: the book is on the table | mets'hafu t'erep'ezaw lay new | | መጽሐፉ ጠረጴዛው ላይ ነው
+ex: the cat is under the table | dimetwa t'erep'ezaw sir nat | | ድመቷ ጠረጴዛው ስር ናት
+ex: I am at school | timihirt bet negn | | ትምህርት ቤት ነኝ
+ex: I am at home | bet negn | | ቤት ነኝ
+ex: the shop is next to the bank | suqu banku at'egeb new | | ሱቁ ባንኩ አጠገብ ነው
+ex: the park is near the station | menafeshaw ket'abiyaw qirib new | | መናፈሻው ከጣቢያው ቅርብ ነው
+ex: we meet in the morning | t'ewat engenagnalen | | ጠዋት እንገናኛለን
+ex: the lesson is at nine | timihirtu zet'egn se'at lay new | | ትምህርቱ ዘጠኝ ሰዓት ላይ ነው
+ex: the key is in the bag | qulfu shanit'aw wist' new | | ቁልፉ ሻንጣው ውስጥ ነው
+## Comparing things
+> Use ke- (than) before the thing you compare to, and yebelt' (more): ke ya yishalal (it is better than that). "The most" is kehulu (than all).
+row: than | ke- | ከ-
+row: more | yebelt' | የበለጠ
+row: than all | kehulu | ከሁሉ
+ex: big, bigger, the biggest | tiliq, yebelt' tiliq, kehulu yemibelt' tiliq | | ትልቅ የበለጠ ትልቅ ከሁሉ የሚበልጥ ትልቅ
+ex: small, smaller, the smallest | tinish, yebelt' tinish, kehulu tinish | | ትንሽ የበለጠ ትንሽ ከሁሉ ትንሽ
+ex: this is better than that | yih keziya yishalal | | ይህ ከዚያ ይሻላል
+ex: this is worse than that | yih keziya yebase new | | ይህ ከዚያ የባሰ ነው
+ex: she is taller than me | keene tirezimalech | | ከእኔ ትረዝማለች
+ex: Tashkent is bigger than Samarkand | tashkent kesamarkand tibelt'alech | | ታሽከንት ከሳምርካንድ ትበልጣለች
+ex: it is the cheapest | kehulum rikash new | | ከሁሉም ርካሽ ነው
+ex: the same as | lik inde | | ልክ እንደ
+## Moods and wishes
+> "If" is ke- ... -ä ("kehone" = if it is). Let us: in- + verb (inihid). Wishes: melkam (good) + noun.
+row: if | kehone | ከሆነ
+row: let us | in- ... | እን-
+row: good (wish) | melkam | መልካም
+ex: if it rains, I will stay at home | zinab kezenebe bet iqoyalehu | | ዝናብ ከዘነበ ቤት እቆያለሁ
+ex: let us go | inihid | | እንሂድ
+ex: let me help | lirda | | ልርዳ
+ex: have a good trip | melkam guzo | | መልካም ጉዞ
+ex: I hope you get well | indishalih tesfa aderegalehu | | እንዲሻልህ ተስፋ አደርጋለሁ
+ex: if you want, come | kefelegih na | | ከፈለግህ ና
+## Everyday sentences
+ex: he is a teacher | isu astemari new | | እሱ አስተማሪ ነው
+ex: you (plural) are students | inante temariwoch nachihu | | እናንተ ተማሪዎች ናችሁ
+ex: I am happy | ene destegna negn | | እኔ ደስተኛ ነኝ
+ex: she is at school | iswa timihirt bet nat | | እሷ ትምህርት ቤት ናት
+ex: you are my friend | gwadegnaye neh | | ጓደኛዬ ነህ
+ex: it is cold | qezqaza new | | ቀዝቃዛ ነው
+ex: I study English | englizigna imaralehu | | እንግሊዝኛ እማራለሁ
+ex: he teaches maths | hisab yasetemral | | ሂሳብ ያስተምራል
+ex: they work every day | beyeqenu yiseralu | | በየቀኑ ይሰራሉ
+ex: is this your book? | yih yante mets'haf new? | | ይህ የአንተ መጽሐፍ ነው?
+ex: are they here? | izih nachew? | | እዚህ ናቸው?
+ex: do you like tea? | shay tiwedaleh? | | ሻይ ትወዳለህ?
+ex: what time is it? | se'at sint new? | | ሰዓት ስንት ነው?
+ex: whose book is this? | yih yeman mets'haf new? | | ይህ የማን መጽሐፍ ነው?
+ex: how old are you? | edmeh sint new? | | እድሜህ ስንት ነው?
+ex: how do you say it? | endet yibalal? | | እንዴት ይባላል?
+ex: your book (formal) | mets'hafwo | | መጽሐፍዎ
+ex: their house | betachew | | ቤታቸው
+ex: my phone | silke | | ስልኬ
+ex: excuse me, sir | yiqirta getaye | | ይቅርታ ጌታዬ
+ex: please sit down (formal) | ebakwo yiqemet'u | | እባክዎ ይቀመጡ
+ex: come here (informal) | izih na | | እዚህ ና
+ex: yesterday I was tired | tinant dekimogn neber | | ትናንት ደክሞኝ ነበር
+ex: I will study tomorrow | nege imaralehu | | ነገ እማራለሁ
+ex: we went to the park | wede menafesha hedin | | ወደ መናፈሻ ሄድን
