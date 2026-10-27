@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-27T19:45:09.706210Z",
+ "generatedAt": "2026-10-27T23:18:31.746911Z",
  "results": [
   {
    "url": "espn:401874980",
@@ -13,7 +13,7 @@
    "ftAway": 6,
    "homeGoals": [
     {
-     "scorer": "K. Thorstvedt",
+     "scorer": "J. Sutalo (og)",
      "minute": 7
     },
     {
@@ -45,6 +45,80 @@
     {
      "scorer": "T. Noslin",
      "minute": 65
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874780",
+   "date": "2026-10-27",
+   "utc": "2026-10-27T19:45Z",
+   "home": "Roma",
+   "away": "Cagliari",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "E. Lulli",
+     "minute": 15
+    },
+    {
+     "scorer": "N. Pisilli",
+     "minute": 21
+    },
+    {
+     "scorer": "R. Mora",
+     "minute": 85
+    },
+    {
+     "scorer": "D. Malen",
+     "minute": 87
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Nzola (pen)",
+     "minute": 10
+    },
+    {
+     "scorer": "D. Maldini",
+     "minute": 81
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874786",
+   "date": "2026-10-27",
+   "utc": "2026-10-27T19:45Z",
+   "home": "Torino",
+   "away": "Como",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "C. Adams",
+     "minute": 24
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Ramón",
+     "minute": 81
+    },
+    {
+     "scorer": "N. Paz",
+     "minute": 87
+    },
+    {
+     "scorer": "M. Baturina",
+     "minute": "90+2"
     }
    ],
    "competition": "SA",
