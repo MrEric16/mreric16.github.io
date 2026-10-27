@@ -16,7 +16,7 @@ s = open('index.html', encoding='utf8').read()
 s = cut(s, '  /* ===== HALLOWEEN 2026 - self-expires', '/* ===== END HALLOWEEN 2026 ===== */')
 s = cut(s, '// ===== HALLOWEEN 2026: tap surprises', '// ===== END HALLOWEEN 2026 =====')
 # forced-default block
-s = cut(s, '  // HALLOWEEN 2026: everyone starts on Halloween once', '  // END HALLOWEEN 2026')
+s = cut(s, '  // HALLOWEEN 2026: every app open starts on Halloween', '  // END HALLOWEEN 2026')
 # one-liners tagged HALLOWEEN 2026
 out = []
 for line in s.split('\n'):
