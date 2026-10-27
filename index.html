@@ -7556,6 +7556,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-uzbekistan2:not(.dark-mode) .section-head,
   body.usertheme-uzbekistan2:not(.dark-mode) .v-sub,
   body.usertheme-uzbekistan2:not(.dark-mode) .v-hint,
+  body.usertheme-uzbekistan2:not(.dark-mode) .v-meta,
   body.usertheme-uzbekistan2:not(.dark-mode) .story-label,
   body.usertheme-uzbekistan2:not(.dark-mode) .entry-row .tag,
   body.usertheme-uzbekistan2:not(.dark-mode) a.headline,
@@ -7569,6 +7570,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-uzbekistan2:not(.dark-mode) .section-head,
   body.usertheme-uzbekistan2:not(.dark-mode) .v-sub,
   body.usertheme-uzbekistan2:not(.dark-mode) .v-hint{ width:fit-content; max-width:100%; }
+  body.usertheme-uzbekistan2:not(.dark-mode) .v-meta{ gap:12px; }
   body.usertheme-uzbekistan2:not(.dark-mode) .back-link,
   body.usertheme-uzbekistan2:not(.dark-mode) .story-label{ display:inline-block; }
   body.usertheme-uzbekistan2:not(.dark-mode) .section-head h2,
@@ -19231,6 +19233,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Word Forms", emoji: icon('layers'), url: "wordforms.html", internal: false, sameTab: true, kw: ["word form", "word family", "noun verb adjective", "derivation", "suffix", "toefl writing", "ielts writing"], hide: true },
   { name: "Listening", emoji: icon('headphones'), url: "listening.html", internal: false, sameTab: true, kw: ["listening", "ielts listening", "toefl listening", "audio", "dictation", "lecture"] },
   { name: "Reading", emoji: icon('book'), url: "reading.html", internal: false, sameTab: true, kw: ["reading", "ielts reading", "toefl reading", "passage", "true false not given", "matching headings", "comprehension", "skimming", "scanning"] },
+  { name: "Learn a Language", emoji: icon('chatBubble'), url: "languages.html", internal: false, sameTab: true, kw: ["learn a language", "languages", "language", "spanish", "japanese", "arabic", "khaleeji", "german", "french", "italian", "portuguese", "turkish", "korean", "hindi", "latin", "esperanto", "phrases", "foreign language", "travel phrases"] },
   { name: "Speaking", emoji: icon('mic'), url: "speaking.html", internal: false, sameTab: true, kw: ["speaking", "ielts speaking", "cue card", "part 2", "part 1", "record", "toefl speaking"] },
   { name: "Speaking Timer", emoji: icon('hourglass'), url: "speaking-timer.html", internal: false, sameTab: true, hide: true, kw: ["stopwatch", "speaking timer", "prep timer", "prepare", "countdown", "oops", "mistake counter", "speaking mark", "speaking test", "timer", "stopwatch and timer"] },
   { name: "Timer", emoji: icon('hourglass'), url: "mocktimer.html", internal: false, sameTab: true, kw: ["timer", "ielts timer", "toefl timer", "mock test", "countdown", "section timer"] },
@@ -19251,7 +19254,7 @@ const GEO_CAT_FAC = { word: 'travel', language: 'design', geo: 'economics', puzz
 const GEO_HUB_CAT_ORDER = ['word', 'language', 'geo', 'puzzle', 'board', 'card'];
 const GEO_HUB_CATS = {
   word: ['#wordle-game', '#anagram-game', '#hangman-game', '#odd-one-out-game', 'connections.html', 'spellingbee.html', '#nerdle-game', '#xword-game', '#alias-game'],
-  language: ['#grammar-hub', '#vocab-hub', 'reading.html', 'listening.html', 'speaking.html', 'writing-hub.html', 'mocktimer.html', 'amendments.html', '#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'book.html', 'book.html?b=harder', 'book.html?b=grammar', 'grammar.html', 'collocations.html', 'wordforms.html'],
+  language: ['#grammar-hub', '#vocab-hub', 'reading.html', 'listening.html', 'speaking.html', 'languages.html', 'writing-hub.html', 'mocktimer.html', 'amendments.html', '#idiom-match-game', '#antonym-match-game', '#synonym-match-game', '#irregular-verbs', 'vocabulary.html', 'book.html', 'book.html?b=harder', 'book.html?b=grammar', 'grammar.html', 'collocations.html', 'wordforms.html'],
   geo: ['#flag-game', '#capital-game', '#currency-game', '#language-game', '#phrase-lang-game', '#silhouette-game', 'globe.html', 'OpenGuessr', '#higher-lower-game', '#true-false-game'],
   puzzle: ['#mastermind-game', '#lightsout-game', '#hanoi-game', '#2048-game', '#minesweeper-game', '#sudoku-game', '#tetris-game', '#memory-game'],
   board: ['#arcade/chess', '#bt-checkers', '#bt-connect4', '#bt-corners', '#battleship-game'],

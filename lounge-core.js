@@ -21,7 +21,7 @@
   function esc(s){ return String(s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
 
   /* ---------- which keys sync ---------- */
-  var SYNC_RE = /(Best|best|Streak|Wins|Played$|Moves)|^(amendments$|vocabSaved|vocabBest_|bookmarks$|readArticles$|watchedVideos$|visitedFaculties$|unlockedBadges$|longestStreak$|totalActiveTimeMs$|siteOpenCount$|facultyVisitCount$|ggs_|xp\.)/;
+  var SYNC_RE = /(Best|best|Streak|Wins|Played$|Moves)|^(amendments$|vocabSaved|vocabBest_|bookmarks$|readArticles$|watchedVideos$|visitedFaculties$|unlockedBadges$|longestStreak$|totalActiveTimeMs$|siteOpenCount$|facultyVisitCount$|ggs_|lang_|xp\.)/;
   function isSynced(k){
     if(k === 'syncCode' || k === 'syncMeta' || k === 'xp.dev' || k === 'themeChoice' || k === 'darkMode') return false;
     if(/State_v1$/.test(k) || /LastPlayedDate$/.test(k)) return false;
