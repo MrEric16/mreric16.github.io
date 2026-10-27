@@ -1,7 +1,7 @@
 NAME: Korean
 ID: ko
-BADGE: Solid
-NOTE: Written in Latin letters (no Hangul). Standard polite speech (-yo style), as spoken in Seoul. Capitals mark the stress; Korean stress is light, so say every syllable evenly.
+FLAG: kr
+SCRIPT: Hangul
 
 [sounds]
 INTRO: Korean has no tones. These are the sounds that are new for English speakers.
@@ -28,8 +28,6 @@ jj | tense j | jjim (stew)
 ch | ch with a puff of air | chin-gu (friend)
 r / l | between r and l; "r" before a vowel, "l" at the end | ri-bon, mul
 ng | as in "sing"; at the end of a syllable only | ban-gu
-NOTE: Each syllable is a unit. Final consonants are said short and unreleased: "bap" has no puff at the end.
-NOTE: Korean puts the verb at the END of the sentence. Particles mark the role of each word (eun/neun = topic, i/ga = subject, eul/reul = object).
 
 [numbers]
 ## 0 to 10 (native Korean, for counting items and hours)
@@ -604,11 +602,6 @@ row: not (long) | stem + -ji anayo | jee ah-nah-yoh
 row: nothing | amugeotdo | ah-moo-guht-doh
 row: nobody | amudo | ah-moo-doh
 row: never | jeoldae ...ji anayo | juhl-dae
-ex: I do not speak French | peurangseueo-reul an haeyo | peu-rahng-seu-uh-reul ahn hae-yoh
-ex: she does not live here | geunyeo-neun yeogi an sarayo | GEU-nyuh-neun yuh-gee ahn sah-rah-yoh
-ex: I do not want anything | amugeotdo wonhaji anayo | ah-moo-guht-doh wuhn-hah-jee ah-nah-yoh
-ex: nobody is here | yeogi amudo eopseoyo | yuh-gee ah-moo-doh uhp-suh-yoh
-ex: I never eat meat | jeoldae gogi-reul meokji anayo | juhl-dae goh-gee-reul muhk-jee ah-nah-yoh
 ## Asking questions
 > A yes / no question has the same words as a statement, with rising voice. No question word is needed.
 row: statement | Hangugeo-reul haeyo. | hahn-goo-guh-reul hae-yoh

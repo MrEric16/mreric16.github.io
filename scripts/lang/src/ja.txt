@@ -1,7 +1,7 @@
 NAME: Japanese
 ID: ja
-BADGE: Solid
-NOTE: Polite everyday Japanese in Latin letters. Say each syllable evenly.
+FLAG: jp
+SCRIPT: Japanese
 
 [sounds]
 INTRO: Japanese has five pure vowels and very even rhythm. Every syllable gets the same time, with no heavy stress.
@@ -19,9 +19,6 @@ ch, sh, j | like English | chizu, shio, jikan
 g | hard g, as in "go" (many speakers soften it in the middle of words) | gakkou
 doubled consonant (tt, pp, kk, ss) | a tiny pause before it, like saying "hot-tea" | kippu
 n | at the end of a word or before consonants: a hum "n" | hon, kinen
-NOTE: Words are usually spelled in this course the way a Japanese phone keyboard writes them: "ou" for a long o, "uu" for a long u.
-NOTE: Desu and masu are said almost without the final u: "des", "mas".
-NOTE: Japanese has no stress accent like English, but each word has a pitch pattern. Do not worry about it yet.
 
 [numbers]
 ## 0 to 10
@@ -610,11 +607,6 @@ row: eat / do not eat | tabemasu / tabemasen
 row: is / is not | desu / ja arimasen
 row: delicious / not delicious | oishii / oishikunai
 row: did not go | ikimasen deshita
-ex: I do not eat meat | niku wa tabemasen
-ex: it is not a pen | pen ja arimasen
-ex: it is not delicious | oishikunai desu
-ex: I do not understand | wakarimasen
-ex: I did not go yesterday | kinou ikimasen deshita
 ## Asking questions
 > Add ka at the end of the sentence. No word order change, and no question mark is needed.
 row: statement | gakusei desu

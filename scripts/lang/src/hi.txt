@@ -1,7 +1,7 @@
 NAME: Hindi
 ID: hi
-BADGE: Solid
-NOTE: Written in simple Latin letters, no Devanagari. Hindi and Urdu speech are almost the same when spoken. aa = long "ah", ee = long "ee", oo = long "oo", ai = "e" as in "bed", au = "aw". Words with m / n at the end are nasal.
+FLAG: in
+SCRIPT: Devanagari
 
 [sounds]
 INTRO: Hindi spelling in Latin letters is easy to read once you know the special sounds.
@@ -22,8 +22,6 @@ t / d | tongue touches the back of the teeth | tum, dil
 T / D | tongue curled back (retroflex) | Thanda, Dar
 r | quick tap | raat
 n (end) | nasal, say it through the nose | hain
-NOTE: Nouns are masculine or feminine. Verbs and adjectives change with the gender of the person or thing. A man says "main thak gaya hoon", a woman says "main thak gayi hoon".
-NOTE: The verb goes at the end of the sentence. Hindi has postpositions (after the noun): "ghar mein" (house in).
 
 [numbers]
 ## 0 to 10
@@ -592,11 +590,6 @@ row: not | nahin | nuh-HEEN
 row: nothing | kuchh nahin | kooch nuh-HEEN
 row: nobody | koi nahin | KOH-ee nuh-HEEN
 row: never | kabhi nahin | KUB-hee nuh-HEEN
-ex: I do not speak French | main French nahin bolta | main french nuh-HEEN BOHL-taa
-ex: she does not live here | vah yahaan nahin rehti | woh yuh-HAAN nuh-HEEN REH-tee
-ex: I do not want anything | mujhe kuchh nahin chahiye | MOO-jheh kooch nuh-HEEN chaa-HEE-yeh
-ex: nobody is here | yahaan koi nahin hai | yuh-HAAN KOH-ee nuh-HEEN hai
-ex: I never eat meat | main kabhi maans nahin khaata | main KUB-hee maans nuh-HEEN KHAA-taa
 ## Asking questions
 > Put kya at the start for a yes / no question, or raise your voice.
 row: statement | Aap angrezi bolte hain. | aap un-gray-ZEE BOL-teh hain

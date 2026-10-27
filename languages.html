@@ -160,6 +160,9 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-it.on{border-color:var(--teal);}
 .lg-en{font-size:13px;font-weight:700;color:var(--ink-soft);}
 .lg-t{font-size:19px;font-weight:800;line-height:1.3;overflow-wrap:anywhere;}
+.lg-sc{font-size:22px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;}
+.lg-flag{border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.18);flex:none;object-fit:cover;}
+.lg-opt{white-space:pre-line;}
 .lg-s{font-size:13px;font-weight:700;color:var(--ink-soft);}
 .lg-tbl{display:flex;flex-direction:column;gap:6px;}
 .lg-row{background:var(--card);border-radius:12px;padding:9px 14px;display:flex;gap:12px;align-items:baseline;box-shadow:0 2px 0 rgba(58,42,30,.08);}
@@ -239,6 +242,7 @@ function getJson(u){ return fetch(u, { cache: 'no-cache' }).then(function(r){ if
 function award(n, why){ if(window.LoungeXP) LoungeXP.award(n, why); }
 function back(href, text){ return '<a class="back-link" href="' + href + '">← ' + esc(text) + '</a>'; }
 function head(title, sub){ return '<div class="section-head" style="margin-top:8px;"><h2>' + esc(title) + '</h2></div>' + (sub ? '<div class="v-sub">' + esc(sub) + '</div>' : ''); }
+function headF(title, f){ return '<div class="section-head" style="margin-top:8px;"><h2 style="display:flex;align-items:center;gap:10px;">' + flag(f) + esc(title) + '</h2></div>'; }
 function hash32(s){ var h = 5381; for(var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; } return (h >>> 0).toString(36); }
 
 var HUB_BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
@@ -254,7 +258,7 @@ function build(L){
   if(L._b) return L; L._b = true; L.items = []; L.groups = {};
   function addGroup(sec, g){
     var gid = sec + '.' + g.id, list = [];
-    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sec: sec, gid: gid, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
+    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
     L.groups[gid] = { id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
   }
   ['numbers','greetings','phrases','vocab'].forEach(function(sec){ (L[sec] || []).forEach(function(g){ addGroup(sec, g); }); });
@@ -271,9 +275,12 @@ function loadLang(id){
   if(cache[id]) return Promise.resolve(cache[id]);
   return getJson('data/lang/' + id + '.json').then(function(L){ L.id = id; cache[id] = build(L); return cache[id]; });
 }
-function tile(href, title, sub){
-  return '<a class="sport-hub-tile" href="' + href + '"><span class="name" style="flex-direction:column;gap:2px;"><span>' + esc(title) + '</span>' + (sub ? '<span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + esc(sub) + '</span>' : '') + '</span></a>';
+function flag(f){ return f ? '<img class="lg-flag" src="data/lang/flags/' + esc(f) + '.svg" alt="" width="30" height="20">' : ''; }
+function tile(href, title, sub, fl){
+  return '<a class="sport-hub-tile" href="' + href + '"><span class="name" style="' + (fl ? 'flex-direction:row;align-items:center;gap:10px;' : 'flex-direction:column;gap:2px;') + '">' + flag(fl) + '<span style="display:flex;flex-direction:column;gap:2px;"><span>' + esc(title) + '</span>' + (sub ? '<span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + esc(sub) + '</span>' : '') + '</span></span></a>';
 }
+function flagOf(id){ var r = INDEX.filter(function(x){ return x.id === id; })[0]; return r ? r.flag : ''; }
+function disp(o){ return o.t + (o.sc ? '\n' + o.sc : ''); }
 function bar(p){ return '<div class="v-bar"><i style="width:' + Math.round(p) + '%"></i></div>'; }
 
 /* ---- views ---- */
@@ -281,12 +288,12 @@ function hub(){
   var p = lsGet('xp.dev', null);
   app.innerHTML = HUB_BACK + head('Learn a Language') + '<div class="sport-hub-grid">' + INDEX.map(function(x){
     var pr = prog(x.id), n = 0; for(var k in pr){ if(pr[k] >= 3) n++; }
-    return tile('#l/' + x.id, x.name, (n ? Math.min(100, Math.round(n * 100 / x.count)) + '%' : ''));
+    return tile('#l/' + x.id, x.name, (n ? Math.min(100, Math.round(n * 100 / x.count)) + '%' : ''), x.flag);
   }).join('') + '</div>';
 }
 function home(L){
   var learned = counts(L, L.items);
-  app.innerHTML = back('#', 'Back to languages') + head(L.name, L.note || '') +
+  app.innerHTML = back('#', 'Back to languages') + headF(L.name, flagOf(L.id)) +
     '<div class="v-meta"><span>' + learned + ' / ' + L.items.length + ' learned</span></div>' + bar(L.items.length ? learned * 100 / L.items.length : 0) +
     '<div class="sport-hub-grid">' + SECS.filter(function(s){
       if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; return (L[s[0]] || []).length; }).map(function(s){
@@ -312,14 +319,14 @@ function section(L, sec){
 function rowsHtml(items, p){
   return '<div class="lg-list">' + items.map(function(it){
     var ok = (p[it.k] || 0) >= 3;
-    return '<div class="lg-it' + (ok ? ' on' : '') + '"><div class="lg-en">' + esc(it.en) + '</div><div class="lg-t">' + esc(it.t) + '</div>' + (it.s ? '<div class="lg-s">' + esc(it.s) + '</div>' : '') + '</div>'; }).join('') + '</div>';
+    return '<div class="lg-it' + (ok ? ' on' : '') + '"><div class="lg-en">' + esc(it.en) + '</div><div class="lg-t">' + esc(it.t) + '</div>' + (it.sc ? '<div class="lg-sc">' + esc(it.sc) + '</div>' : '') + (it.s ? '<div class="lg-s">' + esc(it.s) + '</div>' : '') + '</div>'; }).join('') + '</div>';
 }
 function group(L, sec, gid, single){
   var G = L.groups[sec + '.' + gid]; if(!G) return home(L);
   var p = prog(L.id), n = counts(L, G.items);
   app.innerHTML = back(single ? '#l/' + L.id : '#l/' + L.id + '/' + sec, single ? L.name : SECS.filter(function(s){ return s[0] === sec; })[0][1]) + head(G.title) +
     (G.note ? '<div class="v-hint">' + esc(G.note) + '</div>' : '') + '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
-    '<div class="v-row" style="margin-bottom:12px;"><button class="v-btn" id="qGo">Quiz this set</button></div>' + rowsHtml(G.items, p);
+    rowsHtml(G.items, p) + '<div class="v-row" style="margin-top:14px;"><button class="v-btn" id="qGo">Quiz this set</button></div>';
   document.getElementById('qGo').onclick = function(){ quiz(L, G.items, '#l/' + L.id + '/' + sec + (single ? '' : '/' + gid), G.title); };
 }
 function grammar(L, lid){
@@ -352,15 +359,15 @@ function pick(L, items, n){
 }
 function makeQ(L, it, pool){
   var f = quizDir === 'f' ? true : quizDir === 'r' ? false : Math.random() < .5;
-  var prompt = f ? it.en : it.t, ans = f ? it.t : it.en, key = f ? 't' : 'en', pk = f ? 'en' : 't';
-  var bad = {}; bad[ans] = 1;
+  var prompt = f ? it.en : it.t, ans = f ? disp(it) : it.en, key = f ? 't' : 'en', pk = f ? 'en' : 't';
+  var bad = {}; bad[f ? it.t : it.en] = 1;
   pool.forEach(function(o){ if(o[pk] === prompt) bad[o[key]] = 1; });
-  function take(arr, out){ shuffle(arr).forEach(function(o){ if(out.length < 3 && !bad[o[key]]){ bad[o[key]] = 1; out.push(o[key]); } }); }
+  function take(arr, out){ shuffle(arr).forEach(function(o){ if(out.length < 3 && !bad[o[key]]){ bad[o[key]] = 1; out.push(f ? disp(o) : o.en); } }); }
   var out = [];
   take(L.groups[it.gid].items, out);
   if(out.length < 3) take(L.items.filter(function(o){ return o.sec === it.sec; }), out);
   if(out.length < 3) take(L.items, out);
-  return { it: it, f: f, prompt: prompt, ans: ans, hint: f ? '' : it.s, opts: shuffle(out.concat([ans])) };
+  return { it: it, f: f, prompt: prompt, ans: ans, hint: f ? '' : it.s, psc: f ? '' : it.sc, opts: shuffle(out.concat([ans])) };
 }
 function quiz(L, items, backHash, title){
   if(items.length < 4){ app.innerHTML = back(backHash, 'Back') + '<div class="v-hint">Not enough items.</div>'; return; }
@@ -370,15 +377,15 @@ function quiz(L, items, backHash, title){
     if(i >= qs.length) return end();
     var q = qs[i];
     app.innerHTML = back(backHash, 'Quit') + '<div class="v-meta"><span>' + esc(title) + '</span><span>' + (i + 1) + ' / ' + qs.length + '</span></div>' + bar(i * 100 / qs.length) +
-      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.name) : esc(L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + '</div>' + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
-      '<div class="v-opts">' + q.opts.map(function(o, n){ return '<button class="v-opt" data-n="' + n + '">' + esc(o) + '</button>'; }).join('') + '</div><div id="fb"></div>';
+      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.name) : esc(L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + '</div>' + (q.psc ? '<div class="v-word" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
+      '<div class="v-opts">' + q.opts.map(function(o, n){ return '<button class="v-opt lg-opt" data-n="' + n + '">' + esc(o) + '</button>'; }).join('') + '</div><div id="fb"></div>';
     var done = false;
     Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(b){ b.onclick = function(){
       if(done) return; done = true;
       var o = q.opts[+b.getAttribute('data-n')], ok = o === q.ans, p = prog(L.id), box = p[q.it.k] || 0;
-      if(ok){ score++; if(box < 5) xp++; setBox(L.id, q.it.k, Math.min(5, box + 1)); } else { missed.push(q.it); if(window.LoungeAmend) LoungeAmend.add(q.it.t, q.it.en + (q.it.s ? '  \u2022  ' + q.it.s : ''), L.name); setBox(L.id, q.it.k, Math.max(0, box - 1)); }
+      if(ok){ score++; if(box < 5) xp++; setBox(L.id, q.it.k, Math.min(5, box + 1)); } else { missed.push(q.it); if(window.LoungeAmend) LoungeAmend.add(q.it.t + (q.it.sc ? ' ' + q.it.sc : ''), q.it.en + (q.it.s ? '  \u2022  ' + q.it.s : ''), L.name); setBox(L.id, q.it.k, Math.max(0, box - 1)); }
       Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(x){ var v = q.opts[+x.getAttribute('data-n')]; if(v === q.ans) x.classList.add('ok'); else if(x === b) x.classList.add('bad'); });
-      var show2 = q.f ? q.it.t + (q.it.s ? '  •  ' + q.it.s : '') : q.it.en;
+      var show2 = q.f ? q.it.t + (q.it.sc ? '  \u2022  ' + q.it.sc : '') + (q.it.s ? '  •  ' + q.it.s : '') : q.it.en;
       document.getElementById('fb').innerHTML = '<div class="v-hint" style="font-size:14px;">' + (ok ? 'Correct. ' : 'Answer: ') + esc(show2) + '</div><button class="v-btn" id="nx">' + (i + 1 < qs.length ? 'Next' : 'Finish') + '</button>';
       document.getElementById('nx').onclick = function(){ i++; show(); };
     }; });
@@ -386,7 +393,7 @@ function quiz(L, items, backHash, title){
   function end(){
     var bonus = score === qs.length ? 5 : 0; if(xp + bonus > 0) award(xp + bonus, 'language');
     app.innerHTML = back(backHash, 'Back') + head('Done') + '<div class="v-card"><div class="v-big">' + score + ' / ' + qs.length + '</div></div>' +
-      (missed.length ? '<div class="v-hint">Missed</div>' + missed.map(function(m){ return '<div class="v-miss"><b>' + esc(m.t) + '</b><div>' + esc(m.en) + (m.s ? '  •  ' + esc(m.s) : '') + '</div></div>'; }).join('') : '') +
+      (missed.length ? '<div class="v-hint">Missed</div>' + missed.map(function(m){ return '<div class="v-miss"><b>' + esc(m.t + (m.sc ? '  ' + m.sc : '')) + '</b><div>' + esc(m.en) + (m.s ? '  •  ' + esc(m.s) : '') + '</div></div>'; }).join('') : '') +
       '<div class="v-row" style="margin-top:12px;"><button class="v-btn" id="again">Again</button></div>';
     document.getElementById('again').onclick = function(){ quiz(L, items, backHash, title); };
   }

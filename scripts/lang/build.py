@@ -8,17 +8,23 @@ SRC = os.path.join(ROOT, 'scripts', 'lang', 'src'); OUT = os.path.join(ROOT, 'da
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 def parts(s): return [x.strip() for x in s.split('|')]
 def parse(path):
+    import tempfile
+    base = path[:-4]; adds = sorted(glob.glob(base + '.add*.txt'))
+    if adds:
+        txt = open(path, encoding='utf-8').read().rstrip('\n') + '\n'
+        for a in adds: txt += open(a, encoding='utf-8').read().rstrip('\n') + '\n'
+        tmp = tempfile.NamedTemporaryFile('w', suffix='.txt', delete=False, encoding='utf-8'); tmp.write(txt); tmp.close(); path = tmp.name
     L = {'sounds': None, 'numbers': [], 'greetings': [], 'phrases': [], 'vocab': [], 'grammar': []}
     sec = None; cur = None
     for n, raw in enumerate(open(path, encoding='utf-8'), 1):
         line = raw.rstrip('\n')
         if not line.strip() or line.startswith('//'): continue
-        m = re.match(r'^(NAME|ID|BADGE|NOTE):\s*(.*)$', line)
+        m = re.match(r'^(NAME|ID|BADGE|NOTE|FLAG|SCRIPT):\s*(.*)$', line)
         if m and sec is None: L[m.group(1).lower()] = m.group(2).strip(); continue
         m = re.match(r'^\[(\w+)\]$', line.strip())
         if m:
             sec = m.group(1); cur = None
-            if sec == 'sounds': L['sounds'] = {'intro': '', 'rows': [], 'notes': []}
+            if sec == 'sounds' and not L['sounds']: L['sounds'] = {'intro': '', 'rows': [], 'notes': []}
             continue
         if sec == 'sounds':
             if line.startswith('INTRO:'): L['sounds']['intro'] = line[6:].strip()
@@ -27,6 +33,8 @@ def parse(path):
             continue
         if line.startswith('## '):
             t = line[3:].strip()
+            old = [x for x in L[sec] if x['id'] == slug(t)]
+            if old: cur = old[0]; continue
             if sec == 'grammar': cur = {'id': slug(t), 'title': t, 'text': [], 'rows': [], 'ex': []}
             else: cur = {'id': slug(t), 'title': t, 'items': []}
             L[sec].append(cur); continue
@@ -46,17 +54,48 @@ def parse(path):
             if len(p) < 2 or not p[0] or not p[1]: raise SystemExit('%s:%d bad item: %s' % (path, n, line))
             cur['items'].append(p)
     return L
+def clean(p):
+    while p and p[-1] == '': p.pop()
+    return p
+def script_map(L, path):
+    sm = {}
+    if os.path.exists(path):
+        for raw in open(path, encoding='utf-8'):
+            if '=>' in raw and not raw.startswith('//'):
+                a, b = raw.rstrip('\n').split('=>', 1); sm[a.strip()] = b.strip()
+    missing = set()
+    def fix(p):
+        if len(p) >= 4 and p[3]: return
+        sc = sm.get(p[1])
+        if sc:
+            while len(p) < 3: p.append('')
+            if len(p) == 3: p.append(sc)
+            else: p[3] = sc
+        else: missing.add(p[1])
+    for sec in ('numbers', 'greetings', 'phrases', 'vocab'):
+        for g in L[sec]:
+            for it in g['items']: fix(it)
+    for les in L['grammar']:
+        for it in les['ex']: fix(it)
+    return missing
 def main():
     os.makedirs(OUT, exist_ok=True); idx = []
-    for f in sorted(glob.glob(os.path.join(SRC, '*.txt'))):
+    for f in sorted([x for x in glob.glob(os.path.join(SRC, '*.txt')) if not x.endswith('.script.txt') and '.add' not in os.path.basename(x)]):
         L = parse(f)
         for g in ('numbers', 'greetings', 'phrases', 'vocab'):
             ids = [x['id'] for x in L[g]]
             assert len(ids) == len(set(ids)), (f, g, 'duplicate group')
         if not L['sounds']: L['sounds'] = None
+        L['note'] = ''
+        miss = set()
+        if L.get('script'):
+            miss = script_map(L, f[:-4] + '.script.txt')
+            if miss:
+                open('/tmp/al/missing_%s.txt' % L['id'], 'w', encoding='utf-8').write('\n'.join(sorted(miss)))
+                print('  MISSING SCRIPT', L['id'], len(miss))
         cnt = sum(len(g['items']) for s in ('numbers', 'greetings', 'phrases', 'vocab') for g in L[s]) + sum(len(l['ex']) for l in L['grammar'])
         json.dump(L, open(os.path.join(OUT, L['id'] + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
-        idx.append({'id': L['id'], 'name': L['name'], 'badge': L['badge'], 'count': cnt})
+        idx.append({'id': L['id'], 'name': L['name'], 'flag': L.get('flag', ''), 'script': bool(L.get('script')), 'count': cnt})
         print(L['id'], cnt)
     idx.sort(key=lambda x: x['name'])
     json.dump(idx, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, separators=(',', ':'))

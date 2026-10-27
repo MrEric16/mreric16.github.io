@@ -1,0 +1,11 @@
+# Learn a Language: standing rules (Mr Eric, 28 Oct 2026). READ THIS AFTER ANY CONTEXT RESET.
+Mr Eric is away for hours; he wants EVERYTHING live and pushed before he gets a report. Do not ask questions unless truly stuck (then ask clearly, do not improvise).
+- Header note under language name: NOT shown (done in engine). "Quiz this set" at BOTTOM of a group page (done).
+- Flags next to each language (data/lang/flags/*.svg, header `FLAG: xx` in src). Khaleeji=ae, Portuguese=pt (Portugal), Spanish=es.
+- Languages with own script (Khaleeji, Japanese, Korean, Hindi, Farsi, Hebrew, Amharic, Aramaic, Chagatai, Classical Mongolian): 3 layers = English / Latin transliteration / original script. Ukrainian, Mongolian, Tatar = Cyrillic is native, only 2 layers. Script goes in src/<id>.script.txt as `translit => script` (map by exact target string) or as 4th field `en | t | say | script`.
+- Negative phrases: always show the affirmative too (I want / I do not want) -> grammar Negation lesson in PAIRS.
+- Expand pools: Spanish is the benchmark for topics/pool sizes. Every language gets the PACK (scripts/lang/pack_en.txt): School subjects, Classroom, University, School verbs (vocab); In the classroom, Phone and internet, Opinions and plans, Dates and time (phrases); extra grammar examples, new lessons (Commands, Can must want, In on at, Comparing), Negation in pairs. Grammar pools >= 8 examples per lesson (Arabic was only 5).
+- Add files: src/<id>.add.txt is merged into src/<id>.txt by build.py (repeated sections / same-titled groups merge).
+- Pipeline: python3 scripts/lang/build.py ; Playwright check /tmp/al/all.js (list of ids) ; bump sw.js CACHE_NAME ; commit with trailers (Co-Authored-By: Claude Sonnet 5.5 + Claude-Session) ; git pull --rebase origin main ; push as separate command. Final reply ends "Close and reopen the app."
+- Languages still to write fully (after upgrading existing 15): he (Hebrew modern), la (Latin), eo (Esperanto), tok (Toki Pona), eu (Basque Batua), tt (Tatar Kazan, Cyrillic), mn (Mongolian Khalkha, Cyrillic), xh (Xhosa, clicks), am (Amharic), chg (Chagatai), arc (Aramaic Jesus-era, reconstructed), cmn (Classical Mongolian), shk (Shakespearean English).
+- Labels: "Portuguese", "Spanish", "Khaleeji Arabic". No Mandarin/Russian. British English in all English text.
