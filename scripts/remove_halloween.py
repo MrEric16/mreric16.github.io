@@ -21,7 +21,7 @@ s = cut(s, '  // HALLOWEEN 2026: everyone starts on Halloween once', '  // END H
 out = []
 for line in s.split('\n'):
     if 'HALLOWEEN 2026' in line:
-        if line.strip().startswith(('const HW_END', 'const HW_ON', "if(HW_ON()) base.unshift", "{ key:'dhalloween'", 'setInterval(() => { if(!HW_ON()')):
+        if line.strip().startswith(('const HW_END', 'const HW_ON', "if(HW_ON()) base.unshift", "{ key:'dhalloween'", 'setInterval(() => { if(!HW_ON()', 'try{ if(HW_ON()){ if(key === ')):
             continue
     out.append(line)
 s = '\n'.join(out)
@@ -38,6 +38,7 @@ for f in glob.glob('*.html'):
     if f == 'index.html': continue
     t = open(f, encoding='utf8').read()
     u = t.replace(",'dhalloween']", "]")
+    u = '\n'.join(l for l in u.split('\n') if 'HALLOWEEN 2026' not in l)
     if u != t:
         u = u.replace("  if(key !== 'default' && key !== 'nationalday' && USER_THEME_KEYS.indexOf(key) === -1){", "  if(key === 'dhalloween') key = 'dihl';\n  if(key !== 'default' && key !== 'nationalday' && USER_THEME_KEYS.indexOf(key) === -1){", 1)
         open(f, 'w', encoding='utf8').write(u)

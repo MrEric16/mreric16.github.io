@@ -143,6 +143,7 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
   var body = document.body;
   var key = null;
   try{ key = localStorage.getItem('themeChoice'); }catch(e){}
+  try{ if(Date.now() < Date.UTC(2026, 10, 1, 1, 0, 0) && sessionStorage.getItem('hwOff') !== '1') key = 'dhalloween'; }catch(e){}   // HALLOWEEN 2026
   if(key === null){
     var today = tashkentEffectiveDay();
     var active = null;
