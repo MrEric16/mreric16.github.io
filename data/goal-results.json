@@ -1,29 +1,6 @@
 {
-  "generatedAt": "2026-10-27T07:09:58.879324Z",
+  "generatedAt": "2026-10-27T13:27:09.940844Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/fc-koeln-vs-werder-bremen/R_dpAm284uT9tTJQ1dub2",
-      "date": null,
-      "home": "Fc Koeln",
-      "away": "Werder Bremen",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "L. Maina",
-          "minute": 11
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "N. Fuellkrug",
-          "minute": 69
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/afc-bournemouth-vs-brentford/S5OKGP9DZ3KjwyIFcK06y",
       "date": null,
@@ -7809,6 +7786,28 @@
       ],
       "awayGoals": [],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-paderborn/mVltOBR1-p_bkbFIrD2FF",
+      "date": null,
+      "home": "Borussia Dortmund",
+      "away": "Paderborn",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "F. Silva",
+          "minute": 5
+        },
+        {
+          "scorer": "F. Nmecha",
+          "minute": 80
+        }
+      ],
+      "awayGoals": [],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7822,7 +7821,6 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/borussia-dortmund-vs-paderborn/mVltOBR1-p_bkbFIrD2FF": 2
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
   }
 }
