@@ -1,47 +1,6 @@
 {
-  "generatedAt": "2026-10-28T01:57:42.778752Z",
+  "generatedAt": "2026-10-28T07:53:20.634106Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/osasuna-vs-espanyol/WzK-gU-bYMDziDpYFmoWJ",
-      "date": null,
-      "home": "Osasuna",
-      "away": "Espanyol",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "R. Fernandez",
-          "minute": 3
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/hoffenheim-vs-vfb-stuttgart/EO224FUoX98HZEVidlKXH",
-      "date": null,
-      "home": "Hoffenheim",
-      "away": "Vfb Stuttgart",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Hlozek",
-          "minute": 13
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Mittelstaedt",
-          "minute": 48
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/freiburg-vs-borussia-moenchengladbach/5dheouRu191iHNvjUU6Nm",
       "date": null,
@@ -7825,6 +7784,80 @@
         }
       ],
       "competition": "arsenal-friendlies"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sassuolo-vs-lazio/MLshQjMpMusfXiX1CqfNV",
+      "date": "2026-10-27",
+      "home": "Sassuolo",
+      "away": "Lazio",
+      "htHome": 2,
+      "htAway": 4,
+      "ftHome": 2,
+      "ftAway": 6,
+      "homeGoals": [
+        {
+          "scorer": "J. Sutalo",
+          "minute": 7
+        },
+        {
+          "scorer": "S. Esposito",
+          "minute": 43
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "K. Taylor",
+          "minute": 2
+        },
+        {
+          "scorer": "G. Isaksen",
+          "minute": 13
+        },
+        {
+          "scorer": "R. Floriani Mussolini",
+          "minute": 16
+        },
+        {
+          "scorer": "M. Zaccagni",
+          "minute": 45
+        },
+        {
+          "scorer": "T. Noslin",
+          "minute": 56
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/BmkJjZVzBCA5qpSE8eigi",
+      "date": "2026-10-27",
+      "home": "Borussia Dortmund",
+      "away": "Werder Bremen",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "S. Guirassy",
+          "minute": 6
+        },
+        {
+          "scorer": "C. Chukwuemeka",
+          "minute": 17
+        },
+        {
+          "scorer": "M. Sabitzer",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "N. Fuellkrug",
+          "minute": 65
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7838,8 +7871,6 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/sassuolo-vs-lazio/MLshQjMpMusfXiX1CqfNV": 2,
-    "https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/BmkJjZVzBCA5qpSE8eigi": 2
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
   }
 }
