@@ -1,0 +1,889 @@
+NAME: Uyghur
+ID: ug
+FLAG: ug
+SCRIPT: Arabic
+
+[sounds]
+INTRO: Uyghur is written right to left in an Arabic-based alphabet that marks every vowel. The Latin shown is the Uyghur Latin spelling. There are no genders and no articles. The stress is usually on the last syllable.
+a / e | "a" like "father" and "e" like "bed" | ata, ete
+é | a close "ay", like "day" without the "y" | élip
+i | a short "ih", like "sit" | ikki
+o / u | rounded back vowels | ot, ulugh
+ö | say "oh" with rounded lips, like German "ö" | öy
+ü | say "ee" with rounded lips, like German "ü" | yüz
+gh | a gargled French "r" | tagh
+q | a "k" made far back in the throat | qiz
+x | kh, like "ch" in Scottish "loch" | xeyr
+ng | like "ng" in "sing" | ming
+zh | like "s" in "measure" | zhurnal
+NOTE: Vowel harmony: back vowels (a, i, o, u) and front vowels (e, é, ö, ü) are not mixed in one word. Suffixes follow the same rule.
+NOTE: The Arabic-script line is written by rule from the Latin. Where a word starts with a vowel, the script shows the letter hamza first.
+
+[numbers]
+## 0 to 10
+zero | nol | nol | نول
+one | bir | beer | بىر
+two | ikki | ik-KEE | ئىككى
+three | üch | ewch | ئۈچ
+four | töt | tut | تۆت
+five | besh | besh | بەش
+six | alte | al-TEH | ئالتە
+seven | yette | yet-TEH | يەتتە
+eight | sekkiz | sek-KEEZ | سەككىز
+nine | toqquz | tok-KOOZ | توققۇز
+ten | on | on | ئون
+## 11 to 20
+eleven | on bir | on BEER | ئون بىر
+twelve | on ikki | on ik-KEE | ئون ئىككى
+thirteen | on üch | on EWCH | ئون ئۈچ
+fourteen | on töt | on TUT | ئون تۆت
+fifteen | on besh | on BESH | ئون بەش
+sixteen | on alte | on al-TEH | ئون ئالتە
+seventeen | on yette | on yet-TEH | ئون يەتتە
+eighteen | on sekkiz | on sek-KEEZ | ئون سەككىز
+nineteen | on toqquz | on tok-KOOZ | ئون توققۇز
+twenty | yigirme | yee-geer-MEH | يىگىرمە
+## Tens and big numbers
+twenty-one | yigirme bir | yee-geer-MEH BEER | يىگىرمە بىر
+thirty | ottuz | ot-TOOZ | ئوتتۇز
+forty | qiriq | kee-REEK | قىرىق
+fifty | ellik | el-LEEK | ئەللىك
+sixty | atmish | at-MEESH | ئاتمىش
+seventy | yetmish | yet-MEESH | يەتمىش
+eighty | seksen | sek-SEN | سەكسەن
+ninety | toqsan | tok-SAN | توقسان
+one hundred | yüz | yewz | يۈز
+two hundred | ikki yüz | ik-KEE YEWZ | ئىككى يۈز
+one thousand | ming | ming | مىڭ
+two thousand | ikki ming | ik-KEE MING | ئىككى مىڭ
+ten thousand | on ming | on MING | ئون مىڭ
+one hundred thousand | yüz ming | yewz MING | يۈز مىڭ
+one million | milyon | meel-YON | مىليون
+one billion | milyard | meel-YARD | مىليارد
+## Order and amounts
+first | birinchi | bee-reen-CHEE | بىرىنچى
+second | ikkinchi | ik-keen-CHEE | ئىككىنچى
+third | üchinchi | ew-cheen-CHEE | ئۈچىنچى
+half | yérim | yay-REEM | يېرىم
+a few | birnechche | beer-nech-CHEH | بىرنەچچە
+many | köp | kup | كۆپ
+a pair | bir jüp | beer JEWP | بىر جۈپ
+how many? | qanche? | kan-CHEH | قانچە؟
+[greetings]
+## Hello and goodbye
+hello | salam | sah-LAM | سالام
+hello (formal, with respect) | esselamu eleykum | es-sah-LAH-moo eh-LAY-koom | ئەسسەلامۇ ئەلەيكۇم
+reply to the formal hello | we eleykum esselam | veh eh-LAY-koom es-sah-LAM | ۋە ئەلەيكۇم ئەسسەلام
+good morning | xeyrlik etigen | khayr-LEEK eh-tee-GEN | خەيرلىك ئەتىگەن
+good day | xeyrlik kün | khayr-LEEK kewn | خەيرلىك كۈن
+good evening | xeyrlik kech | khayr-LEEK kech | خەيرلىك كەچ
+good night | yaxshi yétip uxlang | yakh-SHEE yay-TEEP ookh-LANG | ياخشى يېتىپ ئۇخلاڭ
+goodbye | xosh | khosh | خوش
+see you later | keyin körüshimiz | kay-YIN kuh-rew-shee-MEEZ | كەيىن كۆرۈشىمىز
+see you tomorrow | ete körüshimiz | eh-TEH kuh-rew-shee-MEEZ | ئەتە كۆرۈشىمىز
+## Meeting people
+how are you? (informal) | yaxshimusen? | yakh-shee-moo-SEN | ياخشىمۇسەن؟
+how are you? (formal) | yaxshimusiz? | yakh-shee-moo-SEEZ | ياخشىمۇسىز؟
+I am fine, thanks | yaxshi, rehmet | yakh-SHEE reh-MET | ياخشى، رەھمەت
+and you? | özüngiz zadi? | uh-zewn-GEEZ zah-DEE | ئۆزۈڭىز زادى؟
+not bad | yaman emes | yah-MAN eh-MES | يامان ئەمەس
+what is your name? (informal) | isming néme? | ees-MEENG neh-MEH | ئىسمىڭ نېمە؟
+what is your name? (formal) | ismingiz néme? | ees-meen-GEEZ neh-MEH | ئىسمىڭىز نېمە؟
+my name is... | méning ismim... | may-NEENG ees-MEEM | مېنىڭ ئىسمىم...
+nice to meet you | tonushqinimdin xush boldum | toh-noosh-kee-neem-DEEN khoosh bol-DOOM | تونۇشقىنىمدىن خۇش بولدۇم
+where are you from? (informal) | qeyerliksen? | keh-yer-leek-SEN | قەيەرلىكسەن؟
+where are you from? (formal) | qeyerliksiz? | keh-yer-leek-SEEZ | قەيەرلىكسىز؟
+I am from England | men an'gliyelikmen | men ahn-glee-yeh-leek-MEN | مەن ئانگلىيەلىكمەن
+## Politeness
+please | iltimas | eel-tee-MAS | ئىلتىماس
+thank you | rehmet | reh-MET | رەھمەت
+thank you very much | chong rehmet | chong reh-MET | چوڭ رەھمەت
+you are welcome | héchnéme emes | hech-neh-MEH eh-MES | ھېچنېمە ئەمەس
+excuse me | keching | keh-CHEENG | كەچىڭ
+sorry | ependim | eh-pen-DEEM | ئەپەندىم
+yes | ya | yah | يا
+no | yaq | yahk | ياق
+congratulations | tebrikleymen | teb-ree-kley-MEN | تەبرىكلەيمەن
+good luck | omet tileymen | oh-MET tee-ley-MEN | ئومەت تىلەيمەن
+happy birthday | tughulghan kününgiz mubarek | too-ghool-GHAN kew-newn-GEEZ moo-bah-REK | تۇغۇلغان كۈنۈڭىز مۇبارەك
+cheers | salametlikingiz üchün | sah-lah-met-lee-keen-GEEZ ew-CHEWN | سالامەتلىكىڭىز ئۈچۈن
+[phrases]
+## Essential phrases
+hello | salam | sah-LAM | سالام
+goodbye | xosh | khosh | خوش
+please | iltimas | eel-tee-MAS | ئىلتىماس
+thank you | rehmet | reh-MET | رەھمەت
+you are welcome | héchnéme emes | hech-neh-MEH eh-MES | ھېچنېمە ئەمەس
+yes | ya | yah | يا
+no | yaq | yahk | ياق
+excuse me | keching | keh-CHEENG | كەچىڭ
+sorry | ependim | eh-pen-DEEM | ئەپەندىم
+I do not understand | chüshenmeymen | chew-shen-may-MEN | چۈشەنمەيمەن
+do you speak English? | siz in'glizche sözliyeleysizmu? | seez een-gleez-CHEH suz-lee-yeh-ley-seez-MOO | سىز ئىنگلىزچە سۆزلىيەلەيسىزمۇ؟
+speak slowly, please | astraq sözlisingiz, iltimas | as-TRAHK suz-lee-seen-GEEZ eel-tee-MAS | ئاستراق سۆزلىسىڭىز، ئىلتىماس
+can you help me? | manga yardem qilalaysizmu? | mahn-GAH yar-DEM kee-lah-lay-seez-MOO | ماڭا ياردەم قىلالايسىزمۇ؟
+where is the toilet? | hajetxana qeyerde? | hah-jet-khah-NAH keh-yer-DEH | ھاجەتخانا قەيەردە؟
+how much is it? | bahasi qanche? | bah-hah-SEE kan-CHEH | باھاسى قانچە؟
+I would like... | men ... xalaymen | men khah-lay-MEN | مەن ... خالايمەن
+I need... | manga ... kérek | mahn-GAH kay-REK | ماڭا ... كېرەك
+my name is... | méning ismim... | may-NEENG ees-MEEM | مېنىڭ ئىسمىم...
+I am lost | men yolumdin ézip qaldim | men yo-loom-DEEN ay-ZEEP kal-DEEM | مەن يولۇمدىن ئېزىپ قالدىم
+what is this? | bu néme? | boo neh-MEH | بۇ نېمە؟
+I do not know | bilmeymen | beel-may-MEN | بىلمەيمەن
+that is OK | boldi | bol-DEE | بولدى
+## Formal and informal
+how are you? (informal) | yaxshimusen? | yakh-shee-moo-SEN | ياخشىمۇسەن؟
+how are you? (formal) | yaxshimusiz? | yakh-shee-moo-SEEZ | ياخشىمۇسىز؟
+what is your name? (informal) | isming néme? | ees-MEENG neh-MEH | ئىسمىڭ نېمە؟
+what is your name? (formal) | ismingiz néme? | ees-meen-GEEZ neh-MEH | ئىسمىڭىز نېمە؟
+do you speak English? (informal) | sen in'glizche sözliyeleysenmu? | sen een-gleez-CHEH suz-lee-yeh-ley-sen-MOO | سەن ئىنگلىزچە سۆزلىيەلەيسەنمۇ؟
+do you speak English? (formal) | siz in'glizche sözliyeleysizmu? | seez een-gleez-CHEH suz-lee-yeh-ley-seez-MOO | سىز ئىنگلىزچە سۆزلىيەلەيسىزمۇ؟
+where are you from? (informal) | qeyerliksen? | keh-yer-leek-SEN | قەيەرلىكسەن؟
+where are you from? (formal) | qeyerliksiz? | keh-yer-leek-SEEZ | قەيەرلىكسىز؟
+can you help me? (informal) | manga yardem qilalaysenmu? | mahn-GAH yar-DEM kee-lah-lay-sen-MOO | ماڭا ياردەم قىلالايسەنمۇ؟
+can you help me? (formal) | manga yardem qilalaysizmu? | mahn-GAH yar-DEM kee-lah-lay-seez-MOO | ماڭا ياردەم قىلالايسىزمۇ؟
+hi (informal) | salam | sah-LAM | سالام
+hello (formal) | esselamu eleykum | es-sah-LAH-moo eh-LAY-koom | ئەسسەلامۇ ئەلەيكۇم
+bye (informal) | xosh | khosh | خوش
+goodbye (formal) | xosh, saq bolung | khosh sahk bo-LOONG | خوش، ساق بولۇڭ
+## Survival
+I understand | chüshinimen | chew-shee-nee-MEN | چۈشىنىمەن
+I speak a little Uyghur | men azraq uyghurche sözleymen | men az-RAHK oo-ghoor-CHEH suz-ley-MEN | مەن ئازراق ئۇيغۇرچە سۆزلەيمەن
+please repeat | qaytilap bering, iltimas | kay-tee-LAP beh-REENG eel-tee-MAS | قايتىلاپ بەرىڭ، ئىلتىماس
+what does... mean? | ... dégenlik néme? | deh-gen-LEEK neh-MEH | ... دېگەنلىك نېمە؟
+how do you say... in Uyghur? | ... uyghurche qandaq déyilidu? | oo-ghoor-CHEH kahn-DAHK day-yee-lee-DOO | ... ئۇيغۇرچە قانداق دېيىلىدۇ؟
+please write it down | yézip bering, iltimas | yay-ZEEP beh-REENG eel-tee-MAS | يېزىپ بەرىڭ، ئىلتىماس
+help! | yardem qilinglar! | yar-DEM kee-leeng-LAR | ياردەم قىلىڭلار!
+I need help | manga yardem kérek | mahn-GAH yar-DEM kay-REK | ماڭا ياردەم كېرەك
+## Getting around
+where is...? | ... qeyerde? | keh-yer-DEH | ... قەيەردە؟
+where is the station? | wokzal qeyerde? | vok-ZAL keh-yer-DEH | ۋوكزال قەيەردە؟
+turn left | solgha burulung | sol-GHAH boo-roo-LOONG | سولغا بۇرۇلۇڭ
+turn right | onggha burulung | on-GHAH boo-roo-LOONG | ئوڭغا بۇرۇلۇڭ
+straight ahead | tuz mangung | tooz mahn-GOONG | تۇز ماڭۇڭ
+near | yéqin | yay-KEEN | يېقىن
+far | yiraq | yee-RAHK | يىراق
+how far is it? | qanche yiraq? | kan-CHEH yee-RAHK | قانچە يىراق؟
+a ticket to Samarkand, please | samarqandqa bir bilet, iltimas | sah-mar-kand-KAH beer bee-LET eel-tee-MAS | سامارقاندقا بىر بىلەت، ئىلتىماس
+what time does the train leave? | poyiz saet qanchide yolgha chiqidu? | po-YEEZ sah-ET kan-chee-DEH yol-GHAH chee-kee-DOO | پويىز سائەت قانچىدە يولغا چىقىدۇ؟
+to the airport, please | ayrodromgha, iltimas | ai-ro-drom-GHAH eel-tee-MAS | ئايرودرومغا، ئىلتىماس
+stop here, please | mushu yerde toxtang, iltimas | moo-SHOO yer-DEH tokh-TAHNG eel-tee-MAS | مۇشۇ يەردە توختاڭ، ئىلتىماس
+## Eating out
+a table for two, please | ikki kishilik shire, iltimas | ik-KEE kee-shee-LEEK shee-REH eel-tee-MAS | ئىككى كىشىلىك شىرە، ئىلتىماس
+the menu, please | menyu, iltimas | men-YOO eel-tee-MAS | مەنيۇ، ئىلتىماس
+I will have this | buni alimen | boo-NEE ah-lee-MEN | بۇنى ئالىمەن
+water, please | su, iltimas | soo eel-tee-MAS | سۇ، ئىلتىماس
+the bill, please | hésab, iltimas | hay-SAB eel-tee-MAS | ھېساب، ئىلتىماس
+it is delicious | intayin mezzilik | een-tah-YEEN mez-zee-LEEK | ئىنتايىن مەززىلىك
+I am hungry | qorsiqim ach | kor-see-KEEM ahch | قورسىقىم ئاچ
+I am thirsty | ussidim | oos-see-DEEM | ئۇسسىدىم
+I am vegetarian | men wégétaryénmen | men veh-geh-tar-yen-MEN | مەن ۋېگېتاريېنمەن
+I am allergic to nuts | yangaqqa allérgiyem bar | yan-gak-KAH al-lair-gee-YEM bar | ياڭاققا ئاللېرگىيەم بار
+no meat, please | göshsiz, iltimas | gush-SEEZ eel-tee-MAS | گۆشسىز، ئىلتىماس
+another one, please | yene bir, iltimas | yeh-NEH BEER eel-tee-MAS | يەنە بىر، ئىلتىماس
+## Shopping
+how much is this? | bu qanche? | boo kan-CHEH | بۇ قانچە؟
+it is too expensive | bek qimmet | bek kim-MET | بەك قىممەت
+do you have a smaller size? | téximu kichik razmiri barmu? | tay-khee-moo kee-CHEEK raz-mee-REE bar-MOO | تېخىمۇ كىچىك رازمىرى بارمۇ؟
+I am just looking | shunchaki qarawatimen | shoon-chah-KEE kah-rah-vah-tee-MEN | شۇنچاكى قاراۋاتىمەن
+I will take it | buni alimen | boo-NEE ah-lee-MEN | بۇنى ئالىمەن
+can I pay by card? | kartida töliyelemmu? | kar-tee-DAH tuh-lee-yeh-lem-MOO | كارتىدا تۆلىيەلەممۇ؟
+cash | naqit pul | nah-KEET pool | ناقىت پۇل
+a bag, please | sumka, iltimas | soom-KAH eel-tee-MAS | سۇمكا، ئىلتىماس
+open | échiq | ay-CHEEK | ئېچىق
+closed | yépiq | yay-PEEK | يېپىق
+## Hotel and travel
+I have a reservation | broném bar | bro-NEM bar | برونېم بار
+a room for one night | bir kéchilik öy | beer kay-chee-LEEK uy | بىر كېچىلىك ئۆي
+what time is breakfast? | etigenlik tamaq saet qanchide? | eh-tee-gen-LEEK tah-MAHK sah-ET kan-chee-DEH | ئەتىگەنلىك تاماق سائەت قانچىدە؟
+the key, please | achquch, iltimas | ach-KOOCH eel-tee-MAS | ئاچقۇچ، ئىلتىماس
+is there wifi? | wayfay barmu? | VAI-fai bar-MOO | ۋايفاي بارمۇ؟
+my passport | pasportum | pas-por-TOOM | پاسپورتۇم
+my luggage | yükum | yew-KOOM | يۈكۇم
+I would like to change money | pul almashturmaqchimen | pool al-mash-toor-mahk-chee-MEN | پۇل ئالماشتۇرماقچىمەن
+## Health and emergency
+I feel sick | özümni yaman his qiliwatimen | uh-zewm-NEE yah-MAN hees kee-lee-vah-tee-MEN | ئۆزۈمنى يامان ھىس قىلىۋاتىمەن
+I need a doctor | manga doxtur kérek | mahn-GAH dokh-TOOR kay-REK | ماڭا دوختۇر كېرەك
+call an ambulance | tézyardem chaqiringlar | tayz-yar-DEM chah-kee-reeng-LAR | تېزياردەم چاقىرىڭلار
+it hurts here | mushu yerim aghriwatidu | moo-SHOO yeh-reem ah-ghree-vah-tee-DOO | مۇشۇ يەرىم ئاغرىۋاتىدۇ
+I have a headache | béshim aghriwatidu | bay-SHEEM ah-ghree-vah-tee-DOO | بېشىم ئاغرىۋاتىدۇ
+I have a fever | qizitmam bar | kee-zeet-MAM bar | قىزىتمام بار
+where is the pharmacy? | dorixana qeyerde? | do-ree-khah-NAH keh-yer-DEH | دورىخانا قەيەردە؟
+call the police | saqchi chaqiringlar | sahk-CHEE chah-kee-reeng-LAR | ساقچى چاقىرىڭلار
+my phone was stolen | téléfonumni oghrilap ketti | teh-leh-fo-noom-NEE oh-ghree-LAP ket-TEE | تېلېفونۇمنى ئوغرىلاپ كەتتى
+## Chatting
+what do you do? | néme ish qilisiz? | neh-MEH eesh kee-lee-SEEZ | نېمە ئىش قىلىسىز؟
+I am a student | men oqughuchimen | men oh-koo-ghoo-chee-MEN | مەن ئوقۇغۇچىمەن
+I am a teacher | men oqutquchimen | men oh-koot-koo-chee-MEN | مەن ئوقۇتقۇچىمەن
+I live in Tashkent | men toshkentte turimen | men tosh-KENT-teh too-ree-MEN | مەن توشكەنتتە تۇرىمەن
+how old are you? | yéshingiz néchide? | yay-sheen-GEEZ nay-chee-DEH | يېشىڭىز نېچىدە؟
+I am sixteen | men on altide | men on al-tee-DEH | مەن ئون ئالتىدە
+do you like football? | futbolni yaxshi köremsiz? | foot-bol-NEE yakh-SHEE kuh-rem-SEEZ | فۇتبولنى ياخشى كۆرەمسىز؟
+I like music | men muzikini yaxshi körimen | men moo-zee-kee-NEE yakh-SHEE kuh-ree-MEN | مەن مۇزىكىنى ياخشى كۆرىمەن
+I love it | manga intayin yaqidu | mahn-GAH een-tah-YEEN yah-kee-DOO | ماڭا ئىنتايىن ياقىدۇ
+what time is it? | saet qanche? | sah-ET kan-CHEH | سائەت قانچە؟
+it is three o'clock | saet üch | sah-ET EWCH | سائەت ئۈچ
+## Useful words
+and | we | veh | ۋە
+but | emma | em-MAH | ئەمما
+because | chünki | chewn-KEE | چۈنكى
+very | intayin | een-tah-YEEN | ئىنتايىن
+here | mushu yerde | moo-SHOO yer-DEH | مۇشۇ يەردە
+there | u yerde | oo yer-DEH | ئۇ يەردە
+now | hazir | hah-ZEER | ھازىر
+today | bügün | bew-GEWN | بۈگۈن
+tomorrow | ete | eh-TEH | ئەتە
+yesterday | tünügün | tew-new-GEWN | تۈنۈگۈن
+always | hemishe | heh-mee-SHEH | ھەمىشە
+never | héch qachan | hech kah-CHAN | ھېچ قاچان
+maybe | belkim | bel-KEEM | بەلكىم
+also | yene | yeh-NEH | يەنە
+with | bilen | bee-LEN | بىلەن
+for | üchün | ew-CHEWN | ئۈچۈن
+again | yene | yeh-NEH | يەنە
+only | peqet | peh-KET | پەقەت
+already | alliqachan | al-lee-kah-CHAN | ئاللىقاچان
+## In the classroom
+may I come in? | kirsem bolamdu? | keer-SEM bo-lahm-DOO | كىرسەم بولامدۇ؟
+may I go to the toilet? | hajetxanigha chiqsam bolamdu? | hah-jet-khah-nee-GHAH chik-SAM bo-lahm-DOO | ھاجەتخانىغا چىقسام بولامدۇ؟
+I have a question | sualim bar | soo-ah-LEEM bar | سۇئالىم بار
+I do not know the answer | jawabini bilmeymen | jah-vah-bee-NEE beel-may-MEN | جاۋابىنى بىلمەيمەن
+I forgot my homework | öy ishimni untup qaldim | uy ee-sheem-NEE oon-TOOP kal-DEEM | ئۆي ئىشىمنى ئۇنتۇپ قالدىم
+sorry, I am late | keching, kéchikip qaldim | keh-CHEENG kay-chee-keep kal-DEEM | كەچىڭ، كېچىكىپ قالدىم
+please repeat the question | sualni qaytilap bering, iltimas | soo-ahl-NEE kay-tee-LAP beh-REENG eel-tee-MAS | سۇئالنى قايتىلاپ بەرىڭ، ئىلتىماس
+what page are we on? | qaysi bette bolduq? | kay-SEE bet-TEH bol-DOOK | قايسى بەتتە بولدۇق؟
+open your books | kitablaringizni échinglar | kee-tahb-lah-reen-geez-NEE ay-cheeng-LAR | كىتابلارىڭىزنى ئېچىڭلار
+close your books | kitablaringizni yépinglar | kee-tahb-lah-reen-geez-NEE yay-peeng-LAR | كىتابلارىڭىزنى يېپىڭلار
+listen, please | anglang, iltimas | ahn-GLANG eel-tee-MAS | ئاڭلاڭ، ئىلتىماس
+look at the board | taxtigha qarang | takh-tee-GHAH kah-RAHNG | تاختىغا قاراڭ
+how do you spell it? | qandaq yézilidu? | kahn-DAHK yay-zee-lee-DOO | قانداق يېزىلىدۇ؟
+what does this word mean? | bu söz néme démek? | boo suz neh-MEH deh-MEK | بۇ سۆز نېمە دېمەك؟
+I have finished | tügettim | tew-geht-TEEM | تۈگەتتىم
+can I borrow a pen? | qelimingizni alsam bolamdu? | keh-lee-meen-gee-zee-NEE al-SAM bo-lahm-DOO | قەلىمىڭىزنى ئالسام بولامدۇ؟
+## Phone and internet
+what is your phone number? | téléfon nomurungiz qanche? | teh-leh-FON no-moo-roong-GEEZ kan-CHEH | تېلېفون نومۇرۇڭىز قانچە؟
+my phone number is... | méning téléfon nomurum... | may-NEENG teh-leh-FON no-moo-ROOM | مېنىڭ تېلېفون نومۇرۇم...
+can I use your phone? | téléfoningizni ishletsem bolamdu? | teh-leh-fo-neen-geez-NEE eesh-let-SEM bo-lahm-DOO | تېلېفونىڭىزنى ئىشلەتسەم بولامدۇ؟
+my battery is dead | batareyem tügep qaldi | bah-tah-reh-YEM tew-GEP kal-DEE | باتارەيەم تۈگەپ قالدى
+what is the wifi password? | wayfayning ushshaq sözi qanche? | VAI-fai-neeng oosh-SHAHK suh-ZEE kan-CHEH | ۋايفاينىڭ ئۇششاق سۆزى قانچە؟
+I will text you | sizge xet yazimen | seez-GEH khet yah-zee-MEN | سىزگە خەت يازىمەن
+call me later | keyinrek téléfon qiling | kay-yeen-REK teh-leh-FON kee-LEENG | كەيىنرەك تېلېفون قىلىڭ
+I have no signal | tor yoq | tor yahk | تور يوق
+send me a message | manga xet ewetingiz | mahn-GAH khet eh-veh-teen-GEEZ | ماڭا خەت ئەۋەتىڭىز
+where can I charge my phone? | téléfonumni qeyerde zaryadlisam bolidu? | teh-leh-fo-noom-NEE keh-yer-DEH zar-yahd-lee-SAM bo-lee-DOO | تېلېفونۇمنى قەيەردە زاريادلىسام بولىدۇ؟
+## Opinions and plans
+I think so | shundaq oylaymen | shoon-DAHK oy-lay-MEN | شۇنداق ئويلايمەن
+I do not think so | undaq oylimaymen | oon-DAHK oy-lee-may-MEN | ئۇنداق ئويلىمايمەن
+I know | bilimen | bee-lee-MEN | بىلىمەن
+I agree | razimen | rah-zee-MEN | رازىمەن
+I do not agree | razi emesmen | rah-ZEE eh-mes-MEN | رازى ئەمەسمەن
+what do you think? | siz qandaq oylaysiz? | seez kahn-DAHK oy-lay-SEEZ | سىز قانداق ئويلايسىز؟
+in my opinion... | méningche... | may-neeng-CHEH | مېنىڭچە...
+good idea! | yaxshi oy! | yakh-SHEE oy | ياخشى ئوي!
+of course | elwette | el-vet-TEH | ئەلۋەتتە
+I am not sure | ishenmeymen | ee-shen-may-MEN | ئىشەنمەيمەن
+it depends | bu shertke baghliq | boo shert-KEH bagh-LEEK | بۇ شەرتكە باغلىق
+are you free tomorrow? | ete bosmusiz? | eh-TEH bos-moo-SEEZ | ئەتە بوسمۇسىز؟
+I am busy | bandimen | bahn-dee-MEN | باندىمەن
+let us meet at five | saet beshte körüshimiz | sah-ET besh-TEH kuh-rew-shee-MEEZ | سائەت بەشتە كۆرۈشىمىز
+I would prefer tea | men chayni artuq körimen | men chay-NEE ar-TOOK kuh-ree-MEN | مەن چاينى ئارتۇق كۆرىمەن
+## Dates and time
+what day is it today? | bügün heptining qaysi küni? | bew-GEWN hep-tee-NEENG kay-SEE kew-NEE | بۈگۈن ھەپتىنىڭ قايسى كۈنى؟
+what is the date today? | bügün nechchinchi kün? | bew-GEWN nech-cheen-CHEE kewn | بۈگۈن نەچچىنچى كۈن؟
+today is Monday | bügün düshenbe | bew-GEWN dew-shen-BEH | بۈگۈن دۈشەنبە
+at what time? | saet qanchide? | sah-ET kan-chee-DEH | سائەت قانچىدە؟
+at six o'clock | saet altida | sah-ET al-tee-DAH | سائەت ئالتىدا
+in the morning | etigen | eh-tee-GEN | ئەتىگەن
+in the evening | kech | kech | كەچ
+every day | her küni | her kew-NEE | ھەر كۈنى
+next week | kéler hepte | keh-LER hep-TEH | كېلەر ھەپتە
+last year | ötken yil | ut-KEN yeel | ئۆتكەن يىل
+[vocab]
+## Feelings and moods
+happy | xushal | khoo-SHAHL | خۇشال
+sad | xapa | khah-PAH | خاپا
+angry | achchiqlan'ghan | ahch-cheek-lahng-GHAN | ئاچچىقلانغان
+tired | charchighan | char-cheeg-HAN | چارچىغان
+scared | qorqqan | kork-KAN | قورققان
+bored | zérikken | zay-reek-KEN | زېرىككەن
+excited | hayajanlanghan | hah-yah-jahn-lahng-HAN | ھاياجانلاڭھان
+worried | endishilik | en-dee-shee-LEEK | ئەندىشىلىك
+surprised | heyran | hay-RAN | ھەيران
+nervous | asabiy | ah-sah-BEE | ئاسابىي
+proud | pexirlen'gen | peh-kheer-len-GEN | پەخىرلەنگەن
+lonely | yalghuz | yal-GHOOZ | يالغۇز
+in love | ashiq | ah-SHEEK | ئاشىق
+calm | xatirjem | khah-teer-JEM | خاتىرجەم
+embarrassed | uyalghan | oo-yal-GHAN | ئۇيالغان
+jealous | heset | heh-SET | ھەسەت
+I am in a good mood | kayipim yaxshi | kai-ee-PEEM yakh-SHEE | كايىپىم ياخشى
+I am in a bad mood | kayipim yaman | kai-ee-PEEM yah-MAN | كايىپىم يامان
+## Colours
+red | qizil | kee-ZEEL | قىزىل
+blue | kök | kuk | كۆك
+green | yeshil | yeh-SHEEL | يەشىل
+yellow | sériq | say-REEK | سېرىق
+black | qara | kah-RAH | قارا
+white | aq | ahk | ئاق
+orange | saghus | sah-GHOOS | ساغۇس
+purple | binepshe | bee-nep-SHEH | بىنەپشە
+pink | pushti | poosh-TEE | پۇشتى
+brown | qongur | kon-GOOR | قوڭۇر
+grey | kül reng | kewl RENG | كۈل رەڭ
+gold | altun | al-TOON | ئالتۇن
+dark | qoyuq | ko-YOOK | قويۇق
+light | échiq | ay-CHEEK | ئېچىق
+## Animals
+dog | it | eet | ئىت
+cat | mushuk | moo-SHOOK | مۇشۇك
+horse | at | aht | ئات
+cow | kala | kah-LAH | كالا
+sheep | qoy | koy | قوي
+chicken | toxu | toh-KHOO | توخۇ
+bird | qush | koosh | قۇش
+fish | béliq | bay-LEEK | بېلىق
+rabbit | quyan | koo-YAN | قۇيان
+mouse | ton'guz | ton-GOOZ | تونگۇز
+lion | shir | sheer | شىر
+elephant | pil | peel | پىل
+bear | ayigh | ah-YEEGH | ئايىغ
+monkey | meymun | may-MOON | مەيمۇن
+snake | yilan | yee-LAN | يىلان
+wolf | böre | buh-REH | بۆرە
+duck | ürdek | ewr-DEK | ئۈردەك
+butterfly | kapalek | kah-pah-LEK | كاپالەك
+spider | örümchük | uh-rewm-CHEWK | ئۆرۈمچۈك
+camel | töge | tuh-GEH | تۆگە
+## Family
+mother | ana | ah-NAH | ئانا
+father | ata | ah-TAH | ئاتا
+older sister | acha | ah-CHAH | ئاچا
+younger sister | singil | seen-GEEL | سىڭىل
+older brother | aka | ah-KAH | ئاكا
+younger brother | uka | oo-KAH | ئۇكا
+daughter | qiz | keez | قىز
+son | oghul | oh-GHOOL | ئوغۇل
+grandmother | momay | mo-MAI | موماي
+grandfather | bowa | bo-VAH | بوۋا
+aunt | hemshire | hem-shee-REH | ھەمشىرە
+uncle | tagha | tah-GHAH | تاغا
+husband | ér | air | ئېر
+wife | ayal | ah-YAL | ئايال
+friend | dost | dost | دوست
+baby | bowaq | bo-VAHK | بوۋاق
+child | bala | bah-LAH | بالا
+man | er | air | ئەر
+woman | ayal kishi | ah-YAL kee-SHEE | ئايال كىشى
+## Food and drink
+bread | nan | nahn | نان
+water | su | soo | سۇ
+milk | süt | sewt | سۈت
+coffee | kofé | ko-FAY | كوفې
+tea | chay | chai | چاي
+juice | sharbet | shar-BET | شاربەت
+yoghurt | qétiq | kay-TEEK | قېتىق
+egg | tuxum | too-KHOOM | تۇخۇم
+cheese | pishloq | peesh-LOK | پىشلوق
+meat | göj | guj | گۆج
+chicken (meat) | toxu göshi | toh-KHOO guh-SHEE | توخۇ گۆشى
+fish (food) | béliq | bay-LEEK | بېلىق
+rice | guruch | goo-ROOCH | گۇرۇچ
+pilaf (rice dish) | polo | po-LO | پولو
+soup | shorpa | shor-PAH | شورپا
+salad | salat | sah-LAT | سالات
+potato | kartoshka | kar-TOSH-kah | كارتوشكا
+tomato | pomidor | po-mee-DOR | پومىدور
+onion | piyaz | pee-YAZ | پىياز
+apple | alma | al-MAH | ئالما
+grape | üzüm | ew-ZEWM | ئۈزۈم
+watermelon | tawuz | tah-VOOZ | تاۋۇز
+sugar | shekir | sheh-KEER | شەكىر
+salt | tuz | tooz | تۇز
+## Body
+head | bash | bahsh | باش
+face | yüz | yewz | يۈز
+eye | köz | kuz | كۆز
+ear | quliq | koo-LEEK | قۇلىق
+nose | burun | boo-ROON | بۇرۇن
+mouth | éghiz | ay-GHEEZ | ئېغىز
+tooth | tish | teesh | تىش
+hand | qol | kol | قول
+finger | barmaq | bar-MAHK | بارماق
+arm | bilek | bee-LEK | بىلەك
+leg | put | poot | پۇت
+foot | tapan | tah-PAN | تاپان
+heart | yürek | yew-REK | يۈرەك
+stomach | ashqazan | ash-kah-ZAN | ئاشقازان
+back | arqa | ar-KAH | ئارقا
+hair | chach | chahch | چاچ
+## Home
+house | öy | uy | ئۆي
+room | xana | khah-NAH | خانا
+door | ishik | ee-SHEEK | ئىشىك
+window | derize | deh-ree-ZEH | دەرىزە
+table | shire | shee-REH | شىرە
+chair | orunduq | o-roon-DOOK | ئورۇندۇق
+bed | kariwat | kah-ree-VAHT | كارىۋات
+kitchen | ashxana | ash-khah-NAH | ئاشخانا
+bathroom | hammam | ham-MAM | ھاممام
+garden | baghche | bagh-CHEH | باغچە
+roof | chatma | chaht-MAH | چاتما
+floor | pol | pol | پول
+wall | tam | tahm | تام
+key | achquch | ach-KOOCH | ئاچقۇچ
+lamp | chiraq | chee-RAHK | چىراق
+television | téléwizor | teh-leh-VEE-zor | تېلېۋىزور
+## Clothes
+shirt | köylek | kuy-LEK | كۆيلەك
+trousers | chalwar | chahl-VAR | چالۋار
+clothes | kiyim | kee-YEEM | كىيىم
+coat | palto | pahl-TO | پالتو
+hat | doppa | dop-PAH | دوپپا
+umbrella | chimildiq | chee-meel-DEEK | چىمىلدىق
+shoes | ayaq kiyim | ah-YAHK kee-YEEM | ئاياق كىيىم
+socks | paypaq | pai-PAHK | پايپاق
+jacket | kurtka | koort-KAH | كۇرتكا
+scarf | shalliq | shahl-LEEK | شاللىق
+gloves | qolqap | kol-KAHP | قولقاپ
+belt | belwagh | bel-VAGH | بەلۋاغ
+## Town
+city | sheher | sheh-HER | شەھەر
+street | kocha | ko-CHAH | كوچا
+shop | dukan | doo-KAN | دۇكان
+market | bazar | bah-ZAR | بازار
+bank | bank | bahnk | بانك
+hospital | doxturxana | dokh-toor-khah-NAH | دوختۇرخانا
+school | mektep | mek-TEP | مەكتەپ
+place of worship | ibadetxana | ee-bah-det-khah-NAH | ئىبادەتخانا
+park | baghche | bagh-CHEH | باغچە
+station | wokzal | vok-ZAL | ۋوكزال
+airport | ayrodrom | ai-ro-DROM | ئايرودروم
+bridge | köwrük | kuv-REWK | كۆۋرۈك
+restaurant | réstoran | res-to-RAHN | رېستوران
+bus | aptobus | ahp-to-BOOS | ئاپتوبۇس
+metro | métro | met-RO | مېترو
+square | meydan | may-DAN | مەيدان
+## Time
+minute | minut | mee-NOOT | مىنۇت
+hour | saet | sah-ET | سائەت
+day | kün | kewn | كۈن
+week | hepte | hep-TEH | ھەپتە
+month | ay | ai | ئاي
+year | yil | yeel | يىل
+morning | etigen | eh-tee-GEN | ئەتىگەن
+afternoon | chüsh | chewsh | چۈش
+evening | kech | kech | كەچ
+night | kéche | kay-CHEH | كېچە
+Monday | düshenbe | dew-shen-BEH | دۈشەنبە
+Tuesday | seyshenbe | say-shen-BEH | سەيشەنبە
+Wednesday | charshenbe | char-shen-BEH | چارشەنبە
+Thursday | peyshenbe | pay-shen-BEH | پەيشەنبە
+Friday | juma | joo-MAH | جۇما
+Saturday | shenbe | shen-BEH | شەنبە
+Sunday | yekshenbe | yek-shen-BEH | يەكشەنبە
+## Weather and nature
+sun | quyash | koo-YASH | قۇياش
+rain | yamghur | yam-GHOOR | يامغۇر
+snow | qar | kar | قار
+wind | shamal | shah-MAL | شامال
+cloud | bulut | boo-LOOT | بۇلۇت
+hot | issiq | ees-SEEK | ئىسسىق
+cold | soghuq | so-GHOOK | سوغۇق
+tree | derex | deh-REKH | دەرەخ
+flower | gül | gewl | گۈل
+mountain | taghq | tahgh | تاغق
+river | östeng | us-TENG | ئۆستەڭ
+sea | déngiz | deng-GEEZ | دېڭىز
+sky | asman | as-MAN | ئاسمان
+## Work and school
+job | ish | eesh | ئىش
+office | ishxana | eesh-khah-NAH | ئىشخانا
+doctor | doxtur | dokh-TOOR | دوختۇر
+engineer | injénér | een-zheh-NER | ئىنجېنېر
+driver | shopur | sho-POOR | شوپۇر
+worker | ishchi | eesh-CHEE | ئىشچى
+boss | bashliq | bahsh-LEEK | باشلىق
+salary | ish heqqi | eesh hek-KEE | ئىش ھەققى
+meeting | yighin | yee-GHEEN | يىغىن
+company | shirket | sheer-KET | شىركەت
+lawyer | adwokat | ahd-vo-KAHT | ئادۋوكات
+nurse | hemshire | hem-shee-REH | ھەمشىرە
+cook | ashpez | ash-PEZ | ئاشپەز
+farmer | déhqan | deh-KAN | دېھقان
+## Describing
+big | chong | chong | چوڭ
+small | kichik | kee-CHEEK | كىچىك
+good | yaxshi | yakh-SHEE | ياخشى
+bad | yaman | yah-MAN | يامان
+new | yéngi | yayn-GEE | يېڭى
+old | kona | ko-NAH | كونا
+hot (temperature) | issiq | ees-SEEK | ئىسسىق
+cold (temperature) | soghuq | so-GHOOK | سوغۇق
+fast | téz | tayz | تېز
+slow | asta | as-TAH | ئاستا
+easy | asan | ah-SAN | ئاسان
+difficult | qiyin | kee-YEEN | قىيىن
+beautiful | chirayliq | chee-rai-LEEK | چىرايلىق
+ugly | shumshuq | shoom-SHOOK | شۇمشۇق
+tall | égiz | ay-GEEZ | ئېگىز
+short | pakar | pah-KAR | پاكار
+heavy | éghir | ay-GHEER | ئېغىر
+light (weight) | yéngil | yayn-GEEL | يېڭىل
+expensive | qimmet | kim-MET | قىممەت
+cheap | erzan | er-ZAN | ئەرزان
+## Common verbs
+to be | bolush | bo-LOOSH | بولۇش
+to ask | sorash | so-RAHSH | سوراش
+to go | bérish | bay-REESH | بېرىش
+to come | kélish | kay-LEESH | كېلىش
+to see | körüsh | kuh-REWSH | كۆرۈش
+to eat | yéyish | yay-YEESH | يېيىش
+to drink | ichish | ee-CHEESH | ئىچىش
+to sleep | uxlash | ookh-LAHSH | ئۇخلاش
+to speak | sözlesh | suz-LESH | سۆزلەش
+to know | bilish | bee-LEESH | بىلىش
+to want | xalash | khah-LAHSH | خالاش
+to give | bérish | bay-REESH | بېرىش
+to take | élish | ay-LEESH | ئېلىش
+to buy | sétiwélish | say-tee-vay-LEESH | سېتىۋېلىش
+to sell | sétish | say-TEESH | سېتىش
+to read | oqush | oh-KOOSH | ئوقۇش
+to write | yézish | yay-ZEESH | يېزىش
+to work | ishlesh | eesh-LESH | ئىشلەش
+to live | yashash | yah-SHAHSH | ياشاش
+to love | yaxshi körüsh | yakh-SHEE kuh-REWSH | ياخشى كۆرۈش
+to like | yéqish | yay-KEESH | يېقىش
+to wait | kütüsh | kew-TEWSH | كۈتۈش
+to open | échish | ay-CHEESH | ئېچىش
+to close | yépish | yay-PEESH | يېپىش
+to say | démek | deh-MEK | دېمەك
+## School subjects
+maths | matématika | mah-teh-MAH-tee-kah | ماتېماتىكا
+physics | fizika | FEE-zee-kah | فىزىكا
+chemistry | ximiye | khee-mee-YEH | خىمىيە
+biology | bi'ologiye | bee-o-LO-gee-yeh | بىئولوگىيە
+history | tarix | tah-REEKH | تارىخ
+geography | géografiye | geh-o-GRAH-fee-yeh | گېئوگرافىيە
+literature | edebiyat | eh-deh-bee-YAHT | ئەدەبىيات
+English | in'giliz tili | een-GLEEZ tee-LEE | ئىنگىلىز تىلى
+Uyghur language | uyghur tili | oo-GHOOR tee-LEE | ئۇيغۇر تىلى
+Russian language | rus tili | roos tee-LEE | رۇس تىلى
+foreign languages | chet el tilliri | chet el teel-lee-REE | چەت ئەل تىللىرى
+art | sen'et | sen-ET | سەنەت
+music | muzika | MOO-zee-kah | مۇزىكا
+PE | tenterbiye | ten-ter-bee-YEH | تەنتەربىيە
+computer science | informatika | een-for-MAH-tee-kah | ئىنفورماتىكا
+economics | iqtisad | eek-tee-SAHD | ئىقتىساد
+law | qanun | kah-NOON | قانۇن
+philosophy | pelsepe | pel-seh-PEH | پەلسەپە
+psychology | psixologiye | psee-kho-LO-gee-yeh | پسىخولوگىيە
+science | ilim | ee-LEEM | ئىلىم
+## Classroom
+classroom | sinip | see-NEEP | سىنىپ
+desk | parta | par-TAH | پارتا
+board | taxta | takh-TAH | تاختا
+notebook | depter | dep-TER | دەپتەر
+textbook | derslik | ders-LEEK | دەرسلىك
+homework | öy ishi | uy ee-SHEE | ئۆي ئىشى
+test | sinaq | see-NAHK | سىناق
+grade | baha | bah-HAH | باھا
+timetable | ders jedwili | ders jed-vee-LEE | دەرس جەدۋىلى
+break | tenepus | teh-neh-POOS | تەنەپۇس
+bell | qongghuraq | kon-ghoo-RAHK | قوڭغۇراق
+ruler | siziq | see-ZEEK | سىزىق
+rubber | öchürgüch | uh-chewr-GEWCH | ئۆچۈرگۈچ
+rucksack | somka | som-KAH | سومكا
+dictionary | lughet | loo-GHET | لۇغەت
+question | soal | so-AHL | سوئال
+answer | jawab | jah-VAB | جاۋاب
+mistake | xata | khah-TAH | خاتا
+pen | qelem | keh-LEM | قەلەم
+pencil | qelem | keh-LEM | قەلەم
+## University
+university | uniwérsitét | oo-nee-ver-see-TET | ئۇنىۋېرسىتېت
+lecture | leksiye | LEK-see-yeh | لەكسىيە
+professor | proféssor | pro-FES-sor | پروفېسسور
+degree | dereje | deh-reh-JEH | دەرەجە
+scholarship | stipéndiye | stee-PEN-dee-yeh | ستىپېندىيە
+library | kitabxana | kee-tahb-khah-NAH | كىتابخانا
+dormitory | yataqxana | yah-tahk-khah-NAH | ياتاقخانا
+campus | kampus | KAM-poos | كامپۇس
+tuition fees | oqush heqqi | oh-KOOSH hek-KEE | ئوقۇش ھەققى
+semester | semistir | seh-mees-TEER | سەمىستىر
+course | kurs | koors | كۇرس
+essay | inshaa | een-SHAH | ئىنشائا
+thesis | dissértatsiye | dees-ser-TAT-see-yeh | دىسسېرتاتسىيە
+diploma | diplom | dee-PLOM | دىپلوم
+seminar | sémnar | sem-NAR | سېمنار
+entrance exam | kirish imtihani | kee-REESH eem-tee-hah-NEE | كىرىش ئىمتىھانى
+application | erz | erz | ئەرز
+student card | oqughuchi guwahnamisi | oh-koo-ghoo-chee goo-vah-nah-mee-SEE | ئوقۇغۇچى گۇۋاھنامىسى
+faculty | fakultét | fah-kool-TET | فاكۇلتېت
+## School verbs
+to study | oqush | oh-KOOSH | ئوقۇش
+to teach | oqutush | oh-koo-TOOSH | ئوقۇتۇش
+to ask | sorash | so-RAHSH | سوراش
+to answer | jawab bérish | jah-VAB bay-REESH | جاۋاب بېرىش
+to repeat | qaytilash | kay-tee-LAHSH | قايتىلاش
+to understand | chüshinish | chew-shee-NEESH | چۈشىنىش
+to remember | yadlash | yahd-LAHSH | يادلاش
+to forget | untush | oon-TOOSH | ئۇنتۇش
+to explain | chüshendürüsh | chew-shen-dew-REWSH | چۈشەندۈرۈش
+to practise | mashiq qilish | mah-SHEEK kee-LEESH | ماشىق قىلىش
+to pass an exam | imtihandin ötüsh | eem-tee-han-DEEN uh-TEWSH | ئىمتىھاندىن ئۆتۈش
+to fail an exam | imtihandin yiqilish | eem-tee-han-DEEN yee-kee-LEESH | ئىمتىھاندىن يىقىلىش
+to write down | yézip élish | yay-ZEEP ay-LEESH | يېزىپ ئېلىش
+to listen | anglash | ahn-GLAHSH | ئاڭلاش
+to read aloud | awazliq oqush | ah-vahz-LEEK oh-KOOSH | ئاۋازلىق ئوقۇش
+to think | oylash | oy-LAHSH | ئويلاش
+to count | sanash | sah-NAHSH | ساناش
+to spell | heplep éytish | hep-LEP ay-TEESH | ھەپلەپ ئېيتىش
+to translate | terjime qilish | ter-jee-MEH kee-LEESH | تەرجىمە قىلىش
+to graduate | püttürüsh | pewt-tew-REWSH | پۈتتۈرۈش
+
+[grammar]
+## Pronouns
+> Uyghur often drops the pronoun, because the verb ending shows who is speaking. There is no he / she difference: "u" means both.
+row: I | men | مەن
+row: you (informal) | sen | سەن
+row: he / she / it | u | ئۇ
+row: we | biz | بىز
+row: you (formal or plural) | siz | سىز
+row: they | ular | ئۇلار
+ex: I am a student | men oqughuchimen | men oh-koo-ghoo-chee-MEN | مەن ئوقۇغۇچىمەن
+ex: you are tall | sen égizsen | sen ay-geez-SEN | سەن ئېگىزسەن
+ex: she is my older sister | u méning achamdur | oo may-NEENG ah-chahm-DOOR | ئۇ مېنىڭ ئاچامدۇر
+ex: we are friends | biz dostmiz | beez dost-MEEZ | بىز دوستمىز
+ex: they are teachers | ular oqutquchi | oo-LAR oh-koot-koo-CHEE | ئۇلار ئوقۇتقۇچى
+## Singular and plural
+> Add -lar or -ler, by vowel harmony. After a number, the noun stays singular: ikki kitab (two book).
+row: kitab (book) | kitablar | كىتابلار
+row: öy (house) | öyler | ئۆيلەر
+row: bala (child) | balilar | بالىلار
+row: after a number: singular | ikki kitab | ئىككى كىتاب
+ex: one house, houses | bir öy, öyler | beer UY uy-LER | بىر ئۆي، ئۆيلەر
+ex: one book, books | bir kitab, kitablar | beer kee-TAB kee-tahb-LAR | بىر كىتاب، كىتابلار
+ex: one cat, cats | bir mushuk, mushuklar | beer moo-SHOOK moo-shook-LAR | بىر مۇشۇك، مۇشۇكلار
+ex: two books | ikki kitab | ik-KEE kee-TAB | ئىككى كىتاب
+ex: the children | balilar | bah-lee-LAR | بالىلار
+## To be: -men, -sen, -miz
+> There is no separate verb "to be". Add an ending to the noun or adjective. Uyghur also uses "-dur" for "he / she is".
+row: I am | -men | men
+row: you are | -sen | sen
+row: he / she is | -dur | door
+row: we are | -miz | meez
+row: you are (formal) | -siz | seez
+row: they are | -dur | door
+ex: I am a student | men oqughuchimen | men oh-koo-ghoo-chee-MEN | مەن ئوقۇغۇچىمەن
+ex: you are tired | sen charchighansen | sen char-cheeg-han-SEN | سەن چارچىغانسەن
+ex: he is a doctor | u doxturdur | oo dokh-toor-DOOR | ئۇ دوختۇردۇر
+ex: we are happy | biz xushalmiz | beez khoo-shahl-MEEZ | بىز خۇشالمىز
+ex: they are at home | ular öydidur | oo-LAR uy-dee-DOOR | ئۇلار ئۆيدىدۇر
+## Bar and yoq: have, there is
+> Uyghur says "my X exists" (bar) or "my X does not exist" (yoq). The ending shows the owner: -im (my), -ing (your), -i (his).
+row: there is | bar | بار
+row: there is not | yoq | يوق
+row: I have | ... -im bar | ... ىم بار
+row: I do not have | ... -im yoq | ... ىم يوق
+ex: I have an older brother | akam bar | ah-KAHM bar | ئاكام بار
+ex: I have a car | mashinam bar | mah-shee-NAHM bar | ماشىنام بار
+ex: I do not have time | waqtim yoq | vahk-TEEM yok | ۋاقتىم يوق
+ex: there is a problem | mesile bar | meh-see-LEH bar | مەسىلە بار
+ex: there is no water | su yoq | soo yok | سۇ يوق
+## Present tense: -watimen
+> Verb stem + -wati + person ending. Kélish (to come): kél-iwati-men.
+row: I come | kéliwatimen | كېلىۋاتىمەن
+row: you come | kéliwatisen | كېلىۋاتىسەن
+row: he / she comes | kéliwatidu | كېلىۋاتىدۇ
+row: we come | kéliwatimiz | كېلىۋاتىمىز
+row: you come (formal) | kéliwatisiz | كېلىۋاتىسىز
+row: they come | kéliwatidu | كېلىۋاتىدۇ
+ex: I am eating bread | men nan yewatimen | men nahn yeh-vah-tee-MEN | مەن نان يەۋاتىمەن
+ex: you are reading a book | sen kitab oquwatisen | sen kee-TAB oh-koo-vah-tee-SEN | سەن كىتاب ئوقۇۋاتىسەن
+ex: she works in a bank | u bankida ishleydu | oo bahn-kee-DAH eesh-ley-DOO | ئۇ بانكىدا ئىشلەيدۇ
+ex: we drink tea | biz chay ichimiz | beez chai ee-chee-MEEZ | بىز چاي ئىچىمىز
+ex: they are sleeping | ular uxlawatidu | oo-LAR ookh-lah-vah-tee-DOO | ئۇلار ئۇخلاۋاتىدۇ
+## Basic sentences
+> The verb goes last. Order: who, where or when, what, verb. Uyghur has no articles: "kitab" means "a book" or "the book".
+row: I read a book | men kitab oqiymen | مەن كىتاب ئوقىيمەن
+row: she drinks tea | u chay ichidu | ئۇ چاي ئىچىدۇ
+row: we go to school | biz mektepke barimiz | بىز مەكتەپكە بارىمىز
+ex: I read a book | men kitab oqiymen | men kee-TAB oh-kee-MEN | مەن كىتاب ئوقىيمەن
+ex: he drinks tea | u chay ichidu | oo chai ee-chee-DOO | ئۇ چاي ئىچىدۇ
+ex: we go to school | biz mektepke barimiz | beez mek-tep-KEH bah-ree-MEEZ | بىز مەكتەپكە بارىمىز
+ex: they eat bread | ular nan yeydu | oo-LAR nahn yay-DOO | ئۇلار نان يەيدۇ
+ex: the teacher writes | oqutquchi yazidu | oh-koot-koo-CHEE yah-zee-DOO | ئوقۇتقۇچى يازىدۇ
+## Negation
+> Put -ma / -me after the verb stem: barimen (I go), barmaymen (I do not go). For nouns use "emes" (is not). "Yoq" means "there is not". Always compare with the positive form.
+row: I go | barimen | بارىمەن
+row: I do not go | barmaymen | بارمايمەن
+row: is | -dur | دۇر
+row: is not | emes | ئەمەس
+ex: I want | men xalaymen | men khah-lay-MEN | مەن خالايمەن
+ex: I do not want | men xalimaymen | men khah-lee-may-MEN | مەن خالىمايمەن
+ex: I speak English | men in'glizche sözleymen | men een-gleez-CHEH suz-ley-MEN | مەن ئىنگلىزچە سۆزلەيمەن
+ex: I do not speak English | men in'glizche sözlimeymen | men een-gleez-CHEH suz-lee-mey-MEN | مەن ئىنگلىزچە سۆزلىمەيمەن
+ex: I like it | manga yaqidu | mahn-GAH yah-kee-DOO | ماڭا ياقىدۇ
+ex: I do not like it | manga yaqmaydu | mahn-GAH yahk-my-DOO | ماڭا ياقمايدۇ
+ex: she is here | u mushu yerde | oo moo-SHOO yer-DEH | ئۇ مۇشۇ يەردە
+ex: she is not here | u mushu yerde emes | oo moo-SHOO yer-DEH eh-MES | ئۇ مۇشۇ يەردە ئەمەس
+ex: I have a car | mashinam bar | mah-shee-NAHM bar | ماشىنام بار
+ex: I do not have a car | mashinam yoq | mah-shee-NAHM yok | ماشىنام يوق
+ex: I understand | chüshinimen | chew-shee-nee-MEN | چۈشىنىمەن
+ex: I do not understand | chüshenmeymen | chew-shen-may-MEN | چۈشەنمەيمەن
+ex: we are tired | biz charchighanmiz | beez char-cheeg-han-MEEZ | بىز چارچىغانمىز
+ex: we are not tired | biz charchighan emesmiz | beez char-cheeg-HAN eh-mes-MEEZ | بىز چارچىغان ئەمەسمىز
+ex: he works on Sundays | u yekshenbe küni ishleydu | oo yek-shen-BEH kew-NEE eesh-ley-DOO | ئۇ يەكشەنبە كۈنى ئىشلەيدۇ
+ex: he does not work on Sundays | u yekshenbe küni ishlimeydu | oo yek-shen-BEH kew-NEE eesh-lee-mey-DOO | ئۇ يەكشەنبە كۈنى ئىشلىمەيدۇ
+## Asking questions
+> Add the little word -mu after the word you are asking about. It is the same for every question.
+row: you are a student | siz oqughuchisiz | سىز ئوقۇغۇچىسىز
+row: are you a student? | siz oqughuchimusiz? | سىز ئوقۇغۇچىمۇسىز؟
+row: he is here | u mushu yerde | ئۇ مۇشۇ يەردە
+row: is he here? | u mushu yerdemu? | ئۇ مۇشۇ يەردەمۇ؟
+ex: is this your book? | bu sizning kitabingizmu? | boo seez-NEENG kee-tah-been-geez-MOO | بۇ سىزنىڭ كىتابىڭىزمۇ؟
+ex: are they here? | ular mushu yerdemu? | oo-LAR moo-SHOO yer-deh-MOO | ئۇلار مۇشۇ يەردەمۇ؟
+ex: do you like tea? | chayni yaxshi köremsiz? | chai-NEE yakh-SHEE kuh-rem-SEEZ | چاينى ياخشى كۆرەمسىز؟
+ex: is it cold? | soghuqmu? | so-ghook-MOO | سوغۇقمۇ؟
+ex: do you speak English? | siz in'glizche sözliyeleysizmu? | seez een-gleez-CHEH suz-lee-yeh-ley-seez-MOO | سىز ئىنگلىزچە سۆزلىيەلەيسىزمۇ؟
+## Question words
+> Question words stand where the answer would stand.
+row: what | néme | نېمە
+row: who | kim | كىم
+row: where | qeyerde | قەيەردە
+row: when | qachan | قاچان
+row: why | néme üchün | نېمە ئۈچۈن
+row: how | qandaq | قانداق
+row: how much | qanche | قانچە
+row: which | qaysi | قايسى
+ex: what is your name? | ismingiz néme? | ees-meen-GEEZ neh-MEH | ئىسمىڭىز نېمە؟
+ex: who is he? | u kim? | oo KEEM | ئۇ كىم؟
+ex: where do you live? | siz qeyerde turisiz? | seez keh-yer-DEH too-ree-SEEZ | سىز قەيەردە تۇرىسىز؟
+ex: when is the lesson? | ders qachan? | ders kah-CHAN | دەرس قاچان؟
+ex: why are you late? | néme üchün kéchikip qaldingiz? | neh-MEH ew-CHEWN kay-chee-keep kal-deen-GEEZ | نېمە ئۈچۈن كېچىكىپ قالدىڭىز؟
+ex: how are you? | yaxshimusiz? | yakh-shee-moo-SEEZ | ياخشىمۇسىز؟
+ex: how much is it? | qanche? | kan-CHEH | قانچە؟
+ex: which book? | qaysi kitab? | kay-SEE kee-TAB | قايسى كىتاب؟
+## Possessives and liking
+> Endings go on the noun: -im (my), -ing (your), -i (his / her). To say you like something, use "manga yaqidu" (to me it is pleasing).
+row: my book | kitabim | كىتابىم
+row: your book | kitabing | كىتابىڭ
+row: his / her book | kitabi | كىتابى
+row: our book | kitabimiz | كىتابىمىز
+row: your book (formal) | kitabingiz | كىتابىڭىز
+ex: my phone | téléfonum | teh-leh-fo-NOOM | تېلېفونۇم
+ex: your house (formal) | öyingiz | uy-een-GEEZ | ئۆيىڭىز
+ex: his sister | uning singlisi | oo-NEENG seeng-lee-SEE | ئۇنىڭ سىڭلىسى
+ex: I like music | manga muzika yaqidu | mahn-GAH moo-zee-KAH yah-kee-DOO | ماڭا مۇزىكا ياقىدۇ
+ex: I love football | men futbolni yaxshi körimen | men foot-bol-NEE yakh-SHEE kuh-ree-MEN | مەن فۇتبولنى ياخشى كۆرىمەن
+## Formal vs informal
+> sen (informal): friends, family, children. siz (formal): strangers, older people, work. Verb endings change: -sen (informal), -siz (formal).
+row: how are you? | yaxshimusen? / yaxshimusiz? | ياخشىمۇسەن؟ / ياخشىمۇسىز؟
+row: you speak | sözleysen / sözleysiz | سۆزلەيسەن / سۆزلەيسىز
+row: your name | isming / ismingiz | ئىسمىڭ / ئىسمىڭىز
+ex: how are you? (informal) | yaxshimusen? | yakh-shee-moo-SEN | ياخشىمۇسەن؟
+ex: how are you? (formal) | yaxshimusiz? | yakh-shee-moo-SEEZ | ياخشىمۇسىز؟
+ex: where are you going? (informal) | qeyerge barisen? | keh-yer-GEH bah-ree-SEN | قەيەرگە بارىسەن؟
+ex: where are you going? (formal) | qeyerge barisiz? | keh-yer-GEH bah-ree-SEEZ | قەيەرگە بارىسىز؟
+ex: please sit down (formal) | olturung, iltimas | ol-too-ROONG eel-tee-MAS | ئولتۇرۇڭ، ئىلتىماس
+## Past and future (simple)
+> Past: -di + person ending (bardim = I went). Future uses the present form with a time word: ete barimen (tomorrow I go).
+row: I went | bardim | باردىم
+row: you went | bardin | باردىن
+row: he went | bardi | باردى
+row: we went | bardiq | باردىق
+ex: yesterday I was tired | tünügün charchidim | tew-new-GEWN char-chee-DEEM | تۈنۈگۈن چارچىدىم
+ex: I will study tomorrow | ete oqiymen | eh-TEH oh-kee-MEN | ئەتە ئوقىيمەن
+ex: we went to the park | biz baghchigha bardiq | beez bagh-chee-GHAH bar-DEEK | بىز باغچىغا باردىق
+ex: I saw him | men uni kördüm | men oo-NEE kur-DEWM | مەن ئۇنى كۆردۈم
+ex: she wrote a letter | u xet yazdi | oo khet yahz-DEE | ئۇ خەت يازدى
+## Commands
+> Informal: the bare verb stem. Formal: add -ing (kéling). To forbid, add -ma / -me after the stem.
+row: come (informal) | kel | كەل
+row: come (formal) | kéling | كېلىڭ
+row: do not come | kelme | كەلمە
+row: sit down | olturung | ئولتۇرۇڭ
+ex: come here | bu yerge kel | boo yer-GEH KEL | بۇ يەرگە كەل
+ex: do not come here | bu yerge kelme | boo yer-GEH kel-MEH | بۇ يەرگە كەلمە
+ex: sit down | oltur | ol-TOOR | ئولتۇر
+ex: do not sit down | olturma | ol-toor-MAH | ئولتۇرما
+ex: be quiet | tinch bol | teench BOL | تىنچ بول
+ex: do not be late | kéchikme | kay-cheek-MEH | كېچىكمە
+ex: open the door | ishikni éch | ee-sheek-NEE AYCH | ئىشىكنى ئېچ
+ex: close the window | derizini yép | deh-ree-zee-NEE YAYP | دەرىزىنى يېپ
+ex: listen to me | méni angla | may-NEE ahng-LAH | مېنى ئاڭلا
+ex: do not worry | endishe qilma | en-dee-SHEH keel-MAH | ئەندىشە قىلما
+ex: speak slowly | astraq sözle | as-TRAHK suz-LEH | ئاستراق سۆزلە
+ex: wait a moment | bir az kütüp tur | beer AZ kew-TEWP toor | بىر ئاز كۈتۈپ تۇر
+## Can, must, want
+> Can: verb + -alaymen (yüzelaymen, I can swim). Must: "kérek" (needed). Want: -moqchimen (barmoqchimen, I want to go).
+row: I can swim | yüzelaymen | يۈزەلايمەن
+row: I cannot swim | yüzelmeymen | يۈزەلمەيمەن
+row: I must go | barishim kérek | بارىشىم كېرەك
+row: I want to go | barmoqchimen | بارموقچىمەن
+ex: I can swim | men yüzelaymen | men yew-zeh-lay-MEN | مەن يۈزەلايمەن
+ex: I cannot swim | men yüzelmeymen | men yew-zel-may-MEN | مەن يۈزەلمەيمەن
+ex: can you help me? | manga yardem qilalaysizmu? | mahn-GAH yar-DEM kee-lah-lay-seez-MOO | ماڭا ياردەم قىلالايسىزمۇ؟
+ex: we must go | bizge bérish kérek | beez-GEH bay-REESH kay-REK | بىزگە بېرىش كېرەك
+ex: we must not go | bizge bérishqa bolmaydu | beez-GEH bay-reesh-KAH bol-my-DOO | بىزگە بېرىشقا بولمايدۇ
+ex: I want to eat | yéyishni xalaymen | yay-yeesh-NEE khah-lay-MEN | يېيىشنى خالايمەن
+ex: I do not want to eat | yéyishni xalimaymen | yay-yeesh-NEE khah-lee-may-MEN | يېيىشنى خالىمايمەن
+ex: you can come | kelsingiz bolidu | kel-seen-GEEZ bo-lee-DOO | كەلسىڭىز بولىدۇ
+ex: you cannot come | kelsingiz bolmaydu | kel-seen-GEEZ bol-my-DOO | كەلسىڭىز بولمايدۇ
+ex: she wants to study | u oqumoqchi | oo oh-koo-mok-CHEE | ئۇ ئوقۇموقچى
+ex: I must work today | bügün ishlishim kérek | bew-GEWN eesh-lee-sheem kay-REK | بۈگۈن ئىشلىشىم كېرەك
+ex: you must not run | yügürüshke bolmaydu | yew-gew-rew-sh-KEH bol-my-DOO | يۈگۈرۈشكە بولمايدۇ
+## In, on, at
+> Uyghur uses endings, not words in front: -da / -de (in, on, at), -gha / -ge / -qa / -ke (to), -din (from), -ning (of).
+row: in / on / at | -da / -de | دا / دە
+row: to | -gha / -ge | غا / گە
+row: from | -din | دىن
+row: of | -ning | نىڭ
+ex: the book is on the table | kitab shirening üstide | kee-TAB shee-reh-NEENG ews-tee-DEH | كىتاب شىرەنىڭ ئۈستىدە
+ex: the cat is under the table | mushuk shirening astida | moo-SHOOK shee-reh-NEENG as-tee-DAH | مۇشۇك شىرەنىڭ ئاستىدا
+ex: I am at school | men mektepte | men mek-tep-TEH | مەن مەكتەپتە
+ex: I am at home | men öyde | men uy-DEH | مەن ئۆيدە
+ex: the shop is next to the bank | dukan bankining yénida | doo-KAN bahn-kee-neeng yay-nee-DAH | دۇكان بانكىنىڭ يېنىدا
+ex: the park is near the station | baghche wokzalgha yéqin | bagh-CHEH vok-zal-GHAH yay-KEEN | باغچە ۋوكزالغا يېقىن
+ex: we meet in the morning | biz etigende körüshimiz | beez eh-tee-gen-DEH kuh-rew-shee-MEEZ | بىز ئەتىگەندە كۆرۈشىمىز
+ex: the lesson is at nine | ders saet toqquzda | ders sah-ET tok-kooz-DAH | دەرس سائەت توققۇزدا
+ex: the key is in the bag | achquch somkida | ach-KOOCH som-kee-DAH | ئاچقۇچ سومكىدا
+## Comparing things
+> Put "téximu" before the adjective for "more": téximu chong. For "the most" put "eng" before it: eng chong. "Than" is -din.
+row: big, bigger, the biggest | chong, téximu chong, eng chong | چوڭ، تېخىمۇ چوڭ، ئەڭ چوڭ
+row: small, smaller, the smallest | kichik, téximu kichik, eng kichik | كىچىك، تېخىمۇ كىچىك، ئەڭ كىچىك
+ex: big, bigger, the biggest | chong, téximu chong, eng chong | chong tay-khee-MOO CHONG eng CHONG | چوڭ، تېخىمۇ چوڭ، ئەڭ چوڭ
+ex: small, smaller, the smallest | kichik, téximu kichik, eng kichik | kee-CHEEK tay-khee-moo kee-CHEEK eng kee-CHEEK | كىچىك، تېخىمۇ كىچىك، ئەڭ كىچىك
+ex: this is better than that | bu undin yaxshi | boo oon-DEEN yakh-SHEE | بۇ ئۇندىن ياخشى
+ex: this is worse than that | bu undin yaman | boo oon-DEEN yah-MAN | بۇ ئۇندىن يامان
+ex: she is taller than me | u mendin égiz | oo men-DEEN ay-GEEZ | ئۇ مەندىن ئېگىز
+ex: Tashkent is bigger than Samarkand | toshkent samarqandtin chong | tosh-KENT sah-mar-kahn-TEEN chong | توشكەنت سامارقاندتىن چوڭ
+ex: it is the cheapest | bu eng erzan | boo eng er-ZAN | بۇ ئەڭ ئەرزان
+ex: the same as | ohshash | oh-SHAHSH | ئوھشاش
+## Everyday sentences
+> Quick sentences to copy and change.
+ex: he is a teacher | u oqutquchi | oo oh-koot-koo-CHEE | ئۇ ئوقۇتقۇچى
+ex: you (plural) are students | siz oqughuchisiz | seez oh-koo-ghoo-chee-SEEZ | سىز ئوقۇغۇچىسىز
+ex: I am happy | men xushalmen | men khoo-shahl-MEN | مەن خۇشالمەن
+ex: she is at school | u mektepte | oo mek-tep-TEH | ئۇ مەكتەپتە
+ex: you are my friend | sen méning dostumsen | sen may-NEENG dos-toom-SEN | سەن مېنىڭ دوستۇمسەن
+ex: it is cold | soghuq | so-GHOOK | سوغۇق
+ex: I study English | men in'giliz tilini oquymen | men een-GLEEZ tee-lee-NEE oh-kooy-MEN | مەن ئىنگىلىز تىلىنى ئوقۇيمەن
+ex: he teaches maths | u matématika oqutidu | oo mah-teh-MAH-tee-kah oh-koo-tee-DOO | ئۇ ماتېماتىكا ئوقۇتىدۇ
+ex: they work every day | ular her küni ishleydu | oo-LAR her kew-NEE eesh-ley-DOO | ئۇلار ھەر كۈنى ئىشلەيدۇ
+ex: is this your book? | bu sizning kitabingizmu? | boo seez-NEENG kee-tah-been-geez-MOO | بۇ سىزنىڭ كىتابىڭىزمۇ؟
+ex: are they here? | ular mushu yerdemu? | oo-LAR moo-SHOO yer-deh-MOO | ئۇلار مۇشۇ يەردەمۇ؟
+ex: do you like tea? | chayni yaxshi köremsiz? | chai-NEE yakh-SHEE kuh-rem-SEEZ | چاينى ياخشى كۆرەمسىز؟
+ex: what time is it? | saet qanche? | sah-ET kan-CHEH | سائەت قانچە؟
+ex: whose book is this? | bu kimning kitabi? | boo keem-NEENG kee-tah-BEE | بۇ كىمنىڭ كىتابى؟
+ex: how old are you? | yéshingiz néchide? | yay-sheen-GEEZ nay-chee-DEH | يېشىڭىز نېچىدە؟
+ex: how do you say it? | buni qandaq déysiz? | boo-NEE kahn-DAHK day-SEEZ | بۇنى قانداق دېيسىز؟
+ex: your book (formal) | kitabingiz | kee-tah-been-GEEZ | كىتابىڭىز
+ex: their house | ularning öyi | oo-lar-NEENG uy-EE | ئۇلارنىڭ ئۆيى
+ex: my phone | téléfonum | teh-leh-fo-NOOM | تېلېفونۇم
+ex: excuse me, sir | keching, ependim | keh-CHEENG eh-pen-DEEM | كەچىڭ، ئەپەندىم
+ex: please sit down (formal) | olturung, iltimas | ol-too-ROONG eel-tee-MAS | ئولتۇرۇڭ، ئىلتىماس
+ex: come here (informal) | bu yerge kel | boo yer-GEH KEL | بۇ يەرگە كەل
+ex: yesterday I was tired | tünügün charchidim | tew-new-GEWN char-chee-DEEM | تۈنۈگۈن چارچىدىم
+ex: I will study tomorrow | ete oqiymen | eh-TEH oh-kee-MEN | ئەتە ئوقىيمەن
+ex: we went to the park | biz baghchigha bardiq | beez bagh-chee-GHAH bar-DEEK | بىز باغچىغا باردىق

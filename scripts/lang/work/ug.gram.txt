@@ -1,0 +1,246 @@
+[grammar]
+## Pronouns
+> Uyghur often drops the pronoun, because the verb ending shows who is speaking. There is no he / she difference: "u" means both.
+row: I | men
+row: you (informal) | sen
+row: he / she / it | u
+row: we | biz
+row: you (formal or plural) | siz
+row: they | ular
+ex: I am a student | men oqughuchimen | men oh-koo-ghoo-chee-MEN
+ex: you are tall | sen égizsen | sen ay-geez-SEN
+ex: she is my older sister | u méning achamdur | oo may-NEENG ah-chahm-DOOR
+ex: we are friends | biz dostmiz | beez dost-MEEZ
+ex: they are teachers | ular oqutquchi | oo-LAR oh-koot-koo-CHEE
+## Singular and plural
+> Add -lar or -ler, by vowel harmony. After a number, the noun stays singular: ikki kitab (two book).
+row: kitab (book) | kitablar
+row: öy (house) | öyler
+row: bala (child) | balilar
+row: after a number: singular | ikki kitab
+ex: one house, houses | bir öy, öyler | beer UY uy-LER
+ex: one book, books | bir kitab, kitablar | beer kee-TAB kee-tahb-LAR
+ex: one cat, cats | bir mushuk, mushuklar | beer moo-SHOOK moo-shook-LAR
+ex: two books | ikki kitab | ik-KEE kee-TAB
+ex: the children | balilar | bah-lee-LAR
+## To be: -men, -sen, -miz
+> There is no separate verb "to be". Add an ending to the noun or adjective. Uyghur also uses "-dur" for "he / she is".
+row: I am | -men | men
+row: you are | -sen | sen
+row: he / she is | -dur | door
+row: we are | -miz | meez
+row: you are (formal) | -siz | seez
+row: they are | -dur | door
+ex: I am a student | men oqughuchimen | men oh-koo-ghoo-chee-MEN
+ex: you are tired | sen charchighansen | sen char-cheeg-han-SEN
+ex: he is a doctor | u doxturdur | oo dokh-toor-DOOR
+ex: we are happy | biz xushalmiz | beez khoo-shahl-MEEZ
+ex: they are at home | ular öydidur | oo-LAR uy-dee-DOOR
+## Bar and yoq: have, there is
+> Uyghur says "my X exists" (bar) or "my X does not exist" (yoq). The ending shows the owner: -im (my), -ing (your), -i (his).
+row: there is | bar
+row: there is not | yoq
+row: I have | ... -im bar
+row: I do not have | ... -im yoq
+ex: I have an older brother | akam bar | ah-KAHM bar
+ex: I have a car | mashinam bar | mah-shee-NAHM bar
+ex: I do not have time | waqtim yoq | vahk-TEEM yok
+ex: there is a problem | mesile bar | meh-see-LEH bar
+ex: there is no water | su yoq | soo yok
+## Present tense: -watimen
+> Verb stem + -wati + person ending. Kélish (to come): kél-iwati-men.
+row: I come | kéliwatimen
+row: you come | kéliwatisen
+row: he / she comes | kéliwatidu
+row: we come | kéliwatimiz
+row: you come (formal) | kéliwatisiz
+row: they come | kéliwatidu
+ex: I am eating bread | men nan yewatimen | men nahn yeh-vah-tee-MEN
+ex: you are reading a book | sen kitab oquwatisen | sen kee-TAB oh-koo-vah-tee-SEN
+ex: she works in a bank | u bankida ishleydu | oo bahn-kee-DAH eesh-ley-DOO
+ex: we drink tea | biz chay ichimiz | beez chai ee-chee-MEEZ
+ex: they are sleeping | ular uxlawatidu | oo-LAR ookh-lah-vah-tee-DOO
+## Basic sentences
+> The verb goes last. Order: who, where or when, what, verb. Uyghur has no articles: "kitab" means "a book" or "the book".
+row: I read a book | men kitab oqiymen
+row: she drinks tea | u chay ichidu
+row: we go to school | biz mektepke barimiz
+ex: I read a book | men kitab oqiymen | men kee-TAB oh-kee-MEN
+ex: he drinks tea | u chay ichidu | oo chai ee-chee-DOO
+ex: we go to school | biz mektepke barimiz | beez mek-tep-KEH bah-ree-MEEZ
+ex: they eat bread | ular nan yeydu | oo-LAR nahn yay-DOO
+ex: the teacher writes | oqutquchi yazidu | oh-koot-koo-CHEE yah-zee-DOO
+## Negation
+> Put -ma / -me after the verb stem: barimen (I go), barmaymen (I do not go). For nouns use "emes" (is not). "Yoq" means "there is not". Always compare with the positive form.
+row: I go | barimen
+row: I do not go | barmaymen
+row: is | -dur
+row: is not | emes
+ex: I want | men xalaymen | men khah-lay-MEN
+ex: I do not want | men xalimaymen | men khah-lee-may-MEN
+ex: I speak English | men in'glizche sözleymen | men een-gleez-CHEH suz-ley-MEN
+ex: I do not speak English | men in'glizche sözlimeymen | men een-gleez-CHEH suz-lee-mey-MEN
+ex: I like it | manga yaqidu | mahn-GAH yah-kee-DOO
+ex: I do not like it | manga yaqmaydu | mahn-GAH yahk-my-DOO
+ex: she is here | u mushu yerde | oo moo-SHOO yer-DEH
+ex: she is not here | u mushu yerde emes | oo moo-SHOO yer-DEH eh-MES
+ex: I have a car | mashinam bar | mah-shee-NAHM bar
+ex: I do not have a car | mashinam yoq | mah-shee-NAHM yok
+ex: I understand | chüshinimen | chew-shee-nee-MEN
+ex: I do not understand | chüshenmeymen | chew-shen-may-MEN
+ex: we are tired | biz charchighanmiz | beez char-cheeg-han-MEEZ
+ex: we are not tired | biz charchighan emesmiz | beez char-cheeg-HAN eh-mes-MEEZ
+ex: he works on Sundays | u yekshenbe küni ishleydu | oo yek-shen-BEH kew-NEE eesh-ley-DOO
+ex: he does not work on Sundays | u yekshenbe küni ishlimeydu | oo yek-shen-BEH kew-NEE eesh-lee-mey-DOO
+## Asking questions
+> Add the little word -mu after the word you are asking about. It is the same for every question.
+row: you are a student | siz oqughuchisiz
+row: are you a student? | siz oqughuchimusiz?
+row: he is here | u mushu yerde
+row: is he here? | u mushu yerdemu?
+ex: is this your book? | bu sizning kitabingizmu? | boo seez-NEENG kee-tah-been-geez-MOO
+ex: are they here? | ular mushu yerdemu? | oo-LAR moo-SHOO yer-deh-MOO
+ex: do you like tea? | chayni yaxshi köremsiz? | chai-NEE yakh-SHEE kuh-rem-SEEZ
+ex: is it cold? | soghuqmu? | so-ghook-MOO
+ex: do you speak English? | siz in'glizche sözliyeleysizmu? | seez een-gleez-CHEH suz-lee-yeh-ley-seez-MOO
+## Question words
+> Question words stand where the answer would stand.
+row: what | néme
+row: who | kim
+row: where | qeyerde
+row: when | qachan
+row: why | néme üchün
+row: how | qandaq
+row: how much | qanche
+row: which | qaysi
+ex: what is your name? | ismingiz néme? | ees-meen-GEEZ neh-MEH
+ex: who is he? | u kim? | oo KEEM
+ex: where do you live? | siz qeyerde turisiz? | seez keh-yer-DEH too-ree-SEEZ
+ex: when is the lesson? | ders qachan? | ders kah-CHAN
+ex: why are you late? | néme üchün kéchikip qaldingiz? | neh-MEH ew-CHEWN kay-chee-keep kal-deen-GEEZ
+ex: how are you? | yaxshimusiz? | yakh-shee-moo-SEEZ
+ex: how much is it? | qanche? | kan-CHEH
+ex: which book? | qaysi kitab? | kay-SEE kee-TAB
+## Possessives and liking
+> Endings go on the noun: -im (my), -ing (your), -i (his / her). To say you like something, use "manga yaqidu" (to me it is pleasing).
+row: my book | kitabim
+row: your book | kitabing
+row: his / her book | kitabi
+row: our book | kitabimiz
+row: your book (formal) | kitabingiz
+ex: my phone | téléfonum | teh-leh-fo-NOOM
+ex: your house (formal) | öyingiz | uy-een-GEEZ
+ex: his sister | uning singlisi | oo-NEENG seeng-lee-SEE
+ex: I like music | manga muzika yaqidu | mahn-GAH moo-zee-KAH yah-kee-DOO
+ex: I love football | men futbolni yaxshi körimen | men foot-bol-NEE yakh-SHEE kuh-ree-MEN
+## Formal vs informal
+> sen (informal): friends, family, children. siz (formal): strangers, older people, work. Verb endings change: -sen (informal), -siz (formal).
+row: how are you? | yaxshimusen? / yaxshimusiz?
+row: you speak | sözleysen / sözleysiz
+row: your name | isming / ismingiz
+ex: how are you? (informal) | yaxshimusen? | yakh-shee-moo-SEN
+ex: how are you? (formal) | yaxshimusiz? | yakh-shee-moo-SEEZ
+ex: where are you going? (informal) | qeyerge barisen? | keh-yer-GEH bah-ree-SEN
+ex: where are you going? (formal) | qeyerge barisiz? | keh-yer-GEH bah-ree-SEEZ
+ex: please sit down (formal) | olturung, iltimas | ol-too-ROONG eel-tee-MAS
+## Past and future (simple)
+> Past: -di + person ending (bardim = I went). Future uses the present form with a time word: ete barimen (tomorrow I go).
+row: I went | bardim
+row: you went | bardin
+row: he went | bardi
+row: we went | bardiq
+ex: yesterday I was tired | tünügün charchidim | tew-new-GEWN char-chee-DEEM
+ex: I will study tomorrow | ete oqiymen | eh-TEH oh-kee-MEN
+ex: we went to the park | biz baghchigha bardiq | beez bagh-chee-GHAH bar-DEEK
+ex: I saw him | men uni kördüm | men oo-NEE kur-DEWM
+ex: she wrote a letter | u xet yazdi | oo khet yahz-DEE
+## Commands
+> Informal: the bare verb stem. Formal: add -ing (kéling). To forbid, add -ma / -me after the stem.
+row: come (informal) | kel
+row: come (formal) | kéling
+row: do not come | kelme
+row: sit down | olturung
+ex: come here | bu yerge kel | boo yer-GEH KEL
+ex: do not come here | bu yerge kelme | boo yer-GEH kel-MEH
+ex: sit down | oltur | ol-TOOR
+ex: do not sit down | olturma | ol-toor-MAH
+ex: be quiet | tinch bol | teench BOL
+ex: do not be late | kéchikme | kay-cheek-MEH
+ex: open the door | ishikni éch | ee-sheek-NEE AYCH
+ex: close the window | derizini yép | deh-ree-zee-NEE YAYP
+ex: listen to me | méni angla | may-NEE ahng-LAH
+ex: do not worry | endishe qilma | en-dee-SHEH keel-MAH
+ex: speak slowly | astraq sözle | as-TRAHK suz-LEH
+ex: wait a moment | bir az kütüp tur | beer AZ kew-TEWP toor
+## Can, must, want
+> Can: verb + -alaymen (yüzelaymen, I can swim). Must: "kérek" (needed). Want: -moqchimen (barmoqchimen, I want to go).
+row: I can swim | yüzelaymen
+row: I cannot swim | yüzelmeymen
+row: I must go | barishim kérek
+row: I want to go | barmoqchimen
+ex: I can swim | men yüzelaymen | men yew-zeh-lay-MEN
+ex: I cannot swim | men yüzelmeymen | men yew-zel-may-MEN
+ex: can you help me? | manga yardem qilalaysizmu? | mahn-GAH yar-DEM kee-lah-lay-seez-MOO
+ex: we must go | bizge bérish kérek | beez-GEH bay-REESH kay-REK
+ex: we must not go | bizge bérishqa bolmaydu | beez-GEH bay-reesh-KAH bol-my-DOO
+ex: I want to eat | yéyishni xalaymen | yay-yeesh-NEE khah-lay-MEN
+ex: I do not want to eat | yéyishni xalimaymen | yay-yeesh-NEE khah-lee-may-MEN
+ex: you can come | kelsingiz bolidu | kel-seen-GEEZ bo-lee-DOO
+ex: you cannot come | kelsingiz bolmaydu | kel-seen-GEEZ bol-my-DOO
+ex: she wants to study | u oqumoqchi | oo oh-koo-mok-CHEE
+ex: I must work today | bügün ishlishim kérek | bew-GEWN eesh-lee-sheem kay-REK
+ex: you must not run | yügürüshke bolmaydu | yew-gew-rew-sh-KEH bol-my-DOO
+## In, on, at
+> Uyghur uses endings, not words in front: -da / -de (in, on, at), -gha / -ge / -qa / -ke (to), -din (from), -ning (of).
+row: in / on / at | -da / -de
+row: to | -gha / -ge
+row: from | -din
+row: of | -ning
+ex: the book is on the table | kitab shirening üstide | kee-TAB shee-reh-NEENG ews-tee-DEH
+ex: the cat is under the table | mushuk shirening astida | moo-SHOOK shee-reh-NEENG as-tee-DAH
+ex: I am at school | men mektepte | men mek-tep-TEH
+ex: I am at home | men öyde | men uy-DEH
+ex: the shop is next to the bank | dukan bankining yénida | doo-KAN bahn-kee-neeng yay-nee-DAH
+ex: the park is near the station | baghche wokzalgha yéqin | bagh-CHEH vok-zal-GHAH yay-KEEN
+ex: we meet in the morning | biz etigende körüshimiz | beez eh-tee-gen-DEH kuh-rew-shee-MEEZ
+ex: the lesson is at nine | ders saet toqquzda | ders sah-ET tok-kooz-DAH
+ex: the key is in the bag | achquch somkida | ach-KOOCH som-kee-DAH
+## Comparing things
+> Put "téximu" before the adjective for "more": téximu chong. For "the most" put "eng" before it: eng chong. "Than" is -din.
+row: big, bigger, the biggest | chong, téximu chong, eng chong
+row: small, smaller, the smallest | kichik, téximu kichik, eng kichik
+ex: big, bigger, the biggest | chong, téximu chong, eng chong | chong tay-khee-MOO CHONG eng CHONG
+ex: small, smaller, the smallest | kichik, téximu kichik, eng kichik | kee-CHEEK tay-khee-moo kee-CHEEK eng kee-CHEEK
+ex: this is better than that | bu undin yaxshi | boo oon-DEEN yakh-SHEE
+ex: this is worse than that | bu undin yaman | boo oon-DEEN yah-MAN
+ex: she is taller than me | u mendin égiz | oo men-DEEN ay-GEEZ
+ex: Tashkent is bigger than Samarkand | toshkent samarqandtin chong | tosh-KENT sah-mar-kahn-TEEN chong
+ex: it is the cheapest | bu eng erzan | boo eng er-ZAN
+ex: the same as | ohshash | oh-SHAHSH
+## Everyday sentences
+> Quick sentences to copy and change.
+ex: he is a teacher | u oqutquchi | oo oh-koot-koo-CHEE
+ex: you (plural) are students | siz oqughuchisiz | seez oh-koo-ghoo-chee-SEEZ
+ex: I am happy | men xushalmen | men khoo-shahl-MEN
+ex: she is at school | u mektepte | oo mek-tep-TEH
+ex: you are my friend | sen méning dostumsen | sen may-NEENG dos-toom-SEN
+ex: it is cold | soghuq | so-GHOOK
+ex: I study English | men in'giliz tilini oquymen | men een-GLEEZ tee-lee-NEE oh-kooy-MEN
+ex: he teaches maths | u matématika oqutidu | oo mah-teh-MAH-tee-kah oh-koo-tee-DOO
+ex: they work every day | ular her küni ishleydu | oo-LAR her kew-NEE eesh-ley-DOO
+ex: is this your book? | bu sizning kitabingizmu? | boo seez-NEENG kee-tah-been-geez-MOO
+ex: are they here? | ular mushu yerdemu? | oo-LAR moo-SHOO yer-deh-MOO
+ex: do you like tea? | chayni yaxshi köremsiz? | chai-NEE yakh-SHEE kuh-rem-SEEZ
+ex: what time is it? | saet qanche? | sah-ET kan-CHEH
+ex: whose book is this? | bu kimning kitabi? | boo keem-NEENG kee-tah-BEE
+ex: how old are you? | yéshingiz néchide? | yay-sheen-GEEZ nay-chee-DEH
+ex: how do you say it? | buni qandaq déysiz? | boo-NEE kahn-DAHK day-SEEZ
+ex: your book (formal) | kitabingiz | kee-tah-been-GEEZ
+ex: their house | ularning öyi | oo-lar-NEENG uy-EE
+ex: my phone | téléfonum | teh-leh-fo-NOOM
+ex: excuse me, sir | keching, ependim | keh-CHEENG eh-pen-DEEM
+ex: please sit down (formal) | olturung, iltimas | ol-too-ROONG eel-tee-MAS
+ex: come here (informal) | bu yerge kel | boo yer-GEH KEL
+ex: yesterday I was tired | tünügün charchidim | tew-new-GEWN char-chee-DEEM
+ex: I will study tomorrow | ete oqiymen | eh-TEH oh-kee-MEN
+ex: we went to the park | biz baghchigha bardiq | beez bagh-chee-GHAH bar-DEEK

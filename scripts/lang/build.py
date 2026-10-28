@@ -97,9 +97,13 @@ def main():
         json.dump(L, open(os.path.join(OUT, L['id'] + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         idx.append({'id': L['id'], 'name': L['name'], 'flag': L.get('flag', ''), 'script': bool(L.get('script')), 'count': cnt})
         print(L['id'], cnt)
-    GROUPS = [('', ['uz']), ('Romance', ['es', 'pt', 'fr', 'it']), ('Europe', ['de', 'pl', 'uk']), ('Turkic', ['tr', 'tt']),
-              ('Middle East and India', ['khl', 'fa', 'he', 'hi']), ('East Asia', ['ja', 'ko']),
-              ('More languages', ['mn', 'xh', 'am', 'eu', 'eo']), ('Niche and historic', ['la', 'shk', 'tok', 'cmn', 'chg', 'arc'])]
+    GROUPS = [('', ['uz']), ('Romance', ['es', 'pt', 'fr', 'it', 'ro']),
+              ('Europe', ['de', 'nl', 'sv', 'pl', 'uk', 'cs', 'hu', 'fi', 'el']),
+              ('Turkic', ['tr', 'az', 'kk', 'ky', 'ug', 'tt']), ('Caucasus', ['ka', 'hy']),
+              ('Middle East and India', ['khl', 'fa', 'tg', 'ur', 'he', 'hi']),
+              ('East and Southeast Asia', ['ja', 'ko', 'th', 'vi', 'id']), ('Africa', ['sw', 'yo', 'xh', 'am']),
+              ('More languages', ['mn', 'eu', 'eo']),
+              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'shk', 'cy', 'ga', 'haw', 'rom', 'jam', 'tok', 'sjn'])]
     pos = {}
     for gi, (gn, ids) in enumerate(GROUPS):
         for i, x in enumerate(ids): pos[x] = (gi, i, gn)
