@@ -1,59 +1,6 @@
 {
-  "generatedAt": "2026-10-28T14:45:41.319502Z",
+  "generatedAt": "2026-10-28T20:01:51.184906Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/freiburg-vs-borussia-moenchengladbach/5dheouRu191iHNvjUU6Nm",
-      "date": null,
-      "home": "Freiburg",
-      "away": "Borussia Moenchengladbach",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 5,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "Y. Engelhardt",
-          "minute": 23
-        },
-        {
-          "scorer": "I. Matanovic",
-          "minute": 29
-        },
-        {
-          "scorer": "M. Eggestein",
-          "minute": 86
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/mainz-05-vs-eintracht-frankfurt/TmzzY95sxlwXg_jvz2k74",
-      "date": null,
-      "home": "Mainz 05",
-      "away": "Eintracht Frankfurt",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 1,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "P. Tietz",
-          "minute": 89
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "C. Uzun",
-          "minute": 9
-        },
-        {
-          "scorer": "J. Burkardt",
-          "minute": 45
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/augsburg-vs-bayer-leverkusen/RHupm8O3cuc0zxsbidDvW",
       "date": null,
@@ -7858,6 +7805,41 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/parma-calcio-1913-vs-udinese/JQAod99p443LhXqqYLRnM",
+      "date": "2026-10-28",
+      "home": "Parma Calcio 1913",
+      "away": "Udinese",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/venezia-vs-inter/MQaeKlnq7ND4Yu3LUhs4s",
+      "date": "2026-10-28",
+      "home": "Venezia",
+      "away": "Inter",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "M. Moreno",
+          "minute": 80
+        },
+        {
+          "scorer": "R. Halhal",
+          "minute": 82
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7871,6 +7853,7 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
+    "https://www.goal.com/en/match/ac-milan-vs-bologna/lfQ9Zd4ZJI9395TN7mfiN": 2
   }
 }
