@@ -425,6 +425,7 @@ function route(){
   }).catch(function(){ app.innerHTML = back('#', 'Back') + '<div class="v-hint">Could not load. Check your connection.</div>'; });
 }
 window.addEventListener('hashchange', route);
+app.addEventListener('click', function(e){ var a = e.target.closest && e.target.closest('a.back-link'); if(!a) return; var h = a.getAttribute('href') || ''; if(h.charAt(0) === '#' && h === (location.hash || '#')){ e.preventDefault(); route(); } else if(h === '#' && !location.hash){ e.preventDefault(); route(); } });
 getJson('data/lang/index.json').then(function(d){ INDEX = d; route(); }).catch(function(){ app.innerHTML = HUB_BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
 })();
 </script>
