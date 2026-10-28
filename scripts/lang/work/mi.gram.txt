@@ -1,0 +1,244 @@
+[grammar]
+## Pronouns
+> Māori has a dual "we" (two people) and a plural "we" (three or more), and each comes in two kinds: "tāua / tātou" includes the listener, "māua / mātou" excludes the listener. There is no he / she difference: "ia" means both.
+row: I | ahau (au) | AH-how (OW)
+row: you (one) | koe | KWAY
+row: he / she | ia | EE-ah
+row: we two (with you) | tāua | TAH-oo-ah
+row: we (with you) | tātou | TAH-toh
+row: we (without you) | mātou | MAH-toh
+row: you (plural) | koutou | KOH-toh
+row: they | rātou | RAH-toh
+ex: I am a student | he akonga ahau | heh ah-KOH-ngah AH-how
+ex: you are tall | kei te teitei koe | kay teh TAY-tay KWAY
+ex: she is my older sister | ko tōku tuakana wahine ia | koh TOH-koo too-ah-KAH-nah wah-HEE-neh EE-ah
+ex: we are friends | he hoa tātou | heh HOH-ah TAH-toh
+ex: they are teachers | he kaiako rātou | heh kie-AH-koh RAH-toh
+## Singular and plural
+> Nouns do not change. Use "te" (the) for one and "ngā" (the) for many: te pukapuka (the book), ngā pukapuka (the books). Use "ētahi" for "some": ētahi pukapuka.
+row: the book | te pukapuka | teh poo-kah-POO-kah
+row: the books | ngā pukapuka | ngah poo-kah-POO-kah
+row: the child | te tamaiti | teh tah-MIE-tee
+row: the children | ngā tamariki | ngah tah-mah-REE-kee
+ex: one house, houses | kotahi te whare, ngā whare | KOH-tah-hee teh FAH-reh, ngah FAH-reh
+ex: one book, books | kotahi te pukapuka, ngā pukapuka | KOH-tah-hee teh poo-kah-POO-kah, ngah poo-kah-POO-kah
+ex: one cat, cats | kotahi te ngeru, ngā ngeru | KOH-tah-hee teh NGEH-roo, ngah NGEH-roo
+ex: two books | e rua ngā pukapuka | eh ROO-ah ngah poo-kah-POO-kah
+ex: the children | ngā tamariki | ngah tah-mah-REE-kee
+## To be: he, ko, kei
+> Māori has no verb "to be". Use "he" before a noun (he kaiako ahau, a teacher I), "ko" for a name or identity, and "kei" for places (kei te kura ahau). An adjective can stand first with "kei te".
+row: I am a teacher | he kaiako ahau | heh kie-AH-koh AH-how
+row: this is a book | he pukapuka tēnei | heh poo-kah-POO-kah TEH-nay
+row: I am at home | kei te kāinga ahau | kay teh KAH-ee-ngah AH-how
+row: I am tall | kei te teitei ahau | kay teh TAY-tay AH-how
+ex: I am a student | he akonga ahau | heh ah-KOH-ngah AH-how
+ex: you are tired | kei te ngenge koe | kay teh NGEH-ngeh KWAY
+ex: he is a doctor | he taote ia | heh TAH-oh-teh EE-ah
+ex: we are happy | kei te harikoa tātou | kay teh hah-ree-KOH-ah TAH-toh
+ex: they are at home | kei te kāinga rātou | kay teh KAH-ee-ngah RAH-toh
+## Having: he ... tāku
+> To say "I have", Māori says "a ... mine": he motokā tāku (a car mine). Use "tōku" for things that are part of you, like family and body (o-class), and "tāku" for things you own or do (a-class).
+row: I have a car | he motokā tāku | heh moh-toh-KAH TAH-koo
+row: you have a car | he motokā tāu | heh moh-toh-KAH TAH-oo
+row: he / she has a car | he motokā tāna | heh moh-toh-KAH TAH-nah
+row: I do not have | kāore he ... tāku | KAH-oh-reh heh ... TAH-koo
+ex: I have an older brother | he tuakana tāne tōku | heh too-ah-KAH-nah TAH-neh TOH-koo
+ex: I have a car | he motokā tāku | heh moh-toh-KAH TAH-koo
+ex: I do not have time | kāore he wā tōku | KAH-oh-reh heh wah TOH-koo
+ex: there is a problem | he raruraru kei konei | heh rah-roo-RAH-roo kay KOH-nay
+ex: there is no water | kāore he wai | KAH-oh-reh heh WHY
+## Present tense
+> Verbs do not change for person. Put "kei te" before the verb for now: kei te kai ahau (I am eating). Without "kei te", the verb has no time.
+row: I am eating | kei te kai ahau | kay teh KIE AH-how
+row: you are eating | kei te kai koe | kay teh KIE KWAY
+row: he / she is eating | kei te kai ia | kay teh KIE EE-ah
+row: we are eating | kei te kai tātou | kay teh KIE TAH-toh
+ex: I am eating bread | kei te kai ahau i te parāoa | kay teh KIE AH-how ee teh pah-RAH-oh-ah
+ex: you are reading a book | kei te pānui koe i te pukapuka | kay teh PAH-noo-ee KWAY ee teh poo-kah-POO-kah
+ex: she works in a bank | kei te mahi ia i te peeke | kay teh MAH-hee EE-ah ee teh PEH-eh-keh
+ex: we drink tea | kei te inu mātou i te tī | kay teh EE-noo MAH-toh ee teh TEE
+ex: they are sleeping | kei te moe rātou | kay teh MOH-eh RAH-toh
+## Basic sentences
+> The verb comes first. The order is verb, subject, object: "kei te pānui ahau i te pukapuka" (reading I the book). "I" marks the object.
+row: I read a book | kei te pānui ahau i te pukapuka | kay teh PAH-noo-ee AH-how ee teh poo-kah-POO-kah
+row: he drinks tea | kei te inu ia i te tī | kay teh EE-noo EE-ah ee teh TEE
+row: a big house | he whare nui | heh FAH-reh NOO-ee
+row: a new car | he motokā hou | heh moh-toh-KAH HOH
+ex: I read a book | kei te pānui ahau i te pukapuka | kay teh PAH-noo-ee AH-how ee teh poo-kah-POO-kah
+ex: he drinks tea | kei te inu ia i te tī | kay teh EE-noo EE-ah ee teh TEE
+ex: we go to school | kei te haere mātou ki te kura | kay teh HIGH-reh MAH-toh kee teh KOO-rah
+ex: they eat bread | kei te kai rātou i te parāoa | kay teh KIE RAH-toh ee teh pah-RAH-oh-ah
+ex: the teacher writes | kei te tuhi te kaiako | kay teh TOO-hee teh kie-AH-koh
+## Negation
+> Put "kāore" before the verb, and "e" after the subject: kāore ahau e hiahia (I do not want). For the past, use "i": kāore ahau i kai (I did not eat). For "there is none", use "kāore he".
+row: I do not go | kāore au e haere | KAH-oh-reh OW eh HIGH-reh
+row: you do not go | kāore koe e haere | KAH-oh-reh KWAY eh HIGH-reh
+row: he / she does not go | kāore ia e haere | KAH-oh-reh EE-ah eh HIGH-reh
+row: it is not good | kāore e pai | KAH-oh-reh eh PIE
+ex: I want | e hiahia ana ahau | eh hee-AH-hee-ah AH-nah AH-how
+ex: I do not want | kāore au e hiahia | KAH-oh-reh OW eh hee-AH-hee-ah
+ex: I speak English | kei te kōrero Ingarihi ahau | kay teh KOH-reh-roh ee-ngah-REE-hee AH-how
+ex: I do not speak English | kāore au e kōrero Ingarihi | KAH-oh-reh OW eh KOH-reh-roh ee-ngah-REE-hee
+ex: I like it | he pai ki ahau | heh pie kee AH-how
+ex: I do not like it | kāore e pai ki ahau | KAH-oh-reh eh pie kee AH-how
+ex: she is here | kei konei ia | kay KOH-nay EE-ah
+ex: she is not here | kāore ia i konei | KAH-oh-reh EE-ah ee KOH-nay
+ex: I have a car | he motokā tāku | heh moh-toh-KAH TAH-koo
+ex: I do not have a car | kāore he motokā tāku | KAH-oh-reh heh moh-toh-KAH TAH-koo
+ex: I understand | kei te mārama ahau | kay teh MAH-rah-mah AH-how
+ex: I do not understand | kāore au e mārama | KAH-oh-reh OW eh MAH-rah-mah
+ex: we are tired | kei te ngenge tātou | kay teh NGEH-ngeh TAH-toh
+ex: we are not tired | kāore tātou e ngenge | KAH-oh-reh TAH-toh eh NGEH-ngeh
+ex: he works on Sundays | ka mahi ia i te Rātapu | kah MAH-hee EE-ah ee teh RAH-tah-poo
+ex: he does not work on Sundays | kāore ia e mahi i te Rātapu | KAH-oh-reh EE-ah eh MAH-hee ee teh RAH-tah-poo
+## Asking questions
+> Raise your voice at the end, or begin with "he": "He pai tēnei?" (Is this good?). To answer, say "āe" (yes) or "kao" (no), or repeat the verb.
+row: Do you go? | kei te haere koe? | kay teh HIGH-reh KWAY
+row: Is it good? | he pai? | heh PIE
+row: Is it right? | he tika? | heh TEE-kah
+ex: is this your book? | nāu tēnei pukapuka? | NAH-oo TEH-nay poo-kah-POO-kah
+ex: are they here? | kei konei rātou? | kay KOH-nay RAH-toh
+ex: do you like tea? | he pai ki a koe te tī? | heh pie kee ah KWAY teh TEE
+ex: is it cold? | kei te makariri? | kay teh mah-kah-REE-ree
+ex: do you speak English? | kei te kōrero Ingarihi koe? | kay teh KOH-reh-roh ee-ngah-REE-hee KWAY
+## Question words
+> Question words usually come at the start or take the place of the answer.
+row: who | wai | WHY
+row: what | aha | AH-hah
+row: where | hea | HEH-ah
+row: when | āhea | AH-heh-ah
+row: why | nā te aha | nah teh AH-hah
+row: how | pēhea | PEH-heh-ah
+row: how much | e hia | eh HEE-ah
+ex: what is your name? | ko wai tō ingoa? | koh WHY toh ee-NGOH-ah
+ex: who is he? | ko wai ia? | koh WHY EE-ah
+ex: where do you live? | kei hea koe e noho ana? | kay HEH-ah KWAY eh NOH-hoh AH-nah
+ex: when is the lesson? | āhea te akoranga? | AH-heh-ah teh ah-koh-RAH-ngah
+ex: why are you late? | nā te aha koe i tōmuri ai? | nah teh AH-hah KWAY ee TOH-moo-ree eye
+ex: how much is it? | e hia te utu? | eh HEE-ah teh OO-too
+ex: which book? | tēhea pukapuka? | TEH-heh-ah poo-kah-POO-kah
+## Possessives and liking
+> Two kinds of "my": "tōku" (parts of you, family, home) and "taku" (things you own or choose, like a pencil or a plan). Your: tō / tāu. His, her: tōna / tāna. Their: tō rātou / ā rātou.
+row: my body (o-class) | tōku tinana | TOH-koo tee-NAH-nah
+row: my book (a-class) | taku pukapuka | TAH-koo poo-kah-POO-kah
+row: your book | tāu pukapuka | TAH-oo poo-kah-POO-kah
+row: his / her book | tāna pukapuka | TAH-nah poo-kah-POO-kah
+ex: my phone | taku waea | TAH-koo WAH-eh-ah
+ex: your house (formal) | tō koutou whare | toh KOH-toh FAH-reh
+ex: his sister | tōna tuahine | TOH-nah too-ah-HEE-neh
+ex: I like music | he pai ki ahau te puoro | heh pie kee AH-how teh poo-OH-roh
+ex: I love football | e aroha ana ahau ki te whutupaoro | eh ah-ROH-hah AH-nah AH-how kee teh foo-too-PAH-oh-roh
+## Formal vs informal
+> Māori shows respect with "koutou" (you, plural) for one person, with "e te rangatira" (sir, chief) and with "tēnā koa" (please). There is no formal verb form.
+row: sir | e te rangatira | eh teh rah-ngah-TEE-rah
+row: madam | e kui | eh KOO-ee
+ex: how are you? (informal) | kei te pēhea koe? | kay teh PEH-heh-ah KWAY
+ex: how are you? (formal) | kei te pēhea koutou? | kay teh PEH-heh-ah KOH-toh
+ex: where are you going? (informal) | kei te haere koe ki hea? | kay teh HIGH-reh KWAY kee HEH-ah
+ex: where are you going? (formal) | kei te haere koutou ki hea? | kay teh HIGH-reh KOH-toh kee HEH-ah
+ex: please sit down (formal) | noho, tēnā koa | NOH-hoh, TEH-nah KOH-ah
+## Past and future (simple)
+> Verbs do not change. Past: put "i" before the verb (i kai ahau, I ate). Future: put "ka" before the verb (ka kai ahau, I will eat).
+row: I ate | i kai ahau | ee KIE AH-how
+row: I will eat | ka kai ahau | kah KIE AH-how
+row: I will go tomorrow | ka haere ahau āpōpō | kah HIGH-reh AH-how ah-poh-POH
+ex: yesterday I was tired | inanahi, i ngenge ahau | ee-nah-NAH-hee, ee NGEH-ngeh AH-how
+ex: I will study tomorrow | ka ako ahau āpōpō | kah AH-koh AH-how ah-poh-POH
+ex: we went to the park | i haere mātou ki te papa rēhia | ee HIGH-reh MAH-toh kee teh PAH-pah REH-hee-ah
+ex: I saw him | i kite ahau i a ia | ee KEE-teh AH-how ee ah EE-ah
+ex: she wrote a letter | i tuhi ia i tētahi reta | ee TOO-hee EE-ah ee TEH-tah-hee REH-tah
+## Commands
+> A command is the plain verb: haere mai (come). To forbid, put "kaua e" before the verb: kaua e haere (do not go).
+row: come! | haere mai! | HIGH-reh MY
+row: wait! | tatari! | tah-TAH-ree
+row: do not go | kaua e haere | KOW-ah eh HIGH-reh
+row: please wait | tatari, tēnā koa | tah-TAH-ree, TEH-nah KOH-ah
+ex: come here | haere mai ki konei | HIGH-reh MY kee KOH-nay
+ex: do not come here | kaua e haere mai ki konei | KOW-ah eh HIGH-reh MY kee KOH-nay
+ex: sit down | noho iho | NOH-hoh EE-hoh
+ex: do not sit down | kaua e noho | KOW-ah eh NOH-hoh
+ex: be quiet | noho marie | NOH-hoh MAH-ree-eh
+ex: do not be late | kaua e tōmuri | KOW-ah eh TOH-moo-ree
+ex: open the door | whakatuwheratia te tatau | fah-kah-too-feh-RAH-tee-ah teh tah-TOW
+ex: close the window | katia te matapihi | KAH-tee-ah teh mah-tah-PEE-hee
+ex: listen to me | whakarongo mai ki ahau | fah-kah-ROH-ngoh MY kee AH-how
+ex: do not worry | kaua e māharahara | KOW-ah eh MAH-hah-rah-hah-rah
+ex: speak slowly | kōrero marie | KOH-reh-roh MAH-ree-eh
+ex: wait a moment | tatari mō tētahi wā | tah-TAH-ree moh TEH-tah-hee WAH
+## Can, must, want
+> "Ka taea" (can), "me" (must) and "hiahia" (want) are the key words. Ka taea e au te... (it is possible for me to...), me haere ahau (I must go).
+row: I can swim | ka taea e au te kauhoe | kah TIE-ah eh OW teh kow-HOH-eh
+row: I must go | me haere ahau | meh HIGH-reh AH-how
+row: I want to go | e hiahia ana ahau ki te haere | eh hee-AH-hee-ah AH-nah AH-how kee teh HIGH-reh
+row: may I? | ka taea? | kah TIE-ah
+ex: I can swim | ka taea e au te kauhoe | kah TIE-ah eh OW teh kow-HOH-eh
+ex: I cannot swim | kāore e taea e au te kauhoe | KAH-oh-reh eh TIE-ah eh OW teh kow-HOH-eh
+ex: can you help me? | ka taea e koe te āwhina i ahau? | kah TIE-ah eh KWAY teh AH-fee-nah ee AH-how
+ex: we must go | me haere tātou | meh HIGH-reh TAH-toh
+ex: we must not go | kaua tātou e haere | KOW-ah TAH-toh eh HIGH-reh
+ex: I want to eat | e hiahia ana ahau ki te kai | eh hee-AH-hee-ah AH-nah AH-how kee teh KIE
+ex: I do not want to eat | kāore au e hiahia ki te kai | KAH-oh-reh OW eh hee-AH-hee-ah kee teh KIE
+ex: you can come | ka taea e koe te haere mai | kah TIE-ah eh KWAY teh HIGH-reh MY
+ex: you cannot come | kāore e taea e koe te haere mai | KAH-oh-reh eh TIE-ah eh KWAY teh HIGH-reh MY
+ex: she wants to study | e hiahia ana ia ki te ako | eh hee-AH-hee-ah AH-nah EE-ah kee teh AH-koh
+ex: I must work today | me mahi ahau i tēnei rā | meh MAH-hee AH-how ee TEH-nay RAH
+ex: you must not run | kaua koe e oma | KOW-ah KWAY eh OH-mah
+## In, on, at
+> Māori uses small words: "i" (at, in), "ki" (to), "kei" (is at), "kei runga i" (on), "kei raro i" (under), "kei roto i" (inside), "kei te taha o" (next to), "e tata ana ki" (near).
+row: in the house | kei roto i te whare | kay ROH-toh ee teh FAH-reh
+row: on the table | kei runga i te tēpu | kay ROO-ngah ee teh TEH-poo
+row: under the table | kei raro i te tēpu | kay RAH-roh ee teh TEH-poo
+row: at school | kei te kura | kay teh KOO-rah
+ex: the book is on the table | kei runga te pukapuka i te tēpu | kay ROO-ngah teh poo-kah-POO-kah ee teh TEH-poo
+ex: the cat is under the table | kei raro te ngeru i te tēpu | kay RAH-roh teh NGEH-roo ee teh TEH-poo
+ex: I am at school | kei te kura ahau | kay teh KOO-rah AH-how
+ex: I am at home | kei te kāinga ahau | kay teh KAH-ee-ngah AH-how
+ex: the shop is next to the bank | kei te taha o te peeke te toa | kay teh TAH-hah oh teh PEH-eh-keh teh TOH-ah
+ex: the park is near the station | e tata ana te papa rēhia ki te teihana | eh TAH-tah AH-nah teh PAH-pah REH-hee-ah kee teh TAY-hah-nah
+ex: we meet in the morning | ka hui tātou i te ata | kah HOO-ee TAH-toh ee teh AH-tah
+ex: the lesson is at nine | ā te iwa karaka te akoranga | ah teh EE-wah KAH-rah-kah teh ah-koh-RAH-ngah
+ex: the key is in the bag | kei roto te kī i te pēke | kay ROH-toh teh KEE ee teh PEH-keh
+## Comparing things
+> Māori adds "ake" for "more": nui ake (bigger), pai ake (better). For "than", use "i": pai ake tēnei i tērā. For "the most", use "rawa atu": nui rawa atu.
+row: big, bigger | nui, nui ake | NOO-ee, NOO-ee AH-keh
+row: good, better | pai, pai ake | PIE, PIE AH-keh
+row: the biggest | nui rawa atu | NOO-ee RAH-wah AH-too
+ex: big, bigger, the biggest | nui, nui ake, nui rawa atu | NOO-ee, NOO-ee AH-keh, NOO-ee RAH-wah AH-too
+ex: small, smaller, the smallest | iti, iti ake, iti rawa atu | EE-tee, EE-tee AH-keh, EE-tee RAH-wah AH-too
+ex: this is better than that | pai ake tēnei i tērā | PIE AH-keh TEH-nay ee TEH-rah
+ex: this is worse than that | kino ake tēnei i tērā | KEE-noh AH-keh TEH-nay ee TEH-rah
+ex: she is taller than me | teitei ake ia i ahau | TAY-tay AH-keh EE-ah ee AH-how
+ex: Tashkent is bigger than Samarkand | nui ake a Tashkent i a Samarkand | NOO-ee AH-keh ah tash-KENT ee ah sa-mar-KAND
+ex: it is the cheapest | ko tēnei te mea utu iti rawa atu | koh TEH-nay teh MEH-ah OO-too EE-tee RAH-wah AH-too
+ex: the same as | ōrite ki | OH-ree-teh kee
+## Everyday sentences
+> Quick sentences to copy and change.
+row: I am hungry | kei te hiakai ahau | kay teh hee-AH-kie AH-how
+row: I am thirsty | kei te hiainu ahau | kay teh hee-AH-ee-noo AH-how
+row: I am cold | kei te makariri ahau | kay teh mah-kah-REE-ree AH-how
+row: it is raining | kei te ua | kay teh OO-ah
+ex: he is a teacher | he kaiako ia | heh kie-AH-koh EE-ah
+ex: you (plural) are students | he akonga koutou | heh ah-KOH-ngah KOH-toh
+ex: I am happy | kei te harikoa ahau | kay teh hah-ree-KOH-ah AH-how
+ex: she is at school | kei te kura ia | kay teh KOO-rah EE-ah
+ex: you are my friend | he hoa koe nōku | heh HOH-ah KWAY NOH-koo
+ex: it is cold | kei te makariri | kay teh mah-kah-REE-ree
+ex: I study English | kei te ako ahau i te reo Ingarihi | kay teh AH-koh AH-how ee teh REH-oh ee-ngah-REE-hee
+ex: he teaches maths | kei te whakaako ia i te pāngarau | kay teh fah-kah-AH-koh EE-ah ee teh PAH-ngah-row
+ex: they work every day | ka mahi rātou ia rā | kah MAH-hee RAH-toh EE-ah RAH
+ex: is this your book? | nāu tēnei pukapuka? | NAH-oo TEH-nay poo-kah-POO-kah
+ex: are they here? | kei konei rātou? | kay KOH-nay RAH-toh
+ex: do you like tea? | he pai ki a koe te tī? | heh pie kee ah KWAY teh TEE
+ex: what time is it? | ko te hia karaka? | koh teh HEE-ah KAH-rah-kah
+ex: whose book is this? | nā wai tēnei pukapuka? | nah WHY TEH-nay poo-kah-POO-kah
+ex: how old are you? | e hia ō tau? | eh HEE-ah oh TOW
+ex: how do you say it? | me pēhea e kī ai? | meh PEH-heh-ah eh KEE eye
+ex: your book (formal) | tā koutou pukapuka | tah KOH-toh poo-kah-POO-kah
+ex: their house | tō rātou whare | toh RAH-toh FAH-reh
+ex: my phone | taku waea | TAH-koo WAH-eh-ah
+ex: excuse me, sir | aroha mai, e te rangatira | ah-ROH-hah MY, eh teh rah-ngah-TEE-rah
+ex: please sit down (formal) | noho, tēnā koa | NOH-hoh, TEH-nah KOH-ah
+ex: come here (informal) | haere mai ki konei | HIGH-reh MY kee KOH-nay
+ex: yesterday I was tired | inanahi, i ngenge ahau | ee-nah-NAH-hee, ee NGEH-ngeh AH-how
+ex: I will study tomorrow | ka ako ahau āpōpō | kah AH-koh AH-how ah-poh-POH
+ex: we went to the park | i haere mātou ki te papa rēhia | ee HIGH-reh MAH-toh kee teh PAH-pah REH-hee-ah

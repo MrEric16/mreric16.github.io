@@ -98,12 +98,12 @@ def main():
         idx.append({'id': L['id'], 'name': L['name'], 'flag': L.get('flag', ''), 'script': bool(L.get('script')), 'count': cnt})
         print(L['id'], cnt)
     GROUPS = [('', ['uz']), ('Romance', ['es', 'pt', 'fr', 'it', 'ro']),
-              ('Europe', ['de', 'nl', 'sv', 'pl', 'uk', 'cs', 'hu', 'fi', 'el']),
+              ('Europe', ['de', 'nl', 'sv', 'pl', 'uk', 'cs', 'lv', 'lt', 'hu', 'fi', 'el']),
               ('Turkic', ['tr', 'az', 'kk', 'ky', 'ug', 'tt']), ('Caucasus', ['ka', 'hy']),
               ('Middle East and India', ['khl', 'fa', 'tg', 'ur', 'he', 'hi']),
               ('East and Southeast Asia', ['ja', 'ko', 'th', 'vi', 'id']), ('Africa', ['sw', 'yo', 'xh', 'am']),
-              ('More languages', ['mn', 'eu', 'eo']),
-              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'shk', 'cy', 'ga', 'haw', 'rom', 'jam', 'tok', 'sjn'])]
+              ('More languages', ['mn', 'mi', 'eu', 'eo']),
+              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'shk', 'cy', 'ga', 'haw', 'rom', 'jam', 'tok', 'sjn', 'got', 'cu'])]
     pos = {}
     for gi, (gn, ids) in enumerate(GROUPS):
         for i, x in enumerate(ids): pos[x] = (gi, i, gn)
