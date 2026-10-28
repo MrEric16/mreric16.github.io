@@ -1,0 +1,153 @@
+NAME: Ancient Egyptian (Middle Egyptian)
+ID: egy
+FLAG: egy
+
+[sounds]
+INTRO: This is Middle Egyptian, the classical language of the pharaohs around 2000 to 1300 BC. It was written in hieroglyphs, which show only consonants. Nobody knows how the vowels sounded, so Egyptologists put an "e" between consonants to make words speakable. The Latin line uses the scholars' transliteration. The pronunciation is therefore a convention, not a real sound. No hieroglyph script is shown here because many devices cannot display it.
+ꜣ | the Egyptian "aleph", said as a soft "a" by convention | nꜣ
+j | said as "i" or "y" | jt
+ꜥ | the Egyptian "ayin", a throaty "a" | ꜥnḫ
+w | "w" or "oo" | wꜥ
+b / p / f / m / n / r / h / ḥ | like in English; ḥ is a stronger "h" | ḥtp
+ḫ / ẖ | like "ch" in Scottish "loch" | ḫpr
+s / š | "s" and "sh" | sš
+k / q / g | "k", a deeper "k", and "g" | qd
+t / ṯ / d / ḏ | "t", "ch" as in "church", "d", and "dj" | ḏd
+NOTE: Hieroglyphs were also written as ideas: a picture of a house means "house" (pr). The sign for a word is often followed by a picture that shows its kind, such as a man or a book roll.
+NOTE: This pool is much smaller than the Spanish one on purpose. The vowels are conventions of modern Egyptologists, and nothing has been checked by an Egyptologist. Treat the forms as a first guide.
+
+[numbers]
+## 1 to 10
+one | wꜥ | wah
+two | snw | SEH-noo
+three | ḫmt | KHEH-met
+four | fdw | FEH-doo
+five | diw | DEE-oo
+six | sjs | sees
+seven | sfḫ | SEH-fekh
+eight | ḫmn | KHEH-men
+nine | psḏ | PEH-sedj
+ten | mḏ | medj
+
+[greetings]
+## Blessings and greetings
+life, prosperity, health | ꜥnḫ wḏꜣ snb | ankh WEH-dja SEH-neb
+praise (to a god) | dwꜣ | doo-AH
+it is good | nfr pw | NEH-fer poo
+may it be well | ḥtp | HEH-tep
+peace / offering | ḥtp | HEH-tep
+very good | nfr nfr | NEH-fer NEH-fer
+yes (it is so) | jw | yoo
+no (not) | n | en
+
+[phrases]
+## About me
+I | jnk | EE-nek
+you (a man) | ntk | EN-tek
+I am a scribe | jnk sš | EE-nek sesh
+I am a king | jnk nsw | EE-nek NEH-soo
+I am a man | jnk z | EE-nek sah
+I know | jw rḫ.j | yoo REKH-ee
+I do not know | n rḫ.j | en REKH-ee
+I see | mꜣ.j | MAH-ee
+I hear | sḏm.j | SEJ-em-ee
+what? | jḫ | ekh
+who? | ptr | PEH-ter
+where? | jn | een
+
+[vocab]
+## People and family
+father | jt | eet
+mother | mwt | moot
+son | sꜣ | sah
+daughter | sꜣt | SAH-tet
+brother | sn | sen
+sister | snt | SEN-et
+man | z | sah
+woman | ḥmt | HEM-et
+child | ẖrd | KHE-red
+king | nsw | NEH-soo
+person / people | rmṯ | REM-etch
+scribe | sš | sesh
+## Nature
+sun | rꜥ | rah
+moon | jꜥḥ | YAH
+star | sbꜣ | SEH-bah
+sky | pt | pet
+earth / land | tꜣ | tah
+water | mw | moo
+river | jtrw | ee-TER-oo
+great green (the sea) | wꜣḏ-wr | WAH-dja-wer
+mountain | ḏw | djoo
+tree | ꜥš | ash
+bread | ꜥḳw | AH-koo
+beer | ḥnqt | HEN-ket
+fish | rm | rem
+cow | jwꜣ | yoo-AH
+## Places and things
+house | pr | per
+city | njwt | NEE-oot
+temple | ḥwt-nṯr | HOOT-NEH-cher
+boat | dpt | DEH-pet
+book / writing | mḏꜣt | MEH-djat
+name | rn | ren
+life | ꜥnḫ | ankh
+heart | jb | eeb
+god | nṯr | NEH-cher
+gold | nbw | NEH-boo
+## Describing
+good / beautiful | nfr | NEH-fer
+big / great | wr | wer
+small | nds | NEH-dess
+bad | bjn | BEE-in
+green / flourishing | wꜣḏ | WAH-dja
+red | dšr | DEH-sher
+## Verbs (stem)
+to say | ḏd | djed
+to do / make | jrj | EE-ray
+to give | rdj | REH-dee
+to come | jj | ee
+to go | šm | shem
+to eat | wnm | WEH-nem
+to drink | swr | SOO-er
+to write | sš | sesh
+
+[grammar]
+## Pronouns
+> Egyptian has the independent pronouns (jnk, ntk, ntf) for statements about who someone is. For "he", "she", "it" and "they" it also has suffix pronouns attached to words: .f (his), .s (her), .j (my), .k (your), .sn (their).
+row: I | jnk | EE-nek
+row: you (m) | ntk | EN-tek
+row: you (f) | nṯ | ench
+row: he | ntf | EN-tef
+row: she | nts | EN-tes
+row: we | jnn | EE-nen
+row: they | ntsn | EN-tesen
+ex: I am a scribe | jnk sš | EE-nek sesh
+ex: you are a king | ntk nsw | EN-tek NEH-soo
+ex: he is a man | ntf z | EN-tef sah
+ex: she is a woman | nts ḥmt | EN-tes HEM-et
+ex: they are scribes | ntsn sšw | EN-tesen SESH-oo
+## Sentences with no verb
+> Egyptian says "is" by putting two words side by side: "nfr pw" (good it-is) means "it is good". The little word "pw" means "this" or "it is".
+row: it is good | nfr pw | NEH-fer poo
+row: the king is great | nsw wr | NEH-soo wer
+ex: the house is big | pr wr | per wer
+ex: the boy is small | ẖrd nds | KHE-red NEH-dess
+ex: the heart is good | jb nfr | eeb NEH-fer
+## Negation
+> Put "n" before the verb or noun to deny it: "n rḫ.j" (I do not know). "Nn" means "there is not".
+row: not | n | en
+row: there is not | nn | nen
+ex: I know | jw rḫ.j | yoo REKH-ee
+ex: I do not know | n rḫ.j | en REKH-ee
+ex: there is bread | wnn ꜥḳw | WEH-nen AH-koo
+ex: there is no bread | nn ꜥḳw | nen AH-koo
+## Singular and plural
+> Masculine nouns add -w for the plural (sš becomes sšw). Feminine nouns end in -t and make the plural with -wt. A dual (two) adds -wj.
+row: scribe, scribes | sš, sšw | sesh, SESH-oo
+row: house, houses | pr, prw | per, PEH-roo
+row: city, cities | njwt, njwwt | NEE-oot, NEE-oo-et
+ex: a scribe | sš | sesh
+ex: scribes | sšw | SESH-oo
+ex: a house | pr | per
+ex: houses | prw | PEH-roo

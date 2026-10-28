@@ -1,0 +1,184 @@
+NAME: Sanskrit
+ID: sa
+FLAG: in
+SCRIPT: Devanagari
+
+[sounds]
+INTRO: Sanskrit is written in Devanagari and spelled exactly as it sounds. The Latin line uses the scholars' IAST system, in which a bar over a vowel (ā) shows a long vowel, and a dot under a letter (ṭ, ṇ, ṣ) shows a retroflex sound with the tongue curled back. The third line is a simple English-style pronunciation. Sanskrit is a liturgical and scholarly language today, so the pronunciation follows the standard Indian tradition.
+a | like "u" in "but" | नमस्ते (namaste)
+ā | like "a" in "father" | माता (mātā)
+i / ī | "i" in "bit" / "ee" in "see" | पिता (pitā), नदी (nadī)
+u / ū | "u" in "put" / "oo" in "food" | गुरुः (guruḥ), भूमिः (bhūmiḥ)
+ṛ | a rolled "ri", like "ri" in "rich" | कृपया (kṛpayā)
+e / o | long "ay" and long "oh" | देवः (devaḥ), लोकः (lokaḥ)
+ai / au | like "eye" / like "ow" | शैलः (śailaḥ), गौः (gauḥ)
+ṭ ḍ ṇ | tongue curled back, like in an Indian accent | पाठः (pāṭhaḥ)
+kh gh ch jh th dh ph bh | the plain sound with a puff of air | भाषा (bhāṣā)
+ś / ṣ | both like "sh"; ś is softer | शिष्यः (śiṣyaḥ)
+ṃ | a nasal "m" or "n" at the end of a syllable | अहम् (ahaṃ)
+ḥ | a soft breath "h" at the end (visarga) | रामः (rāmaḥ)
+NOTE: Every Sanskrit word is said with its vowels. The vowel "a" is always said at the end of a syllable: "rāma" is RAH-mah, not "Raam".
+NOTE: This pool is much smaller than the Spanish one on purpose. Only common, well-attested words and forms are included. Nothing has been checked by a Sanskritist, so treat the forms as a first guide. Modern coinages are avoided.
+
+[numbers]
+## 0 to 10
+zero | śūnya | SHOO-nyah | शून्य
+one | eka | AY-kah | एक
+two | dvi | dvee | द्वि
+three | tri | tree | त्रि
+four | catur | CHAH-toor | चतुर्
+five | pañca | PUN-chah | पञ्च
+six | ṣaṭ | shut | षट्
+seven | sapta | SUP-tah | सप्त
+eight | aṣṭa | USH-tah | अष्ट
+nine | nava | NUH-vah | नव
+ten | daśa | DUH-shah | दश
+## Bigger numbers
+twenty | viṃśati | vim-SHAH-tee | विंशति
+one hundred | śata | SHUH-tah | शत
+one thousand | sahasra | SUH-huh-srah | सहस्र
+
+[greetings]
+## Hello and goodbye
+hello | namaste | NUH-muh-stay | नमस्ते
+welcome | svāgatam | SWAH-guh-tum | स्वागतम्
+good morning | suprabhātam | soo-PRUH-bah-tum | सुप्रभातम्
+good night | śubha rātriḥ | SHOO-bhuh RAH-tree-huh | शुभरात्रिः
+see you again | punar milāmaḥ | POO-nur mih-LAH-muh | पुनर्मिलामः
+goodbye | punar darśanāya | POO-nur dur-shuh-NAH-yuh | पुनर्दर्शनाय
+## Meeting people
+how are you? | kuśalam | koo-SHUH-lum | कुशलम्?
+I am well | aham kuśalī asmi | UH-hum koo-SHUH-lee UHS-mee | अहं कुशली अस्मि
+what is your name? | tava nāma kim | TUH-vuh NAH-muh kim | तव नाम किम्?
+my name is... | mama nāma | MUH-muh NAH-muh | मम नाम
+where are you from? | kutaḥ āgataḥ asi | KOO-tuh AH-guh-tuh UH-see | कुतः आगतः असि?
+I have come from England | aham āṅglāt āgataḥ | UH-hum ANG-glaht AH-guh-tuh | अहम् आङ्ग्लात् आगतः
+
+[phrases]
+## Politeness
+please | kṛpayā | KRIP-uh-yah | कृपया
+thank you | dhanyavādaḥ | DHUN-yuh-vah-duh | धन्यवादः
+sorry / forgive me | kṣamasva | KSHUH-muh-swuh | क्षमस्व
+yes | āma | AH-muh | आम्
+no | na | nuh | न
+## Essential phrases
+I understand | aham jānāmi | UH-hum JAH-nah-mee | अहं जानामि
+I do not understand | aham na jānāmi | UH-hum nuh JAH-nah-mee | अहं न जानामि
+I know | jānāmi | JAH-nah-mee | जानामि
+I want | icchāmi | ICH-chah-mee | इच्छामि
+what is this? | etat kim | AY-tuh-t kim | एतत् किम्?
+where? | kutra | KOO-trah | कुत्र?
+I speak | vadāmi | vuh-DAH-mee | वदामि
+I read | paṭhāmi | puh-TAH-mee | पठामि
+I write | likhāmi | lih-KAH-mee | लिखामि
+I see | paśyāmi | puh-SHYAH-mee | पश्यामि
+I hear | śṛṇomi | SHRI-no-mee | शृणोमि
+## Asking
+who? | kaḥ | kuh | कः?
+what? | kim | kim | किम्?
+where? | kutra | KOO-trah | कुत्र?
+when? | kadā | kuh-DAH | कदा?
+why? | kasmāt | kuhs-MAHT | कस्मात्?
+how? | katham | kuh-THUM | कथम्?
+
+[vocab]
+## People and family
+mother | mātā | MAH-tah | माता
+father | pitā | pih-TAH | पिता
+son | putraḥ | POO-truh | पुत्रः
+daughter | putrī | POO-tree | पुत्री
+brother | bhrātā | BRAH-tah | भ्राता
+sister | bhaginī | BHUH-gih-nee | भगिनी
+friend | mitram | MIH-trum | मित्रम्
+teacher | guruḥ | GOO-roo | गुरुः
+student | śiṣyaḥ | SHISH-yuh | शिष्यः
+king | rājā | RAH-jah | राजा
+person | manuṣyaḥ | muh-NOOSH-yuh | मनुष्यः
+boy | bālakaḥ | BAH-luh-kuh | बालकः
+girl | bālikā | BAH-lih-kah | बालिका
+## Food and nature
+water | jalam | JUH-lum | जलम्
+food | annam | UN-num | अन्नम्
+milk | dugdham | DOOG-dhum | दुग्धम्
+fruit | phalam | PHUH-lum | फलम्
+sun | sūryaḥ | SOO-ryuh | सूर्यः
+moon | candraḥ | CHUN-druh | चन्द्रः
+river | nadī | NUH-dee | नदी
+mountain | parvataḥ | PUR-vuh-tuh | पर्वतः
+forest | vanam | VUH-num | वनम्
+horse | aśvaḥ | USH-vuh | अश्वः
+cow | gauḥ | GOW-huh | गौः
+animal | paśuḥ | PUH-shoo | पशुः
+## Places and things
+house | gṛham | GRI-hum | गृहम्
+city | nagaram | NUH-guh-rum | नगरम्
+book | pustakam | POOS-tuh-kum | पुस्तकम्
+knowledge | vidyā | VID-yah | विद्या
+god | devaḥ | DAY-vuh | देवः
+language | bhāṣā | BHAH-shah | भाषा
+word | śabdaḥ | SHUB-duh | शब्दः
+## Describing
+big | bṛhat | BRI-hut | बृहत्
+small | laghu | LUH-ghoo | लघु
+beautiful | sundara | SOON-duh-ruh | सुन्दर
+good | uttama | OOT-tuh-muh | उत्तम
+difficult | kaṭhina | KUH-tih-nuh | कठिन
+easy | sarala | SUH-ruh-luh | सरल
+new | nava | NUH-vuh | नव
+old | purāṇa | poo-RAH-nuh | पुराण
+## Verbs (he / she does)
+is | asti | UHS-tee | अस्ति
+goes | gacchati | GUH-chuh-tee | गच्छति
+comes | āgacchati | AH-guh-chuh-tee | आगच्छति
+eats | khādati | KHAH-duh-tee | खादति
+drinks | pibati | PIH-buh-tee | पिबति
+gives | dadāti | DUH-dah-tee | ददाति
+does / makes | karoti | KUH-ro-tee | करोति
+asks | pṛcchati | PRIK-chuh-tee | पृच्छति
+speaks | vadati | VUH-duh-tee | वदति
+
+[grammar]
+## Pronouns
+> Sanskrit verbs show the person, so the pronoun is often left out. The third person has three genders: saḥ (he), sā (she), tat (it). The polite "you" is "bhavān" (to a man) and "bhavatī" (to a woman).
+row: I | aham | अहम्
+row: you (one) | tvam | त्वम्
+row: he | saḥ | सः
+row: she | sā | सा
+row: we | vayam | वयम्
+row: you (plural) | yūyam | यूयम्
+row: they (m) | te | ते
+ex: I am a student | aham śiṣyaḥ asmi | UH-hum SHISH-yuh UHS-mee | अहं शिष्यः अस्मि
+ex: you are a teacher | tvam guruḥ asi | TWUM GOO-roo UH-see | त्वं गुरुः असि
+ex: he is a boy | saḥ bālakaḥ asti | SUH BAH-luh-kuh UHS-tee | सः बालकः अस्ति
+ex: she is a girl | sā bālikā asti | SAH BAH-lih-kah UHS-tee | सा बालिका अस्ति
+ex: we are friends | vayam mitrāṇi smaḥ | VUH-yum MIH-trah-nee SMUH | वयं मित्राणि स्मः
+## To be: as
+> The present of "to be" is: asmi (I am), asi (you are), asti (he, she is), smaḥ (we are), stha (you are, plural), santi (they are).
+row: I am | asmi | अस्मि
+row: you are | asi | असि
+row: he / she is | asti | अस्ति
+row: we are | smaḥ | स्मः
+row: you are (plural) | stha | स्थ
+row: they are | santi | सन्ति
+ex: I am here | aham atra asmi | UH-hum UH-trah UHS-mee | अहम् अत्र अस्मि
+ex: you are good | tvam uttamaḥ asi | TWUM OOT-tuh-muh UH-see | त्वम् उत्तमः असि
+ex: the book is on the table | pustakam māñce asti | POOS-tuh-kum MAHN-chay UHS-tee | पुस्तकं माञ्चे अस्ति
+## Negation
+> Put "na" before the verb. "Mā" with a command means "do not".
+row: not | na | न
+row: do not (command) | mā | मा
+ex: I know | jānāmi | JAH-nah-mee | जानामि
+ex: I do not know | na jānāmi | nuh JAH-nah-mee | न जानामि
+ex: he goes | gacchati | GUH-chuh-tee | गच्छति
+ex: he does not go | na gacchati | nuh GUH-chuh-tee | न गच्छति
+ex: do not go | mā gaccha | MAH GUH-chuh | मा गच्छ
+## Commands
+> The second-person command is the bare stem: gaccha (go), paśya (see), śṛṇu (listen).
+row: go! | gaccha | गच्छ
+row: come! | āgaccha | आगच्छ
+row: see! | paśya | पश्य
+row: listen! | śṛṇu | शृणु
+ex: come here | atra āgaccha | UH-trah AH-guh-chuh | अत्र आगच्छ
+ex: look | paśya | PUH-shyuh | पश्य
+ex: listen | śṛṇu | SHRI-noo | शृणु
+ex: read | paṭha | PUH-tuh | पठ
