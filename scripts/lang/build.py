@@ -8,26 +8,29 @@ SRC = os.path.join(ROOT, 'scripts', 'lang', 'src'); OUT = os.path.join(ROOT, 'da
 HERE_READ = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src', 'read')
 def load_reading(path, lid):
     from readmaster import MASTER
-    M = {m['id']: m for m in MASTER}; out = []; cur = None
+    M = {m['id']: m for m in MASTER}; out = []; cur = None; sents = {}
+    def close():
+        if cur is None: return
+        toks = re.findall(r'\{(\d)\}', ' '.join(p['t'] for p in cur['paras']))
+        assert sorted(toks) == ['1', '2', '3', '4', '5'], (lid, cur['id'], 'tokens', toks)
+        cur['f'] = []
+        for k in range(1, 6):
+            ss = [sents.get((k, v)) for v in range(4)]
+            assert all(ss) and len(set(ss)) == 4, (lid, cur['id'], 'fact', k, ss)
+            for x in ss: assert '{' not in x and '..' not in x, (lid, cur['id'], x)
+            cur['f'].append({'q': M[cur['id']]['facts'][k - 1]['q'], 'o': [v[0] for v in M[cur['id']]['facts'][k - 1]['v']], 's': ss})
     for n, line in enumerate(open(path, encoding='utf-8').read().split('\n'), 1):
         line = line.rstrip()
         if not line: continue
         if line.startswith('## '):
+            close(); sents = {}
             pid, title = [x.strip() for x in line[3:].split('|', 1)]
-            m = M[pid]; cur = {'id': pid, 'title': title, 'en': m['en'], 'lv': m['lv'], 'paras': [], 'q': [], '_e': {}}; out.append(cur)
+            m = M[pid]; cur = {'id': pid, 'title': title, 'en': m['en'], 'lv': m['lv'], 'paras': []}; out.append(cur)
         elif re.match(r'^[A-F]: ', line): cur['paras'].append({'l': line[0], 't': line[3:]})
-        elif re.match(r'^E\d: ', line):
-            k = int(line[1]); pl, quote = [x.strip() for x in line[3:].split('|', 1)]
-            para = [p for p in cur['paras'] if p['l'] == pl]
-            assert para and quote in para[0]['t'], (lid, cur['id'], 'quote not in paragraph', line)
-            cur['_e'][k] = [pl, quote]
+        elif re.match(r'^[1-5]\.[0-3]: ', line): sents[(int(line[0]), int(line[2]))] = line[5:]
         else: raise SystemExit('%s:%d bad line %s' % (path, n, line))
-    assert [c['id'] for c in out] == [m['id'] for m in MASTER], (lid, 'missing passage')
-    for c in out:
-        for i, (q, o, a) in enumerate(M[c['id']]['q'], 1):
-            assert i in c['_e'], (lid, c['id'], 'no evidence', i)
-            c['q'].append({'q': q, 'o': o, 'a': a, 'e': c['_e'][i]})
-        del c['_e']
+    close()
+    assert [c['id'] for c in out] == [m['id'] for m in MASTER], (lid, 'missing or misordered passage', [c['id'] for c in out])
     return out
 
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')

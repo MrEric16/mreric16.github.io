@@ -1,59 +1,296 @@
 ## r1 | Über mich
-A: Ich bin 25 Jahre alt. Ich wohne in einer kleinen Wohnung im Stadtzentrum.
-B: Ich wohne mit meiner Schwester. Sie ist Studentin. Ich arbeite in einem Geschäft.
-C: Ich mag Musik und Schwimmen. Sonntags gehe ich mit meinen Freunden schwimmen. Ich habe auch eine Katze. Sie ist schwarz.
-E1: A | 25 Jahre alt
-E2: B | mit meiner Schwester
-E3: B | in einem Geschäft
-E4: C | gehe ich mit meinen Freunden schwimmen
-E5: C | Sie ist schwarz
+A: {1} Ich wohne in einer kleinen Wohnung im Stadtzentrum.
+B: {2} {3}
+C: Ich mag Musik. {4} Ich habe auch eine Katze. {5}
+1.0: Ich bin 20 Jahre alt.
+1.1: Ich bin 25 Jahre alt.
+1.2: Ich bin 30 Jahre alt.
+1.3: Ich bin 35 Jahre alt.
+2.0: Ich wohne allein.
+2.1: Ich wohne mit meiner Schwester.
+2.2: Ich wohne mit einem Freund.
+2.3: Ich wohne mit meinem Cousin.
+3.0: Ich arbeite in einer Bank.
+3.1: Ich arbeite in einer Schule.
+3.2: Ich arbeite in einem Geschäft.
+3.3: Ich arbeite in einem Krankenhaus.
+4.0: Sonntags gehe ich mit meinen Freunden schwimmen.
+4.1: Sonntags sehe ich fern.
+4.2: Sonntags gehe ich auf den Markt.
+4.3: Sonntags arbeite ich.
+5.0: Sie ist weiß.
+5.1: Sie ist braun.
+5.2: Sie ist grau.
+5.3: Sie ist schwarz.
 ## r2 | Mein Tag
-A: Ich stehe um sieben Uhr auf. Zum Frühstück trinke ich Tee und esse Brot.
-B: Ich fahre mit dem Bus zur Schule. Der Unterricht beginnt um acht und endet um zwei.
-C: Nach der Schule mache ich meine Hausaufgaben. Um fünf spiele ich mit Freunden Fußball.
-D: Wir essen um sieben Uhr zu Abend. Ich gehe um zehn Uhr ins Bett.
-E1: A | um sieben Uhr
-E2: A | Tee und esse Brot
-E3: B | mit dem Bus
-E4: C | Um fünf spiele ich mit Freunden Fußball
-E5: D | um zehn Uhr ins Bett
+A: {1} {2}
+B: {3} Der Unterricht beginnt um zehn.
+C: {4}
+D: Wir essen um sieben Uhr zu Abend. {5}
+1.0: Ich stehe um sechs Uhr auf.
+1.1: Ich stehe um sieben Uhr auf.
+1.2: Ich stehe um acht Uhr auf.
+1.3: Ich stehe um neun Uhr auf.
+2.0: Zum Frühstück esse ich Brot und trinke Tee.
+2.1: Zum Frühstück esse ich Eier und Reis.
+2.2: Zum Frühstück esse ich Kuchen und trinke Milch.
+2.3: Zum Frühstück esse ich nur Obst.
+3.0: Ich gehe zu Fuß zur Schule.
+3.1: Ich fahre mit dem Bus zur Schule.
+3.2: Ich fahre mit dem Auto zur Schule.
+3.3: Ich fahre mit dem Fahrrad zur Schule.
+4.0: Um fünf Uhr mache ich meine Hausaufgaben.
+4.1: Um fünf Uhr lese ich ein Buch.
+4.2: Um fünf Uhr spiele ich mit meinen Freunden Fußball.
+4.3: Um fünf Uhr gehe ich einkaufen.
+5.0: Ich gehe um neun Uhr ins Bett.
+5.1: Ich gehe um zehn Uhr ins Bett.
+5.2: Ich gehe um elf Uhr ins Bett.
+5.3: Ich gehe um Mitternacht ins Bett.
 ## r3 | Auf dem Markt
-A: Am Samstagmorgen gehe ich mit meiner Mutter auf den Markt. Er ist zehn Minuten von unserem Haus entfernt. Wir gehen zu Fuß.
-B: Wir kaufen zwei Kilo Äpfel und ein Kilo Tomaten. Wir kaufen auch Brot und Käse.
-C: Mein Lieblingsstand gehört einem alten Mann. Er verkauft Honig. Der Honig ist sehr gut.
-D: Um elf Uhr gehen wir nach Hause. Ich helfe meiner Mutter beim Kochen des Mittagessens.
-E1: A | Am Samstagmorgen
-E2: A | zehn Minuten
-E3: B | zwei Kilo Äpfel
-E4: C | Er verkauft Honig
-E5: D | Ich helfe meiner Mutter beim Kochen
+A: {1} {2} Wir gehen zu Fuß.
+B: {3} Wir kaufen auch Brot.
+C: Mein Lieblingsstand gehört einem alten Mann. {4}
+D: Um elf Uhr gehen wir nach Hause. {5}
+1.0: Am Sonntagmorgen gehe ich mit meiner Mutter auf den Markt.
+1.1: Am Freitagabend gehe ich mit meiner Mutter auf den Markt.
+1.2: Am Samstagabend gehe ich mit meiner Mutter auf den Markt.
+1.3: Am Samstagmorgen gehe ich mit meiner Mutter auf den Markt.
+2.0: Er ist fünf Minuten von unserem Haus entfernt.
+2.1: Er ist zehn Minuten von unserem Haus entfernt.
+2.2: Er ist zwanzig Minuten von unserem Haus entfernt.
+2.3: Er ist eine Stunde von unserem Haus entfernt.
+3.0: Wir kaufen ein Kilo Äpfel.
+3.1: Wir kaufen zwei Kilo Äpfel.
+3.2: Wir kaufen drei Kilo Äpfel.
+3.3: Wir kaufen vier Kilo Äpfel.
+4.0: Er verkauft Honig.
+4.1: Er verkauft Käse.
+4.2: Er verkauft Brot.
+4.3: Er verkauft Tomaten.
+5.0: Zu Hause schlafe ich.
+5.1: Zu Hause helfe ich meiner Mutter beim Kochen.
+5.2: Zu Hause sehe ich fern.
+5.3: Zu Hause mache ich meine Hausaufgaben.
 ## r4 | Meine Familie
-A: In meiner Familie sind wir fünf: mein Vater, meine Mutter, mein Bruder, meine Oma und ich.
-B: Mein Vater ist Fahrer. Meine Mutter ist Krankenschwester. Sie arbeitet in einem Krankenhaus.
-C: Mein Bruder ist zehn Jahre alt. Er zeichnet gern.
-D: Meine Oma wohnt bei uns. Sonntags kocht sie. Ihr Essen ist köstlich.
-E1: A | sind wir fünf
-E2: B | Mein Vater ist Fahrer
-E3: B | in einem Krankenhaus
-E4: C | zehn Jahre alt
-E5: D | Sonntags kocht sie
+A: {1} Meine Familie ist klein und glücklich.
+B: {2} {3}
+C: {4} Er zeichnet gern.
+D: Meine Oma wohnt bei uns. {5} Ihr Essen ist köstlich.
+1.0: Wir wohnen in einer Wohnung.
+1.1: Wir wohnen in einem Haus.
+1.2: Wir wohnen in einem Dorf.
+1.3: Wir wohnen im Stadtzentrum.
+2.0: Mein Vater ist Arzt.
+2.1: Mein Vater ist Lehrer.
+2.2: Mein Vater ist Krankenpfleger.
+2.3: Mein Vater ist Fahrer.
+3.0: Meine Mutter arbeitet in einer Schule.
+3.1: Meine Mutter arbeitet in einem Krankenhaus.
+3.2: Meine Mutter arbeitet in einem Geschäft.
+3.3: Meine Mutter arbeitet in einer Bank.
+4.0: Mein Bruder ist zehn Jahre alt.
+4.1: Mein Bruder ist acht Jahre alt.
+4.2: Mein Bruder ist neun Jahre alt.
+4.3: Mein Bruder ist zwölf Jahre alt.
+5.0: Sie kocht jeden Tag.
+5.1: Sie kocht freitags.
+5.2: Sie kocht samstags.
+5.3: Sie kocht sonntags.
 ## r5 | Ein Ausflug
-A: Letzten Samstag bin ich mit drei Freunden in die Berge gefahren. Wir haben den Zug um sieben Uhr morgens genommen, und die Fahrt hat zwei Stunden gedauert.
-B: Die Sonne schien, aber es war sehr kalt. Wir sind vier Stunden gewandert und haben viele Fotos gemacht. Um ein Uhr haben wir an einem Fluss ein Picknick gemacht. Ich habe meine Handschuhe vergessen, und meine Hände waren eiskalt.
-C: Am Nachmittag wollten wir mit dem Bus zurückfahren, aber wir haben den letzten Bus verpasst. Wir mussten auf ein Taxi warten, und es war teuer.
-D: Um elf Uhr abends waren wir zu Hause. Wir waren sehr müde, aber glücklich. Nächsten Monat wollen wir wieder hinfahren.
-E1: A | mit drei Freunden
-E2: A | zwei Stunden gedauert
-E3: B | Die Sonne schien, aber es war sehr kalt
-E4: B | Ich habe meine Handschuhe vergessen
-E5: C | den letzten Bus verpasst
+A: {1} Wir haben den frühen Zug genommen. {2}
+B: {3} Wir sind viel gewandert und haben viele Fotos gemacht. {4}
+C: Am Nachmittag waren wir weit weg von der Stadt. {5}
+D: Wir waren sehr spät zu Hause. Wir waren müde, aber glücklich.
+1.0: Letzten Samstag bin ich mit zwei Freunden in die Berge gefahren.
+1.1: Letzten Samstag bin ich mit drei Freunden in die Berge gefahren.
+1.2: Letzten Samstag bin ich mit vier Freunden in die Berge gefahren.
+1.3: Letzten Samstag bin ich mit fünf Freunden in die Berge gefahren.
+2.0: Die Fahrt hat eine Stunde gedauert.
+2.1: Die Fahrt hat zwei Stunden gedauert.
+2.2: Die Fahrt hat drei Stunden gedauert.
+2.3: Die Fahrt hat vier Stunden gedauert.
+3.0: Es hat geregnet.
+3.1: Es war heiß.
+3.2: Es war windig.
+3.3: Die Sonne schien, aber es war kalt.
+4.0: Ich habe meine Handschuhe vergessen.
+4.1: Ich habe meine Kamera vergessen.
+4.2: Ich habe mein Mittagessen vergessen.
+4.3: Ich habe meine Fahrkarte vergessen.
+5.0: Wir haben ein Taxi genommen, weil wir den letzten Bus verpasst haben.
+5.1: Wir haben ein Taxi genommen, weil wir müde waren.
+5.2: Wir haben ein Taxi genommen, weil der Bus voll war.
+5.3: Wir haben ein Taxi genommen, weil der Zug ausgefallen ist.
 ## r6 | Eine Einladung
-A: Hallo! Ich schreibe dir, um dich zu meiner Geburtstagsfeier einzuladen. Sie ist nächsten Freitag um sechs Uhr abends.
-B: Die Feier ist bei mir zu Hause, nicht in einem Restaurant, weil meine Wohnung jetzt groß ist. Ich koche ein großes Abendessen, und meine Schwester macht einen Kuchen.
-C: Kannst du Musik mitbringen? Du hast immer die besten Lieder. Mein Cousin kommt auch, und ich möchte, dass du ihn kennenlernst.
-D: Sag mir bis Mittwoch, ob du kommen kannst. Wenn du willst, kannst du hier übernachten, weil der letzte Bus früh fährt.
-E1: A | nächsten Freitag um sechs Uhr abends
-E2: B | Die Feier ist bei mir zu Hause
-E3: B | meine Schwester macht einen Kuchen
-E4: C | Kannst du Musik mitbringen
-E5: D | bis Mittwoch
+A: Hallo! Ich schreibe dir, um dich zu meiner Geburtstagsfeier einzuladen. {1}
+B: {2} {3}
+C: {4} Ich möchte, dass du meinen Cousin kennenlernst.
+D: {5} Der letzte Bus fährt früh, also kannst du hier übernachten.
+1.0: Die Feier ist nächsten Freitagabend.
+1.1: Die Feier ist nächsten Samstagnachmittag.
+1.2: Die Feier ist nächsten Sonntagvormittag.
+1.3: Die Feier ist nächsten Donnerstagabend.
+2.0: Die Feier ist in einem Restaurant.
+2.1: Die Feier ist bei mir zu Hause.
+2.2: Die Feier ist im Park.
+2.3: Die Feier ist bei einem Freund.
+3.0: Meine Schwester macht den Kuchen.
+3.1: Meine Mutter macht den Kuchen.
+3.2: Ein Freund macht den Kuchen.
+3.3: Ich mache den Kuchen selbst.
+4.0: Bitte bring etwas Musik mit.
+4.1: Bitte bring etwas zu essen mit.
+4.2: Bitte bring ein paar Spiele mit.
+4.3: Bitte bring etwas zu trinken mit.
+5.0: Sag mir bis Montag, ob du kommen kannst.
+5.1: Sag mir bis Dienstag, ob du kommen kannst.
+5.2: Sag mir bis Mittwoch, ob du kommen kannst.
+5.3: Sag mir morgen, ob du kommen kannst.
+## r7 | Meine Stadt
+A: {1} {2}
+B: {3}
+C: {4}
+D: {5}
+1.0: Ich wohne in einer großen Stadt.
+1.1: Ich wohne in einer kleinen Stadt.
+1.2: Ich wohne in einem Dorf.
+1.3: Ich wohne in einer Stadt am Meer.
+2.0: In der Nähe meines Hauses gibt es einen Park.
+2.1: In der Nähe meines Hauses gibt es eine Schule.
+2.2: In der Nähe meines Hauses gibt es einen Bahnhof.
+2.3: In der Nähe meines Hauses gibt es einen Supermarkt.
+3.0: Der Bus kommt alle fünf Minuten.
+3.1: Der Bus kommt alle zehn Minuten.
+3.2: Der Bus kommt alle zwanzig Minuten.
+3.3: Der Bus kommt alle dreißig Minuten.
+4.0: Mein Lieblingsort ist die Bibliothek.
+4.1: Mein Lieblingsort ist das Kino.
+4.2: Mein Lieblingsort ist der Fluss.
+4.3: Mein Lieblingsort ist der alte Markt.
+5.0: Die Leute in meiner Stadt sind freundlich.
+5.1: Die Leute in meiner Stadt sind sehr beschäftigt.
+5.2: Die Leute in meiner Stadt sind ruhig.
+5.3: Die Leute in meiner Stadt sind lustig.
+## r8 | Mein Zuhause
+A: {1} {2}
+B: {3}
+C: {4} {5}
+1.0: Meine Wohnung hat zwei Zimmer.
+1.1: Meine Wohnung hat drei Zimmer.
+1.2: Meine Wohnung hat vier Zimmer.
+1.3: Meine Wohnung hat fünf Zimmer.
+2.0: Sie ist im ersten Stock.
+2.1: Sie ist im zweiten Stock.
+2.2: Sie ist im dritten Stock.
+2.3: Sie ist im vierten Stock.
+3.0: Mein Lieblingszimmer ist die Küche.
+3.1: Mein Lieblingszimmer ist das Schlafzimmer.
+3.2: Mein Lieblingszimmer ist das Wohnzimmer.
+3.3: Mein Lieblingszimmer ist der Balkon.
+4.0: Die Wände in meinem Schlafzimmer sind blau.
+4.1: Die Wände in meinem Schlafzimmer sind grün.
+4.2: Die Wände in meinem Schlafzimmer sind weiß.
+4.3: Die Wände in meinem Schlafzimmer sind gelb.
+5.0: In meinem Schlafzimmer habe ich einen großen Schreibtisch.
+5.1: In meinem Schlafzimmer habe ich ein großes Bücherregal.
+5.2: In meinem Schlafzimmer habe ich einen neuen Computer.
+5.3: In meinem Schlafzimmer habe ich eine alte Gitarre.
+## r9 | Mein Freund
+A: Ich habe einen guten Freund. {1} {2}
+B: {3} {4}
+C: {5} Wir haben immer Spaß.
+1.0: Er ist 18 Jahre alt.
+1.1: Er ist 20 Jahre alt.
+1.2: Er ist 22 Jahre alt.
+1.3: Er ist 24 Jahre alt.
+2.0: Er ist Student.
+2.1: Er ist Arzt.
+2.2: Er ist Lehrer.
+2.3: Er ist Fahrer.
+3.0: Er kocht gern.
+3.1: Er liest gern.
+3.2: Er spielt gern Fußball.
+3.3: Er spielt gern Schach.
+4.0: Er kommt aus einem Dorf.
+4.1: Er kommt aus der Hauptstadt.
+4.2: Er kommt aus einer Hafenstadt.
+4.3: Er kommt aus den Bergen.
+5.0: Wir treffen uns jeden Tag.
+5.1: Wir treffen uns jede Woche.
+5.2: Wir treffen uns samstags.
+5.3: Wir treffen uns jeden Monat.
+## r10 | Im Café
+A: Heute bin ich im Café. {1}
+B: {2} {3}
+C: {4}
+D: {5} Es ist ein schöner Tag.
+1.0: Ich bin mit meiner Schwester hier.
+1.1: Ich bin mit meinem Freund hier.
+1.2: Ich bin mit meiner Mutter hier.
+1.3: Ich bin mit meinem Bruder hier.
+2.0: Ich trinke Tee.
+2.1: Ich trinke Kaffee.
+2.2: Ich trinke Saft.
+2.3: Ich trinke Wasser.
+3.0: Wir essen auch Suppe.
+3.1: Wir essen auch Salat.
+3.2: Wir essen auch Kuchen.
+3.3: Wir essen auch Sandwiches.
+4.0: Wir kommen um zwei Uhr an.
+4.1: Wir kommen um drei Uhr an.
+4.2: Wir kommen um vier Uhr an.
+4.3: Wir kommen um fünf Uhr an.
+5.0: Ich bezahle bar.
+5.1: Ich bezahle mit Karte.
+5.2: Ich bezahle mit dem Handy.
+5.3: Wir bezahlen jeder die Hälfte.
+## r11 | Die letzten Ferien
+A: {1} {2}
+B: {3} Es waren tolle Ferien.
+C: {4}
+D: {5} Ich möchte wieder hinfahren.
+1.0: Letzten Sommer sind wir ans Meer gefahren.
+1.1: Letzten Sommer sind wir in die Berge gefahren.
+1.2: Letzten Sommer sind wir in eine große Stadt gefahren.
+1.3: Letzten Sommer sind wir in ein Dorf gefahren.
+2.0: Wir sind mit dem Flugzeug gereist.
+2.1: Wir sind mit dem Zug gereist.
+2.2: Wir sind mit dem Bus gereist.
+2.3: Wir sind mit dem Auto gereist.
+3.0: Wir sind drei Tage geblieben.
+3.1: Wir sind eine Woche geblieben.
+3.2: Wir sind zehn Tage geblieben.
+3.3: Wir sind zwei Wochen geblieben.
+4.0: Jeden Morgen sind wir spazieren gegangen.
+4.1: Jeden Morgen haben wir lange geschlafen.
+4.2: Jeden Morgen haben wir gut gefrühstückt.
+4.3: Jeden Morgen haben wir Fotos gemacht.
+5.0: Das Beste war das Essen.
+5.1: Das Beste war das Wetter.
+5.2: Das Beste waren die Leute.
+5.3: Das Beste war das Hotel.
+## r12 | Mein Stundenplan
+A: {1} {2}
+B: {3} {4}
+C: {5} Ich mag meine Schule.
+1.0: Am Montag habe ich in der ersten Stunde Mathe.
+1.1: Am Montag habe ich in der ersten Stunde Englisch.
+1.2: Am Montag habe ich in der ersten Stunde Geschichte.
+1.3: Am Montag habe ich in der ersten Stunde Biologie.
+2.0: Mein Lieblingsfach ist Geografie.
+2.1: Mein Lieblingsfach ist Musik.
+2.2: Mein Lieblingsfach ist Physik.
+2.3: Mein Lieblingsfach ist Kunst.
+3.0: Wir müssen die Hausaufgaben am Dienstag abgeben.
+3.1: Wir müssen die Hausaufgaben am Mittwoch abgeben.
+3.2: Wir müssen die Hausaufgaben am Donnerstag abgeben.
+3.3: Wir müssen die Hausaufgaben am Freitag abgeben.
+4.0: Nach der Schule gehe ich in den Musikclub.
+4.1: Nach der Schule gehe ich in den Fußballclub.
+4.2: Nach der Schule gehe ich in den Schachclub.
+4.3: Nach der Schule gehe ich in den Zeichenclub.
+5.0: Meine Englischlehrerin ist sehr freundlich.
+5.1: Meine Englischlehrerin ist sehr streng.
+5.2: Meine Englischlehrerin ist sehr lustig.
+5.3: Meine Englischlehrerin ist sehr jung.

@@ -1,59 +1,296 @@
 ## r1 | Men haqimda
-A: Men 25 yoshdaman. Shahar markazidagi kichik kvartirada yashayman.
-B: Men opam bilan yashayman. U talaba. Men do'konda ishlayman.
-C: Men musiqa va suzishni yaxshi ko'raman. Yakshanba kunlari do'stlarim bilan suzgani boraman. Mening mushugim ham bor. U qora.
-E1: A | Men 25 yoshdaman
-E2: B | Men opam bilan yashayman
-E3: B | do'konda ishlayman
-E4: C | do'stlarim bilan suzgani boraman
-E5: C | U qora
+A: {1} Shahar markazidagi kichik kvartirada yashayman.
+B: {2} {3}
+C: Men musiqani yaxshi ko'raman. {4} Mushugim ham bor. {5}
+1.0: Men yigirma yoshdaman.
+1.1: Men yigirma besh yoshdaman.
+1.2: Men o'ttiz yoshdaman.
+1.3: Men o'ttiz besh yoshdaman.
+2.0: Men yolg'iz yashayman.
+2.1: Men opam bilan yashayman.
+2.2: Men do'stim bilan yashayman.
+2.3: Men amakivachcham bilan yashayman.
+3.0: Men bankda ishlayman.
+3.1: Men maktabda ishlayman.
+3.2: Men do'konda ishlayman.
+3.3: Men kasalxonada ishlayman.
+4.0: Yakshanba kunlari do'stlarim bilan suzgani boraman.
+4.1: Yakshanba kunlari televizor ko'raman.
+4.2: Yakshanba kunlari bozorga boraman.
+4.3: Yakshanba kunlari ishlayman.
+5.0: U oq.
+5.1: U jigarrang.
+5.2: U kulrang.
+5.3: U qora.
 ## r2 | Mening kunim
-A: Men soat yettida turaman. Nonushtada choy ichaman va non yeyman.
-B: Maktabga avtobusda boraman. Darslar soat sakkizda boshlanadi va ikkida tugaydi.
-C: Maktabdan keyin uy vazifamni qilaman. Soat beshda do'stlarim bilan futbol o'ynayman.
-D: Kechki ovqatni soat yettida yeymiz. Soat o'nda uxlayman.
-E1: A | soat yettida turaman
-E2: A | choy ichaman va non yeyman
-E3: B | avtobusda
-E4: C | Soat beshda do'stlarim bilan futbol o'ynayman
-E5: D | Soat o'nda uxlayman
+A: {1} {2}
+B: {3} Darslar soat o'nda boshlanadi.
+C: {4}
+D: Biz soat yettida kechki ovqat yeymiz. {5}
+1.0: Men soat oltida turaman.
+1.1: Men soat yettida turaman.
+1.2: Men soat sakkizda turaman.
+1.3: Men soat to'qqizda turaman.
+2.0: Nonushtada choy ichaman va non yeyman.
+2.1: Nonushtada tuxum va guruch yeyman.
+2.2: Nonushtada sut ichaman va tort yeyman.
+2.3: Nonushtada faqat meva yeyman.
+3.0: Maktabga piyoda boraman.
+3.1: Maktabga avtobusda boraman.
+3.2: Maktabga mashinada boraman.
+3.3: Maktabga velosipedda boraman.
+4.0: Soat beshda uy vazifamni qilaman.
+4.1: Soat beshda kitob o'qiyman.
+4.2: Soat beshda do'stlarim bilan futbol o'ynayman.
+4.3: Soat beshda xarid qilgani boraman.
+5.0: Soat to'qqizda uxlayman.
+5.1: Soat o'nda uxlayman.
+5.2: Soat o'n birda uxlayman.
+5.3: Yarim tunda uxlayman.
 ## r3 | Bozorda
-A: Shanba kuni ertalab onam bilan bozorga boraman. U uyimizdan o'n daqiqa uzoqlikda. Biz piyoda boramiz.
-B: Biz ikki kilo olma va bir kilo pomidor sotib olamiz. Non va pishloq ham olamiz.
-C: Mening sevimli peshtaxtam bir keksa amakining peshtaxtasi. U asal sotadi. Asal juda yaxshi.
-D: Biz soat o'n birda uyga qaytamiz. Men onamga tushlik tayyorlashda yordam beraman.
-E1: A | Shanba kuni ertalab
-E2: A | o'n daqiqa uzoqlikda
-E3: B | ikki kilo olma
-E4: C | U asal sotadi
-E5: D | onamga tushlik tayyorlashda yordam beraman
+A: {1} {2} Biz piyoda boramiz.
+B: {3} Non ham sotib olamiz.
+C: Mening sevimli peshtaxtam bir keksa amakining peshtaxtasi. {4}
+D: Biz soat o'n birda uyga qaytamiz. {5}
+1.0: Yakshanba kuni ertalab onam bilan bozorga boraman.
+1.1: Juma kuni kechqurun onam bilan bozorga boraman.
+1.2: Shanba kuni kechqurun onam bilan bozorga boraman.
+1.3: Shanba kuni ertalab onam bilan bozorga boraman.
+2.0: U uyimizdan besh daqiqa uzoqlikda.
+2.1: U uyimizdan o'n daqiqa uzoqlikda.
+2.2: U uyimizdan yigirma daqiqa uzoqlikda.
+2.3: U uyimizdan bir soat uzoqlikda.
+3.0: Biz bir kilo olma sotib olamiz.
+3.1: Biz ikki kilo olma sotib olamiz.
+3.2: Biz uch kilo olma sotib olamiz.
+3.3: Biz to'rt kilo olma sotib olamiz.
+4.0: U asal sotadi.
+4.1: U pishloq sotadi.
+4.2: U non sotadi.
+4.3: U pomidor sotadi.
+5.0: Uyda uxlayman.
+5.1: Uyda onamga tushlik tayyorlashda yordam beraman.
+5.2: Uyda televizor ko'raman.
+5.3: Uyda uy vazifamni qilaman.
 ## r4 | Mening oilam
-A: Oilamizda besh kishi bor: dadam, onam, ukam, buvim va men.
-B: Dadam haydovchi. Onam hamshira. U kasalxonada ishlaydi.
-C: Ukam o'n yoshda. U rasm chizishni yaxshi ko'radi.
-D: Buvim biz bilan yashaydi. U yakshanba kunlari ovqat pishiradi. Uning ovqati juda mazali.
-E1: A | besh kishi bor
-E2: B | Dadam haydovchi
-E3: B | kasalxonada ishlaydi
-E4: C | o'n yoshda
-E5: D | yakshanba kunlari ovqat pishiradi
+A: {1} Oilam kichik va baxtli.
+B: {2} {3}
+C: {4} U rasm chizishni yaxshi ko'radi.
+D: Buvim biz bilan yashaydi. {5} Uning ovqati juda mazali.
+1.0: Biz kvartirada yashaymiz.
+1.1: Biz uyda yashaymiz.
+1.2: Biz qishloqda yashaymiz.
+1.3: Biz shahar markazida yashaymiz.
+2.0: Dadam shifokor.
+2.1: Dadam o'qituvchi.
+2.2: Dadam hamshira.
+2.3: Dadam haydovchi.
+3.0: Onam maktabda ishlaydi.
+3.1: Onam kasalxonada ishlaydi.
+3.2: Onam do'konda ishlaydi.
+3.3: Onam bankda ishlaydi.
+4.0: Ukam o'n yoshda.
+4.1: Ukam sakkiz yoshda.
+4.2: Ukam to'qqiz yoshda.
+4.3: Ukam o'n ikki yoshda.
+5.0: U har kuni ovqat pishiradi.
+5.1: U juma kunlari ovqat pishiradi.
+5.2: U shanba kunlari ovqat pishiradi.
+5.3: U yakshanba kunlari ovqat pishiradi.
 ## r5 | Sayohat
-A: O'tgan shanba kuni men uch do'stim bilan tog'ga bordim. Biz ertalab soat yettidagi poyezdda ketdik va yo'l ikki soat davom etdi.
-B: Ob-havo quyoshli, lekin juda sovuq edi. Biz to'rt soat yurdik va ko'p rasm oldik. Soat birda daryo yonida piknik qildik. Men qo'lqoplarimni unutdim va qo'llarim muzlab qoldi.
-C: Tushdan keyin biz avtobusda qaytmoqchi edik, lekin oxirgisiga kechikdik. Taksi kutishga to'g'ri keldi va u qimmat edi.
-D: Biz kechqurun soat o'n birda uyga yetib keldik. Juda charchagan edik, lekin xursand edik. Kelasi oy yana bormoqchimiz.
-E1: A | uch do'stim bilan
-E2: A | yo'l ikki soat davom etdi
-E3: B | Ob-havo quyoshli, lekin juda sovuq edi
-E4: B | qo'lqoplarimni unutdim
-E5: C | oxirgisiga kechikdik
+A: {1} Biz erta poyezdga chiqdik. {2}
+B: {3} Biz ko'p yurdik va ko'p rasm oldik. {4}
+C: Tushdan keyin biz shahardan uzoqda edik. {5}
+D: Biz uyga juda kech yetib keldik. Charchagan edik, lekin xursand edik.
+1.0: O'tgan shanba kuni men ikki do'stim bilan tog'ga bordim.
+1.1: O'tgan shanba kuni men uch do'stim bilan tog'ga bordim.
+1.2: O'tgan shanba kuni men to'rt do'stim bilan tog'ga bordim.
+1.3: O'tgan shanba kuni men besh do'stim bilan tog'ga bordim.
+2.0: Yo'l bir soat davom etdi.
+2.1: Yo'l ikki soat davom etdi.
+2.2: Yo'l uch soat davom etdi.
+2.3: Yo'l to'rt soat davom etdi.
+3.0: Yomg'ir yog'ayotgan edi.
+3.1: Havo issiq edi.
+3.2: Shamol esayotgan edi.
+3.3: Havo quyoshli, lekin sovuq edi.
+4.0: Men qo'lqoplarimni unutdim.
+4.1: Men fotoapparatimni unutdim.
+4.2: Men tushligimni unutdim.
+4.3: Men chiptamni unutdim.
+5.0: Oxirgi avtobusga kechikkanimiz uchun taksi oldik.
+5.1: Charchaganimiz uchun taksi oldik.
+5.2: Avtobus to'la bo'lgani uchun taksi oldik.
+5.3: Poyezd bekor qilingani uchun taksi oldik.
 ## r6 | Taklif
-A: Salom! Seni tug'ilgan kunimga taklif qilish uchun yozyapman. U kelasi juma kuni kechqurun soat oltida.
-B: Bayram mening uyimda, restoranda emas, chunki endi kvartiram katta. Men katta kechki ovqat tayyorlayman, opam esa tort pishiradi.
-C: Musiqa olib kela olasanmi? Senda doim eng yaxshi qo'shiqlar bor. Amakivachcham ham keladi va u bilan tanishishingni istayman.
-D: Kela olishingni chorshanbagacha ayt. Xohlasang, menikida qolib ketishing mumkin, chunki oxirgi avtobus erta ketadi.
-E1: A | kelasi juma kuni kechqurun soat oltida
-E2: B | Bayram mening uyimda
-E3: B | opam esa tort pishiradi
-E4: C | Musiqa olib kela olasanmi
-E5: D | chorshanbagacha ayt
+A: Salom! Seni tug'ilgan kunimga taklif qilish uchun yozyapman. {1}
+B: {2} {3}
+C: {4} Amakivachcham bilan tanishishingni istayman.
+D: {5} Oxirgi avtobus erta ketadi, shuning uchun menikida qolishing mumkin.
+1.0: Bayram kelasi juma kuni kechqurun.
+1.1: Bayram kelasi shanba kuni tushdan keyin.
+1.2: Bayram kelasi yakshanba kuni ertalab.
+1.3: Bayram kelasi payshanba kuni kechqurun.
+2.0: Bayram restoranda bo'ladi.
+2.1: Bayram mening uyimda bo'ladi.
+2.2: Bayram bog'da bo'ladi.
+2.3: Bayram do'stimning uyida bo'ladi.
+3.0: Tortni opam pishiradi.
+3.1: Tortni onam pishiradi.
+3.2: Tortni bir do'stim pishiradi.
+3.3: Tortni o'zim pishiraman.
+4.0: Iltimos, musiqa olib kel.
+4.1: Iltimos, ovqat olib kel.
+4.2: Iltimos, o'yinlar olib kel.
+4.3: Iltimos, ichimliklar olib kel.
+5.0: Kela olishingni dushanbagacha ayt.
+5.1: Kela olishingni seshanbagacha ayt.
+5.2: Kela olishingni chorshanbagacha ayt.
+5.3: Kela olishingni ertaga ayt.
+## r7 | Mening shaharim
+A: {1} {2}
+B: {3}
+C: {4}
+D: {5}
+1.0: Men katta shaharda yashayman.
+1.1: Men kichik shaharda yashayman.
+1.2: Men qishloqda yashayman.
+1.3: Men dengiz bo'yidagi shaharda yashayman.
+2.0: Uyim yonida bog' bor.
+2.1: Uyim yonida maktab bor.
+2.2: Uyim yonida vokzal bor.
+2.3: Uyim yonida supermarket bor.
+3.0: Avtobus har besh daqiqada keladi.
+3.1: Avtobus har o'n daqiqada keladi.
+3.2: Avtobus har yigirma daqiqada keladi.
+3.3: Avtobus har o'ttiz daqiqada keladi.
+4.0: Mening sevimli joyim kutubxona.
+4.1: Mening sevimli joyim kinoteatr.
+4.2: Mening sevimli joyim daryo.
+4.3: Mening sevimli joyim eski bozor.
+5.0: Shahrimdagi odamlar xushmuomala.
+5.1: Shahrimdagi odamlar juda band.
+5.2: Shahrimdagi odamlar sokin.
+5.3: Shahrimdagi odamlar quvnoq.
+## r8 | Mening uyim
+A: {1} {2}
+B: {3}
+C: {4} {5}
+1.0: Kvartiramda ikkita xona bor.
+1.1: Kvartiramda uchta xona bor.
+1.2: Kvartiramda to'rtta xona bor.
+1.3: Kvartiramda beshta xona bor.
+2.0: U birinchi qavatda.
+2.1: U ikkinchi qavatda.
+2.2: U uchinchi qavatda.
+2.3: U to'rtinchi qavatda.
+3.0: Mening sevimli xonam oshxona.
+3.1: Mening sevimli xonam yotoqxona.
+3.2: Mening sevimli xonam mehmonxona.
+3.3: Mening sevimli xonam balkon.
+4.0: Yotoqxonamning devorlari ko'k.
+4.1: Yotoqxonamning devorlari yashil.
+4.2: Yotoqxonamning devorlari oq.
+4.3: Yotoqxonamning devorlari sariq.
+5.0: Yotoqxonamda katta yozuv stoli bor.
+5.1: Yotoqxonamda katta kitob javoni bor.
+5.2: Yotoqxonamda yangi kompyuter bor.
+5.3: Yotoqxonamda eski gitara bor.
+## r9 | Mening do'stim
+A: Mening yaxshi do'stim bor. {1} {2}
+B: {3} {4}
+C: {5} Biz doim vaqtimizni yaxshi o'tkazamiz.
+1.0: U o'n sakkiz yoshda.
+1.1: U yigirma yoshda.
+1.2: U yigirma ikki yoshda.
+1.3: U yigirma to'rt yoshda.
+2.0: U talaba.
+2.1: U shifokor.
+2.2: U o'qituvchi.
+2.3: U haydovchi.
+3.0: U ovqat pishirishni yaxshi ko'radi.
+3.1: U kitob o'qishni yaxshi ko'radi.
+3.2: U futbolni yaxshi ko'radi.
+3.3: U shaxmatni yaxshi ko'radi.
+4.0: U qishloqdan kelgan.
+4.1: U poytaxtdan kelgan.
+4.2: U port shahridan kelgan.
+4.3: U tog'li joydan kelgan.
+5.0: Biz har kuni uchrashamiz.
+5.1: Biz har hafta uchrashamiz.
+5.2: Biz shanba kunlari uchrashamiz.
+5.3: Biz har oy uchrashamiz.
+## r10 | Kafeda
+A: Bugun men kafedaman. {1}
+B: {2} {3}
+C: {4}
+D: {5} Yaxshi kun.
+1.0: Men opam bilan birgaman.
+1.1: Men do'stim bilan birgaman.
+1.2: Men onam bilan birgaman.
+1.3: Men akam bilan birgaman.
+2.0: Men choy ichaman.
+2.1: Men qahva ichaman.
+2.2: Men sharbat ichaman.
+2.3: Men suv ichaman.
+3.0: Biz yana sho'rva yeymiz.
+3.1: Biz yana salat yeymiz.
+3.2: Biz yana tort yeymiz.
+3.3: Biz yana sendvich yeymiz.
+4.0: Biz soat ikkida kelamiz.
+4.1: Biz soat uchda kelamiz.
+4.2: Biz soat to'rtda kelamiz.
+4.3: Biz soat beshda kelamiz.
+5.0: Men naqd pul to'layman.
+5.1: Men karta bilan to'layman.
+5.2: Men telefon bilan to'layman.
+5.3: Biz yarmidan to'laymiz.
+## r11 | Oxirgi ta'til
+A: {1} {2}
+B: {3} Ajoyib ta'til bo'ldi.
+C: {4}
+D: {5} Yana bormoqchiman.
+1.0: O'tgan yozda biz dengizga bordik.
+1.1: O'tgan yozda biz tog'ga bordik.
+1.2: O'tgan yozda biz katta shaharga bordik.
+1.3: O'tgan yozda biz qishloqqa bordik.
+2.0: Biz samolyotda sayohat qildik.
+2.1: Biz poyezdda sayohat qildik.
+2.2: Biz avtobusda sayohat qildik.
+2.3: Biz mashinada sayohat qildik.
+3.0: Biz uch kun turdik.
+3.1: Biz bir hafta turdik.
+3.2: Biz o'n kun turdik.
+3.3: Biz ikki hafta turdik.
+4.0: Har ertalab sayr qildik.
+4.1: Har ertalab uzoq uxladik.
+4.2: Har ertalab yaxshilab nonushta qildik.
+4.3: Har ertalab surat oldik.
+5.0: Eng yaxshisi ovqat edi.
+5.1: Eng yaxshisi ob-havo edi.
+5.2: Eng yaxshisi odamlar edi.
+5.3: Eng yaxshisi mehmonxona edi.
+## r12 | Mening dars jadvalim
+A: {1} {2}
+B: {3} {4}
+C: {5} Men maktabimni yaxshi ko'raman.
+1.0: Dushanba kuni birinchi darsim matematika.
+1.1: Dushanba kuni birinchi darsim ingliz tili.
+1.2: Dushanba kuni birinchi darsim tarix.
+1.3: Dushanba kuni birinchi darsim biologiya.
+2.0: Eng yaxshi ko'rgan fanim geografiya.
+2.1: Eng yaxshi ko'rgan fanim musiqa.
+2.2: Eng yaxshi ko'rgan fanim fizika.
+2.3: Eng yaxshi ko'rgan fanim san'at.
+3.0: Uy vazifasini seshanba kuni topshirishimiz kerak.
+3.1: Uy vazifasini chorshanba kuni topshirishimiz kerak.
+3.2: Uy vazifasini payshanba kuni topshirishimiz kerak.
+3.3: Uy vazifasini juma kuni topshirishimiz kerak.
+4.0: Maktabdan keyin musiqa to'garagiga boraman.
+4.1: Maktabdan keyin futbol to'garagiga boraman.
+4.2: Maktabdan keyin shaxmat to'garagiga boraman.
+4.3: Maktabdan keyin rasm to'garagiga boraman.
+5.0: Ingliz tili o'qituvchim juda mehribon.
+5.1: Ingliz tili o'qituvchim juda qattiqqo'l.
+5.2: Ingliz tili o'qituvchim juda quvnoq.
+5.3: Ingliz tili o'qituvchim juda yosh.

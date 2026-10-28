@@ -460,41 +460,46 @@ function quiz(L, items, backHash, title){
   show();
 }
 
-/* ---- reading: A1-A2 passages with multiple choice, IELTS style ---- */
+/* ---- reading: A1-A2 texts built from random facts, so every attempt is a new text ---- */
 function rdBest(id){ return lsGet('lang_rd_' + id, {}); }
 function readList(L){
   var R = L.reading || [], b = rdBest(L.id);
   app.innerHTML = back('#l/' + L.id, L.name) + head('Reading') + '<div class="sport-hub-grid">' + R.map(function(p){
-    var sc = b[p.id]; return tile('#l/' + L.id + '/reading/' + p.id, p.title, p.lv + ' \u2022 ' + p.en + (sc != null ? ' \u2022 best ' + sc + ' / ' + p.q.length : '')); }).join('') + '</div>';
+    var sc = b[p.id]; return tile('#l/' + L.id + '/reading/' + p.id, p.title, p.lv + ' \u2022 ' + p.en + (sc != null ? ' \u2022 best ' + sc + ' / ' + p.f.length : '')); }).join('') + '</div>';
 }
-function paraHtml(p, marks){
-  var t = p.t, out = '', pos = 0, ms = (marks || []).map(function(m){ return { i: t.indexOf(m), n: m.length }; }).filter(function(m){ return m.i >= 0; }).sort(function(a, c){ return a.i - c.i; });
-  ms.forEach(function(m){ if(m.i < pos) return; out += esc(t.slice(pos, m.i)) + '<mark>' + esc(t.slice(m.i, m.i + m.n)) + '</mark>'; pos = m.i + m.n; });
-  return '<p class="rd-p"><b class="rd-l">' + p.l + '</b>' + out + esc(t.slice(pos)) + '</p>';
+function rdGen(P){
+  var vals = P.f.map(function(){ return Math.floor(Math.random() * 4); });
+  var qs = P.f.map(function(f, i){ var perm = shuffle([0, 1, 2, 3]); return { perm: perm, a: perm.indexOf(vals[i]) }; });
+  return { vals: vals, qs: qs };
+}
+function paraHtml(P, p, g, hi){
+  return '<p class="rd-p"><b class="rd-l">' + p.l + '</b>' + p.t.split(/(\{\d\})/).map(function(x){
+    var m = /^\{(\d)\}$/.exec(x); if(!m) return esc(x);
+    var k = +m[1] - 1, sn = esc(P.f[k].s[g.vals[k]]); return hi ? '<mark>' + sn + '</mark>' : sn; }).join('') + '</p>';
 }
 function readPassage(L, pid){
   var P = (L.reading || []).filter(function(x){ return x.id === pid; })[0]; if(!P) return readList(L);
-  var ans = [], done = false, LET = ['A', 'B', 'C', 'D'];
+  var g = rdGen(P), ans = [], done = false, LET = ['A', 'B', 'C', 'D'];
+  function where(k){ for(var i = 0; i < P.paras.length; i++){ if(P.paras[i].t.indexOf('{' + (k + 1) + '}') >= 0) return P.paras[i].l; } return ''; }
   function draw(){
-    var marks = {}; if(done) P.q.forEach(function(q){ (marks[q.e[0]] = marks[q.e[0]] || []).push(q.e[1]); });
-    var qh = P.q.map(function(q, i){
-      var ok = done && ans[i] === q.a;
-      return '<div class="rd-q"><div class="rd-qh"><b>' + (i + 1) + '</b> ' + esc(q.q) + '</div>' + q.o.map(function(o, j){
+    var qh = P.f.map(function(f, i){
+      var q = g.qs[i], ok = done && ans[i] === q.a;
+      return '<div class="rd-q"><div class="rd-qh"><b>' + (i + 1) + '</b> ' + esc(f.q) + '</div>' + q.perm.map(function(vi, j){
         var c = 'rd-o' + (ans[i] === j ? ' sel' : '') + (done && j === q.a ? ' ok' : '') + (done && ans[i] === j && j !== q.a ? ' bad' : '');
-        return '<button class="' + c + '" data-q="' + i + '" data-o="' + j + '"' + (done ? ' disabled' : '') + '><b>' + LET[j] + '</b> ' + esc(o) + '</button>'; }).join('') +
-        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + 'Paragraph ' + q.e[0] + ': \u201c' + esc(q.e[1]) + '\u201d</div>' : '') + '</div>'; }).join('');
-    var score = P.q.filter(function(q, i){ return ans[i] === q.a; }).length;
-    app.innerHTML = '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' \u2022 ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.q.length) + '</span></div>' +
-      '<div class="rd-wrap"><div class="rd-pass v-card"><h3 class="rd-h">' + esc(P.title) + '</h3>' + P.paras.map(function(p){ return paraHtml(p, marks[p.l]); }).join('') + '</div>' +
-      '<div class="rd-qs v-card"><h3 class="rd-h">Questions 1 to ' + P.q.length + '</h3><div class="v-sub">Choose the correct letter, A, B, C or D.</div>' +
-      (done ? '<div class="v-big" style="margin:10px 0;">' + score + ' / ' + P.q.length + '</div>' : '') + qh +
-      '<div class="v-row" style="margin-top:14px;">' + (done ? '<button class="v-btn" id="rdAgain">Try again</button><a class="v-btn" href="#l/' + L.id + '/reading" style="text-decoration:none;">All texts</a>' : '<button class="v-btn" id="rdFin">Finish and check</button><a class="v-btn" href="#l/' + L.id + '/reading" style="text-decoration:none;">Quit</a>') + '</div></div></div>';
-    Array.prototype.forEach.call(app.querySelectorAll('.rd-o'), function(b){ b.onclick = function(){ ans[+b.getAttribute('data-q')] = +b.getAttribute('data-o'); var y = window.scrollY; var qs = app.querySelector('.rd-qs'), st = qs ? qs.scrollTop : 0, ps = app.querySelector('.rd-pass').scrollTop; draw(); window.scrollTo(0, y); var q2 = app.querySelector('.rd-qs'); if(q2) q2.scrollTop = st; app.querySelector('.rd-pass').scrollTop = ps; }; });
+        return '<button class="' + c + '" data-q="' + i + '" data-o="' + j + '"' + (done ? ' disabled' : '') + '><b>' + LET[j] + '</b> ' + esc(f.o[vi]) + '</button>'; }).join('') +
+        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + 'Paragraph ' + where(i) + ': \u201c' + esc(f.s[g.vals[i]]) + '\u201d</div>' : '') + '</div>'; }).join('');
+    var score = P.f.filter(function(f, i){ return ans[i] === g.qs[i].a; }).length;
+    app.innerHTML = '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' \u2022 ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.f.length) + '</span></div>' +
+      '<div class="rd-wrap"><div class="rd-pass v-card"><h3 class="rd-h">' + esc(P.title) + '</h3>' + P.paras.map(function(p){ return paraHtml(P, p, g, done); }).join('') + '</div>' +
+      '<div class="rd-qs v-card"><h3 class="rd-h">Questions 1 to ' + P.f.length + '</h3><div class="v-sub">Choose the correct letter, A, B, C or D.</div>' +
+      (done ? '<div class="v-big" style="margin:10px 0;">' + score + ' / ' + P.f.length + '</div>' : '') + qh +
+      '<div class="v-row" style="margin-top:14px;">' + (done ? '<button class="v-btn" id="rdAgain">New text</button><a class="v-btn" href="#l/' + L.id + '/reading" style="text-decoration:none;">All texts</a>' : '<button class="v-btn" id="rdFin">Finish and check</button><a class="v-btn" href="#l/' + L.id + '/reading" style="text-decoration:none;">Quit</a>') + '</div></div></div>';
+    Array.prototype.forEach.call(app.querySelectorAll('.rd-o'), function(b){ b.onclick = function(){ ans[+b.getAttribute('data-q')] = +b.getAttribute('data-o'); var y = window.scrollY, qs = app.querySelector('.rd-qs'), st = qs ? qs.scrollTop : 0, ps = app.querySelector('.rd-pass').scrollTop; draw(); window.scrollTo(0, y); var q2 = app.querySelector('.rd-qs'); if(q2) q2.scrollTop = st; app.querySelector('.rd-pass').scrollTop = ps; }; });
     var f = document.getElementById('rdFin'); if(f) f.onclick = function(){
-      done = true; var sc = P.q.filter(function(q, i){ return ans[i] === q.a; }).length, b = rdBest(L.id), prev = b[P.id] || 0;
+      done = true; var sc = P.f.filter(function(x, i){ return ans[i] === g.qs[i].a; }).length, b = rdBest(L.id), prev = b[P.id] || 0;
       if(sc > prev){ b[P.id] = sc; lsSet('lang_rd_' + L.id, b); if(window.LoungeSync && LoungeSync.markDirty) LoungeSync.markDirty(); award(sc - prev, 'language'); }
       draw(); window.scrollTo(0, 0); };
-    var a = document.getElementById('rdAgain'); if(a) a.onclick = function(){ ans = []; done = false; draw(); window.scrollTo(0, 0); };
+    var a = document.getElementById('rdAgain'); if(a) a.onclick = function(){ g = rdGen(P); ans = []; done = false; draw(); window.scrollTo(0, 0); };
   }
   draw();
 }

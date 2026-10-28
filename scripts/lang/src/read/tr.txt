@@ -1,59 +1,296 @@
 ## r1 | Benim hakkımda
-A: Yirmi beş yaşındayım. Şehir merkezinde küçük bir dairede oturuyorum.
-B: Kız kardeşimle oturuyorum. O öğrenci. Ben bir mağazada çalışıyorum.
-C: Müziği ve yüzmeyi severim. Pazar günleri arkadaşlarımla yüzmeye giderim. Bir de kedim var. Siyah.
-E1: A | Yirmi beş yaşındayım
-E2: B | Kız kardeşimle oturuyorum
-E3: B | bir mağazada çalışıyorum
-E4: C | arkadaşlarımla yüzmeye giderim
-E5: C | Siyah
+A: {1} Şehir merkezinde küçük bir dairede oturuyorum.
+B: {2} {3}
+C: Müziği severim. {4} Bir de kedim var. {5}
+1.0: Yirmi yaşındayım.
+1.1: Yirmi beş yaşındayım.
+1.2: Otuz yaşındayım.
+1.3: Otuz beş yaşındayım.
+2.0: Yalnız yaşıyorum.
+2.1: Kız kardeşimle oturuyorum.
+2.2: Bir arkadaşımla oturuyorum.
+2.3: Kuzenimle oturuyorum.
+3.0: Bir bankada çalışıyorum.
+3.1: Bir okulda çalışıyorum.
+3.2: Bir mağazada çalışıyorum.
+3.3: Bir hastanede çalışıyorum.
+4.0: Pazar günleri arkadaşlarımla yüzmeye giderim.
+4.1: Pazar günleri televizyon izlerim.
+4.2: Pazar günleri pazara giderim.
+4.3: Pazar günleri çalışırım.
+5.0: O beyaz.
+5.1: O kahverengi.
+5.2: O gri.
+5.3: O siyah.
 ## r2 | Günüm
-A: Saat yedide kalkarım. Kahvaltıda çay içerim ve ekmek yerim.
-B: Okula otobüsle giderim. Dersler sekizde başlar, ikide biter.
-C: Okuldan sonra ödevlerimi yaparım. Saat beşte arkadaşlarımla futbol oynarım.
-D: Akşam yemeğini yedide yeriz. Saat onda yatarım.
-E1: A | Saat yedide kalkarım
-E2: A | çay içerim ve ekmek yerim
-E3: B | otobüsle
-E4: C | Saat beşte arkadaşlarımla futbol oynarım
-E5: D | Saat onda yatarım
+A: {1} {2}
+B: {3} Dersler saat onda başlar.
+C: {4}
+D: Akşam yemeğini saat yedide yeriz. {5}
+1.0: Saat altıda kalkarım.
+1.1: Saat yedide kalkarım.
+1.2: Saat sekizde kalkarım.
+1.3: Saat dokuzda kalkarım.
+2.0: Kahvaltıda çay içerim ve ekmek yerim.
+2.1: Kahvaltıda yumurta ve pilav yerim.
+2.2: Kahvaltıda süt içerim ve pasta yerim.
+2.3: Kahvaltıda sadece meyve yerim.
+3.0: Okula yürüyerek giderim.
+3.1: Okula otobüsle giderim.
+3.2: Okula arabayla giderim.
+3.3: Okula bisikletle giderim.
+4.0: Saat beşte ödevlerimi yaparım.
+4.1: Saat beşte kitap okurum.
+4.2: Saat beşte arkadaşlarımla futbol oynarım.
+4.3: Saat beşte alışverişe giderim.
+5.0: Saat dokuzda yatarım.
+5.1: Saat onda yatarım.
+5.2: Saat on birde yatarım.
+5.3: Gece yarısı yatarım.
 ## r3 | Pazarda
-A: Cumartesi sabahı annemle pazara giderim. Pazar yeri evimizden on dakika uzaklıkta. Yürüyerek gideriz.
-B: İki kilo elma ve bir kilo domates alırız. Ekmek ve peynir de alırız.
-C: En sevdiğim tezgâh yaşlı bir amcanın tezgâhı. O bal satıyor. Bal çok güzel.
-D: Eve saat on birde döneriz. Annemin öğle yemeğini hazırlamasına yardım ederim.
-E1: A | Cumartesi sabahı
-E2: A | on dakika uzaklıkta
-E3: B | İki kilo elma
-E4: C | O bal satıyor
-E5: D | yemeğini hazırlamasına yardım ederim
+A: {1} {2} Yürüyerek gideriz.
+B: {3} Ekmek de alırız.
+C: En sevdiğim tezgâh yaşlı bir amcanın tezgâhı. {4}
+D: Eve saat on birde döneriz. {5}
+1.0: Pazar sabahı annemle pazar yerine giderim.
+1.1: Cuma akşamı annemle pazar yerine giderim.
+1.2: Cumartesi akşamı annemle pazar yerine giderim.
+1.3: Cumartesi sabahı annemle pazar yerine giderim.
+2.0: Pazar yeri evimize beş dakika uzaklıkta.
+2.1: Pazar yeri evimize on dakika uzaklıkta.
+2.2: Pazar yeri evimize yirmi dakika uzaklıkta.
+2.3: Pazar yeri evimize bir saat uzaklıkta.
+3.0: Bir kilo elma alırız.
+3.1: İki kilo elma alırız.
+3.2: Üç kilo elma alırız.
+3.3: Dört kilo elma alırız.
+4.0: O bal satıyor.
+4.1: O peynir satıyor.
+4.2: O ekmek satıyor.
+4.3: O domates satıyor.
+5.0: Evde uyurum.
+5.1: Evde annemin öğle yemeğini hazırlamasına yardım ederim.
+5.2: Evde televizyon izlerim.
+5.3: Evde ödevlerimi yaparım.
 ## r4 | Ailem
-A: Ailemizde beş kişiyiz: babam, annem, erkek kardeşim, babaannem ve ben.
-B: Babam şoför. Annem hemşire. Hastanede çalışıyor.
-C: Erkek kardeşim on yaşında. Resim yapmayı seviyor.
-D: Babaannem bizimle yaşıyor. Pazar günleri yemek yapıyor. Yemekleri çok lezzetli.
-E1: A | beş kişiyiz
-E2: B | Babam şoför
-E3: B | Hastanede çalışıyor
-E4: C | on yaşında
-E5: D | Pazar günleri yemek yapıyor
+A: {1} Ailem küçük ve mutlu.
+B: {2} {3}
+C: {4} Resim yapmayı seviyor.
+D: Babaannem bizimle yaşıyor. {5} Yemekleri çok lezzetli.
+1.0: Bir dairede yaşıyoruz.
+1.1: Bir evde yaşıyoruz.
+1.2: Bir köyde yaşıyoruz.
+1.3: Şehir merkezinde yaşıyoruz.
+2.0: Babam doktor.
+2.1: Babam öğretmen.
+2.2: Babam hemşire.
+2.3: Babam şoför.
+3.0: Annem bir okulda çalışıyor.
+3.1: Annem bir hastanede çalışıyor.
+3.2: Annem bir mağazada çalışıyor.
+3.3: Annem bir bankada çalışıyor.
+4.0: Erkek kardeşim on yaşında.
+4.1: Erkek kardeşim sekiz yaşında.
+4.2: Erkek kardeşim dokuz yaşında.
+4.3: Erkek kardeşim on iki yaşında.
+5.0: Her gün yemek yapıyor.
+5.1: Cuma günleri yemek yapıyor.
+5.2: Cumartesi günleri yemek yapıyor.
+5.3: Pazar günleri yemek yapıyor.
 ## r5 | Bir gezi
-A: Geçen cumartesi üç arkadaşımla dağa gittim. Sabah yedi treniyle gittik ve yolculuk iki saat sürdü.
-B: Hava güneşliydi ama çok soğuktu. Dört saat yürüdük ve çok fotoğraf çektik. Saat birde bir nehrin yanında piknik yaptık. Eldivenlerimi unuttum ve ellerim donuyordu.
-C: Öğleden sonra otobüsle dönmek istedik ama son otobüsü kaçırdık. Bir taksi beklemek zorunda kaldık ve çok pahalıydı.
-D: Eve gece saat on birde vardık. Çok yorgunduk ama mutluyduk. Önümüzdeki ay tekrar gitmek istiyoruz.
-E1: A | üç arkadaşımla
-E2: A | iki saat sürdü
-E3: B | Hava güneşliydi ama çok soğuktu
-E4: B | Eldivenlerimi unuttum
-E5: C | son otobüsü kaçırdık
+A: {1} Erken trene bindik. {2}
+B: {3} Çok yürüdük ve çok fotoğraf çektik. {4}
+C: Öğleden sonra şehirden uzaktaydık. {5}
+D: Eve çok geç vardık. Yorgunduk ama mutluyduk.
+1.0: Geçen cumartesi iki arkadaşımla dağa gittim.
+1.1: Geçen cumartesi üç arkadaşımla dağa gittim.
+1.2: Geçen cumartesi dört arkadaşımla dağa gittim.
+1.3: Geçen cumartesi beş arkadaşımla dağa gittim.
+2.0: Yolculuk bir saat sürdü.
+2.1: Yolculuk iki saat sürdü.
+2.2: Yolculuk üç saat sürdü.
+2.3: Yolculuk dört saat sürdü.
+3.0: Hava yağmurluydu.
+3.1: Hava sıcaktı.
+3.2: Hava rüzgârlıydı.
+3.3: Hava güneşliydi ama soğuktu.
+4.0: Eldivenlerimi unuttum.
+4.1: Fotoğraf makinemi unuttum.
+4.2: Öğle yemeğimi unuttum.
+4.3: Biletimi unuttum.
+5.0: Son otobüsü kaçırdığımız için taksiye bindik.
+5.1: Yorgun olduğumuz için taksiye bindik.
+5.2: Otobüs dolu olduğu için taksiye bindik.
+5.3: Tren iptal edildiği için taksiye bindik.
 ## r6 | Davet
-A: Merhaba! Seni doğum günü partime davet etmek için yazıyorum. Gelecek cuma akşamı saat altıda.
-B: Parti evimde, restoranda değil, çünkü artık dairem büyük. Büyük bir akşam yemeği hazırlayacağım ve kız kardeşim pasta yapacak.
-C: Müzik getirebilir misin? En güzel şarkılar hep sende. Kuzenim de gelecek ve onunla tanışmanı istiyorum.
-D: Gelip gelemeyeceğini çarşambaya kadar söyle. İstersen bende kalabilirsin, çünkü son otobüs erken kalkıyor.
-E1: A | Gelecek cuma akşamı saat altıda
-E2: B | Parti evimde
-E3: B | kız kardeşim pasta yapacak
-E4: C | Müzik getirebilir misin
-E5: D | çarşambaya kadar söyle
+A: Merhaba! Seni doğum günü partime davet etmek için yazıyorum. {1}
+B: {2} {3}
+C: {4} Kuzenimle tanışmanı istiyorum.
+D: {5} Son otobüs erken kalkıyor, o yüzden bende kalabilirsin.
+1.0: Parti gelecek cuma akşamı.
+1.1: Parti gelecek cumartesi öğleden sonra.
+1.2: Parti gelecek pazar sabahı.
+1.3: Parti gelecek perşembe akşamı.
+2.0: Parti bir restoranda.
+2.1: Parti evimde.
+2.2: Parti parkta.
+2.3: Parti bir arkadaşımın evinde.
+3.0: Pastayı kız kardeşim yapacak.
+3.1: Pastayı annem yapacak.
+3.2: Pastayı bir arkadaşım yapacak.
+3.3: Pastayı kendim yapacağım.
+4.0: Lütfen biraz müzik getir.
+4.1: Lütfen biraz yiyecek getir.
+4.2: Lütfen biraz oyun getir.
+4.3: Lütfen biraz içecek getir.
+5.0: Gelip gelemeyeceğini pazartesiye kadar söyle.
+5.1: Gelip gelemeyeceğini salıya kadar söyle.
+5.2: Gelip gelemeyeceğini çarşambaya kadar söyle.
+5.3: Gelip gelemeyeceğini yarın söyle.
+## r7 | Şehrim
+A: {1} {2}
+B: {3}
+C: {4}
+D: {5}
+1.0: Büyük bir şehirde yaşıyorum.
+1.1: Küçük bir kasabada yaşıyorum.
+1.2: Bir köyde yaşıyorum.
+1.3: Deniz kenarındaki bir kasabada yaşıyorum.
+2.0: Evimin yakınında bir park var.
+2.1: Evimin yakınında bir okul var.
+2.2: Evimin yakınında bir istasyon var.
+2.3: Evimin yakınında bir süpermarket var.
+3.0: Otobüs beş dakikada bir geliyor.
+3.1: Otobüs on dakikada bir geliyor.
+3.2: Otobüs yirmi dakikada bir geliyor.
+3.3: Otobüs otuz dakikada bir geliyor.
+4.0: En sevdiğim yer kütüphane.
+4.1: En sevdiğim yer sinema.
+4.2: En sevdiğim yer nehir.
+4.3: En sevdiğim yer eski pazar.
+5.0: Şehrimin insanları samimi.
+5.1: Şehrimin insanları çok meşgul.
+5.2: Şehrimin insanları sakin.
+5.3: Şehrimin insanları komik.
+## r8 | Evim
+A: {1} {2}
+B: {3}
+C: {4} {5}
+1.0: Dairemde iki oda var.
+1.1: Dairemde üç oda var.
+1.2: Dairemde dört oda var.
+1.3: Dairemde beş oda var.
+2.0: Daire birinci katta.
+2.1: Daire ikinci katta.
+2.2: Daire üçüncü katta.
+2.3: Daire dördüncü katta.
+3.0: En sevdiğim oda mutfak.
+3.1: En sevdiğim oda yatak odası.
+3.2: En sevdiğim oda oturma odası.
+3.3: En sevdiğim oda balkon.
+4.0: Yatak odamın duvarları mavi.
+4.1: Yatak odamın duvarları yeşil.
+4.2: Yatak odamın duvarları beyaz.
+4.3: Yatak odamın duvarları sarı.
+5.0: Yatak odamda büyük bir masa var.
+5.1: Yatak odamda büyük bir kitaplık var.
+5.2: Yatak odamda yeni bir bilgisayar var.
+5.3: Yatak odamda eski bir gitar var.
+## r9 | Arkadaşım
+A: İyi bir arkadaşım var. {1} {2}
+B: {3} {4}
+C: {5} Hep eğleniriz.
+1.0: On sekiz yaşında.
+1.1: Yirmi yaşında.
+1.2: Yirmi iki yaşında.
+1.3: Yirmi dört yaşında.
+2.0: Öğrenci.
+2.1: Doktor.
+2.2: Öğretmen.
+2.3: Şoför.
+3.0: Yemek yapmayı seviyor.
+3.1: Kitap okumayı seviyor.
+3.2: Futbolu seviyor.
+3.3: Satrancı seviyor.
+4.0: Bir köyden geliyor.
+4.1: Başkentten geliyor.
+4.2: Bir liman şehrinden geliyor.
+4.3: Dağlardan geliyor.
+5.0: Her gün görüşürüz.
+5.1: Her hafta görüşürüz.
+5.2: Cumartesi günleri görüşürüz.
+5.3: Her ay görüşürüz.
+## r10 | Kafede
+A: Bugün kafedeyim. {1}
+B: {2} {3}
+C: {4}
+D: {5} Güzel bir gün.
+1.0: Kız kardeşimle birlikteyim.
+1.1: Arkadaşımla birlikteyim.
+1.2: Annemle birlikteyim.
+1.3: Erkek kardeşimle birlikteyim.
+2.0: Ben çay içiyorum.
+2.1: Ben kahve içiyorum.
+2.2: Ben meyve suyu içiyorum.
+2.3: Ben su içiyorum.
+3.0: Ayrıca çorba içiyoruz.
+3.1: Ayrıca salata yiyoruz.
+3.2: Ayrıca pasta yiyoruz.
+3.3: Ayrıca sandviç yiyoruz.
+4.0: Saat ikide geliyoruz.
+4.1: Saat üçte geliyoruz.
+4.2: Saat dörtte geliyoruz.
+4.3: Saat beşte geliyoruz.
+5.0: Nakit ödüyorum.
+5.1: Kartla ödüyorum.
+5.2: Telefonla ödüyorum.
+5.3: Hesabı yarı yarıya ödüyoruz.
+## r11 | Son tatil
+A: {1} {2}
+B: {3} Harika bir tatildi.
+C: {4}
+D: {5} Tekrar gitmek istiyorum.
+1.0: Geçen yaz denize gittik.
+1.1: Geçen yaz dağa gittik.
+1.2: Geçen yaz büyük bir şehre gittik.
+1.3: Geçen yaz bir köye gittik.
+2.0: Uçakla seyahat ettik.
+2.1: Trenle seyahat ettik.
+2.2: Otobüsle seyahat ettik.
+2.3: Arabayla seyahat ettik.
+3.0: Üç gün kaldık.
+3.1: Bir hafta kaldık.
+3.2: On gün kaldık.
+3.3: İki hafta kaldık.
+4.0: Her sabah yürüyüşe çıktık.
+4.1: Her sabah geç saatlere kadar uyuduk.
+4.2: Her sabah güzel bir kahvaltı yaptık.
+4.3: Her sabah fotoğraf çektik.
+5.0: En güzel şey yemeklerdi.
+5.1: En güzel şey havaydı.
+5.2: En güzel şey insanlardı.
+5.3: En güzel şey oteldi.
+## r12 | Ders programım
+A: {1} {2}
+B: {3} {4}
+C: {5} Okulumu seviyorum.
+1.0: Pazartesi ilk dersim matematik.
+1.1: Pazartesi ilk dersim İngilizce.
+1.2: Pazartesi ilk dersim tarih.
+1.3: Pazartesi ilk dersim biyoloji.
+2.0: En sevdiğim ders coğrafya.
+2.1: En sevdiğim ders müzik.
+2.2: En sevdiğim ders fizik.
+2.3: En sevdiğim ders resim.
+3.0: Ödevleri salı günü teslim etmeliyiz.
+3.1: Ödevleri çarşamba günü teslim etmeliyiz.
+3.2: Ödevleri perşembe günü teslim etmeliyiz.
+3.3: Ödevleri cuma günü teslim etmeliyiz.
+4.0: Okuldan sonra müzik kulübüne giderim.
+4.1: Okuldan sonra futbol kulübüne giderim.
+4.2: Okuldan sonra satranç kulübüne giderim.
+4.3: Okuldan sonra resim kulübüne giderim.
+5.0: İngilizce öğretmenim çok nazik.
+5.1: İngilizce öğretmenim çok sert.
+5.2: İngilizce öğretmenim çok komik.
+5.3: İngilizce öğretmenim çok genç.

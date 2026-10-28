@@ -1,59 +1,296 @@
 ## r1 | Su di me
-A: Ho 25 anni. Abito in un piccolo appartamento in centro.
-B: Abito con mia sorella. Lei è studentessa. Io lavoro in un negozio.
-C: Mi piacciono la musica e il nuoto. La domenica vado a nuotare con i miei amici. Ho anche un gatto. È nero.
-E1: A | Ho 25 anni
-E2: B | Abito con mia sorella
-E3: B | lavoro in un negozio
-E4: C | vado a nuotare con i miei amici
-E5: C | È nero
+A: {1} Abito in un piccolo appartamento in centro.
+B: {2} {3}
+C: Mi piace la musica. {4} Ho anche un gatto. {5}
+1.0: Ho 20 anni.
+1.1: Ho 25 anni.
+1.2: Ho 30 anni.
+1.3: Ho 35 anni.
+2.0: Vivo da solo.
+2.1: Abito con mia sorella.
+2.2: Abito con un amico.
+2.3: Abito con mio cugino.
+3.0: Lavoro in una banca.
+3.1: Lavoro in una scuola.
+3.2: Lavoro in un negozio.
+3.3: Lavoro in un ospedale.
+4.0: La domenica vado a nuotare con i miei amici.
+4.1: La domenica guardo la tv.
+4.2: La domenica vado al mercato.
+4.3: La domenica lavoro.
+5.0: È bianco.
+5.1: È marrone.
+5.2: È grigio.
+5.3: È nero.
 ## r2 | La mia giornata
-A: Mi alzo alle sette. Faccio colazione con tè e pane.
-B: Vado a scuola in autobus. Le lezioni iniziano alle otto e finiscono alle due.
-C: Dopo scuola faccio i compiti. Alle cinque gioco a calcio con gli amici.
-D: Ceniamo alle sette. Vado a letto alle dieci.
-E1: A | Mi alzo alle sette
-E2: A | tè e pane
-E3: B | in autobus
-E4: C | Alle cinque gioco a calcio
-E5: D | alle dieci
+A: {1} {2}
+B: {3} Le lezioni iniziano alle dieci.
+C: {4}
+D: Ceniamo alle sette. {5}
+1.0: Mi alzo alle sei.
+1.1: Mi alzo alle sette.
+1.2: Mi alzo alle otto.
+1.3: Mi alzo alle nove.
+2.0: A colazione prendo tè e pane.
+2.1: A colazione prendo uova e riso.
+2.2: A colazione prendo latte e torta.
+2.3: A colazione mangio solo frutta.
+3.0: Vado a scuola a piedi.
+3.1: Vado a scuola in autobus.
+3.2: Vado a scuola in macchina.
+3.3: Vado a scuola in bicicletta.
+4.0: Alle cinque faccio i compiti.
+4.1: Alle cinque leggo un libro.
+4.2: Alle cinque gioco a calcio con i miei amici.
+4.3: Alle cinque vado a fare la spesa.
+5.0: Vado a letto alle nove.
+5.1: Vado a letto alle dieci.
+5.2: Vado a letto alle undici.
+5.3: Vado a letto a mezzanotte.
 ## r3 | Al mercato
-A: Il sabato mattina vado al mercato con mia madre. È a dieci minuti da casa nostra. Andiamo a piedi.
-B: Compriamo due chili di mele e un chilo di pomodori. Compriamo anche il pane e il formaggio.
-C: La mia bancarella preferita è quella di un signore anziano. Vende il miele. È molto buono.
-D: Torniamo a casa alle undici. Aiuto mia madre a preparare il pranzo.
-E1: A | Il sabato mattina
-E2: A | a dieci minuti
-E3: B | due chili di mele
-E4: C | Vende il miele
-E5: D | Aiuto mia madre a preparare il pranzo
+A: {1} {2} Andiamo a piedi.
+B: {3} Compriamo anche il pane.
+C: La mia bancarella preferita è quella di un signore anziano. {4}
+D: Torniamo a casa alle undici. {5}
+1.0: La domenica mattina vado al mercato con mia madre.
+1.1: Il venerdì sera vado al mercato con mia madre.
+1.2: Il sabato sera vado al mercato con mia madre.
+1.3: Il sabato mattina vado al mercato con mia madre.
+2.0: È a cinque minuti da casa nostra.
+2.1: È a dieci minuti da casa nostra.
+2.2: È a venti minuti da casa nostra.
+2.3: È a un'ora da casa nostra.
+3.0: Compriamo un chilo di mele.
+3.1: Compriamo due chili di mele.
+3.2: Compriamo tre chili di mele.
+3.3: Compriamo quattro chili di mele.
+4.0: Vende il miele.
+4.1: Vende il formaggio.
+4.2: Vende il pane.
+4.3: Vende i pomodori.
+5.0: A casa dormo.
+5.1: A casa aiuto mia madre a preparare il pranzo.
+5.2: A casa guardo la tv.
+5.3: A casa faccio i compiti.
 ## r4 | La mia famiglia
-A: Nella mia famiglia siamo in cinque: mio padre, mia madre, mio fratello, mia nonna e io.
-B: Mio padre fa l'autista. Mia madre è infermiera. Lavora in un ospedale.
-C: Mio fratello ha dieci anni. Gli piace disegnare.
-D: Mia nonna vive con noi. Cucina la domenica. Il suo cibo è delizioso.
-E1: A | siamo in cinque
-E2: B | fa l'autista
-E3: B | Lavora in un ospedale
-E4: C | ha dieci anni
-E5: D | Cucina la domenica
+A: {1} La mia famiglia è piccola e felice.
+B: {2} {3}
+C: {4} Gli piace disegnare.
+D: Mia nonna vive con noi. {5} Il suo cibo è delizioso.
+1.0: Abitiamo in un appartamento.
+1.1: Abitiamo in una casa.
+1.2: Abitiamo in un paese.
+1.3: Abitiamo in centro.
+2.0: Mio padre è medico.
+2.1: Mio padre è insegnante.
+2.2: Mio padre è infermiere.
+2.3: Mio padre fa l'autista.
+3.0: Mia madre lavora in una scuola.
+3.1: Mia madre lavora in un ospedale.
+3.2: Mia madre lavora in un negozio.
+3.3: Mia madre lavora in una banca.
+4.0: Mio fratello ha dieci anni.
+4.1: Mio fratello ha otto anni.
+4.2: Mio fratello ha nove anni.
+4.3: Mio fratello ha dodici anni.
+5.0: Cucina tutti i giorni.
+5.1: Cucina il venerdì.
+5.2: Cucina il sabato.
+5.3: Cucina la domenica.
 ## r5 | Una gita
-A: Sabato scorso sono andato in montagna con tre amici. Abbiamo preso il treno delle sette del mattino e il viaggio è durato due ore.
-B: C'era il sole, ma faceva molto freddo. Abbiamo camminato per quattro ore e fatto molte foto. All'una abbiamo fatto un picnic vicino a un fiume. Ho dimenticato i guanti e avevo le mani gelate.
-C: Nel pomeriggio volevamo tornare in autobus, ma abbiamo perso l'ultimo. Abbiamo dovuto aspettare un taxi ed è stato caro.
-D: Siamo arrivati a casa alle undici di sera. Eravamo molto stanchi, ma contenti. Il mese prossimo vogliamo tornare.
-E1: A | con tre amici
-E2: A | il viaggio è durato due ore
-E3: B | C'era il sole, ma faceva molto freddo
-E4: B | Ho dimenticato i guanti
-E5: C | abbiamo perso l'ultimo
+A: {1} Abbiamo preso il treno presto. {2}
+B: {3} Abbiamo camminato molto e fatto molte foto. {4}
+C: Nel pomeriggio eravamo lontani dal paese. {5}
+D: Siamo arrivati a casa molto tardi. Eravamo stanchi, ma contenti.
+1.0: Sabato scorso sono andato in montagna con due amici.
+1.1: Sabato scorso sono andato in montagna con tre amici.
+1.2: Sabato scorso sono andato in montagna con quattro amici.
+1.3: Sabato scorso sono andato in montagna con cinque amici.
+2.0: Il viaggio è durato un'ora.
+2.1: Il viaggio è durato due ore.
+2.2: Il viaggio è durato tre ore.
+2.3: Il viaggio è durato quattro ore.
+3.0: Pioveva.
+3.1: Faceva caldo.
+3.2: Tirava vento.
+3.3: C'era il sole, ma faceva molto freddo.
+4.0: Ho dimenticato i guanti.
+4.1: Ho dimenticato la macchina fotografica.
+4.2: Ho dimenticato il pranzo.
+4.3: Ho dimenticato il biglietto.
+5.0: Abbiamo preso un taxi perché abbiamo perso l'ultimo autobus.
+5.1: Abbiamo preso un taxi perché eravamo stanchi.
+5.2: Abbiamo preso un taxi perché l'autobus era pieno.
+5.3: Abbiamo preso un taxi perché il treno era stato cancellato.
 ## r6 | Un invito
-A: Ciao! Ti scrivo per invitarti alla mia festa di compleanno. È venerdì prossimo, alle sei di sera.
-B: La festa è a casa mia, non in un ristorante, perché ora il mio appartamento è grande. Preparerò una cena enorme e mia sorella farà una torta.
-C: Puoi portare un po' di musica? Hai sempre le canzoni più belle. Viene anche mio cugino e voglio che tu lo conosca.
-D: Dimmi entro mercoledì se puoi venire. Se vuoi, puoi fermarti a dormire, perché l'ultimo autobus parte presto.
-E1: A | venerdì prossimo, alle sei
-E2: B | La festa è a casa mia
-E3: B | mia sorella farà una torta
-E4: C | Puoi portare un po' di musica
-E5: D | Dimmi entro mercoledì
+A: Ciao! Ti scrivo per invitarti alla mia festa di compleanno. {1}
+B: {2} {3}
+C: {4} Voglio che tu conosca mio cugino.
+D: {5} L'ultimo autobus parte presto, quindi puoi fermarti a dormire.
+1.0: La festa è venerdì prossimo di sera.
+1.1: La festa è sabato prossimo nel pomeriggio.
+1.2: La festa è domenica prossima di mattina.
+1.3: La festa è giovedì prossimo di sera.
+2.0: La festa è in un ristorante.
+2.1: La festa è a casa mia.
+2.2: La festa è al parco.
+2.3: La festa è a casa di un amico.
+3.0: Mia sorella farà la torta.
+3.1: Mia madre farà la torta.
+3.2: Un amico farà la torta.
+3.3: Farò io stesso la torta.
+4.0: Per favore, porta un po' di musica.
+4.1: Per favore, porta qualcosa da mangiare.
+4.2: Per favore, porta dei giochi.
+4.3: Per favore, porta qualcosa da bere.
+5.0: Dimmi entro lunedì se puoi venire.
+5.1: Dimmi entro martedì se puoi venire.
+5.2: Dimmi entro mercoledì se puoi venire.
+5.3: Dimmi domani se puoi venire.
+## r7 | La mia città
+A: {1} {2}
+B: {3}
+C: {4}
+D: {5}
+1.0: Abito in una grande città.
+1.1: Abito in una piccola città.
+1.2: Abito in un paese.
+1.3: Abito in una città sul mare.
+2.0: Vicino a casa mia c'è un parco.
+2.1: Vicino a casa mia c'è una scuola.
+2.2: Vicino a casa mia c'è una stazione.
+2.3: Vicino a casa mia c'è un supermercato.
+3.0: L'autobus passa ogni cinque minuti.
+3.1: L'autobus passa ogni dieci minuti.
+3.2: L'autobus passa ogni venti minuti.
+3.3: L'autobus passa ogni trenta minuti.
+4.0: Il mio posto preferito è la biblioteca.
+4.1: Il mio posto preferito è il cinema.
+4.2: Il mio posto preferito è il fiume.
+4.3: Il mio posto preferito è il vecchio mercato.
+5.0: La gente della mia città è simpatica.
+5.1: La gente della mia città è molto impegnata.
+5.2: La gente della mia città è tranquilla.
+5.3: La gente della mia città è divertente.
+## r8 | La mia casa
+A: {1} {2}
+B: {3}
+C: {4} {5}
+1.0: Il mio appartamento ha due stanze.
+1.1: Il mio appartamento ha tre stanze.
+1.2: Il mio appartamento ha quattro stanze.
+1.3: Il mio appartamento ha cinque stanze.
+2.0: È al primo piano.
+2.1: È al secondo piano.
+2.2: È al terzo piano.
+2.3: È al quarto piano.
+3.0: La mia stanza preferita è la cucina.
+3.1: La mia stanza preferita è la camera da letto.
+3.2: La mia stanza preferita è il soggiorno.
+3.3: La mia stanza preferita è il balcone.
+4.0: Le pareti della mia camera sono azzurre.
+4.1: Le pareti della mia camera sono verdi.
+4.2: Le pareti della mia camera sono bianche.
+4.3: Le pareti della mia camera sono gialle.
+5.0: Nella mia camera ho una grande scrivania.
+5.1: Nella mia camera ho una grande libreria.
+5.2: Nella mia camera ho un computer nuovo.
+5.3: Nella mia camera ho una chitarra vecchia.
+## r9 | Il mio amico
+A: Ho un buon amico. {1} {2}
+B: {3} {4}
+C: {5} Ci divertiamo sempre.
+1.0: Ha 18 anni.
+1.1: Ha 20 anni.
+1.2: Ha 22 anni.
+1.3: Ha 24 anni.
+2.0: È studente.
+2.1: È medico.
+2.2: È insegnante.
+2.3: Fa l'autista.
+3.0: Gli piace cucinare.
+3.1: Gli piace leggere.
+3.2: Gli piace il calcio.
+3.3: Gli piacciono gli scacchi.
+4.0: Viene da un paese.
+4.1: Viene dalla capitale.
+4.2: Viene da una città portuale.
+4.3: Viene dalle montagne.
+5.0: Ci vediamo ogni giorno.
+5.1: Ci vediamo ogni settimana.
+5.2: Ci vediamo il sabato.
+5.3: Ci vediamo ogni mese.
+## r10 | Al bar
+A: Oggi sono al bar. {1}
+B: {2} {3}
+C: {4}
+D: {5} È una bella giornata.
+1.0: Sono con mia sorella.
+1.1: Sono con il mio amico.
+1.2: Sono con mia madre.
+1.3: Sono con mio fratello.
+2.0: Prendo un tè.
+2.1: Prendo un caffè.
+2.2: Prendo un succo.
+2.3: Prendo dell'acqua.
+3.0: Mangiamo anche una zuppa.
+3.1: Mangiamo anche un'insalata.
+3.2: Mangiamo anche una torta.
+3.3: Mangiamo anche dei panini.
+4.0: Arriviamo alle due.
+4.1: Arriviamo alle tre.
+4.2: Arriviamo alle quattro.
+4.3: Arriviamo alle cinque.
+5.0: Pago in contanti.
+5.1: Pago con la carta.
+5.2: Pago con il telefono.
+5.3: Paghiamo alla romana.
+## r11 | Le ultime vacanze
+A: {1} {2}
+B: {3} Sono state vacanze bellissime.
+C: {4}
+D: {5} Voglio tornare.
+1.0: L'estate scorsa siamo andati al mare.
+1.1: L'estate scorsa siamo andati in montagna.
+1.2: L'estate scorsa siamo andati in una grande città.
+1.3: L'estate scorsa siamo andati in un paese.
+2.0: Abbiamo viaggiato in aereo.
+2.1: Abbiamo viaggiato in treno.
+2.2: Abbiamo viaggiato in autobus.
+2.3: Abbiamo viaggiato in macchina.
+3.0: Siamo rimasti tre giorni.
+3.1: Siamo rimasti una settimana.
+3.2: Siamo rimasti dieci giorni.
+3.3: Siamo rimasti due settimane.
+4.0: Ogni mattina facevamo una passeggiata.
+4.1: Ogni mattina dormivamo fino a tardi.
+4.2: Ogni mattina facevamo una colazione abbondante.
+4.3: Ogni mattina facevamo delle foto.
+5.0: La cosa migliore è stato il cibo.
+5.1: La cosa migliore è stato il tempo.
+5.2: La cosa migliore è stata la gente.
+5.3: La cosa migliore è stato l'albergo.
+## r12 | Il mio orario
+A: {1} {2}
+B: {3} {4}
+C: {5} Mi piace la mia scuola.
+1.0: Il lunedì la mia prima lezione è matematica.
+1.1: Il lunedì la mia prima lezione è inglese.
+1.2: Il lunedì la mia prima lezione è storia.
+1.3: Il lunedì la mia prima lezione è biologia.
+2.0: La mia materia preferita è la geografia.
+2.1: La mia materia preferita è la musica.
+2.2: La mia materia preferita è la fisica.
+2.3: La mia materia preferita è l'arte.
+3.0: Dobbiamo consegnare i compiti martedì.
+3.1: Dobbiamo consegnare i compiti mercoledì.
+3.2: Dobbiamo consegnare i compiti giovedì.
+3.3: Dobbiamo consegnare i compiti venerdì.
+4.0: Dopo la scuola vado al club di musica.
+4.1: Dopo la scuola vado al club di calcio.
+4.2: Dopo la scuola vado al club di scacchi.
+4.3: Dopo la scuola vado al club di disegno.
+5.0: La mia insegnante di inglese è molto gentile.
+5.1: La mia insegnante di inglese è molto severa.
+5.2: La mia insegnante di inglese è molto divertente.
+5.3: La mia insegnante di inglese è molto giovane.
