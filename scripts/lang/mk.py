@@ -113,7 +113,8 @@ def main(i):
     out += gram
     open(os.path.join(S, i + '.txt'), 'w', encoding='utf-8').write('\n'.join(out) + '\n')
     print('ok', i)
-for i in sys.argv[1:]:
+if __name__ == "__main__":
+  for i in sys.argv[1:]:
     main(i)
     if MISSING:
         open('/tmp/al/miss_%s.txt' % i, 'w', encoding='utf-8').write('\n'.join(sorted(MISSING)))
