@@ -4,10 +4,39 @@ body lines: '## Title' as in the skeleton and 'target | say | script' per item (
 import sys, os, re
 W = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'work'); S = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src')
 def rd(p): return [l.rstrip('\n') for l in open(p, encoding='utf-8')]
+MISSING = set()
+def lex_conv(path):
+    lex = {}; punct = {}
+    for l in open(path, encoding='utf-8'):
+        l = l.rstrip('\n')
+        if not l.strip() or l.startswith('//'): continue
+        if l.startswith('#punct'):
+            for kv in l.split()[1:]:
+                a, b = kv.split('=', 1); punct[a] = b
+            continue
+        a, b = l.split('=', 1); lex[a.strip().lower()] = b.strip()
+    mx = max([len(k.split()) for k in lex] or [1])
+    def conv(s):
+        toks = re.findall(r"[\w'\u2019-]+|[^\w\s]", s.lower()); out = []; i = 0
+        while i < len(toks):
+            t = toks[i]
+            if not re.match(r"[\w'\u2019-]", t): out.append(punct.get(t, t)); i += 1; continue
+            for n in range(min(mx, len(toks) - i), 0, -1):
+                seg = toks[i:i + n]
+                if any(not re.match(r"[\w'\u2019-]", z) for z in seg): continue
+                k = ' '.join(seg)
+                if k in lex: out.append(lex[k]); i += n; break
+            else:
+                MISSING.add(t); out.append('?' + t + '?'); i += 1
+        return ' '.join(out).replace(' ' + punct.get('?', '?'), punct.get('?', '?')).replace(' ' + punct.get(',', ','), punct.get(',', ','))
+    return conv
 def load_conv(i):
     p = os.path.join(W, i + '.conv.py')
-    if not os.path.exists(p): return None
-    ns = {}; exec(open(p, encoding='utf-8').read(), ns); return ns['conv']
+    if os.path.exists(p):
+        ns = {}; exec(open(p, encoding='utf-8').read(), ns); return ns['conv']
+    p = os.path.join(W, i + '.lex.txt')
+    if os.path.exists(p): return lex_conv(p)
+    return None
 def main(i):
     conv = load_conv(i)
     head = rd(os.path.join(W, i + '.head.txt'))
@@ -22,7 +51,8 @@ def main(i):
     def split(lines):
         g = []; cur = None
         for l in lines:
-            if re.match(r'^\[\w+\]$', l) or l.startswith('## '): cur = [l, []]; g.append(cur)
+            if re.match(r'^\[\w+\]$', l) or l.startswith('## '): cur = [l, [], []]; g.append(cur)
+            elif l.startswith('>'): cur[2].append(l)
             else: cur[1].append(l)
         return g
     a, b = split(sk), split(body)
@@ -36,7 +66,7 @@ def main(i):
             print('COUNT', i, x[0], len(x[1]), 'vs', len(y[1])); bad = True
     if bad: raise SystemExit(1)
     for x, y in zip(a, b):
-        out.append(x[0])
+        out.append(x[0]); out += y[2]
         for en, t in zip(x[1], y[1]):
             tt = t
             if conv:
@@ -59,4 +89,8 @@ def main(i):
     out += gram
     open(os.path.join(S, i + '.txt'), 'w', encoding='utf-8').write('\n'.join(out) + '\n')
     print('ok', i)
-for i in sys.argv[1:]: main(i)
+for i in sys.argv[1:]:
+    main(i)
+    if MISSING:
+        open('/tmp/al/miss_%s.txt' % i, 'w', encoding='utf-8').write('\n'.join(sorted(MISSING)))
+        print('MISSING WORDS', len(MISSING)); sys.exit(2)

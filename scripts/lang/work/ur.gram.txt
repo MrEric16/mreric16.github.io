@@ -1,0 +1,247 @@
+[grammar]
+## Pronouns
+> Three words for "you": tu (very close, rude to strangers), tum (friendly), aap (polite). Use aap when unsure. "Woh" means he, she, it and they, and "yeh" means this.
+row: I | main
+row: you (very close) | tu
+row: you (friendly) | tum
+row: you (polite) | aap
+row: he / she / it | woh
+row: we | hum
+row: they | woh
+ex: I am a student | main talib-e-ilm hoon | main TAA-lib-ay-ILM hoon
+ex: you are tall | tum lambe ho | toom LUM-bay hoh
+ex: she is my older sister | woh meri baji hai | woh MAY-ree BAA-jee hai
+ex: we are friends | hum dost hain | hum dost hain
+ex: they are teachers | woh ustaad hain | woh oos-TAAD hain
+## Singular and plural
+> Masculine nouns ending in -a change to -e (larka, larke). Feminine nouns add -ein (kitaab, kitaabein) or -iyan (billi, billiyan). Many masculine nouns do not change (ghar, ghar).
+row: larka (boy) | larke
+row: kitaab (book) | kitaabein
+row: billi (cat) | billiyan
+row: ghar (house) | ghar
+ex: one house, houses | aik ghar, kai ghar | aik ghur kai ghur
+ex: one book, books | aik kitaab, kitaabein | aik ki-TAAB ki-TAA-bayn
+ex: one cat, cats | aik billi, billiyan | aik BIL-lee BIL-li-yaan
+ex: two books | do kitaabein | doh ki-TAA-bayn
+ex: the children | bachche | BUCH-chay
+## To be: hoon, ho, hai
+> The verb "to be" has its own forms: hoon, ho, hai, hain. It comes at the end of the sentence.
+row: I am | main ... hoon
+row: you are (friendly) | tum ... ho
+row: he / she is | woh ... hai
+row: we are | hum ... hain
+row: you are (polite) | aap ... hain
+row: they are | woh ... hain
+ex: I am a student | main talib-e-ilm hoon | main TAA-lib-ay-ILM hoon
+ex: you are tired | tum thake hue ho | toom THUH-kay hoo-AY hoh
+ex: he is a doctor | woh doctor hai | woh DOK-tur hai
+ex: we are happy | hum khush hain | hum khoosh hain
+ex: they are at home | woh ghar par hain | woh ghur pur hain
+## Mere paas: have, there is
+> Urdu says "near me there is": mere paas ... hai. "Hai" means there is, "nahin hai" means there is not.
+row: there is | hai
+row: there is not | nahin hai
+row: I have | mere paas ... hai
+row: I do not have | mere paas ... nahin hai
+ex: I have an older brother | mere paas bhai jaan hain | MAY-ray paas bhaa-ee JAAN hain
+ex: I have a car | mere paas gaari hai | MAY-ray paas GAA-ree hai
+ex: I do not have time | mere paas waqt nahin hai | MAY-ray paas waqt na-HEEN hai
+ex: there is a problem | aik masla hai | aik MUS-laa hai
+ex: there is no water | paani nahin hai | PAA-nee na-HEEN hai
+## Present tense: -ta hoon
+> Verb stem + -ta + hoon / ho / hai / hain. A man says -ta, a woman says -ti. Aana (to come): aa-ta hoon.
+row: I come | main aata hoon
+row: you come | tum aate ho
+row: he / she comes | woh aata hai
+row: we come | hum aate hain
+row: you come (polite) | aap aate hain
+row: they come | woh aate hain
+ex: I eat bread | main roti khaata hoon | main ROH-tee KHAA-taa hoon
+ex: you read a book | tum kitaab parhte ho | toom ki-TAAB PUR-hay hoh
+ex: she works in a bank | woh bank mein kaam karti hai | woh bank mayn kaam KUR-tee hai
+ex: we drink tea | hum chai peete hain | hum chai PEE-tay hain
+ex: they sleep | woh sote hain | woh SOH-tay hain
+## Basic sentences
+> The verb goes last. Order: who, where or when, what, verb. Urdu has no words for "a" or "the".
+row: I read a book | main kitaab parhta hoon
+row: she drinks tea | woh chai peeti hai
+row: we go to school | hum school jaate hain
+ex: I read a book | main kitaab parhta hoon | main ki-TAAB PUR-htaa hoon
+ex: he drinks tea | woh chai peeta hai | woh chai PEE-taa hai
+ex: we go to school | hum school jaate hain | hum skool JAA-tay hain
+ex: they eat bread | woh roti khaate hain | woh ROH-tee KHAA-tay hain
+ex: the teacher writes | ustaad likhta hai | oos-TAAD LIKH-taa hai
+## Negation
+> Put "nahin" before the verb "hai" or "hoon". Always compare with the positive form.
+row: I go | main jaata hoon
+row: I do not go | main nahin jaata
+row: is | hai
+row: is not | nahin hai
+ex: I want | main chahta hoon | main CHAAH-taa hoon
+ex: I do not want | main nahin chahta | main na-HEEN CHAAH-taa
+ex: I speak English | main angrezi bolta hoon | main un-gray-ZEE BOL-taa hoon
+ex: I do not speak English | main angrezi nahin bolta | main un-gray-ZEE na-HEEN BOL-taa
+ex: I like it | mujhe pasand hai | moo-JHAY pa-SUND hai
+ex: I do not like it | mujhe pasand nahin hai | moo-JHAY pa-SUND na-HEEN hai
+ex: she is here | woh yahan hai | woh ya-HAAN hai
+ex: she is not here | woh yahan nahin hai | woh ya-HAAN na-HEEN hai
+ex: I have a car | mere paas gaari hai | MAY-ray paas GAA-ree hai
+ex: I do not have a car | mere paas gaari nahin hai | MAY-ray paas GAA-ree na-HEEN hai
+ex: I understand | main samajhta hoon | main su-MUJH-taa hoon
+ex: I do not understand | main nahin samajhta | main na-HEEN su-MUJH-taa
+ex: we are tired | hum thake hue hain | hum THUH-kay hoo-AY hain
+ex: we are not tired | hum thake hue nahin hain | hum THUH-kay hoo-AY na-HEEN hain
+ex: he works on Sundays | woh itwaar ko kaam karta hai | woh it-WAAR koh kaam KUR-taa hai
+ex: he does not work on Sundays | woh itwaar ko kaam nahin karta | woh it-WAAR koh kaam na-HEEN KUR-taa
+## Asking questions
+> Put "kya" at the start. The rest of the sentence does not change.
+row: you are a student | aap talib-e-ilm hain
+row: are you a student? | kya aap talib-e-ilm hain?
+row: he is here | woh yahan hai
+row: is he here? | kya woh yahan hai?
+ex: is this your book? | kya yeh aap ki kitaab hai? | kyaa yeh aap kee ki-TAAB hai
+ex: are they here? | kya woh yahan hain? | kyaa woh ya-HAAN hain
+ex: do you like tea? | kya aap ko chai pasand hai? | kyaa aap koh chai pa-SUND hai
+ex: is it cold? | kya sardi hai? | kyaa SUR-dee hai
+ex: do you speak English? | kya aap angrezi bolte hain? | kyaa aap un-gray-ZEE BOL-tay hain
+## Question words
+> Question words stand where the answer would stand.
+row: what | kya
+row: who | kaun
+row: where | kahan
+row: when | kab
+row: why | kyun
+row: how | kaise
+row: how much | kitna
+row: which | kaun sa
+ex: what is your name? | aap ka naam kya hai? | aap kaa naam kyaa hai
+ex: who is he? | woh kaun hai? | woh kown hai
+ex: where do you live? | aap kahan rehte hain? | aap ka-HAAN REH-tay hain
+ex: when is the lesson? | sabaq kab hai? | sa-BUQ kub hai
+ex: why are you late? | aap ko der kyun hui? | aap koh dayr kyoon hoo-EE
+ex: how are you? | aap kaise hain? | aap KAI-say hain
+ex: how much is it? | yeh kitne ka hai? | yeh KIT-nay kaa hai
+ex: which book? | kaun si kitaab? | kown see ki-TAAB
+## Possessives and liking
+> Mera (my), tumhara (your), uska (his / her), hamara (our), aap ka (your, polite). They agree with the thing owned: mera ghar, meri kitaab. To say you like something, use "mujhe ... pasand hai" (to me it is pleasing).
+row: my book | meri kitaab
+row: your book | tumhari kitaab
+row: his / her book | uski kitaab
+row: our book | hamari kitaab
+row: your book (polite) | aap ki kitaab
+ex: my phone | mera phone | MAY-raa fohn
+ex: your house (polite) | aap ka ghar | aap kaa ghur
+ex: his sister | uski behen | OOS-kee BAY-hun
+ex: I like music | mujhe music pasand hai | moo-JHAY MYOO-zik pa-SUND hai
+ex: I love football | mujhe football bohat pasand hai | moo-JHAY FOOT-bawl BO-hut pa-SUND hai
+## Formal vs informal
+> tum (informal): friends, family, children. aap (formal): strangers, older people, work. The verb changes too: -ho (tum), -hain (aap).
+row: how are you? | tum kaise ho? / aap kaise hain?
+row: you speak | tum bolte ho / aap bolte hain
+row: your name | tumhara naam / aap ka naam
+ex: how are you? (informal) | tum kaise ho? | toom KAI-say hoh
+ex: how are you? (formal) | aap kaise hain? | aap KAI-say hain
+ex: where are you going? (informal) | tum kahan ja rahe ho? | toom ka-HAAN jaa RAH-ay hoh
+ex: where are you going? (formal) | aap kahan ja rahe hain? | aap ka-HAAN jaa RAH-ay hain
+ex: please sit down (formal) | meharbani kar ke baithiye | meh-har-BAA-nee kur kay BAI-thee-yay
+## Past and future (simple)
+> Past: gaya (went, man), gayi (went, woman). Future: -oonga (I will, man): main jaoonga. Women say -oongi.
+row: I went | main gaya
+row: you went | tum gaye
+row: he went | woh gaya
+row: we went | hum gaye
+ex: yesterday I was tired | kal main thaka hua tha | kul main THUH-kaa hoo-AA taa
+ex: I will study tomorrow | main kal parhoonga | main kul pur-HOON-gaa
+ex: we went to the park | hum park gaye | hum park GUH-yay
+ex: I saw him | main ne usay dekha | main nay oo-SAY DAY-khaa
+ex: she wrote a letter | us ne khat likha | oos nay khut LIKH-aa
+## Commands
+> The bare stem is the friendly command (aao, come). Add -iye for polite (aaiye). "Mat" before it forbids: mat aao.
+row: come (friendly) | aao
+row: come (polite) | aaiye
+row: do not come | mat aao
+row: sit down | baitho
+ex: come here | yahan aao | ya-HAAN aa-OH
+ex: do not come here | yahan mat aao | ya-HAAN mut aa-OH
+ex: sit down | baitho | BAI-thoh
+ex: do not sit down | mat baitho | mut BAI-thoh
+ex: be quiet | khamosh raho | kha-MOSH ra-HOH
+ex: do not be late | der mat karo | dayr mut ka-ROH
+ex: open the door | darwaza kholo | dur-WAA-zaa KHOH-loh
+ex: close the window | khidki band karo | KHID-kee bund ka-ROH
+ex: listen to me | meri suno | MAY-ree soo-NOH
+ex: do not worry | fikr mat karo | fikr mut ka-ROH
+ex: speak slowly | aahista bolo | AA-his-taa BOH-loh
+ex: wait a moment | zara ruko | ZUH-raa roo-KOH
+## Can, must, want
+> Can: verb + sakta hoon (main tair sakta hoon). Must: "chahiye" or "hai" with -na (mujhe jaana hai). Want: chahta hoon (main khaana chahta hoon).
+row: I can swim | main tair sakta hoon
+row: I cannot swim | main nahin tair sakta
+row: I must go | mujhe jaana hai
+row: I want to go | main jaana chahta hoon
+ex: I can swim | main tair sakta hoon | main tair SUK-taa hoon
+ex: I cannot swim | main nahin tair sakta | main na-HEEN tair SUK-taa
+ex: can you help me? | kya aap meri madad kar sakte hain? | kyaa aap MAY-ree ma-DUD kar SUK-tay hain
+ex: we must go | hum ko jaana chahiye | hum koh JAA-naa chaa-HEE-yay
+ex: we must not go | hum ko nahin jaana chahiye | hum koh na-HEEN JAA-naa chaa-HEE-yay
+ex: I want to eat | main khaana chahta hoon | main KHAA-naa CHAAH-taa hoon
+ex: I do not want to eat | main khaana nahin chahta | main KHAA-naa na-HEEN CHAAH-taa
+ex: you can come | aap aa sakte hain | aap aa SUK-tay hain
+ex: you cannot come | aap nahin aa sakte | aap na-HEEN aa SUK-tay
+ex: she wants to study | woh parhna chahti hai | woh PUR-hnaa CHAAH-tee hai
+ex: I must work today | mujhe aaj kaam karna hai | moo-JHAY aaj kaam KUR-naa hai
+ex: you must not run | aap ko daudna nahin chahiye | aap koh DOWD-naa na-HEEN chaa-HEE-yay
+## In, on, at
+> Urdu puts little words after the noun: mein (in), par (on, at), se (from), ko (to), ka / ke / ki (of).
+row: in | mein
+row: on / at | par
+row: from | se
+row: of | ka / ke / ki
+ex: the book is on the table | kitaab mez par hai | ki-TAAB mayz pur hai
+ex: the cat is under the table | billi mez ke neeche hai | BIL-lee mayz kay NEE-chay hai
+ex: I am at school | main school mein hoon | main skool mayn hoon
+ex: I am at home | main ghar par hoon | main ghur pur hoon
+ex: the shop is next to the bank | dukaan bank ke saath hai | doo-KAAN bank kay SAATH hai
+ex: the park is near the station | park station ke qareeb hai | park STAY-shun kay qa-REEB hai
+ex: we meet in the morning | hum subah milte hain | hum SOO-buh MIL-tay hain
+ex: the lesson is at nine | sabaq nau baje hai | sa-BUQ now BAA-jay hai
+ex: the key is in the bag | chaabi bastay mein hai | CHAA-bee BUS-tay mayn hai
+## Comparing things
+> Put "se" after the thing you compare with: us se bara (bigger than that). For "the most" say "sab se": sab se bara.
+row: big, bigger, the biggest | bara, us se bara, sab se bara
+row: small, smaller, the smallest | chhota, us se chhota, sab se chhota
+ex: big, bigger, the biggest | bara, us se bara, sab se bara | BUH-raa oos say BUH-raa sub say BUH-raa
+ex: small, smaller, the smallest | chhota, us se chhota, sab se chhota | CHHOH-taa oos say CHHOH-taa sub say CHHOH-taa
+ex: this is better than that | yeh us se achha hai | yeh oos say UCH-chhaa hai
+ex: this is worse than that | yeh us se bura hai | yeh oos say BOO-raa hai
+ex: she is taller than me | woh mujh se lambi hai | woh moojh say LUM-bee hai
+ex: Tashkent is bigger than Samarkand | Tashkent Samarkand se bara hai | tash-KENT sa-mar-KAND say BUH-raa hai
+ex: it is the cheapest | yeh sab se sasta hai | yeh sub say SUS-taa hai
+ex: the same as | ke jaisa | kay JAI-saa
+## Everyday sentences
+> Quick sentences to copy and change.
+ex: he is a teacher | woh ustaad hai | woh oos-TAAD hai
+ex: you (plural) are students | aap log talib-e-ilm hain | aap lohg TAA-lib-ay-ilm hain
+ex: I am happy | main khush hoon | main khoosh hoon
+ex: she is at school | woh school mein hai | woh skool mayn hai
+ex: you are my friend | tum mere dost ho | toom MAY-ray dost hoh
+ex: it is cold | sardi hai | SUR-dee hai
+ex: I study English | main angrezi seekhta hoon | main un-gray-ZEE SEEKH-taa hoon
+ex: he teaches maths | woh hisaab parhata hai | woh hi-SAAB pur-HAA-taa hai
+ex: they work every day | woh har roz kaam karte hain | woh hur roz kaam KUR-tay hain
+ex: is this your book? | kya yeh aap ki kitaab hai? | kyaa yeh aap kee ki-TAAB hai
+ex: are they here? | kya woh yahan hain? | kyaa woh ya-HAAN hain
+ex: do you like tea? | kya aap ko chai pasand hai? | kyaa aap koh chai pa-SUND hai
+ex: what time is it? | kya waqt hua hai? | kyaa waqt hoo-AA hai
+ex: whose book is this? | yeh kis ki kitaab hai? | yeh kis kee ki-TAAB hai
+ex: how old are you? | aap ki umar kitni hai? | aap kee OO-mur KIT-nee hai
+ex: how do you say it? | aap isay kaise kehte hain? | aap i-SAY KAI-say KEH-tay hain
+ex: your book (formal) | aap ki kitaab | aap kee ki-TAAB
+ex: their house | un ka ghar | oon kaa ghur
+ex: my phone | mera phone | MAY-raa fohn
+ex: excuse me, sir | maaf kijiye, janab | maaf KEE-jee-yay jaa-NAAB
+ex: please sit down (formal) | meharbani kar ke baithiye | meh-har-BAA-nee kur kay BAI-thee-yay
+ex: come here (informal) | yahan aao | ya-HAAN aa-OH
+ex: yesterday I was tired | kal main thaka hua tha | kul main THUH-kaa hoo-AA taa
+ex: I will study tomorrow | main kal parhoonga | main kul pur-HOON-gaa
+ex: we went to the park | hum park gaye | hum park GUH-yay
