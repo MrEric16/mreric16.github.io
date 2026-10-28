@@ -5,6 +5,31 @@ Items are 'english | target | say(optional)'. '## Title' starts a group (or a gr
 import json, re, glob, os, sys
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
 SRC = os.path.join(ROOT, 'scripts', 'lang', 'src'); OUT = os.path.join(ROOT, 'data', 'lang')
+HERE_READ = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src', 'read')
+def load_reading(path, lid):
+    from readmaster import MASTER
+    M = {m['id']: m for m in MASTER}; out = []; cur = None
+    for n, line in enumerate(open(path, encoding='utf-8').read().split('\n'), 1):
+        line = line.rstrip()
+        if not line: continue
+        if line.startswith('## '):
+            pid, title = [x.strip() for x in line[3:].split('|', 1)]
+            m = M[pid]; cur = {'id': pid, 'title': title, 'en': m['en'], 'lv': m['lv'], 'paras': [], 'q': [], '_e': {}}; out.append(cur)
+        elif re.match(r'^[A-F]: ', line): cur['paras'].append({'l': line[0], 't': line[3:]})
+        elif re.match(r'^E\d: ', line):
+            k = int(line[1]); pl, quote = [x.strip() for x in line[3:].split('|', 1)]
+            para = [p for p in cur['paras'] if p['l'] == pl]
+            assert para and quote in para[0]['t'], (lid, cur['id'], 'quote not in paragraph', line)
+            cur['_e'][k] = [pl, quote]
+        else: raise SystemExit('%s:%d bad line %s' % (path, n, line))
+    assert [c['id'] for c in out] == [m['id'] for m in MASTER], (lid, 'missing passage')
+    for c in out:
+        for i, (q, o, a) in enumerate(M[c['id']]['q'], 1):
+            assert i in c['_e'], (lid, c['id'], 'no evidence', i)
+            c['q'].append({'q': q, 'o': o, 'a': a, 'e': c['_e'][i]})
+        del c['_e']
+    return out
+
 def slug(s): return re.sub(r'[^a-z0-9]+', '-', s.lower()).strip('-')
 def parts(s): return [x.strip() for x in s.split('|')]
 def parse(path):
@@ -103,6 +128,8 @@ def main():
             if miss:
                 open('/tmp/al/missing_%s.txt' % L['id'], 'w', encoding='utf-8').write('\n'.join(sorted(miss)))
                 print('  MISSING SCRIPT', L['id'], len(miss))
+        rp = os.path.join(HERE_READ, L['id'] + '.txt')
+        if os.path.exists(rp): L['reading'] = load_reading(rp, L['id'])
         cnt = sum(len(g['items']) for s in ('numbers', 'greetings', 'phrases', 'vocab') for g in L[s]) + sum(len(l['ex']) for l in L['grammar'])
         json.dump(L, open(os.path.join(OUT, L['id'] + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         idx.append({'id': L['id'], 'name': L['name'], 'flag': L.get('flag', ''), 'script': bool(L.get('script')), 'count': cnt})

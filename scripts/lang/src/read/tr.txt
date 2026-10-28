@@ -1,0 +1,59 @@
+## r1 | Benim hakkımda
+A: Yirmi beş yaşındayım. Şehir merkezinde küçük bir dairede oturuyorum.
+B: Kız kardeşimle oturuyorum. O öğrenci. Ben bir mağazada çalışıyorum.
+C: Müziği ve yüzmeyi severim. Pazar günleri arkadaşlarımla yüzmeye giderim. Bir de kedim var. Siyah.
+E1: A | Yirmi beş yaşındayım
+E2: B | Kız kardeşimle oturuyorum
+E3: B | bir mağazada çalışıyorum
+E4: C | arkadaşlarımla yüzmeye giderim
+E5: C | Siyah
+## r2 | Günüm
+A: Saat yedide kalkarım. Kahvaltıda çay içerim ve ekmek yerim.
+B: Okula otobüsle giderim. Dersler sekizde başlar, ikide biter.
+C: Okuldan sonra ödevlerimi yaparım. Saat beşte arkadaşlarımla futbol oynarım.
+D: Akşam yemeğini yedide yeriz. Saat onda yatarım.
+E1: A | Saat yedide kalkarım
+E2: A | çay içerim ve ekmek yerim
+E3: B | otobüsle
+E4: C | Saat beşte arkadaşlarımla futbol oynarım
+E5: D | Saat onda yatarım
+## r3 | Pazarda
+A: Cumartesi sabahı annemle pazara giderim. Pazar yeri evimizden on dakika uzaklıkta. Yürüyerek gideriz.
+B: İki kilo elma ve bir kilo domates alırız. Ekmek ve peynir de alırız.
+C: En sevdiğim tezgâh yaşlı bir amcanın tezgâhı. O bal satıyor. Bal çok güzel.
+D: Eve saat on birde döneriz. Annemin öğle yemeğini hazırlamasına yardım ederim.
+E1: A | Cumartesi sabahı
+E2: A | on dakika uzaklıkta
+E3: B | İki kilo elma
+E4: C | O bal satıyor
+E5: D | yemeğini hazırlamasına yardım ederim
+## r4 | Ailem
+A: Ailemizde beş kişiyiz: babam, annem, erkek kardeşim, babaannem ve ben.
+B: Babam şoför. Annem hemşire. Hastanede çalışıyor.
+C: Erkek kardeşim on yaşında. Resim yapmayı seviyor.
+D: Babaannem bizimle yaşıyor. Pazar günleri yemek yapıyor. Yemekleri çok lezzetli.
+E1: A | beş kişiyiz
+E2: B | Babam şoför
+E3: B | Hastanede çalışıyor
+E4: C | on yaşında
+E5: D | Pazar günleri yemek yapıyor
+## r5 | Bir gezi
+A: Geçen cumartesi üç arkadaşımla dağa gittim. Sabah yedi treniyle gittik ve yolculuk iki saat sürdü.
+B: Hava güneşliydi ama çok soğuktu. Dört saat yürüdük ve çok fotoğraf çektik. Saat birde bir nehrin yanında piknik yaptık. Eldivenlerimi unuttum ve ellerim donuyordu.
+C: Öğleden sonra otobüsle dönmek istedik ama son otobüsü kaçırdık. Bir taksi beklemek zorunda kaldık ve çok pahalıydı.
+D: Eve gece saat on birde vardık. Çok yorgunduk ama mutluyduk. Önümüzdeki ay tekrar gitmek istiyoruz.
+E1: A | üç arkadaşımla
+E2: A | iki saat sürdü
+E3: B | Hava güneşliydi ama çok soğuktu
+E4: B | Eldivenlerimi unuttum
+E5: C | son otobüsü kaçırdık
+## r6 | Davet
+A: Merhaba! Seni doğum günü partime davet etmek için yazıyorum. Gelecek cuma akşamı saat altıda.
+B: Parti evimde, restoranda değil, çünkü artık dairem büyük. Büyük bir akşam yemeği hazırlayacağım ve kız kardeşim pasta yapacak.
+C: Müzik getirebilir misin? En güzel şarkılar hep sende. Kuzenim de gelecek ve onunla tanışmanı istiyorum.
+D: Gelip gelemeyeceğini çarşambaya kadar söyle. İstersen bende kalabilirsin, çünkü son otobüs erken kalkıyor.
+E1: A | Gelecek cuma akşamı saat altıda
+E2: B | Parti evimde
+E3: B | kız kardeşim pasta yapacak
+E4: C | Müzik getirebilir misin
+E5: D | çarşambaya kadar söyle
