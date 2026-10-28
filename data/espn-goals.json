@@ -1,6 +1,86 @@
 {
- "generatedAt": "2026-10-28T15:35:35.730147Z",
+ "generatedAt": "2026-10-28T20:39:53.843398Z",
  "results": [
+  {
+   "url": "espn:401874993",
+   "date": "2026-10-28",
+   "utc": "2026-10-28T17:30Z",
+   "home": "Milan",
+   "away": "Bologna",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "A. Cissè",
+     "minute": 14
+    },
+    {
+     "scorer": "A. Cissè",
+     "minute": 27
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Mbangula",
+     "minute": 8
+    },
+    {
+     "scorer": "D. Bartesaghi (og)",
+     "minute": 60
+    },
+    {
+     "scorer": "S. Mbangula",
+     "minute": 62
+    },
+    {
+     "scorer": "S. Mbangula",
+     "minute": 86
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874965",
+   "date": "2026-10-28",
+   "utc": "2026-10-28T17:30Z",
+   "home": "Parma",
+   "away": "Udinese",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874773",
+   "date": "2026-10-28",
+   "utc": "2026-10-28T17:30Z",
+   "home": "Venezia FC",
+   "away": "Inter",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "M. Moreno (og)",
+     "minute": 79
+    },
+    {
+     "scorer": "R. Halhal (og)",
+     "minute": 82
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401874980",
    "date": "2026-10-27",
@@ -1118,7 +1198,7 @@
    "homeGoals": [],
    "awayGoals": [
     {
-     "scorer": "Nicoló",
+     "scorer": "N. Casale",
      "minute": 57
     },
     {
