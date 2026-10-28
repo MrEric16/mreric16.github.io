@@ -1,0 +1,888 @@
+NAME: Greek
+ID: el
+FLAG: gr
+SCRIPT: Greek
+
+[sounds]
+INTRO: Greek has its own alphabet with 24 letters. The Latin shown is written by rule from the Greek, the way the word sounds. Every noun is masculine, feminine or neuter. A stress mark (ά) shows which syllable is loud, and the capitals in the say line show it too.
+θ | like "th" in "think" | θάλασσα
+δ | like "th" in "this" | δέκα
+γ | a soft gargle before a, o, u; like "y" before e or i | γάτα, γεια
+χ | like "ch" in Scottish "loch" | χέρι
+ρ | a rolled "r" | ρολόι
+ει / οι / η / ι / υ | all sound like "ee" | είμαι, πόλη
+αι | sounds like "e" in "bed" | και
+ου | sounds like "oo" in "moon" | ούτε
+μπ / ντ | "b" and "d" at the start of a word; "mb" and "nd" inside | μπαμπάς, ντομάτα
+NOTE: Greek has two e-sounds in writing (ε, αι) and several ee-sounds (η, ι, ει, οι, υ). You will have to learn the spelling word by word.
+NOTE: The Latin line is written by rule from the Greek. Where the Latin looks odd, trust the Greek and the say line.
+
+[numbers]
+## 0 to 10
+zero | miden | mee-THEN | μηδέν
+one | ena | EH-nah | ένα
+two | dio | THEE-oh | δύο
+three | tria | TREE-ah | τρία
+four | tessera | TEH-seh-rah | τέσσερα
+five | pende | PEN-deh | πέντε
+six | exi | EH-ksee | έξι
+seven | efta | ef-TAH | εφτά
+eight | ochto | okh-TOH | οχτώ
+nine | ennia | eh-NYAH | εννιά
+ten | deka | THEH-kah | δέκα
+## 11 to 20
+eleven | endeka | EN-deh-kah | έντεκα
+twelve | dodeka | THOH-theh-kah | δώδεκα
+thirteen | dekatria | theh-kah-TREE-ah | δεκατρία
+fourteen | dekatessera | theh-kah-TEH-seh-rah | δεκατέσσερα
+fifteen | dekapende | theh-kah-PEN-deh | δεκαπέντε
+sixteen | dekaexi | theh-kah-EH-ksee | δεκαέξι
+seventeen | dekaefta | theh-kah-ef-TAH | δεκαεφτά
+eighteen | dekaochto | theh-kah-okh-TOH | δεκαοχτώ
+nineteen | dekaennia | theh-kah-eh-NYAH | δεκαεννιά
+twenty | ikosi | EE-koh-see | είκοσι
+## Tens and big numbers
+twenty-one | ikosi ena | EE-koh-see EH-nah | είκοσι ένα
+thirty | trianda | tree-AN-dah | τριάντα
+forty | saranda | sah-RAN-dah | σαράντα
+fifty | peninda | peh-NEEN-dah | πενήντα
+sixty | exinda | eh-KSEEN-dah | εξήντα
+seventy | evdominda | ev-tho-MEEN-dah | εβδομήντα
+eighty | ogdonda | og-THON-dah | ογδόντα
+ninety | eneninda | eh-neh-NEEN-dah | ενενήντα
+one hundred | ekato | eh-kah-TOH | εκατό
+two hundred | diakosia | thee-ah-KOH-syah | διακόσια
+one thousand | chilia | KHEE-lyah | χίλια
+two thousand | dio chiliades | THEE-oh khee-LYAH-thes | δύο χιλιάδες
+ten thousand | deka chiliades | THEH-kah khee-LYAH-thes | δέκα χιλιάδες
+one hundred thousand | ekato chiliades | eh-kah-TOH khee-LYAH-thes | εκατό χιλιάδες
+one million | ena ekatommirio | EH-nah eh-kah-toh-MEE-ree-oh | ένα εκατομμύριο
+one billion | ena disekatommirio | EH-nah thee-seh-kah-toh-MEE-ree-oh | ένα δισεκατομμύριο
+## Order and amounts
+first | protos | PROH-tos | πρώτος
+second | defteros | THEF-teh-ros | δεύτερος
+third | tritos | TREE-tos | τρίτος
+half | miso | mee-SOH | μισό
+a few | liga | LEE-ghah | λίγα
+many | polla | poh-LAH | πολλά
+a pair | ena zevgari | EH-nah zev-GHAH-ree | ένα ζευγάρι
+how many? | posa? | POH-sah | πόσα;
+[greetings]
+## Hello and goodbye
+hello | yia sou | yah SOO | γεια σου
+hello (formal, with respect) | yia sas | yah SAHS | γεια σας
+reply to the formal hello | cherete | KHEH-reh-teh | χαίρετε
+good morning | kalimera | kah-lee-MEH-rah | καλημέρα
+good day | kali mera | kah-LEE MEH-rah | καλή μέρα
+good evening | kalispera | kah-lee-SPEH-rah | καλησπέρα
+good night | kalinichta | kah-lee-NEEKH-tah | καληνύχτα
+goodbye | andio | an-DEE-oh | αντίο
+see you later | ta leme argotera | tah LEH-meh ar-GHOH-teh-rah | τα λέμε αργότερα
+see you tomorrow | ta leme avrio | tah LEH-meh AV-ree-oh | τα λέμε αύριο
+## Meeting people
+how are you? (informal) | ti kanis? | tee KAH-nees | τι κάνεις;
+how are you? (formal) | ti kanete? | tee KAH-neh-teh | τι κάνετε;
+I am fine, thanks | kala, efcharisto | kah-LAH, ef-khah-ree-STOH | καλά, ευχαριστώ
+and you? | ki esi? | kee eh-SEE | κι εσύ;
+not bad | ochi aschima | OH-khee AH-skhee-mah | όχι άσχημα
+what is your name? (informal) | pos se lene? | pohs seh LEH-neh | πώς σε λένε;
+what is your name? (formal) | pos sas lene? | pohs sahs LEH-neh | πώς σας λένε;
+my name is... | me lene... | meh LEH-neh | με λένε...
+nice to meet you | charika | KHAH-ree-kah | χάρηκα
+where are you from? (informal) | apo pou ise? | ah-poh POO EE-seh | από πού είσαι;
+where are you from? (formal) | apo pou iste? | ah-poh POO EE-steh | από πού είστε;
+I am from England | ime apo tin anglia | EE-meh ah-poh tin ang-LEE-ah | είμαι από την Αγγλία
+## Politeness
+please | parakalo | pah-rah-kah-LOH | παρακαλώ
+thank you | efcharisto | ef-khah-ree-STOH | ευχαριστώ
+thank you very much | efcharisto poli | ef-khah-ree-STOH poh-LEE | ευχαριστώ πολύ
+you are welcome | tipota | TEE-poh-tah | τίποτα
+excuse me | me sinchorite | meh seeng-khoh-REE-teh | με συγχωρείτε
+sorry | singnomi | seegh-NOH-mee | συγγνώμη
+yes | ne | neh | ναι
+no | ochi | OH-khee | όχι
+congratulations | sincharitiria | seeng-khah-ree-TEE-ree-ah | συγχαρητήρια
+good luck | kali tichi | kah-LEE TEE-khee | καλή τύχη
+happy birthday | chronia polla | KHROH-nyah poh-LAH | χρόνια πολλά
+cheers | yia mas | yah MAHS | γεια μας
+[phrases]
+## Essential phrases
+hello | yia sou | yah SOO | γεια σου
+goodbye | andio | an-DEE-oh | αντίο
+please | parakalo | pah-rah-kah-LOH | παρακαλώ
+thank you | efcharisto | ef-khah-ree-STOH | ευχαριστώ
+you are welcome | tipota | TEE-poh-tah | τίποτα
+yes | ne | neh | ναι
+no | ochi | OH-khee | όχι
+excuse me | me sinchorite | meh seeng-khoh-REE-teh | με συγχωρείτε
+sorry | singnomi | seegh-NOH-mee | συγγνώμη
+I do not understand | den katalaveno | then kah-tah-lah-VEH-noh | δεν καταλαβαίνω
+do you speak English? | milate anglika? | mee-LAH-teh ang-lee-KAH | μιλάτε αγγλικά;
+speak slowly, please | miliste arga, parakalo | mee-LEE-steh ar-GHAH, pah-rah-kah-LOH | μιλήστε αργά, παρακαλώ
+can you help me? | borite na me voithisete? | boh-REE-teh nah meh voh-ee-THEE-seh-teh | μπορείτε να με βοηθήσετε;
+where is the toilet? | pou ine i toualeta? | poo EE-neh ee too-ah-LEH-tah | πού είναι η τουαλέτα;
+how much is it? | poso kani? | POH-soh KAH-nee | πόσο κάνει;
+I would like... | tha ithela... | thah EE-theh-lah | θα ήθελα...
+I need... | chriazome... | khree-AH-zoh-meh | χρειάζομαι...
+my name is... | me lene... | meh LEH-neh | με λένε...
+I am lost | echo chathi | EH-khoh khah-THEE | έχω χαθεί
+what is this? | ti ine afto? | tee EE-neh af-TOH | τι είναι αυτό;
+I do not know | den xero | then KSEH-roh | δεν ξέρω
+that is OK | endaxi | en-DAH-ksee | εντάξει
+## Formal and informal
+how are you? (informal) | ti kanis? | tee KAH-nees | τι κάνεις;
+how are you? (formal) | ti kanete? | tee KAH-neh-teh | τι κάνετε;
+what is your name? (informal) | pos se lene? | pohs seh LEH-neh | πώς σε λένε;
+what is your name? (formal) | pos sas lene? | pohs sahs LEH-neh | πώς σας λένε;
+do you speak English? (informal) | milas anglika? | mee-LAHS ang-lee-KAH | μιλάς αγγλικά;
+do you speak English? (formal) | milate anglika? | mee-LAH-teh ang-lee-KAH | μιλάτε αγγλικά;
+where are you from? (informal) | apo pou ise? | ah-poh POO EE-seh | από πού είσαι;
+where are you from? (formal) | apo pou iste? | ah-poh POO EE-steh | από πού είστε;
+can you help me? (informal) | boris na me voithisis? | boh-REES nah meh voh-ee-THEE-sees | μπορείς να με βοηθήσεις;
+can you help me? (formal) | borite na me voithisete? | boh-REE-teh nah meh voh-ee-THEE-seh-teh | μπορείτε να με βοηθήσετε;
+hi (informal) | yia | yah | γεια
+hello (formal) | cherete | KHEH-reh-teh | χαίρετε
+bye (informal) | tsao | TSAH-oh | τσάο
+goodbye (formal) | andio sas | an-DEE-oh SAHS | αντίο σας
+## Survival
+I understand | katalaveno | kah-tah-lah-VEH-noh | καταλαβαίνω
+I speak a little Greek | milao liga ellinika | mee-LAH-oh LEE-ghah eh-lee-nee-KAH | μιλάω λίγα ελληνικά
+please repeat | epanalavete, parakalo | eh-pah-nah-LAH-veh-teh, pah-rah-kah-LOH | επαναλάβετε, παρακαλώ
+what does... mean? | ti simeni...? | tee see-MEH-nee | τι σημαίνει...;
+how do you say... in Greek? | pos leyete... sta ellinika? | pohs LEH-gheh-teh... stah eh-lee-nee-KAH | πώς λέγεται... στα ελληνικά;
+please write it down | grapste to, parakalo | GHRAHP-steh toh, pah-rah-kah-LOH | γράψτε το, παρακαλώ
+help! | voithia! | voh-EE-thyah | βοήθεια!
+I need help | chriazome voithia | khree-AH-zoh-meh voh-EE-thyah | χρειάζομαι βοήθεια
+## Getting around
+where is...? | pou ine...? | poo EE-neh | πού είναι...;
+where is the station? | pou ine o stathmos? | poo EE-neh oh stahth-MOHS | πού είναι ο σταθμός;
+turn left | stripste aristera | STREEP-steh ah-rees-teh-RAH | στρίψτε αριστερά
+turn right | stripste dexia | STREEP-steh theh-ksee-AH | στρίψτε δεξιά
+straight ahead | efthia | ef-THEE-ah | ευθεία
+near | konda | kon-DAH | κοντά
+far | makria | mah-kree-AH | μακριά
+how far is it? | poso makria ine? | POH-soh mah-kree-AH EE-neh | πόσο μακριά είναι;
+a ticket to Samarkand, please | ena isitirio yia ti samarkandi, parakalo | EH-nah ee-see-TEE-ree-oh yah tee sah-mar-KAN-thee, pah-rah-kah-LOH | ένα εισιτήριο για τη Σαμαρκάνδη, παρακαλώ
+what time does the train leave? | ti ora fevyi to treno? | tee OH-rah FEV-yee toh TREH-noh | τι ώρα φεύγει το τρένο;
+to the airport, please | sto aerodromio, parakalo | stoh ah-eh-roh-THROH-myoh, pah-rah-kah-LOH | στο αεροδρόμιο, παρακαλώ
+stop here, please | stamatiste edo, parakalo | stah-mah-TEE-steh eh-THOH, pah-rah-kah-LOH | σταματήστε εδώ, παρακαλώ
+## Eating out
+a table for two, please | ena trapezi yia dio, parakalo | EH-nah trah-PEH-zee yah THEE-oh, pah-rah-kah-LOH | ένα τραπέζι για δύο, παρακαλώ
+the menu, please | ton katalogo, parakalo | ton kah-TAH-loh-gho, pah-rah-kah-LOH | τον κατάλογο, παρακαλώ
+I will have this | tha paro afto | thah PAH-roh af-TOH | θα πάρω αυτό
+water, please | nero, parakalo | neh-ROH, pah-rah-kah-LOH | νερό, παρακαλώ
+the bill, please | ton logariasmo, parakalo | ton loh-ghah-ree-AZ-moh, pah-rah-kah-LOH | τον λογαριασμό, παρακαλώ
+it is delicious | ine nostimo | EE-neh NOH-stee-moh | είναι νόστιμο
+I am hungry | pinao | pee-NAH-oh | πεινάω
+I am thirsty | dipsao | thee-PSAH-oh | διψάω
+I am vegetarian | ime chortofagos | EE-meh khor-toh-FAH-ghos | είμαι χορτοφάγος
+I am allergic to nuts | ime alleryikos stous xirous karpous | EE-meh ah-ler-yee-KOHS stoos ksee-ROOS kar-POOS | είμαι αλλεργικός στους ξηρούς καρπούς
+no meat, please | choris kreas, parakalo | khoh-REES KREH-ahs, pah-rah-kah-LOH | χωρίς κρέας, παρακαλώ
+another one, please | allo ena, parakalo | AH-loh EH-nah, pah-rah-kah-LOH | άλλο ένα, παρακαλώ
+## Shopping
+how much is this? | poso kani afto? | POH-soh KAH-nee af-TOH | πόσο κάνει αυτό;
+it is too expensive | ine poli akrivo | EE-neh poh-LEE ah-kree-VOH | είναι πολύ ακριβό
+do you have a smaller size? | echete mikrotero meyethos? | EH-kheh-teh mee-KROH-teh-roh MEH-yeh-thos | έχετε μικρότερο μέγεθος;
+I am just looking | aplos kitazo | ahp-LOHS kee-TAH-zoh | απλώς κοιτάζω
+I will take it | tha to paro | thah toh PAH-roh | θα το πάρω
+can I pay by card? | boro na pliroso me karta? | boh-ROH nah plee-ROH-soh meh KAR-tah | μπορώ να πληρώσω με κάρτα;
+cash | metrita | meh-tree-TAH | μετρητά
+a bag, please | mia sakoula, parakalo | myah sah-KOO-lah, pah-rah-kah-LOH | μια σακούλα, παρακαλώ
+open | anichto | ah-neekh-TOH | ανοιχτό
+closed | klisto | klee-STOH | κλειστό
+## Hotel and travel
+I have a reservation | echo kani kratisi | EH-khoh KAH-nee KRAH-tee-see | έχω κάνει κράτηση
+a room for one night | ena domatio yia mia nichta | EH-nah thoh-MAH-tyoh yah MEE-ah NEEKH-tah | ένα δωμάτιο για μία νύχτα
+what time is breakfast? | ti ora ine to proino? | tee OH-rah EE-neh toh proh-ee-NOH | τι ώρα είναι το πρωινό;
+the key, please | to klidi, parakalo | toh klee-THEE, pah-rah-kah-LOH | το κλειδί, παρακαλώ
+is there wifi? | iparchi wifi? | ee-PAR-khee wi-fi | υπάρχει wifi;
+my passport | to diavatirio mou | toh thyah-vah-TEE-ree-OH moo | το διαβατήριό μου
+my luggage | i aposkeves mou | ee ah-poh-skeh-VEHS moo | οι αποσκευές μου
+I would like to change money | tha ithela na allaxo chrimata | thah EE-theh-lah nah ah-LAH-ksoh KHREE-mah-tah | θα ήθελα να αλλάξω χρήματα
+## Health and emergency
+I feel sick | esthanome arrostos | es-THAH-noh-meh AH-ros-tos | αισθάνομαι άρρωστος
+I need a doctor | chriazome yiatro | khree-AH-zoh-meh yah-TROH | χρειάζομαι γιατρό
+call an ambulance | kaleste asthenoforo | kah-LEH-steh ahs-theh-noh-FOH-roh | καλέστε ασθενοφόρο
+it hurts here | ponai edo | poh-NAH-ee eh-THOH | πονάει εδώ
+I have a headache | echo ponokefalo | EH-khoh poh-noh-KEH-fah-loh | έχω πονοκέφαλο
+I have a fever | echo pireto | EH-khoh pee-reh-TOH | έχω πυρετό
+where is the pharmacy? | pou ine to farmakio? | poo EE-neh toh fahr-mah-KEE-oh | πού είναι το φαρμακείο;
+call the police | kaleste tin astinomia | kah-LEH-steh tin ah-stee-noh-MEE-ah | καλέστε την αστυνομία
+my phone was stolen | mou eklepsan to kinito | moo EK-lep-sahn toh kee-nee-TOH | μου έκλεψαν το κινητό
+## Chatting
+what do you do? | ti doulia kanis? | tee thoo-LYAH KAH-nees | τι δουλειά κάνεις;
+I am a student | ime mathitis | EE-meh mah-thee-TEES | είμαι μαθητής
+I am a teacher | ime daskalos | EE-meh THAS-kah-los | είμαι δάσκαλος
+I live in Tashkent | meno stin taskendi | MEH-noh steen tah-SKEN-thee | μένω στην Τασκένδη
+how old are you? | poso chronon ise? | POH-soh khroh-NOHN EE-seh | πόσο χρονών είσαι;
+I am sixteen | ime dekaexi | EE-meh theh-kah-EH-ksee | είμαι δεκαέξι
+do you like football? | sou aresi to podosfero? | soo ah-REH-see toh poh-THOS-feh-roh | σου αρέσει το ποδόσφαιρο;
+I like music | mou aresi i mousiki | moo ah-REH-see ee moo-see-KEE | μου αρέσει η μουσική
+I love it | to latrevo | toh lah-TREH-voh | το λατρεύω
+what time is it? | ti ora ine? | tee OH-rah EE-neh | τι ώρα είναι;
+it is three o'clock | ine tris i ora | EE-neh trees ee OH-rah | είναι τρεις η ώρα
+## Useful words
+and | ke | keh | και
+but | alla | ah-LAH | αλλά
+because | epidi | eh-pee-THEE | επειδή
+very | poli | poh-LEE | πολύ
+here | edo | eh-THOH | εδώ
+there | eki | eh-KEE | εκεί
+now | tora | TOH-rah | τώρα
+today | simera | SEE-meh-rah | σήμερα
+tomorrow | avrio | AV-ree-oh | αύριο
+yesterday | chthes | KHTHES | χθες
+always | panda | PAN-dah | πάντα
+never | pote | poh-TEH | ποτέ
+maybe | isos | EE-sos | ίσως
+also | episis | eh-PEE-sees | επίσης
+with | me | meh | με
+for | yia | yah | για
+again | pali | PAH-lee | πάλι
+only | mono | MOH-noh | μόνο
+already | idi | EE-thee | ήδη
+## In the classroom
+may I come in? | boro na bo? | boh-ROH nah boh | μπορώ να μπω;
+may I go to the toilet? | boro na pao stin toualeta? | boh-ROH nah PAH-oh steen too-ah-LEH-tah | μπορώ να πάω στην τουαλέτα;
+I have a question | echo mia erotisi | EH-khoh myah eh-ROH-tee-see | έχω μια ερώτηση
+I do not know the answer | den xero tin apandisi | then KSEH-roh teen ah-PAN-dee-see | δεν ξέρω την απάντηση
+I forgot my homework | xechasa tin ergasia mou | KSEH-khah-sah teen er-ghah-SEE-ah moo | ξέχασα την εργασία μου
+sorry, I am late | singnomi, aryisa | seegh-NOH-mee, AR-yee-sah | συγγνώμη, άργησα
+please repeat the question | epanalavete tin erotisi | eh-pah-nah-LAH-veh-teh teen eh-ROH-tee-see | επαναλάβετε την ερώτηση
+what page are we on? | se pia selida imaste? | seh pyah seh-LEE-thah EE-mas-teh | σε ποια σελίδα είμαστε;
+open your books | anixte ta vivlia sas | ah-NEEK-steh tah vee-VLEE-ah sahs | ανοίξτε τα βιβλία σας
+close your books | kliste ta vivlia sas | KLEES-teh tah vee-VLEE-ah sahs | κλείστε τα βιβλία σας
+listen, please | akouste, parakalo | ah-KOO-steh, pah-rah-kah-LOH | ακούστε, παρακαλώ
+look at the board | kitaxte ton pinaka | kee-TAK-steh ton PEE-nah-kah | κοιτάξτε τον πίνακα
+how do you spell it? | pos grafete? | pohs GHRAH-feh-teh | πώς γράφεται;
+what does this word mean? | ti simeni afti i lexi? | tee see-MEH-nee af-TEE ee LEH-ksee | τι σημαίνει αυτή η λέξη;
+I have finished | teliosa | teh-LEE-oh-sah | τελείωσα
+can I borrow a pen? | boro na danisto ena stilo? | boh-ROH nah thah-nee-STOH EH-nah stee-LOH | μπορώ να δανειστώ ένα στυλό;
+## Phone and internet
+what is your phone number? | pio ine to tilefono sou? | pyoh EE-neh toh tee-LEH-foh-NOH soo | ποιο είναι το τηλέφωνό σου;
+my phone number is... | to tilefono mou ine... | toh tee-LEH-foh-NOH moo EE-neh | το τηλέφωνό μου είναι...
+can I use your phone? | boro na chrisimopiiso to tilefono sou? | boh-ROH nah khree-see-moh-pee-EE-soh toh tee-LEH-foh-NOH soo | μπορώ να χρησιμοποιήσω το τηλέφωνό σου;
+my battery is dead | i bataria mou teliose | ee bah-tah-REE-ah moo teh-LEE-oh-seh | η μπαταρία μου τελείωσε
+what is the wifi password? | pios ine o kodikos tou wifi? | pyos EE-neh oh koh-thee-KOHS too wi-fi | ποιος είναι ο κωδικός του wifi;
+I will text you | tha sou stilo minima | thah soo STEE-loh MEE-nee-mah | θα σου στείλω μήνυμα
+call me later | pare me argotera | PAH-reh meh ar-GHOH-teh-rah | πάρε με αργότερα
+I have no signal | den echo sima | then EH-khoh SEE-mah | δεν έχω σήμα
+send me a message | stile mou ena minima | STEE-leh moo EH-nah MEE-nee-mah | στείλε μου ένα μήνυμα
+where can I charge my phone? | pou boro na fortiso to kinito mou? | poo boh-ROH nah for-TEE-soh toh kee-nee-TOH moo | πού μπορώ να φορτίσω το κινητό μου;
+## Opinions and plans
+I think so | nomizo ne | noh-MEE-zoh neh | νομίζω ναι
+I do not think so | den nomizo | then noh-MEE-zoh | δεν νομίζω
+I know | xero | KSEH-roh | ξέρω
+I agree | simfono | seem-foh-NOH | συμφωνώ
+I do not agree | diafono | thyah-foh-NOH | διαφωνώ
+what do you think? | ti nomizis? | tee noh-MEE-zees | τι νομίζεις;
+in my opinion... | kata ti gnomi mou... | kah-TAH tee GHNOH-mee moo | κατά τη γνώμη μου...
+good idea! | kali idea! | kah-LEE ee-THEH-ah | καλή ιδέα!
+of course | fisika | fee-see-KAH | φυσικά
+I am not sure | den ime sigouros | then EE-meh SEE-ghoo-ros | δεν είμαι σίγουρος
+it depends | exartate | eh-ksar-TAH-teh | εξαρτάται
+are you free tomorrow? | ise eleftheros avrio? | EE-seh eh-LEF-theh-ros AV-ree-oh | είσαι ελεύθερος αύριο;
+I am busy | ime apascholimenos | EE-meh ah-pas-khoh-lee-MEH-nos | είμαι απασχολημένος
+let us meet at five | as vrethoume stis pende | ahs vreh-THOO-meh stees PEN-deh | ας βρεθούμε στις πέντε
+I would prefer tea | protimo tse | proh-tee-MOH TSAH-ee | προτιμώ τσάι
+## Dates and time
+what day is it today? | ti mera ine simera? | tee MEH-rah EE-neh SEE-meh-rah | τι μέρα είναι σήμερα;
+what is the date today? | ti imerominia ine simera? | tee ee-meh-roh-mee-NEE-ah EE-neh SEE-meh-rah | τι ημερομηνία είναι σήμερα;
+today is Monday | simera ine deftera | SEE-meh-rah EE-neh thef-TEH-rah | σήμερα είναι Δευτέρα
+at what time? | ti ora? | tee OH-rah | τι ώρα;
+at six o'clock | stis exi | stees EH-ksee | στις έξι
+in the morning | to proi | toh proh-EE | το πρωί
+in the evening | to vradi | toh VRAH-thee | το βράδυ
+every day | kathe mera | KAH-theh MEH-rah | κάθε μέρα
+next week | tin epomeni evdomada | teen eh-POH-meh-nee ev-tho-MAH-thah | την επόμενη εβδομάδα
+last year | perisi | PEH-ree-see | πέρυσι
+[vocab]
+## Feelings and moods
+happy | charoumenos | khah-ROO-meh-nos | χαρούμενος
+sad | lipimenos | lee-pee-MEH-nos | λυπημένος
+angry | thimomenos | thee-moh-MEH-nos | θυμωμένος
+tired | kourasmenos | koo-rahz-MEH-nos | κουρασμένος
+scared | fovismenos | foh-veez-MEH-nos | φοβισμένος
+bored | varieme | vah-ree-EH-meh | βαριέμαι
+excited | enthousiasmenos | en-thoo-syahz-MEH-nos | ενθουσιασμένος
+worried | anisichos | ah-NEE-see-khos | ανήσυχος
+surprised | ekpliktos | EK-plee-ktos | έκπληκτος
+nervous | anchomenos | an-khoh-MEH-nos | αγχωμένος
+proud | perifanos | peh-REE-fah-nos | περήφανος
+lonely | monachikos | moh-nah-khee-KOHS | μοναχικός
+in love | erotevmenos | eh-roh-tev-MEH-nos | ερωτευμένος
+calm | iremos | EE-reh-mos | ήρεμος
+embarrassed | dropalos | dro-pah-LOHS | ντροπαλός
+jealous | ziliaris | zee-LYAH-rees | ζηλιάρης
+I am in a good mood | echo kali diathesi | EH-khoh kah-LEE THYAH-theh-see | έχω καλή διάθεση
+I am in a bad mood | echo kaki diathesi | EH-khoh kah-KEE THYAH-theh-see | έχω κακή διάθεση
+## Colours
+red | kokkino | KOH-kee-noh | κόκκινο
+blue | ble | bleh | μπλε
+green | prasino | PRAH-see-noh | πράσινο
+yellow | kitrino | KEE-tree-noh | κίτρινο
+black | mavro | MAV-roh | μαύρο
+white | aspro | AS-proh | άσπρο
+orange | portokali | por-toh-kah-LEE | πορτοκαλί
+purple | mov | moh-V | μωβ
+pink | roz | roz | ροζ
+brown | kafe | kah-FEH | καφέ
+grey | gri | gree | γκρι
+gold | chriso | khree-SOH | χρυσό
+dark | skouro | SKOO-roh | σκούρο
+light | anichto | ah-neekh-TOH | ανοιχτό
+## Animals
+dog | skilos | SKEE-los | σκύλος
+cat | gata | GHAH-tah | γάτα
+horse | alogo | AH-loh-gho | άλογο
+cow | ayelada | ah-yeh-LAH-thah | αγελάδα
+sheep | provato | PROH-vah-toh | πρόβατο
+chicken | kota | KOH-tah | κότα
+bird | pouli | poo-LEE | πουλί
+fish | psari | PSAH-ree | ψάρι
+rabbit | kouneli | koo-NEH-lee | κουνέλι
+mouse | pondiki | pon-DEE-kee | ποντίκι
+lion | liondari | lyon-DAH-ree | λιοντάρι
+elephant | elefandas | eh-LEH-fan-dahs | ελέφαντας
+bear | arkouda | ar-KOO-thah | αρκούδα
+monkey | maimou | mah-ee-MOO | μαϊμού
+snake | fidi | FEE-thee | φίδι
+wolf | likos | LEE-kos | λύκος
+duck | papia | PAH-pyah | πάπια
+butterfly | petalouda | peh-tah-LOO-thah | πεταλούδα
+spider | arachni | ah-RAKH-nee | αράχνη
+camel | kamila | kah-MEE-lah | καμήλα
+## Family
+mother | mitera | mee-TEH-rah | μητέρα
+father | pateras | pah-TEH-rahs | πατέρας
+older sister | megali adelfi | meh-GHAH-lee ah-thel-FEE | μεγάλη αδελφή
+younger sister | mikri adelfi | mee-KREE ah-thel-FEE | μικρή αδελφή
+older brother | megalos adelfos | meh-GHAH-los ah-thel-FOHS | μεγάλος αδελφός
+younger brother | mikros adelfos | mee-KROHS ah-thel-FOHS | μικρός αδελφός
+daughter | kori | KOH-ree | κόρη
+son | yios | yos | γιος
+grandmother | yiayia | yah-YAH | γιαγιά
+grandfather | pappous | pah-POOS | παππούς
+aunt | thia | THEE-ah | θεία
+uncle | thios | THEE-os | θείος
+husband | sizigos (andras) | SEE-zee-ghos AN-thrahs | σύζυγος (άνδρας)
+wife | sizigos (yineka) | SEE-zee-ghos yee-NEH-kah | σύζυγος (γυναίκα)
+friend | filos | FEE-los | φίλος
+baby | moro | moh-ROH | μωρό
+child | pedi | peh-THEE | παιδί
+man | andras | AN-drahs | άντρας
+woman | yineka | yee-NEH-kah | γυναίκα
+## Food and drink
+bread | psomi | psoh-MEE | ψωμί
+water | nero | neh-ROH | νερό
+milk | gala | GHAH-lah | γάλα
+coffee | kafes | kah-FEHS | καφές
+tea | tse | TSAH-ee | τσάι
+juice | chimos | khee-MOHS | χυμός
+yoghurt | yiaourti | yah-OOR-tee | γιαούρτι
+egg | avgo | av-GHOH | αυγό
+cheese | tiri | tee-REE | τυρί
+meat | kreas | KREH-ahs | κρέας
+chicken (meat) | kotopoulo | koh-TOH-poo-loh | κοτόπουλο
+fish (food) | psari (fayito) | PSAH-ree fah-yee-TOH | ψάρι (φαγητό)
+rice | rizi | REE-zee | ρύζι
+pilaf (rice dish) | pilafi | pee-LAH-fee | πιλάφι
+soup | soupa | SOO-pah | σούπα
+salad | salata | sah-LAH-tah | σαλάτα
+potato | patata | pah-TAH-tah | πατάτα
+tomato | domata | do-MAH-tah | ντομάτα
+onion | kremmidi | kreh-MEE-thee | κρεμμύδι
+apple | milo | MEE-loh | μήλο
+grape | stafili | stah-FEE-lee | σταφύλι
+watermelon | karpouzi | kar-POO-zee | καρπούζι
+sugar | zachari | ZAH-khah-ree | ζάχαρη
+salt | alati | ah-LAH-tee | αλάτι
+## Body
+head | kefali | keh-FAH-lee | κεφάλι
+face | prosopo | PROH-soh-poh | πρόσωπο
+eye | mati | MAH-tee | μάτι
+ear | afti | af-TEE | αυτί
+nose | miti | MEE-tee | μύτη
+mouth | stoma | STOH-mah | στόμα
+tooth | dondi | THON-dee | δόντι
+hand | cheri | KHEH-ree | χέρι
+finger | dachtilo | THAKH-tee-loh | δάχτυλο
+arm | bratso | BRAH-tsoh | μπράτσο
+leg | podi (podia) | POH-thee | πόδι (πόδια)
+foot | pelma | PEL-mah | πέλμα
+heart | kardia | kar-THYAH | καρδιά
+stomach | stomachi | stoh-MAH-khee | στομάχι
+back | plati | PLAH-tee | πλάτη
+hair | mallia | mah-LYAH | μαλλιά
+## Home
+house | spiti | SPEE-tee | σπίτι
+room | domatio | thoh-MAH-tyoh | δωμάτιο
+door | porta | POR-tah | πόρτα
+window | parathiro | pah-RAH-thee-roh | παράθυρο
+table | trapezi | trah-PEH-zee | τραπέζι
+chair | karekla | kah-REK-lah | καρέκλα
+bed | krevati | kreh-VAH-tee | κρεβάτι
+kitchen | kouzina | koo-ZEE-nah | κουζίνα
+bathroom | banio | BAH-nyoh | μπάνιο
+garden | kipos | KEE-pos | κήπος
+roof | steyi | STEH-yee | στέγη
+floor | patoma | PAH-toh-mah | πάτωμα
+wall | tichos | TEE-khos | τοίχος
+key | klidi | klee-THEE | κλειδί
+lamp | lamba | LAM-bah | λάμπα
+television | tileorasi | tee-leh-OH-rah-see | τηλεόραση
+## Clothes
+shirt | poukamiso | poo-KAH-mee-soh | πουκάμισο
+trousers | pandeloni | pan-deh-LOH-nee | παντελόνι
+clothes | roucha | ROO-khah | ρούχα
+coat | palto | pahl-TOH | παλτό
+hat | kapelo | kah-PEH-loh | καπέλο
+umbrella | ombrela | om-BREH-lah | ομπρέλα
+shoes | papoutsia | pah-POOT-syah | παπούτσια
+socks | kaltses | KAL-tsehs | κάλτσες
+jacket | boufan | boo-FAN | μπουφάν
+scarf | kaskol | kas-KOL | κασκόλ
+gloves | gandia | GHAN-dyah | γάντια
+belt | zoni | ZOH-nee | ζώνη
+## Town
+city | poli | POH-lee | πόλη
+street | dromos | THROH-mos | δρόμος
+shop | magazi | mah-ghah-ZEE | μαγαζί
+market | agora | ah-ghoh-RAH | αγορά
+bank | trapeza | TRAH-peh-zah | τράπεζα
+hospital | nosokomio | noh-soh-koh-MEE-oh | νοσοκομείο
+school | scholio | skhoh-LEE-oh | σχολείο
+place of worship | ekklisia | eh-klee-SEE-ah | εκκλησία
+park | parko | PAR-koh | πάρκο
+station | stathmos | stahth-MOHS | σταθμός
+airport | aerodromio | ah-eh-roh-THROH-myoh | αεροδρόμιο
+bridge | yefira | YEH-fee-rah | γέφυρα
+restaurant | estiatorio | eh-styah-TOH-ryoh | εστιατόριο
+bus | leoforio | leh-oh-foh-REE-oh | λεωφορείο
+metro | metro | meh-TROH | μετρό
+square | platia | plah-TEE-ah | πλατεία
+## Time
+minute | lepto | lep-TOH | λεπτό
+hour | ora | OH-rah | ώρα
+day | mera | MEH-rah | μέρα
+week | evdomada | ev-tho-MAH-thah | εβδομάδα
+month | minas | MEE-nahs | μήνας
+year | chronos | KHROH-nos | χρόνος
+morning | proi | proh-EE | πρωί
+afternoon | apoyevma | ah-POH-yev-mah | απόγευμα
+evening | vradi | VRAH-thee | βράδυ
+night | nichta | NEEKH-tah | νύχτα
+Monday | deftera | thef-TEH-rah | Δευτέρα
+Tuesday | triti | TREE-tee | Τρίτη
+Wednesday | tetarti | teh-TAR-tee | Τετάρτη
+Thursday | pembti | PEMP-tee | Πέμπτη
+Friday | paraskevi | pah-rah-skeh-VEE | Παρασκευή
+Saturday | savvato | SAH-vah-toh | Σάββατο
+Sunday | kiriaki | kee-ree-ah-KEE | Κυριακή
+## Weather and nature
+sun | ilios | EE-lyos | ήλιος
+rain | vrochi | vroh-KHEE | βροχή
+snow | chioni | KHYOH-nee | χιόνι
+wind | aeras | ah-EH-rahs | αέρας
+cloud | sinnefo | SEE-neh-foh | σύννεφο
+hot | zesti | ZEH-stee | ζέστη
+cold | krio | KREE-oh | κρύο
+tree | dendro | THEN-droh | δέντρο
+flower | louloudi | loo-LOO-thee | λουλούδι
+mountain | vouno | voo-NOH | βουνό
+river | potami | poh-TAH-mee | ποτάμι
+sea | thalassa | THAH-lah-sah | θάλασσα
+sky | ouranos | oo-rah-NOHS | ουρανός
+## Work and school
+job | doulia | thoo-LYAH | δουλειά
+office | grafio | ghrah-FEE-oh | γραφείο
+doctor | yiatros | yah-TROHS | γιατρός
+engineer | michanikos | mee-khah-nee-KOHS | μηχανικός
+driver | odigos | oh-thee-GHOHS | οδηγός
+worker | ergatis | er-GHAH-tees | εργάτης
+boss | afendiko | ah-fen-dee-KOH | αφεντικό
+salary | misthos | meez-THOHS | μισθός
+meeting | sinandisi | see-NAN-dee-see | συνάντηση
+company | eteria | eh-teh-REE-ah | εταιρεία
+lawyer | dikigoros | thee-kee-GHOH-ros | δικηγόρος
+nurse | nosokoma | noh-soh-KOH-mah | νοσοκόμα
+cook | mayiras | MAH-yee-rahs | μάγειρας
+farmer | agrotis | ah-GHROH-tees | αγρότης
+## Describing
+big | megalos | meh-GHAH-los | μεγάλος
+small | mikros | mee-KROHS | μικρός
+good | kalos | kah-LOHS | καλός
+bad | kakos | kah-KOHS | κακός
+new | kenouryios | keh-NOOR-yos | καινούργιος
+old | palios | pah-LYOHS | παλιός
+hot (temperature) | zestos | zeh-STOHS | ζεστός
+cold (temperature) | krios | KREE-os | κρύος
+fast | grigoros | GHREE-ghoh-ros | γρήγορος
+slow | argos | ar-GHOHS | αργός
+easy | efkolos | EF-koh-los | εύκολος
+difficult | diskolos | THEES-koh-los | δύσκολος
+beautiful | omorfos | OH-mor-fos | όμορφος
+ugly | aschimos | AH-skhee-mos | άσχημος
+tall | psilos | psee-LOHS | ψηλός
+short | kondos | kon-DOHS | κοντός
+heavy | varis | vah-REES | βαρύς
+light (weight) | elafris | eh-lahf-REES | ελαφρύς
+expensive | akrivos | ah-kree-VOHS | ακριβός
+cheap | ftinos | ftee-NOHS | φτηνός
+## Common verbs
+to be | ime | EE-meh | είμαι
+to ask | rotao | roh-TAH-oh | ρωτάω
+to go | piyeno | pee-YEH-noh | πηγαίνω
+to come | erchome | ER-khoh-meh | έρχομαι
+to see | vlepo | VLEH-poh | βλέπω
+to eat | troo | TROH-oh | τρώω
+to drink | pino | PEE-noh | πίνω
+to sleep | kimame | kee-MAH-meh | κοιμάμαι
+to speak | milao | mee-LAH-oh | μιλάω
+to know | xero | KSEH-roh | ξέρω
+to want | thelo | THEH-loh | θέλω
+to give | dino | THEE-noh | δίνω
+to take | perno | PEHR-noh | παίρνω
+to buy | agorazo | ah-ghoh-RAH-zoh | αγοράζω
+to sell | poulao | poo-LAH-oh | πουλάω
+to read | diavazo | thyah-VAH-zoh | διαβάζω
+to write | grafo | GHRAH-foh | γράφω
+to work | doulevo | thoo-LEH-voh | δουλεύω
+to live | zo | zoh | ζω
+to love | agapao | ah-ghah-PAH-oh | αγαπάω
+to like | mou aresi | moo ah-REH-see | μου αρέσει
+to wait | perimeno | peh-ree-MEH-noh | περιμένω
+to open | anigo | ah-NEE-ghoh | ανοίγω
+to close | klino | KLEE-noh | κλείνω
+to say | leo | LEH-oh | λέω
+## School subjects
+maths | mathimatika | mah-thee-mah-tee-KAH | μαθηματικά
+physics | fisiki | fee-see-KEE | φυσική
+chemistry | chimia | khee-MEE-ah | χημεία
+biology | violoyia | vyoh-loh-YEE-ah | βιολογία
+history | istoria | ee-stoh-REE-ah | ιστορία
+geography | yeografia | yeh-oh-ghrah-FEE-ah | γεωγραφία
+literature | logotechnia | loh-ghoh-tekh-NEE-ah | λογοτεχνία
+English | anglika | ang-lee-KAH | αγγλικά
+Greek language | ellinika | eh-lee-nee-KAH | ελληνικά
+Russian language | rosika | roh-see-KAH | ρωσικά
+foreign languages | xenes glosses | KSEH-nes GHLOH-ses | ξένες γλώσσες
+art | techni | TEKH-nee | τέχνη
+music | mousiki | moo-see-KEE | μουσική
+PE | yimnastiki | yeem-nah-stee-KEE | γυμναστική
+computer science | pliroforiki | plee-roh-foh-ree-KEE | πληροφορική
+economics | ikonomika | ee-koh-noh-mee-KAH | οικονομικά
+law | nomiki | noh-mee-KEE | νομική
+philosophy | filosofia | fee-loh-soh-FEE-ah | φιλοσοφία
+psychology | psicholoyia | psee-khoh-loh-YEE-ah | ψυχολογία
+science | epistimi | eh-pee-STEE-mee | επιστήμη
+## Classroom
+classroom | taxi | TAH-ksee | τάξη
+desk | thranio | thrah-NEE-oh | θρανίο
+board | pinakas | PEE-nah-kahs | πίνακας
+notebook | tetradio | teh-TRAH-thyoh | τετράδιο
+textbook | scholiko vivlio | skhoh-lee-KOH vee-VLEE-oh | σχολικό βιβλίο
+homework | ergasia | er-ghah-SEE-ah | εργασία
+test | diagonisma | thyah-GHOH-neez-mah | διαγώνισμα
+grade | vathmos | vahth-MOHS | βαθμός
+timetable | programma | PROH-ghrah-mah | πρόγραμμα
+break | dialimma | THYAH-lee-mah | διάλειμμα
+bell | koudouni | koo-THOO-nee | κουδούνι
+ruler | charakas | KHAH-rah-kahs | χάρακας
+rubber | goma | GHOH-mah | γόμα
+rucksack | sakidio | sah-KEE-thyoh | σακίδιο
+dictionary | lexiko | lek-see-KOH | λεξικό
+question | erotisi | eh-ROH-tee-see | ερώτηση
+answer | apandisi | ah-PAN-dee-see | απάντηση
+mistake | lathos | LAH-thos | λάθος
+pen | stilo | stee-LOH | στυλό
+pencil | molivi | moh-LEE-vee | μολύβι
+## University
+university | panepistimio | pah-neh-pee-STEE-myoh | πανεπιστήμιο
+lecture | dialexi | THYAH-leh-ksee | διάλεξη
+professor | kathiyitis | kah-thee-yee-TEES | καθηγητής
+degree | ptichio | ptee-KHEE-oh | πτυχίο
+scholarship | ipotrofia | ee-poh-troh-FEE-ah | υποτροφία
+library | vivliothiki | vee-vlyoh-THEE-kee | βιβλιοθήκη
+dormitory | estia | eh-STEE-ah | εστία
+campus | panepistimioupoli | pah-neh-pee-stee-MYOO-poh-lee | πανεπιστημιούπολη
+tuition fees | didaktra | THEE-thahk-trah | δίδακτρα
+semester | examino | eh-KSAH-mee-noh | εξάμηνο
+course | mathima | MAH-thee-mah | μάθημα
+essay | dokimio | thoh-KEE-myoh | δοκίμιο
+thesis | diatrivi | thyah-tree-VEE | διατριβή
+diploma | diploma | THEE-ploh-mah | δίπλωμα
+seminar | seminario | seh-mee-NAH-ryoh | σεμινάριο
+entrance exam | isagoyikes exetasis | ee-sah-ghoh-yee-KEHS eh-kseh-TAH-sees | εισαγωγικές εξετάσεις
+application | etisi | EH-tee-see | αίτηση
+student card | fititiki taftotita | fee-tee-tee-KEE tahf-TOH-tee-tah | φοιτητική ταυτότητα
+faculty | scholi | skhoh-LEE | σχολή
+## School verbs
+to study | meletao | meh-leh-TAH-oh | μελετάω
+to teach | didasko | thee-THAS-koh | διδάσκω
+to ask | rotao | roh-TAH-oh | ρωτάω
+to answer | apandao | ah-pan-DAH-oh | απαντάω
+to repeat | epanalamvano | eh-pah-nah-lahm-VAH-noh | επαναλαμβάνω
+to understand | katalaveno | kah-tah-lah-VEH-noh | καταλαβαίνω
+to remember | thimame | thee-MAH-meh | θυμάμαι
+to forget | xechnao | ksekh-NAH-oh | ξεχνάω
+to explain | exigo | eh-ksee-GHOH | εξηγώ
+to practise | exaskoume | eh-ksah-SKOO-meh | εξασκούμαι
+to pass an exam | pernao exetasi | per-NAH-oh eh-KSEH-tah-see | περνάω εξέταση
+to fail an exam | apotinchano se exetasi | ah-poh-teen-KHAH-noh seh eh-KSEH-tah-see | αποτυγχάνω σε εξέταση
+to write down | simiono | see-mee-OH-noh | σημειώνω
+to listen | akouo | ah-KOO-oh | ακούω
+to read aloud | diavazo fonachta | thyah-VAH-zoh foh-nahkh-TAH | διαβάζω φωναχτά
+to think | skeftome | SKEF-toh-meh | σκέφτομαι
+to count | metrao | meh-TRAH-oh | μετράω
+to spell | sillavizo | see-lah-VEE-zoh | συλλαβίζω
+to translate | metafrazo | meh-tah-FRAH-zoh | μεταφράζω
+to graduate | apofito | ah-poh-fee-TOH | αποφοιτώ
+
+[grammar]
+## Pronouns
+> Greek often drops the pronoun, because the verb ending shows who is speaking. "Αυτός" is he, "αυτή" is she and "αυτό" is it.
+row: I | ego | εγώ
+row: you (informal) | esi | εσύ
+row: he / she / it | aftos / afti / afto | αυτός / αυτή / αυτό
+row: we | emis | εμείς
+row: you (formal or plural) | esis | εσείς
+row: they | afti | αυτοί
+ex: I am a student | ego ime mathitis | eh-GHOH EE-meh mah-thee-TEES | εγώ είμαι μαθητής
+ex: you are tall | esi ise psilos | eh-SEE EE-seh psee-LOHS | εσύ είσαι ψηλός
+ex: she is my older sister | afti ine i megali adelfi mou | af-TEE EE-neh ee meh-GHAH-lee ah-thel-FEE moo | αυτή είναι η μεγάλη αδελφή μου
+ex: we are friends | emis imaste fili | eh-MEES EE-mas-teh FEE-lee | εμείς είμαστε φίλοι
+ex: they are teachers | afti ine daskali | af-TEE EE-neh THAS-kah-lee | αυτοί είναι δάσκαλοι
+## Singular and plural
+> Nouns have three genders: ο (masculine), η (feminine), το (neuter). The plural article is οι for masculine and feminine, and τα for neuter. The ending changes: ο μαθητής, οι μαθητές.
+row: το βιβλίο (book) | ta vivlia | τα βιβλία
+row: το σπίτι (house) | ta spitia | τα σπίτια
+row: το παιδί (child) | ta pedia | τα παιδιά
+row: η γάτα (cat) | i gates | οι γάτες
+ex: one house, houses | ena spiti, spitia | EH-nah SPEE-tee SPEE-tyah | ένα σπίτι, σπίτια
+ex: one book, books | ena vivlio, vivlia | EH-nah vee-VLEE-oh vee-VLEE-ah | ένα βιβλίο, βιβλία
+ex: one cat, cats | mia gata, gates | myah GHAH-tah GHAH-tes | μια γάτα, γάτες
+ex: two books | dio vivlia | THEE-oh vee-VLEE-ah | δύο βιβλία
+ex: the children | ta pedia | tah peh-THYAH | τα παιδιά
+## To be: είμαι, είσαι, είναι
+> "To be" is a real verb. The pronoun is usually dropped.
+row: I am | ime | είμαι
+row: you are | ise | είσαι
+row: he / she is | ine | είναι
+row: we are | imaste | είμαστε
+row: you are (formal) | iste | είστε
+row: they are | ine | είναι
+ex: I am a student | ime mathitis | EE-meh mah-thee-TEES | είμαι μαθητής
+ex: you are tired | ise kourasmenos | EE-seh koo-rahz-MEH-nos | είσαι κουρασμένος
+ex: he is a doctor | ine yiatros | EE-neh yah-TROHS | είναι γιατρός
+ex: we are happy | imaste charoumeni | EE-mas-teh khah-ROO-meh-nee | είμαστε χαρούμενοι
+ex: they are at home | ine spiti | EE-neh SPEE-tee | είναι σπίτι
+## Έχω: have
+> "Έχω" means "I have". It is also used for "there is": υπάρχει.
+row: I have | echo | έχω
+row: you have | echis | έχεις
+row: he / she has | echi | έχει
+row: we have | echoume | έχουμε
+row: you have (formal) | echete | έχετε
+row: they have | echoun | έχουν
+ex: I have an older brother | echo enan megalo adelfo | EH-khoh EH-nahn meh-GHAH-loh ah-thel-FOH | έχω έναν μεγάλο αδελφό
+ex: I have a car | echo aftokinito | EH-khoh af-toh-KEE-nee-toh | έχω αυτοκίνητο
+ex: I do not have time | den echo chrono | then EH-khoh KHROH-noh | δεν έχω χρόνο
+ex: there is a problem | iparchi provlima | ee-PAR-khee PROH-vlee-mah | υπάρχει πρόβλημα
+ex: there is no water | den iparchi nero | then ee-PAR-khee neh-ROH | δεν υπάρχει νερό
+## Present tense
+> The verb ending shows the person. Γράφω (to write): γράφω, γράφεις, γράφει, γράφουμε, γράφετε, γράφουν.
+row: I write | grafo | γράφω
+row: you write | grafis | γράφεις
+row: he / she writes | grafi | γράφει
+row: we write | grafoume | γράφουμε
+row: you write (formal) | grafete | γράφετε
+row: they write | grafoun | γράφουν
+ex: I am eating bread | troo psomi | TROH-oh psoh-MEE | τρώω ψωμί
+ex: you are reading a book | diavazis ena vivlio | thyah-VAH-zees EH-nah vee-VLEE-oh | διαβάζεις ένα βιβλίο
+ex: she works in a bank | doulevi se mia trapeza | thoo-LEH-vee seh myah TRAH-peh-zah | δουλεύει σε μια τράπεζα
+ex: we drink tea | pinoume tse | PEE-noo-meh TSAH-ee | πίνουμε τσάι
+ex: they are sleeping | kimounde | kee-MOON-deh | κοιμούνται
+## Basic sentences
+> The usual order is who, verb, what, but Greek is flexible. Use the article: ο, η, το.
+row: I read a book | diavazo ena vivlio | διαβάζω ένα βιβλίο
+row: she drinks tea | pini tse | πίνει τσάι
+row: we go to school | piyenoume sto scholio | πηγαίνουμε στο σχολείο
+ex: I read a book | diavazo ena vivlio | thyah-VAH-zoh EH-nah vee-VLEE-oh | διαβάζω ένα βιβλίο
+ex: he drinks tea | pini tse | PEE-nee TSAH-ee | πίνει τσάι
+ex: we go to school | piyenoume sto scholio | pee-YEH-noo-meh stoh skhoh-LEE-oh | πηγαίνουμε στο σχολείο
+ex: they eat bread | trone psomi | TROH-neh psoh-MEE | τρώνε ψωμί
+ex: the teacher writes | o daskalos grafi | oh THAS-kah-los GHRAH-fee | ο δάσκαλος γράφει
+## Negation
+> Put "δεν" before the verb: γράφω (I write), δεν γράφω (I do not write).
+row: I go | piyeno | πηγαίνω
+row: I do not go | den piyeno | δεν πηγαίνω
+row: is | ine | είναι
+row: is not | den ine | δεν είναι
+ex: I want | thelo | THEH-loh | θέλω
+ex: I do not want | den thelo | then THEH-loh | δεν θέλω
+ex: I speak English | milao anglika | mee-LAH-oh ang-lee-KAH | μιλάω αγγλικά
+ex: I do not speak English | den milao anglika | then mee-LAH-oh ang-lee-KAH | δεν μιλάω αγγλικά
+ex: I like it | mou aresi | moo ah-REH-see | μου αρέσει
+ex: I do not like it | den mou aresi | then moo ah-REH-see | δεν μου αρέσει
+ex: she is here | ine edo | EE-neh eh-THOH | είναι εδώ
+ex: she is not here | den ine edo | then EE-neh eh-THOH | δεν είναι εδώ
+ex: I have a car | echo aftokinito | EH-khoh af-toh-KEE-nee-toh | έχω αυτοκίνητο
+ex: I do not have a car | den echo aftokinito | then EH-khoh af-toh-KEE-nee-toh | δεν έχω αυτοκίνητο
+ex: I understand | katalaveno | kah-tah-lah-VEH-noh | καταλαβαίνω
+ex: I do not understand | den katalaveno | then kah-tah-lah-VEH-noh | δεν καταλαβαίνω
+ex: we are tired | imaste kourasmeni | EE-mas-teh koo-rahz-MEH-nee | είμαστε κουρασμένοι
+ex: we are not tired | den imaste kourasmeni | then EE-mas-teh koo-rahz-MEH-nee | δεν είμαστε κουρασμένοι
+ex: he works on Sundays | doulevi tis kiriakes | thoo-LEH-vee tees kee-ree-ah-KES | δουλεύει τις Κυριακές
+ex: he does not work on Sundays | den doulevi tis kiriakes | then thoo-LEH-vee tees kee-ree-ah-KES | δεν δουλεύει τις Κυριακές
+## Asking questions
+> The word order does not change. Just raise your voice at the end. In writing, the question mark looks like a semicolon.
+row: you are a student | ise mathitis | είσαι μαθητής
+row: are you a student? | ise mathitis? | είσαι μαθητής;
+row: he is here | ine edo | είναι εδώ
+row: is he here? | ine edo? | είναι εδώ;
+ex: is this your book? | afto ine to vivlio sou? | af-TOH EE-neh toh vee-VLEE-oh soo | αυτό είναι το βιβλίο σου;
+ex: are they here? | ine edo? | EE-neh eh-THOH | είναι εδώ;
+ex: do you like tea? | sou aresi to tse? | soo ah-REH-see toh TSAH-ee | σου αρέσει το τσάι;
+ex: is it cold? | kani krio? | KAH-nee KREE-oh | κάνει κρύο;
+ex: do you speak English? | milate anglika? | mee-LAH-teh ang-lee-KAH | μιλάτε αγγλικά;
+## Question words
+> Question words stand at the start of the sentence.
+row: what | ti | τι
+row: who | pios | ποιος
+row: where | pou | πού
+row: when | pote | πότε
+row: why | yiati | γιατί
+row: how | pos | πώς
+row: how much | poso | πόσο
+row: which | pio | ποιο
+ex: what is your name? | pos se lene? | pohs seh LEH-neh | πώς σε λένε;
+ex: who is he? | pios ine aftos? | pyos EE-neh af-TOS | ποιος είναι αυτός;
+ex: where do you live? | pou menis? | poo MEH-nees | πού μένεις;
+ex: when is the lesson? | pote ine to mathima? | POH-teh EE-neh toh MAH-thee-mah | πότε είναι το μάθημα;
+ex: why are you late? | yiati aryises? | yah-TEE AR-yee-ses | γιατί άργησες;
+ex: how much is it? | poso kani? | POH-soh KAH-nee | πόσο κάνει;
+ex: which book? | pio vivlio? | pyoh vee-VLEE-oh | ποιο βιβλίο;
+## Possessives and liking
+> Put the short word after the noun: μου (my), σου (your), του / της (his / her), μας (our), σας (your, formal), τους (their). To like something, say "it pleases me": μου αρέσει.
+row: my book | to vivlio mou | το βιβλίο μου
+row: your book | to vivlio sou | το βιβλίο σου
+row: his / her book | to vivlio tou / tis | το βιβλίο του / της
+row: our book | to vivlio mas | το βιβλίο μας
+row: your book (formal) | to vivlio sas | το βιβλίο σας
+ex: my phone | to tilefono mou | toh tee-LEH-foh-NOH moo | το τηλέφωνό μου
+ex: your house (formal) | to spiti sas | toh SPEE-tee sahs | το σπίτι σας
+ex: his sister | i adelfi tou | ee ah-thel-FEE too | η αδελφή του
+ex: I like music | mou aresi i mousiki | moo ah-REH-see ee moo-see-KEE | μου αρέσει η μουσική
+ex: I love football | latrevo to podosfero | lah-TREH-voh toh poh-THOS-feh-roh | λατρεύω το ποδόσφαιρο
+## Formal vs informal
+> εσύ (informal): friends, family, children. εσείς (formal): strangers, older people, work. The verb ending changes: -εις (informal), -ετε (formal).
+row: how are you? | ti kanis? / ti kanete? | τι κάνεις; / τι κάνετε;
+row: you speak | milas / milate | μιλάς / μιλάτε
+row: your name | to onoma sou / to onoma sas | το όνομά σου / το όνομά σας
+ex: how are you? (informal) | ti kanis? | tee KAH-nees | τι κάνεις;
+ex: how are you? (formal) | ti kanete? | tee KAH-neh-teh | τι κάνετε;
+ex: where are you going? (informal) | pou pas? | poo PAHS | πού πας;
+ex: where are you going? (formal) | pou piyenete? | poo pee-YEH-neh-teh | πού πηγαίνετε;
+ex: please sit down (formal) | kathiste, parakalo | kah-THEE-steh, pah-rah-kah-LOH | καθίστε, παρακαλώ
+## Past and future (simple)
+> The past changes the stem and adds an ending: πήγα (I went). The future is "θα" + the verb: θα πάω (I will go).
+row: I went | piga | πήγα
+row: you went | piyes | πήγες
+row: he went | piye | πήγε
+row: we went | pigame | πήγαμε
+ex: yesterday I was tired | chthes imoun kourasmenos | khthes EE-moon koo-rahz-MEH-nos | χθες ήμουν κουρασμένος
+ex: I will study tomorrow | tha diavaso avrio | thah thyah-VAH-soh AV-ree-oh | θα διαβάσω αύριο
+ex: we went to the park | pigame sto parko | PEE-ghah-meh stoh PAR-koh | πήγαμε στο πάρκο
+ex: I saw him | ton ida | ton EE-thah | τον είδα
+ex: she wrote a letter | egrapse ena gramma | EH-ghrah-pseh EH-nah GHRAH-mah | έγραψε ένα γράμμα
+## Commands
+> Informal: one form (έλα). Formal and plural: add -τε (ελάτε). To forbid, use "μην" before the verb.
+row: come (informal) | ela | έλα
+row: come (formal) | elate | ελάτε
+row: do not come | min erchese | μην έρχεσαι
+row: sit down | kathise | κάθισε
+ex: come here | ela edo | EH-lah eh-THOH | έλα εδώ
+ex: do not come here | min erchese edo | meen ER-kheh-seh eh-THOH | μην έρχεσαι εδώ
+ex: sit down | kathise | KAH-thee-seh | κάθισε
+ex: do not sit down | min kathese | meen KAH-theh-seh | μην κάθεσαι
+ex: be quiet | kane isichia | KAH-neh ee-see-KHEE-ah | κάνε ησυχία
+ex: do not be late | min aryisis | meen ar-YEE-sees | μην αργήσεις
+ex: open the door | anixe tin porta | AH-neek-seh teen POR-tah | άνοιξε την πόρτα
+ex: close the window | klise to parathiro | KLEE-seh toh pah-RAH-thee-roh | κλείσε το παράθυρο
+ex: listen to me | akouse me | AH-koo-seh MEH | άκουσέ με
+ex: do not worry | min anisichis | meen ah-nee-see-KHEES | μην ανησυχείς
+ex: speak slowly | mila arga | MEE-lah ar-GHAH | μίλα αργά
+ex: wait a moment | perimene ligo | peh-REE-meh-neh LEE-gho | περίμενε λίγο
+## Can, must, want
+> Can: μπορώ να + verb. Must: πρέπει να + verb. Want: θέλω να + verb.
+row: I can swim | boro na kolimbiso | μπορώ να κολυμπήσω
+row: I cannot swim | den boro na kolimbiso | δεν μπορώ να κολυμπήσω
+row: I must go | prepi na pao | πρέπει να πάω
+row: I want to go | thelo na pao | θέλω να πάω
+ex: I can swim | boro na kolimbiso | boh-ROH nah koh-leem-BEE-soh | μπορώ να κολυμπήσω
+ex: I cannot swim | den boro na kolimbiso | then boh-ROH nah koh-leem-BEE-soh | δεν μπορώ να κολυμπήσω
+ex: can you help me? | borite na me voithisete? | boh-REE-teh nah meh voh-ee-THEE-seh-teh | μπορείτε να με βοηθήσετε;
+ex: we must go | prepi na pame | PREH-pee nah PAH-meh | πρέπει να πάμε
+ex: we must not go | den prepi na pame | then PREH-pee nah PAH-meh | δεν πρέπει να πάμε
+ex: I want to eat | thelo na fao | THEH-loh nah FAH-oh | θέλω να φάω
+ex: I do not want to eat | den thelo na fao | then THEH-loh nah FAH-oh | δεν θέλω να φάω
+ex: you can come | boris na erthis | boh-REES nah ER-thees | μπορείς να έρθεις
+ex: you cannot come | den boris na erthis | then boh-REES nah ER-thees | δεν μπορείς να έρθεις
+ex: she wants to study | theli na spoudasi | THEH-lee nah spoo-THAH-see | θέλει να σπουδάσει
+ex: I must work today | prepi na doulepso simera | PREH-pee nah thoo-LEP-soh SEE-meh-rah | πρέπει να δουλέψω σήμερα
+ex: you must not run | den prepi na trechis | then PREH-pee nah TREH-khees | δεν πρέπει να τρέχεις
+## In, on, at
+> "Σε" means in, on or at. It joins with the article: σε + το = στο, σε + την = στην. Other words: από (from), για (for), με (with).
+row: in / on / at | se (sto, sti, stin) | σε (στο, στη, στην)
+row: from | apo | από
+row: for | yia | για
+row: with | me | με
+ex: the book is on the table | to vivlio ine sto trapezi | toh vee-VLEE-oh EE-neh stoh trah-PEH-zee | το βιβλίο είναι στο τραπέζι
+ex: the cat is under the table | i gata ine kato apo to trapezi | ee GHAH-tah EE-neh KAH-toh ah-POH toh trah-PEH-zee | η γάτα είναι κάτω από το τραπέζι
+ex: I am at school | ime sto scholio | EE-meh stoh skhoh-LEE-oh | είμαι στο σχολείο
+ex: I am at home | ime spiti | EE-meh SPEE-tee | είμαι σπίτι
+ex: the shop is next to the bank | to magazi ine dipla stin trapeza | toh mah-ghah-ZEE EE-neh THEE-plah steen TRAH-peh-zah | το μαγαζί είναι δίπλα στην τράπεζα
+ex: the park is near the station | to parko ine konda ston stathmo | toh PAR-koh EE-neh kon-DAH ston stahth-MOH | το πάρκο είναι κοντά στον σταθμό
+ex: we meet in the morning | sinandiomaste to proi | see-nan-DYOH-mas-teh toh proh-EE | συναντιόμαστε το πρωί
+ex: the lesson is at nine | to mathima ine stis ennia | toh MAH-thee-mah EE-neh stees eh-NYAH | το μάθημα είναι στις εννιά
+ex: the key is in the bag | to klidi ine stin tsanda | toh klee-THEE EE-neh steen TSAN-dah | το κλειδί είναι στην τσάντα
+## Comparing things
+> Put "πιο" before the adjective for "more": πιο μεγάλος. For "the most" add the article: ο πιο μεγάλος. "Than" is "από".
+row: big, bigger, the biggest | megalos, pio megalos, o pio megalos | μεγάλος, πιο μεγάλος, ο πιο μεγάλος
+row: small, smaller, the smallest | mikros, pio mikros, o pio mikros | μικρός, πιο μικρός, ο πιο μικρός
+ex: big, bigger, the biggest | megalos, pio megalos, o pio megalos | meh-GHAH-los pyo meh-GHAH-los oh pyo meh-GHAH-los | μεγάλος, πιο μεγάλος, ο πιο μεγάλος
+ex: small, smaller, the smallest | mikros, pio mikros, o pio mikros | mee-KROHS pyo mee-KROHS oh pyo mee-KROHS | μικρός, πιο μικρός, ο πιο μικρός
+ex: this is better than that | afto ine kalitero apo ekino | af-TOH EE-neh kah-LEE-teh-roh ah-POH eh-KEE-noh | αυτό είναι καλύτερο από εκείνο
+ex: this is worse than that | afto ine chirotero apo ekino | af-TOH EE-neh khee-ROH-teh-roh ah-POH eh-KEE-noh | αυτό είναι χειρότερο από εκείνο
+ex: she is taller than me | ine pio psili apo mena | EE-neh pyo psee-LEE ah-POH MEH-nah | είναι πιο ψηλή από μένα
+ex: Tashkent is bigger than Samarkand | i taskendi ine megaliteri apo ti samarkandi | ee tah-SKEN-thee EE-neh meh-ghah-LEE-teh-ree ah-POH tee sah-mar-KAN-thee | η Τασκένδη είναι μεγαλύτερη από τη Σαμαρκάνδη
+ex: it is the cheapest | ine to fthinotero | EE-neh toh fthee-NOH-teh-roh | είναι το φθηνότερο
+ex: the same as | to idio me | toh EE-thyoh meh | το ίδιο με
+## Everyday sentences
+> Quick sentences to copy and change.
+ex: he is a teacher | ine daskalos | EE-neh THAS-kah-los | είναι δάσκαλος
+ex: you (plural) are students | iste mathites | EE-steh mah-thee-TES | είστε μαθητές
+ex: I am happy | ime charoumenos | EE-meh khah-ROO-meh-nos | είμαι χαρούμενος
+ex: she is at school | ine sto scholio | EE-neh stoh skhoh-LEE-oh | είναι στο σχολείο
+ex: you are my friend | ise filos mou | EE-seh FEE-los moo | είσαι φίλος μου
+ex: it is cold | kani krio | KAH-nee KREE-oh | κάνει κρύο
+ex: I study English | meletao anglika | meh-leh-TAH-oh ang-lee-KAH | μελετάω αγγλικά
+ex: he teaches maths | didaski mathimatika | thee-THAS-kee mah-thee-mah-tee-KAH | διδάσκει μαθηματικά
+ex: they work every day | doulevoun kathe mera | thoo-LEH-voon KAH-theh MEH-rah | δουλεύουν κάθε μέρα
+ex: is this your book? | afto ine to vivlio sas? | af-TOH EE-neh toh vee-VLEE-oh sahs | αυτό είναι το βιβλίο σας;
+ex: are they here? | ine edo? | EE-neh eh-THOH | είναι εδώ;
+ex: do you like tea? | sas aresi to tse? | sahs ah-REH-see toh TSAH-ee | σας αρέσει το τσάι;
+ex: what time is it? | ti ora ine? | tee OH-rah EE-neh | τι ώρα είναι;
+ex: whose book is this? | pianou ine afto to vivlio? | pyah-NOO EE-neh af-TOH toh vee-VLEE-oh | ποιανού είναι αυτό το βιβλίο;
+ex: how old are you? | poso chronon ise? | POH-soh khroh-NOHN EE-seh | πόσο χρονών είσαι;
+ex: how do you say it? | pos to les? | pohs toh LES | πώς το λες;
+ex: your book (formal) | to vivlio sas | toh vee-VLEE-oh sahs | το βιβλίο σας
+ex: their house | to spiti tous | toh SPEE-tee toos | το σπίτι τους
+ex: my phone | to tilefono mou | toh tee-LEH-foh-NOH moo | το τηλέφωνό μου
+ex: excuse me, sir | me sinchorite, kirie | meh seeng-khoh-REE-teh KEE-ree-eh | με συγχωρείτε, κύριε
+ex: please sit down (formal) | kathiste, parakalo | kah-THEE-steh, pah-rah-kah-LOH | καθίστε, παρακαλώ
+ex: come here (informal) | ela edo | EH-lah eh-THOH | έλα εδώ
+ex: yesterday I was tired | chthes imoun kourasmenos | khthes EE-moon koo-rahz-MEH-nos | χθες ήμουν κουρασμένος
+ex: I will study tomorrow | tha diavaso avrio | thah thyah-VAH-soh AV-ree-oh | θα διαβάσω αύριο
+ex: we went to the park | pigame sto parko | PEE-ghah-meh stoh PAR-koh | πήγαμε στο πάρκο

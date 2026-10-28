@@ -37,8 +37,13 @@ def load_conv(i):
     p = os.path.join(W, i + '.lex.txt')
     if os.path.exists(p): return lex_conv(p)
     return None
+def load_rev(i):
+    p = os.path.join(W, i + '.rev.py')
+    if os.path.exists(p):
+        ns = {}; exec(open(p, encoding='utf-8').read(), ns); return ns['rev']
+    return None
 def main(i):
-    conv = load_conv(i)
+    conv = load_conv(i); rev = load_rev(i)
     head = rd(os.path.join(W, i + '.head.txt'))
     L = [l[5:].strip() for l in head if l.startswith('LANG:')]
     L = L[0] if L else i
@@ -65,6 +70,14 @@ def main(i):
         if len(x[1]) != len(y[1]):
             print('COUNT', i, x[0], len(x[1]), 'vs', len(y[1])); bad = True
     if bad: raise SystemExit(1)
+    if rev:
+        for y in b:
+            ny = []
+            for t in y[1]:
+                pp = [z.strip() for z in t.split('|')]
+                while len(pp) < 2: pp.append('')
+                ny.append(' | '.join([rev(pp[0]), pp[1], pp[0]]))
+            y[1] = ny
     for x, y in zip(a, b):
         out.append(x[0]); out += y[2]
         for en, t in zip(x[1], y[1]):
@@ -84,6 +97,17 @@ def main(i):
                     while len(pp) < 3: pp.append('')
                     l = kind + ' ' + ' | '.join(pp[:3] + [conv(pp[1])])
                 elif len(pp) == 2: l = kind + ' ' + ' | '.join(pp + [conv(pp[1])])
+            g2.append(l)
+        gram = g2
+    if rev:
+        g2 = []
+        for l in gram:
+            if l.startswith('ex:') or l.startswith('row:'):
+                kind = l[:l.index(':') + 1]; pp = [z.strip() for z in l[len(kind):].split('|')]
+                if kind == 'ex:':
+                    while len(pp) < 3: pp.append('')
+                    l = kind + ' ' + ' | '.join([pp[0], rev(pp[1]), pp[2], pp[1]])
+                elif len(pp) == 2: l = kind + ' ' + ' | '.join([pp[0], rev(pp[1]), pp[1]])
             g2.append(l)
         gram = g2
     out += gram
