@@ -97,6 +97,15 @@ def main():
         json.dump(L, open(os.path.join(OUT, L['id'] + '.json'), 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
         idx.append({'id': L['id'], 'name': L['name'], 'flag': L.get('flag', ''), 'script': bool(L.get('script')), 'count': cnt})
         print(L['id'], cnt)
-    idx.sort(key=lambda x: x['name'])
+    GROUPS = [('', ['uz']), ('Romance', ['es', 'pt', 'fr', 'it']), ('Europe', ['de', 'pl', 'uk']), ('Turkic', ['tr', 'tt']),
+              ('Middle East and India', ['khl', 'fa', 'he', 'hi']), ('East Asia', ['ja', 'ko']),
+              ('More languages', ['mn', 'xh', 'am', 'eu', 'eo']), ('Niche and historic', ['la', 'shk', 'tok', 'cmn', 'chg', 'arc'])]
+    pos = {}
+    for gi, (gn, ids) in enumerate(GROUPS):
+        for i, x in enumerate(ids): pos[x] = (gi, i, gn)
+    for x in idx:
+        assert x['id'] in pos, 'ungrouped ' + x['id']
+        x['group'] = pos[x['id']][2]
+    idx.sort(key=lambda x: pos[x['id']][:2])
     json.dump(idx, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
 main()

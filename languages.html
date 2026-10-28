@@ -163,6 +163,7 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-sc{font-size:22px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;}
 @font-face{font-family:LgMong;src:url(data/lang/fonts/NotoSansMongolian.woff2) format('woff2');font-display:swap}
 .lg-mong{font-family:LgMong,sans-serif;font-weight:400;writing-mode:vertical-lr;max-height:9em;overflow-x:auto;overflow-y:hidden;line-height:1.5;margin:4px 0;}
+.lg-grp{font-size:13px;font-weight:800;color:var(--ink-soft);margin:18px 4px 8px;text-transform:uppercase;letter-spacing:.06em;}
 .lg-flag{border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.18);flex:none;object-fit:cover;}
 .lg-opt{white-space:pre-line;}
 .lg-s{font-size:13px;font-weight:700;color:var(--ink-soft);}
@@ -290,10 +291,17 @@ function bar(p){ return '<div class="v-bar"><i style="width:' + Math.round(p) + 
 /* ---- views ---- */
 function hub(){
   var p = lsGet('xp.dev', null);
-  app.innerHTML = HUB_BACK + head('Learn a Language') + '<div class="sport-hub-grid">' + INDEX.map(function(x){
+  var html = '', cur = null, open = false;
+  INDEX.forEach(function(x){
     var pr = prog(x.id), n = 0; for(var k in pr){ if(pr[k] >= 3) n++; }
-    return tile('#l/' + x.id, x.name, (n ? Math.min(100, Math.round(n * 100 / x.count)) + '%' : ''), x.flag);
-  }).join('') + '</div>';
+    if(x.group !== cur || !open){
+      if(open) html += '</div>';
+      if(x.group) html += '<div class="lg-grp">' + esc(x.group) + '</div>';
+      html += '<div class="sport-hub-grid">'; open = true; cur = x.group;
+    }
+    html += tile('#l/' + x.id, x.name, (n ? Math.min(100, Math.round(n * 100 / x.count)) + '%' : ''), x.flag);
+  });
+  app.innerHTML = HUB_BACK + head('Learn a Language') + html + '</div>';
 }
 function home(L){
   var learned = counts(L, L.items);
