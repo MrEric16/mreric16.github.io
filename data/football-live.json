@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T14:21:52.572989Z",
+  "generatedAt": "2026-10-28T19:46:42.089191Z",
   "standings": {
     "PL": [
       {
@@ -589,6 +589,16 @@
     ],
     "SA": [
       {
+        "name": "Inter",
+        "pld": 9,
+        "w": 8,
+        "d": 1,
+        "l": 0,
+        "gf": 25,
+        "ga": 10,
+        "pts": 25
+      },
+      {
         "name": "Lazio",
         "pld": 9,
         "w": 8,
@@ -597,16 +607,6 @@
         "gf": 22,
         "ga": 7,
         "pts": 25
-      },
-      {
-        "name": "Inter",
-        "pld": 8,
-        "w": 7,
-        "d": 1,
-        "l": 0,
-        "gf": 23,
-        "ga": 10,
-        "pts": 22
       },
       {
         "name": "Roma",
@@ -630,12 +630,12 @@
       },
       {
         "name": "Milan",
-        "pld": 8,
+        "pld": 9,
         "w": 5,
         "d": 3,
-        "l": 0,
-        "gf": 16,
-        "ga": 7,
+        "l": 1,
+        "gf": 18,
+        "ga": 11,
         "pts": 18
       },
       {
@@ -689,6 +689,16 @@
         "pts": 11
       },
       {
+        "name": "Bologna",
+        "pld": 9,
+        "w": 3,
+        "d": 2,
+        "l": 4,
+        "gf": 12,
+        "ga": 12,
+        "pts": 11
+      },
+      {
         "name": "Atalanta",
         "pld": 8,
         "w": 3,
@@ -707,16 +717,6 @@
         "gf": 9,
         "ga": 14,
         "pts": 9
-      },
-      {
-        "name": "Bologna",
-        "pld": 8,
-        "w": 2,
-        "d": 2,
-        "l": 4,
-        "gf": 8,
-        "ga": 10,
-        "pts": 8
       },
       {
         "name": "Sassuolo",
@@ -750,13 +750,23 @@
       },
       {
         "name": "Udinese",
-        "pld": 8,
+        "pld": 9,
         "w": 1,
-        "d": 1,
+        "d": 2,
         "l": 6,
         "gf": 9,
         "ga": 18,
-        "pts": 4
+        "pts": 5
+      },
+      {
+        "name": "Parma",
+        "pld": 9,
+        "w": 1,
+        "d": 2,
+        "l": 6,
+        "gf": 5,
+        "ga": 15,
+        "pts": 5
       },
       {
         "name": "Fiorentina",
@@ -769,23 +779,13 @@
         "pts": 4
       },
       {
-        "name": "Parma",
-        "pld": 8,
-        "w": 1,
-        "d": 1,
-        "l": 6,
-        "gf": 5,
-        "ga": 15,
-        "pts": 4
-      },
-      {
         "name": "Venezia FC",
-        "pld": 8,
+        "pld": 9,
         "w": 1,
         "d": 0,
-        "l": 7,
+        "l": 8,
         "gf": 6,
-        "ga": 17,
+        "ga": 19,
         "pts": 3
       }
     ],
@@ -3371,99 +3371,6 @@
     "SA": {
       "fixtures": [
         {
-          "utcDate": "2026-10-28T17:30:00Z",
-          "status": "TIMED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 98,
-            "name": "AC Milan",
-            "shortName": "Milan"
-          },
-          "awayTeam": {
-            "id": 103,
-            "name": "Bologna FC 1909",
-            "shortName": "Bologna"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-28T17:30:00Z",
-          "status": "TIMED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 454,
-            "name": "Venezia FC",
-            "shortName": "Venezia FC"
-          },
-          "awayTeam": {
-            "id": 108,
-            "name": "FC Internazionale Milano",
-            "shortName": "Inter"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-28T17:30:00Z",
-          "status": "TIMED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 112,
-            "name": "Parma Calcio 1913",
-            "shortName": "Parma"
-          },
-          "awayTeam": {
-            "id": 115,
-            "name": "Udinese Calcio",
-            "shortName": "Udinese"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-10-28T19:45:00Z",
           "status": "TIMED",
           "matchday": 9,
@@ -3589,6 +3496,99 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-10-28T17:30:00Z",
+          "status": "FINISHED",
+          "matchday": 9,
+          "homeTeam": {
+            "id": 98,
+            "name": "AC Milan",
+            "shortName": "Milan"
+          },
+          "awayTeam": {
+            "id": 103,
+            "name": "Bologna FC 1909",
+            "shortName": "Bologna"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 2,
+              "away": 4
+            },
+            "halfTime": {
+              "home": 2,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Serie A"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-28T17:30:00Z",
+          "status": "FINISHED",
+          "matchday": 9,
+          "homeTeam": {
+            "id": 454,
+            "name": "Venezia FC",
+            "shortName": "Venezia FC"
+          },
+          "awayTeam": {
+            "id": 108,
+            "name": "FC Internazionale Milano",
+            "shortName": "Inter"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 0,
+              "away": 2
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Serie A"
+          },
+          "venue": null
+        },
+        {
+          "utcDate": "2026-10-28T17:30:00Z",
+          "status": "FINISHED",
+          "matchday": 9,
+          "homeTeam": {
+            "id": 112,
+            "name": "Parma Calcio 1913",
+            "shortName": "Parma"
+          },
+          "awayTeam": {
+            "id": 115,
+            "name": "Udinese Calcio",
+            "shortName": "Udinese"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 0,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Serie A"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-10-27T19:45:00Z",
           "status": "FINISHED",
@@ -3960,99 +3960,6 @@
             "name": "Serie A"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-10-23T18:45:00Z",
-          "status": "FINISHED",
-          "matchday": 8,
-          "homeTeam": {
-            "id": 586,
-            "name": "Torino FC",
-            "shortName": "Torino"
-          },
-          "awayTeam": {
-            "id": 5911,
-            "name": "AC Monza",
-            "shortName": "Monza"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-19T18:45:00Z",
-          "status": "FINISHED",
-          "matchday": 7,
-          "homeTeam": {
-            "id": 112,
-            "name": "Parma Calcio 1913",
-            "shortName": "Parma"
-          },
-          "awayTeam": {
-            "id": 586,
-            "name": "Torino FC",
-            "shortName": "Torino"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 0,
-              "away": 3
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 2
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-19T16:30:00Z",
-          "status": "FINISHED",
-          "matchday": 7,
-          "homeTeam": {
-            "id": 5911,
-            "name": "AC Monza",
-            "shortName": "Monza"
-          },
-          "awayTeam": {
-            "id": 104,
-            "name": "Cagliari Calcio",
-            "shortName": "Cagliari"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 4,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
         }
       ]
     },
@@ -4091,7 +3998,7 @@
         },
         {
           "utcDate": "2026-10-30T18:00:00Z",
-          "status": "2026-10-31 16:15:00Z",
+          "status": "TIMED",
           "matchday": 9,
           "homeTeam": {
             "id": 522,
@@ -4215,7 +4122,7 @@
         },
         {
           "utcDate": "2026-11-01T16:15:00Z",
-          "status": "2026-10-31 19:45:00Z",
+          "status": "TIMED",
           "matchday": 9,
           "homeTeam": {
             "id": 523,
@@ -4308,7 +4215,7 @@
         },
         {
           "utcDate": "2026-11-02T19:45:00Z",
-          "status": "2026-10-31 19:45:00Z",
+          "status": "TIMED",
           "matchday": 9,
           "homeTeam": {
             "id": 525,
