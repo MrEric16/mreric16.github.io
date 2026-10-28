@@ -1,0 +1,243 @@
+[grammar]
+## Pronouns
+> Thai has many pronouns, and the choice shows politeness and gender. Men say "phom" for I and women say "dichan" (formal) or "chan" (informal). Friends often use their names instead.
+row: I (man) | ผม | phom
+row: I (woman, formal) | ดิฉัน | dichan
+row: I (informal) | ฉัน | chan
+row: you | คุณ | khun
+row: he / she | เขา | khao
+row: we | เรา | rao
+row: they | พวกเขา | phuak khao
+ex: I am a student | ฉันเป็นนักเรียน | chan pen nakrian | chan pen nak-RIAN
+ex: you are tall | คุณสูง | khun sung | koon SOONG
+ex: she is my older sister | เธอเป็นพี่สาวของฉัน | thoe pen phi sao khong chan | tur pen pee sow kong CHAN
+ex: we are friends | เราเป็นเพื่อนกัน | rao pen phuean kan | row pen peuan GAN
+ex: they are teachers | พวกเขาเป็นครู | phuak khao pen khru | poo-ak kow pen KROO
+## Singular and plural
+> Thai nouns do not change for the plural. Context or a number shows how many. With a number, a classifier word goes between the number and the noun, such as "lem" for books.
+row: book (one or many) | หนังสือ | nangsue
+row: two books | หนังสือสองเล่ม | nangsue song lem
+row: house | บ้าน | ban
+row: three houses | บ้านสามหลัง | ban sam lang
+ex: one house, houses | บ้านหนึ่งหลัง บ้านหลายหลัง | ban nueng lang, ban lai lang | bahn nung lahng, bahn lie lahng
+ex: one book, books | หนังสือหนึ่งเล่ม หนังสือหลายเล่ม | nangsue nueng lem, nangsue lai lem | nang-SEU nung lem, nang-SEU lie lem
+ex: one cat, cats | แมวหนึ่งตัว แมวหลายตัว | maeo nueng tua, maeo lai tua | maew nung TOO-ah, maew lie TOO-ah
+ex: two books | หนังสือสองเล่ม | nangsue song lem | nang-SEU song lem
+ex: the children | เด็ก ๆ | dek dek | dek dek
+## To be: pen, khue, yu
+> Thai has no single verb "to be". Use "pen" before a job or role, "khue" before a noun that equals another, "yu" for a place, and nothing at all before an adjective.
+row: I am a teacher | ฉันเป็นครู | chan pen khru
+row: this is a book | นี่คือหนังสือ | ni khue nangsue
+row: I am at home | ฉันอยู่บ้าน | chan yu ban
+row: I am tall | ฉันสูง | chan sung
+ex: I am a student | ฉันเป็นนักเรียน | chan pen nakrian | chan pen nak-RIAN
+ex: you are tired | คุณเหนื่อย | khun nueai | koon NEUAI
+ex: he is a doctor | เขาเป็นหมอ | khao pen mo | kow pen MOR
+ex: we are happy | เรามีความสุข | rao mi khwam suk | row mee kwahm SOOK
+ex: they are at home | พวกเขาอยู่บ้าน | phuak khao yu ban | poo-ak kow yoo BAHN
+## Having: mi
+> "Mi" means to have and also "there is". Say "mi" before the thing you own.
+row: I have | ฉันมี | chan mi
+row: you have | คุณมี | khun mi
+row: he / she has | เขามี | khao mi
+row: I do not have | ฉันไม่มี | chan mai mi
+ex: I have an older brother | ฉันมีพี่ชาย | chan mi phi chai | chan mee pee CHIE
+ex: I have a car | ฉันมีรถ | chan mi rot | chan mee ROT
+ex: I do not have time | ฉันไม่มีเวลา | chan mai mi wela | chan my mee we-LAH
+ex: there is a problem | มีปัญหา | mi panha | mee pan-HAH
+ex: there is no water | ไม่มีน้ำ | mai mi nam | my mee NAHM
+## Present tense
+> Verbs never change. "I eat", "you eat" and "they eat" all use the same verb. Add "kamlang" before the verb to say it is happening now.
+row: I eat | ฉันกิน | chan kin
+row: you eat | คุณกิน | khun kin
+row: he / she eats | เขากิน | khao kin
+row: I am eating | ฉันกำลังกิน | chan kamlang kin
+ex: I am eating bread | ฉันกำลังกินขนมปัง | chan kamlang kin khanom pang | chan gam-lang gin ka-NOM pahng
+ex: you are reading a book | คุณกำลังอ่านหนังสือ | khun kamlang an nangsue | koon gam-lang ahn nang-SEU
+ex: she works in a bank | เธอทำงานที่ธนาคาร | thoe tham ngan thi thanakhan | tur tahm ngahn tee ta-na-KAHN
+ex: we drink tea | เราดื่มชา | rao duem cha | row deum CHAH
+ex: they are sleeping | พวกเขากำลังนอน | phuak khao kamlang non | poo-ak kow gam-lang NON
+## Basic sentences
+> The order is subject, verb, object, just as in English. Adjectives come after the noun.
+row: I read a book | ฉันอ่านหนังสือ | chan an nangsue
+row: he drinks tea | เขาดื่มชา | khao duem cha
+row: a big house | บ้านใหญ่ | ban yai
+row: a new car | รถใหม่ | rot mai
+ex: I read a book | ฉันอ่านหนังสือ | chan an nangsue | chan ahn nang-SEU
+ex: he drinks tea | เขาดื่มชา | khao duem cha | kow deum CHAH
+ex: we go to school | เราไปโรงเรียน | rao pai rongrian | row pie rong-RIAN
+ex: they eat bread | พวกเขากินขนมปัง | phuak khao kin khanom pang | poo-ak kow gin ka-NOM pahng
+ex: the teacher writes | ครูเขียน | khru khian | kroo KIAN
+## Negation
+> Put "mai" in front of the verb or adjective. For the past, use "mai dai" or add "yang mai" (not yet).
+row: I do not go | ฉันไม่ไป | chan mai pai
+row: it is not good | ไม่ดี | mai di
+row: I have not eaten yet | ฉันยังไม่ได้กิน | chan yang mai dai kin
+ex: I want | ฉันต้องการ | chan tongkan | chan tong-GAHN
+ex: I do not want | ฉันไม่ต้องการ | chan mai tongkan | chan my tong-GAHN
+ex: I speak English | ฉันพูดภาษาอังกฤษ | chan phut phasa angkrit | chan poot pah-SAH ang-GRIT
+ex: I do not speak English | ฉันไม่พูดภาษาอังกฤษ | chan mai phut phasa angkrit | chan my poot pah-SAH ang-GRIT
+ex: I like it | ฉันชอบมัน | chan chop man | chan chop MAHN
+ex: I do not like it | ฉันไม่ชอบมัน | chan mai chop man | chan my chop MAHN
+ex: she is here | เธออยู่ที่นี่ | thoe yu thi ni | tur yoo tee NEE
+ex: she is not here | เธอไม่อยู่ที่นี่ | thoe mai yu thi ni | tur my yoo tee NEE
+ex: I have a car | ฉันมีรถ | chan mi rot | chan mee ROT
+ex: I do not have a car | ฉันไม่มีรถ | chan mai mi rot | chan my mee ROT
+ex: I understand | ฉันเข้าใจ | chan khaochai | chan kow-JAI
+ex: I do not understand | ฉันไม่เข้าใจ | chan mai khaochai | chan my kow-JAI
+ex: we are tired | เราเหนื่อย | rao nueai | row NEUAI
+ex: we are not tired | เราไม่เหนื่อย | rao mai nueai | row my NEUAI
+ex: he works on Sundays | เขาทำงานวันอาทิตย์ | khao tham ngan wan athit | kow tahm ngahn wahn ah-TIT
+ex: he does not work on Sundays | เขาไม่ทำงานวันอาทิตย์ | khao mai tham ngan wan athit | kow my tahm ngahn wahn ah-TIT
+## Asking questions
+> Add "mai" at the end for a yes or no question. Reply by repeating the verb: "pai mai?" (go?) "pai" (go). Or add "chai mai" (right?).
+row: Do you go? | คุณไปไหม | khun pai mai
+row: Is it good? | ดีไหม | di mai
+row: Is it right? | ใช่ไหม | chai mai
+ex: is this your book? | นี่หนังสือของคุณใช่ไหม | ni nangsue khong khun chai mai | nee nang-SEU kong koon chy MY
+ex: are they here? | พวกเขาอยู่ที่นี่ไหม | phuak khao yu thi ni mai | poo-ak kow yoo tee nee MY
+ex: do you like tea? | คุณชอบชาไหม | khun chop cha mai | koon chop chah MY
+ex: is it cold? | หนาวไหม | nao mai | now MY
+ex: do you speak English? | คุณพูดภาษาอังกฤษได้ไหม | khun phut phasa angkrit dai mai | koon poot pah-SAH ang-GRIT die MY
+## Question words
+> Question words stay in the place of the answer. "What is this?" is "ni khue arai?" (this is what?).
+row: who | ใคร | khrai
+row: what | อะไร | arai
+row: where | ที่ไหน | thi nai
+row: when | เมื่อไหร่ | muea rai
+row: why | ทำไม | tham mai
+row: how | อย่างไร | yangrai
+row: how much | เท่าไหร่ | thao rai
+ex: what is your name? | คุณชื่ออะไร | khun chue arai | koon CHEU a-RYE
+ex: who is he? | เขาคือใคร | khao khue khrai | kow kuh KRAI
+ex: where do you live? | คุณอยู่ที่ไหน | khun yu thi nai | koon yoo tee NYE
+ex: when is the lesson? | เรียนเมื่อไหร่ | rian muea rai | rian meua RYE
+ex: why are you late? | ทำไมคุณมาสาย | tham mai khun ma sai | tahm MY koon mah SIGH
+ex: how much is it? | ราคาเท่าไหร่ | rakha thao rai | rah-KAH TOW-rye
+ex: which book? | หนังสือเล่มไหน | nangsue lem nai | nang-SEU lem NYE
+## Possessives and liking
+> Put "khong" (of) between the owned thing and the owner: nangsue khong chan (the book of me). In speech "khong" is often dropped.
+row: my book | หนังสือของฉัน | nangsue khong chan
+row: your house | บ้านของคุณ | ban khong khun
+row: his sister | น้องสาวของเขา | nong sao khong khao
+ex: my phone | โทรศัพท์ของฉัน | thorasap khong chan | toh-ra-SAHP kong CHAN
+ex: your house (formal) | บ้านของท่าน | ban khong than | bahn kong TAHN
+ex: his sister | พี่สาวของเขา | phi sao khong khao | pee sow kong KOW
+ex: I like music | ฉันชอบดนตรี | chan chop dontri | chan chop don-TREE
+ex: I love football | ฉันรักฟุตบอล | chan rak futbon | chan rahk FOOT-bon
+## Formal vs informal
+> Politeness is shown by the ending: men add "khrap", women add "kha". Using "khun" and "than" is more respectful. With friends, drop the particle.
+row: yes (man, polite) | ครับ | khrap
+row: yes (woman, polite) | ค่ะ | kha
+row: thank you (polite, man) | ขอบคุณครับ | khop khun khrap
+row: thank you (polite, woman) | ขอบคุณค่ะ | khop khun kha
+ex: how are you? (informal) | สบายดีไหม | sabai di mai | sa-BYE dee MY
+ex: how are you? (formal) | สบายดีไหมครับ/คะ | sabai di mai khrap/kha | sa-BYE dee my KRAHP / KAH
+ex: where are you going? (informal) | ไปไหน | pai nai | pie NYE
+ex: where are you going? (formal) | ท่านจะไปที่ไหนครับ/คะ | than cha pai thi nai khrap/kha | tahn jah pie tee nye KRAHP / KAH
+ex: please sit down (formal) | เชิญนั่งครับ/ค่ะ | choen nang khrap/kha | chern NAHNG KRAHP / KAH
+## Past and future (simple)
+> No verb changes. Past: add "laeo" (already) at the end. Future: put "cha" before the verb.
+row: I ate | ฉันกินแล้ว | chan kin laeo
+row: I will eat | ฉันจะกิน | chan cha kin
+row: I will go tomorrow | ฉันจะไปพรุ่งนี้ | chan cha pai phrung ni
+ex: yesterday I was tired | เมื่อวานฉันเหนื่อย | muea wan chan nueai | meua wahn chan NEUAI
+ex: I will study tomorrow | พรุ่งนี้ฉันจะเรียน | phrung ni chan cha rian | proong nee chan jah RIAN
+ex: we went to the park | เราไปสวนสาธารณะแล้ว | rao pai suan sathanna laeo | row pie soo-ahn sah-tah-RAH-na LAEW
+ex: I saw him | ฉันเห็นเขาแล้ว | chan hen khao laeo | chan hen kow LAEW
+ex: she wrote a letter | เธอเขียนจดหมายแล้ว | thoe khian chotmai laeo | tur kian jot-MIE LAEW
+## Commands
+> Use the bare verb. Add "noi" (a little) or "doi" to make it softer. To forbid, put "yaa" (do not) in front.
+row: come! | มา | ma
+row: wait! | รอ | ro
+row: do not go | อย่าไป | ya pai
+row: please wait | กรุณารอ | karuna ro
+ex: come here | มาที่นี่ | ma thi ni | mah tee NEE
+ex: do not come here | อย่ามาที่นี่ | ya ma thi ni | yah mah tee NEE
+ex: sit down | นั่งลง | nang long | nahng LONG
+ex: do not sit down | อย่านั่งลง | ya nang long | yah nahng LONG
+ex: be quiet | เงียบ ๆ | ngiap ngiap | ngiap ngiap
+ex: do not be late | อย่ามาสาย | ya ma sai | yah mah SIGH
+ex: open the door | เปิดประตู | poet pratu | purt pra-TOO
+ex: close the window | ปิดหน้าต่าง | pit natang | pit na-TAHNG
+ex: listen to me | ฟังฉัน | fang chan | fahng CHAN
+ex: do not worry | อย่ากังวล | ya kangwon | yah gahng-WON
+ex: speak slowly | พูดช้า ๆ | phut cha cha | poot chah chah
+ex: wait a moment | รอสักครู่ | ro sak khru | ror sahk KROO
+## Can, must, want
+> "Dai" (can), "tong" (must) and "yak" (want) go before the main verb, or "dai" can go after it. "Mai dai" means cannot.
+row: I can swim | ฉันว่ายน้ำได้ | chan wai nam dai
+row: I must go | ฉันต้องไป | chan tong pai
+row: I want to go | ฉันอยากไป | chan yak pai
+row: may I? | ได้ไหม | dai mai
+ex: I can swim | ฉันว่ายน้ำได้ | chan wai nam dai | chan wie nahm DIE
+ex: I cannot swim | ฉันว่ายน้ำไม่ได้ | chan wai nam mai dai | chan wie nahm my DIE
+ex: can you help me? | คุณช่วยฉันได้ไหม | khun chuai chan dai mai | koon chuay chan die MY
+ex: we must go | เราต้องไป | rao tong pai | row tong PIE
+ex: we must not go | เราต้องไม่ไป | rao tong mai pai | row tong my PIE
+ex: I want to eat | ฉันอยากกิน | chan yak kin | chan yahk GIN
+ex: I do not want to eat | ฉันไม่อยากกิน | chan mai yak kin | chan my yahk GIN
+ex: you can come | คุณมาได้ | khun ma dai | koon mah DIE
+ex: you cannot come | คุณมาไม่ได้ | khun ma mai dai | koon mah my DIE
+ex: she wants to study | เธออยากเรียน | thoe yak rian | tur yahk RIAN
+ex: I must work today | วันนี้ฉันต้องทำงาน | wan ni chan tong tham ngan | wahn nee chan tong tahm NGAHN
+ex: you must not run | คุณห้ามวิ่ง | khun ham wing | koon hahm WING
+## In, on, at
+> Thai uses little words before the place: "thi" (at), "nai" (in), "bon" (on), "tai" (under), "kai" (near). Put them in front of the noun.
+row: in the house | ในบ้าน | nai ban
+row: on the table | บนโต๊ะ | bon to
+row: under the table | ใต้โต๊ะ | tai to
+row: at school | ที่โรงเรียน | thi rongrian
+ex: the book is on the table | หนังสืออยู่บนโต๊ะ | nangsue yu bon to | nang-SEU yoo bon TOH
+ex: the cat is under the table | แมวอยู่ใต้โต๊ะ | maeo yu tai to | maew yoo tie TOH
+ex: I am at school | ฉันอยู่ที่โรงเรียน | chan yu thi rongrian | chan yoo tee rong-RIAN
+ex: I am at home | ฉันอยู่ที่บ้าน | chan yu thi ban | chan yoo tee BAHN
+ex: the shop is next to the bank | ร้านอยู่ข้างธนาคาร | ran yu khang thanakhan | rahn yoo kahng ta-na-KAHN
+ex: the park is near the station | สวนสาธารณะอยู่ใกล้สถานี | suan sathanna yu klai sathani | soo-ahn sah-tah-RAH-na yoo kly sa-TAH-nee
+ex: we meet in the morning | เราพบกันตอนเช้า | rao phop kan ton chao | row pop gahn ton CHOW
+ex: the lesson is at nine | เรียนตอนเก้าโมง | rian ton kao mong | rian ton gow MONG
+ex: the key is in the bag | กุญแจอยู่ในกระเป๋า | kunchae yu nai krapao | goon-JAE yoo nai gra-POW
+## Comparing things
+> Put "kwa" (more than) after the adjective: yai kwa (bigger than). For "the most", add "thi sut" (that is the end): yai thi sut.
+row: big, bigger | ใหญ่ ใหญ่กว่า | yai, yai kwa
+row: good, better | ดี ดีกว่า | di, di kwa
+row: the biggest | ใหญ่ที่สุด | yai thi sut
+ex: big, bigger, the biggest | ใหญ่ ใหญ่กว่า ใหญ่ที่สุด | yai, yai kwa, yai thi sut | yie, yie gwah, yie tee SOOT
+ex: small, smaller, the smallest | เล็ก เล็กกว่า เล็กที่สุด | lek, lek kwa, lek thi sut | lek, lek gwah, lek tee SOOT
+ex: this is better than that | อันนี้ดีกว่าอันนั้น | an ni di kwa an nan | an nee dee gwah an NAHN
+ex: this is worse than that | อันนี้แย่กว่าอันนั้น | an ni yae kwa an nan | an nee yae gwah an NAHN
+ex: she is taller than me | เธอสูงกว่าฉัน | thoe sung kwa chan | tur soong gwah CHAN
+ex: Tashkent is bigger than Samarkand | ทาชเคนต์ใหญ่กว่าซามาร์คันด์ | thachken yai kwa samarkan | tahsh-KEN yie gwah sa-mar-KAHN
+ex: it is the cheapest | ถูกที่สุด | thuk thi sut | took tee SOOT
+ex: the same as | เหมือนกับ | muean kap | meuan GAHP
+## Everyday sentences
+> Quick sentences to copy and change.
+row: I am hungry | ฉันหิว | chan hio
+row: I am thirsty | ฉันกระหายน้ำ | chan krahai nam
+row: I am cold | ฉันหนาว | chan nao
+row: it is raining | ฝนตก | fon tok
+ex: he is a teacher | เขาเป็นครู | khao pen khru | kow pen KROO
+ex: you (plural) are students | พวกคุณเป็นนักเรียน | phuak khun pen nakrian | poo-ak koon pen nak-RIAN
+ex: I am happy | ฉันมีความสุข | chan mi khwam suk | chan mee kwahm SOOK
+ex: she is at school | เธออยู่ที่โรงเรียน | thoe yu thi rongrian | tur yoo tee rong-RIAN
+ex: you are my friend | คุณเป็นเพื่อนของฉัน | khun pen phuean khong chan | koon pen peuan kong CHAN
+ex: it is cold | อากาศหนาว | akat nao | ah-GAHT now
+ex: I study English | ฉันเรียนภาษาอังกฤษ | chan rian phasa angkrit | chan rian pah-SAH ang-GRIT
+ex: he teaches maths | เขาสอนคณิตศาสตร์ | khao son khanitsat | kow sorn ka-nit-SAHT
+ex: they work every day | พวกเขาทำงานทุกวัน | phuak khao tham ngan thuk wan | poo-ak kow tahm ngahn took WAHN
+ex: is this your book? | นี่หนังสือของคุณใช่ไหม | ni nangsue khong khun chai mai | nee nang-SEU kong koon chy MY
+ex: are they here? | พวกเขาอยู่ที่นี่ไหม | phuak khao yu thi ni mai | poo-ak kow yoo tee nee MY
+ex: do you like tea? | คุณชอบชาไหม | khun chop cha mai | koon chop chah MY
+ex: what time is it? | กี่โมงแล้ว | ki mong laeo | gee mong LAEW
+ex: whose book is this? | นี่หนังสือของใคร | ni nangsue khong khrai | nee nang-SEU kong KRAI
+ex: how old are you? | คุณอายุเท่าไหร่ | khun ayu thao rai | koon ah-YOO TOW-rye
+ex: how do you say it? | พูดว่าอย่างไร | phut wa yangrai | poot wah yahng-RYE
+ex: your book (formal) | หนังสือของท่าน | nangsue khong than | nang-SEU kong TAHN
+ex: their house | บ้านของพวกเขา | ban khong phuak khao | bahn kong poo-ak KOW
+ex: my phone | โทรศัพท์ของฉัน | thorasap khong chan | toh-ra-SAHP kong CHAN
+ex: excuse me, sir | ขอโทษครับ | kho thot khrap | kor TOHT KRAHP
+ex: please sit down (formal) | เชิญนั่งครับ/ค่ะ | choen nang khrap/kha | chern NAHNG KRAHP / KAH
+ex: come here (informal) | มาที่นี่ | ma thi ni | mah tee NEE
+ex: yesterday I was tired | เมื่อวานฉันเหนื่อย | muea wan chan nueai | meua wahn chan NEUAI
+ex: I will study tomorrow | พรุ่งนี้ฉันจะเรียน | phrung ni chan cha rian | proong nee chan jah RIAN
+ex: we went to the park | เราไปสวนสาธารณะแล้ว | rao pai suan sathanna laeo | row pie soo-ahn sah-tah-RAH-na LAEW
