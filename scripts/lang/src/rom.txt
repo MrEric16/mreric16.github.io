@@ -1,4 +1,4 @@
-NAME: Romani
+NAME: Romani (Romani čhib)
 ID: rom
 FLAG: rom
 
@@ -7,13 +7,14 @@ INTRO: Romani is the language of the Roma people, who live across Europe and bey
 č | "ch" as in "church" | čhavo
 š | "sh" as in "shop" | šukar
 ž | "s" as in "measure" | žanav
-x | "kh" like "ch" in Scottish "loch" | xav
-ʰ | a puff of breath after the letter | čhon
-NOTE: Many Roma are bilingual, and the spelling here is one of several in use. There is no single standard Romani. Expect real speakers to say words differently.
-NOTE: This pool is much smaller than the Spanish one on purpose and has not been checked by a Romani speaker.
+x | "kh", like "ch" in Scottish "loch" | xav
+ʰ | a puff of breath after the letter (kh, ph, th, čh) | čhon
+NOTE: Many Roma are bilingual, and there is no single standard Romani. Expect real speakers to say words differently. Modern words (airport, university, phone) are usually borrowed from the local language, so they differ from country to country.
+NOTE: The pool is unreviewed by a Romani speaker. Everyday words are Vlax. Numbers above 100 and school words are the most uncertain.
 
 [numbers]
-## 1 to 10
+## 0 to 10
+zero | nula | NOO-la
 one | jekh | yekh
 two | duj | dooy
 three | trin | treen
@@ -24,116 +25,868 @@ seven | efta | EF-ta
 eight | oxto | OKH-to
 nine | enja | EN-ya
 ten | deš | desh
-
+## 11 to 20
+eleven | dešujekh | desh-oo-YEKH
+twelve | dešuduj | desh-oo-DOOY
+thirteen | dešutrin | desh-oo-TREEN
+fourteen | dešuštar | desh-oo-SHTAR
+fifteen | dešupanč | desh-oo-PANCH
+sixteen | dešušov | desh-oo-SHOV
+seventeen | dešuefta | desh-oo-EF-ta
+eighteen | dešuoxto | desh-oo-OKH-to
+nineteen | dešuenja | desh-oo-EN-ya
+twenty | biš | beesh
+## Tens
+ten | deš | desh
+twenty | biš | beesh
+thirty | tranda | TRAN-da
+forty | saranda | sa-RAN-da
+fifty | penda | PEN-da
+sixty | šovardeš | SHOV-ar-desh
+seventy | eftavardeš | EF-ta-var-desh
+eighty | oxtovardeš | OKH-to-var-desh
+ninety | enjavardeš | EN-ya-var-desh
+twenty-one | biš u jekh | beesh oo YEKH
+## Hundreds
+one hundred | jekh šel | yekh shel
+two hundred | duj šel | dooy shel
+three hundred | trin šel | treen shel
+four hundred | štar šel | shtar shel
+five hundred | panč šel | panch shel
+six hundred | šov šel | shov shel
+seven hundred | efta šel | EF-ta shel
+eight hundred | oxto šel | OKH-to shel
+nine hundred | enja šel | EN-ya shel
+## Thousands
+one thousand | jekh ezer | yekh EH-zer
+two thousand | duj ezer | dooy EH-zer
+three thousand | trin ezer | treen EH-zer
+four thousand | štar ezer | shtar EH-zer
+five thousand | panč ezer | panch EH-zer
+six thousand | šov ezer | shov EH-zer
+seven thousand | efta ezer | EF-ta EH-zer
+eight thousand | oxto ezer | OKH-to EH-zer
+nine thousand | enja ezer | EN-ya EH-zer
+## Big numbers
+ten thousand | deš ezer | desh EH-zer
+one hundred thousand | jekh šel ezer | yekh shel EH-zer
+one million | jekh milyon | yekh mil-YON
+one billion | jekh milyard | yekh mil-YARD
+## Order and amounts
+first | angluno | ang-LOO-no
+second | dujto | DOOY-to
+third | trinto | TREEN-to
+half | paš | pash
+a few | nekobor | NEK-o-bor
+many | but | boot
+a pair | jekh perečhi | yekh PER-e-chee
+how many? | sode? | SO-de
 [greetings]
-## Greetings and politeness
-hello / good day | Lačho dive | LA-cho DEE-veh
-good morning | Lačhi sabah | LA-chee sa-BAH
-good evening | Lačhi rjat | LA-chee RYAT
-welcome | Aven baxtale | A-ven bakh-TA-leh
-how are you? | Sar san? | sar san
-I'm fine | Mištó som | mish-TO som
-goodbye | Te aves baxtalo | teh A-ves bakh-TA-lo
-thank you | Del o Del tuke | del o del TOO-keh
-please | Mangav tut | MAN-gav toot
-yes | Va | va
-no | Na | na
-
+## Hello and goodbye
+hello | sastipe | sas-TEE-pe
+hello (formal, with respect) | baxtalo dive | bakh-TA-lo DEE-ve
+reply to the formal hello | sastipe thaj baxt | sas-TEE-pe tay bakht
+good morning | lačho tosara | LA-cho to-SA-ra
+good day | lačho dive | LA-cho DEE-ve
+good evening | lačhi seara | LA-chee SEH-a-ra
+good night | lačhi rat | LA-chee rat
+goodbye | dža Devlesa | ja dev-LE-sa
+see you later | dikhas amen palpale | DEE-khas A-men pal-PA-le
+see you tomorrow | dikhas amen tehara | DEE-khas A-men te-HA-ra
+## Meeting people
+how are you? (informal) | sar san? | sar san
+how are you? (formal) | sar san tumen? | sar san TOO-men
+I am fine, thanks | mištes som, najis | MISH-tes som NA-yis
+and you? | thaj tu? | tay too
+not bad | na bilačho | na bee-LA-cho
+what is your name? (informal) | sar akhardol tuke? | sar a-khar-DOL TOO-ke
+what is your name? (formal) | sar akhardol tumenge? | sar a-khar-DOL too-MEN-ge
+my name is... | mange akhardol... | MAN-ge a-khar-DOL
+nice to meet you | baxt hin man te dikhav tut | bakht heen man te DEE-khav toot
+where are you from? (informal) | katar san? | KA-tar san
+where are you from? (formal) | katar san tumen? | KA-tar san TOO-men
+I am from England | me som katar i Anglia | me som KA-tar ee ANG-li-a
+## Politeness
+please | mangav tut | MAN-gav toot
+thank you | najis | NA-yis
+thank you very much | but najis | boot NA-yis
+you are welcome | khanči | KHAN-chee
+excuse me | mukh man | mookh man
+sorry | mafi | MA-fee
+yes | va | va
+no | na | na
+congratulations | lačhes! | LA-ches
+good luck | baxt! | bakht
+happy birthday | baxtalo biandimasko dive | bakh-TA-lo bee-an-dee-MAS-ko DEE-ve
+cheers | sastimos! | sas-tee-MOS
 [phrases]
-## About me
-I | me | meh
-you | tu | too
-he / she | vo / voj | vo / voy
-we | amen | A-men
-they | von | von
-I am a student | Me som studento | meh som stoo-DEN-to
-I am a teacher | Me som sikavno | meh som SEE-kav-no
-my name is Eric | Mi anav si Eric | mee A-nav see Eric
-what's your name? | Sar akhardjol? | sar a-KHAR-jol
-I know | Me žanav | meh ZHA-nav
-I don't know | Me na žanav | meh na ZHA-nav
-I want | Me kamav | meh KA-mav
-I don't want | Me na kamav | meh na KA-mav
-I eat | Me xav | meh khav
-I don't eat | Me na xav | meh na khav
-
+## Essential phrases
+hello | sastipe | sas-TEE-pe
+goodbye | dža Devlesa | ja dev-LE-sa
+please | mangav tut | MAN-gav toot
+thank you | najis | NA-yis
+you are welcome | khanči | KHAN-chee
+yes | va | va
+no | na | na
+excuse me | mukh man | mookh man
+sorry | mafi | MA-fee
+I do not understand | na haćarav | na HA-cha-rav
+do you speak English? | rakires anglikanes? | ra-KEE-res ang-LEE-ka-nes
+speak slowly, please | rakir pomali | ra-KEER po-MA-lee
+can you help me? | šaj ažutis man? | shay a-ZHOO-tis man
+where is the toilet? | kaj si o toaleto? | kay see o to-a-LE-to
+how much is it? | sode kerel? | SO-de ke-REL
+I would like... | kamav... | KA-mav
+I need... | trubul mange... | TROO-bool MAN-ge
+my name is... | mange akhardol... | MAN-ge a-khar-DOL
+I am lost | xasardem o drom | kha-SAR-dem o drom
+what is this? | so si kava? | so see KA-va
+I do not know | me na žanav | me na ZHA-nav
+that is OK | si mišto | see MISH-to
+## Formal and informal
+how are you? (informal) | sar san? | sar san
+how are you? (formal) | sar san tumen? | sar san TOO-men
+what is your name? (informal) | sar akhardol tuke? | sar a-khar-DOL TOO-ke
+what is your name? (formal) | sar akhardol tumenge? | sar a-khar-DOL too-MEN-ge
+do you speak English? (informal) | rakires anglikanes? | ra-KEE-res ang-LEE-ka-nes
+do you speak English? (formal) | rakiren anglikanes? | ra-KEE-ren ang-LEE-ka-nes
+where are you from? (informal) | katar san? | KA-tar san
+where are you from? (formal) | katar san tumen? | KA-tar san TOO-men
+can you help me? (informal) | šaj ažutis man? | shay a-ZHOO-tis man
+can you help me? (formal) | šaj ažutin man? | shay a-ZHOO-tin man
+hi (informal) | sastipe | sas-TEE-pe
+hello (formal) | baxtalo dive | bakh-TA-lo DEE-ve
+bye (informal) | dža Devlesa | ja dev-LE-sa
+goodbye (formal) | te aves baxtalo | te A-ves bakh-TA-lo
+## Survival
+I understand | haćarav | HA-cha-rav
+I speak a little Romani | rakirav tikno Romanes | ra-KEE-rav TEEK-no ro-MA-nes
+please repeat | mangav tut, phen palpale | MAN-gav toot, phen pal-PA-le
+what does... mean? | so zoralol...? | so zo-RA-lol
+how do you say... in Romani? | sar phenel pe... Romanes? | sar PHE-nel pe ... ro-MA-nes
+please write it down | mangav tut, ćhin le | MAN-gav toot, chin le
+help! | ažutor! | a-ZHOO-tor
+I need help | trubul mange ažutor | TROO-bool MAN-ge a-ZHOO-tor
+## Getting around
+where is...? | kaj si...? | kay see
+where is the station? | kaj si i stacia? | kay see ee STA-tsi-a
+turn left | phir ki kerka | pheer kee KER-ka
+turn right | phir ki dešno | pheer kee DESH-no
+straight ahead | phir drom | pheer drom
+near | paš | pash
+far | dur | door
+how far is it? | sode dur si? | SO-de door see
+a ticket to Samarkand, please | jekh bilieto ko Samarkand, mangav tut | yekh bee-li-E-to ko sa-mar-KAND, MAN-gav toot
+what time does the train leave? | kana džal o tren? | KA-na jal o tren
+to the airport, please | ko aeroporto, mangav tut | ko a-e-ro-POR-to, MAN-gav toot
+stop here, please | ačh kathe, mangav tut | ach KA-te, MAN-gav toot
+## Eating out
+a table for two, please | jekh misali vash duj, mangav tut | yekh mee-SA-lee vash dooy, MAN-gav toot
+the menu, please | o meniu, mangav tut | o men-YOO, MAN-gav toot
+I will have this | lav kava | lav KA-va
+water, please | pani, mangav tut | PA-nee, MAN-gav toot
+the bill, please | o račun, mangav tut | o ra-CHOON, MAN-gav toot
+it is delicious | si lačho | see LA-cho
+I am hungry | som bokhalo | som bo-KHA-lo
+I am thirsty | som trušalo | som troo-SHA-lo
+I am vegetarian | som vegetarianco | som ve-ge-ta-ri-AN-tso
+I am allergic to nuts | si man alergia pe nuci | see man a-LER-gi-a pe NOO-tsee
+no meat, please | bi mas, mangav tut | bee mas, MAN-gav toot
+another one, please | jekh aver, mangav tut | yekh a-VER, MAN-gav toot
+## Shopping
+how much is this? | sode kerel kava? | SO-de ke-REL KA-va
+it is too expensive | si but skumpo | see boot SKOOM-po
+do you have a smaller size? | si tut maj tikno? | see toot may TEEK-no
+I am just looking | dikhav tikno | DEE-khav TEEK-no
+I will take it | lav les | lav les
+can I pay by card? | šaj del le karta? | shay del le KAR-ta
+cash | love | LO-ve
+a bag, please | jekh punga, mangav tut | yekh POON-ga, MAN-gav toot
+open | putardo | poo-TAR-do
+closed | phandlo | PHAND-lo
+## Hotel and travel
+I have a reservation | si man rezervacia | see man re-zer-VA-tsi-a
+a room for one night | jekh odaj vash jekh rat | yekh o-DAY vash yekh rat
+what time is breakfast? | kana si o xamasko? | KA-na see o kha-MAS-ko
+the key, please | o ćhavi, mangav tut | o CHA-vee, MAN-gav toot
+is there wifi? | si wifi? | see WEE-fee
+my passport | miri pasaporta | MEE-ree pa-sa-POR-ta
+my luggage | mire bagažura | MEE-re ba-ga-ZHOO-ra
+I would like to change money | kamav te parudjav love | KA-mav te pa-roo-JAV LO-ve
+## Health and emergency
+I feel sick | som nasvalo | som nas-VA-lo
+I need a doctor | trubul mange doktoro | TROO-bool MAN-ge dok-TO-ro
+call an ambulance | vičin o ambulansa | vee-CHEEN o am-boo-LAN-sa
+it hurts here | dukhal kathe | doo-KHAL KA-te
+I have a headache | dukhal man o šero | doo-KHAL man o SHE-ro
+I have a fever | si man tato | see man TA-to
+where is the pharmacy? | kaj si i apteka? | kay see ee ap-TE-ka
+call the police | vičin i policia | vee-CHEEN ee po-LEE-tsi-a
+my phone was stolen | čordine miro telefono | chor-DEE-ne MEE-ro te-le-FO-no
+## Chatting
+what do you do? | so kerea? | so KE-re-a
+I am a student | som studento | som stoo-DEN-to
+I am a teacher | som sikavno | som see-KAV-no
+I live in Tashkent | bešav ando Tashkent | BE-shav AN-do tash-KENT
+how old are you? | sode berša si tut? | SO-de BER-sha see toot
+I am sixteen | si man šovdešu berša | see man shov-DESH-oo BER-sha
+do you like football? | kamea o futbal? | KA-me-a o FOOT-bal
+I like music | kamav i muzika | KA-mav ee MOO-zee-ka
+I love it | kamav les but | KA-mav les boot
+what time is it? | so ora si? | so O-ra see
+it is three o'clock | si i trin ora | see ee treen O-ra
+## Useful words
+and | thaj | tay
+but | ama | A-ma
+because | kaj | kay
+very | but | boot
+here | kathe | KA-te
+there | othe | O-te
+now | akana | a-KA-na
+today | adaj | a-DAY
+tomorrow | tehara | te-HA-ra
+yesterday | jek | yek
+always | furmo | FOOR-mo
+never | ni jekhvar | nee YEKH-var
+maybe | šaj | shay
+also | vi | vee
+with | sa | sa
+for | vash | vash
+again | palpale | pal-PA-le
+only | numa | NOO-ma
+already | dija | DEE-ya
+## In the classroom
+may I come in? | šaj avav andre? | shay A-vav AN-dre
+may I go to the toilet? | šaj džav ko toaleto? | shay jav ko to-a-LE-to
+I have a question | si man jekh puchipe | see man yekh poo-CHEE-pe
+I do not know the answer | na žanav o vakeripe | na ZHA-nav o va-ke-REE-pe
+I forgot my homework | bistardem miri kherutni buti | bees-TAR-dem MEE-ree ke-ROOT-nee BOO-tee
+sorry, I am late | mafi, aviljom pale | MA-fee, a-vil-YOM pa-LE
+please repeat the question | mangav tut, phen palpale i puchipe | MAN-gav toot, phen pal-PA-le ee poo-CHEE-pe
+what page are we on? | pe savi paġina si amen? | pe SA-vee PA-gi-na see A-men
+open your books | putren e kenvi | POO-tren e ken-VEE
+close your books | phanden e kenvi | PHAN-den e ken-VEE
+listen, please | šunen, mangav tumen | SHOO-nen, MAN-gav TOO-men
+look at the board | dikhen ko tabla | DEE-khen ko TAB-la
+how do you spell it? | sar ćhinel pe? | sar CHEE-nel pe
+what does this word mean? | so zoralol kava lav? | so zo-RA-lol KA-va lav
+I have finished | kerdem | KER-dem
+can I borrow a pen? | šaj lav jekh penda? | shay lav yekh PEN-da
+## Phone and internet
+what is your phone number? | savo si ćiro numero telefono? | SA-vo see CHEE-ro NOO-me-ro te-le-FO-no
+my phone number is... | miro numero telefono si... | MEE-ro NOO-me-ro te-le-FO-no see
+can I use your phone? | šaj kamav ćiro telefono? | shay KA-mav CHEE-ro te-le-FO-no
+my battery is dead | mulo miri bateria | MOO-lo MEE-ree ba-te-RI-a
+what is the wifi password? | savi si i parola ka wifi? | SA-vee see ee pa-RO-la ka WEE-fee
+I will text you | cinav tut sms | tsee-NAV toot es-em-ES
+call me later | vićin man palal | vee-CHEEN man pa-LAL
+I have no signal | nane man signalo | NA-ne man seeg-NA-lo
+send me a message | bičhal man jekh mesaji | bee-CHHAL man yekh me-SA-zhee
+where can I charge my phone? | kaj šaj uravav miro telefono? | kay shay oo-RA-vav MEE-ro te-le-FO-no
+## Opinions and plans
+I think so | dunjuvav kaj va | doon-YOO-vav kay va
+I do not think so | dunjuvav kaj na | doon-YOO-vav kay na
+I know | žanav | ZHA-nav
+I agree | phenav va | PHE-nav va
+I do not agree | na phenav va | na PHE-nav va
+what do you think? | so dunjuvea? | so doon-YOO-ve-a
+in my opinion... | pe miro gindo... | pe MEE-ro GEEN-do
+good idea! | lačho gindo! | LA-cho GEEN-do
+of course | sigur | see-GOOR
+I am not sure | na sim sigur | na seem see-GOOR
+it depends | ovel sar... | O-vel sar
+are you free tomorrow? | sian free tehara? | SEE-an free te-HA-ra
+I am busy | som zurno | som ZOOR-no
+let us meet at five | dikhas amen ko panč | DEE-khas A-men ko panch
+I would prefer tea | kamav maj but ćajo | KA-mav may boot CHA-yo
+## Dates and time
+what day is it today? | savo dive si adaleske? | SA-vo DEE-ve see a-da-LES-ke
+what is the date today? | savo datumo si adaleske? | SA-vo da-TOO-mo see a-da-LES-ke
+today is Monday | adaleske si ćhonesko dive | a-da-LES-ke see CHO-nes-ko DEE-ve
+at what time? | ko sode ora? | ko SO-de O-ra
+at six o'clock | ko šov ora | ko shov O-ra
+in the morning | ko tosara | ko to-SA-ra
+in the evening | ko seara | ko SEH-a-ra
+every day | sako dive | SA-ko DEE-ve
+next week | i dujti kurko | ee DOOY-tee KOOR-ko
+last year | perdal berš | per-DAL bersh
 [vocab]
-## People and family
-father | dad | dad
-mother | daj | day
-son / boy | čhavo | CHA-vo
-daughter / girl | čhaj | chay
-brother | phral | phral
-sister | pheň | phen
-man / husband | rom | rom
-woman / wife | romni | ROM-nee
-person | manuš | MA-noosh
-## Nature and things
-sun | kham | kham
-moon | čhon | chon
-water | pani | PA-nee
-fire | jag | yag
-earth | phuv | phoov
-bread | maro | MA-ro
-meat | mas | mas
-milk | thud | thood
-house | kher | kher
-village | gav | gav
-road | drom | drom
-horse | grast | grast
-hand | vast | vast
-eye | jakh | yakh
-language / tongue | čhib | chib
-word | lav | lav
-## Describing
-good | lačho | LA-cho
-beautiful | šukar | shoo-KAR
-big | baro | BA-ro
-small | tikno | TEEK-no
-new | nevo | NEH-vo
-old | phuro | PHOO-ro
+## Feelings and moods
+happy | bahtalo | bakh-TA-lo
+sad | dukhado | doo-KHA-do
+angry | xoljarimo | khol-ya-REE-mo
+tired | thaklo | THAK-lo
+scared | daralo | da-RA-lo
+bored | bezexto | be-ZEKH-to
+excited | rodo | RO-do
+worried | mangav | MAN-gav
+surprised | pharuvlo | pha-ROOV-lo
+nervous | trashado | tra-SHA-do
+proud | lašado | la-SHA-do
+lonely | korkoro | kor-KO-ro
+in love | ćhalo ando kam | CHA-lo AN-do kam
+calm | mirišto | mee-RISH-to
+embarrassed | lažado | la-ZHA-do
+jealous | jelosno | ye-LOS-no
+I am in a good mood | si man lačho ćhanda | see man LA-cho CHAN-da
+I am in a bad mood | si man bilačho ćhanda | see man bee-LA-cho CHAN-da
+## Colours
+red | lolo | LO-lo
+blue | nilaj | nee-LAY
+green | zeleno | ze-LE-no
+yellow | ćhulo | CHOO-lo
 black | kalo | KA-lo
 white | parno | PAR-no
-red | lolo | LO-lo
-## Verbs (stem)
-to do | ker- | ker
-to eat | xa- | kha
-to drink | pi- | pee
-to go | dža- | ja
-to come | av- | av
-to see | dikh- | dikh
-to say | phen- | phen
-to know | džan- | jan
-to sleep | sov- | sov
+orange | narančo | na-RAN-cho
+purple | violeto | vee-o-LE-to
+pink | rozo | RO-zo
+brown | kafeno | ka-FE-no
+grey | sivo | SEE-vo
+gold | zlatno | ZLAT-no
+dark | tunjariko | toon-YA-ree-ko
+light | ćinjardo | CHEEN-yar-do
+## Animals
+dog | džukel | JOO-kel
+cat | mačka | MACH-ka
+horse | grast | grast
+cow | gurumni | goo-ROOM-nee
+sheep | bakro | BA-kro
+chicken | papin | PA-pin
+bird | čiriklo | chee-REE-klo
+fish | mačho | MA-cho
+rabbit | šošoj | sho-SHOY
+mouse | mušina | moo-SHEE-na
+lion | leo | LE-o
+elephant | elefanto | e-le-FAN-to
+bear | rič | reech
+monkey | majmuno | may-MOO-no
+snake | sap | sap
+wolf | volko | VOL-ko
+duck | rače | RA-che
+butterfly | pirpirišni | peer-pee-REESH-nee
+spider | ćhikaj | chee-KAY
+camel | kamila | ka-MEE-la
+## Family
+mother | daj | day
+father | dad | dad
+older sister | bari pheň | BA-ree phen
+younger sister | tikni pheň | TEEK-nee phen
+older brother | baro phral | BA-ro phral
+younger brother | tikno phral | TEEK-no phral
+daughter | ćhaj | chay
+son | ćhavo | CHA-vo
+grandmother | phuri daj | POO-ree day
+grandfather | phuro dad | POO-ro dad
+aunt | mami | MA-mee
+uncle | kako | KA-ko
+husband | rom | rom
+wife | romni | ROM-nee
+friend | amal | a-MAL
+baby | bijando | bee-YAN-do
+child | ćhavoro | cha-VO-ro
+man | manuš | MA-noosh
+woman | džuvli | JOOV-lee
+## Food and drink
+bread | maro | MA-ro
+water | pani | PA-nee
+milk | thud | thood
+coffee | kafa | KA-fa
+tea | ćaj | chay
+juice | sok | sok
+yoghurt | joġurto | yo-GOOR-to
+egg | ćhandari | chan-DA-ree
+cheese | sir | seer
+meat | mas | mas
+chicken (meat) | mas pe papin | mas pe PA-pin
+fish (food) | mačho | MA-cho
+rice | ruzo | ROO-zo
+pilaf (rice dish) | pilafo | pee-LA-fo
+soup | soro | SO-ro
+salad | salata | sa-LA-ta
+potato | phabaj | pha-BAY
+tomato | domata | do-MA-ta
+onion | purum | poo-ROOM
+apple | phabaj | pha-BAY
+grape | drakha | DRA-kha
+watermelon | lubenica | loo-be-NEE-tsa
+sugar | šukaro | shoo-KA-ro
+salt | lon | lon
+## Body
+head | šero | SHE-ro
+face | muj | mooy
+eye | jakh | yakh
+ear | kan | kan
+nose | nak | nak
+mouth | muj | mooy
+tooth | dand | dand
+hand | vast | vast
+finger | angušt | an-GOOSH
+arm | vast | vast
+leg | punrro | POON-ro
+foot | punrro | POON-ro
+heart | jilo | YEE-lo
+stomach | per | per
+back | dumo | DOO-mo
+hair | bal | bal
+## Home
+house | kher | kher
+room | odaj | o-DAY
+door | vudar | VOO-dar
+window | prozori | pro-ZO-ree
+table | misali | mee-SA-lee
+chair | skamind | ska-MIND
+bed | pajta | PAYT-a
+kitchen | kuxnja | KOOKH-nya
+bathroom | baia | BA-ya
+garden | gradina | gra-DEE-na
+roof | khangeri | khan-GHEH-ree
+floor | patos | PA-tos
+wall | parete | pa-RE-te
+key | ćhavi | CHA-vee
+lamp | lampa | LAM-pa
+television | televizoro | te-le-VEE-zo-ro
+## Clothes
+shirt | gad | gad
+trousers | pantalona | pan-ta-LO-na
+clothes | ruxa | ROO-kha
+coat | ćhoxa | CHO-kha
+hat | kloposki | klo-POS-kee
+umbrella | kiša | KEE-sha
+shoes | cipa | TSEE-pa
+socks | čorapi | cho-RA-pee
+jacket | jakna | YAK-na
+scarf | šal | shal
+gloves | manuši | ma-NOO-shee
+belt | kolan | ko-LAN
+## Town
+city | foro | FO-ro
+street | vulica | VOO-lee-tsa
+shop | dukjani | doo-KYA-nee
+market | bazaro | ba-ZA-ro
+bank | banka | BAN-ka
+hospital | spitalo | spee-TA-lo
+school | škola | SHKO-la
+place of worship | khangeri | khan-GHEH-ree
+park | parko | PAR-ko
+station | stacia | STA-tsi-a
+airport | aeroporto | a-e-ro-POR-to
+bridge | pudo | POO-do
+restaurant | restoranto | res-to-RAN-to
+bus | autobuzo | ow-to-BOO-zo
+metro | metro | ME-tro
+square | trgo | TR-go
+## Time
+minute | minuta | mee-NOO-ta
+hour | ora | O-ra
+day | dive | DEE-ve
+week | kurko | KOOR-ko
+month | ćhon | chon
+year | berš | bersh
+morning | tosara | to-SA-ra
+afternoon | palal o gejo | pa-LAL o GE-yo
+evening | seara | SEH-a-ra
+night | rat | rat
+Monday | duminika | doo-MEE-nee-ka
+Tuesday | ponedelnik | po-ne-DEL-neek
+Wednesday | utorniko | oo-TOR-nee-ko
+Thursday | srida | SREE-da
+Friday | četvrtko | chet-VRT-ko
+Saturday | petko | PET-ko
+Sunday | sambata | sam-BA-ta
+## Weather and nature
+sun | kham | kham
+rain | brišind | bree-SHIND
+snow | iv | eev
+wind | balval | BAL-val
+cloud | vudar | VOO-dar
+hot | tato | TA-to
+cold | šil | sheel
+tree | rukh | rookh
+flower | luludji | loo-LOO-jee
+mountain | plajina | pla-YEE-na
+river | paj | pay
+sea | more | MO-re
+sky | asmin | AS-meen
+## Work and school
+job | buti | BOO-tee
+office | kancelaria | kan-tse-la-RI-a
+doctor | doktoro | dok-TO-ro
+engineer | inžinero | een-zhee-NE-ro
+driver | šofero | sho-FE-ro
+worker | butjari | boot-YA-ree
+boss | baro | BA-ro
+salary | plata | PLA-ta
+meeting | adunar | a-DOO-nar
+company | firma | FEER-ma
+lawyer | advokato | ad-vo-KA-to
+nurse | medicinka | me-dee-TSEEN-ka
+cook | kuxnari | kookh-NA-ree
+farmer | fermari | fer-MA-ree
+## Describing
+big | baro | BA-ro
+small | tikno | TEEK-no
+good | lačho | LA-cho
+bad | bilačho | bee-LA-cho
+new | nevo | NE-vo
+old | phuro | POO-ro
+hot (temperature) | tato | TA-to
+cold (temperature) | šil | sheel
+fast | zurales | zoo-RA-les
+slow | pomali | po-MA-lee
+easy | lešno | LESH-no
+difficult | phares | pha-RES
+beautiful | šukar | shoo-KAR
+ugly | nasul | na-SOOL
+tall | lungo | LOON-go
+short | tikno | TEEK-no
+heavy | phari | pha-REE
+light (weight) | motoro | mo-TO-ro
+expensive | skumpo | SKOOM-po
+cheap | ćiro | CHEE-ro
+## Common verbs
+to be | sas | sas
+to ask | puchel | poo-CHEL
+to go | džal | jal
+to come | avel | A-vel
+to see | dikhel | DEE-khel
+to eat | xal | khal
+to drink | pel | pel
+to sleep | sovel | SO-vel
+to speak | rakirel | ra-KEE-rel
+to know | džanel | JA-nel
+to want | kamel | KA-mel
+to give | del | del
+to take | lel | lel
+to buy | kinel | KEE-nel
+to sell | bikinel | bee-KEE-nel
+to read | genel | GE-nel
+to write | čhinel | CHEE-nel
+to work | kerel buti | KE-rel BOO-tee
+to live | beshel | BE-shel
+to love | kamel | KA-mel
+to like | pasandzol | pa-SAN-dzol
+to wait | rodel | RO-del
+to open | putrel | POO-trel
+to close | phandel | PHAN-del
+to say | phenel | PHE-nel
+## School subjects
+maths | matematika | ma-te-MA-tee-ka
+physics | fizika | FEE-zee-ka
+chemistry | kimia | KEE-mi-a
+biology | biologia | bee-o-LO-gi-a
+history | istoria | ees-TO-ri-a
+geography | geografia | ge-o-gra-FEE-a
+literature | literatura | lee-te-ra-TOO-ra
+English | angličko čhib | ang-LEE-chko chib
+Romani language | Romani čhib | RO-ma-nee chib
+Russian language | rusiko čhib | roo-SEE-ko chib
+foreign languages | aver čhiba | a-VER CHI-ba
+art | arta | AR-ta
+music | muzika | MOO-zee-ka
+PE | sport | sport
+computer science | informatika | een-for-MA-tee-ka
+economics | ekonomia | e-ko-no-MEE-a
+law | drom | drom
+philosophy | filozofia | fee-lo-zo-FEE-a
+psychology | psihologia | psee-ho-lo-GEE-a
+science | nauka | NA-oo-ka
+## Classroom
+classroom | klasa | KLA-sa
+desk | banka | BAN-ka
+board | tabla | TAB-la
+notebook | tetradka | te-TRAD-ka
+textbook | manual | ma-noo-AL
+homework | kherutni buti | ke-ROOT-nee BOO-tee
+test | test | test
+grade | nota | NO-ta
+timetable | orar | o-RAR
+break | pauza | PA-oo-za
+bell | zvono | ZVO-no
+ruler | linia | LEE-ni-a
+rubber | gumi | GOO-mee
+rucksack | rucsac | rook-SAK
+dictionary | leksikono | lek-SEE-ko-no
+question | puchipe | poo-CHEE-pe
+answer | vakeripe | va-ke-REE-pe
+mistake | greshala | GRE-sha-la
+pen | penda | PEN-da
+pencil | pencil | PEN-tseel
+## University
+university | universitato | oo-nee-ver-see-TA-to
+lecture | prelegere | pre-LE-ge-re
+professor | profesoro | pro-fe-SO-ro
+degree | diplomo | dee-PLO-mo
+scholarship | bursa | BOOR-sa
+library | bibliotek | bee-blee-o-TEK
+dormitory | kamin | KA-meen
+campus | kampus | KAM-poos
+tuition fees | taksa | TAK-sa
+semester | semestro | se-MES-tro
+course | kurso | KOOR-so
+essay | eseu | e-SE-oo
+thesis | tezo | TE-zo
+diploma | diploma | dee-PLO-ma
+seminar | seminaro | se-mee-NA-ro
+entrance exam | examen de intrare | eg-ZA-men de een-TRA-re
+application | cerere | tse-RE-re
+student card | karta de studento | KAR-ta de stoo-DEN-to
+faculty | fakultato | fa-kool-TA-to
+## School verbs
+to study | siklol | SEE-klol
+to teach | sikavel | see-KA-vel
+to ask | puchel | poo-CHEL
+to answer | dikhel | DEE-khel
+to repeat | phenel palpale | PHE-nel pal-PA-le
+to understand | haćarel | HA-cha-rel
+to remember | yakharel | ya-KHA-rel
+to forget | bistrel | BEES-trel
+to explain | phenel | PHE-nel
+to practise | kerel | KE-rel
+to pass an exam | nakhel o examen | NA-khel o eg-ZA-men
+to fail an exam | našavel o examen | na-SHA-vel o eg-ZA-men
+to write down | ćhinel tele | CHEE-nel TE-le
+to listen | šunel | SHOO-nel
+to read aloud | genel andar | GE-nel an-DAR
+to think | gindil | GEEN-dil
+to count | genel | GE-nel
+to spell | sikavel | see-KA-vel
+to translate | tradusel | tra-DOO-sel
+to graduate | agorel o skola | a-GO-rel o SKO-la
 
 [grammar]
 ## Pronouns
-> Romani verbs change by person: -av (I), -es (you), -el (he/she), -as (we), -en (you pl. and they) in the present for most verbs.
-row: I | me | meh
-row: you | tu | too
-row: he | vo | vo
+> Romani has separate subject and object forms. Subject: me, tu, vov / voj, amen, tumen, on. "Tu" is informal and "tumen" is the polite you, as well as the plural.
+row: I | me | me
+row: you (one) | tu | too
+row: he | vov | vov
 row: she | voj | voy
 row: we | amen | A-men
-row: they | von | von
-ex: I am a rom | Me som rom | meh som rom
-ex: you are a student | Tu san studento | too san stoo-DEN-to
-ex: he is a teacher | Vo si sikavno | vo see SEE-kav-no
-## Present tense (xa- to eat)
-> Take the stem and add the person ending.
+row: you (plural, polite) | tumen | TOO-men
+row: they | on | on
+ex: I am a student | me som studento | me som stoo-DEN-to
+ex: you are tall | tu san baro | too san BA-ro
+ex: she is my older sister | voj si miri bari pheň | voy see MEE-ree BA-ree phen
+ex: we are friends | amen sam amala | A-men sam a-MA-la
+ex: they are teachers | on si sikavne | on see see-KAV-ne
+## Singular and plural
+> Nouns change their ending: o ćhavo (the boy), e ćhave (the boys); i ćhaj (the girl), e ćhaja (the girls). The article is o (masculine), i (feminine), e (plural).
+row: the book | i kenvi | ee ken-VEE
+row: the books | e kenvi | e ken-VEE
+row: the child | o ćhavoro | o cha-VO-ro
+row: the children | e ćhavore | e cha-VO-re
+ex: one house, houses | jekh kher, kher | yekh kher, kher
+ex: one book, books | jekh kenvi, kenvi | yekh ken-VEE, ken-VEE
+ex: one cat, cats | jekh mačka, mačke | yekh MACH-ka, MACH-ke
+ex: two books | duj kenvi | dooy ken-VEE
+ex: the children | e ćhavore | e cha-VO-re
+## To be: som, san, si
+> Present: me som, tu san, vov / voj si, amen sam, tumen san, on si. Past: me sim, tu sian, vov sas, amen sam, tumen san, on sas.
+row: I am | me som | me som
+row: you are | tu san | too san
+row: he / she is | vov / voj si | vov / voy see
+row: we are | amen sam | A-men sam
+ex: I am a student | me som studento | me som stoo-DEN-to
+ex: you are tired | tu san thaklo | too san THAK-lo
+ex: he is a doctor | vov si doktoro | vov see dok-TO-ro
+ex: we are happy | amen sam bahtale | A-men sam bakh-TA-le
+ex: they are at home | on si ando kher | on see AN-do kher
+## Having: si man
+> Romani says "there is to me": si man. I have: si man. You have: si tut. He has: si leske. She has: si laske. We have: si amen. To say not have, use "nane": nane man.
+row: I have a car | si man mašina | see man ma-SHEE-na
+row: you have a car | si tut mašina | see toot ma-SHEE-na
+row: he has a car | si leske mašina | see LES-ke ma-SHEE-na
+row: I do not have | nane man | NA-ne man
+ex: I have an older brother | si man jekh baro phral | see man yekh BA-ro phral
+ex: I have a car | si man mašina | see man ma-SHEE-na
+ex: I do not have time | nane man vrama | NA-ne man VRA-ma
+ex: there is a problem | si jekh problema | see yekh pro-BLE-ma
+ex: there is no water | nane pani | NA-ne PA-nee
+## Present tense
+> Verbs end in -av (I), -es (you), -el (he / she), -as (we), -en (you plural / they). Example: xav, xas, xal, xas, xan. Add "kamav te" for want to.
 row: I eat | xav | khav
 row: you eat | xas | khas
-row: he eats | xal | khal
+row: he / she eats | xal | khal
 row: we eat | xas | khas
-row: they eat | xan | khan
-ex: I eat bread | Me xav maro | meh khav MA-ro
-ex: he eats meat | Vo xal mas | vo khal mas
-ex: we eat | Amen xas | A-men khas
+ex: I am eating bread | xav maro | khav MA-ro
+ex: you are reading a book | genes jekh kenvi | GE-nes yekh ken-VEE
+ex: she works in a bank | voj kerel buti ando banka | voy KE-rel BOO-tee AN-do BAN-ka
+ex: we drink tea | pijas ćaj | PEE-yas chay
+ex: they are sleeping | on sovel | on SO-vel
+## Basic sentences
+> Word order is flexible. The usual pattern is subject, verb, object. Romani has no verb "to be" in some sentences when the meaning is clear.
+ex: I read a book | genav jekh kenvi | GE-nav yekh ken-VEE
+ex: he drinks tea | vov pijel ćaj | vov PEE-yel chay
+ex: we go to school | džas ki škola | jas kee SHKO-la
+ex: they eat bread | on xan maro | on khan MA-ro
+ex: the teacher writes | o sikavno ćhinel | o see-KAV-no CHEE-nel
 ## Negation
-> Put "na" before the verb: "me na xav" (I do not eat). "Nane" means "there is not". For a command, use "ma": "ma xa" (do not eat).
-row: not | na | na
-row: there is not | nane | NA-neh
-row: do not (command) | ma | ma
-ex: I eat | Me xav | meh khav
-ex: I do not eat | Me na xav | meh na khav
-ex: eat! | Xa! | kha
-ex: do not eat! | Ma xa! | ma kha
+> Put "na" before the verb: me na xav (I do not eat). For "there is not", use "nane". Never use na after a negative word: khanči (nothing), ni jekh (nobody).
+row: I do not eat | me na xav | me na khav
+row: I do not know | me na žanav | me na ZHA-nav
+row: there is not | nane | NA-ne
+row: nothing | khanči | KHAN-chee
+ex: I want | kamav | KA-mav
+ex: I do not want | na kamav | na KA-mav
+ex: I speak English | rakirav anglikanes | ra-KEE-rav ang-LEE-ka-nes
+ex: I do not speak English | na rakirav anglikanes | na ra-KEE-rav ang-LEE-ka-nes
+ex: I like it | pasandzol man | pa-SAN-dzol man
+ex: I do not like it | na pasandzol man | na pa-SAN-dzol man
+ex: she is here | voj si kathe | voy see KA-te
+ex: she is not here | voj nane kathe | voy NA-ne KA-te
+ex: I have a car | si man mašina | see man ma-SHEE-na
+ex: I do not have a car | nane man mašina | NA-ne man ma-SHEE-na
+ex: I understand | haćarav | HA-cha-rav
+ex: I do not understand | na haćarav | na HA-cha-rav
+ex: we are tired | sam thakle | sam THAK-le
+ex: we are not tired | na sam thakle | na sam THAK-le
+ex: he works on Sundays | vov kerel buti duminika | vov KE-rel BOO-tee doo-MEE-nee-ka
+ex: he does not work on Sundays | vov na kerel buti duminika | vov na KE-rel BOO-tee doo-MEE-nee-ka
+## Asking questions
+> Questions have no special word order. Raise your voice at the end. You can also start with "ma" or put a question word in front.
+row: is this your book? | si kava ćiri kenvi? | see KA-va CHEE-ree ken-VEE
+row: are they here? | si on kathe? | see on KA-te
+ex: is this your book? | si kava ćiri kenvi? | see KA-va CHEE-ree ken-VEE
+ex: are they here? | si on kathe? | see on KA-te
+ex: do you like tea? | pasandzol tut o ćaj? | pa-SAN-dzol toot o chay
+ex: is it cold? | si šilalo? | see shee-LA-lo
+ex: do you speak English? | rakires anglikanes? | ra-KEE-res ang-LEE-ka-nes
+## Question words
+> so (what), kon (who), kaj (where), kana (when), sostar (why), sar (how), sode (how much), savo (which).
+row: what | so | so
+row: who | kon | kon
+row: where | kaj | kay
+row: when | kana | KA-na
+row: why | sostar | SOS-tar
+row: how | sar | sar
+row: how much | sode | SO-de
+row: which | savo | SA-vo
+ex: what is your name? | sar akhardol tuke? | sar a-khar-DOL TOO-ke
+ex: who is he? | kon si vov? | kon see vov
+ex: where do you live? | kaj bešes? | kay BE-shes
+ex: when is the lesson? | kana si i lekcia? | KA-na see ee LEK-tsi-a
+ex: why are you late? | sostar san ko pheder? | SOS-tar san ko phe-DER
+ex: how much is it? | sode kerel? | SO-de ke-REL
+ex: which book? | savi kenvi? | SA-vee ken-VEE
+## Possessives and liking
+> Possessives agree with the thing owned: miro (my, masculine), miri (my, feminine), mire (my, plural). Same for tiro (your), leskero (his), lakero (her), amaro (our), tumaro (your plural), lengero (their).
+row: my | miro / miri | MEE-ro / MEE-ree
+row: your | tiro / tiri | TEE-ro / TEE-ree
+row: his | leskero / leskeri | LES-ke-ro
+row: our | amaro / amari | a-MA-ro
+ex: my phone | miro telefono | MEE-ro te-le-FO-no
+ex: your house (formal) | tumaro kher | too-MA-ro kher
+ex: his sister | leskeri pheň | LES-ke-ree phen
+ex: I like music | kamav i muzika | KA-mav ee MOO-zee-ka
+ex: I love football | kamav o futbal | KA-mav o FOOT-bal
+## Formal vs informal
+> Romani uses "tu" for one friend and "tumen" for respect or many people. The verb also changes: tu san (you are), tumen san (you, polite). It is respectful to use tumen with elders.
+row: you (informal) | tu | too
+row: you (formal) | tumen | TOO-men
+ex: how are you? (informal) | sar san? | sar san
+ex: how are you? (formal) | sar san tumen? | sar san TOO-men
+ex: where are you going? (informal) | kaj džas? | kay JAS
+ex: where are you going? (formal) | kaj džan tumen? | kay jan TOO-men
+ex: please sit down (formal) | beshen, mangav tumen | BE-shen, MAN-gav TOO-men
+## Past and future (simple)
+> Past: add -ahm, -an, -as, -am, -an, -e. Example: kerdem (I did), kerdan (you did), kerdas (he did). Future: add -a to the verb: kerava (I will do), kereha (you will).
+row: I did | kerdem | KER-dem
+row: you did | kerdan | KER-dan
+row: he did | kerdas | KER-das
+row: I will do | kerava | ke-RA-va
+ex: yesterday I was tired | kerdivěs sim thaklo | ker-DEE-vyes seem THAK-lo
+ex: I will study tomorrow | tehara sikljovava | te-HA-ra see-klyo-VA-va
+ex: we went to the park | geleam ando parko | ge-LEAM AN-do PAR-ko
+ex: I saw him | dikhlem les | DEEKH-lem les
+ex: she wrote a letter | voj ćhindas jekh vudar | voy CHIN-das yekh VOO-dar
+## Commands
+> Command to one person: use the root of the verb (ač, dža). To several, add -en (ačen, džan). To forbid, say "ma" plus the verb: ma ač (do not stay).
+row: come | av | av
+row: go | dža | ja
+row: sit | beš | besh
+row: do not | ma | ma
+ex: come here | av kathe | av KA-te
+ex: do not come here | ma av kathe | ma av KA-te
+ex: sit down | beš tele | besh TE-le
+ex: do not sit down | ma beš tele | ma besh TE-le
+ex: be quiet | ačh ćipo | ach CHEE-po
+ex: do not be late | ma avel ko pheder | ma A-vel ko phe-DER
+ex: open the door | putar o vudar | poo-TAR o VOO-dar
+ex: close the window | phand o prozori | phand o pro-ZO-ree
+ex: listen to me | šun man | shoon man
+ex: do not worry | ma daraj | ma da-RAY
+ex: speak slowly | rakir pomali | ra-KEER po-MA-lee
+ex: wait a moment | ažutav tut jekh minuta | a-ZHOO-tav toot yekh mee-NOO-ta
+## Can, must, want
+> Can: šaj + verb. Cannot: našti + verb. Must: trubul te or mušaj te. Want: kamav te + verb.
+row: can | šaj | shay
+row: cannot | našti | NASH-tee
+row: must | mušaj | MOO-shay
+row: want to | kamav te | KA-mav te
+ex: I can swim | šaj nuvav | shay noo-VAV
+ex: I cannot swim | našti nuvav | NASH-tee noo-VAV
+ex: can you help me? | šaj ažutis man? | shay a-ZHOO-tis man
+ex: we must go | mušaj te džas | MOO-shay te jas
+ex: we must not go | na mušaj te džas | na MOO-shay te jas
+ex: I want to eat | kamav te xav | KA-mav te khav
+ex: I do not want to eat | na kamav te xav | na KA-mav te khav
+ex: you can come | šaj aves | shay A-ves
+ex: you cannot come | našti aves | NASH-tee A-ves
+ex: she wants to study | voj kamel te siklol | voy KA-mel te SEE-klol
+ex: I must work today | mušaj te kerav buti adaleske | MOO-shay te KE-rav BOO-tee a-da-LES-ke
+ex: you must not run | na mušaj te našes | na MOO-shay te NA-shes
+## In, on, at
+> Romani uses endings and little words: ando (in), pe (on), tel (under), paš (next to), pašal (near), ko (at / to), anglal (in front of).
+row: in | ando | AN-do
+row: on | pe | pe
+row: under | tel | tel
+row: next to | paš | pash
+ex: the book is on the table | i kenvi si pe skamind | ee ken-VEE see pe ska-MIND
+ex: the cat is under the table | i mačka si tel o skamind | ee MACH-ka see tel o ska-MIND
+ex: I am at school | som ki škola | som kee SHKO-la
+ex: I am at home | som ando kher | som AN-do kher
+ex: the shop is next to the bank | o dukjani si paš e banka | o doo-KYA-nee see pash e BAN-ka
+ex: the park is near the station | o parko si paš i stacia | o PAR-ko see pash ee STA-tsi-a
+ex: we meet in the morning | dikhas amen ando tosara | DEE-khas A-men AN-do to-SA-ra
+ex: the lesson is at nine | i lekcia si ko enja | ee LEK-tsi-a see ko EN-ya
+ex: the key is in the bag | o ćavi si ando tasko | o CHA-vee see AN-do TAS-ko
+## Comparing things
+> Add "maj" (more) before an adjective: maj baro (bigger). The most is "sa maj" (maj baro anda sa). Than is "sar".
+row: big | baro | BA-ro
+row: bigger | maj baro | may BA-ro
+row: the biggest | o maj baro | o may BA-ro
+row: than | sar | sar
+ex: big, bigger, the biggest | baro, maj baro, o maj baro | BA-ro, may BA-ro, o may BA-ro
+ex: small, smaller, the smallest | tikno, maj tikno, o maj tikno | TEEK-no, may TEEK-no, o may TEEK-no
+ex: this is better than that | kava si maj lačho sar kova | KA-va see may LA-cho sar KO-va
+ex: this is worse than that | kava si maj bilačho sar kova | KA-va see may bee-LA-cho sar KO-va
+ex: she is taller than me | voj si maj bari sar me | voy see may BA-ree sar me
+ex: Tashkent is bigger than Samarkand | o Tashkent si maj baro sar o Samarkand | o tash-KENT see may BA-ro sar o sa-mar-KAND
+ex: it is the cheapest | si o maj lešno | see o may LESH-no
+ex: the same as | sar | sar
+## Everyday sentences
+> Simple sentences are the best way to start. Use only the words you know and add more later.
+ex: he is a teacher | vov si sikavno | vov see see-KAV-no
+ex: you (plural) are students | tumen san studenti | TOO-men san stoo-DEN-tee
+ex: I am happy | som bahtalo | som bakh-TA-lo
+ex: she is at school | voj si ki škola | voy see kee SHKO-la
+ex: you are my friend | tu san miro amal | too san MEE-ro a-MAL
+ex: it is cold | si šil | see sheel
+ex: I study English | siklovav anglikanes | see-klo-VAV ang-LEE-ka-nes
+ex: he teaches maths | vov sikavel matematika | vov see-KA-vel ma-te-MA-tee-ka
+ex: they work every day | on keren buti sako dive | on KE-ren BOO-tee SA-ko DEE-ve
+ex: my phone | miro telefono | MEE-ro te-le-FO-no
+ex: please sit down (formal) | beshen, mangav tumen | BE-shen, MAN-gav TOO-men
+ex: yesterday I was tired | kerdivěs sim thaklo | ker-DEE-vyes seem THAK-lo
+ex: I will study tomorrow | tehara sikljovava | te-HA-ra see-klyo-VA-va
+ex: we went to the park | geleam ando parko | ge-LEAM AN-do PAR-ko
+ex: what time is it? | so ora si? | so O-ra see
+ex: whose book is this? | kasqiri kenvi si kava? | ka-SKEE-ree ken-VEE see KA-va
+ex: is this your book? | si kava ćiri kenvi? | see KA-va CHEE-ree ken-VEE
+ex: are they here? | si on kathe? | see on KA-te
+ex: do you like tea? | pasandzol tut o ćaj? | pa-SAN-dzol toot o chay
+ex: how old are you? | sode berša si tut? | SO-de BER-sha see toot
+ex: how do you say it? | sar phenes les? | sar PHE-nes les
+ex: your book (formal) | tumari kenvi | too-MA-ree ken-VEE
+ex: their house | lengero kher | LEN-ge-ro kher
+ex: excuse me, sir | mafi, raja | MA-fee, RA-ya
+ex: come here (informal) | av kathe | av KA-te
