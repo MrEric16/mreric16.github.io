@@ -114,7 +114,7 @@ def main():
               ('Arabic and Hebrew', ['khl', 'he']), ('Persian', ['fa', 'tg']), ('South Asia', ['hi', 'ur']),
               ('East Asia', ['ja', 'ko']), ('Southeast Asia', ['th', 'vi', 'id']), ('Africa', ['sw', 'yo', 'xh', 'am']),
               ('More languages', ['mn', 'mi', 'eu', 'eo', 'cy', 'ga', 'haw', 'jam']),
-              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'got', 'cu', 'rom', 'shk', 'tok', 'sjn'])]
+              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'got', 'cu', 'rom', 'shk', 'tok', 'sjn', 'val', 'nav'])]
     pos = {}
     for gi, (gn, ids) in enumerate(GROUPS):
         for i, x in enumerate(ids): pos[x] = (gi, i, gn)

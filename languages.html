@@ -163,6 +163,11 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-sc{font-size:22px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;}
 @font-face{font-family:LgMong;src:url(data/lang/fonts/NotoSansMongolian.woff2) format('woff2');font-display:swap}
 .lg-mong{font-family:LgMong,sans-serif;font-weight:400;writing-mode:vertical-lr;max-height:9em;overflow-x:auto;overflow-y:hidden;line-height:1.5;margin:4px 0;}
+.lg-det{margin-bottom:10px;}
+.lg-det>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--card);border-radius:14px;padding:14px 16px;font-weight:800;font-size:16px;box-shadow:0 2px 0 rgba(58,42,30,.08);}
+.lg-det>summary::-webkit-details-marker{display:none;}
+.lg-det>summary i{font-style:normal;font-size:12px;font-weight:700;color:var(--ink-soft);}
+.lg-det[open]>summary{margin-bottom:10px;}
 .lg-grp{font-size:13px;font-weight:800;color:var(--ink-soft);margin:18px 4px 8px;text-transform:uppercase;letter-spacing:.06em;}
 .lg-flag{border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.18);flex:none;object-fit:cover;}
 .lg-opt{white-space:pre-line;}
@@ -318,15 +323,40 @@ function sounds(L){
     '<div class="lg-tbl">' + (S.rows || []).map(function(r){ return '<div class="lg-row"><b>' + esc(r[0]) + '</b><span>' + esc(r[1]) + (r[2] ? '<i> ' + esc(r[2]) + '</i>' : '') + '</span></div>'; }).join('') + '</div>' +
     (S.notes ? '<div class="v-hint" style="margin-top:12px;">' + S.notes.map(esc).join('<br>') + '</div>' : '');
 }
+var BUCKETS = {
+  vocab: [['Work and money',/work|office|job|money|shops|technology|society/],['Study',/school|classroom|university|exam|study|academic/],['Verbs',/\bverbs?\b/],['Food and drink',/fruit|vegetable|meat|meals|drinks|kitchen|^food/],['People and body',/family|body|feelings|appearance|life and|health|clothes/],['Home and town',/home|furniture|bathroom|town|directions/],['Travel and world',/transport|travel|countr|nationalit|geograph|holiday/],['Nature and animals',/animal|bird|plant|weather|environment/],['Fun',/sport|hobb|music/],['Time, colours, shapes',/time|months|shapes|materials|colour/],['Describing and small words',/describ|opposite|question|preposition|conjunction/]],
+  phrases: [['Health and problems',/health|doctor|problem|emergency/],['Out and about',/getting around|eating|shopping|hotel|restaurant|directions/],['Talking',/chatting|small talk|opinion|agree|plans|phone|classroom/],['Basics',/essential|formal|survival|useful|apolog|compliment|frequency|dates/]],
+  grammar: [['Verbs and tenses',/tense|past|future|verb|to be|to have|to go|\bbe\b|can, must|command/],['Questions and negatives',/question|negat|asking/],['Basics',/./]]
+};
+function bucketOf(sec, title){
+  var t = title.toLowerCase(), b = BUCKETS[sec] || [];
+  for(var i = 0; i < b.length; i++){ if(b[i][1].test(t)) return b[i][0]; }
+  return sec === 'grammar' ? 'Basics' : 'More';
+}
+var OPENB = {};
 function section(L, sec){
   var title = SECS.filter(function(s){ return s[0] === sec; })[0][1];
   if(sec === 'sounds') return sounds(L);
   if(sec === 'test') return testPicker(L);
   var gs = secGroups(L, sec);
   if(gs.length === 1 && sec !== 'grammar') return group(L, sec, gs[0].id, true);
-  app.innerHTML = back('#l/' + L.id, L.name) + head(title) + '<div class="sport-hub-grid">' + gs.map(function(g){
-    var G = L.groups[g.gid], sub = G ? counts(L, G.items) + ' / ' + G.items.length : '';
-    return tile('#l/' + L.id + '/' + sec + '/' + g.id, g.title, sub); }).join('') + '</div>';
+  function t(g){ var G = L.groups[g.gid], sub = G ? counts(L, G.items) + ' / ' + G.items.length : '';
+    return tile('#l/' + L.id + '/' + sec + '/' + g.id, g.title, sub); }
+  var body = '', all = [];
+  gs.forEach(function(g){ if(L.groups[g.gid]) all = all.concat(L.groups[g.gid].items); });
+  if(gs.length <= 8 || !BUCKETS[sec]){ body = '<div class="sport-hub-grid">' + gs.map(t).join('') + '</div>'; }
+  else {
+    var order = [], map = {};
+    gs.forEach(function(g){ var b = bucketOf(sec, g.title); if(!map[b]){ map[b] = []; order.push(b); } map[b].push(g); });
+    var want = OPENB[L.id + sec];
+    body = (all.length >= 4 ? '<div class="v-row" style="margin-bottom:12px;"><button class="v-btn" id="qAll">Quiz everything</button></div>' : '') +
+      order.map(function(b){
+        var its = []; map[b].forEach(function(g){ if(L.groups[g.gid]) its = its.concat(L.groups[g.gid].items); });
+        return '<details class="lg-det"' + (want === b ? ' open' : '') + '><summary><span>' + esc(b) + '</span><i>' + counts(L, its) + ' / ' + its.length + '</i></summary><div class="sport-hub-grid">' + map[b].map(t).join('') + '</div></details>';
+      }).join('');
+  }
+  app.innerHTML = back('#l/' + L.id, L.name) + head(title) + body;
+  var qa = document.getElementById('qAll'); if(qa) qa.onclick = function(){ quiz(L, all, '#l/' + L.id + '/' + sec, title); };
 }
 function rowsHtml(items, p){
   return '<div class="lg-list">' + items.map(function(it){
@@ -335,6 +365,7 @@ function rowsHtml(items, p){
 }
 function group(L, sec, gid, single){
   var G = L.groups[sec + '.' + gid]; if(!G) return home(L);
+  OPENB[L.id + sec] = bucketOf(sec, G.title);
   var p = prog(L.id), n = counts(L, G.items);
   app.innerHTML = back(single ? '#l/' + L.id : '#l/' + L.id + '/' + sec, single ? L.name : SECS.filter(function(s){ return s[0] === sec; })[0][1]) + head(G.title) +
     (G.note ? '<div class="v-hint">' + esc(G.note) + '</div>' : '') + '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
