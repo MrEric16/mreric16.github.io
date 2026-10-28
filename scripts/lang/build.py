@@ -19,7 +19,7 @@ def parse(path):
     for n, raw in enumerate(open(path, encoding='utf-8'), 1):
         line = raw.rstrip('\n')
         if not line.strip() or line.startswith('//'): continue
-        m = re.match(r'^(NAME|ID|BADGE|NOTE|FLAG|SCRIPT):\s*(.*)$', line)
+        m = re.match(r'^(NAME|ID|BADGE|NOTE|FLAG|SCRIPT|DROP):\s*(.*)$', line)
         if m and sec is None: L[m.group(1).lower()] = m.group(2).strip(); continue
         m = re.match(r'^\[(\w+)\]$', line.strip())
         if m:
@@ -80,8 +80,18 @@ def script_map(L, path):
     return missing
 def main():
     os.makedirs(OUT, exist_ok=True); idx = []
-    for f in sorted([x for x in glob.glob(os.path.join(SRC, '*.txt')) if not x.endswith('.script.txt') and '.add' not in os.path.basename(x)]):
+    for f in sorted([x for x in glob.glob(os.path.join(SRC, '*.txt')) if not x.endswith('.script.txt') and not x.endswith('.num.txt') and '.add' not in os.path.basename(x)]):
         L = parse(f)
+        nf = f[:-4] + '.num.txt'
+        if os.path.exists(nf):
+            N = parse(nf)
+            drop = {x.strip() for x in (N.get('drop') or '').split(',') if x.strip()}
+            new_ids = {g['id'] for g in N['numbers']}
+            pos0 = next((k for k, g in enumerate(L['numbers']) if g['id'] in drop or g['id'] in new_ids), None)
+            keep = [g for g in L['numbers'] if g['id'] not in drop and g['id'] not in new_ids]
+            if pos0 is None: pos0 = next((k for k, g in enumerate(keep) if g['id'] == 'order-and-amounts'), len(keep))
+            else: pos0 = len([g for g in L['numbers'][:pos0] if g['id'] not in drop and g['id'] not in new_ids])
+            L['numbers'] = keep[:pos0] + N['numbers'] + keep[pos0:]
         for g in ('numbers', 'greetings', 'phrases', 'vocab'):
             ids = [x['id'] for x in L[g]]
             assert len(ids) == len(set(ids)), (f, g, 'duplicate group')
@@ -98,12 +108,13 @@ def main():
         idx.append({'id': L['id'], 'name': L['name'], 'flag': L.get('flag', ''), 'script': bool(L.get('script')), 'count': cnt})
         print(L['id'], cnt)
     GROUPS = [('', ['uz']), ('Romance', ['es', 'pt', 'fr', 'it', 'ro']),
-              ('Europe', ['de', 'nl', 'sv', 'pl', 'uk', 'cs', 'lv', 'lt', 'hu', 'fi', 'el']),
+              ('Germanic', ['de', 'nl']), ('Nordic', ['sv', 'fi']), ('Slavic', ['pl', 'cs', 'uk']),
+              ('Baltic', ['lv', 'lt']), ('Greek and Hungarian', ['el', 'hu']),
               ('Turkic', ['tr', 'az', 'kk', 'ky', 'ug', 'tt']), ('Caucasus', ['ka', 'hy']),
-              ('Middle East and India', ['khl', 'fa', 'tg', 'ur', 'he', 'hi']),
-              ('East and Southeast Asia', ['ja', 'ko', 'th', 'vi', 'id']), ('Africa', ['sw', 'yo', 'xh', 'am']),
-              ('More languages', ['mn', 'mi', 'eu', 'eo']),
-              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'shk', 'cy', 'ga', 'haw', 'rom', 'jam', 'tok', 'sjn', 'got', 'cu'])]
+              ('Arabic and Hebrew', ['khl', 'he']), ('Persian', ['fa', 'tg']), ('South Asia', ['hi', 'ur']),
+              ('East Asia', ['ja', 'ko']), ('Southeast Asia', ['th', 'vi', 'id']), ('Africa', ['sw', 'yo', 'xh', 'am']),
+              ('More languages', ['mn', 'mi', 'eu', 'eo', 'cy', 'ga', 'haw', 'jam']),
+              ('Niche and historic', ['la', 'grc', 'egy', 'sa', 'ine', 'arc', 'chg', 'cmn', 'non', 'ang', 'got', 'cu', 'rom', 'shk', 'tok', 'sjn'])]
     pos = {}
     for gi, (gn, ids) in enumerate(GROUPS):
         for i, x in enumerate(ids): pos[x] = (gi, i, gn)
