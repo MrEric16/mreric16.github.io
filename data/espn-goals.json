@@ -1,6 +1,80 @@
 {
- "generatedAt": "2026-10-29T19:05:13.263112Z",
+ "generatedAt": "2026-10-29T23:27:15.264097Z",
  "results": [
+  {
+   "url": "espn:401874976",
+   "date": "2026-10-29",
+   "utc": "2026-10-29T17:30Z",
+   "home": "Frosinone",
+   "away": "Lecce",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 5,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Cichella",
+     "minute": 25
+    },
+    {
+     "scorer": "G. Calo (pen)",
+     "minute": "45+1"
+    },
+    {
+     "scorer": "A. Raimondo",
+     "minute": 59
+    },
+    {
+     "scorer": "D. Birligea",
+     "minute": 72
+    },
+    {
+     "scorer": "D. Birligea",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Joel Monteiro",
+     "minute": 82
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874969",
+   "date": "2026-10-29",
+   "utc": "2026-10-29T19:45Z",
+   "home": "Fiorentina",
+   "away": "Atalanta",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "A. Njie",
+     "minute": 53
+    },
+    {
+     "scorer": "João Mário",
+     "minute": 61
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "C. De Ketelaere",
+     "minute": 41
+    },
+    {
+     "scorer": "N. Zalewski",
+     "minute": 74
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401874993",
    "date": "2026-10-28",
