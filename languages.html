@@ -165,6 +165,8 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-mong{font-family:LgMong,sans-serif;font-weight:400;writing-mode:vertical-lr;max-height:9em;overflow-x:auto;overflow-y:hidden;line-height:1.5;margin:4px 0;}
 .lg-spk{display:none;background:none;border:0;color:var(--ink-soft);cursor:pointer;padding:4px;vertical-align:middle;align-items:center;}
 body.tts-on .lg-spk{display:inline-flex;}
+.lg-spd{display:none;position:fixed;right:12px;bottom:12px;z-index:50;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#ccc);background:var(--cream);color:var(--ink,#222);font-weight:700;cursor:pointer;}
+body.tts-on .lg-spd{display:block;}
 .lg-it{position:relative;}
 .lg-it>.lg-spk{position:absolute;top:8px;right:10px;}
 .lg-novoice{display:block;margin:8px 0;}
@@ -326,10 +328,18 @@ function ttsVoice(id){
 }
 function ttsSync(){ document.body.classList.toggle('tts-on', !!ttsVoice(CURID)); }
 function speakText(t){ return String(t).replace(/\s*\([^)]*\)/g, '').replace(/\s*\/\s*/g, ', ').trim(); }
+var SPDS = [1, .75, .5];
+(function(){ var b = document.createElement('button'); b.className = 'lg-spd'; b.type = 'button'; b.setAttribute('aria-label', 'Speed'); document.body.appendChild(b); setTimeout(function(){ b.textContent = spdLabel(); }, 0); })();
+function spd(){ var v = +lsGet('lang_spd', 1); return SPDS.indexOf(v) >= 0 ? v : 1; }
+function spdLabel(){ return spd() + '\u00d7'; }
+document.addEventListener('click', function(e){
+  var b = e.target.closest && e.target.closest('.lg-spd'); if(!b) return;
+  e.preventDefault(); var n = SPDS[(SPDS.indexOf(spd()) + 1) % SPDS.length]; lsSet('lang_spd', n); b.textContent = spdLabel();
+});
 function say(texts){
   var v = ttsVoice(CURID); if(!v) return;
   speechSynthesis.cancel();
-  [].concat(texts).forEach(function(t){ var u = new SpeechSynthesisUtterance(speakText(t)); u.voice = v; u.lang = v.lang; u.rate = .85; speechSynthesis.speak(u); });
+  [].concat(texts).forEach(function(t){ var u = new SpeechSynthesisUtterance(speakText(t)); u.voice = v; u.lang = v.lang; u.rate = spd(); speechSynthesis.speak(u); });
 }
 function spk(t){ return '<button class="lg-spk" data-say="' + esc(t) + '" aria-label="Play">' + SPK_SVG + '</button>'; }
 var SAYALL = [];
@@ -506,7 +516,7 @@ function rdGen(P){
 }
 function paraText(P, p, g){ return p.t.replace(/\{(\d)\}/g, function(m, d){ return P.f[+d - 1].s[g.vals[+d - 1]]; }); }
 function paraHtml(P, p, g, hi){
-  return '<p class="rd-p"><b class="rd-l">' + p.l + '</b>' + p.t.split(/(\{\d\})/).map(function(x){
+  return '<p class="rd-p">' + p.t.split(/(\{\d\})/).map(function(x){
     var m = /^\{(\d)\}$/.exec(x); if(!m) return esc(x);
     var k = +m[1] - 1, sn = esc(P.f[k].s[g.vals[k]]); return hi ? '<mark>' + sn + '</mark>' : sn; }).join('') + '</p>';
 }
@@ -523,11 +533,11 @@ function readPassage(L, pid, sec){
       return '<div class="rd-q"><div class="rd-qh"><b>' + (i + 1) + '</b> ' + esc(f.q) + '</div>' + q.perm.map(function(vi, j){
         var c = 'rd-o' + (ans[i] === j ? ' sel' : '') + (done && j === q.a ? ' ok' : '') + (done && ans[i] === j && j !== q.a ? ' bad' : '');
         return '<button class="' + c + '" data-q="' + i + '" data-o="' + j + '"' + (done ? ' disabled' : '') + '><b>' + LET[j] + '</b> ' + esc(f.o[vi]) + '</button>'; }).join('') +
-        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + 'Paragraph ' + where(i) + ': “' + esc(f.s[g.vals[i]]) + '”</div>' : '') + '</div>'; }).join('');
+        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + '“' + esc(f.s[g.vals[i]]) + '”</div>' : '') + '</div>'; }).join('');
     var score = P.f.filter(function(f, i){ return ans[i] === g.qs[i].a; }).length;
     var listenBtn = '<button class="v-btn lg-spk" data-all="1" style="margin-bottom:10px;">' + SPK_SVG + ' Play</button>';
     var passBody = listen && !done ? listenBtn + '<div class="v-hint lg-novoice">No voice on this device</div>' : (listenBtn + P.paras.map(function(p){ return paraHtml(P, p, g, done); }).join(''));
-    app.innerHTML = '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' • ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.f.length) + '</span></div>' +
+    app.innerHTML = back(list, listen ? 'Listening' : 'Reading') + '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' • ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.f.length) + '</span></div>' +
       '<div class="rd-wrap"><div class="rd-pass v-card"><h3 class="rd-h">' + esc(P.title) + '</h3>' + passBody + '</div>' +
       '<div class="rd-qs v-card"><h3 class="rd-h">Questions 1 to ' + P.f.length + '</h3><div class="v-sub">Choose the correct letter, A, B, C or D.</div>' +
       (done ? '<div class="v-big" style="margin:10px 0;">' + score + ' / ' + P.f.length + '</div>' : '') + qh +
@@ -538,7 +548,7 @@ function readPassage(L, pid, sec){
       var sc = P.f.filter(function(x, i){ return ans[i] === g.qs[i].a; }).length, b = rdBest(L.id, sec), prev = b[P.id] || 0;
       if(sc > prev){ b[P.id] = sc; lsSet(rdKey(L.id, sec), b); if(window.LoungeSync && LoungeSync.markDirty) LoungeSync.markDirty(); award(sc - prev, 'language'); }
       draw(); window.scrollTo(0, 0); };
-    var a = document.getElementById('rdAgain'); if(a) a.onclick = function(){ g = rdGen(P); ans = []; done = false; draw(); window.scrollTo(0, 0); };
+    var a = document.getElementById('rdAgain'); if(a) a.onclick = function(){ if(listen){ var all = (L.reading || []).filter(function(x){ return x.id !== P.id; }); location.hash = '#l/' + L.id + '/' + sec + '/' + all[Math.floor(Math.random() * all.length)].id; return; } g = rdGen(P); ans = []; done = false; draw(); window.scrollTo(0, 0); };
   }
   draw();
 }

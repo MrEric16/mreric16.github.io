@@ -1,7 +1,6 @@
 ## r1 | Über mich
-A: {1} Ich wohne in einer kleinen Wohnung im Stadtzentrum.
-B: {2} {3}
-C: Ich mag Musik. {4} Ich habe auch eine Katze. {5}
+A: {1} Ich wohne in einer kleinen Wohnung im Stadtzentrum. Meine Wohnung ist ruhig und hell. {2} {3}
+B: Ich mag Musik. {4} Ich habe auch eine Katze. {5} Ich mag mein Leben sehr.
 1.0: Ich bin 20 Jahre alt.
 1.1: Ich bin 25 Jahre alt.
 1.2: Ich bin 30 Jahre alt.
@@ -23,10 +22,8 @@ C: Ich mag Musik. {4} Ich habe auch eine Katze. {5}
 5.2: Sie ist grau.
 5.3: Sie ist schwarz.
 ## r2 | Mein Tag
-A: {1} {2}
-B: {3} Der Unterricht beginnt um zehn.
-C: {4}
-D: Wir essen um sieben Uhr zu Abend. {5}
+A: {1} {2} Dann ziehe ich mich an und nehme meine Tasche. {3} Der Unterricht beginnt um zehn.
+B: {4} Wir essen um sieben Uhr zu Abend. {5} Es ist ein normaler Tag, aber er gefällt mir.
 1.0: Ich stehe um sechs Uhr auf.
 1.1: Ich stehe um sieben Uhr auf.
 1.2: Ich stehe um acht Uhr auf.
@@ -48,10 +45,8 @@ D: Wir essen um sieben Uhr zu Abend. {5}
 5.2: Ich gehe um elf Uhr ins Bett.
 5.3: Ich gehe um Mitternacht ins Bett.
 ## r3 | Auf dem Markt
-A: {1} {2} Wir gehen zu Fuß.
-B: {3} Wir kaufen auch Brot.
-C: Mein Lieblingsstand gehört einem alten Mann. {4}
-D: Um elf Uhr gehen wir nach Hause. {5}
+A: {1} {2} Wir gehen zu Fuß. Der Markt ist groß und voller Menschen. {3} Wir kaufen auch Brot.
+B: Mein Lieblingsstand gehört einem alten Mann. {4} Um elf Uhr gehen wir nach Hause. {5} Ich mag den Markt sehr.
 1.0: Am Sonntagmorgen gehe ich mit meiner Mutter auf den Markt.
 1.1: Am Freitagabend gehe ich mit meiner Mutter auf den Markt.
 1.2: Am Samstagabend gehe ich mit meiner Mutter auf den Markt.
@@ -73,10 +68,8 @@ D: Um elf Uhr gehen wir nach Hause. {5}
 5.2: Zu Hause sehe ich fern.
 5.3: Zu Hause mache ich meine Hausaufgaben.
 ## r4 | Meine Familie
-A: {1} Meine Familie ist klein und glücklich.
-B: {2} {3}
-C: {4} Er zeichnet gern.
-D: Meine Oma wohnt bei uns. {5} Ihr Essen ist köstlich.
+A: {1} Meine Familie ist klein und glücklich. Wir sind gern zusammen. {2} {3}
+B: {4} Er zeichnet gern. Meine Oma wohnt bei uns. {5} Ihr Essen ist köstlich. Ich habe meine Familie lieb.
 1.0: Wir wohnen in einer Wohnung.
 1.1: Wir wohnen in einem Haus.
 1.2: Wir wohnen in einem Dorf.
@@ -98,10 +91,8 @@ D: Meine Oma wohnt bei uns. {5} Ihr Essen ist köstlich.
 5.2: Sie kocht samstags.
 5.3: Sie kocht sonntags.
 ## r5 | Ein Ausflug
-A: {1} Wir haben den frühen Zug genommen. {2}
-B: {3} Wir sind viel gewandert und haben viele Fotos gemacht. {4}
-C: Am Nachmittag waren wir weit weg von der Stadt. {5}
-D: Wir waren sehr spät zu Hause. Wir waren müde, aber glücklich.
+A: {1} Wir haben den frühen Zug genommen. {2} Wir haben uns sehr auf den Ausflug gefreut. {3} Wir sind viel gewandert und haben viele Fotos gemacht. {4}
+B: Am Nachmittag waren wir weit weg von der Stadt. {5} Wir waren sehr spät zu Hause. Wir waren müde, aber glücklich. Es war ein guter Tag.
 1.0: Letzten Samstag bin ich mit zwei Freunden in die Berge gefahren.
 1.1: Letzten Samstag bin ich mit drei Freunden in die Berge gefahren.
 1.2: Letzten Samstag bin ich mit vier Freunden in die Berge gefahren.
@@ -123,10 +114,8 @@ D: Wir waren sehr spät zu Hause. Wir waren müde, aber glücklich.
 5.2: Wir haben ein Taxi genommen, weil der Bus voll war.
 5.3: Wir haben ein Taxi genommen, weil der Zug ausgefallen ist.
 ## r6 | Eine Einladung
-A: Hallo! Ich schreibe dir, um dich zu meiner Geburtstagsfeier einzuladen. {1}
-B: {2} {3}
-C: {4} Ich möchte, dass du meinen Cousin kennenlernst.
-D: {5} Der letzte Bus fährt früh, also kannst du hier übernachten.
+A: Hallo! Ich schreibe dir, um dich zu meiner Geburtstagsfeier einzuladen. {1} Es kommen viele Freunde. {2} {3}
+B: {4} Ich möchte, dass du meinen Cousin kennenlernst. {5} Der letzte Bus fährt früh, also kannst du hier übernachten. Ich hoffe, du kannst kommen.
 1.0: Die Feier ist nächsten Freitagabend.
 1.1: Die Feier ist nächsten Samstagnachmittag.
 1.2: Die Feier ist nächsten Sonntagvormittag.
@@ -148,10 +137,8 @@ D: {5} Der letzte Bus fährt früh, also kannst du hier übernachten.
 5.2: Sag mir bis Mittwoch, ob du kommen kannst.
 5.3: Sag mir morgen, ob du kommen kannst.
 ## r7 | Meine Stadt
-A: {1} {2}
-B: {3}
-C: {4}
-D: {5}
+A: {1} {2} Es ist ein schöner Ort. {3}
+B: {4} {5} Ich wohne gern hier.
 1.0: Ich wohne in einer großen Stadt.
 1.1: Ich wohne in einer kleinen Stadt.
 1.2: Ich wohne in einem Dorf.
@@ -173,9 +160,8 @@ D: {5}
 5.2: Die Leute in meiner Stadt sind ruhig.
 5.3: Die Leute in meiner Stadt sind lustig.
 ## r8 | Mein Zuhause
-A: {1} {2}
-B: {3}
-C: {4} {5}
+A: {1} {2} Es ist eine schöne Wohnung. {3}
+B: {4} {5} Ich fühle mich zu Hause wohl.
 1.0: Meine Wohnung hat zwei Zimmer.
 1.1: Meine Wohnung hat drei Zimmer.
 1.2: Meine Wohnung hat vier Zimmer.
@@ -197,9 +183,8 @@ C: {4} {5}
 5.2: In meinem Schlafzimmer habe ich einen neuen Computer.
 5.3: In meinem Schlafzimmer habe ich eine alte Gitarre.
 ## r9 | Mein Freund
-A: Ich habe einen guten Freund. {1} {2}
-B: {3} {4}
-C: {5} Wir haben immer Spaß.
+A: Ich habe einen guten Freund. {1} {2} Er ist sehr nett. {3} {4}
+B: {5} Wir haben immer Spaß. Ich habe Glück mit ihm.
 1.0: Er ist 18 Jahre alt.
 1.1: Er ist 20 Jahre alt.
 1.2: Er ist 22 Jahre alt.
@@ -221,10 +206,8 @@ C: {5} Wir haben immer Spaß.
 5.2: Wir treffen uns samstags.
 5.3: Wir treffen uns jeden Monat.
 ## r10 | Im Café
-A: Heute bin ich im Café. {1}
-B: {2} {3}
-C: {4}
-D: {5} Es ist ein schöner Tag.
+A: Heute bin ich im Café. {1} Es ist ein ruhiger Ort. {2} {3}
+B: {4} {5} Es ist ein schöner Tag. Ich mag dieses Café.
 1.0: Ich bin mit meiner Schwester hier.
 1.1: Ich bin mit meinem Freund hier.
 1.2: Ich bin mit meiner Mutter hier.
@@ -246,10 +229,8 @@ D: {5} Es ist ein schöner Tag.
 5.2: Ich bezahle mit dem Handy.
 5.3: Wir bezahlen jeder die Hälfte.
 ## r11 | Die letzten Ferien
-A: {1} {2}
-B: {3} Es waren tolle Ferien.
-C: {4}
-D: {5} Ich möchte wieder hinfahren.
+A: {1} {2} Wir waren sehr aufgeregt. {3} Es waren tolle Ferien.
+B: {4} {5} Ich möchte wieder hinfahren. Ich werde es nie vergessen.
 1.0: Letzten Sommer sind wir ans Meer gefahren.
 1.1: Letzten Sommer sind wir in die Berge gefahren.
 1.2: Letzten Sommer sind wir in eine große Stadt gefahren.
@@ -271,9 +252,8 @@ D: {5} Ich möchte wieder hinfahren.
 5.2: Das Beste waren die Leute.
 5.3: Das Beste war das Hotel.
 ## r12 | Mein Stundenplan
-A: {1} {2}
-B: {3} {4}
-C: {5} Ich mag meine Schule.
+A: {1} {2} Ich habe jeden Tag sechs Stunden. {3} {4}
+B: {5} Ich mag meine Schule. Ich lerne dort viel.
 1.0: Am Montag habe ich in der ersten Stunde Mathe.
 1.1: Am Montag habe ich in der ersten Stunde Englisch.
 1.2: Am Montag habe ich in der ersten Stunde Geschichte.

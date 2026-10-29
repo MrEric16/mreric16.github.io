@@ -1,7 +1,6 @@
 ## r1 | À propos de moi
-A: {1} J'habite dans un petit appartement au centre-ville.
-B: {2} {3}
-C: J'aime la musique. {4} J'ai aussi un chat. {5}
+A: {1} J'habite dans un petit appartement au centre-ville. Mon appartement est calme et lumineux. {2} {3}
+B: J'aime la musique. {4} J'ai aussi un chat. {5} J'aime beaucoup ma vie.
 1.0: J'ai 20 ans.
 1.1: J'ai 25 ans.
 1.2: J'ai 30 ans.
@@ -23,10 +22,8 @@ C: J'aime la musique. {4} J'ai aussi un chat. {5}
 5.2: Il est gris.
 5.3: Il est noir.
 ## r2 | Ma journée
-A: {1} {2}
-B: {3} Les cours commencent à dix heures.
-C: {4}
-D: Nous dînons à sept heures. {5}
+A: {1} {2} Ensuite, je m'habille et je prends mon sac. {3} Les cours commencent à dix heures.
+B: {4} Nous dînons à sept heures. {5} C'est un jour normal, mais je l'aime bien.
 1.0: Je me lève à six heures.
 1.1: Je me lève à sept heures.
 1.2: Je me lève à huit heures.
@@ -48,10 +45,8 @@ D: Nous dînons à sept heures. {5}
 5.2: Je me couche à onze heures.
 5.3: Je me couche à minuit.
 ## r3 | Au marché
-A: {1} {2} Nous y allons à pied.
-B: {3} Nous achetons aussi du pain.
-C: Mon étal préféré est celui d'un vieux monsieur. {4}
-D: Nous rentrons à onze heures. {5}
+A: {1} {2} Nous y allons à pied. Le marché est grand et plein de monde. {3} Nous achetons aussi du pain.
+B: Mon étal préféré est celui d'un vieux monsieur. {4} Nous rentrons à onze heures. {5} J'aime beaucoup le marché.
 1.0: Le dimanche matin, je vais au marché avec ma mère.
 1.1: Le vendredi soir, je vais au marché avec ma mère.
 1.2: Le samedi soir, je vais au marché avec ma mère.
@@ -73,10 +68,8 @@ D: Nous rentrons à onze heures. {5}
 5.2: À la maison, je regarde la télé.
 5.3: À la maison, je fais mes devoirs.
 ## r4 | Ma famille
-A: {1} Ma famille est petite et heureuse.
-B: {2} {3}
-C: {4} Il aime dessiner.
-D: Ma grand-mère habite avec nous. {5} Sa cuisine est délicieuse.
+A: {1} Ma famille est petite et heureuse. Nous aimons être ensemble. {2} {3}
+B: {4} Il aime dessiner. Ma grand-mère habite avec nous. {5} Sa cuisine est délicieuse. J'aime ma famille.
 1.0: Nous habitons dans un appartement.
 1.1: Nous habitons dans une maison.
 1.2: Nous habitons dans un village.
@@ -98,10 +91,8 @@ D: Ma grand-mère habite avec nous. {5} Sa cuisine est délicieuse.
 5.2: Elle cuisine le samedi.
 5.3: Elle cuisine le dimanche.
 ## r5 | Une excursion
-A: {1} Nous avons pris le train tôt. {2}
-B: {3} Nous avons beaucoup marché et pris beaucoup de photos. {4}
-C: L'après-midi, nous étions loin de la ville. {5}
-D: Nous sommes rentrés très tard. Nous étions fatigués, mais contents.
+A: {1} Nous avons pris le train tôt. {2} Nous étions très contents de partir. {3} Nous avons beaucoup marché et pris beaucoup de photos. {4}
+B: L'après-midi, nous étions loin de la ville. {5} Nous sommes rentrés très tard. Nous étions fatigués, mais contents. C'était une bonne journée.
 1.0: Samedi dernier, je suis allé à la montagne avec deux amis.
 1.1: Samedi dernier, je suis allé à la montagne avec trois amis.
 1.2: Samedi dernier, je suis allé à la montagne avec quatre amis.
@@ -123,10 +114,8 @@ D: Nous sommes rentrés très tard. Nous étions fatigués, mais contents.
 5.2: Nous avons pris un taxi parce que le bus était plein.
 5.3: Nous avons pris un taxi parce que le train était annulé.
 ## r6 | Une invitation
-A: Salut ! Je t'écris pour t'inviter à ma fête d'anniversaire. {1}
-B: {2} {3}
-C: {4} Je veux que tu rencontres mon cousin.
-D: {5} Le dernier bus part tôt, donc tu peux dormir chez moi.
+A: Salut ! Je t'écris pour t'inviter à ma fête d'anniversaire. {1} Beaucoup d'amis viennent. {2} {3}
+B: {4} Je veux que tu rencontres mon cousin. {5} Le dernier bus part tôt, donc tu peux dormir chez moi. J'espère que tu pourras venir.
 1.0: La fête est vendredi prochain, le soir.
 1.1: La fête est samedi prochain, l'après-midi.
 1.2: La fête est dimanche prochain, le matin.
@@ -148,10 +137,8 @@ D: {5} Le dernier bus part tôt, donc tu peux dormir chez moi.
 5.2: Dis-moi avant mercredi si tu peux venir.
 5.3: Dis-moi demain si tu peux venir.
 ## r7 | Ma ville
-A: {1} {2}
-B: {3}
-C: {4}
-D: {5}
+A: {1} {2} C'est un endroit agréable. {3}
+B: {4} {5} J'aime vivre ici.
 1.0: J'habite dans une grande ville.
 1.1: J'habite dans une petite ville.
 1.2: J'habite dans un village.
@@ -173,9 +160,8 @@ D: {5}
 5.2: Les gens de ma ville sont calmes.
 5.3: Les gens de ma ville sont drôles.
 ## r8 | Ma maison
-A: {1} {2}
-B: {3}
-C: {4} {5}
+A: {1} {2} C'est un bel appartement. {3}
+B: {4} {5} Je me sens bien chez moi.
 1.0: Mon appartement a deux pièces.
 1.1: Mon appartement a trois pièces.
 1.2: Mon appartement a quatre pièces.
@@ -197,9 +183,8 @@ C: {4} {5}
 5.2: Dans ma chambre, j'ai un nouvel ordinateur.
 5.3: Dans ma chambre, j'ai une vieille guitare.
 ## r9 | Mon ami
-A: J'ai un bon ami. {1} {2}
-B: {3} {4}
-C: {5} Nous nous amusons toujours.
+A: J'ai un bon ami. {1} {2} Il est très gentil. {3} {4}
+B: {5} Nous nous amusons toujours. J'ai de la chance de l'avoir.
 1.0: Il a 18 ans.
 1.1: Il a 20 ans.
 1.2: Il a 22 ans.
@@ -221,10 +206,8 @@ C: {5} Nous nous amusons toujours.
 5.2: Nous nous voyons le samedi.
 5.3: Nous nous voyons tous les mois.
 ## r10 | Au café
-A: Aujourd'hui, je suis au café. {1}
-B: {2} {3}
-C: {4}
-D: {5} C'est une belle journée.
+A: Aujourd'hui, je suis au café. {1} C'est un endroit calme. {2} {3}
+B: {4} {5} C'est une belle journée. J'aime ce café.
 1.0: Je suis avec ma sœur.
 1.1: Je suis avec mon ami.
 1.2: Je suis avec ma mère.
@@ -246,10 +229,8 @@ D: {5} C'est une belle journée.
 5.2: Je paie avec mon téléphone.
 5.3: Nous payons chacun la moitié.
 ## r11 | Les dernières vacances
-A: {1} {2}
-B: {3} C'étaient de superbes vacances.
-C: {4}
-D: {5} Je veux y retourner.
+A: {1} {2} Nous étions très enthousiastes. {3} C'étaient de superbes vacances.
+B: {4} {5} Je veux y retourner. Je ne l'oublierai jamais.
 1.0: L'été dernier, nous sommes allés à la mer.
 1.1: L'été dernier, nous sommes allés à la montagne.
 1.2: L'été dernier, nous sommes allés dans une grande ville.
@@ -271,9 +252,8 @@ D: {5} Je veux y retourner.
 5.2: Le meilleur, c'étaient les gens.
 5.3: Le meilleur, c'était l'hôtel.
 ## r12 | Mon emploi du temps
-A: {1} {2}
-B: {3} {4}
-C: {5} J'aime mon école.
+A: {1} {2} J'ai six cours par jour. {3} {4}
+B: {5} J'aime mon école. J'y apprends beaucoup.
 1.0: Le lundi, mon premier cours est les maths.
 1.1: Le lundi, mon premier cours est l'anglais.
 1.2: Le lundi, mon premier cours est l'histoire.

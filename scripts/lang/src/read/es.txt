@@ -1,7 +1,6 @@
 ## r1 | Sobre mí
-A: {1} Vivo en un piso pequeño en el centro de la ciudad.
-B: {2} {3}
-C: Me gusta la música. {4} También tengo un gato. {5}
+A: {1} Vivo en un piso pequeño en el centro de la ciudad. Mi piso es tranquilo y luminoso. {2} {3}
+B: Me gusta la música. {4} También tengo un gato. {5} Me gusta mucho mi vida.
 1.0: Tengo 20 años.
 1.1: Tengo 25 años.
 1.2: Tengo 30 años.
@@ -23,10 +22,8 @@ C: Me gusta la música. {4} También tengo un gato. {5}
 5.2: Es gris.
 5.3: Es negro.
 ## r2 | Mi día
-A: {1} {2}
-B: {3} Las clases empiezan a las diez.
-C: {4}
-D: Cenamos a las siete. {5}
+A: {1} {2} Luego me visto y tomo mi mochila. {3} Las clases empiezan a las diez.
+B: {4} Cenamos a las siete. {5} Es un día normal, pero me gusta.
 1.0: Me levanto a las seis.
 1.1: Me levanto a las siete.
 1.2: Me levanto a las ocho.
@@ -48,10 +45,8 @@ D: Cenamos a las siete. {5}
 5.2: Me acuesto a las once.
 5.3: Me acuesto a medianoche.
 ## r3 | En el mercado
-A: {1} {2} Vamos a pie.
-B: {3} También compramos pan.
-C: Mi puesto favorito es el de un señor mayor. {4}
-D: Volvemos a casa a las once. {5}
+A: {1} {2} Vamos a pie. El mercado es grande y está lleno de gente. {3} También compramos pan.
+B: Mi puesto favorito es el de un señor mayor. {4} Volvemos a casa a las once. {5} Me gusta mucho el mercado.
 1.0: El domingo por la mañana voy al mercado con mi madre.
 1.1: El viernes por la tarde voy al mercado con mi madre.
 1.2: El sábado por la tarde voy al mercado con mi madre.
@@ -73,10 +68,8 @@ D: Volvemos a casa a las once. {5}
 5.2: En casa veo la tele.
 5.3: En casa hago los deberes.
 ## r4 | Mi familia
-A: {1} Mi familia es pequeña y feliz.
-B: {2} {3}
-C: {4} Le gusta dibujar.
-D: Mi abuela vive con nosotros. {5} Su comida es deliciosa.
+A: {1} Mi familia es pequeña y feliz. Nos gusta estar juntos. {2} {3}
+B: {4} Le gusta dibujar. Mi abuela vive con nosotros. {5} Su comida es deliciosa. Quiero mucho a mi familia.
 1.0: Vivimos en un piso.
 1.1: Vivimos en una casa.
 1.2: Vivimos en un pueblo.
@@ -98,10 +91,8 @@ D: Mi abuela vive con nosotros. {5} Su comida es deliciosa.
 5.2: Cocina los sábados.
 5.3: Cocina los domingos.
 ## r5 | Una excursión
-A: {1} Tomamos el tren temprano. {2}
-B: {3} Caminamos mucho y sacamos muchas fotos. {4}
-C: Por la tarde estábamos lejos del pueblo. {5}
-D: Llegamos a casa muy tarde. Estábamos cansados, pero contentos.
+A: {1} Tomamos el tren temprano. {2} Estábamos muy contentos de ir. {3} Caminamos mucho y sacamos muchas fotos. {4}
+B: Por la tarde estábamos lejos del pueblo. {5} Llegamos a casa muy tarde. Estábamos cansados, pero contentos. Fue un buen día.
 1.0: El sábado pasado fui a la montaña con dos amigos.
 1.1: El sábado pasado fui a la montaña con tres amigos.
 1.2: El sábado pasado fui a la montaña con cuatro amigos.
@@ -123,10 +114,8 @@ D: Llegamos a casa muy tarde. Estábamos cansados, pero contentos.
 5.2: Tomamos un taxi porque el autobús estaba lleno.
 5.3: Tomamos un taxi porque cancelaron el tren.
 ## r6 | Una invitación
-A: ¡Hola! Te escribo para invitarte a mi fiesta de cumpleaños. {1}
-B: {2} {3}
-C: {4} Quiero que conozcas a mi primo.
-D: {5} El último autobús sale temprano, así que puedes quedarte a dormir.
+A: ¡Hola! Te escribo para invitarte a mi fiesta de cumpleaños. {1} Vienen muchos amigos. {2} {3}
+B: {4} Quiero que conozcas a mi primo. {5} El último autobús sale temprano, así que puedes quedarte a dormir. Espero que puedas venir.
 1.0: La fiesta es el viernes que viene por la tarde.
 1.1: La fiesta es el sábado que viene por la tarde.
 1.2: La fiesta es el domingo que viene por la mañana.
@@ -148,10 +137,8 @@ D: {5} El último autobús sale temprano, así que puedes quedarte a dormir.
 5.2: Dime antes del miércoles si puedes venir.
 5.3: Dime mañana si puedes venir.
 ## r7 | Mi ciudad
-A: {1} {2}
-B: {3}
-C: {4}
-D: {5}
+A: {1} {2} Es un lugar bonito. {3}
+B: {4} {5} Me gusta vivir aquí.
 1.0: Vivo en una ciudad grande.
 1.1: Vivo en una ciudad pequeña.
 1.2: Vivo en un pueblo.
@@ -173,9 +160,8 @@ D: {5}
 5.2: La gente de mi ciudad es tranquila.
 5.3: La gente de mi ciudad es divertida.
 ## r8 | Mi casa
-A: {1} {2}
-B: {3}
-C: {4} {5}
+A: {1} {2} Es un piso bonito. {3}
+B: {4} {5} Me siento bien en casa.
 1.0: Mi piso tiene dos habitaciones.
 1.1: Mi piso tiene tres habitaciones.
 1.2: Mi piso tiene cuatro habitaciones.
@@ -197,9 +183,8 @@ C: {4} {5}
 5.2: En mi dormitorio tengo un ordenador nuevo.
 5.3: En mi dormitorio tengo una guitarra vieja.
 ## r9 | Mi amigo
-A: Tengo un buen amigo. {1} {2}
-B: {3} {4}
-C: {5} Siempre nos divertimos.
+A: Tengo un buen amigo. {1} {2} Es muy amable. {3} {4}
+B: {5} Siempre nos divertimos. Tengo suerte de tenerlo.
 1.0: Tiene 18 años.
 1.1: Tiene 20 años.
 1.2: Tiene 22 años.
@@ -221,10 +206,8 @@ C: {5} Siempre nos divertimos.
 5.2: Nos vemos los sábados.
 5.3: Nos vemos todos los meses.
 ## r10 | En la cafetería
-A: Hoy estoy en la cafetería. {1}
-B: {2} {3}
-C: {4}
-D: {5} Es un buen día.
+A: Hoy estoy en la cafetería. {1} Es un lugar tranquilo. {2} {3}
+B: {4} {5} Es un buen día. Me gusta esta cafetería.
 1.0: Estoy con mi hermana.
 1.1: Estoy con mi amigo.
 1.2: Estoy con mi madre.
@@ -246,10 +229,8 @@ D: {5} Es un buen día.
 5.2: Pago con el móvil.
 5.3: Pagamos a medias.
 ## r11 | Las últimas vacaciones
-A: {1} {2}
-B: {3} Fueron unas vacaciones estupendas.
-C: {4}
-D: {5} Quiero volver.
+A: {1} {2} Estábamos muy emocionados. {3} Fueron unas vacaciones estupendas.
+B: {4} {5} Quiero volver. Nunca lo olvidaré.
 1.0: El verano pasado fuimos al mar.
 1.1: El verano pasado fuimos a la montaña.
 1.2: El verano pasado fuimos a una ciudad grande.
@@ -271,9 +252,8 @@ D: {5} Quiero volver.
 5.2: Lo mejor fue la gente.
 5.3: Lo mejor fue el hotel.
 ## r12 | Mi horario
-A: {1} {2}
-B: {3} {4}
-C: {5} Me gusta mi colegio.
+A: {1} {2} Tengo seis clases cada día. {3} {4}
+B: {5} Me gusta mi colegio. Aprendo mucho allí.
 1.0: El lunes mi primera clase es matemáticas.
 1.1: El lunes mi primera clase es inglés.
 1.2: El lunes mi primera clase es historia.
