@@ -1,19 +1,6 @@
 {
-  "generatedAt": "2026-10-29T17:21:48.795132Z",
+  "generatedAt": "2026-10-29T21:55:39.225476Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/le-havre-vs-angers/Gcinf7cXVOCH1fQudLHEs",
-      "date": null,
-      "home": "Le Havre",
-      "away": "Angers",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/paris-fc-vs-lyon/lqhG09o58lfMZBZ_YCS2E",
       "date": null,
@@ -7860,6 +7847,37 @@
         }
       ],
       "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/fiorentina-vs-atalanta/2-A16YFNPtBGezH8jFu0o",
+      "date": "2026-10-29",
+      "home": "Fiorentina",
+      "away": "Atalanta",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "A. Njie",
+          "minute": 53
+        },
+        {
+          "scorer": "Joao Mario",
+          "minute": 61
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "C. De Ketelaere",
+          "minute": 41
+        },
+        {
+          "scorer": "N. Zalewski",
+          "minute": 74
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7873,6 +7891,7 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
+    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1
   }
 }
