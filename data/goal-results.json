@@ -1,24 +1,6 @@
 {
-  "generatedAt": "2026-10-29T04:25:01.998784Z",
+  "generatedAt": "2026-10-29T11:01:21.540055Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/auxerre-vs-nice/YI2BsKoXJ7Kcqb6wxR2FR",
-      "date": null,
-      "home": "Auxerre",
-      "away": "Nice",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "C. Archer",
-          "minute": 74
-        }
-      ],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/lorient-vs-toulouse/tS8HDdj-vLkFUizCk6BUY",
       "date": null,
@@ -7843,6 +7825,45 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/bayern-munich-vs-magdeburg/ZyHINUOg5ngOA_xd3l9iI",
+      "date": "2026-10-28",
+      "home": "Bayern Munich",
+      "away": "Magdeburg",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 6,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "M. Olise",
+          "minute": 10
+        },
+        {
+          "scorer": "I. Saibari",
+          "minute": 21
+        },
+        {
+          "scorer": "A. Davies",
+          "minute": 70
+        },
+        {
+          "scorer": "N. Brown",
+          "minute": 73
+        },
+        {
+          "scorer": "D. Santos Daiber",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Zukowski",
+          "minute": 15
+        }
+      ],
+      "competition": "bayern-munich"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7857,7 +7878,6 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/bayern-munich-vs-magdeburg/ZyHINUOg5ngOA_xd3l9iI": 2,
-    "https://www.goal.com/en/match/lazio-vs-ac-milan/mm8P_b7I991fgmrhJ6EAV": 1
+    "https://www.goal.com/en/match/lazio-vs-ac-milan/mm8P_b7I991fgmrhJ6EAV": 2
   }
 }
