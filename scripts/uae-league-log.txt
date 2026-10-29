@@ -29,5 +29,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Dhafra -1.0 away=Kalba -1.0
 [uae-tsdb] UNMAPPED team name: 'Jazira Abu Dhabi'
 [uae-tsdb] UNMAPPED team name: 'Al Nasr Dubai'
-[uae-365] verified current
+[uae-365] 1 fixture(s) overdue with no result; NOT advancing generatedAt
 [uae-365] wrote data/uae-league-live.json: 42 results, 49 fixtures, 0 new
