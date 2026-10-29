@@ -163,6 +163,12 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-sc{font-size:22px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;}
 @font-face{font-family:LgMong;src:url(data/lang/fonts/NotoSansMongolian.woff2) format('woff2');font-display:swap}
 .lg-mong{font-family:LgMong,sans-serif;font-weight:400;writing-mode:vertical-lr;max-height:9em;overflow-x:auto;overflow-y:hidden;line-height:1.5;margin:4px 0;}
+.lg-spk{display:none;background:none;border:0;color:var(--ink-soft);cursor:pointer;padding:4px;vertical-align:middle;align-items:center;}
+body.tts-on .lg-spk{display:inline-flex;}
+.lg-it{position:relative;}
+.lg-it>.lg-spk{position:absolute;top:8px;right:10px;}
+.lg-novoice{display:block;margin:8px 0;}
+body.tts-on .lg-novoice{display:none;}
 .rd-wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;}
 .rd-pass,.rd-qs{padding:16px 18px;text-align:left;}
 @media (min-width:821px){.rd-pass,.rd-qs{max-height:calc(100vh - 150px);overflow:auto;}}
@@ -269,7 +275,7 @@ function headF(title, f){ return '<div class="section-head" style="margin-top:8p
 function hash32(s){ var h = 5381; for(var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; } return (h >>> 0).toString(36); }
 
 var HUB_BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
-var SECS = [['sounds','Sounds'],['numbers','Numbers'],['greetings','Greetings'],['phrases','Phrases'],['vocab','Vocabulary'],['grammar','Grammar'],['reading','Reading'],['test','Test']];
+var SECS = [['sounds','Sounds'],['numbers','Numbers'],['greetings','Greetings'],['phrases','Phrases'],['vocab','Vocabulary'],['grammar','Grammar'],['reading','Reading'],['listening','Listening'],['test','Test']];
 var INDEX = null, cache = {}, quizDir = 'mix';
 
 /* ---- progress: lang_<id> = { itemHash: box 0..5 }, merged across devices by max ---- */
@@ -308,6 +314,30 @@ function disp(o){ return o.t + (o.sc && CURID !== 'cmn' ? '\n' + o.sc : ''); }
 function scCls(){ return CURID === 'cmn' ? 'lg-sc lg-mong' : 'lg-sc'; }
 function bar(p){ return '<div class="v-bar"><i style="width:' + Math.round(p) + '%"></i></div>'; }
 
+/* ---- audio: browser voices, only when the device has a voice for exactly this language and region ---- */
+var VOICE = { es: 'es-ES', fr: 'fr-FR', de: 'de-DE', it: 'it-IT', uk: 'uk-UA' };
+var SPK_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>';
+function ttsVoice(id){
+  var tag = VOICE[id]; if(!tag || !window.speechSynthesis) return null;
+  var vs = speechSynthesis.getVoices() || [];
+  for(var i = 0; i < vs.length; i++){ if(String(vs[i].lang || '').replace('_', '-').toLowerCase() === tag.toLowerCase()) return vs[i]; }
+  return null;
+}
+function ttsSync(){ document.body.classList.toggle('tts-on', !!ttsVoice(CURID)); }
+function speakText(t){ return String(t).replace(/\s*\([^)]*\)/g, '').replace(/\s*\/\s*/g, ', ').trim(); }
+function say(texts){
+  var v = ttsVoice(CURID); if(!v) return;
+  speechSynthesis.cancel();
+  [].concat(texts).forEach(function(t){ var u = new SpeechSynthesisUtterance(speakText(t)); u.voice = v; u.lang = v.lang; u.rate = .85; speechSynthesis.speak(u); });
+}
+function spk(t){ return '<button class="lg-spk" data-say="' + esc(t) + '" aria-label="Play">' + SPK_SVG + '</button>'; }
+var SAYALL = [];
+if(window.speechSynthesis){ try{ speechSynthesis.addEventListener('voiceschanged', ttsSync); }catch(e){} }
+document.addEventListener('click', function(e){
+  var b = e.target.closest && e.target.closest('.lg-spk'); if(!b) return;
+  e.preventDefault(); if(b.hasAttribute('data-all')) say(SAYALL); else say(b.getAttribute('data-say'));
+});
+
 /* ---- views ---- */
 function hub(){
   var p = lsGet('xp.dev', null);
@@ -328,8 +358,8 @@ function home(L){
   app.innerHTML = back('#', 'Back to languages') + headF(L.name, flagOf(L.id)) +
     '<div class="v-meta"><span>' + learned + ' / ' + L.items.length + ' learned</span></div>' + bar(L.items.length ? learned * 100 / L.items.length : 0) +
     '<div class="sport-hub-grid">' + SECS.filter(function(s){
-      if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; return (L[s[0]] || []).length; }).map(function(s){
-      var sub = ''; if(s[0] !== 'sounds' && s[0] !== 'test'){ var its = []; secGroups(L, s[0]).forEach(function(g){ if(L.groups[g.gid]) its = its.concat(L.groups[g.gid].items); }); if(its.length) sub = counts(L, its) + ' / ' + its.length; }
+      if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; if(s[0] === 'listening') return VOICE[L.id] && (L.reading || []).length; return (L[s[0]] || []).length; }).map(function(s){
+      var sub = ''; if(s[0] !== 'sounds' && s[0] !== 'test' && s[0] !== 'reading' && s[0] !== 'listening'){ var its = []; secGroups(L, s[0]).forEach(function(g){ if(L.groups[g.gid]) its = its.concat(L.groups[g.gid].items); }); if(its.length) sub = counts(L, its) + ' / ' + its.length; }
       return tile('#l/' + L.id + '/' + s[0], s[1], sub); }).join('') + '</div>';
 }
 function sounds(L){
@@ -353,7 +383,7 @@ function section(L, sec){
   var title = SECS.filter(function(s){ return s[0] === sec; })[0][1];
   if(sec === 'sounds') return sounds(L);
   if(sec === 'test') return testPicker(L);
-  if(sec === 'reading') return readList(L);
+  if(sec === 'reading' || sec === 'listening') return readList(L, sec);
   var gs = secGroups(L, sec);
   if(gs.length === 1 && sec !== 'grammar') return group(L, sec, gs[0].id, true);
   function t(g){ var G = L.groups[g.gid], sub = G ? counts(L, G.items) + ' / ' + G.items.length : '';
@@ -377,7 +407,7 @@ function section(L, sec){
 function rowsHtml(items, p){
   return '<div class="lg-list">' + items.map(function(it){
     var ok = (p[it.k] || 0) >= 3;
-    return '<div class="lg-it' + (ok ? ' on' : '') + '"><div class="lg-en">' + esc(it.en) + '</div><div class="lg-t">' + esc(it.t) + '</div>' + (it.sc ? '<div class="' + scCls() + '">' + esc(it.sc) + '</div>' : '') + (it.s ? '<div class="lg-s">' + esc(it.s) + '</div>' : '') + '</div>'; }).join('') + '</div>';
+    return '<div class="lg-it' + (ok ? ' on' : '') + '">' + spk(it.t) + '<div class="lg-en">' + esc(it.en) + '</div><div class="lg-t">' + esc(it.t) + '</div>' + (it.sc ? '<div class="' + scCls() + '">' + esc(it.sc) + '</div>' : '') + (it.s ? '<div class="lg-s">' + esc(it.s) + '</div>' : '') + '</div>'; }).join('') + '</div>';
 }
 function group(L, sec, gid, single){
   var G = L.groups[sec + '.' + gid]; if(!G) return home(L);
@@ -437,7 +467,7 @@ function quiz(L, items, backHash, title){
     if(i >= qs.length) return end();
     var q = qs[i];
     app.innerHTML = back(backHash, 'Quit') + '<div class="v-meta"><span>' + esc(title) + '</span><span>' + (i + 1) + ' / ' + qs.length + '</span></div>' + bar(i * 100 / qs.length) +
-      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.name) : esc(L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
+      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.name) : esc(L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
       '<div class="v-opts">' + q.opts.map(function(o, n){ return '<button class="v-opt lg-opt" data-n="' + n + '">' + esc(o) + '</button>'; }).join('') + '</div><div id="fb"></div>';
     var done = false;
     Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(b){ b.onclick = function(){
@@ -446,7 +476,7 @@ function quiz(L, items, backHash, title){
       if(ok){ score++; if(box < 5) xp++; setBox(L.id, q.it.k, Math.min(5, box + 1)); } else { missed.push(q.it); if(window.LoungeAmend) LoungeAmend.add(q.it.t + (q.it.sc ? ' ' + q.it.sc : ''), q.it.en + (q.it.s ? '  \u2022  ' + q.it.s : ''), L.name); setBox(L.id, q.it.k, Math.max(0, box - 1)); }
       Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(x){ var v = q.opts[+x.getAttribute('data-n')]; if(v === q.ans) x.classList.add('ok'); else if(x === b) x.classList.add('bad'); });
       var show2 = q.f ? q.it.t + (q.it.sc ? '  \u2022  ' + q.it.sc : '') + (q.it.s ? '  •  ' + q.it.s : '') : q.it.en;
-      document.getElementById('fb').innerHTML = '<div class="v-hint" style="font-size:14px;">' + (ok ? 'Correct. ' : 'Answer: ') + esc(show2) + '</div><button class="v-btn" id="nx">' + (i + 1 < qs.length ? 'Next' : 'Finish') + '</button>';
+      document.getElementById('fb').innerHTML = '<div class="v-hint" style="font-size:14px;">' + (ok ? 'Correct. ' : 'Answer: ') + esc(show2) + '</div>' + spk(q.it.t) + '<button class="v-btn" id="nx">' + (i + 1 < qs.length ? 'Next' : 'Finish') + '</button>';
       document.getElementById('nx').onclick = function(){ i++; show(); };
     }; });
   }
@@ -460,44 +490,52 @@ function quiz(L, items, backHash, title){
   show();
 }
 
-/* ---- reading: A1-A2 texts built from random facts, so every attempt is a new text ---- */
-function rdBest(id){ return lsGet('lang_rd_' + id, {}); }
-function readList(L){
-  var R = L.reading || [], b = rdBest(L.id);
-  app.innerHTML = back('#l/' + L.id, L.name) + head('Reading') + '<div class="sport-hub-grid">' + R.map(function(p){
-    var sc = b[p.id]; return tile('#l/' + L.id + '/reading/' + p.id, p.title, p.lv + ' \u2022 ' + p.en + (sc != null ? ' \u2022 best ' + sc + ' / ' + p.f.length : '')); }).join('') + '</div>';
+/* ---- reading and listening: A1-A2 texts built from random facts, so every attempt is a new text ---- */
+function rdKey(id, sec){ return (sec === 'listening' ? 'lang_ls_' : 'lang_rd_') + id; }
+function rdBest(id, sec){ return lsGet(rdKey(id, sec), {}); }
+function readList(L, sec){
+  sec = sec || 'reading'; var R = L.reading || [], b = rdBest(L.id, sec);
+  app.innerHTML = back('#l/' + L.id, L.name) + head(sec === 'listening' ? 'Listening' : 'Reading') + (sec === 'listening' ? '<div class="v-hint lg-novoice">No voice on this device</div>' : '') + '<div class="sport-hub-grid">' + R.map(function(p){
+    var sc = b[p.id]; return tile('#l/' + L.id + '/' + sec + '/' + p.id, p.title, p.lv + ' • ' + p.en + (sc != null ? ' • best ' + sc + ' / ' + p.f.length : '')); }).join('') + '</div>';
 }
 function rdGen(P){
   var vals = P.f.map(function(){ return Math.floor(Math.random() * 4); });
   var qs = P.f.map(function(f, i){ var perm = shuffle([0, 1, 2, 3]); return { perm: perm, a: perm.indexOf(vals[i]) }; });
   return { vals: vals, qs: qs };
 }
+function paraText(P, p, g){ return p.t.replace(/\{(\d)\}/g, function(m, d){ return P.f[+d - 1].s[g.vals[+d - 1]]; }); }
 function paraHtml(P, p, g, hi){
   return '<p class="rd-p"><b class="rd-l">' + p.l + '</b>' + p.t.split(/(\{\d\})/).map(function(x){
     var m = /^\{(\d)\}$/.exec(x); if(!m) return esc(x);
     var k = +m[1] - 1, sn = esc(P.f[k].s[g.vals[k]]); return hi ? '<mark>' + sn + '</mark>' : sn; }).join('') + '</p>';
 }
-function readPassage(L, pid){
-  var P = (L.reading || []).filter(function(x){ return x.id === pid; })[0]; if(!P) return readList(L);
-  var g = rdGen(P), ans = [], done = false, LET = ['A', 'B', 'C', 'D'];
+function readPassage(L, pid, sec){
+  sec = sec || 'reading'; var listen = sec === 'listening';
+  var P = (L.reading || []).filter(function(x){ return x.id === pid; })[0]; if(!P) return readList(L, sec);
+  var g = rdGen(P), ans = [], done = false, LET = ['A', 'B', 'C', 'D'], list = '#l/' + L.id + '/' + sec;
+  function sayAll(){ SAYALL = P.paras.map(function(p){ return paraText(P, p, g); }); }
   function where(k){ for(var i = 0; i < P.paras.length; i++){ if(P.paras[i].t.indexOf('{' + (k + 1) + '}') >= 0) return P.paras[i].l; } return ''; }
   function draw(){
+    sayAll();
     var qh = P.f.map(function(f, i){
       var q = g.qs[i], ok = done && ans[i] === q.a;
       return '<div class="rd-q"><div class="rd-qh"><b>' + (i + 1) + '</b> ' + esc(f.q) + '</div>' + q.perm.map(function(vi, j){
         var c = 'rd-o' + (ans[i] === j ? ' sel' : '') + (done && j === q.a ? ' ok' : '') + (done && ans[i] === j && j !== q.a ? ' bad' : '');
         return '<button class="' + c + '" data-q="' + i + '" data-o="' + j + '"' + (done ? ' disabled' : '') + '><b>' + LET[j] + '</b> ' + esc(f.o[vi]) + '</button>'; }).join('') +
-        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + 'Paragraph ' + where(i) + ': \u201c' + esc(f.s[g.vals[i]]) + '\u201d</div>' : '') + '</div>'; }).join('');
+        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + 'Paragraph ' + where(i) + ': “' + esc(f.s[g.vals[i]]) + '”</div>' : '') + '</div>'; }).join('');
     var score = P.f.filter(function(f, i){ return ans[i] === g.qs[i].a; }).length;
-    app.innerHTML = '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' \u2022 ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.f.length) + '</span></div>' +
-      '<div class="rd-wrap"><div class="rd-pass v-card"><h3 class="rd-h">' + esc(P.title) + '</h3>' + P.paras.map(function(p){ return paraHtml(P, p, g, done); }).join('') + '</div>' +
+    var listenBtn = '<button class="v-btn lg-spk" data-all="1" style="margin-bottom:10px;">' + SPK_SVG + ' Play</button>';
+    var passBody = listen && !done ? listenBtn + '<div class="v-hint lg-novoice">No voice on this device</div>' : (listenBtn + P.paras.map(function(p){ return paraHtml(P, p, g, done); }).join(''));
+    app.innerHTML = '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' • ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.f.length) + '</span></div>' +
+      '<div class="rd-wrap"><div class="rd-pass v-card"><h3 class="rd-h">' + esc(P.title) + '</h3>' + passBody + '</div>' +
       '<div class="rd-qs v-card"><h3 class="rd-h">Questions 1 to ' + P.f.length + '</h3><div class="v-sub">Choose the correct letter, A, B, C or D.</div>' +
       (done ? '<div class="v-big" style="margin:10px 0;">' + score + ' / ' + P.f.length + '</div>' : '') + qh +
-      '<div class="v-row" style="margin-top:14px;">' + (done ? '<button class="v-btn" id="rdAgain">New text</button><a class="v-btn" href="#l/' + L.id + '/reading" style="text-decoration:none;">All texts</a>' : '<button class="v-btn" id="rdFin">Finish and check</button><a class="v-btn" href="#l/' + L.id + '/reading" style="text-decoration:none;">Quit</a>') + '</div></div></div>';
+      '<div class="v-row" style="margin-top:14px;">' + (done ? '<button class="v-btn" id="rdAgain">New text</button><a class="v-btn" href="' + list + '" style="text-decoration:none;">All texts</a>' : '<button class="v-btn" id="rdFin">Finish and check</button><a class="v-btn" href="' + list + '" style="text-decoration:none;">Quit</a>') + '</div></div></div>';
     Array.prototype.forEach.call(app.querySelectorAll('.rd-o'), function(b){ b.onclick = function(){ ans[+b.getAttribute('data-q')] = +b.getAttribute('data-o'); var y = window.scrollY, qs = app.querySelector('.rd-qs'), st = qs ? qs.scrollTop : 0, ps = app.querySelector('.rd-pass').scrollTop; draw(); window.scrollTo(0, y); var q2 = app.querySelector('.rd-qs'); if(q2) q2.scrollTop = st; app.querySelector('.rd-pass').scrollTop = ps; }; });
     var f = document.getElementById('rdFin'); if(f) f.onclick = function(){
-      done = true; var sc = P.f.filter(function(x, i){ return ans[i] === g.qs[i].a; }).length, b = rdBest(L.id), prev = b[P.id] || 0;
-      if(sc > prev){ b[P.id] = sc; lsSet('lang_rd_' + L.id, b); if(window.LoungeSync && LoungeSync.markDirty) LoungeSync.markDirty(); award(sc - prev, 'language'); }
+      done = true; if(window.speechSynthesis) speechSynthesis.cancel();
+      var sc = P.f.filter(function(x, i){ return ans[i] === g.qs[i].a; }).length, b = rdBest(L.id, sec), prev = b[P.id] || 0;
+      if(sc > prev){ b[P.id] = sc; lsSet(rdKey(L.id, sec), b); if(window.LoungeSync && LoungeSync.markDirty) LoungeSync.markDirty(); award(sc - prev, 'language'); }
       draw(); window.scrollTo(0, 0); };
     var a = document.getElementById('rdAgain'); if(a) a.onclick = function(){ g = rdGen(P); ans = []; done = false; draw(); window.scrollTo(0, 0); };
   }
@@ -508,10 +546,11 @@ function route(){
   var h = location.hash.replace(/^#/, ''), a = h.split('/');
   if(a[0] !== 'l' || !a[1]) return hub();
   if(!INDEX.some(function(x){ return x.id === a[1]; })) return hub();
-  loadLang(a[1]).then(function(L){ CURID = L.id;
+  if(window.speechSynthesis) speechSynthesis.cancel();
+  loadLang(a[1]).then(function(L){ CURID = L.id; ttsSync();
     if(!a[2]) return home(L);
     if(a[2] === 'grammar' && a[3]) return grammar(L, a[3]);
-    if(a[2] === 'reading') return a[3] ? readPassage(L, a[3]) : readList(L);
+    if(a[2] === 'reading' || a[2] === 'listening') return a[3] ? readPassage(L, a[3], a[2]) : readList(L, a[2]);
     if(a[3]) return group(L, a[2], a[3], false);
     section(L, a[2]);
   }).catch(function(){ app.innerHTML = back('#', 'Back') + '<div class="v-hint">Could not load. Check your connection.</div>'; });
