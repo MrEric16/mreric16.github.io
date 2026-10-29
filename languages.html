@@ -165,8 +165,7 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-mong{font-family:LgMong,sans-serif;font-weight:400;writing-mode:vertical-lr;max-height:9em;overflow-x:auto;overflow-y:hidden;line-height:1.5;margin:4px 0;}
 .lg-spk{display:none;background:none;border:0;color:var(--ink-soft);cursor:pointer;padding:4px;vertical-align:middle;align-items:center;}
 body.tts-on .lg-spk{display:inline-flex;}
-.lg-spd{display:none;position:fixed;right:12px;bottom:12px;z-index:50;padding:8px 12px;border-radius:999px;border:1px solid var(--line,#ccc);background:var(--cream);color:var(--ink,#222);font-weight:700;cursor:pointer;}
-body.tts-on .lg-spd{display:block;}
+.lg-spk-row{display:none;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}body.tts-on .lg-spk-row{display:flex}.lg-spk-row .v-btn{margin:0}.lg-spd.on{background:var(--ink);color:var(--cream)}
 .lg-it{position:relative;}
 .lg-it>.lg-spk{position:absolute;top:8px;right:10px;}
 .lg-novoice{display:block;margin:8px 0;}
@@ -329,12 +328,13 @@ function ttsVoice(id){
 function ttsSync(){ document.body.classList.toggle('tts-on', !!ttsVoice(CURID)); }
 function speakText(t){ return String(t).replace(/\s*\([^)]*\)/g, '').replace(/\s*\/\s*/g, ', ').trim(); }
 var SPDS = [1, .75, .5];
-(function(){ var b = document.createElement('button'); b.className = 'lg-spd'; b.type = 'button'; b.setAttribute('aria-label', 'Speed'); document.body.appendChild(b); setTimeout(function(){ b.textContent = spdLabel(); }, 0); })();
 function spd(){ var v = +lsGet('lang_spd', 1); return SPDS.indexOf(v) >= 0 ? v : 1; }
 function spdLabel(){ return spd() + '\u00d7'; }
 document.addEventListener('click', function(e){
   var b = e.target.closest && e.target.closest('.lg-spd'); if(!b) return;
-  e.preventDefault(); var n = SPDS[(SPDS.indexOf(spd()) + 1) % SPDS.length]; lsSet('lang_spd', n); b.textContent = spdLabel();
+  e.preventDefault(); lsSet('lang_spd', +b.getAttribute('data-s'));
+  Array.prototype.forEach.call(document.querySelectorAll('.lg-spd'), function(x){ x.classList.toggle('on', +x.getAttribute('data-s') === spd()); });
+  if(window.speechSynthesis && speechSynthesis.speaking && SAYALL.length) say(SAYALL);
 });
 function say(texts){
   var v = ttsVoice(CURID); if(!v) return;
@@ -535,7 +535,7 @@ function readPassage(L, pid, sec){
         return '<button class="' + c + '" data-q="' + i + '" data-o="' + j + '"' + (done ? ' disabled' : '') + '><b>' + LET[j] + '</b> ' + esc(f.o[vi]) + '</button>'; }).join('') +
         (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + '“' + esc(f.s[g.vals[i]]) + '”</div>' : '') + '</div>'; }).join('');
     var score = P.f.filter(function(f, i){ return ans[i] === g.qs[i].a; }).length;
-    var listenBtn = '<button class="v-btn lg-spk" data-all="1" style="margin-bottom:10px;">' + SPK_SVG + ' Play</button>';
+    var listenBtn = '<div class="lg-spk-row"><button class="v-btn lg-spk" data-all="1">' + SPK_SVG + ' Play</button>' + SPDS.map(function(v){ return '<button class="v-btn lg-spd' + (v === spd() ? ' on' : '') + '" type="button" data-s="' + v + '">' + v + '\u00d7</button>'; }).join('') + '</div>';
     var passBody = listen && !done ? listenBtn + '<div class="v-hint lg-novoice">No voice on this device</div>' : (listenBtn + P.paras.map(function(p){ return paraHtml(P, p, g, done); }).join(''));
     app.innerHTML = back(list, listen ? 'Listening' : 'Reading') + '<div class="v-meta" style="margin-top:8px;"><span>' + esc(P.title) + ' • ' + P.lv + '</span><span>' + (done ? '' : ans.filter(function(x){ return x != null; }).length + ' / ' + P.f.length) + '</span></div>' +
       '<div class="rd-wrap"><div class="rd-pass v-card"><h3 class="rd-h">' + esc(P.title) + '</h3>' + passBody + '</div>' +
