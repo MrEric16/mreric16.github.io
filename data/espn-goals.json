@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-28T20:39:53.843398Z",
+ "generatedAt": "2026-10-29T00:31:18.653648Z",
  "results": [
   {
    "url": "espn:401874993",
@@ -76,6 +76,67 @@
     {
      "scorer": "R. Halhal (og)",
      "minute": 82
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874988",
+   "date": "2026-10-28",
+   "utc": "2026-10-28T19:45Z",
+   "home": "Genoa",
+   "away": "Juventus",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "K. Ehizibue",
+     "minute": 12
+    },
+    {
+     "scorer": "T. Baldanzi",
+     "minute": 28
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874799",
+   "date": "2026-10-28",
+   "utc": "2026-10-28T19:45Z",
+   "home": "Monza",
+   "away": "Napoli",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "G. Varela",
+     "minute": 43
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Højlund",
+     "minute": 10
+    },
+    {
+     "scorer": "M. Politano",
+     "minute": 48
+    },
+    {
+     "scorer": "R. Marín",
+     "minute": 62
+    },
+    {
+     "scorer": "K. De Bruyne",
+     "minute": 67
     }
    ],
    "competition": "SA",
