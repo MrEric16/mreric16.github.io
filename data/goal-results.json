@@ -1,37 +1,6 @@
 {
-  "generatedAt": "2026-10-29T11:01:21.540055Z",
+  "generatedAt": "2026-10-29T17:21:48.795132Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lorient-vs-toulouse/tS8HDdj-vLkFUizCk6BUY",
-      "date": null,
-      "home": "Lorient",
-      "away": "Toulouse",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "I. Balde",
-          "minute": 37
-        },
-        {
-          "scorer": "N. Mbamba",
-          "minute": 39
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "C. Tengstedt",
-          "minute": 48
-        },
-        {
-          "scorer": "T. Joergensen",
-          "minute": 68
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/le-havre-vs-angers/Gcinf7cXVOCH1fQudLHEs",
       "date": null,
@@ -7864,6 +7833,33 @@
         }
       ],
       "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lazio-vs-ac-milan/mm8P_b7I991fgmrhJ6EAV",
+      "date": null,
+      "home": "Lazio",
+      "away": "Ac Milan",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "M. Cancellieri",
+          "minute": 10
+        },
+        {
+          "scorer": "T. Noslin",
+          "minute": 39
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Moreira",
+          "minute": 65
+        }
+      ],
+      "competition": "ac-milan"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7877,7 +7873,6 @@
     "https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9": 2,
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
-    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/lazio-vs-ac-milan/mm8P_b7I991fgmrhJ6EAV": 2
+    "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1
   }
 }
