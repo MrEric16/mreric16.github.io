@@ -20471,7 +20471,7 @@ async function loadGoalResults(){
     const cache = window._sportsCache;
     const staticLeague = meta ? SPORTS_LEAGUES.find(l => l.name === meta.name) : null;
     const matches = (window._footballFull && window._footballFull[code]) || (cache && cache.matches && cache.matches[code]) || { results: [] };
-    results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
+    results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), staticFor(code, matches.results, (staticLeague && staticLeague.results) || []));
     const gw = gameweekView(code);
     if(gw) results = gw.results;
   }
@@ -20680,6 +20680,9 @@ function staleDataBannerHtml(code){
 // "SKA Saint Petersburg") and show that one match twice rather than once - a real but
 // far smaller and more visible problem than silently losing real games, so still
 // strictly an improvement over the previous either/or behavior.
+// Scraped leagues (UAE/UZ/KHL) name teams differently from the hard-coded fallback ("Bani Yas" v
+// "Baniyas SC"), so merging both listed every match twice. Once live data exists, drop the fallback.
+function staticFor(code, live, staticList){ return (['UAE','UZ','KHL'].indexOf(code) >= 0 && live && live.length) ? [] : staticList; }
 function mergeMatchLists(live, staticList){
   const seen = new Set((live || []).map(m => `${m.home}|||${m.away}`));
   const merged = [...(live || [])];
@@ -20869,9 +20872,9 @@ function leagueDetailBodyHtml(code){
   // merge doesn't automatically drop them just because live data exists - they don't
   // count as duplicates of the live entries (different team pairings entirely), so
   // they were appearing in the "Fixtures" list alongside the correct current gameweek.
-  let fixtures = mergeMatchLists(matches.fixtures, (staticLeague && staticLeague.fixtures) || [])
+  let fixtures = mergeMatchLists(matches.fixtures, staticFor(code, matches.fixtures, (staticLeague && staticLeague.fixtures) || []))
     .filter(m => new Date(m.start) >= new Date());
-  let results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), (staticLeague && staticLeague.results) || []);
+  let results = mergeMatchLists(mergeMatchLists(matches.results, espnResultRows(d => d.competition === code)), staticFor(code, matches.results, (staticLeague && staticLeague.results) || []));
   if(code === 'CL'){
     // Champions League has a long summer gap between seasons (final in late May, next
     // season's League Phase doesn't start until September) - without this, "Results" would

@@ -20,7 +20,13 @@ ALIAS = {"bani yas": "Baniyas SC", "baniyas": "Baniyas SC", "kalba": "Ittihad Ka
          "shabab al ahli": "Shabab Al Ahli Club", "al jazira": "Al Jazira Club", "al ain": "Al Ain FC",
          "sharjah": "Sharjah FC", "ajman": "Ajman Club", "khor fakkan": "Khor Fakkan Club",
          "hatta": "Hatta Club", "al nasr": "Al Nasr SC", "united fc dubai": "United FC",
-         "united fc": "United FC", "dubai united": "United FC"}
+         "united fc": "United FC", "dubai united": "United FC",
+         "al nasr dubai": "Al Nasr SC", "nasr dubai": "Al Nasr SC", "jazira abu dhabi": "Al Jazira Club",
+         "jazira": "Al Jazira Club", "al jazira abu dhabi": "Al Jazira Club", "sharjah sc": "Sharjah FC",
+         "kalba": "Ittihad Kalba FC", "al wahda abu dhabi": "Al Wahda", "wahda": "Al Wahda",
+         "al dhafra fc": "Al Dhafra", "dhafra": "Al Dhafra", "shabab al ahli dubai": "Shabab Al Ahli Club",
+         "ajman fc": "Ajman Club", "hatta": "Hatta Club", "baniyas": "Baniyas SC", "bani yas sc": "Baniyas SC",
+         "al wasl sc": "Al Wasl", "al wasl dubai": "Al Wasl", "khorfakkan": "Khor Fakkan Club"}
 TZ = dt.timezone(dt.timedelta(hours=5))
 
 
