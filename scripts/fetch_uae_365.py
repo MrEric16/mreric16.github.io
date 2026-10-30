@@ -17,8 +17,8 @@ def log(m):
     print(f"[uae-365] {m}", flush=True)
 
 
-def get(kind):
-    req = urllib.request.Request(BASE.format(kind=kind), headers={
+def get(kind, url=None):
+    req = urllib.request.Request(url or BASE.format(kind=kind), headers={
         "User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36",
         "Accept": "application/json", "Origin": "https://www.365scores.com", "Referer": "https://www.365scores.com/"})
     with urllib.request.urlopen(req, timeout=30) as r:
@@ -49,7 +49,23 @@ def main():
         except Exception as e:
             log(f"{kind} failed: {e}")
             continue
-        games = data.get("games") or []
+        games = list(data.get("games") or [])
+        # Results come back as one recent window; follow the older-page link a few times to backfill.
+        pg = data.get("paging") or {}
+        log(f"{kind}: paging={json.dumps(pg)[:300]}")
+        nxt = pg.get("previousPage") if kind == "results" else None
+        for _ in range(6):
+            if not nxt:
+                break
+            try:
+                more = get(kind, nxt if nxt.startswith("http") else "https://webws.365scores.com" + nxt)
+            except Exception as e:
+                log(f"{kind} older page failed: {e}")
+                break
+            games += more.get("games") or []
+            nxt = (more.get("paging") or {}).get("previousPage")
+        for g in games:
+            log(f"  game {(g.get('homeCompetitor') or {}).get('name')} {(g.get('homeCompetitor') or {}).get('score')}-{(g.get('awayCompetitor') or {}).get('score')} {(g.get('awayCompetitor') or {}).get('name')} {g.get('startTime')} st={g.get('statusGroup')}/{g.get('shortStatusText')}")
         log(f"{kind}: keys={list(data)[:8]} games={len(games)}")
         if games:
             g = games[0]
