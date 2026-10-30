@@ -170,9 +170,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Ajman Club -1.0--1.0 Baniyas 2026-11-08T20:30:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=7
 [uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Dhafra -1.0 away=Kalba -1.0
-[uae-365] POSTPONED removed Shabab Al Ahli Club v Ittihad Kalba FC
-[uae-365] POSTPONED removed Al Wasl v Al Dhafra
-[uae-365] POSTPONED removed United FC v Khor Fakkan Club
-[uae-365] POSTPONED removed Al Ain FC v Ajman Club
 [uae-365] verified current
 [uae-365] wrote data/uae-league-live.json: 42 results, 45 fixtures, 0 new
