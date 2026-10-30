@@ -1,6 +1,92 @@
 {
- "generatedAt": "2026-10-30T16:05:39.594699Z",
+ "generatedAt": "2026-10-30T20:57:17.377833Z",
  "results": [
+  {
+   "url": "espn:401876421",
+   "date": "2026-10-30",
+   "utc": "2026-10-30T18:00Z",
+   "home": "Le Havre",
+   "away": "PSG",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 1,
+   "ftAway": 5,
+   "homeGoals": [
+    {
+     "scorer": "J. Maja",
+     "minute": 18
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Godts",
+     "minute": 26
+    },
+    {
+     "scorer": "A. Hakimi",
+     "minute": 28
+    },
+    {
+     "scorer": "A. Hakimi",
+     "minute": 55
+    },
+    {
+     "scorer": "S. Mayulu",
+     "minute": 62
+    },
+    {
+     "scorer": "A. Hakimi",
+     "minute": 69
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876416",
+   "date": "2026-10-30",
+   "utc": "2026-10-30T18:00Z",
+   "home": "Nice",
+   "away": "Stade Rennais",
+   "htHome": 3,
+   "htAway": 1,
+   "ftHome": 5,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "E. Wahi (pen)",
+     "minute": 12
+    },
+    {
+     "scorer": "E. Wahi (pen)",
+     "minute": 34
+    },
+    {
+     "scorer": "J. Clauss",
+     "minute": "45+2"
+    },
+    {
+     "scorer": "M. Amoura",
+     "minute": 52
+    },
+    {
+     "scorer": "E. Wahi",
+     "minute": 73
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Szymanski",
+     "minute": 15
+    },
+    {
+     "scorer": "B. Dia (pen)",
+     "minute": 58
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401874976",
    "date": "2026-10-29",
