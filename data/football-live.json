@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-30T14:33:58.447986Z",
+  "generatedAt": "2026-10-30T19:43:33.472189Z",
   "standings": {
     "PL": [
       {
@@ -447,6 +447,16 @@
         "pts": 13
       },
       {
+        "name": "Elversberg",
+        "pld": 8,
+        "w": 4,
+        "d": 1,
+        "l": 3,
+        "gf": 13,
+        "ga": 15,
+        "pts": 13
+      },
+      {
         "name": "RB Leipzig",
         "pld": 7,
         "w": 4,
@@ -468,22 +478,12 @@
       },
       {
         "name": "Mainz",
-        "pld": 7,
+        "pld": 8,
         "w": 3,
         "d": 1,
-        "l": 3,
+        "l": 4,
         "gf": 16,
-        "ga": 13,
-        "pts": 10
-      },
-      {
-        "name": "Elversberg",
-        "pld": 7,
-        "w": 3,
-        "d": 1,
-        "l": 3,
-        "gf": 12,
-        "ga": 15,
+        "ga": 14,
         "pts": 10
       },
       {
@@ -792,22 +792,22 @@
     "FL1": [
       {
         "name": "PSG",
-        "pld": 8,
-        "w": 5,
+        "pld": 9,
+        "w": 6,
         "d": 2,
         "l": 1,
-        "gf": 16,
-        "ga": 9,
-        "pts": 17
+        "gf": 21,
+        "ga": 10,
+        "pts": 20
       },
       {
         "name": "Stade Rennais",
-        "pld": 8,
+        "pld": 9,
         "w": 5,
         "d": 1,
-        "l": 2,
-        "gf": 18,
-        "ga": 14,
+        "l": 3,
+        "gf": 20,
+        "ga": 19,
         "pts": 16
       },
       {
@@ -851,6 +851,16 @@
         "pts": 14
       },
       {
+        "name": "Nice",
+        "pld": 9,
+        "w": 4,
+        "d": 2,
+        "l": 3,
+        "gf": 13,
+        "ga": 12,
+        "pts": 14
+      },
+      {
         "name": "RC Lens",
         "pld": 8,
         "w": 4,
@@ -879,16 +889,6 @@
         "gf": 7,
         "ga": 6,
         "pts": 12
-      },
-      {
-        "name": "Nice",
-        "pld": 8,
-        "w": 3,
-        "d": 2,
-        "l": 3,
-        "gf": 8,
-        "ga": 10,
-        "pts": 11
       },
       {
         "name": "Toulouse",
@@ -962,12 +962,12 @@
       },
       {
         "name": "Le Havre",
-        "pld": 8,
+        "pld": 9,
         "w": 0,
         "d": 2,
-        "l": 6,
-        "gf": 8,
-        "ga": 15,
+        "l": 7,
+        "gf": 9,
+        "ga": 20,
         "pts": 2
       }
     ],
@@ -2622,7 +2622,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-30T19:30:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 8,
           "homeTeam": {
             "id": 719,
@@ -2635,11 +2635,11 @@
             "shortName": "Mainz"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -4153,7 +4153,7 @@
       "fixtures": [
         {
           "utcDate": "2026-10-30T18:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 9,
           "homeTeam": {
             "id": 533,
@@ -4166,15 +4166,15 @@
             "shortName": "PSG"
           },
           "score": {
-            "winner": null,
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 5
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 2
             }
           },
           "competition": {
@@ -4184,7 +4184,7 @@
         },
         {
           "utcDate": "2026-10-30T18:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 9,
           "homeTeam": {
             "id": 522,
@@ -4197,15 +4197,15 @@
             "shortName": "Stade Rennais"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 5,
+              "away": 2
             },
             "halfTime": {
-              "home": null,
-              "away": null
+              "home": 3,
+              "away": 1
             }
           },
           "competition": {
@@ -6754,13 +6754,13 @@
     },
     "psg": {
       "nextFixture": {
-        "utcDate": "2026-10-30T18:00:00Z",
+        "utcDate": "2026-11-03T20:00:00Z",
         "status": "TIMED",
-        "matchday": 9,
+        "matchday": 4,
         "homeTeam": {
-          "id": 533,
-          "name": "Le Havre AC",
-          "shortName": "Le Havre"
+          "id": 94,
+          "name": "Villarreal CF",
+          "shortName": "Villarreal"
         },
         "awayTeam": {
           "id": 524,
@@ -6780,7 +6780,7 @@
           }
         },
         "competition": {
-          "name": "Ligue 1"
+          "name": "UEFA Champions League"
         },
         "venue": null
       },
