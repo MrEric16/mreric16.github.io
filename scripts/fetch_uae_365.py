@@ -10,6 +10,8 @@ import json, sys, datetime as dt, urllib.request, urllib.error
 sys.path.insert(0, "scripts")
 from fetch_uae_tsdb import canon, same, table_from, OUT, TZ
 
+SEASON_START = dt.datetime(2026, 8, 1, tzinfo=TZ)
+
 BASE = "https://webws.365scores.com/web/games/{kind}/?appTypeId=5&langId=1&timezoneName=Asia/Tashkent&userCountryId=8&competitions=549&showOdds=false"
 
 
@@ -32,7 +34,12 @@ def parse(g):
     if not hn or not an or not st:
         return None
     start = dt.datetime.fromisoformat(st).astimezone(TZ)
+    if start < SEASON_START:
+        return None  # older pages reach back into last season
     row = {"home": hn, "away": an, "start": start.isoformat(timespec="seconds")}
+    if "postpon" in str(g.get("statusText", "")).lower() or "postpon" in str(g.get("shortStatusText", "")).lower() or str(g.get("shortStatusText", "")).lower().startswith("post"):
+        row["postponed"] = True
+        return row
     hs, as_ = h.get("score"), a.get("score")
     finished = g.get("statusGroup") == 4 or "ended" in str(g.get("statusText", "")).lower() or str(g.get("shortStatusText", "")).upper() in ("FT", "AET", "AP")
     if finished and isinstance(hs, (int, float)) and isinstance(as_, (int, float)) and hs >= 0 and as_ >= 0:
@@ -76,7 +83,17 @@ def main():
         return 1
     results, fixtures = list(old["results"]), list(old["fixtures"])
     added = 0
+    now0 = dt.datetime.now(dt.timezone.utc)
     for p in seen:
+        if p.get("postponed"):
+            # Drop the stale slot so it neither lingers as "overdue" nor blocks the freshness stamp; the new
+            # date (if any) arrives from the fixtures feed as an ordinary scheduled game.
+            before = len(fixtures)
+            fixtures = [f for f in fixtures if not (f["home"] == p["home"] and f["away"] == p["away"]
+                        and dt.datetime.fromisoformat(f["start"]) < now0 + dt.timedelta(days=3))]
+            if len(fixtures) != before:
+                log(f"POSTPONED removed {p['home']} v {p['away']}")
+            continue
         if p.get("finished"):
             if not any(same(p, r) for r in results):
                 results.append(p); added += 1
