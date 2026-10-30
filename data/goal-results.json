@@ -1,84 +1,6 @@
 {
-  "generatedAt": "2026-10-30T19:49:16.313203Z",
+  "generatedAt": "2026-10-30T23:26:01.671551Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/paris-fc-vs-lyon/lqhG09o58lfMZBZ_YCS2E",
-      "date": null,
-      "home": "Paris Fc",
-      "away": "Lyon",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez",
-      "date": null,
-      "home": "Real Madrid",
-      "away": "Rayo Vallecano",
-      "htHome": 3,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "K. Mbappe",
-          "minute": 14
-        },
-        {
-          "scorer": "A. Carreras",
-          "minute": 17
-        },
-        {
-          "scorer": "J. Bellingham",
-          "minute": 35
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "S. Camello",
-          "minute": 51
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/coventry-city-vs-brighton-and-hove-albion/TQW-svsFP60IyqCAmB4uq",
-      "date": null,
-      "home": "Coventry City",
-      "away": "Brighton And Hove Albion",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 0,
-      "ftAway": 5,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "C. Kostoulas",
-          "minute": 35
-        },
-        {
-          "scorer": "M. Yalcouye",
-          "minute": 51
-        },
-        {
-          "scorer": "P. Gross",
-          "minute": 70
-        },
-        {
-          "scorer": "L. Dunk",
-          "minute": 83
-        },
-        {
-          "scorer": "Y. Ayari",
-          "minute": 90
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/celta-vigo-vs-malaga/iZVl2x2PEEL32gaY1m43T",
       "date": null,
@@ -7878,6 +7800,77 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/villarreal-vs-espanyol/FyJ5NhaeD8N8jUAPTsvqE",
+      "date": "2026-10-30",
+      "home": "Villarreal",
+      "away": "Espanyol",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "L. Cabrera",
+          "minute": 60
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/elversberg-vs-mainz-05/1AJewwaEzQZQjKZugxndT",
+      "date": "2026-10-30",
+      "home": "Elversberg",
+      "away": "Mainz 05",
+      "htHome": 3,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "F. Keidel",
+          "minute": 7
+        },
+        {
+          "scorer": "F. Onyeka",
+          "minute": 26
+        },
+        {
+          "scorer": "M. Krattenmacher",
+          "minute": 45
+        },
+        {
+          "scorer": "C. Campbell",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "B. Hollerbach",
+          "minute": 90
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lille-vs-lens/n_9UmQo413gtWkDkJTS0X",
+      "date": "2026-10-30",
+      "home": "Lille",
+      "away": "Lens",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "O. Giroud",
+          "minute": 86
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7892,6 +7885,8 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1
+    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
+    "https://www.goal.com/en/match/le-havre-vs-paris-saint-germain/6hs023ta15m-tFcawH95N": 2,
+    "https://www.goal.com/en/match/nice-vs-rennes/iqcn2s68B-We8XopQKeJF": 1
   }
 }
