@@ -4299,6 +4299,10 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     padding-bottom:14px;
   }
   .domain-group:first-of-type{ margin-top:26px; }
+
+  .hl-item{ -webkit-touch-callout:none; -webkit-user-select:none; user-select:none; }
+  .hl-item.hl-drag{ position:relative; z-index:80; box-shadow:0 12px 28px rgba(0,0,0,.45); border-radius:18px; opacity:.97; will-change:transform; }
+  body.hl-dragging{ cursor:grabbing; }
   .domain-summary{
     cursor:pointer;
     list-style:none;
@@ -34706,6 +34710,9 @@ function viewHome(){
     <div style="text-align:center; padding:0 0 32px;">
       <a href="#ask-mr-eric" style="background:none; border:none; font-family:'Nunito',sans-serif; font-size:13px; color:var(--ink-soft); text-decoration:underline; cursor:pointer; opacity:.75;">Have a question for Mr Eric?</a>
     </div>
+    <div style="text-align:center; padding:0 0 32px;">
+      <button id="resetLayoutBtn" style="display:none; background:none; border:none; font-family:'Nunito',sans-serif; font-size:13px; color:var(--ink-soft); text-decoration:underline; cursor:pointer; opacity:.75;">Reset layout</button>
+    </div>
   `;
 }
 
@@ -35973,6 +35980,119 @@ document.addEventListener('click', (e) => {
   }
 });
 
+/* ---- Home layout: long-press a section, drag it, the others make way. Order is saved (and synced). ---- */
+const HL_KEY = 'homeOrder';
+function hlApp(){ return document.getElementById('app'); }
+function hlDraggables(){
+  return Array.prototype.filter.call(hlApp().children, function(el){
+    return el.tagName === 'SECTION' && !/text-align:\s*center/.test(el.getAttribute('style') || '');
+  });
+}
+function hlKey(el, i){
+  var q = function(s){ return el.querySelector(s); };
+  if(q('.goodnews-tile')) return 'goodnews';
+  if(q('.books-tile')) return 'books';
+  if(q('.events-tile')) return 'maths';
+  if(q('.flaggame-tile')) return 'photos';
+  if(q('.fac-tile.all')) return 'archive';
+  if(q('.random-tile')) return 'random';
+  var h = q(':scope > .section-head h2, :scope > details > summary h2');
+  if(h) return 'h-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  var c = q('[class]'); return 'x-' + (c ? String(c.className).split(' ')[0] : i);
+}
+function hlSave(){ try{ localStorage.setItem(HL_KEY, JSON.stringify(hlDraggables().map(function(e){ return e.dataset.hl; }))); }catch(e){} }
+function hlApply(){
+  var els = hlDraggables(), seen = {};
+  els.forEach(function(el, i){ var k = hlKey(el, i); while(seen[k]) k += '_'; seen[k] = 1; el.dataset.hl = k; el.classList.add('hl-item'); });
+  var saved = []; try{ saved = JSON.parse(localStorage.getItem(HL_KEY) || '[]'); }catch(e){}
+  if(!Array.isArray(saved) || !saved.length) return;
+  var byKey = {}; els.forEach(function(el){ byKey[el.dataset.hl] = el; });
+  var ordered = saved.filter(function(k){ return byKey[k]; }).map(function(k){ return byKey[k]; });
+  els.forEach(function(el){ if(ordered.indexOf(el) < 0) ordered.push(el); });
+  var marks = els.map(function(el){ var m = document.createComment(''); el.parentNode.insertBefore(m, el); return m; });
+  els.forEach(function(el){ el.parentNode.removeChild(el); });
+  marks.forEach(function(m, i){ m.parentNode.insertBefore(ordered[i], m); m.parentNode.removeChild(m); });
+}
+(function(){
+  var st = null, wired = false;
+  function ty(el){ var m = /translateY\(([-\d.]+)px\)/.exec(el.style.transform || ''); return m ? parseFloat(m[1]) : 0; }
+  function place(){
+    var el = st.el, lay = el.getBoundingClientRect().top - st.ty;
+    st.ty = st.y - st.grab - lay; el.style.transform = 'translateY(' + st.ty + 'px) scale(1.02)';
+  }
+  function settle(){
+    var el = st.el, guard = 0, moved = true;
+    while(moved && guard++ < 6){
+      moved = false; var r = el.getBoundingClientRect(), c = r.top + r.height / 2, list = hlDraggables(), i = list.indexOf(el);
+      var prev = list[i - 1], next = list[i + 1];
+      if(prev){ var pr = prev.getBoundingClientRect(); if(c < pr.top + pr.height / 2){ flip(prev, function(){ el.parentNode.insertBefore(el, prev); }); place(); moved = true; continue; } }
+      if(next){ var nr = next.getBoundingClientRect(); if(c > nr.top + nr.height / 2){ flip(next, function(){ el.parentNode.insertBefore(el, next.nextSibling); }); place(); moved = true; } }
+    }
+  }
+  function flip(other, mutate){
+    var a = other.getBoundingClientRect().top; mutate(); var d = a - other.getBoundingClientRect().top;
+    if(!d) return; other.style.transition = 'none'; other.style.transform = 'translateY(' + d + 'px)';
+    other.getBoundingClientRect(); other.style.transition = 'transform .18s ease'; other.style.transform = '';
+    setTimeout(function(){ other.style.transition = ''; }, 220);
+  }
+  function loop(){
+    if(!st || !st.on) return;
+    var h = window.innerHeight, sp = 0;
+    if(st.y < 100) sp = -Math.ceil((100 - st.y) / 8); else if(st.y > h - 120) sp = Math.ceil((st.y - (h - 120)) / 8);
+    if(sp) window.scrollBy({ top: sp, left: 0, behavior: 'instant' });
+    place(); settle(); st.raf = requestAnimationFrame(loop);
+  }
+  function start(){
+    var el = st.el; st.on = true; st.ty = 0; st.grab = st.y - el.getBoundingClientRect().top;
+    el.classList.add('hl-drag'); document.body.classList.add('hl-dragging');
+    try{ el.setPointerCapture(st.id); }catch(e){}
+    try{ if(navigator.vibrate) navigator.vibrate(15); }catch(e){}
+    st.raf = requestAnimationFrame(loop);
+  }
+  function end(){
+    if(!st) return; clearTimeout(st.t);
+    if(st.on){
+      cancelAnimationFrame(st.raf); var el = st.el;
+      el.style.transition = 'transform .15s ease'; el.style.transform = ''; el.classList.remove('hl-drag');
+      setTimeout(function(){ el.style.transition = ''; }, 170);
+      document.body.classList.remove('hl-dragging'); hlSave(); hlBtn();
+      window._hlSwallow = Date.now();
+    }
+    st = null;
+  }
+  function wire(){
+    if(wired) return; wired = true;
+    hlApp().addEventListener('pointerdown', function(e){
+      if(e.button > 0 || st) return;
+      var el = e.target.closest && e.target.closest('.hl-item'); if(!el || el.parentNode !== hlApp()) return;
+      if(e.target.closest('input,textarea,select,[contenteditable]')) return;
+      st = { el: el, id: e.pointerId, x0: e.clientX, y0: e.clientY, y: e.clientY, on: false };
+      st.t = setTimeout(function(){ if(st && !st.on) start(); }, e.pointerType === 'mouse' ? 250 : 450);
+    }, true);
+    document.addEventListener('pointermove', function(e){
+      if(!st || e.pointerId !== st.id) return; st.y = e.clientY;
+      if(!st.on && (Math.abs(e.clientX - st.x0) > 9 || Math.abs(e.clientY - st.y0) > 9)){ clearTimeout(st.t); st = null; }
+    });
+    document.addEventListener('pointerup', function(e){ if(st && e.pointerId === st.id) end(); });
+    document.addEventListener('pointercancel', function(e){ if(st && e.pointerId === st.id) end(); });
+    document.addEventListener('touchmove', function(e){ if(st && st.on) e.preventDefault(); }, { passive: false });
+    document.addEventListener('dragstart', function(e){ if(e.target.closest && e.target.closest('.hl-item')) e.preventDefault(); });
+    document.addEventListener('contextmenu', function(e){ if(e.target.closest && e.target.closest('.hl-item') && st) e.preventDefault(); });
+    document.addEventListener('click', function(e){ if(window._hlSwallow && Date.now() - window._hlSwallow < 400){ e.preventDefault(); e.stopPropagation(); } }, true);
+  }
+  window.homeLayoutInit = function(){ wire(); hlApply(); hlBtn(); };
+})();
+function hlBtn(){
+  var b = document.getElementById('resetLayoutBtn'); if(!b) return;
+  var has = false; try{ var v = JSON.parse(localStorage.getItem(HL_KEY) || '[]'); has = Array.isArray(v) && v.length > 0; }catch(e){}
+  b.style.display = has ? '' : 'none';
+}
+document.addEventListener('click', function(e){
+  var b = e.target.closest && e.target.closest('#resetLayoutBtn'); if(!b) return;
+  try{ localStorage.setItem(HL_KEY, '[]'); }catch(er){}
+  renderRoute({ skipScrollSave: true });
+});
+
 function renderRoute(opts){
   opts = (opts && typeof opts === 'object' && !(opts instanceof Event)) ? opts : {};
   const app = document.getElementById('app');
@@ -36177,6 +36297,7 @@ function renderRoute(opts){
   }
 
   app.innerHTML = html;
+  if(app.querySelector(':scope > .story-bar')) homeLayoutInit();
   app.classList.remove('route-fade');
   void app.offsetWidth; // force reflow so the animation replays every time, not just once
   app.classList.add('route-fade');
