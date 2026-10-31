@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T20:09:33.240872Z",
+ "generatedAt": "2026-10-31T23:30:59.286947Z",
  "results": [
   {
    "url": "espn:401879248",
@@ -184,6 +184,31 @@
    "complete": true
   },
   {
+   "url": "espn:401879250",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T20:00Z",
+   "home": "Aston Villa",
+   "away": "Fulham",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "N. Jackson",
+     "minute": 39
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Z. Suzuki (og)",
+     "minute": 64
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
    "url": "espn:401882820",
    "date": "2026-10-31",
    "utc": "2026-10-31T13:00Z",
@@ -259,6 +284,51 @@
     {
      "scorer": "A. Niño",
      "minute": 68
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882822",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T20:00Z",
+   "home": "Barça",
+   "away": "Alavés",
+   "htHome": 4,
+   "htAway": 0,
+   "ftHome": 6,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "Raphinha",
+     "minute": 8
+    },
+    {
+     "scorer": "F. López",
+     "minute": 23
+    },
+    {
+     "scorer": "Raphinha",
+     "minute": 41
+    },
+    {
+     "scorer": "L. Yamal",
+     "minute": "45+1"
+    },
+    {
+     "scorer": "L. Yamal",
+     "minute": 64
+    },
+    {
+     "scorer": "A. Gordon",
+     "minute": 81
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Díaz",
+     "minute": 84
     }
    ],
    "competition": "PD",
@@ -502,6 +572,63 @@
     }
    ],
    "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874795",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T19:45Z",
+   "home": "Milan",
+   "away": "Inter",
+   "htHome": 3,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "C. Pulisic",
+     "minute": 4
+    },
+    {
+     "scorer": "A. Rabiot",
+     "minute": 10
+    },
+    {
+     "scorer": "D. Moreira",
+     "minute": 43
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Bastoni",
+     "minute": 22
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876413",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T19:45Z",
+   "home": "Troyes",
+   "away": "Le Mans",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "M. Diop",
+     "minute": 33
+    },
+    {
+     "scorer": "I. Boura",
+     "minute": 71
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
    "complete": true
   },
   {
