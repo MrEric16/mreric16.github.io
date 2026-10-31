@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-31T16:27:42.555776Z",
+ "generatedAt": "2026-10-31T20:09:33.240872Z",
  "results": [
   {
    "url": "espn:401879248",
@@ -26,6 +26,164 @@
    "complete": true
   },
   {
+   "url": "espn:401879251",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T15:00Z",
+   "home": "Bournemouth",
+   "away": "Leeds United",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "Evanilson",
+     "minute": 31
+    },
+    {
+     "scorer": "A. Adli",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879249",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T15:00Z",
+   "home": "Brentford",
+   "away": "Nottingham",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "N. Milenkovic (og)",
+     "minute": 30
+    },
+    {
+     "scorer": "I. Thiago",
+     "minute": 76
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879247",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T15:00Z",
+   "home": "Coventry City",
+   "away": "Sunderland",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "T. Sakamoto",
+     "minute": 17
+    },
+    {
+     "scorer": "T. Awoniyi",
+     "minute": 37
+    },
+    {
+     "scorer": "J. Rudoni",
+     "minute": 52
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Le Fée (pen)",
+     "minute": 67
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878763",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T15:00Z",
+   "home": "Hull City",
+   "away": "Ipswich Town",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "T. Iroegbunam",
+     "minute": 58
+    },
+    {
+     "scorer": "O. McBurnie",
+     "minute": 68
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Florentino",
+     "minute": 22
+    },
+    {
+     "scorer": "J. Enciso",
+     "minute": 74
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879245",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T15:00Z",
+   "home": "Man City",
+   "away": "Brighton Hove",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "Y. Ayari",
+     "minute": 11
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878761",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T17:30Z",
+   "home": "Tottenham",
+   "away": "Crystal Palace",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Gray",
+     "minute": 25
+    },
+    {
+     "scorer": "J. van Hecke",
+     "minute": 73
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
    "url": "espn:401882820",
    "date": "2026-10-31",
    "utc": "2026-10-31T13:00Z",
@@ -44,6 +202,63 @@
     {
      "scorer": "G. Simeone",
      "minute": 62
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882818",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T15:15Z",
+   "home": "Rayo Vallecano",
+   "away": "Celta",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. de Frutos",
+     "minute": 36
+    },
+    {
+     "scorer": "J. de Frutos",
+     "minute": 55
+    },
+    {
+     "scorer": "U. López",
+     "minute": 73
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882825",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T17:30Z",
+   "home": "Real Betis",
+   "away": "Málaga",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Bartra",
+     "minute": 38
+    },
+    {
+     "scorer": "P. Fornals",
+     "minute": "45+2"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Niño",
+     "minute": 68
     }
    ],
    "competition": "PD",
@@ -183,6 +398,39 @@
    "complete": true
   },
   {
+   "url": "espn:401884754",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T17:30Z",
+   "home": "Bayern",
+   "away": "Dortmund",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "K. Laimer",
+     "minute": 38
+    },
+    {
+     "scorer": "D. Upamecano",
+     "minute": 66
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Guirassy",
+     "minute": 60
+    },
+    {
+     "scorer": "F. Silva",
+     "minute": 89
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
    "url": "espn:401874798",
    "date": "2026-10-31",
    "utc": "2026-10-31T14:00Z",
@@ -206,6 +454,51 @@
     {
      "scorer": "G. Varela (pen)",
      "minute": 6
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874990",
+   "date": "2026-10-31",
+   "utc": "2026-10-31T17:00Z",
+   "home": "Udinese",
+   "away": "Roma",
+   "htHome": 0,
+   "htAway": 4,
+   "ftHome": 2,
+   "ftAway": 5,
+   "homeGoals": [
+    {
+     "scorer": "N. Zaniolo",
+     "minute": 50
+    },
+    {
+     "scorer": "M. Palma",
+     "minute": 78
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "B. Cristante",
+     "minute": 10
+    },
+    {
+     "scorer": "R. Mora",
+     "minute": 31
+    },
+    {
+     "scorer": "D. Malen",
+     "minute": 33
+    },
+    {
+     "scorer": "E. Ndicka",
+     "minute": 37
+    },
+    {
+     "scorer": "D. Ghilardi",
+     "minute": "90+2"
     }
    ],
    "competition": "SA",
