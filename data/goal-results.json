@@ -1,81 +1,6 @@
 {
-  "generatedAt": "2026-10-31T09:09:01.000084Z",
+  "generatedAt": "2026-10-31T15:27:22.512006Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lille-vs-troyes/FYD4DE5sDuCdS-8dJCYgE",
-      "date": null,
-      "home": "Lille",
-      "away": "Troyes",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "Tiago Santos",
-          "minute": 18
-        },
-        {
-          "scorer": "E. Mbappe",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/manchester-united-vs-manchester-city/1C77M_-tuYjWVQpjrfx0L",
-      "date": null,
-      "home": "Manchester United",
-      "away": "Manchester City",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "E. Haaland",
-          "minute": 60
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/levante-vs-barcelona/yIjUEP_4ATKfv2dgC_aZ7",
-      "date": null,
-      "home": "Levante",
-      "away": "Barcelona",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 2,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "I. Romero",
-          "minute": 79
-        },
-        {
-          "scorer": "R. Brugue",
-          "minute": 88
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "X. Espart",
-          "minute": 5
-        },
-        {
-          "scorer": "L. Yamal",
-          "minute": 19
-        },
-        {
-          "scorer": "K. Adeyemi",
-          "minute": 90
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/getafe-vs-deportivo-de-a-coruna/OqAhq49Bz_oeI-rmtkopN",
       "date": null,
@@ -7880,6 +7805,81 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/chelsea-vs-manchester-united/2xRiYeqWZLyjs8_kUQadJ",
+      "date": "2026-10-31",
+      "home": "Chelsea",
+      "away": "Manchester United",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "M. Rogers",
+          "minute": 50
+        },
+        {
+          "scorer": "C. Palmer",
+          "minute": 64
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/levante-vs-atletico-madrid/Aw_RnynoYShdX8Zp-1HS8",
+      "date": "2026-10-31",
+      "home": "Levante",
+      "away": "Atletico Madrid",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "A. Grimaldo",
+          "minute": 36
+        },
+        {
+          "scorer": "G. Simeone",
+          "minute": 62
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez",
+      "date": null,
+      "home": "Real Madrid",
+      "away": "Rayo Vallecano",
+      "htHome": 3,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "K. Mbappe",
+          "minute": 14
+        },
+        {
+          "scorer": "A. Carreras",
+          "minute": 17
+        },
+        {
+          "scorer": "J. Bellingham",
+          "minute": 35
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Camello",
+          "minute": 51
+        }
+      ],
+      "competition": "real-madrid"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7894,7 +7894,6 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez": 2
+    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1
   }
 }
