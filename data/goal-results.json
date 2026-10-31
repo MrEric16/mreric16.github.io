@@ -1,40 +1,6 @@
 {
-  "generatedAt": "2026-10-31T02:37:55.373984Z",
+  "generatedAt": "2026-10-31T09:09:01.000084Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/rb-leipzig-vs-hamburger-sv/JzPPFM4UAuGAfMbrPAhYd",
-      "date": null,
-      "home": "Rb Leipzig",
-      "away": "Hamburger Sv",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 5,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "T. Gomis",
-          "minute": 17
-        },
-        {
-          "scorer": "A. Nusa",
-          "minute": 28
-        },
-        {
-          "scorer": "W. Orban",
-          "minute": 72
-        },
-        {
-          "scorer": "C. Nkunku",
-          "minute": 74
-        },
-        {
-          "scorer": "R. Cruz",
-          "minute": 77
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/lille-vs-troyes/FYD4DE5sDuCdS-8dJCYgE",
       "date": null,
@@ -7879,6 +7845,41 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/nice-vs-rennes/iqcn2s68B-We8XopQKeJF",
+      "date": "2026-10-30",
+      "home": "Nice",
+      "away": "Rennes",
+      "htHome": 3,
+      "htAway": 1,
+      "ftHome": 5,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "E. Wahi",
+          "minute": 12
+        },
+        {
+          "scorer": "J. Clauss",
+          "minute": 45
+        },
+        {
+          "scorer": "M. Amoura",
+          "minute": 52
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Szymanski",
+          "minute": 15
+        },
+        {
+          "scorer": "B. Dia",
+          "minute": 58
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7894,7 +7895,6 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/nice-vs-rennes/iqcn2s68B-We8XopQKeJF": 2,
-    "https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez": 1
+    "https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez": 2
   }
 }
