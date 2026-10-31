@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-10-31T11:04:21.261908+00:00",
+  "generatedAt": "2026-10-31T16:04:22.943054+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
-      "played": 34,
-      "won": 22,
-      "otWon": 12,
+      "played": 36,
+      "won": 23,
+      "otWon": 13,
       "soWon": 3,
       "soLost": 1,
       "otLost": 1,
       "lost": 0,
-      "gf": 72,
-      "points": 76
+      "gf": 76,
+      "points": 80
     },
     {
       "team": "Lokomotiv",
@@ -124,14 +124,14 @@
     {
       "team": "Avtomobilist",
       "played": 22,
-      "won": 20,
+      "won": 21,
       "otWon": 9,
       "soWon": 0,
       "soLost": 1,
       "otLost": 0,
       "lost": 0,
-      "gf": 54,
-      "points": 59
+      "gf": 57,
+      "points": 61
     },
     {
       "team": "Dinamo Mn",
@@ -267,11 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Avtomobilist",
-      "away": "Metallurg Mg",
-      "start": "2026-10-31T15:00:00+05:00"
-    },
     {
       "home": "Admiral",
       "away": "Amur",
@@ -2869,6 +2864,14 @@
     }
   ],
   "results": [
+    {
+      "home": "Avtomobilist",
+      "away": "Metallurg Mg",
+      "start": "2026-10-31T15:00:00+05:00",
+      "homeScore": 3,
+      "awayScore": 4,
+      "finished": true
+    },
     {
       "home": "Dragons",
       "away": "Barys",
