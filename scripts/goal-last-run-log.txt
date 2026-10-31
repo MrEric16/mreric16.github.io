@@ -1,10 +1,24 @@
 [goal-scraper] Run started.
-[goal-scraper] [PL] Found 1 finished-match links
-[goal-scraper] [PL] Added: Chelsea 2-0 Manchester United
-[goal-scraper] [PD] Found 2 finished-match links
-[goal-scraper] [PD] Added: Levante 0-2 Atletico Madrid
-[goal-scraper] [BL1] Found 1 finished-match links
-[goal-scraper] [SA] Found 0 finished-match links
+[goal-scraper] [PL] Found 7 finished-match links
+[goal-scraper] [PL] Added: Afc Bournemouth 2-0 Leeds United
+[goal-scraper] [PL] Added: Coventry City 3-1 Sunderland
+[goal-scraper] [PL] Added: Brentford 2-0 Nottingham Forest
+[goal-scraper] [PL] Added: Manchester City 0-1 Brighton And Hove Albion
+[goal-scraper] [PL] Added: Hull City 2-2 Ipswich Town
+[goal-scraper] [PL] Added: Tottenham Hotspur 2-0 Crystal Palace
+[goal-scraper] [PD] Found 3 finished-match links
+[goal-scraper] WARNING: Rayo Vallecano scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/rayo-vallecano-vs-celta-vigo/BsugNOyeDEszeL_sM-fhK
+[goal-scraper] [PD] SCORER PARSE FAILED (attempt 1/3) for Rayo Vallecano 3-0 Celta Vigo -- NOT committing, will retry next run: https://www.goal.com/en/match/rayo-vallecano-vs-celta-vigo/BsugNOyeDEszeL_sM-fhK
+[goal-scraper] [BL1] Found 6 finished-match links
+[goal-scraper] [BL1] Added: Schalke 04 0-2 Rb Leipzig
+[goal-scraper] [BL1] Added: Borussia Moenchengladbach 0-0 Paderborn
+[goal-scraper] WARNING: Vfb Stuttgart scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/bayer-leverkusen-vs-vfb-stuttgart/dkUnbrvGIRyAr3hdazjsR
+[goal-scraper] [BL1] SCORER PARSE FAILED (attempt 1/3) for Bayer Leverkusen 2-4 Vfb Stuttgart -- NOT committing, will retry next run: https://www.goal.com/en/match/bayer-leverkusen-vs-vfb-stuttgart/dkUnbrvGIRyAr3hdazjsR
+[goal-scraper] [BL1] Added: Werder Bremen 2-0 Hoffenheim
+[goal-scraper] [BL1] Added: Augsburg 1-2 Freiburg
+[goal-scraper] [SA] Found 2 finished-match links
+[goal-scraper] [SA] Added: Bologna 2-1 Monza
+[goal-scraper] [SA] Added: Udinese 2-5 Roma
 [goal-scraper] [FL1] Found 3 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 26 finished-match links
@@ -29,9 +43,6 @@
 [goal-scraper] WARNING: Real Madrid scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Real Sociedad on 2026-08-26
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Malaga on 2026-08-30
-[goal-scraper] WARNING: Real Madrid scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez
-[goal-scraper] [real-madrid] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Real Madrid 4-1 Rayo Vallecano: https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez
-[goal-scraper] [real-madrid] Added: Real Madrid 4-1 Rayo Vallecano
 [goal-scraper] [barcelona] Found 19 finished-match links
 [goal-scraper] WARNING: Barcelona scored 4 but 0 scorers were parsed for https://www.goal.com/en/match/barcelona-vs-ce-europa/_ALaHuWMS8DB2jd-OZGrF
 [goal-scraper] WARNING: Ce Europa scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/barcelona-vs-ce-europa/_ALaHuWMS8DB2jd-OZGrF
@@ -49,6 +60,8 @@
 [goal-scraper] WARNING: Barcelona scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-rayo-vallecano/WYyZot_4M5sWl5vpAePKz
 [goal-scraper] WARNING: Rayo Vallecano scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-rayo-vallecano/WYyZot_4M5sWl5vpAePKz
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Barcelona vs Rayo Vallecano on 2026-08-31
+[goal-scraper] WARNING: Barcelona scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/levante-vs-barcelona/yIjUEP_4ATKfv2dgC_aZ7
+[goal-scraper] [barcelona] SCORER PARSE FAILED (attempt 1/3) for Levante 2-4 Barcelona -- NOT committing, will retry next run: https://www.goal.com/en/match/levante-vs-barcelona/yIjUEP_4ATKfv2dgC_aZ7
 [goal-scraper] [bayern-munich] Found 27 finished-match links
 [goal-scraper] WARNING: Bayern Munich scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
 [goal-scraper] WARNING: Fenerbahce scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
@@ -129,7 +142,7 @@
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Cerezo Osaka vs Borussia Dortmund on 2026-07-29
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fc Tokyo vs Borussia Dortmund on 2026-08-01
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Roma on 2026-08-15
-[goal-scraper] [roma] Found 18 finished-match links
+[goal-scraper] [roma] Found 19 finished-match links
 [goal-scraper] WARNING: Roma scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/roma-vs-asd-trastevere/rEpIoomMZP4MF3iBnJkkk
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Asd Trastevere on 2026-07-23
 [goal-scraper] WARNING: Cannes scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/cannes-vs-roma/mcwkL_f4LVruCD6tSOr07
@@ -158,6 +171,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Palermo on 2026-08-11
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 3
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR']
+[goal-scraper] TOTAL new results added this run: 12
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR', 'https://www.goal.com/en/match/rayo-vallecano-vs-celta-vigo/BsugNOyeDEszeL_sM-fhK', 'https://www.goal.com/en/match/bayer-leverkusen-vs-vfb-stuttgart/dkUnbrvGIRyAr3hdazjsR', 'https://www.goal.com/en/match/levante-vs-barcelona/yIjUEP_4ATKfv2dgC_aZ7']
 [goal-scraper] Wrote data/goal-results.json
