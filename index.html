@@ -34484,10 +34484,18 @@ function viewHome(){
     <div class="story-bar">${storyBarHtml}
     </div>
     <section>
-      <div class="section-head"><span class="emoji">${icon('gradcap')}</span><h2>Domains</h2></div>
-      <div class="faculties">
-        ${facTiles}
-      </div>
+      <details class="domain-group">
+        <summary class="section-head domain-summary">
+          <span class="emoji">${icon('gradcap')}</span>
+          <h2>Domains</h2>
+          <span class="domain-chevron" style="margin-left:auto;">${icon('chevronDown')}</span>
+        </summary>
+        <div class="domain-group-content">
+          <div class="faculties" style="margin-top:14px;">
+            ${facTiles}
+          </div>
+        </div>
+      </details>
     </section>
 
     <section>
