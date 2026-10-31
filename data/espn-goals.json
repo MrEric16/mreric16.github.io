@@ -1,6 +1,63 @@
 {
- "generatedAt": "2026-10-30T20:57:17.377833Z",
+ "generatedAt": "2026-10-31T00:16:47.136790Z",
  "results": [
+  {
+   "url": "espn:401882817",
+   "date": "2026-10-30",
+   "utc": "2026-10-30T20:00Z",
+   "home": "Villarreal",
+   "away": "Espanyol",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "L. Cabrera",
+     "minute": 60
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884746",
+   "date": "2026-10-30",
+   "utc": "2026-10-30T19:30Z",
+   "home": "Elversberg",
+   "away": "Mainz",
+   "htHome": 3,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "F. Keidel",
+     "minute": 7
+    },
+    {
+     "scorer": "F. Onyeka",
+     "minute": 26
+    },
+    {
+     "scorer": "M. Krattenmacher",
+     "minute": "45+1"
+    },
+    {
+     "scorer": "C. Campbell",
+     "minute": 90
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "B. Hollerbach",
+     "minute": "90+2"
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
   {
    "url": "espn:401876421",
    "date": "2026-10-30",
@@ -84,6 +141,26 @@
      "minute": 58
     }
    ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876420",
+   "date": "2026-10-30",
+   "utc": "2026-10-30T20:05Z",
+   "home": "Lille",
+   "away": "RC Lens",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "O. Giroud",
+     "minute": 86
+    }
+   ],
+   "awayGoals": [],
    "competition": "FL1",
    "complete": true
   },
