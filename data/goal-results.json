@@ -1,29 +1,6 @@
 {
-  "generatedAt": "2026-10-30T23:26:01.671551Z",
+  "generatedAt": "2026-10-31T02:37:55.373984Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/celta-vigo-vs-malaga/iZVl2x2PEEL32gaY1m43T",
-      "date": null,
-      "home": "Celta Vigo",
-      "away": "Malaga",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "F. Jutgla",
-          "minute": 41
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Nino",
-          "minute": 83
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/rb-leipzig-vs-hamburger-sv/JzPPFM4UAuGAfMbrPAhYd",
       "date": null,
@@ -7871,6 +7848,37 @@
       ],
       "awayGoals": [],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/le-havre-vs-paris-saint-germain/6hs023ta15m-tFcawH95N",
+      "date": "2026-10-30",
+      "home": "Le Havre",
+      "away": "Paris Saint Germain",
+      "htHome": 1,
+      "htAway": 2,
+      "ftHome": 1,
+      "ftAway": 5,
+      "homeGoals": [
+        {
+          "scorer": "J. Maja",
+          "minute": 18
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Godts",
+          "minute": 26
+        },
+        {
+          "scorer": "A. Hakimi",
+          "minute": 28
+        },
+        {
+          "scorer": "S. Mayulu",
+          "minute": 62
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7886,7 +7894,7 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/le-havre-vs-paris-saint-germain/6hs023ta15m-tFcawH95N": 2,
-    "https://www.goal.com/en/match/nice-vs-rennes/iqcn2s68B-We8XopQKeJF": 1
+    "https://www.goal.com/en/match/nice-vs-rennes/iqcn2s68B-We8XopQKeJF": 2,
+    "https://www.goal.com/en/match/real-madrid-vs-rayo-vallecano/NAdYQGt3M_ZuU0agZUaez": 1
   }
 }
