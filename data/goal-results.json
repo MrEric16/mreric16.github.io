@@ -1,51 +1,6 @@
 {
-  "generatedAt": "2026-11-01T08:31:12.170030Z",
+  "generatedAt": "2026-11-01T15:25:27.713864Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/newcastle-united-vs-hull-city/8I7bFOwa-BO6SFnsEkPYp",
-      "date": null,
-      "home": "Newcastle United",
-      "away": "Hull City",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "J. Willock",
-          "minute": 3
-        },
-        {
-          "scorer": "L. Hall",
-          "minute": 7
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Cho",
-          "minute": 67
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/everton-vs-ipswich-town/Dup0N-xy8dLLdLOXH8dK9",
-      "date": null,
-      "home": "Everton",
-      "away": "Ipswich Town",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "T. Barry",
-          "minute": 11
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/brighton-and-hove-albion-vs-arsenal/v9CRFg1O00YuCgbnHJS8e",
       "date": null,
@@ -7866,6 +7821,55 @@
       ],
       "awayGoals": [],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/getafe-vs-sevilla/0x0ryoJQfJpZMMSCegkQd",
+      "date": "2026-11-01",
+      "home": "Getafe",
+      "away": "Sevilla",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "E. Unal",
+          "minute": 68
+        },
+        {
+          "scorer": "M. Satriano",
+          "minute": 73
+        },
+        {
+          "scorer": "O. Mangala",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "K. Salas",
+          "minute": 19
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/como-vs-venezia/3UNr6qh2_MlU0rORB14zM",
+      "date": "2026-11-01",
+      "home": "Como",
+      "away": "Venezia",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "L. Da Cunha",
+          "minute": 43
+        }
+      ],
+      "awayGoals": [],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7881,7 +7885,7 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/barcelona-vs-racing-santander/6QiTE6CkBSCG9oJhD_Lx9": 1,
-    "https://www.goal.com/en/match/bayern-munich-vs-union-berlin/Q8njM_VTL1U_vImKQdiBf": 1
+    "https://www.goal.com/en/match/barcelona-vs-racing-santander/6QiTE6CkBSCG9oJhD_Lx9": 2,
+    "https://www.goal.com/en/match/bayern-munich-vs-union-berlin/Q8njM_VTL1U_vImKQdiBf": 2
   }
 }
