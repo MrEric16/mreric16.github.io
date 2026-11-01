@@ -1,6 +1,153 @@
 {
- "generatedAt": "2026-11-01T09:30:05.969086Z",
+ "generatedAt": "2026-11-01T16:15:02.114655Z",
  "results": [
+  {
+   "url": "espn:401882821",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T13:00Z",
+   "home": "Getafe",
+   "away": "Sevilla FC",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Ünal",
+     "minute": 68
+    },
+    {
+     "scorer": "M. Satriano",
+     "minute": 73
+    },
+    {
+     "scorer": "O. Mangala",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Salas",
+     "minute": 19
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401875002",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T11:30Z",
+   "home": "Como",
+   "away": "Venezia FC",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "L. Da Cunha (pen)",
+     "minute": 43
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874782",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T14:00Z",
+   "home": "Frosinone",
+   "away": "Torino",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "F. Ghedjemis",
+     "minute": 48
+    },
+    {
+     "scorer": "G. Calo",
+     "minute": "90+3"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874983",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T14:00Z",
+   "home": "Lazio",
+   "away": "Cagliari",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "G. Isaksen",
+     "minute": 36
+    },
+    {
+     "scorer": "A. Pinamonti",
+     "minute": 83
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Nzola",
+     "minute": 20
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876414",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T14:00Z",
+   "home": "Strasbourg",
+   "away": "Auxerre",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 5,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "D. Essugo",
+     "minute": 41
+    },
+    {
+     "scorer": "M. Godo",
+     "minute": 55
+    },
+    {
+     "scorer": "C. Harder (pen)",
+     "minute": 62
+    },
+    {
+     "scorer": "G. Yassine",
+     "minute": 77
+    },
+    {
+     "scorer": "G. Yassine",
+     "minute": 85
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "C. Archer",
+     "minute": 68
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401879248",
    "date": "2026-10-31",
