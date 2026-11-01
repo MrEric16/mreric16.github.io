@@ -1,96 +1,6 @@
 {
-  "generatedAt": "2026-11-01T19:52:28.658904Z",
+  "generatedAt": "2026-11-01T23:17:01.507963Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-borussia-dortmund/HGGH2xENy0ku7WIGCQ51O",
-      "date": null,
-      "home": "Vfb Stuttgart",
-      "away": "Borussia Dortmund",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "M. Beier",
-          "minute": 70
-        }
-      ],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/paris-fc-vs-strasbourg/ztGV6iSUSWDrfyPyLrd5e",
-      "date": null,
-      "home": "Paris Fc",
-      "away": "Strasbourg",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "I. Kebbal",
-          "minute": 18
-        },
-        {
-          "scorer": "P. Pagis",
-          "minute": 57
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Mbow",
-          "minute": 88
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/roma-vs-inter/ljBwYBhTxoHwHbmeiORO-",
-      "date": null,
-      "home": "Roma",
-      "away": "Inter",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "M. Kone",
-          "minute": 6
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "L. Martinez",
-          "minute": 46
-        }
-      ],
-      "competition": "roma"
-    },
-    {
-      "url": "https://www.goal.com/en/match/venezia-vs-lazio/yXoWm9C1mjiDY3weEt1K1",
-      "date": null,
-      "home": "Venezia",
-      "away": "Lazio",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 2,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "M. Zaccagni",
-          "minute": 51
-        },
-        {
-          "scorer": "T. Noslin",
-          "minute": 60
-        }
-      ],
-      "competition": "SA"
-    },
     {
       "url": "https://www.goal.com/en/match/angers-vs-troyes/s4uaIaebPxKGyKPQdBiF6",
       "date": null,
@@ -7878,6 +7788,99 @@
       ],
       "awayGoals": [],
       "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/athletic-bilbao-vs-real-sociedad/VL-8DNH6wtUMRKZqXvIhT",
+      "date": "2026-11-01",
+      "home": "Athletic Bilbao",
+      "away": "Real Sociedad",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "I. Williams",
+          "minute": 14
+        },
+        {
+          "scorer": "A. Berenguer",
+          "minute": 45
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Sucic",
+          "minute": 30
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-ssc-napoli/rcVITHRhZIMPjjq_HVd9s",
+      "date": "2026-11-01",
+      "home": "Juventus",
+      "away": "Ssc Napoli",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "K. Alajbegovic",
+          "minute": 70
+        },
+        {
+          "scorer": "J. Boga",
+          "minute": 87
+        }
+      ],
+      "awayGoals": [],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lyon-vs-angers/4qTXlrTUpWGwAotvYiE9F",
+      "date": "2026-11-01",
+      "home": "Lyon",
+      "away": "Angers",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "E. Nuamah",
+          "minute": 38
+        },
+        {
+          "scorer": "C. Tolisso",
+          "minute": 86
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/marseille-vs-toulouse/V0oiv87R9pSjnr4_MCMAm",
+      "date": "2026-11-01",
+      "home": "Marseille",
+      "away": "Toulouse",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "A. Harit",
+          "minute": 1
+        },
+        {
+          "scorer": "A. Gouiri",
+          "minute": 25
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7892,6 +7895,8 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1
+    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
+    "https://www.goal.com/en/match/strasbourg-vs-auxerre/M2DOsn2Uz000rOqaQK5eA": 1,
+    "https://www.goal.com/en/match/paris-fc-vs-monaco/zQjwK5xoFPDpUyA1CZknz": 1
   }
 }
