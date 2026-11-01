@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T06:44:46.651366Z",
+  "generatedAt": "2026-11-01T13:52:03.614839Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
@@ -32,6 +32,16 @@
       "pts": 52
     },
     {
+      "name": "OKMK",
+      "pld": 26,
+      "w": 13,
+      "d": 6,
+      "l": 7,
+      "gf": 38,
+      "ga": 33,
+      "pts": 45
+    },
+    {
       "name": "Nasaf Qarshi",
       "pld": 26,
       "w": 11,
@@ -52,23 +62,13 @@
       "pts": 42
     },
     {
-      "name": "OKMK",
-      "pld": 25,
-      "w": 12,
-      "d": 6,
-      "l": 7,
-      "gf": 36,
-      "ga": 32,
-      "pts": 42
-    },
-    {
       "name": "Lok. Tashkent",
-      "pld": 25,
+      "pld": 26,
       "w": 11,
       "d": 7,
-      "l": 7,
-      "gf": 40,
-      "ga": 31,
+      "l": 8,
+      "gf": 41,
+      "ga": 33,
       "pts": 40
     },
     {
@@ -163,6 +163,13 @@
     }
   ],
   "results": [
+    {
+      "home": "Lok. Tashkent",
+      "away": "OKMK",
+      "raw_time": "01.11. 11:00",
+      "homeScore": 1,
+      "awayScore": 2
+    },
     {
       "home": "Navbahor Namangan",
       "away": "Andijan",
@@ -893,11 +900,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Lok. Tashkent",
-      "away": "OKMK",
-      "raw_time": "01.11. 11:00"
-    },
     {
       "home": "Bunyodkor",
       "away": "Xorazm Urganch",
