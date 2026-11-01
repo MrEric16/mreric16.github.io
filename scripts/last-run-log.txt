@@ -1,7 +1,6 @@
-[scrape] Run started. Today (Tashkent): 2026-11-01  Window end: 2026-11-15
+[scrape] Run started. Today (Tashkent): 2026-11-02  Window end: 2026-11-16
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-11-01: 27 new event URLs discovered
-[scrape] calendar 2026-11-02: 5 new event URLs discovered
+[scrape] calendar 2026-11-02: 18 new event URLs discovered
 [scrape] calendar 2026-11-03: 1 new event URLs discovered
 [scrape] calendar 2026-11-04: 2 new event URLs discovered
 [scrape] calendar 2026-11-05: 1 new event URLs discovered
@@ -10,23 +9,23 @@
 [scrape] calendar 2026-11-08: 7 new event URLs discovered
 [scrape] calendar 2026-11-09: 0 new event URLs discovered
 [scrape] calendar 2026-11-10: 6 new event URLs discovered
+[scrape] calendar 2026-11-11: 2 new event URLs discovered
 [scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 21 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 69 unique event URLs to check
-[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/10/28/midnt-0111 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/27/strash-2610 title='Выставка «Очень страшные дела» в Haqiqiy' title_hits=[] text_hits=["'квест' ...'я детей от\\xa07 до\\xa010 лет проведут осенний квест: ребята будут искать подсказки, ра'"]
+[scrape] calendar discovery complete: 57 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitsk-2410 title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'.\\nшкольникам, студентам и\\xa0пенсионерам\\xa0— скидка 50% при покупке билетов в\\xa0кассе i'"]
-[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 138819 chars, <title>='Afisha.uz'
-[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n233\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n236\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/09/11/ccat title='Новая точка на культурной карте Центральной Азии: в Ташкенте открылся CCA Tashkent' title_hits=[] text_hits=["'кино' ...'щим столом и\\xa0более масштабные события\\xa0— кинопоказы, симпозиумы и\\xa0исследовательск'", "'кинопоказ' ...'щим столом и\\xa0более масштабные события\\xa0— кинопоказы, симпозиумы и\\xa0исследовательск'", "'паб' ...'стоялось предоткрытие, сопровождавшееся паблик-током.\\nистория создания центра\\nин'"]
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/08/25/benchellal-monumental title='Выставка скульптурной одежды Мохамеда Беншалала откроется в Государственном музее истории Узбекистана' title_hits=[] text_hits=["'кино' ...'одить экскурсии, встречи с художниками, кинопоказы, детские занятия, перформансы'", "'кинопоказ' ...'одить экскурсии, встречи с художниками, кинопоказы, детские занятия, перформансы'", "'экскурси' ...'ода в течение всего дня будут проходить экскурсии, встречи с художниками, кинопо'"]
 [scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 226 events kept from 69 pages checked
-[scrape] calendar detail pass drops: {'checked': 69, 'no_title': 1, 'excluded_or_banned': 10}
+[scrape] calendar detail pass complete: 209 events kept from 57 pages checked
+[scrape] calendar detail pass drops: {'checked': 57, 'no_title': 0, 'excluded_or_banned': 8}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
 [scrape] iticket.uz cat=concert: 17 events kept
 [scrape] iticket.uz cat=theatre: 28 events kept
@@ -36,6 +35,6 @@
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 272  |  after dedup: 266
+[scrape] TOTAL before dedup: 255  |  after dedup: 253
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 139 titles
+[scrape] translation cache: 141 titles
