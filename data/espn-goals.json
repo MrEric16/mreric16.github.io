@@ -1,6 +1,26 @@
 {
- "generatedAt": "2026-11-01T16:15:02.114655Z",
+ "generatedAt": "2026-11-01T20:40:41.733074Z",
  "results": [
+  {
+   "url": "espn:401879246",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T16:30Z",
+   "home": "Liverpool",
+   "away": "Arsenal",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "K. Havertz",
+     "minute": 16
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
   {
    "url": "espn:401882821",
    "date": "2026-11-01",
@@ -32,6 +52,112 @@
     }
    ],
    "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882819",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T15:15Z",
+   "home": "Santander",
+   "away": "Real Madrid",
+   "htHome": 0,
+   "htAway": 3,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "K. Mbappé (pen)",
+     "minute": 11
+    },
+    {
+     "scorer": "J. Bellingham",
+     "minute": 21
+    },
+    {
+     "scorer": "Y. Diomande",
+     "minute": 36
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882823",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T17:30Z",
+   "home": "Elche",
+   "away": "Valencia",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "U. Sadiq",
+     "minute": 69
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884750",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T14:30Z",
+   "home": "Union Berlin",
+   "away": "1. FC Köln",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Haberer",
+     "minute": 10
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. El Mala",
+     "minute": 79
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884752",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T16:30Z",
+   "home": "Frankfurt",
+   "away": "HSV",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "W. Omari (og)",
+     "minute": 10
+    },
+    {
+     "scorer": "R. Onyedika",
+     "minute": 47
+    },
+    {
+     "scorer": "Y. Ebnoutalib",
+     "minute": 69
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "T. Moffi",
+     "minute": 14
+    }
+   ],
+   "competition": "BL1",
    "complete": true
   },
   {
@@ -108,6 +234,35 @@
    "complete": true
   },
   {
+   "url": "espn:401874968",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T17:00Z",
+   "home": "Lecce",
+   "away": "Genoa",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "Y. Maleh",
+     "minute": 40
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Osmajic",
+     "minute": 11
+    },
+    {
+     "scorer": "J. Messias",
+     "minute": 28
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876414",
    "date": "2026-11-01",
    "utc": "2026-11-01T14:00Z",
@@ -143,6 +298,63 @@
     {
      "scorer": "C. Archer",
      "minute": 68
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876418",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T16:15Z",
+   "home": "Lyon",
+   "away": "Angers",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "E. Nuamah",
+     "minute": 38
+    },
+    {
+     "scorer": "C. Tolisso",
+     "minute": 86
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876415",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T16:15Z",
+   "home": "Paris FC",
+   "away": "Monaco",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "L. Sinayoko",
+     "minute": 38
+    },
+    {
+     "scorer": "L. Sinayoko",
+     "minute": 44
+    },
+    {
+     "scorer": "P. Pagis",
+     "minute": 74
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "F. Balogun",
+     "minute": 65
     }
    ],
    "competition": "FL1",
@@ -2924,7 +3136,7 @@
    "ftAway": 2,
    "homeGoals": [
     {
-     "scorer": "A. Mccarthy",
+     "scorer": "A. McCarthy",
      "minute": 39
     }
    ],
