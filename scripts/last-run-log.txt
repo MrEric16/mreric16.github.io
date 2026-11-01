@@ -14,24 +14,28 @@
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
 [scrape] calendar discovery complete: 69 unique event URLs to check
-[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/10/28/midnt-0111 title='Вечеринки в Midnight' title_hits=[] text_hits=['\'кино\' ...\'черинки, концерты, рестораны, выставки, кино и многое другое\\\\",\\\\"events\\\\":{\\\\"tod\'', '\'вино\' ...\'еры фильмов {year} — календарь выхода новинок кино\\\\",\\\\"uzbekistan\\\\":\\\\"премьеры ф\'', '\'cinema\' ...\'t\\\\",\\\\"avia\\\\",\\\\"calendar\\\\",\\\\"catalog\\\\",\\\\"cinema\\\\",\\\\"contacts\\\\",\\\\"feeds\\\\",\\\\"movie\\\\\'']
-[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/10/19/city-mall title='Утренние завтраки в Tashkent City Mall' title_hits=[] text_hits=['\'кино\' ...\'черинки, концерты, рестораны, выставки, кино и многое другое\\\\",\\\\"events\\\\":{\\\\"tod\'', '\'вино\' ...\'еры фильмов {year} — календарь выхода новинок кино\\\\",\\\\"uzbekistan\\\\":\\\\"премьеры ф\'', '\'cinema\' ...\'t\\\\",\\\\"avia\\\\",\\\\"calendar\\\\",\\\\"catalog\\\\",\\\\"cinema\\\\",\\\\"contacts\\\\",\\\\"feeds\\\\",\\\\"movie\\\\\'']
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/08/24/shoxrux-katta-show title='Концерт Шохруха' title_hits=[] text_hits=['\'кино\' ...\'черинки, концерты, рестораны, выставки, кино и многое другое\\\\",\\\\"events\\\\":{\\\\"tod\'', '\'вино\' ...\'еры фильмов {year} — календарь выхода новинок кино\\\\",\\\\"uzbekistan\\\\":\\\\"премьеры ф\'', '\'cinema\' ...\'t\\\\",\\\\"avia\\\\",\\\\"calendar\\\\",\\\\"catalog\\\\",\\\\"cinema\\\\",\\\\"contacts\\\\",\\\\"feeds\\\\",\\\\"movie\\\\\'']
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/03/02/valeriy-meladze title='Концерт Валерия Меладзе' title_hits=[] text_hits=['\'кино\' ...\'черинки, концерты, рестораны, выставки, кино и многое другое\\\\",\\\\"events\\\\":{\\\\"tod\'', '\'вино\' ...\'еры фильмов {year} — календарь выхода новинок кино\\\\",\\\\"uzbekistan\\\\":\\\\"премьеры ф\'', '\'cinema\' ...\'t\\\\",\\\\"avia\\\\",\\\\"calendar\\\\",\\\\"catalog\\\\",\\\\"cinema\\\\",\\\\"contacts\\\\",\\\\"feeds\\\\",\\\\"movie\\\\\'']
-[scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/28/pakety-0111 title='Выставка «Вторая жизнь пластиковых пакетов» в караван-сарае Икуо Хираямы' title_hits=[] text_hits=['\'кино\' ...\'черинки, концерты, рестораны, выставки, кино и многое другое\\\\",\\\\"events\\\\":{\\\\"tod\'', '\'вино\' ...\'еры фильмов {year} — календарь выхода новинок кино\\\\",\\\\"uzbekistan\\\\":\\\\"премьеры ф\'', '\'cinema\' ...\'t\\\\",\\\\"avia\\\\",\\\\"calendar\\\\",\\\\"catalog\\\\",\\\\"cinema\\\\",\\\\"contacts\\\\",\\\\"feeds\\\\",\\\\"movie\\\\\'']
-[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 138490 chars, <title>='Спектакль «Требуется лжец» — купить билеты на концерт в Ташкенте 01.11.2026 от 77\xa0000 сумов — Афиша Ташкента'
-[scrape] calendar detail pass complete: 0 events kept from 69 pages checked
-[scrape] calendar detail pass drops: {'checked': 69, 'no_title': 1, 'excluded_or_banned': 68}
+[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/10/28/midnt-0111 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/27/strash-2610 title='Выставка «Очень страшные дела» в Haqiqiy' title_hits=[] text_hits=["'квест' ...'я детей от\\xa07 до\\xa010 лет проведут осенний квест: ребята будут искать подсказки, ра'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitsk-2410 title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'.\\nшкольникам, студентам и\\xa0пенсионерам\\xa0— скидка 50% при покупке билетов в\\xa0кассе i'"]
+[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 138819 chars, <title>='Afisha.uz'
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
+[scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n233\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape] calendar detail pass complete: 226 events kept from 69 pages checked
+[scrape] calendar detail pass drops: {'checked': 69, 'no_title': 1, 'excluded_or_banned': 10}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 10 events kept
+[scrape] iticket.uz cat=concert: 17 events kept
 [scrape] iticket.uz cat=theatre: 28 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
 [scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
-[scrape] GUARD: this run found only 0 afisha events vs 220 already on file -- carried over 220 previous upcoming ones
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 259  |  after dedup: 259
+[scrape] TOTAL before dedup: 272  |  after dedup: 266
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 139 titles
