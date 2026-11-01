@@ -1,30 +1,34 @@
 [scrape] Run started. Today (Tashkent): 2026-11-01  Window end: 2026-11-15
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-11-01: 29 new event URLs discovered
+[scrape] calendar 2026-11-01: 27 new event URLs discovered
 [scrape] calendar 2026-11-02: 5 new event URLs discovered
 [scrape] calendar 2026-11-03: 1 new event URLs discovered
 [scrape] calendar 2026-11-04: 2 new event URLs discovered
 [scrape] calendar 2026-11-05: 1 new event URLs discovered
-[scrape] calendar 2026-11-06: 4 new event URLs discovered
+[scrape] calendar 2026-11-06: 3 new event URLs discovered
 [scrape] calendar 2026-11-07: 8 new event URLs discovered
 [scrape] calendar 2026-11-08: 7 new event URLs discovered
 [scrape] calendar 2026-11-09: 0 new event URLs discovered
 [scrape] calendar 2026-11-10: 6 new event URLs discovered
-[scrape] exhibitions listing page (supplementary): 8 new event URLs discovered, 20 total exhibition links seen on page
+[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 21 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 71 unique event URLs to check
-[scrape] calendar detail pass complete: 0 events kept from 71 pages checked
-[scrape]   detail fetch failed for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu: 404 Client Error: Not Found for url: https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
+[scrape] calendar discovery complete: 69 unique event URLs to check
+[scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape] calendar detail pass complete: 225 events kept from 69 pages checked
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 20 events kept
-[scrape] iticket.uz cat=theatre: 30 events kept
+[scrape] iticket.uz cat=concert: 10 events kept
+[scrape] iticket.uz cat=theatre: 13 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
 [scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 51  |  after dedup: 51
+[scrape] TOTAL before dedup: 249  |  after dedup: 245
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 139 titles
