@@ -612,6 +612,10 @@ def fetch_event_detail(url):
         parts = []
         total_len = 0
         for el in h1.find_all_next(string=True):
+            # Skip <script>/<style> text: afisha.uz embeds its whole site-wide UI dictionary (with words like
+            # "кино", "cinema") as JSON in a script tag, which tripped the exclude filter on 68 of 69 pages.
+            if el.parent is not None and el.parent.name in ("script", "style", "noscript", "template"):
+                continue
             piece = el.strip()
             if not piece:
                 continue
@@ -624,7 +628,9 @@ def fetch_event_detail(url):
                 break
         content_text = "\n".join(parts)
     else:
-        content_text = full_text  # no h1 found -- fall back rather than skip
+        content_text = "\n".join(x.strip() for x in soup.find_all(string=True)
+                                 if x.strip() and x.parent is not None
+                                 and x.parent.name not in ("script", "style", "noscript", "template"))  # no h1 found -- fall back rather than skip
                                     # the content check entirely
 
     # Venue: event detail pages consistently link to their location as
