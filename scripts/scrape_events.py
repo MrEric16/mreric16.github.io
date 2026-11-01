@@ -533,6 +533,10 @@ AFISHA_CATEGORIES = {
 }
 
 
+_NO_H1_LOGGED = 0
+_DROPS = {"checked": 0, "no_title": 0, "excluded_or_banned": 0}
+
+
 def fetch_event_detail(url):
     """Fetches an event's own detail page and returns (clean_title, occurrences,
     content_text, venue), where occurrences is a list of (date, time_str)
@@ -577,6 +581,11 @@ def fetch_event_detail(url):
     soup = BeautifulSoup(r.text, "html.parser")
     h1 = soup.find("h1")
     clean_title = h1.get_text(strip=True) if h1 else None
+    global _NO_H1_LOGGED
+    if h1 is None and _NO_H1_LOGGED < 3:
+        _NO_H1_LOGGED += 1
+        page_title = soup.title.get_text(strip=True) if soup.title else None
+        log(f"  detail page has NO <h1> (likely a bot-wall page, not the event): {url} HTTP {r.status_code}, {len(r.text)} chars, <title>={page_title!r}")
     if ("our-heritage" in url or "photo-chronicle-xx" in url):
         log(f"  TARGET DETAIL CHECK {url}: HTTP {r.status_code}, {len(r.text)} chars received, "
             f"h1 found={h1 is not None}, title={clean_title!r}")
@@ -950,14 +959,17 @@ def scrape_afisha_calendar():
     for full_url, category in discovered.items():
         clean_title, occurrences, full_text, venue = fetch_event_detail(full_url)
         time.sleep(0.3)
+        _DROPS["checked"] += 1
         is_target = "our-heritage" in full_url or "photo-chronicle-xx" in full_url
         if not clean_title:
+            _DROPS["no_title"] += 1
             if is_target:
                 log(f"  TARGET DROPPED at 'not clean_title' check: {full_url}")
             continue
         if is_excluded(clean_title) or is_excluded(full_text) or is_banned(clean_title) or is_banned(full_text):
             if is_target:
                 log(f"  TARGET DROPPED at exclude/ban check: {full_url} | title_excluded={is_excluded(clean_title)} full_text_excluded={is_excluded(full_text)} title_banned={is_banned(clean_title)} full_text_banned={is_banned(full_text)}")
+            _DROPS["excluded_or_banned"] += 1
             continue
         if is_blacklisted_venue(venue):
             log(f"  DROPPED (blacklisted venue): {full_url} | title={clean_title!r} venue={venue!r}")
@@ -1001,6 +1013,7 @@ def scrape_afisha_calendar():
             log(f"  {clean_title!r}: no dates found in window (no schedule/date-range parsed) -- kept 0 events")
 
     log(f"calendar detail pass complete: {len(events)} events kept from {len(discovered)} pages checked")
+    log(f"calendar detail pass drops: {_DROPS}")
     return events
 
 
@@ -1322,6 +1335,25 @@ def main():
         all_events += scrape_with_playwright()
     except Exception as e:
         log(f"playwright sources: TOTAL FAILURE ({e})")
+
+    # GUARD: afisha.uz intermittently serves a bot-wall to the detail-page fetches, which made whole runs
+    # keep 0 afisha events (2026-11-01: 225 events at 06:20, 0 at 16:08) and overwrote good data with a
+    # near-empty list. If this run found far fewer afisha events than the file already holds, carry the
+    # previous still-upcoming ones over instead of dropping them.
+    try:
+        with open("data/events-tashkent.json", encoding="utf-8") as f:
+            prev = json.load(f).get("events", [])
+        def _is_af(e): return str(e.get("source", "")).startswith("afisha.uz")
+        lo, hi = TODAY_MIDNIGHT.strftime("%Y-%m-%d"), WINDOW_END.strftime("%Y-%m-%d")
+        prev_af = [e for e in prev if _is_af(e) and e.get("startDate") and lo <= e["startDate"] <= hi]
+        new_af = [e for e in all_events if _is_af(e)]
+        if prev_af and len(new_af) < 0.5 * len(prev_af):
+            have = {(e.get("url"), e.get("startDate")) for e in all_events}
+            carried = [e for e in prev_af if (e.get("url"), e.get("startDate")) not in have]
+            all_events += carried
+            log(f"GUARD: this run found only {len(new_af)} afisha events vs {len(prev_af)} already on file -- carried over {len(carried)} previous upcoming ones")
+    except Exception as e:
+        log(f"GUARD: could not compare with previous file ({e})")
 
     deduped = dedup(all_events)
     deduped.sort(key=lambda e: e["startDate"])
