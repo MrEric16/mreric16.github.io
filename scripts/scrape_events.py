@@ -331,6 +331,16 @@ BANNED_TERMS_WORD_BOUNDARY = [
 ]
 
 
+def _matched_terms(text):
+    """Diagnostic only: which exclude/ban terms matched (with a little context), for logging silent drops."""
+    t = (text or "").lower(); hits = []
+    for kw in EXCLUDE_KEYWORDS_RU + EXCLUDE_KEYWORDS_EN + EXCLUDE_KEYWORDS_UZ + BANNED_TERMS_SUBSTRING:
+        i = t.find(kw)
+        if i >= 0:
+            hits.append(f"{kw!r} ...{t[max(0, i - 40):i + 40]!r}")
+    return hits[:3]
+
+
 def is_banned(text):
     t = (text or "").lower()
     for term in BANNED_TERMS_SUBSTRING:
@@ -970,6 +980,8 @@ def scrape_afisha_calendar():
             if is_target:
                 log(f"  TARGET DROPPED at exclude/ban check: {full_url} | title_excluded={is_excluded(clean_title)} full_text_excluded={is_excluded(full_text)} title_banned={is_banned(clean_title)} full_text_banned={is_banned(full_text)}")
             _DROPS["excluded_or_banned"] += 1
+            if _DROPS["excluded_or_banned"] <= 5:
+                log(f"  DROP DIAG {full_url} title={clean_title!r} title_hits={_matched_terms(clean_title)} text_hits={_matched_terms(full_text)}")
             continue
         if is_blacklisted_venue(venue):
             log(f"  DROPPED (blacklisted venue): {full_url} | title={clean_title!r} venue={venue!r}")
