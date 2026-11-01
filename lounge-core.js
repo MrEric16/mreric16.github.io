@@ -53,6 +53,10 @@
     if(localRaw === remoteRaw) return localRaw;
     var a, b;
     try{ a = JSON.parse(localRaw); b = JSON.parse(remoteRaw); }catch(e){ return localRaw; }
+    if(k === 'homeOrder'){ // home layout: newest save wins as a whole (lists must not be unioned, or a reset would resurrect the old order)
+      var ta = Array.isArray(a) ? 0 : (+(a && a.t) || 0), tb = Array.isArray(b) ? 0 : (+(b && b.t) || 0);
+      return tb > ta ? remoteRaw : localRaw;
+    }
     if(/^ggs_/.test(k)){ // grammar set state: whole-object, higher score wins, tie keeps local
       var sa = a && a.score != null ? a.score : -1, sb = b && b.score != null ? b.score : -1;
       return JSON.stringify(sb > sa ? b : a);

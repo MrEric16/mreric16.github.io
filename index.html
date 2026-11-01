@@ -35922,12 +35922,16 @@ function hlKey(el, i){
   if(h) return 'h-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
   var c = q('[class]'); return 'x-' + (c ? String(c.className).split(' ')[0] : i);
 }
-function hlSave(){ try{ localStorage.setItem(HL_KEY, JSON.stringify(hlDraggables().map(function(e){ return e.dataset.hl; }))); }catch(e){} }
+function hlLoad(){
+  try{ var v = JSON.parse(localStorage.getItem(HL_KEY) || 'null'); if(Array.isArray(v)) return v; return (v && Array.isArray(v.o)) ? v.o : []; }catch(e){ return []; }
+}
+function hlStore(list){ try{ localStorage.setItem(HL_KEY, JSON.stringify({ t: Date.now(), o: list })); }catch(e){} }
+function hlSave(){ hlStore(hlDraggables().map(function(e){ return e.dataset.hl; })); }
 function hlApply(){
   var els = hlDraggables(), seen = {};
   els.forEach(function(el, i){ var k = hlKey(el, i); while(seen[k]) k += '_'; seen[k] = 1; el.dataset.hl = k; el.classList.add('hl-item'); });
-  var saved = []; try{ saved = JSON.parse(localStorage.getItem(HL_KEY) || '[]'); }catch(e){}
-  if(!Array.isArray(saved) || !saved.length) return;
+  var saved = hlLoad();
+  if(!saved.length) return;
   var byKey = {}; els.forEach(function(el){ byKey[el.dataset.hl] = el; });
   var ordered = saved.filter(function(k){ return byKey[k]; }).map(function(k){ return byKey[k]; });
   els.forEach(function(el){ if(ordered.indexOf(el) < 0) ordered.push(el); });
@@ -36006,12 +36010,12 @@ function hlApply(){
 })();
 function hlBtn(){
   var b = document.getElementById('resetLayoutBtn'); if(!b) return;
-  var has = false; try{ var v = JSON.parse(localStorage.getItem(HL_KEY) || '[]'); has = Array.isArray(v) && v.length > 0; }catch(e){}
+  var has = false; has = hlLoad().length > 0;
   b.style.display = has ? '' : 'none';
 }
 document.addEventListener('click', function(e){
   var b = e.target.closest && e.target.closest('#resetLayoutBtn'); if(!b) return;
-  try{ localStorage.setItem(HL_KEY, '[]'); }catch(er){}
+  hlStore([]);
   renderRoute({ skipScrollSave: true });
 });
 
