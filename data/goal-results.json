@@ -1,91 +1,6 @@
 {
-  "generatedAt": "2026-11-01T01:45:18.961034Z",
+  "generatedAt": "2026-11-01T08:31:12.170030Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/espanyol-vs-elche/CPCMh7V9vizHPBVZQW-n_",
-      "date": null,
-      "home": "Espanyol",
-      "away": "Elche",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 1,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "V. Chust",
-          "minute": 72
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "F. Nino",
-          "minute": 26
-        },
-        {
-          "scorer": "G. Valera",
-          "minute": 78
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/monza-vs-sassuolo/LqN0scEyAUGb4PbZjcW9o",
-      "date": null,
-      "home": "Monza",
-      "away": "Sassuolo",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "G. Varela",
-          "minute": 51
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "V. Adzic",
-          "minute": 88
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/tottenham-hotspur-vs-aston-villa/-gpaEQd-ZHVWbT5z83FIU",
-      "date": null,
-      "home": "Tottenham Hotspur",
-      "away": "Aston Villa",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "C. Gallagher",
-          "minute": 86
-        },
-        {
-          "scorer": "J. van Hecke",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Manzambi",
-          "minute": 45
-        },
-        {
-          "scorer": "N. Jackson",
-          "minute": 67
-        },
-        {
-          "scorer": "E. Buendia",
-          "minute": 79
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/newcastle-united-vs-hull-city/8I7bFOwa-BO6SFnsEkPYp",
       "date": null,
@@ -7851,6 +7766,106 @@
         }
       ],
       "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/besiktas-vs-marseille/zn6rDZ3JdmDhXBK4hhv4Y",
+      "date": null,
+      "home": "Besiktas",
+      "away": "Marseille",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "I. Fakili",
+          "minute": 15
+        },
+        {
+          "scorer": "V. Cerny",
+          "minute": 56
+        },
+        {
+          "scorer": "A. Murillo",
+          "minute": 59
+        },
+        {
+          "scorer": "E. Poku",
+          "minute": 81
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "K. Abdallah",
+          "minute": 30
+        }
+      ],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sassuolo-vs-juventus/tnRD1bsGLLA906m1dEyLA",
+      "date": null,
+      "home": "Sassuolo",
+      "away": "Juventus",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "S. Esposito",
+          "minute": 65
+        },
+        {
+          "scorer": "K. Bowie",
+          "minute": 89
+        },
+        {
+          "scorer": "V. Adzic",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "E. Zhegrova",
+          "minute": 82
+        }
+      ],
+      "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-nec-nijmegen/UyTB_NxrYmZNOowxGPOI9",
+      "date": null,
+      "home": "Juventus",
+      "away": "Nec Nijmegen",
+      "htHome": 3,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "N. Gonzalez",
+          "minute": 9
+        },
+        {
+          "scorer": "K. Alajbegovic",
+          "minute": 24
+        },
+        {
+          "scorer": "N. Woltemade",
+          "minute": 35
+        },
+        {
+          "scorer": "M. Celik",
+          "minute": 75
+        },
+        {
+          "scorer": "R. Kolo Muani",
+          "minute": 82
+        }
+      ],
+      "awayGoals": [],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7866,6 +7881,7 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/sassuolo-vs-juventus/tnRD1bsGLLA906m1dEyLA": 2
+    "https://www.goal.com/en/match/barcelona-vs-racing-santander/6QiTE6CkBSCG9oJhD_Lx9": 1,
+    "https://www.goal.com/en/match/bayern-munich-vs-union-berlin/Q8njM_VTL1U_vImKQdiBf": 1
   }
 }

@@ -1,16 +1,7 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 8 finished-match links
 [goal-scraper] [PD] Found 5 finished-match links
-[goal-scraper] WARNING: Rayo Vallecano scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/rayo-vallecano-vs-celta-vigo/BsugNOyeDEszeL_sM-fhK
-[goal-scraper] [PD] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Rayo Vallecano 3-0 Celta Vigo: https://www.goal.com/en/match/rayo-vallecano-vs-celta-vigo/BsugNOyeDEszeL_sM-fhK
-[goal-scraper] [PD] Added: Rayo Vallecano 3-0 Celta Vigo
-[goal-scraper] WARNING: Barcelona scored 6 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-deportivo-alaves/RRxEVFtVZua1epAHGO9A2
-[goal-scraper] [PD] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Barcelona 6-1 Deportivo Alaves: https://www.goal.com/en/match/barcelona-vs-deportivo-alaves/RRxEVFtVZua1epAHGO9A2
-[goal-scraper] [PD] Added: Barcelona 6-1 Deportivo Alaves
 [goal-scraper] [BL1] Found 7 finished-match links
-[goal-scraper] WARNING: Vfb Stuttgart scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/bayer-leverkusen-vs-vfb-stuttgart/dkUnbrvGIRyAr3hdazjsR
-[goal-scraper] [BL1] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Bayer Leverkusen 2-4 Vfb Stuttgart: https://www.goal.com/en/match/bayer-leverkusen-vs-vfb-stuttgart/dkUnbrvGIRyAr3hdazjsR
-[goal-scraper] [BL1] Added: Bayer Leverkusen 2-4 Vfb Stuttgart
 [goal-scraper] [SA] Found 3 finished-match links
 [goal-scraper] [FL1] Found 4 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
@@ -36,7 +27,6 @@
 [goal-scraper] WARNING: Real Madrid scored 4 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/real-madrid-vs-real-sociedad/6CIWiSQDT6uECz-OQirsn
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Real Sociedad on 2026-08-26
 [goal-scraper] [real-madrid] Skipping stale match (older than 45 days): Real Madrid vs Malaga on 2026-08-30
-[goal-scraper] [real-madrid] Added: Elche 2-3 Real Madrid
 [goal-scraper] [barcelona] Found 20 finished-match links
 [goal-scraper] WARNING: Barcelona scored 4 but 0 scorers were parsed for https://www.goal.com/en/match/barcelona-vs-ce-europa/_ALaHuWMS8DB2jd-OZGrF
 [goal-scraper] WARNING: Ce Europa scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/barcelona-vs-ce-europa/_ALaHuWMS8DB2jd-OZGrF
@@ -54,9 +44,8 @@
 [goal-scraper] WARNING: Barcelona scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-rayo-vallecano/WYyZot_4M5sWl5vpAePKz
 [goal-scraper] WARNING: Rayo Vallecano scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-rayo-vallecano/WYyZot_4M5sWl5vpAePKz
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Barcelona vs Rayo Vallecano on 2026-08-31
-[goal-scraper] WARNING: Barcelona scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/levante-vs-barcelona/yIjUEP_4ATKfv2dgC_aZ7
-[goal-scraper] [barcelona] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Levante 2-4 Barcelona: https://www.goal.com/en/match/levante-vs-barcelona/yIjUEP_4ATKfv2dgC_aZ7
-[goal-scraper] [barcelona] Added: Levante 2-4 Barcelona
+[goal-scraper] WARNING: Barcelona scored 7 but only 5 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-racing-santander/6QiTE6CkBSCG9oJhD_Lx9
+[goal-scraper] [barcelona] SCORER PARSE FAILED (attempt 1/3) for Barcelona 7-2 Racing Santander -- NOT committing, will retry next run: https://www.goal.com/en/match/barcelona-vs-racing-santander/6QiTE6CkBSCG9oJhD_Lx9
 [goal-scraper] [bayern-munich] Found 28 finished-match links
 [goal-scraper] WARNING: Bayern Munich scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
 [goal-scraper] WARNING: Fenerbahce scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
@@ -82,6 +71,8 @@
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Bayern Munich vs Rb Leipzig on 2026-08-15
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Fc Heidenheim vs Bayern Munich on 2026-08-18
 [goal-scraper] [bayern-munich] Skipping stale match (older than 45 days): Borussia Dortmund vs Bayern Munich on 2026-08-22
+[goal-scraper] WARNING: Bayern Munich scored 7 but only 4 scorer(s) were parsed for https://www.goal.com/en/match/bayern-munich-vs-union-berlin/Q8njM_VTL1U_vImKQdiBf
+[goal-scraper] [bayern-munich] SCORER PARSE FAILED (attempt 1/3) for Bayern Munich 7-0 Union Berlin -- NOT committing, will retry next run: https://www.goal.com/en/match/bayern-munich-vs-union-berlin/Q8njM_VTL1U_vImKQdiBf
 [goal-scraper] [inter-milan] Found 23 finished-match links
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Monterrey vs Inter on 2025-06-17
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Urawa Red Diamonds on 2025-06-21
@@ -94,7 +85,6 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Juventus vs Inter on 2026-08-08
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Real Betis on 2026-08-15
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Cagliari vs Inter on 2026-08-30
-[goal-scraper] [inter-milan] Added: Inter 5-3 Udinese
 [goal-scraper] [ac-milan] Found 17 finished-match links
 [goal-scraper] WARNING: Ac Milan scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/celtic-vs-ac-milan/AeYRZaZp8UbukBDDTNSA2
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Celtic vs Ac Milan on 2026-07-25
@@ -102,7 +92,6 @@
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Chelsea vs Ac Milan on 2026-08-08
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Manchester United vs Ac Milan on 2026-08-15
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Torino vs Ac Milan on 2026-08-23
-[goal-scraper] [ac-milan] Added: Ac Milan 0-2 Benfica
 [goal-scraper] [psg] Found 23 finished-match links
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Atletico Madrid on 2025-06-15
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Botafogo Rj on 2025-06-19
@@ -128,6 +117,7 @@
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Marseille vs Atletico Madrid on 2026-08-14
 [goal-scraper] WARNING: Monaco scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/monaco-vs-marseille/o_QlMszaNoxjSs5L9TLym
 [goal-scraper] [marseille] Skipping stale match (older than 45 days): Monaco vs Marseille on 2026-08-30
+[goal-scraper] [marseille] Added: Besiktas 4-1 Marseille
 [goal-scraper] [dortmund] Found 25 finished-match links
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fluminense vs Borussia Dortmund on 2025-06-17
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Mamelodi Sundowns Fc vs Borussia Dortmund on 2025-06-21
@@ -168,8 +158,10 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Palermo on 2026-08-11
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] WARNING: Juventus scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/sassuolo-vs-juventus/tnRD1bsGLLA906m1dEyLA
-[goal-scraper] [juventus] SCORER PARSE FAILED (attempt 2/3) for Sassuolo 3-2 Juventus -- NOT committing, will retry next run: https://www.goal.com/en/match/sassuolo-vs-juventus/tnRD1bsGLLA906m1dEyLA
+[goal-scraper] [juventus] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Sassuolo 3-2 Juventus: https://www.goal.com/en/match/sassuolo-vs-juventus/tnRD1bsGLLA906m1dEyLA
+[goal-scraper] [juventus] Added: Sassuolo 3-2 Juventus
+[goal-scraper] [juventus] Added: Juventus 5-0 Nec Nijmegen
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 7
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR', 'https://www.goal.com/en/match/sassuolo-vs-juventus/tnRD1bsGLLA906m1dEyLA']
+[goal-scraper] TOTAL new results added this run: 3
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR', 'https://www.goal.com/en/match/barcelona-vs-racing-santander/6QiTE6CkBSCG9oJhD_Lx9', 'https://www.goal.com/en/match/bayern-munich-vs-union-berlin/Q8njM_VTL1U_vImKQdiBf']
 [goal-scraper] Wrote data/goal-results.json
