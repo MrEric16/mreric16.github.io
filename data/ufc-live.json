@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-31T09:51:08.812139+00:00",
+  "generatedAt": "2026-11-01T10:41:30.568395+00:00",
   "scheduled": [
     {
       "name": "UFC Fight Night 297",
@@ -54,16 +54,15 @@
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S.",
       "start_tashkent": "2026-11-08T06:00:00+05:00"
-    },
-    {
-      "name": "UFC Fight Night: Moicano vs. Nolan",
-      "date_text": "Oct 31, 2026",
-      "venue": "[20]",
-      "location": null,
-      "start_tashkent": "2026-11-01T05:00:00+05:00"
     }
   ],
   "past": [
+    {
+      "name": "UFC Fight Night: Moicano vs. Nolan",
+      "date_text": "Oct 31, 2026",
+      "venue": "Meta Apex",
+      "location": "Las Vegas,Nevada, U.S."
+    },
     {
       "name": "UFC 333: Volkanovski vs. Evloev",
       "date_text": "Oct 24, 2026",
@@ -151,13 +150,6 @@
       "venue": "Etihad Arena",
       "location": "Abu Dhabi, United Arab Emirates",
       "result": "Magomed Ankalaev def. Bogdan Guskov (TKO, R5 2:41)"
-    },
-    {
-      "name": "UFC Fight Night: du Plessis vs. Usman",
-      "date_text": "Jul 18, 2026",
-      "venue": "Paycom Center",
-      "location": "Oklahoma City,Oklahoma, U.S.",
-      "result": "Dricus du Plessis def. Kamaru Usman (Unanimous Decision)"
     }
   ]
 }
