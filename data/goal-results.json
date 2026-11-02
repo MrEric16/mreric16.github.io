@@ -1,28 +1,6 @@
 {
-  "generatedAt": "2026-11-01T23:17:01.507963Z",
+  "generatedAt": "2026-11-02T02:40:53.937193Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/angers-vs-troyes/s4uaIaebPxKGyKPQdBiF6",
-      "date": null,
-      "home": "Angers",
-      "away": "Troyes",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "P. Peter",
-          "minute": 42
-        },
-        {
-          "scorer": "A. Sbai",
-          "minute": 57
-        }
-      ],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/le-mans-vs-lorient/h22SHyedG3ywYOprq5_it",
       "date": null,
@@ -7881,6 +7859,24 @@
       ],
       "awayGoals": [],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-borussia-dortmund/HGGH2xENy0ku7WIGCQ51O",
+      "date": null,
+      "home": "Vfb Stuttgart",
+      "away": "Borussia Dortmund",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "M. Beier",
+          "minute": 70
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7896,7 +7892,8 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/strasbourg-vs-auxerre/M2DOsn2Uz000rOqaQK5eA": 1,
-    "https://www.goal.com/en/match/paris-fc-vs-monaco/zQjwK5xoFPDpUyA1CZknz": 1
+    "https://www.goal.com/en/match/strasbourg-vs-auxerre/M2DOsn2Uz000rOqaQK5eA": 2,
+    "https://www.goal.com/en/match/paris-fc-vs-monaco/zQjwK5xoFPDpUyA1CZknz": 2,
+    "https://www.goal.com/en/match/roma-vs-inter/ljBwYBhTxoHwHbmeiORO-": 2
   }
 }
