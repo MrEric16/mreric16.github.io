@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T23:06:18.583840Z",
+  "generatedAt": "2026-11-02T02:31:48.454077Z",
   "standings": {
     "PL": [
       {
@@ -1338,37 +1338,6 @@
     "PL": {
       "fixtures": [
         {
-          "utcDate": "2026-11-01T16:30:00Z",
-          "status": "TIMED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 64,
-            "name": "Liverpool FC",
-            "shortName": "Liverpool"
-          },
-          "awayTeam": {
-            "id": 57,
-            "name": "Arsenal FC",
-            "shortName": "Arsenal"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Premier League"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-11-02T20:00:00Z",
           "status": "TIMED",
           "matchday": 9,
@@ -1401,6 +1370,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-01T16:30:00Z",
+          "status": "FINISHED",
+          "matchday": 9,
+          "homeTeam": {
+            "id": 64,
+            "name": "Liverpool FC",
+            "shortName": "Liverpool"
+          },
+          "awayTeam": {
+            "id": 57,
+            "name": "Arsenal FC",
+            "shortName": "Arsenal"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 0,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Premier League"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-10-31T20:00:00Z",
           "status": "FINISHED",
@@ -1827,37 +1827,6 @@
             },
             "halfTime": {
               "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Premier League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-24T14:00:00Z",
-          "status": "FINISHED",
-          "matchday": 8,
-          "homeTeam": {
-            "id": 57,
-            "name": "Arsenal FC",
-            "shortName": "Arsenal"
-          },
-          "awayTeam": {
-            "id": 62,
-            "name": "Everton FC",
-            "shortName": "Everton"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 1,
               "away": 0
             }
           },
