@@ -316,7 +316,7 @@ function scCls(){ return CURID === 'cmn' ? 'lg-sc lg-mong' : 'lg-sc'; }
 function bar(p){ return '<div class="v-bar"><i style="width:' + Math.round(p) + '%"></i></div>'; }
 
 /* ---- audio: browser voices, only when the device has a voice in this language (any region); otherwise nothing is shown ---- */
-var VOICE = { uz: 'uz', es: 'es', pt: 'pt', fr: 'fr', it: 'it', ro: 'ro', de: 'de', nl: 'nl', sv: 'sv', fi: 'fi', pl: 'pl', cs: 'cs', uk: 'uk', lv: 'lv', lt: 'lt', el: 'el', hu: 'hu', tr: 'tr', az: 'az', kk: 'kk', ky: 'ky', ug: 'ug', tt: 'tt', ka: 'ka', hy: 'hy', khl: 'ar', he: 'he', fa: 'fa', tg: 'tg', hi: 'hi', ur: 'ur', ja: 'ja', ko: 'ko', th: 'th', vi: 'vi', id: 'id', sw: 'sw', yo: 'yo', xh: 'xh', am: 'am', mn: 'mn', mi: 'mi', eu: 'eu', eo: 'eo', cy: 'cy', ga: 'ga', haw: 'haw', la: 'la' };
+var VOICE = { uz: 'uz', es: 'es', pt: 'pt', fr: 'fr', it: 'it', ro: 'ro', de: 'de', den: 'de', nl: 'nl', sv: 'sv', fi: 'fi', pl: 'pl', cs: 'cs', uk: 'uk', lv: 'lv', lt: 'lt', el: 'el', hu: 'hu', tr: 'tr', az: 'az', kk: 'kk', ky: 'ky', ug: 'ug', tt: 'tt', ka: 'ka', hy: 'hy', khl: 'ar', he: 'he', fa: 'fa', tg: 'tg', hi: 'hi', ur: 'ur', ja: 'ja', ko: 'ko', th: 'th', vi: 'vi', id: 'id', sw: 'sw', yo: 'yo', xh: 'xh', am: 'am', mn: 'mn', mi: 'mi', eu: 'eu', eo: 'eo', cy: 'cy', ga: 'ga', haw: 'haw', la: 'la' };
 var VOICE_ALT = { he: 'iw', id: 'in' };
 var SPK_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>';
 function ttsVoice(id){
@@ -354,6 +354,7 @@ function hub(){
   var p = lsGet('xp.dev', null);
   var html = '', cur = null, open = false;
   INDEX.forEach(function(x){
+    if(x.hidden) return;
     var pr = prog(x.id), n = 0; for(var k in pr){ if(pr[k] >= 3) n++; }
     if(x.group !== cur || !open){
       if(open) html += '</div>';
@@ -366,12 +367,12 @@ function hub(){
 }
 function home(L){
   var learned = counts(L, L.items);
-  app.innerHTML = back('#', 'Back to languages') + headF(L.name, flagOf(L.id)) +
+  app.innerHTML = back(L.id === 'den' ? '#l/de' : '#', L.id === 'den' ? 'German' : 'Back to languages') + headF(L.name, flagOf(L.id)) +
     '<div class="v-meta"><span>' + learned + ' / ' + L.items.length + ' learned</span></div>' + bar(L.items.length ? learned * 100 / L.items.length : 0) +
     '<div class="sport-hub-grid">' + SECS.filter(function(s){
       if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; if(s[0] === 'listening') return ttsVoice(L.id) && (L.reading || []).length; return (L[s[0]] || []).length; }).map(function(s){
       var sub = ''; if(s[0] !== 'sounds' && s[0] !== 'test' && s[0] !== 'reading' && s[0] !== 'listening'){ var its = []; secGroups(L, s[0]).forEach(function(g){ if(L.groups[g.gid]) its = its.concat(L.groups[g.gid].items); }); if(its.length) sub = counts(L, its) + ' / ' + its.length; }
-      return tile('#l/' + L.id + '/' + s[0], s[1], sub); }).join('') + '</div>';
+      return tile('#l/' + L.id + '/' + s[0], s[1], sub); }).join('') + (L.id === 'de' ? tile('#l/den', 'Nana', 'A2 and up') : '') + '</div>';
 }
 function sounds(L){
   var S = L.sounds;
@@ -384,8 +385,14 @@ var BUCKETS = {
   phrases: [['Health and problems',/health|doctor|problem|emergency/],['Out and about',/getting around|eating|shopping|hotel|restaurant|directions/],['Talking',/chatting|small talk|opinion|agree|plans|phone|classroom/],['Basics',/essential|formal|survival|useful|apolog|compliment|frequency|dates/]],
   grammar: [['Verbs and tenses',/tense|past|future|verb|to be|to have|to go|\bbe\b|can, must|command/],['Questions and negatives',/question|negat|asking/],['Basics',/./]]
 };
-function bucketOf(sec, title){
-  var t = title.toLowerCase(), b = BUCKETS[sec] || [];
+var BUCKETS_DEN = {
+  phrases: [['Work and study',/interview|at work|meetings|appointments|phone|studying/],['Travel and home',/travel|airport|hotel|moving|weather/],['Daily life',/doctor|shopping|restaurant|invitations|polite|apolog|farewell/],['Plans and opinions',/./]],
+  vocab: [['Grammar words',/time expressions|frequency|connectors|prepositions|adverbs|^verbs|separable|reflexive|adjectives|nouns from|idioms/],['Work and money',/hopes|ambitions|career|workplace|money|banking|business|emails|economy/],['Home and travel',/housing|renting|travel|airport|hotels|sightseeing|transport|driving|weather/],['Science and health',/climate|energy|technology|internet|computers|science|medicine|health|fitness/],['Study and culture',/education|university|exams|languages|reading|film|music|art|hobbies/],['People and society',/./]],
+  grammar: [['Future forms',/future|present for|werden|perfect|guessing|passive|modal|wishes/],['Clauses',/word order|dass|time clauses|relative|indirect|purpose/],['Words and endings',/./]]
+};
+function bucketsFor(L, sec){ return (L && L.id === 'den' && BUCKETS_DEN[sec]) || BUCKETS[sec]; }
+function bucketOf(sec, title, L){
+  var t = title.toLowerCase(), b = bucketsFor(L, sec) || [];
   for(var i = 0; i < b.length; i++){ if(b[i][1].test(t)) return b[i][0]; }
   return sec === 'grammar' ? 'Basics' : 'More';
 }
@@ -401,10 +408,10 @@ function section(L, sec){
     return tile('#l/' + L.id + '/' + sec + '/' + g.id, g.title, sub); }
   var body = '', all = [];
   gs.forEach(function(g){ if(L.groups[g.gid]) all = all.concat(L.groups[g.gid].items); });
-  if(gs.length <= 8 || !BUCKETS[sec]){ body = '<div class="sport-hub-grid">' + gs.map(t).join('') + '</div>'; }
+  if(gs.length <= 8 || !bucketsFor(L, sec)){ body = '<div class="sport-hub-grid">' + gs.map(t).join('') + '</div>'; }
   else {
     var order = [], map = {};
-    gs.forEach(function(g){ var b = bucketOf(sec, g.title); if(!map[b]){ map[b] = []; order.push(b); } map[b].push(g); });
+    gs.forEach(function(g){ var b = bucketOf(sec, g.title, L); if(!map[b]){ map[b] = []; order.push(b); } map[b].push(g); });
     var want = OPENB[L.id + sec];
     body = (all.length >= 4 ? '<div class="v-row" style="margin-bottom:12px;"><button class="v-btn" id="qAll">Quiz everything</button></div>' : '') +
       order.map(function(b){
@@ -422,7 +429,7 @@ function rowsHtml(items, p){
 }
 function group(L, sec, gid, single){
   var G = L.groups[sec + '.' + gid]; if(!G) return home(L);
-  OPENB[L.id + sec] = bucketOf(sec, G.title);
+  OPENB[L.id + sec] = bucketOf(sec, G.title, L);
   var p = prog(L.id), n = counts(L, G.items);
   app.innerHTML = back(single ? '#l/' + L.id : '#l/' + L.id + '/' + sec, single ? L.name : SECS.filter(function(s){ return s[0] === sec; })[0][1]) + head(G.title) +
     (G.note ? '<div class="v-hint">' + esc(G.note) + '</div>' : '') + '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
@@ -439,7 +446,7 @@ function grammar(L, lid){
   if(G) document.getElementById('qGo').onclick = function(){ quiz(L, G.items, '#l/' + L.id + '/grammar/' + lid, les.title); };
 }
 function testPicker(L){
-  var dirs = [['mix','Mixed'],['f','English → ' + L.name],['r',L.name + ' → English']];
+  var tn = L.id === 'den' ? 'German' : L.name, dirs = [['mix','Mixed'],['f','English → ' + tn],['r',tn + ' → English']];
   app.innerHTML = back('#l/' + L.id, L.name) + head('Test') +
     '<div class="v-row" style="margin-bottom:12px;flex-wrap:wrap;">' + dirs.map(function(d){ return '<button class="v-btn' + (quizDir === d[0] ? '' : ' alt') + '" data-d="' + d[0] + '" style="font-size:13px;padding:12px 6px;">' + esc(d[1]) + '</button>'; }).join('') + '</div>' +
     '<div class="sport-hub-grid">' + [['all','Everything']].concat(SECS.filter(function(s){ return ['numbers','greetings','phrases','vocab','grammar'].indexOf(s[0]) > -1 && L.items.some(function(i){ return i.sec === s[0]; }); })).map(function(s){
@@ -478,7 +485,7 @@ function quiz(L, items, backHash, title){
     if(i >= qs.length) return end();
     var q = qs[i];
     app.innerHTML = back(backHash, 'Quit') + '<div class="v-meta"><span>' + esc(title) + '</span><span>' + (i + 1) + ' / ' + qs.length + '</span></div>' + bar(i * 100 / qs.length) +
-      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.name) : esc(L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.psc || q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
+      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.id === 'den' ? 'German' : L.name) : esc(L.id === 'den' ? 'German' : L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.psc || q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
       '<div class="v-opts">' + q.opts.map(function(o, n){ return '<button class="v-opt lg-opt" data-n="' + n + '">' + esc(o) + '</button>'; }).join('') + '</div><div id="fb"></div>';
     var done = false;
     Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(b){ b.onclick = function(){
@@ -554,6 +561,7 @@ function readPassage(L, pid, sec){
 }
 
 function route(){
+  if(!INDEX) return;
   var h = location.hash.replace(/^#/, ''), a = h.split('/');
   if(a[0] !== 'l' || !a[1]) return hub();
   if(!INDEX.some(function(x){ return x.id === a[1]; })) return hub();

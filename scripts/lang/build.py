@@ -154,3 +154,5 @@ def main():
     idx.sort(key=lambda x: pos[x['id']][:2])
     json.dump(idx, open(os.path.join(OUT, 'index.json'), 'w'), ensure_ascii=False, separators=(',', ':'))
 main()
+import subprocess, sys
+subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'build_nana.py')], check=True)
