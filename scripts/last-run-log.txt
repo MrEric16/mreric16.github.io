@@ -17,7 +17,7 @@
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitsk-2410 title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'.\\nшкольникам, студентам и\\xa0пенсионерам\\xa0— скидка 50% при покупке билетов в\\xa0кассе i'"]
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n236\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n237\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/09/11/ccat title='Новая точка на культурной карте Центральной Азии: в Ташкенте открылся CCA Tashkent' title_hits=[] text_hits=["'кино' ...'щим столом и\\xa0более масштабные события\\xa0— кинопоказы, симпозиумы и\\xa0исследовательск'", "'кинопоказ' ...'щим столом и\\xa0более масштабные события\\xa0— кинопоказы, симпозиумы и\\xa0исследовательск'", "'паб' ...'стоялось предоткрытие, сопровождавшееся паблик-током.\\nистория создания центра\\nин'"]
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
@@ -27,7 +27,7 @@
 [scrape] calendar detail pass complete: 209 events kept from 57 pages checked
 [scrape] calendar detail pass drops: {'checked': 57, 'no_title': 0, 'excluded_or_banned': 8}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 17 events kept
+[scrape] iticket.uz cat=concert: 10 events kept
 [scrape] iticket.uz cat=theatre: 28 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
@@ -35,6 +35,6 @@
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 255  |  after dedup: 253
+[scrape] TOTAL before dedup: 248  |  after dedup: 246
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 141 titles
