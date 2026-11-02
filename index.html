@@ -6743,6 +6743,16 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .bday-item.bday-cat-myStudents .bday-name{color:var(--teal);}
   .bday-item.bday-cat-otherStudents .bday-name{color:var(--gold);}
   .bday-item.today{background:var(--gold); border-left-color:var(--gold);}
+  /* Group colours are fixed, not theme variables - themes made two or more look identical.
+     Red = staff, cyan = my students (BMU), amber = other students. */
+  body .bday-item{border-left-width:6px !important;}
+  body .bday-item.bday-cat-staff{border-left-color:#E5303A !important;}
+  body .bday-item.bday-cat-myStudents{border-left-color:#14B8E6 !important;}
+  body .bday-item.bday-cat-otherStudents{border-left-color:#FFB400 !important;}
+  body .bday-item .bday-name::before{content:'';display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:8px;vertical-align:-1px;box-shadow:0 0 0 2px #fff,0 0 0 3px rgba(0,0,0,.4);}
+  body .bday-item.bday-cat-staff .bday-name::before{background:#E5303A;}
+  body .bday-item.bday-cat-myStudents .bday-name::before{background:#14B8E6;}
+  body .bday-item.bday-cat-otherStudents .bday-name::before{background:#FFB400;}
   .bday-item.today .bday-name, .bday-item.today .bday-date{color:#fff;}
   .bday-name{font-weight:700; font-size:14.5px;}
   .bday-date{
