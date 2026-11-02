@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T20:40:41.733074Z",
+ "generatedAt": "2026-11-02T00:01:19.601279Z",
  "results": [
   {
    "url": "espn:401879246",
@@ -97,6 +97,35 @@
     {
      "scorer": "U. Sadiq",
      "minute": 69
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882826",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T20:00Z",
+   "home": "Athletic",
+   "away": "Real Sociedad",
+   "htHome": 2,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "I. Williams",
+     "minute": 14
+    },
+    {
+     "scorer": "Á. Berenguer (pen)",
+     "minute": "45+2"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "L. Sucic",
+     "minute": 30
     }
    ],
    "competition": "PD",
@@ -263,6 +292,30 @@
    "complete": true
   },
   {
+   "url": "espn:401874949",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T19:45Z",
+   "home": "Juventus",
+   "away": "Napoli",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "K. Alajbegovic",
+     "minute": 70
+    },
+    {
+     "scorer": "J. Boga",
+     "minute": 87
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876414",
    "date": "2026-11-01",
    "utc": "2026-11-01T14:00Z",
@@ -357,6 +410,30 @@
      "minute": 65
     }
    ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876417",
+   "date": "2026-11-01",
+   "utc": "2026-11-01T19:45Z",
+   "home": "Marseille",
+   "away": "Toulouse",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Harit",
+     "minute": 1
+    },
+    {
+     "scorer": "A. Gouiri",
+     "minute": 25
+    }
+   ],
+   "awayGoals": [],
    "competition": "FL1",
    "complete": true
   },
