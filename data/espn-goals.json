@@ -1,6 +1,148 @@
 {
- "generatedAt": "2026-11-02T12:57:21.565166Z",
+ "generatedAt": "2026-11-02T22:01:14.130059Z",
  "results": [
+  {
+   "url": "espn:401878762",
+   "date": "2026-11-02",
+   "utc": "2026-11-02T20:00Z",
+   "home": "Newcastle",
+   "away": "Everton",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "T. Barry",
+     "minute": 49
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882824",
+   "date": "2026-11-02",
+   "utc": "2026-11-02T20:00Z",
+   "home": "Deportivo",
+   "away": "Osasuna",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Soriano Carreno",
+     "minute": 64
+    },
+    {
+     "scorer": "B. Nsongo",
+     "minute": 87
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Budimir",
+     "minute": 32
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401874963",
+   "date": "2026-11-02",
+   "utc": "2026-11-02T17:30Z",
+   "home": "Sassuolo",
+   "away": "Fiorentina",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "A. Laurienté",
+     "minute": 25
+    },
+    {
+     "scorer": "A. Laurienté",
+     "minute": 65
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Pellegrino",
+     "minute": "45+2"
+    },
+    {
+     "scorer": "A. Njie",
+     "minute": 50
+    },
+    {
+     "scorer": "F. Mastantuono",
+     "minute": 79
+    },
+    {
+     "scorer": "V. Valdepeñas",
+     "minute": "90+3"
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874971",
+   "date": "2026-11-02",
+   "utc": "2026-11-02T19:45Z",
+   "home": "Atalanta",
+   "away": "Parma",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "G. Fabbian",
+     "minute": 41
+    },
+    {
+     "scorer": "D. Zappacosta (og)",
+     "minute": 47
+    },
+    {
+     "scorer": "S. Lontani",
+     "minute": 58
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876419",
+   "date": "2026-11-02",
+   "utc": "2026-11-02T19:45Z",
+   "home": "Lorient",
+   "away": "Brest",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "L. Ajorque",
+     "minute": 69
+    },
+    {
+     "scorer": "N. Edjouma",
+     "minute": "90+2"
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401879246",
    "date": "2026-11-01",
