@@ -1,86 +1,6 @@
 {
-  "generatedAt": "2026-11-02T02:40:53.937193Z",
+  "generatedAt": "2026-11-02T10:23:54.874846Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/le-mans-vs-lorient/h22SHyedG3ywYOprq5_it",
-      "date": null,
-      "home": "Le Mans",
-      "away": "Lorient",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Bourabaa",
-          "minute": 3
-        },
-        {
-          "scorer": "H. Diallo",
-          "minute": 57
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "I. Jensen",
-          "minute": 78
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/celta-vigo-vs-racing-santander/G9ObZqKWJ8XXB_1P8u1nL",
-      "date": null,
-      "home": "Celta Vigo",
-      "away": "Racing Santander",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 5,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "H. Gonzalez",
-          "minute": 32
-        },
-        {
-          "scorer": "I. Moriba",
-          "minute": 43
-        },
-        {
-          "scorer": "M. Roman",
-          "minute": 69
-        },
-        {
-          "scorer": "P. Duran",
-          "minute": 78
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj",
-      "date": null,
-      "home": "Sevilla",
-      "away": "Barcelona",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "Y. Fofana",
-          "minute": 19
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "Raphinha",
-          "minute": 22
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq",
       "date": null,
@@ -7877,6 +7797,91 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/strasbourg-vs-auxerre/M2DOsn2Uz000rOqaQK5eA",
+      "date": "2026-11-01",
+      "home": "Strasbourg",
+      "away": "Auxerre",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 5,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "D. Essugo",
+          "minute": 41
+        },
+        {
+          "scorer": "M. Godo",
+          "minute": 55
+        },
+        {
+          "scorer": "C. Harder",
+          "minute": 62
+        },
+        {
+          "scorer": "G. Yassine",
+          "minute": 77
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "C. Archer",
+          "minute": 68
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paris-fc-vs-monaco/zQjwK5xoFPDpUyA1CZknz",
+      "date": "2026-11-01",
+      "home": "Paris Fc",
+      "away": "Monaco",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "L. Sinayoko",
+          "minute": 38
+        },
+        {
+          "scorer": "P. Pagis",
+          "minute": 74
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "F. Balogun",
+          "minute": 65
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/roma-vs-inter/ljBwYBhTxoHwHbmeiORO-",
+      "date": null,
+      "home": "Roma",
+      "away": "Inter",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "M. Kone",
+          "minute": 6
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Martinez",
+          "minute": 46
+        }
+      ],
+      "competition": "inter-milan"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7891,9 +7896,6 @@
     "https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v": 2,
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
-    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/strasbourg-vs-auxerre/M2DOsn2Uz000rOqaQK5eA": 2,
-    "https://www.goal.com/en/match/paris-fc-vs-monaco/zQjwK5xoFPDpUyA1CZknz": 2,
-    "https://www.goal.com/en/match/roma-vs-inter/ljBwYBhTxoHwHbmeiORO-": 2
+    "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1
   }
 }
