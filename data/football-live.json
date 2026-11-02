@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T09:58:43.197528Z",
+  "generatedAt": "2026-11-02T20:12:34.733263Z",
   "standings": {
     "PL": [
       {
@@ -83,6 +83,16 @@
         "pts": 12
       },
       {
+        "name": "Newcastle",
+        "pld": 9,
+        "w": 3,
+        "d": 3,
+        "l": 3,
+        "gf": 12,
+        "ga": 14,
+        "pts": 12
+      },
+      {
         "name": "Aston Villa",
         "pld": 9,
         "w": 3,
@@ -113,13 +123,13 @@
         "pts": 11
       },
       {
-        "name": "Newcastle",
-        "pld": 8,
-        "w": 3,
-        "d": 2,
-        "l": 3,
-        "gf": 12,
-        "ga": 14,
+        "name": "Everton",
+        "pld": 9,
+        "w": 2,
+        "d": 5,
+        "l": 2,
+        "gf": 8,
+        "ga": 9,
         "pts": 11
       },
       {
@@ -131,16 +141,6 @@
         "gf": 14,
         "ga": 18,
         "pts": 11
-      },
-      {
-        "name": "Everton",
-        "pld": 8,
-        "w": 2,
-        "d": 4,
-        "l": 2,
-        "gf": 8,
-        "ga": 9,
-        "pts": 10
       },
       {
         "name": "Fulham",
@@ -285,6 +285,16 @@
         "pts": 12
       },
       {
+        "name": "Deportivo",
+        "pld": 11,
+        "w": 2,
+        "d": 6,
+        "l": 3,
+        "gf": 13,
+        "ga": 13,
+        "pts": 12
+      },
+      {
         "name": "Celta",
         "pld": 11,
         "w": 2,
@@ -325,14 +335,14 @@
         "pts": 12
       },
       {
-        "name": "Deportivo",
-        "pld": 10,
-        "w": 2,
-        "d": 5,
-        "l": 3,
-        "gf": 13,
-        "ga": 13,
-        "pts": 11
+        "name": "Osasuna",
+        "pld": 11,
+        "w": 3,
+        "d": 3,
+        "l": 5,
+        "gf": 10,
+        "ga": 20,
+        "pts": 12
       },
       {
         "name": "Espanyol",
@@ -342,16 +352,6 @@
         "l": 6,
         "gf": 13,
         "ga": 14,
-        "pts": 11
-      },
-      {
-        "name": "Osasuna",
-        "pld": 10,
-        "w": 3,
-        "d": 2,
-        "l": 5,
-        "gf": 10,
-        "ga": 20,
         "pts": 11
       },
       {
@@ -710,13 +710,13 @@
       },
       {
         "name": "Atalanta",
-        "pld": 9,
+        "pld": 10,
         "w": 3,
-        "d": 2,
+        "d": 3,
         "l": 4,
         "gf": 16,
         "ga": 17,
-        "pts": 11
+        "pts": 12
       },
       {
         "name": "Lecce",
@@ -729,13 +729,23 @@
         "pts": 9
       },
       {
-        "name": "Sassuolo",
-        "pld": 9,
+        "name": "Fiorentina",
+        "pld": 10,
         "w": 2,
         "d": 2,
-        "l": 5,
-        "gf": 14,
-        "ga": 22,
+        "l": 6,
+        "gf": 15,
+        "ga": 23,
+        "pts": 8
+      },
+      {
+        "name": "Sassuolo",
+        "pld": 10,
+        "w": 2,
+        "d": 2,
+        "l": 6,
+        "gf": 16,
+        "ga": 26,
         "pts": 8
       },
       {
@@ -749,24 +759,14 @@
         "pts": 7
       },
       {
-        "name": "Fiorentina",
-        "pld": 9,
-        "w": 1,
-        "d": 2,
-        "l": 6,
-        "gf": 11,
-        "ga": 21,
-        "pts": 5
-      },
-      {
         "name": "Parma",
-        "pld": 9,
+        "pld": 10,
         "w": 1,
-        "d": 2,
+        "d": 3,
         "l": 6,
         "gf": 5,
         "ga": 15,
-        "pts": 5
+        "pts": 6
       },
       {
         "name": "Udinese",
@@ -882,13 +882,23 @@
       },
       {
         "name": "Lorient",
-        "pld": 8,
+        "pld": 9,
         "w": 3,
-        "d": 3,
+        "d": 4,
         "l": 2,
         "gf": 7,
         "ga": 6,
-        "pts": 12
+        "pts": 13
+      },
+      {
+        "name": "Brest",
+        "pld": 9,
+        "w": 2,
+        "d": 4,
+        "l": 3,
+        "gf": 14,
+        "ga": 12,
+        "pts": 10
       },
       {
         "name": "Toulouse",
@@ -919,16 +929,6 @@
         "gf": 13,
         "ga": 23,
         "pts": 10
-      },
-      {
-        "name": "Brest",
-        "pld": 8,
-        "w": 2,
-        "d": 3,
-        "l": 3,
-        "gf": 14,
-        "ga": 12,
-        "pts": 9
       },
       {
         "name": "Angers SCO",
@@ -1339,7 +1339,7 @@
       "fixtures": [
         {
           "utcDate": "2026-11-02T20:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 9,
           "homeTeam": {
             "id": 67,
@@ -1352,11 +1352,11 @@
             "shortName": "Everton"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -3092,39 +3092,8 @@
     "SA": {
       "fixtures": [
         {
-          "utcDate": "2026-11-02T17:30:00Z",
-          "status": "TIMED",
-          "matchday": 10,
-          "homeTeam": {
-            "id": 471,
-            "name": "US Sassuolo Calcio",
-            "shortName": "Sassuolo"
-          },
-          "awayTeam": {
-            "id": 99,
-            "name": "ACF Fiorentina",
-            "shortName": "Fiorentina"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-11-02T19:45:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 102,
@@ -3137,11 +3106,11 @@
             "shortName": "Parma"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -3155,6 +3124,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-02T17:30:00Z",
+          "status": "FINISHED",
+          "matchday": 10,
+          "homeTeam": {
+            "id": 471,
+            "name": "US Sassuolo Calcio",
+            "shortName": "Sassuolo"
+          },
+          "awayTeam": {
+            "id": 99,
+            "name": "ACF Fiorentina",
+            "shortName": "Fiorentina"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 2,
+              "away": 4
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Serie A"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-01T19:45:00Z",
           "status": "FINISHED",
@@ -3588,37 +3588,6 @@
             "name": "Serie A"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-10-28T17:30:00Z",
-          "status": "FINISHED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 112,
-            "name": "Parma Calcio 1913",
-            "shortName": "Parma"
-          },
-          "awayTeam": {
-            "id": 115,
-            "name": "Udinese Calcio",
-            "shortName": "Udinese"
-          },
-          "score": {
-            "winner": "DRAW",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 0,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
         }
       ]
     },
@@ -3626,7 +3595,7 @@
       "fixtures": [
         {
           "utcDate": "2026-11-02T19:45:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 9,
           "homeTeam": {
             "id": 525,
@@ -3639,11 +3608,11 @@
             "shortName": "Brest"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
