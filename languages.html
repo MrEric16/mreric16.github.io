@@ -367,7 +367,7 @@ function hub(){
 }
 function home(L){
   var learned = counts(L, L.items);
-  app.innerHTML = back(L.id === 'den' ? '#l/de' : '#', L.id === 'den' ? 'German' : 'Back to languages') + headF(L.name, flagOf(L.id)) +
+  app.innerHTML = back(L.id === 'den' ? '#l/de' : '#', L.id === 'den' ? 'German' : 'Back to languages') + headF(L.name, flagOf(L.id)) + (L.id === 'den' ? '<div class="v-sub" style="margin:0 0 14px;font-size:15px;">Wer rastet, der rostet. Merk dir das, Nana.</div>' : '') +
     '<div class="v-meta"><span>' + learned + ' / ' + L.items.length + ' learned</span></div>' + bar(L.items.length ? learned * 100 / L.items.length : 0) +
     '<div class="sport-hub-grid">' + SECS.filter(function(s){
       if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; if(s[0] === 'listening') return ttsVoice(L.id) && (L.reading || []).length; return (L[s[0]] || []).length; }).map(function(s){
