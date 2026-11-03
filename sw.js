@@ -7,7 +7,7 @@
 // win on the first load after a change. Network-first means you always get the latest push
 // immediately when there's a connection; the cache only kicks in when there's genuinely none.
 
-const CACHE_NAME = 'erics-lounge-v162';
+const CACHE_NAME = 'erics-lounge-v163';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -36,6 +36,7 @@ const SHELL_FILES = [
   './tashkent-today.html',
   './data/tashkent-transit.json',
   './lounge-core.js',
+  './presence.js',
   './theme-pages.css',
   './manifest.json',
   './icon-192.png',

@@ -579,5 +579,6 @@ app.addEventListener('click', function(e){ var a = e.target.closest && e.target.
 getJson('data/lang/index.json').then(function(d){ INDEX = d; route(); }).catch(function(){ app.innerHTML = HUB_BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
 })();
 </script>
+<script defer src="presence.js"></script>
 </body>
 </html>

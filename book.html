@@ -86,7 +86,7 @@
   var BK = /[?&]b=(harder|grammar)/.exec(location.search); BK = BK ? BK[1] : 'easier';
   var VOCAB_FRONT = ['Cover', 'TOC'];
   var BOOKS = {
-    easier: { title: 'Vocabulary \u2013 Easier', pdf: 'books/academic-vocabulary-book1.pdf', offset: 2, front: VOCAB_FRONT, store: 'bookPos_vocabEasier', contents: [
+    harder: { title: 'Vocabulary \u2013 Harder', pdf: 'books/academic-vocabulary-book1.pdf', offset: 2, front: VOCAB_FRONT, store: 'bookPos_vocabEasier', contents: [
     ['Cover',0],['Contents',-1],
     ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
     ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],
@@ -97,7 +97,7 @@
     ['Word Index',136],['Basic - Academic Word Swap Sheet',149],['Commonly Confused Words',158],['Prefix & Suffix Reference',159],
     ['Academic Linking Words for Writing',160],['Master Debate Phrasebank',161],['Sources',162]
   ] },
-    harder: { title: 'Vocabulary \u2013 Harder', pdf: 'books/academic-vocabulary-book2.pdf', offset: 2, front: VOCAB_FRONT, store: 'bookPos_vocabHarder', contents: [
+    easier: { title: 'Vocabulary \u2013 Easier', pdf: 'books/academic-vocabulary-book2.pdf', offset: 2, front: VOCAB_FRONT, store: 'bookPos_vocabHarder', contents: [
     ['Cover',0],['Contents',-1],
     ['1. Environment & Nature',1],['2. Education & Learning',7],['3. Technology & Innovation',13],['4. Information Technology',19],
     ['5. Health & Wellbeing',25],['6. Work & Careers',31],['7. Business & Management',37],['8. Crime & Justice',43],
@@ -437,5 +437,6 @@
   window._bk = { goPage: goPage, setZoom: function(v){ setZoom(v); }, state: function(){ return { z: z, scale: scale, curPage: curPage, indexed: indexed, hits: hits.length, cur: cur }; }, search: function(q){ $('sbar').classList.add('on'); $('sq').value = q; query = q; runSearch(false); if(hits.length) goHit(0); } };
 })();
 </script>
+<script defer src="presence.js"></script>
 </body>
 </html>
