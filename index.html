@@ -33636,7 +33636,7 @@ function clubRowDisplay(entry, row){
     title: isHome ? `${entry.short} v ${opponent}` : `${opponent} v ${entry.short}`,
     venue: isHome ? '(Home)' : '(Away)',
     start: row.start, finished: row.finished,
-    homeScore: row.homeScore, awayScore: row.awayScore, isHome,
+    homeScore: row.homeScore, awayScore: row.awayScore, isHome, homePen: row.homePen, awayPen: row.awayPen,
   };
 }
 // Per-club fixtures/results for football clubs from the full-season data, reconciled with
@@ -33749,7 +33749,8 @@ function clubResultLineHtml(entry){
   // for Tottenham is r.isHome+homeScore<awayScore, or away+awayScore<homeScore.
   const tottenhamLost = entry.key === 'tottenham' &&
     ((r.isHome && r.homeScore < r.awayScore) || (!r.isHome && r.awayScore < r.homeScore));
-  return `${homeTeam} ${r.homeScore} - ${r.awayScore} ${awayTeam}${tottenhamLost ? ' LOL' : ''}`;
+  const pens = (r.homePen != null && r.awayPen != null) ? ` (${r.homePen}-${r.awayPen} pens)` : '';
+  return `${homeTeam} ${r.homeScore} - ${r.awayScore} ${awayTeam}${pens}${tottenhamLost ? ' LOL' : ''}`;
 }
 function updateClubCountdowns(){
   CLUB_REGISTRY.forEach(entry => {

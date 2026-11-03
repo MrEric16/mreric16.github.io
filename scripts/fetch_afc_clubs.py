@@ -34,6 +34,7 @@ def parse(ev, comp_name):
         done = bool(ev.get("status", {}).get("type", {}).get("completed") or c.get("status", {}).get("type", {}).get("completed"))
         return {"id": str(ev.get("id")), "home": h["team"].get("displayName") or h["team"].get("name"), "away": a["team"].get("displayName") or a["team"].get("name"),
                 "homeScore": num(h.get("score")) if done else None, "awayScore": num(a.get("score")) if done else None,
+                "homePen": num(h.get("shootoutScore")) if done else None, "awayPen": num(a.get("shootoutScore")) if done else None,
                 "start": ev.get("date"), "finished": done, "comp": comp_name}
     except Exception as e:
         log("parse fail", str(e)[:80]); return None
@@ -72,7 +73,7 @@ def main():
         except Exception: pass
     for key, club in CLUBS.items():
         rows = collect(club)
-        log(key, "rows:", len(rows), [(r["start"][:10], r["home"], r["homeScore"], r["awayScore"], r["away"]) for r in rows])
+        log(key, "rows:", len(rows), [(r["start"][:10], r["home"], r["homeScore"], r["awayScore"], r["away"], r.get("homePen"), r.get("awayPen")) for r in rows])
         out["clubs"][key] = {"rows": rows} if rows else old.get(key, {"rows": []})
     json.dump(out, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 main()
