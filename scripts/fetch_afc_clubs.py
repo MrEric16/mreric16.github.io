@@ -27,21 +27,18 @@ def num(x):
     try: return int(float(x))
     except Exception: return None
 
-def h_a_equal(c):
-    try:
-        sc = [num(x.get("score")) for x in c["competitors"]]
-        return len(sc) == 2 and sc[0] == sc[1]
-    except Exception: return False
+def pen(t):
+    sc = t.get("score")
+    return num(sc.get("shootoutScore")) if isinstance(sc, dict) and sc.get("shootoutScore") is not None else num(t.get("shootoutScore"))
 
 def parse(ev, comp_name):
     try:
         c = ev["competitions"][0]; cs = c["competitors"]
         h = next(x for x in cs if x.get("homeAway") == "home"); a = next(x for x in cs if x.get("homeAway") == "away")
-        if h_a_equal(c): log("DRAW RAW", json.dumps({k: v for k, v in c.items() if k not in ("venue",)} | {"competitors": [{k: v for k, v in x.items() if k != "team"} | {"t": x["team"].get("displayName")} for x in c["competitors"]]})[:1500])
         done = bool(ev.get("status", {}).get("type", {}).get("completed") or c.get("status", {}).get("type", {}).get("completed"))
         return {"id": str(ev.get("id")), "home": h["team"].get("displayName") or h["team"].get("name"), "away": a["team"].get("displayName") or a["team"].get("name"),
                 "homeScore": num(h.get("score")) if done else None, "awayScore": num(a.get("score")) if done else None,
-                "homePen": num(h.get("shootoutScore")) if done else None, "awayPen": num(a.get("shootoutScore")) if done else None,
+                "homePen": pen(h) if done else None, "awayPen": pen(a) if done else None,
                 "start": ev.get("date"), "finished": done, "comp": comp_name}
     except Exception as e:
         log("parse fail", str(e)[:80]); return None
