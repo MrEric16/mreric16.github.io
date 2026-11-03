@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-03T02:02:44.076598Z",
+ "generatedAt": "2026-11-03T02:05:10.248907Z",
  "clubs": {
   "pakhtakor": {
    "rows": [
@@ -82,6 +82,146 @@
      "start": "2027-02-15T18:15Z",
      "finished": false,
      "comp": "afc.champions"
+    }
+   ]
+  },
+  "man_utd": {
+   "rows": [
+    {
+     "id": "401914261",
+     "home": "Manchester United",
+     "away": "Brighton & Hove Albion",
+     "homeScore": 2,
+     "awayScore": 3,
+     "start": "2026-09-16T19:00Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    }
+   ]
+  },
+  "liverpool": {
+   "rows": [
+    {
+     "id": "401914257",
+     "home": "Liverpool",
+     "away": "Tottenham Hotspur",
+     "homeScore": 3,
+     "awayScore": 1,
+     "start": "2026-09-15T19:00Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401921842",
+     "home": "Liverpool",
+     "away": "Chelsea",
+     "homeScore": 1,
+     "awayScore": 1,
+     "start": "2026-10-28T20:00Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401932187",
+     "home": "Liverpool",
+     "away": "AFC Bournemouth",
+     "homeScore": null,
+     "awayScore": null,
+     "start": "2026-12-15T20:00Z",
+     "finished": false,
+     "comp": "eng.league_cup"
+    }
+   ]
+  },
+  "chelsea": {
+   "rows": [
+    {
+     "id": "401908127",
+     "home": "Chelsea",
+     "away": "Luton Town",
+     "homeScore": 2,
+     "awayScore": 0,
+     "start": "2026-08-27T18:30Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401914256",
+     "home": "Chelsea",
+     "away": "Leeds United",
+     "homeScore": 6,
+     "awayScore": 3,
+     "start": "2026-09-09T19:15Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401921842",
+     "home": "Liverpool",
+     "away": "Chelsea",
+     "homeScore": 1,
+     "awayScore": 1,
+     "start": "2026-10-28T20:00Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    }
+   ]
+  },
+  "man_city": {
+   "rows": [
+    {
+     "id": "401914260",
+     "home": "Manchester City",
+     "away": "Norwich City",
+     "homeScore": 5,
+     "awayScore": 0,
+     "start": "2026-09-17T18:30Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401921834",
+     "home": "Manchester City",
+     "away": "Brighton & Hove Albion",
+     "homeScore": 2,
+     "awayScore": 2,
+     "start": "2026-10-28T19:30Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401932185",
+     "home": "Manchester City",
+     "away": "Bradford City",
+     "homeScore": null,
+     "awayScore": null,
+     "start": "2026-12-15T20:00Z",
+     "finished": false,
+     "comp": "eng.league_cup"
+    }
+   ]
+  },
+  "tottenham": {
+   "rows": [
+    {
+     "id": "401908140",
+     "home": "Tottenham Hotspur",
+     "away": "Charlton Athletic",
+     "homeScore": 5,
+     "awayScore": 1,
+     "start": "2026-08-26T18:45Z",
+     "finished": true,
+     "comp": "eng.league_cup"
+    },
+    {
+     "id": "401914257",
+     "home": "Liverpool",
+     "away": "Tottenham Hotspur",
+     "homeScore": 3,
+     "awayScore": 1,
+     "start": "2026-09-15T19:00Z",
+     "finished": true,
+     "comp": "eng.league_cup"
     }
    ]
   }
