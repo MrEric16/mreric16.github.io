@@ -1,113 +1,6 @@
 {
-  "generatedAt": "2026-11-03T18:00:05.803125Z",
+  "generatedAt": "2026-11-03T22:56:12.731990Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE",
-      "date": null,
-      "home": "Toulouse",
-      "away": "Le Havre",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "C. Tengstedt",
-          "minute": 49
-        },
-        {
-          "scorer": "T. Joergensen",
-          "minute": 79
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Maja",
-          "minute": 71
-        },
-        {
-          "scorer": "M. Samatta",
-          "minute": 88
-        }
-      ],
-      "competition": "FL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-borussia-dortmund/Vm0njaYO9VJtjFK619x1D",
-      "date": "2026-08-09",
-      "home": "Arsenal",
-      "away": "Borussia Dortmund",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "E. Nwaneri",
-          "minute": 54
-        },
-        {
-          "scorer": "V. Gyoekeres",
-          "minute": 69
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "S. Inacio",
-          "minute": 7
-        },
-        {
-          "scorer": "K. Karetsas",
-          "minute": 29
-        },
-        {
-          "scorer": "J. Gadou",
-          "minute": 58
-        }
-      ],
-      "competition": "dortmund"
-    },
-    {
-      "url": "https://www.goal.com/en/match/fiorentina-vs-ssc-napoli/MYxpraKitpWZujZr19FUp",
-      "date": null,
-      "home": "Fiorentina",
-      "away": "Ssc Napoli",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Jimenez",
-          "minute": 51
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. Gilmour",
-          "minute": 23
-        }
-      ],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/afc-bournemouth-vs-liverpool/e_BBwj83zrQPibHgLmWzj",
-      "date": null,
-      "home": "Afc Bournemouth",
-      "away": "Liverpool",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "A. Isak",
-          "minute": 57
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/leeds-united-vs-crystal-palace/3bDxqgOQq1YzG1BkWKPMZ",
       "date": null,
@@ -7879,6 +7772,85 @@
         }
       ],
       "competition": "barcelona"
+    },
+    {
+      "url": "https://www.goal.com/en/match/shakhtar-donetsk-vs-sporting-cp/psdlco2rl2fDXhLCmgN9U",
+      "date": "2026-11-03",
+      "home": "Shakhtar Donetsk",
+      "away": "Sporting Cp",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "I. Doumbia",
+          "minute": 59
+        }
+      ],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/atletico-madrid-vs-bayern-munich/ok1GQ0rAk2StTJ97XF_Uo",
+      "date": "2026-11-03",
+      "home": "Atletico Madrid",
+      "away": "Bayern Munich",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "L. Karl",
+          "minute": 54
+        },
+        {
+          "scorer": "K. Laimer",
+          "minute": 74
+        }
+      ],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/bodoe-glimt-vs-lille/9r6pgk6WD3Tu6yovcG_9z",
+      "date": "2026-11-03",
+      "home": "Bodoe Glimt",
+      "away": "Lille",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/feyenoord-vs-inter/-S0kayCYDeQCDtp-AeNAG",
+      "date": "2026-11-03",
+      "home": "Feyenoord",
+      "away": "Inter",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 0,
+      "ftAway": 3,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "Y. Bisseck",
+          "minute": 8
+        },
+        {
+          "scorer": "F. Esposito",
+          "minute": 34
+        },
+        {
+          "scorer": "P. Zielinski",
+          "minute": 54
+        }
+      ],
+      "competition": "CL"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7894,6 +7866,11 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1
+    "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
+    "https://www.goal.com/en/match/galatasaray-vs-vfb-stuttgart/VH_mLzIPQEqbUYCrH9YH_": 1,
+    "https://www.goal.com/en/match/lask-vs-slovan-bratislava/KganrTGoC5rhJ82CPYI4t": 1,
+    "https://www.goal.com/en/match/barcelona-vs-aston-villa/sKzLjpArvWQKu6RtSy4xq": 2,
+    "https://www.goal.com/en/match/villarreal-vs-paris-saint-germain/9kDZqP--7b-bJwrY7kqFX": 2,
+    "https://www.goal.com/en/match/manchester-united-vs-roma/kR50wK8l4znK9XFWjxqsJ": 2
   }
 }
