@@ -1,0 +1,13 @@
+[afc] afc.champions schedule events: 4
+[afc] afc.champions schedule events: 4
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions/scoreboard?dates=20260706-20270701&limit=500 HTTP Error 400: Bad Request
+[afc] afc.cup schedule events: 0
+[afc] afc.cup schedule events: 0
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.cup/scoreboard?dates=20260706-20270701&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions.elite/teams/7123/schedule HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions.elite/teams/7123/schedule?fixture=true HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions.elite/scoreboard?dates=20260706-20270701&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions.two/teams/7123/schedule HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions.two/teams/7123/schedule?fixture=true HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions.two/scoreboard?dates=20260706-20270701&limit=500 HTTP Error 400: Bad Request
+[afc] pakhtakor rows: 8 [('2026-09-14', 'Al Ahli', 1, 1, 'Pakhtakor'), ('2026-10-12', 'Pakhtakor', 1, 1, 'Al Qadsiah'), ('2026-10-26', 'Al-Quwa Al-Jawiya', 1, 0, 'Pakhtakor'), ('2026-11-02', 'Pakhtakor', 2, 6, 'Al Nassr'), ('2026-11-23', 'Al Ittihad', None, None, 'Pakhtakor'), ('2026-12-07', 'Pakhtakor', None, None, 'Tractor'), ('2027-02-08', 'Pakhtakor', None, None, 'Esteghlal FC'), ('2027-02-15', 'Al Hilal', None, None, 'Pakhtakor')]
