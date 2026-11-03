@@ -37,7 +37,7 @@ def parse(ev, comp_name):
     try:
         c = ev["competitions"][0]; cs = c["competitors"]
         h = next(x for x in cs if x.get("homeAway") == "home"); a = next(x for x in cs if x.get("homeAway") == "away")
-        if h_a_equal(c): log("DRAW RAW", json.dumps(c)[:2200])
+        if h_a_equal(c): log("DRAW RAW", json.dumps({k: v for k, v in c.items() if k not in ("venue",)} | {"competitors": [{k: v for k, v in x.items() if k != "team"} | {"t": x["team"].get("displayName")} for x in c["competitors"]]})[:1500])
         done = bool(ev.get("status", {}).get("type", {}).get("completed") or c.get("status", {}).get("type", {}).get("completed"))
         return {"id": str(ev.get("id")), "home": h["team"].get("displayName") or h["team"].get("name"), "away": a["team"].get("displayName") or a["team"].get("name"),
                 "homeScore": num(h.get("score")) if done else None, "awayScore": num(a.get("score")) if done else None,
