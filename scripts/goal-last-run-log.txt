@@ -1,11 +1,9 @@
 [goal-scraper] Run started.
-[goal-scraper] [PL] Found 9 finished-match links
-[goal-scraper] [PD] Found 9 finished-match links
+[goal-scraper] [PL] Found 0 finished-match links
+[goal-scraper] [PD] Found 0 finished-match links
 [goal-scraper] [BL1] Found 0 finished-match links
-[goal-scraper] [SA] Found 9 finished-match links
-[goal-scraper] WARNING: Sassuolo scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3
-[goal-scraper] [SA] SCORER PARSE FAILED (attempt 1/3) for Sassuolo 2-4 Fiorentina -- NOT committing, will retry next run: https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3
-[goal-scraper] [FL1] Found 8 finished-match links
+[goal-scraper] [SA] Found 0 finished-match links
+[goal-scraper] [FL1] Found 0 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 27 finished-match links
 [goal-scraper] WARNING: Tottenham Hotspur scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/real-madrid-vs-tottenham-hotspur/xdLKWe_FxdSoHo2tVKBzZ
@@ -47,7 +45,7 @@
 [goal-scraper] WARNING: Rayo Vallecano scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/barcelona-vs-rayo-vallecano/WYyZot_4M5sWl5vpAePKz
 [goal-scraper] [barcelona] Skipping stale match (older than 45 days): Barcelona vs Rayo Vallecano on 2026-08-31
 [goal-scraper] WARNING: Barcelona scored 3 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
-[goal-scraper] [barcelona] SCORER PARSE FAILED (attempt 1/3) for Sevilla 1-3 Barcelona -- NOT committing, will retry next run: https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
+[goal-scraper] [barcelona] SCORER PARSE FAILED (attempt 2/3) for Sevilla 1-3 Barcelona -- NOT committing, will retry next run: https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj
 [goal-scraper] [bayern-munich] Found 28 finished-match links
 [goal-scraper] WARNING: Bayern Munich scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
 [goal-scraper] WARNING: Fenerbahce scored 1 but 0 scorers were parsed for https://www.goal.com/en/match/bayern-munich-vs-fenerbahce/ZCL4D3f-5GWp7UCPC24C5
