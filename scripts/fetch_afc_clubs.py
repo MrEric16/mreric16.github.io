@@ -1,11 +1,18 @@
 #!/usr/bin/env python3
-"""Pakhtakor's Asian club games (AFC Champions League Elite / Two) from ESPN's public API.
+"""Extra-competition games the league feeds miss: Pakhtakor's AFC Champions League, English clubs' Carabao Cup (ESPN public API).
 Writes data/afc-clubs.json: {generatedAt, clubs:{<club key>:{rows:[{home,away,homeScore,awayScore,start,finished,comp}]}}}
 The club cards on the home page merge these rows with the domestic league rows."""
 import json, os, datetime as dt, urllib.request, urllib.error
 OUT = "data/afc-clubs.json"
-CLUBS = {"pakhtakor": {"id": "7123", "match": ["pakhtakor"]}}
-SLUGS = ["afc.champions", "afc.cup", "afc.champions.elite", "afc.champions.two"]
+# slugs: ESPN competitions to ask about for this club (a club absent from a competition just yields no rows)
+CLUBS = {
+    "pakhtakor": {"id": "7123", "match": ["pakhtakor"], "slugs": ["afc.champions", "afc.cup"]},
+    "man_utd": {"id": "360", "match": ["manchester united"], "slugs": ["eng.league_cup"]},
+    "liverpool": {"id": "364", "match": ["liverpool"], "slugs": ["eng.league_cup"]},
+    "chelsea": {"id": "363", "match": ["chelsea"], "slugs": ["eng.league_cup"]},
+    "man_city": {"id": "382", "match": ["manchester city"], "slugs": ["eng.league_cup"]},
+    "tottenham": {"id": "367", "match": ["tottenham"], "slugs": ["eng.league_cup"]},
+}
 
 def log(*a): print("[afc]", *a, flush=True)
 def get(url):
@@ -33,7 +40,7 @@ def parse(ev, comp_name):
 
 def collect(club):
     rows = {}
-    for slug in SLUGS:
+    for slug in club['slugs']:
         for url in (f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/teams/{club['id']}/schedule",
                     f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/teams/{club['id']}/schedule?fixture=true"):
             d = get(url)

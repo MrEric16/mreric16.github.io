@@ -33657,6 +33657,8 @@ function footballClubRows(entry){
       if(r.finished) results.push(r); else if(r.status !== 'AWAITING' && r.status !== 'POSTPONED' && r.status !== 'CANCELLED') fixtures.push(r);
     });
   });
+  // Carabao Cup (data/afc-clubs.json, from ESPN): not in football-data.org's free tier
+  clubExtraRows(entry).forEach(r => { if(r.finished) results.push(r); else fixtures.push(r); });
   fixtures.sort((a,b) => new Date(a.start) - new Date(b.start));
   results.sort((a,b) => new Date(b.start) - new Date(a.start));
   const v = { fixtures, results };
