@@ -33673,8 +33673,17 @@ function refreshClubCards(){
   });
   if(typeof updateClubCountdowns === 'function') updateClubCountdowns();
 }
+// Asian club games (Pakhtakor: AFC Champions League Elite) - data/afc-clubs.json, written by
+// scripts/fetch_afc_clubs.py. Merged into the domestic rows for that club's card.
+function loadAfcClubs(){
+  return fetch('./data/afc-clubs.json', { cache:'no-store' }).then(r => r.ok ? r.json() : null).then(d => { window._afcClubs = (d && d.clubs) || {}; }).catch(() => { window._afcClubs = {}; });
+}
+function clubExtraRows(entry){
+  const c = window._afcClubs && window._afcClubs[entry.key];
+  return (c && c.rows) || [];
+}
 function loadClubCardData(){
-  Promise.all([loadFullFootball(), loadGoalResults()]).then(refreshClubCards).catch(()=>{});
+  Promise.all([loadFullFootball(), loadGoalResults(), loadAfcClubs()]).then(refreshClubCards).catch(()=>{});
 }
 function clubNextFixtureInfo(entry){
   if(entry.dataType === 'arsenal'){
@@ -33694,7 +33703,7 @@ function clubNextFixtureInfo(entry){
   const leagueKey = CLUB_LEAGUE_KEY[entry.dataType];
   const rows = (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[leagueKey] && window._sportsCache.matches[leagueKey].fixtures) || [];
   const now = new Date();
-  const mine = rows.filter(r => clubRowIsMine(entry, r)).map(r => ({ ...r, dateObj: new Date(r.start) })).filter(r => r.dateObj > now).sort((a,b) => a.dateObj - b.dateObj);
+  const mine = rows.concat(clubExtraRows(entry).filter(r => !r.finished)).filter(r => clubRowIsMine(entry, r)).map(r => ({ ...r, dateObj: new Date(r.start) })).filter(r => r.dateObj > now).sort((a,b) => a.dateObj - b.dateObj);
   return mine[0] ? clubRowDisplay(entry, mine[0]) : null;
 }
 function clubPrevResultInfo(entry){
@@ -33711,7 +33720,7 @@ function clubPrevResultInfo(entry){
   }
   const leagueKey = CLUB_LEAGUE_KEY[entry.dataType];
   const rows = (window._sportsCache && window._sportsCache.matches && window._sportsCache.matches[leagueKey] && window._sportsCache.matches[leagueKey].results) || [];
-  const mine = rows.filter(r => clubRowIsMine(entry, r) && r.finished).map(r => ({ ...r, dateObj: new Date(r.start) })).sort((a,b) => b.dateObj - a.dateObj);
+  const mine = rows.concat(clubExtraRows(entry).filter(r => r.finished)).filter(r => clubRowIsMine(entry, r) && r.finished).map(r => ({ ...r, dateObj: new Date(r.start) })).sort((a,b) => b.dateObj - a.dateObj);
   return mine[0] ? clubRowDisplay(entry, mine[0]) : null;
 }
 function clubFixtureLineHtml(entry){
