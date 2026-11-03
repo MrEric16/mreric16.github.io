@@ -1,6 +1,254 @@
 {
- "generatedAt": "2026-11-03T18:34:24.031839Z",
+ "generatedAt": "2026-11-03T23:46:10.833814Z",
  "results": [
+  {
+   "url": "espn:401915311",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T17:45Z",
+   "home": "Galatasaray",
+   "away": "Stuttgart",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Batrakov",
+     "minute": 12
+    },
+    {
+     "scorer": "A. Batrakov",
+     "minute": 15
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915310",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T17:45Z",
+   "home": "Shaktar",
+   "away": "Sporting CP",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "I. Doumbia",
+     "minute": 59
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915386",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "Atleti",
+   "away": "Bayern",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "L. Karl",
+     "minute": 54
+    },
+    {
+     "scorer": "K. Laimer",
+     "minute": 74
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915387",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "Barça",
+   "away": "Aston Villa",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "L. Yamal",
+     "minute": 7
+    },
+    {
+     "scorer": "Raphinha",
+     "minute": 52
+    },
+    {
+     "scorer": "Raphinha",
+     "minute": 64
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915384",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "Bodø/Glimt",
+   "away": "Lille",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915307",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "Feyenoord",
+   "away": "Inter",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "Y. Bisseck",
+     "minute": 8
+    },
+    {
+     "scorer": "P. Esposito",
+     "minute": 34
+    },
+    {
+     "scorer": "P. Zielinski",
+     "minute": 54
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915385",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "LASK",
+   "away": "Sl. Bratislava",
+   "htHome": 3,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "K. Jørgensen",
+     "minute": 19
+    },
+    {
+     "scorer": "K. Jørgensen",
+     "minute": 37
+    },
+    {
+     "scorer": "R. Ljubicic",
+     "minute": 44
+    },
+    {
+     "scorer": "S. Adeniran",
+     "minute": 48
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915308",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "Man United",
+   "away": "Roma",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 3,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "B. Fernandes (pen)",
+     "minute": 58
+    },
+    {
+     "scorer": "M. Cunha",
+     "minute": 83
+    },
+    {
+     "scorer": "M. Cunha",
+     "minute": 86
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Soulè",
+     "minute": 11
+    },
+    {
+     "scorer": "D. Malen (pen)",
+     "minute": 17
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915309",
+   "date": "2026-11-03",
+   "utc": "2026-11-03T20:00Z",
+   "home": "Villarreal",
+   "away": "PSG",
+   "htHome": 0,
+   "htAway": 4,
+   "ftHome": 0,
+   "ftAway": 6,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "J. Neves",
+     "minute": 9
+    },
+    {
+     "scorer": "D. Doué",
+     "minute": 12
+    },
+    {
+     "scorer": "S. Mayulu",
+     "minute": 13
+    },
+    {
+     "scorer": "F. Ruiz",
+     "minute": 17
+    },
+    {
+     "scorer": "F. Ruiz",
+     "minute": 50
+    },
+    {
+     "scorer": "D. Boly",
+     "minute": 78
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
   {
    "url": "espn:401878762",
    "date": "2026-11-02",
