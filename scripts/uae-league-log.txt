@@ -254,12 +254,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Hatta Club -1.0--1.0 Shabab Al Ahly 2027-01-03T21:00:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=42
 [uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Dhafra -1.0 away=Kalba -1.0
-[uae-365] NEW FIXTURE United FC v Al Ain FC 2027-01-02T17:55:00+05:00
-[uae-365] NEW FIXTURE Al Dhafra v Ajman Club 2027-01-02T21:00:00+05:00
-[uae-365] NEW FIXTURE Al Wasl v Al Nasr SC 2027-01-02T21:00:00+05:00
-[uae-365] NEW FIXTURE Baniyas SC v Sharjah FC 2027-01-03T17:55:00+05:00
-[uae-365] NEW FIXTURE Khor Fakkan Club v Ittihad Kalba FC 2027-01-03T17:55:00+05:00
-[uae-365] NEW FIXTURE Al Wahda v Al Jazira Club 2027-01-03T21:00:00+05:00
-[uae-365] NEW FIXTURE Hatta Club v Shabab Al Ahli Club 2027-01-03T21:00:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 42 results, 49 fixtures, 7 new
+[uae-365] wrote data/uae-league-live.json: 42 results, 49 fixtures, 0 new
