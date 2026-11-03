@@ -1,32 +1,6 @@
 {
-  "generatedAt": "2026-11-03T02:32:10.466911Z",
+  "generatedAt": "2026-11-03T10:22:22.286619Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lyon-vs-rennes/Ns7T-SGD_gUzhjC5PmoZq",
-      "date": null,
-      "home": "Lyon",
-      "away": "Rennes",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "E. Nuamah",
-          "minute": 7
-        },
-        {
-          "scorer": "Z. Athekame",
-          "minute": 48
-        },
-        {
-          "scorer": "C. Tolisso",
-          "minute": 76
-        }
-      ],
-      "awayGoals": [],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/toulouse-vs-le-havre/B0EG4aLECzB3JQJNwjKYE",
       "date": null,
@@ -7882,6 +7856,29 @@
         }
       ],
       "competition": "inter-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj",
+      "date": null,
+      "home": "Sevilla",
+      "away": "Barcelona",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "Y. Fofana",
+          "minute": 19
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "Raphinha",
+          "minute": 22
+        }
+      ],
+      "competition": "barcelona"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7897,7 +7894,6 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
-    "https://www.goal.com/en/match/sevilla-vs-barcelona/C7vqoci3QSbOBBCDIe1hj": 2
+    "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1
   }
 }
