@@ -1,0 +1,60 @@
+name: Fetch Asian club games (every 30 minutes)
+
+on:
+  schedule:
+    - cron: '7,37 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: afc-fetch
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+
+      - name: Run scraper
+        run: python scripts/fetch_afc_clubs.py > scripts/afc-log.txt 2>&1 || echo "FETCH_FAILED_SEE_LOG" >> scripts/afc-log.txt
+
+      - name: Commit results
+        run: |
+          git config user.name "afc-bot"
+          git config user.email "actions@github.com"
+          git add scripts/afc-log.txt || true
+          [ -f data/afc-clubs.json ] && git add data/afc-clubs.json || true
+          git diff --cached --quiet && echo "No changes to commit" || git commit -m "Auto-update Asian club games"
+          for i in 1 2 3 4 5 6; do
+            git pull -q --rebase --autostash origin main && git push -q && exit 0
+            sleep $((RANDOM % 8 + 3))
+          done
+          exit 1
+
+      # Explicitly trigger a Pages redeploy after a successful data commit. Necessary,
+      # not optional: a push authenticated with the default GITHUB_TOKEN (which is what
+      # actions/checkout uses here, with no custom token configured) does NOT cascade to
+      # trigger other workflows via their own `on: push` triggers - this is a deliberate
+      # GitHub anti-recursion safeguard, documented behaviour, and it applies regardless
+      # of whether [skip ci] is present. Removing [skip ci] alone (done in the same fix)
+      # was necessary but not sufficient - this explicit workflow_dispatch call is what
+      # actually closes the gap, using the exact same proven pattern as the existing
+      # UZ/UAE staleness watchdogs in football-fetch.yml, which already demonstrate this
+      # approach works correctly even when triggered from a GITHUB_TOKEN context.
+      - name: Trigger Pages redeploy
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -X POST -H "Authorization: token $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/actions/workflows/pages.yml/dispatches" \
+            -d '{"ref":"main"}'
