@@ -282,6 +282,7 @@ var EMB = {
   cross: function(){ return '<rect x="-7" y="-33" width="14" height="66"/><rect x="-24" y="-15" width="48" height="14"/>'; },
   swiss: function(){ return '<rect x="-8" y="-26" width="16" height="52"/><rect x="-26" y="-8" width="52" height="16"/>'; },
   laurel: function(){ var r = ''; for(var f = 14; f <= 170; f += 17){ var t = f * P / 180, x = 29 * Math.sin(t), y = -29 * Math.cos(t); r += '<ellipse rx="9" ry="3.6" transform="translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ') rotate(' + f + ')"/><ellipse rx="9" ry="3.6" transform="translate(' + (-x).toFixed(1) + ',' + y.toFixed(1) + ') rotate(' + (-f) + ')"/>'; } return r; },
+  wreath: function(i, l){ return EMB.laurel() + '<g transform="scale(.5)">' + EMB.star5() + '</g>'; },
   gear: function(i, l){ var r = '<circle r="19"/>'; for(var k = 0; k < 10; k++) r += '<rect x="-5" y="-31" width="10" height="13" transform="rotate(' + (k * 36) + ')"/>'; return r + '<circle r="7" fill="' + l + '"/>'; },
   planet: function(){ return '<circle r="15"/><ellipse rx="33" ry="9" fill="none" stroke-width="4.5" transform="rotate(-22)"/>'; },
   galaxy: function(){ var s = '<path d="M0,0 C7,-5 12,3 7,9 C0,18 -15,11 -15,-3 C-15,-18 4,-26 19,-19 C36,-10 33,13 19,25" fill="none" stroke-width="4.5" stroke-linecap="round"/>'; return s + s.replace('<path ', '<path transform="rotate(180)" ') + '<circle r="5"/>'; },
@@ -343,7 +344,7 @@ function faceSVG(c, f){
     var sc = f.es || 1, dy = f.ey || 0;
     h += '<g transform="translate(0,' + dy + ') scale(' + sc + ')" fill="' + ink + '" stroke="' + ink + '" stroke-width="2.5" stroke-linejoin="round">' + EMB[f.e](ink, light) + '</g>';
   }
-  if(f.t) h += '<text y="' + (f.ty || 0) + '" font-size="' + (f.ts || 52) + '" font-weight="900" text-anchor="middle" dominant-baseline="central" fill="' + ink + '" font-family="Nunito,Arial,sans-serif">' + esc(f.t) + '</text>';
+  if(f.t) h += '<text y="' + (f.ty || 0) + '" font-size="' + (f.ts || (f.t.length <= 2 ? 78 : f.t.length === 3 ? 56 : 42)) + '" font-weight="900" text-anchor="middle" dominant-baseline="central" fill="' + ink + '" font-family="Nunito,Arial,sans-serif">' + esc(f.t) + '</text>';
   if(f.s) h += '<text y="' + (f.sy || 30) + '" font-size="' + (f.ss || 14) + '" font-weight="800" text-anchor="middle" fill="' + ink + '" font-family="Nunito,Arial,sans-serif" letter-spacing="1.5">' + esc(f.s) + '</text>';
   h += shape(c, 'url(#' + id + 's)', 'pointer-events="none"');
   return h + '</g></svg>';
@@ -358,37 +359,37 @@ function edgeSVG(c){
 
 /* name, note, shape (0 = round, n = n-sided), metal, core metal, hole, heads face, tails face. Face: r top text, b bottom text, e emblem, es scale, ey y-offset, t centre text, s small text */
 var COINS = [
-  { n: 'US Cent', note: 'United States · 1 cent', metal: 'copper', h: { r: 'LIBERTY', b: 'IN GOD WE TRUST', e: 'laurel', t: '1', ts: 46 }, t: { r: 'UNITED STATES OF AMERICA', b: 'ONE CENT', e: 'shield' } },
-  { n: 'Euro Cent', note: 'Eurozone · 1 cent', metal: 'copper', h: { r: 'EURO CENT', e: 'ring12', t: '1', ts: 54 }, t: { r: 'EUROPA', b: 'EURO', e: 'star5' } },
-  { n: 'Two Euro', note: 'Eurozone · €2, silver ring with gold centre', metal: 'silver', core: 'gold', h: { r: 'EURO', b: '2 EURO', e: 'ring12', es: .78, t: '2', ts: 44 }, t: { r: 'EUROPA', b: '★ ★ ★', e: 'diamond', es: .8 } },
-  { n: 'UAE Dirham', note: 'United Arab Emirates · 1 dirham', metal: 'silver', h: { r: 'UNITED ARAB EMIRATES', b: 'DIRHAM', e: 'star8', es: .8, t: '1', ts: 40 }, t: { r: 'AL IMARAT', b: 'ONE DIRHAM', e: 'ship', es: .95 } },
-  { n: 'Uzbek So‘m', note: 'Uzbekistan · 1000 so‘m', metal: 'nickel', core: 'brass', h: { r: 'O‘ZBEKISTON', b: 'RESPUBLIKASI', e: 'moon', es: .85 }, t: { r: 'O‘ZBEKISTON', b: 'SO‘M', t: '1000', ts: 38 } },
-  { n: 'British Pound', note: 'United Kingdom · £1, 12 sides', shape: 12, metal: 'gold', core: 'silver', h: { r: 'ONE POUND', b: 'UNITED KINGDOM', e: 'crown', es: .85 }, t: { r: 'DECUS ET TUTAMEN', b: 'POUND', e: 'flower', es: .85 } },
-  { n: 'British 50p', note: 'United Kingdom · fifty pence, 7 sides', shape: 7, metal: 'silver', h: { r: 'FIFTY PENCE', e: 'crown', es: .95 }, t: { r: 'UNITED KINGDOM', t: '50', ts: 54, e: null } },
-  { n: 'Japanese 5 Yen', note: 'Japan · 5 yen, with a hole', metal: 'brass', hole: 1, h: { r: 'NIHON KOKU', b: '5 YEN' }, t: { r: 'RICE · SEA · INDUSTRY', b: 'FIVE' } },
-  { n: 'Swiss Franc', note: 'Switzerland · 1 franc', metal: 'silver', h: { r: 'HELVETIA', b: '1 FRANC', e: 'swiss', es: 1 }, t: { r: 'SWITZERLAND', e: 'laurel', t: '1', ts: 40 } },
-  { n: 'Canadian Loonie', note: 'Canada · one dollar, 11 sides', shape: 11, metal: 'brass', h: { r: 'CANADA', b: 'ONE DOLLAR', e: 'maple', es: .9 }, t: { r: 'THE LOONIE', b: 'LAKES & LOONS', e: 'wave', es: .9 } },
-  { n: 'Soviet Rouble', note: 'USSR · 1 rouble', metal: 'nickel', h: { r: 'СССР', b: '1 РУБЛЬ', e: 'star5', es: .95 }, t: { r: 'РУБЛЬ', e: 'wheat', es: .95 } },
-  { n: 'Turkish Lira', note: 'Türkiye · 1 lira', metal: 'nickel', core: 'brass', h: { r: 'TÜRKİYE', b: 'LİRA', e: 'moon', es: .85 }, t: { r: 'CUMHURİYETİ', t: '1', ts: 54 } },
-  { n: 'Indian Rupee', note: 'India · 1 rupee', metal: 'nickel', h: { r: 'BHARAT', b: 'INDIA', e: 'chakra', es: .95 }, t: { r: 'ONE RUPEE', e: 'wheat', es: .9 } },
-  { n: 'Roman Denarius', note: 'Ancient Rome · silver denarius', metal: 'silver', ink: '#555b63', h: { r: 'IMP CAESAR AVG', e: 'laurel', t: 'SPQR', ts: 22 }, t: { r: 'DENARIVS', b: 'ROMA', e: 'tower' } },
-  { n: 'Athenian Owl', note: 'Ancient Athens · silver tetradrachm', metal: 'silver', ink: '#555b63', h: { r: 'ΑΘΗΝΑΙΩΝ', e: 'olive', es: .95 }, t: { r: 'ΑΘΕ', b: 'ΑΘΗΝΑ', e: 'owl', es: .95 } },
-  { n: 'Viking Silver Penny', note: 'Viking age · silver penny', metal: 'silver', ink: '#5a5f66', h: { r: 'DANORVM REX', e: 'cross', es: .95 }, t: { r: 'HEDEBY', e: 'ship', es: .95 } },
-  { n: 'Spanish Doubloon', note: 'Spanish empire · gold, 8 escudos', metal: 'gold', h: { r: 'HISPANIARVM REX', b: '8 ESCUDOS', e: 'shield', es: .95 }, t: { r: 'ET INDIARVM', e: 'cross', es: .95 } },
-  { n: 'Pirate Doubloon', note: 'Imaginary · cursed Black Spot gold', metal: 'ember', ink: '#3a1a06', h: { r: 'NO QUARTER', b: 'DEAD MEN TELL NO TALES', e: 'skull', es: .95 }, t: { r: 'BLACK SPOT', e: 'ship', es: .95 } },
-  { n: 'Timurid Dinar', note: 'Samarkand · Timurid-era gold', metal: 'gold', h: { r: 'SAMARKAND', b: 'DINAR', e: 'star8', es: .95 }, t: { r: 'AMIR TEMUR', e: 'moon', es: .95 } },
-  { n: 'Silk Road Drachm', note: 'Central Asia · silver trade coin', metal: 'silver', ink: '#555b63', h: { r: 'SOGHD', e: 'crown', es: .9 }, t: { r: 'MERCHANTS OF THE ROAD', e: 'ship', es: .9 } },
-  { n: 'Galactic Credit', note: 'Imaginary · a galaxy far, far away', shape: 6, metal: 'iron', ink: '#cfd8e3', h: { r: 'GALACTIC', b: 'CREDITS', e: 'galaxy', es: .9 }, t: { r: 'UNITED SYSTEMS', e: 'planet', es: .95 } },
-  { n: 'Dwarven Gold Crown', note: 'Imaginary · struck deep under the mountain', metal: 'gold', ink: '#5b3a05', h: { r: 'KHAZAD', b: 'DEEP GOLD', e: 'mountain', es: .95 }, t: { r: 'HAMMER & ANVIL', e: 'gear', es: .95 } },
-  { n: 'Elven Moonsilver', note: 'Imaginary · mithril leaf-coin', metal: 'mithril', ink: '#1d5a7a', h: { r: 'ELDARIA', b: 'MOONSILVER', e: 'moon', es: .9 }, t: { r: 'EVERLEAF', e: 'leaf', es: .95 } },
-  { n: 'Dragon’s Hoard Coin', note: 'Imaginary · warm to the touch', metal: 'ember', ink: '#3a1204', h: { r: 'IGNIS DRACONIS', e: 'flame', es: .95 }, t: { r: 'THE HOARD', b: 'DO NOT TOUCH', e: 'star8', es: .8 } },
-  { n: 'Pharaoh’s Scarab', note: 'Imaginary · tomb treasure', metal: 'gold', ink: '#5b3a05', h: { r: 'SON OF RA', e: 'scarab', es: .95 }, t: { r: 'ETERNAL', e: 'sun', es: .95 } },
-  { n: 'Mermaid’s Pearl', note: 'Imaginary · from the deep sea', metal: 'pearl', ink: '#7a4b64', h: { r: 'OCEANA', b: 'DEEP SEA', e: 'wave', es: .95 }, t: { r: 'PEARL OF THE TIDE', e: 'pearl', es: .95 } },
-  { n: 'Martian Dollar', note: 'Imaginary · Mars colony, year 2150', metal: 'mars', ink: '#3d1108', h: { r: 'MARS COLONY', b: 'ONE DOLLAR', e: 'planet', es: .95 }, t: { r: 'OLYMPUS MONS', e: 'mountain', es: .95 } },
-  { n: 'Chrono Coin', note: 'Imaginary · the time traveller’s fare', metal: 'bronze', h: { r: 'TEMPUS FUGIT', e: 'clock', es: .95 }, t: { r: 'ANY TIME · ANY PLACE', e: 'gear', es: .95 } },
-  { n: 'Neon Credit Chip', note: 'Imaginary · 2099', shape: 8, metal: 'neon', ink: '#f0e0ff', h: { r: 'NEON CITY', b: 'CREDIT', e: 'bolt', es: .95 }, t: { r: 'CHIP 0001', e: 'hex', es: .95 } },
-  { n: 'Cryptocoin', note: 'Imaginary · digital, but shiny', metal: 'brass', h: { r: 'DIGITAL', b: 'BLOCK', e: 'hex', es: .95 }, t: { r: 'TO THE MOON', e: 'bolt', es: .9 } },
-  { n: 'Lounge Coin', note: 'Mr Eric’s Lounge · one of a kind', metal: 'gold', ink: '#5b3a05', h: { r: 'MR ERIC’S LOUNGE', b: 'HEADS', e: 'star5', es: 1 }, t: { r: 'ENGLISH · IELTS · TOEFL', b: 'TAILS', e: 'laurel', t: '★', ts: 30 } }
+  { n: 'US Cent', note: 'United States · 1 cent', metal: 'copper', h: { r: 'LIBERTY', b: 'IN GOD WE TRUST', e: 'wreath', es: 1 }, t: { r: 'UNITED STATES OF AMERICA', b: 'ONE CENT', t: '1' } },
+  { n: 'Euro Cent', note: 'Eurozone · 1 cent', metal: 'copper', h: { r: 'EUROPA', e: 'ring12', es: 1.15 }, t: { r: 'EURO CENT', b: 'EUROPA', t: '1' } },
+  { n: 'Two Euro', note: 'Eurozone · €2, silver ring with gold centre', metal: 'silver', core: 'gold', h: { r: 'EUROPA', b: '★ ★ ★', e: 'diamond', es: .8 }, t: { r: 'EURO', b: 'EURO', t: '2' } },
+  { n: 'UAE Dirham', note: 'United Arab Emirates · 1 dirham', metal: 'silver', h: { r: 'UNITED ARAB EMIRATES', b: 'AL IMARAT', e: 'ship', es: .95 }, t: { r: 'UNITED ARAB EMIRATES', b: 'DIRHAM', t: '1' } },
+  { n: 'Uzbek So‘m', note: 'Uzbekistan · 1000 so‘m', metal: 'nickel', core: 'brass', h: { r: 'O‘ZBEKISTON', b: 'RESPUBLIKASI', e: 'moon', es: .85 }, t: { r: 'O‘ZBEKISTON', b: 'SO‘M', t: '1000' } },
+  { n: 'British Pound', note: 'United Kingdom · £1, 12 sides', shape: 12, metal: 'gold', core: 'silver', h: { r: 'DECUS ET TUTAMEN', b: 'UNITED KINGDOM', e: 'flower', es: .85 }, t: { r: 'ONE POUND', b: 'UNITED KINGDOM', t: '1' } },
+  { n: 'British 50p', note: 'United Kingdom · fifty pence, 7 sides', shape: 7, metal: 'silver', h: { r: 'UNITED KINGDOM', e: 'shield', es: .95 }, t: { r: 'FIFTY PENCE', b: 'UNITED KINGDOM', t: '50' } },
+  { n: 'Japanese 5 Yen', note: 'Japan · 5 yen, with a hole', metal: 'brass', hole: 1, h: { r: 'NIHON KOKU', b: 'RICE · SEA', e: 'wheat', es: .5, ey: -58 }, t: { b: 'NIHON KOKU · YEN', t: '5', ty: -50, ts: 46 } },
+  { n: 'Swiss Franc', note: 'Switzerland · 1 franc', metal: 'silver', h: { r: 'HELVETIA', b: 'SWITZERLAND', e: 'swiss', es: 1 }, t: { r: 'SWITZERLAND', b: 'FRANC', t: '1' } },
+  { n: 'Canadian Loonie', note: 'Canada · one dollar, 11 sides', shape: 11, metal: 'brass', h: { r: 'CANADA', b: 'THE LOONIE', e: 'maple', es: .9 }, t: { r: 'CANADA', b: 'DOLLAR', t: '1' } },
+  { n: 'Soviet Rouble', note: 'USSR · 1 rouble', metal: 'nickel', h: { r: 'СССР', e: 'star5', es: .95 }, t: { r: 'СССР', b: 'РУБЛЬ', t: '1' } },
+  { n: 'Turkish Lira', note: 'Türkiye · 1 lira', metal: 'nickel', core: 'brass', h: { r: 'TÜRKİYE', b: 'CUMHURİYETİ', e: 'moon', es: .85 }, t: { r: 'TÜRKİYE', b: 'LİRA', t: '1' } },
+  { n: 'Indian Rupee', note: 'India · 1 rupee', metal: 'nickel', h: { r: 'BHARAT', b: 'INDIA', e: 'chakra', es: .95 }, t: { r: 'INDIA', b: 'RUPEE', t: '1' } },
+  { n: 'Roman Denarius', note: 'Ancient Rome · silver denarius', metal: 'silver', ink: '#555b63', h: { r: 'IMP CAESAR AVG', b: 'SPQR', e: 'wreath', es: 1 }, t: { r: 'DENARIVS', b: 'ROMA', t: '10', s: 'ASSES', sy: 42 } },
+  { n: 'Athenian Owl', note: 'Ancient Athens · silver tetradrachm (4 drachmae)', metal: 'silver', ink: '#555b63', h: { r: 'ΑΘΕ', b: 'ΑΘΗΝΑΙΩΝ', e: 'owl', es: .95 }, t: { r: 'ΑΘΗΝΑΙΩΝ', b: 'DRACHMAE', t: '4' } },
+  { n: 'Viking Silver Penny', note: 'Viking age · silver penny', metal: 'silver', ink: '#5a5f66', h: { r: 'DANORVM REX', e: 'ship', es: .95 }, t: { r: 'HEDEBY', b: 'PENNY', t: '1' } },
+  { n: 'Spanish Doubloon', note: 'Spanish empire · gold, 8 escudos', metal: 'gold', h: { r: 'HISPANIARVM REX', e: 'shield', es: .95 }, t: { r: 'ESCUDOS', b: 'ET INDIARVM', t: '8' } },
+  { n: 'Pirate Doubloon', note: 'Imaginary · cursed Black Spot gold', metal: 'ember', ink: '#3a1a06', h: { r: 'NO QUARTER', b: 'DEAD MEN TELL NO TALES', e: 'skull', es: .95 }, t: { r: 'BLACK SPOT', b: 'PIECES OF EIGHT', t: '8' } },
+  { n: 'Timurid Dinar', note: 'Samarkand · Timurid-era gold', metal: 'gold', h: { r: 'SAMARKAND', e: 'star8', es: .95 }, t: { r: 'AMIR TEMUR', b: 'DINAR', t: '1' } },
+  { n: 'Silk Road Drachm', note: 'Central Asia · silver trade coin', metal: 'silver', ink: '#555b63', h: { r: 'MERCHANTS OF THE ROAD', e: 'crown', es: .9 }, t: { r: 'SOGHD', b: 'DRACHM', t: '1' } },
+  { n: 'Galactic Credit', note: 'Imaginary · a galaxy far, far away', shape: 6, metal: 'iron', ink: '#cfd8e3', h: { r: 'UNITED SYSTEMS', e: 'galaxy', es: .9 }, t: { r: 'GALACTIC', b: 'CREDITS', t: '100' } },
+  { n: 'Dwarven Gold Crown', note: 'Imaginary · struck deep under the mountain', metal: 'gold', ink: '#5b3a05', h: { r: 'KHAZAD', b: 'DEEP GOLD', e: 'mountain', es: .95 }, t: { r: 'HAMMER & ANVIL', b: 'CROWNS', t: '50' } },
+  { n: 'Elven Moonsilver', note: 'Imaginary · mithril leaf-coin', metal: 'mithril', ink: '#1d5a7a', h: { r: 'ELDARIA', b: 'EVERLEAF', e: 'moon', es: .9 }, t: { r: 'ELDARIA', b: 'MOONSILVER', t: '7' } },
+  { n: 'Dragon’s Hoard Coin', note: 'Imaginary · warm to the touch', metal: 'ember', ink: '#3a1204', h: { r: 'IGNIS DRACONIS', e: 'flame', es: .95 }, t: { r: 'THE HOARD', b: 'DO NOT TOUCH', t: '1000' } },
+  { n: 'Pharaoh’s Scarab', note: 'Imaginary · tomb treasure', metal: 'gold', ink: '#5b3a05', h: { r: 'SON OF RA', b: 'ETERNAL', e: 'scarab', es: .95 }, t: { r: 'SON OF RA', b: 'DEBEN', t: '3' } },
+  { n: 'Mermaid’s Pearl', note: 'Imaginary · from the deep sea', metal: 'pearl', ink: '#7a4b64', h: { r: 'OCEANA', b: 'DEEP SEA', e: 'wave', es: .95 }, t: { r: 'PEARL OF THE TIDE', b: 'PEARLS', t: '12' } },
+  { n: 'Martian Dollar', note: 'Imaginary · Mars colony, year 2150', metal: 'mars', ink: '#3d1108', h: { r: 'MARS COLONY', b: 'OLYMPUS MONS', e: 'planet', es: .95 }, t: { r: 'MARS COLONY', b: 'DOLLAR', t: '1' } },
+  { n: 'Chrono Coin', note: 'Imaginary · the time traveller’s fare', metal: 'bronze', h: { r: 'TEMPUS FUGIT', e: 'clock', es: .95 }, t: { r: 'ANY TIME · ANY PLACE', b: 'HOURS', t: '12' } },
+  { n: 'Neon Credit Chip', note: 'Imaginary · 2099', shape: 8, metal: 'neon', ink: '#f0e0ff', h: { r: 'NEON CITY', b: 'CHIP', e: 'bolt', es: .95 }, t: { r: 'NEON CITY', b: 'CREDITS', t: '99' } },
+  { n: 'Cryptocoin', note: 'Imaginary · digital, but shiny', metal: 'brass', h: { r: 'DIGITAL', b: 'BLOCK', e: 'hex', es: .95 }, t: { r: 'TO THE MOON', b: 'MILLION', t: '21' } },
+  { n: 'Lounge Coin', note: 'Mr Eric’s Lounge · suffer or chill', metal: 'gold', ink: '#5b3a05', lab: ['SUFFER', 'CHILL'], h: { r: 'MR ERIC’S LOUNGE', b: 'SUFFER', e: 'star5', es: 1 }, t: { r: 'MR ERIC’S LOUNGE', b: 'CHILL', t: '1' } }
 ];
 COINS.forEach(function(c){ c.shape = c.shape || 0; });
 var PITCH = { copper: 2350, silver: 2050, nickel: 2150, gold: 1550, brass: 1800, bronze: 1700, mithril: 2700, neon: 2500, iron: 1300, ember: 1650, pearl: 2900, mars: 2100, teal: 2400 };
@@ -396,17 +397,25 @@ var PITCH = { copper: 2350, silver: 2050, nickel: 2150, gold: 1550, brass: 1800,
 /* ---------- sound ---------- */
 var actx = null, noiseBuf = null;
 function ctx(){ try{ actx = actx || new (window.AudioContext || window.webkitAudioContext)(); if(actx.state === 'suspended') actx.resume(); }catch(e){} return actx; }
-function ping(at, f0, vol, decay){
+function flipRing(f0){
+  // one sharp, ringing, echoing note with vibrato, played once at the toss
   var a = ctx(); if(!a || !soundOn) return;
-  var R = [1, 2.32, 4.25, 6.63], A = [1, .55, .33, .2], D = [.5, .32, .2, .12];
+  var out = a.createGain(); out.gain.value = 0.85; out.connect(a.destination);
+  var dl = a.createDelay(1), fb = a.createGain(), wet = a.createGain();
+  dl.delayTime.value = 0.2; fb.gain.value = 0.45; wet.gain.value = 0.55;
+  out.connect(dl); dl.connect(wet); wet.connect(a.destination); dl.connect(fb); fb.connect(dl);
+  var t = a.currentTime, lfo = a.createOscillator(); lfo.frequency.value = 6.2;
+  var R = [1, 2.32, 4.25, 6.63], A = [1, .6, .35, .2], D = [2.6, 1.7, 1.1, .7];
   R.forEach(function(r, i){
-    var o = a.createOscillator(), g = a.createGain(); o.type = 'sine'; o.frequency.value = f0 * r; o.connect(g); g.connect(a.destination);
-    var t = a.currentTime + at, d = D[i] * decay;
-    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol * A[i], t + 0.003); g.gain.exponentialRampToValueAtTime(0.0001, t + d); o.start(t); o.stop(t + d + 0.02);
+    var o = a.createOscillator(), g = a.createGain(), v = a.createGain();
+    o.type = 'sine'; o.frequency.value = f0 * r; v.gain.value = f0 * r * 0.014; lfo.connect(v); v.connect(o.frequency);
+    o.connect(g); g.connect(out);
+    g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.5 * A[i], t + 0.002); g.gain.exponentialRampToValueAtTime(0.0001, t + D[i]);
+    o.start(t); o.stop(t + D[i] + 0.05);
   });
   if(!noiseBuf){ noiseBuf = a.createBuffer(1, Math.floor(a.sampleRate * 0.02), a.sampleRate); var ch = noiseBuf.getChannelData(0); for(var k = 0; k < ch.length; k++) ch[k] = (Math.random() * 2 - 1) * (1 - k / ch.length); }
-  var s = a.createBufferSource(), hp = a.createBiquadFilter(), g2 = a.createGain(); s.buffer = noiseBuf; hp.type = 'highpass'; hp.frequency.value = 3000; s.connect(hp); hp.connect(g2); g2.connect(a.destination);
-  g2.gain.value = vol * 0.9; s.start(a.currentTime + at);
+  var s = a.createBufferSource(), hp = a.createBiquadFilter(), g2 = a.createGain(); s.buffer = noiseBuf; hp.type = 'highpass'; hp.frequency.value = 3500; s.connect(hp); hp.connect(g2); g2.connect(out); g2.gain.value = 0.5; s.start(t);
+  lfo.start(t); lfo.stop(t + 3);
 }
 
 /* ---------- state ---------- */
@@ -447,14 +456,12 @@ function flip(){
   setTimeout(function(){ setCoin(next); }, 110);
   var spin = document.getElementById('hcSpin'), arc = document.getElementById('hcArc'), sh = document.getElementById('hcShadow');
   var pitch = PITCH[next.metal] || 2000;
-  ping(0, pitch * 1.15, 0.5, 2.6);
-  ping(0.35, pitch * 1.15, 0.1, 1.2); ping(0.75, pitch * 1.15, 0.08, 1.2);
-  ping(D / 1000, pitch, 0.55, 1.5); ping(D / 1000 + 0.32, pitch * 1.04, 0.32, 1.1); ping(D / 1000 + 0.62, pitch * 0.98, 0.18, 0.8);
+  flipRing(pitch);
   var done = function(){
     cur = want; setSpin(cur);
     busy = false; btn.disabled = false;
     if(heads) tally.h++; else tally.t++; lsSet('hcTally', tally);
-    res.className = 'hc-res pop'; res.textContent = heads ? 'HEADS' : 'TAILS';
+    res.className = 'hc-res pop'; res.textContent = next.lab ? next.lab[heads ? 0 : 1] : (heads ? 'HEADS' : 'TAILS');
     document.getElementById('hcName').textContent = next.n; document.getElementById('hcNote').textContent = next.note;
     paintTally();
   };
