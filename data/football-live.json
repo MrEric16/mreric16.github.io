@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-04T09:55:41.558621Z",
+  "generatedAt": "2026-11-04T17:48:17.766314Z",
   "standings": {
     "PL": [
       {
@@ -2120,7 +2120,7 @@
       "fixtures": [
         {
           "utcDate": "2026-12-09T19:00:00Z",
-          "status": "CANCELLED",
+          "status": "2026-10-10 12:00:00Z",
           "matchday": 8,
           "homeTeam": {
             "id": 87,
@@ -6122,13 +6122,13 @@
     },
     "liverpool": {
       "nextFixture": {
-        "utcDate": "2026-11-04T17:45:00Z",
+        "utcDate": "2026-11-08T14:00:00Z",
         "status": "TIMED",
-        "matchday": 4,
+        "matchday": 10,
         "homeTeam": {
-          "id": 613,
-          "name": "Fenerbahçe SK",
-          "shortName": "Fenerbahçe"
+          "id": 354,
+          "name": "Crystal Palace FC",
+          "shortName": "Crystal Palace"
         },
         "awayTeam": {
           "id": 64,
@@ -6148,7 +6148,7 @@
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Premier League"
         },
         "venue": null
       },
@@ -6378,13 +6378,13 @@
     },
     "real_madrid": {
       "nextFixture": {
-        "utcDate": "2026-11-04T17:45:00Z",
+        "utcDate": "2026-11-07T20:00:00Z",
         "status": "TIMED",
-        "matchday": 4,
+        "matchday": 12,
         "homeTeam": {
-          "id": 1899,
-          "name": "PAE AEK",
-          "shortName": "PAE AEK"
+          "id": 95,
+          "name": "Valencia CF",
+          "shortName": "Valencia"
         },
         "awayTeam": {
           "id": 86,
@@ -6404,7 +6404,7 @@
           }
         },
         "competition": {
-          "name": "UEFA Champions League"
+          "name": "Primera Division"
         },
         "venue": null
       },
