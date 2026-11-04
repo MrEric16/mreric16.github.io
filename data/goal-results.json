@@ -1,64 +1,6 @@
 {
-  "generatedAt": "2026-11-03T22:56:12.731990Z",
+  "generatedAt": "2026-11-04T02:51:42.966966Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/leeds-united-vs-crystal-palace/3bDxqgOQq1YzG1BkWKPMZ",
-      "date": null,
-      "home": "Leeds United",
-      "away": "Crystal Palace",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/getafe-vs-malaga/XbXGXb2ldNxVWheqf--b9",
-      "date": null,
-      "home": "Getafe",
-      "away": "Malaga",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "I. Azon",
-          "minute": 85
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/atletico-madrid-vs-real-madrid/N1G6_ecktix7-fSlFWLsF",
-      "date": null,
-      "home": "Atletico Madrid",
-      "away": "Real Madrid",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Grimaldo",
-          "minute": 53
-        },
-        {
-          "scorer": "J. David",
-          "minute": 59
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Ruediger",
-          "minute": 89
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/bayer-leverkusen-vs-rb-leipzig/lwF6ImiQ2BRFSXFfpw64P",
       "date": null,
@@ -7851,6 +7793,93 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/barcelona-vs-aston-villa/sKzLjpArvWQKu6RtSy4xq",
+      "date": "2026-11-03",
+      "home": "Barcelona",
+      "away": "Aston Villa",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "L. Yamal",
+          "minute": 7
+        },
+        {
+          "scorer": "Raphinha",
+          "minute": 52
+        }
+      ],
+      "awayGoals": [],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/villarreal-vs-paris-saint-germain/9kDZqP--7b-bJwrY7kqFX",
+      "date": "2026-11-03",
+      "home": "Villarreal",
+      "away": "Paris Saint Germain",
+      "htHome": 0,
+      "htAway": 4,
+      "ftHome": 0,
+      "ftAway": 6,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "J. Neves",
+          "minute": 9
+        },
+        {
+          "scorer": "D. Doue",
+          "minute": 12
+        },
+        {
+          "scorer": "S. Mayulu",
+          "minute": 13
+        },
+        {
+          "scorer": "F. Ruiz",
+          "minute": 17
+        },
+        {
+          "scorer": "D. Boly",
+          "minute": 78
+        }
+      ],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/manchester-united-vs-roma/kR50wK8l4znK9XFWjxqsJ",
+      "date": "2026-11-03",
+      "home": "Manchester United",
+      "away": "Roma",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "B. Fernandes",
+          "minute": 58
+        },
+        {
+          "scorer": "M. Cunha",
+          "minute": 83
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Soule",
+          "minute": 11
+        },
+        {
+          "scorer": "D. Malen",
+          "minute": 18
+        }
+      ],
+      "competition": "CL"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7867,10 +7896,7 @@
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
-    "https://www.goal.com/en/match/galatasaray-vs-vfb-stuttgart/VH_mLzIPQEqbUYCrH9YH_": 1,
-    "https://www.goal.com/en/match/lask-vs-slovan-bratislava/KganrTGoC5rhJ82CPYI4t": 1,
-    "https://www.goal.com/en/match/barcelona-vs-aston-villa/sKzLjpArvWQKu6RtSy4xq": 2,
-    "https://www.goal.com/en/match/villarreal-vs-paris-saint-germain/9kDZqP--7b-bJwrY7kqFX": 2,
-    "https://www.goal.com/en/match/manchester-united-vs-roma/kR50wK8l4znK9XFWjxqsJ": 2
+    "https://www.goal.com/en/match/galatasaray-vs-vfb-stuttgart/VH_mLzIPQEqbUYCrH9YH_": 2,
+    "https://www.goal.com/en/match/lask-vs-slovan-bratislava/KganrTGoC5rhJ82CPYI4t": 2
   }
 }
