@@ -490,7 +490,7 @@ function writingWord(L, gid, idx){
     '<div id="wfb" class="v-hint" style="min-height:20px;"></div><div id="wdir" class="v-hint" style="text-align:left;"></div>' +
     '<div class="v-row" style="flex-wrap:wrap;"><button class="v-btn" id="wWatch">Watch</button><button class="v-btn alt" id="wGuide" style="display:none">Guide</button><button class="v-btn" id="wTrace">Trace</button><button class="v-btn alt" id="wClear">Clear</button></div>' +
     '<div class="v-row" style="margin-top:10px;">' + prev + next + '</div></div>' +
-    '<div class="v-hint" style="font-size:11px;margin-top:14px;">' + (L.id === 'khl' ? 'Letter shapes traced from Noto Naskh Arabic (SIL OFL).' : L.id === 'ja' ? 'Stroke data: KanjiVG (CC BY-SA 3.0, kanjivg.tagaini.net) and Arphic Public License. Hanzi Writer: MIT.' : 'Stroke data: Arphic Public License. Hanzi Writer: MIT.') + '</div>';
+    '<div class="v-hint" style="font-size:11px;margin-top:14px;">' + (L.id === 'khl' ? 'Letter shapes traced from Noto Naskh Arabic (SIL OFL).' : L.id === 'ja' ? 'Stroke data: KanjiVG (CC BY-SA 3.0, kanjivg.tagaini.net) and Arphic Public License. Hanzi Writer: MIT.' : L.id === 'ko' ? 'Stroke data: Hangul Writer by Miro (MIT). Hanzi Writer: MIT.' : 'Stroke data: Arphic Public License. Hanzi Writer: MIT.') + '</div>';
   loadW(L, G.file).then(function(data){
     var kvg = !!(data[chars[0]] && data[chars[0]].s);
     return loadScript(kvg ? 'lib/stroke-trace.js' : 'lib/hanzi/hanzi-writer.min.js', function(){ return kvg ? window.StrokeTrace : window.HanziWriter; }).then(function(){ return [data, kvg]; });
