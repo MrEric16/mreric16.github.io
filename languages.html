@@ -161,6 +161,12 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 .lg-en{font-size:13px;font-weight:700;color:var(--ink-soft);}
 .lg-t{font-size:19px;font-weight:800;line-height:1.3;overflow-wrap:anywhere;}
 .lg-sc{font-size:22px;font-weight:700;line-height:1.35;overflow-wrap:anywhere;}
+.arf{font-family:"Noto Naskh Arabic","Traditional Arabic","Geeza Pro","Segoe UI","Arial","DejaVu Sans",serif;direction:rtl;unicode-bidi:isolate;}
+.ar-tabs{display:flex;gap:6px;margin:10px 0;}.ar-tabs .v-btn{flex:1;padding:2px 2px 6px;line-height:1.2;height:auto;min-height:0;display:flex;flex-direction:column;align-items:center;gap:0;overflow:visible;}
+.ar-tabs .arf{font-size:28px;line-height:2.1;}.ar-tabs small{font-size:11px;font-weight:700;}
+.ar-chips{display:flex;flex-wrap:wrap;gap:6px;direction:ltr;margin:8px 0;}.ar-chips span{background:var(--card);border-radius:10px;padding:2px 10px;font-size:26px;box-shadow:0 2px 0 rgba(58,42,30,.08);}
+.ar-tbl{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;text-align:center;direction:ltr;}.ar-tbl>div{background:var(--card);border-radius:8px;padding:2px 0;font-size:26px;line-height:1.5;}.ar-tbl .h{background:none;font-size:12px;font-weight:800;box-shadow:none;}
+.ar-ex{display:flex;align-items:center;justify-content:space-between;gap:10px;}.ar-ex .arf{font-size:34px;}
 @font-face{font-family:LgMong;src:url(data/lang/fonts/NotoSansMongolian.woff2) format('woff2');font-display:swap}
 .lg-mong{font-family:LgMong,sans-serif;font-weight:400;writing-mode:vertical-lr;max-height:9em;overflow-x:auto;overflow-y:hidden;line-height:1.5;margin:4px 0;}
 .lg-spk{display:none;background:none;border:0;color:var(--ink-soft);cursor:pointer;padding:4px;vertical-align:middle;align-items:center;}
@@ -288,8 +294,8 @@ function build(L){
   if(L._b) return L; L._b = true; L.items = []; L.groups = {};
   function addGroup(sec, g){
     var gid = sec + '.' + g.id, list = [];
-    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, n: it[4] || null, d: it[5] || null, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
-    L.groups[gid] = { file: g.file || g.id, id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
+    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, n: it[4] || null, d: it[5] || null, j: it[6] || null, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
+    L.groups[gid] = { lesson: !!g.lesson, file: g.file || g.id, id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
   }
   ['numbers','greetings','phrases','vocab'].forEach(function(sec){ (L[sec] || []).forEach(function(g){ addGroup(sec, g); }); });
   (L.writing || []).forEach(function(g){ addGroup('writing', g); });
@@ -405,6 +411,7 @@ function loadScript(src, chk){ if(chk()) return Promise.resolve(); if(SCR[src]) 
 function loadW(L, g){ var u = 'data/lang/' + L.id + '-w-' + g + '.json'; if(WDATA[u]) return Promise.resolve(WDATA[u]); return getJson(u).then(function(d){ WDATA[u] = d; return d; }); }
 function writingGroup(L, gid){
   var G = L.groups['writing.' + gid]; if(!G) return home(L);
+  if(G.lesson) return arJoin(L, G);
   var p = prog(L.id), n = counts(L, G.items);
   app.innerHTML = back('#l/' + L.id, L.name) + head(G.title) + (G.note ? '<div class="v-hint">' + esc(G.note) + '</div>' : '') +
     '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
@@ -414,11 +421,11 @@ function writingGroup(L, gid){
   document.getElementById('qGo').onclick = function(){ quiz(L, G.items, '#l/' + L.id + '/writing/' + gid, G.title); };
 }
 function kvgMode(L, it, chars, data, sizes){
-  var G = L.groups['writing.' + location.hash.split('/')[3]], strokes = data[chars[0]].s, fb = document.getElementById('wfb'), box = app.querySelector('.wc');
-  var sz = Math.min(280, Math.max(200, (window.innerWidth || 360) - 80));
-  box.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;border:0;background:none;';
-  var T = StrokeTrace.create(box, strokes, { size: sz, say: function(m){ fb.textContent = m; } });
-  var dirs = it.d || [];
+  var G = L.groups['writing.' + location.hash.split('/')[3]], E0 = data[chars[0]], strokes = E0.s, fb = document.getElementById('wfb'), box = app.querySelector('.wc'), wide = !!E0.w;
+  var avail = Math.max(200, (window.innerWidth || 360) - 80), sz = wide ? Math.min(avail, 560, Math.round(E0.w * 5)) : Math.min(280, avail);
+  box.style.cssText = wide ? 'border:0;background:none;display:flex;justify-content:center;' : 'width:' + sz + 'px;height:' + sz + 'px;border:0;background:none;';
+  var T = StrokeTrace.create(box, strokes, wide ? { size: sz, w: E0.w, h: 109, tol: 12, sw: 3.2, dr: 2.6, fs: 8, base: 76, fit: true, maxH: 220, say: function(m){ fb.textContent = m; } } : { size: sz, say: function(m){ fb.textContent = m; } });
+  var dirs = it.d || (wide ? [] : []);
   document.getElementById('wdir').innerHTML = dirs.length ? dirs.map(function(d, i){ return '<span class="wd" data-i="' + i + '"><b>' + (i + 1) + '</b> ' + esc(d) + '</span>'; }).join(' &nbsp; ') : '';
   document.getElementById('wcount').textContent = strokes.length + (strokes.length === 1 ? ' stroke' : ' strokes');
   function lit(i){ Array.prototype.forEach.call(app.querySelectorAll('.wd'), function(x){ x.style.opacity = i == null || +x.getAttribute('data-i') === i ? 1 : .35; x.style.fontWeight = +x.getAttribute('data-i') === i ? 800 : 600; }); }
@@ -429,9 +436,53 @@ function kvgMode(L, it, chars, data, sizes){
   document.getElementById('wTrace').onclick = function(){ fb.textContent = ''; lit(null); T.trace(function(miss){ var b = prog(L.id)[it.k] || 0, ok = miss <= strokes.length; if(ok && b < 5){ setBox(L.id, it.k, b + 1); award(1, 'language'); } fb.textContent = ok ? 'Done' : 'Done. Watch it again, then retry.'; }); };
   document.getElementById('wWatch').click();
 }
+var ZW = '\u200D', FORMS = [['iso', 'Alone'], ['ini', 'Start'], ['med', 'Middle'], ['fin', 'End']];
+function arForm(ch, f){ return f === 'ini' ? ch + ZW : f === 'med' ? ZW + ch + ZW : f === 'fin' ? ZW + ch : ch; }
+function arJoin(L, G){
+  var A = L.groups['writing.alphabet'].items, dual = A.filter(function(x){ return x.j === 'd'; }), one = A.filter(function(x){ return x.j === 'r'; });
+  function chips(a){ return '<div class="ar-chips">' + a.map(function(x){ return '<span class="arf">' + esc(x.sc) + '</span>'; }).join('') + '</div>'; }
+  var ex = [['بيت', 'all join'], ['باب', 'after alif the next letter starts again'], ['دار', 'none join'], ['مدرسة', 'after dal and raa it starts again']];
+  app.innerHTML = back('#l/' + L.id, L.name) + head('Joining rules') +
+    '<div class="sp-card" style="padding:12px 14px;">Write from right to left.</div>' +
+    '<div class="v-hint">Joins both sides</div>' + chips(dual) +
+    '<div class="v-hint">Joins the letter before it only. Never joins the next one. The next letter starts again.</div>' + chips(one) +
+    '<div class="v-hint">Examples</div>' + ex.map(function(e){ return '<div class="sp-card ar-ex" style="padding:8px 14px;"><span class="arf">' + e[0] + '</span><span style="font-size:13px;font-weight:700;">' + esc(e[1]) + '</span></div>'; }).join('') +
+    '<div class="v-hint" style="margin-top:12px;">All forms</div><div class="ar-tbl"><div class="h">Alone</div><div class="h">End</div><div class="h">Middle</div><div class="h">Start</div><div class="h"></div>' +
+    A.map(function(x){ var d = x.j === 'd', c = x.sc; return '<div class="arf">' + c + '</div><div class="arf">' + arForm(c, 'fin') + '</div><div class="arf">' + (d ? arForm(c, 'med') : '') + '</div><div class="arf">' + (d ? arForm(c, 'ini') : '') + '</div><div class="h">' + esc(x.en) + '</div>'; }).join('') + '</div>';
+}
+function arLetter(L, G, gid, idx, it){
+  var prev = idx > 0 ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx - 1) + '">←</a>' : '', next = idx + 1 < G.items.length ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx + 1) + '">→</a>' : '';
+  app.innerHTML = back('#l/' + L.id + '/writing/' + gid, G.title) + '<div class="v-card" style="text-align:center;"><div class="v-pos">' + esc(it.en) + '</div><div class="v-word" style="margin-top:6px;">' + esc(it.t) + ' ' + spk(it.sc) + '</div>' +
+    '<div class="v-hint">' + (it.j === 'd' ? 'Joins both sides' : 'Joins the letter before it only. Never joins the next one.') + '</div><div class="ar-tabs" id="atabs"></div>' +
+    '<div id="wbox" style="display:flex;justify-content:center;margin:8px 0;"></div><div id="wfb" class="v-hint" style="min-height:20px;"></div><div id="wdir" class="v-hint" style="text-align:left;"></div>' +
+    '<div class="v-row" style="flex-wrap:wrap;"><button class="v-btn" id="wWatch">Watch</button><button class="v-btn alt" id="wGuide">Guide</button><button class="v-btn" id="wTrace">Trace</button><button class="v-btn alt" id="wClear">Clear</button></div>' +
+    '<div class="v-row" style="margin-top:10px;">' + prev + next + '</div></div>' +
+    '<div class="v-hint" style="font-size:11px;margin-top:14px;">Letter shapes traced from Noto Naskh Arabic (SIL OFL).</div>';
+  Promise.all([loadW(L, 'alphabet'), loadScript('lib/stroke-trace.js', function(){ return window.StrokeTrace; })]).then(function(r){
+    var A = r[0][it.sc]; if(!A || location.hash.indexOf('/writing/' + gid + '/' + idx) < 0) return;
+    var forms = FORMS.filter(function(f){ return A.f[f[0]]; }), cur = forms[0][0], T = null, fb = document.getElementById('wfb');
+    document.getElementById('atabs').innerHTML = forms.map(function(f){ return '<button class="v-btn alt" data-f="' + f[0] + '"><span class="arf">' + esc(arForm(it.sc, f[0])) + '</span><small>' + f[1] + '</small></button>'; }).join('');
+    function lit(i){ Array.prototype.forEach.call(app.querySelectorAll('.wd'), function(x){ x.style.opacity = i == null || +x.getAttribute('data-i') === i ? 1 : .35; x.style.fontWeight = +x.getAttribute('data-i') === i ? 800 : 600; }); }
+    function setForm(f){
+      cur = f; var F = A.f[f]; fb.textContent = '';
+      Array.prototype.forEach.call(app.querySelectorAll('#atabs .v-btn'), function(b){ b.classList.toggle('alt', b.getAttribute('data-f') !== f); });
+      var avail = Math.max(200, (window.innerWidth || 360) - 80), sz = Math.min(avail, 340, Math.round((F.w + 12) * 5.5));
+      T = StrokeTrace.create(document.getElementById('wbox'), F.s, { size: sz, w: F.w + 12, vx: -6, h: 109, tol: 12, sw: 3.2, dr: 2.6, fs: 8, base: 76, fit: true, maxH: 300, say: function(m){ fb.textContent = m; } });
+      document.getElementById('wdir').innerHTML = F.l.filter(function(x){ return x !== 'dot'; }).map(function(d, i){ return '<span class="wd" data-i="' + i + '"><b>' + (i + 1) + '</b> ' + esc(d) + '</span>'; }).join(' &nbsp; ') + (F.l.indexOf('dot') > -1 ? ' &nbsp; <span><b>' + (F.l.filter(function(x){ return x !== 'dot'; }).length + 1) + '</b> dots</span>' : '');
+      lit(null); T.watch(function(){ lit(null); }, function(i){ lit(i < F.l.filter(function(x){ return x !== 'dot'; }).length ? i : null); });
+    }
+    Array.prototype.forEach.call(app.querySelectorAll('#atabs .v-btn'), function(b){ b.onclick = function(){ setForm(b.getAttribute('data-f')); }; });
+    document.getElementById('wWatch').onclick = function(){ setForm(cur); };
+    document.getElementById('wGuide').onclick = function(){ fb.textContent = ''; lit(null); T.guide(); };
+    document.getElementById('wClear').onclick = function(){ fb.textContent = ''; lit(null); T.clear(); };
+    document.getElementById('wTrace').onclick = function(){ fb.textContent = ''; lit(null); T.trace(function(miss){ var b = prog(L.id)[it.k] || 0, ok = miss <= A.f[cur].s.length; if(ok && b < 5){ setBox(L.id, it.k, b + 1); award(1, 'language'); } fb.textContent = ok ? 'Done' : 'Done. Watch it again, then retry.'; }); };
+    setForm(cur);
+  }).catch(function(){ var fb = document.getElementById('wfb'); if(fb) fb.textContent = 'Could not load. Check your connection.'; });
+}
 function writingWord(L, gid, idx){
   var G = L.groups['writing.' + gid], it = G && G.items[idx]; if(!it) return writingGroup(L, gid);
-  var chars = Array.from(it.sc), sizes = chars.length === 1 ? 220 : chars.length <= 3 ? 130 : 96, isK = G.file !== gid || /^(hiragana|katakana)/.test(gid);
+  if(G.file === 'alphabet') return arLetter(L, G, gid, idx, it);
+  var chars = (G.file === 'words' || G.file === 'alphabet') ? [it.sc] : Array.from(it.sc), sizes = chars.length === 1 ? 220 : chars.length <= 3 ? 130 : 96, isK = G.file !== gid || /^(hiragana|katakana)/.test(gid);
   var prev = idx > 0 ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx - 1) + '">←</a>' : '', next = idx + 1 < G.items.length ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx + 1) + '">→</a>' : '';
   app.innerHTML = back('#l/' + L.id + '/writing/' + gid, G.title) + '<div class="v-card" style="text-align:center;"><div class="v-pos">' + esc(it.en) + '</div><div class="v-word" style="margin-top:6px;">' + esc(it.t) + ' ' + spk(it.sc) + '</div>' +
     '<div class="v-hint" id="wcount">' + (it.n ? it.n.reduce(function(a, b){ return a + b; }, 0) + ' strokes' + (chars.length > 1 ? ' (' + it.n.join(' + ') + ')' : '') : '') + '</div>' +
@@ -439,7 +490,7 @@ function writingWord(L, gid, idx){
     '<div id="wfb" class="v-hint" style="min-height:20px;"></div><div id="wdir" class="v-hint" style="text-align:left;"></div>' +
     '<div class="v-row" style="flex-wrap:wrap;"><button class="v-btn" id="wWatch">Watch</button><button class="v-btn alt" id="wGuide" style="display:none">Guide</button><button class="v-btn" id="wTrace">Trace</button><button class="v-btn alt" id="wClear">Clear</button></div>' +
     '<div class="v-row" style="margin-top:10px;">' + prev + next + '</div></div>' +
-    '<div class="v-hint" style="font-size:11px;margin-top:14px;">' + (L.id === 'ja' ? 'Stroke data: KanjiVG (CC BY-SA 3.0, kanjivg.tagaini.net) and Arphic Public License. Hanzi Writer: MIT.' : 'Stroke data: Arphic Public License. Hanzi Writer: MIT.') + '</div>';
+    '<div class="v-hint" style="font-size:11px;margin-top:14px;">' + (L.id === 'khl' ? 'Letter shapes traced from Noto Naskh Arabic (SIL OFL).' : L.id === 'ja' ? 'Stroke data: KanjiVG (CC BY-SA 3.0, kanjivg.tagaini.net) and Arphic Public License. Hanzi Writer: MIT.' : 'Stroke data: Arphic Public License. Hanzi Writer: MIT.') + '</div>';
   loadW(L, G.file).then(function(data){
     var kvg = !!(data[chars[0]] && data[chars[0]].s);
     return loadScript(kvg ? 'lib/stroke-trace.js' : 'lib/hanzi/hanzi-writer.min.js', function(){ return kvg ? window.StrokeTrace : window.HanziWriter; }).then(function(){ return [data, kvg]; });
@@ -470,7 +521,7 @@ function section(L, sec){
   if(sec === 'writing' && gs0(L).length === 1) return writingGroup(L, gs0(L)[0].id);
   if(sec === 'reading' || sec === 'listening') return readList(L, sec);
   var gs = secGroups(L, sec);
-  if(sec === 'writing'){ app.innerHTML = back('#l/' + L.id, L.name) + head(title) + '<div class="sport-hub-grid">' + gs.map(function(g){ var G = L.groups[g.gid]; return tile('#l/' + L.id + '/writing/' + g.id, g.title, G ? counts(L, G.items) + ' / ' + G.items.length : ''); }).join('') + '</div>'; return; }
+  if(sec === 'writing'){ app.innerHTML = back('#l/' + L.id, L.name) + head(title) + '<div class="sport-hub-grid">' + gs.map(function(g){ var G = L.groups[g.gid]; return tile('#l/' + L.id + '/writing/' + g.id, g.title, G && G.items.length ? counts(L, G.items) + ' / ' + G.items.length : ''); }).join('') + '</div>'; return; }
   if(gs.length === 1 && sec !== 'grammar') return group(L, sec, gs[0].id, true);
   function t(g){ var G = L.groups[g.gid], sub = G ? counts(L, G.items) + ' / ' + G.items.length : '';
     return tile('#l/' + L.id + '/' + sec + '/' + g.id, g.title, sub); }
@@ -545,6 +596,11 @@ function makeQ(L, it, pool){
     [-2, -1, 1, 2, 3, -3, 4].forEach(function(d){ var v = tot + d; if(v > 0 && out.length < 3 && !alt[v]){ alt[v] = 1; out.push(String(v)); } });
     return { it: it, f: false, prompt: it.sc, ans: String(tot), hint: 'How many strokes?', psc: '', opts: shuffle(out.concat([String(tot)])), strokes: true };
   }
+  if(it.sec === 'writing' && it.j && Math.random() < .4){
+    if(it.j === 'd' && Math.random() < .5){ var fi = [['iso', 'Alone'], ['ini', 'Start'], ['med', 'Middle'], ['fin', 'End']][Math.floor(Math.random() * 4)];
+      return { it: it, f: false, prompt: arForm(it.sc, fi[0]), ans: fi[1], hint: 'Which form is this?', psc: '', opts: ['Alone', 'Start', 'Middle', 'End'], strokes: true }; }
+    return { it: it, f: false, prompt: it.sc, ans: it.j === 'd' ? 'Yes' : 'No', hint: 'Does it join the next letter?', psc: '', opts: ['Yes', 'No'], strokes: true };
+  }
   if(it.sec === 'writing' && it.d && it.d[0] && !/\(|dot|loop/.test(it.d[0]) && Math.random() < .3){
     var DL = ['left to right', 'right to left', 'top to bottom', 'bottom to top', 'down-right', 'down-left', 'up-right', 'up-left'].filter(function(x){ return x !== it.d[0]; });
     return { it: it, f: false, prompt: it.sc, ans: it.d[0], hint: 'First stroke goes', psc: '', opts: shuffle(shuffle(DL).slice(0, 3).concat([it.d[0]])), strokes: true };
@@ -562,7 +618,7 @@ function quiz(L, items, backHash, title){
     if(i >= qs.length) return end();
     var q = qs[i];
     app.innerHTML = back(backHash, 'Quit') + '<div class="v-meta"><span>' + esc(title) + '</span><span>' + (i + 1) + ' / ' + qs.length + '</span></div>' + bar(i * 100 / qs.length) +
-      '<div class="v-card"><div class="v-pos">' + (q.strokes ? 'Strokes' : q.f ? 'English → ' + esc(L.id === 'den' ? 'German' : L.name) : esc(L.id === 'den' ? 'German' : L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.psc || q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
+      '<div class="v-card"><div class="v-pos">' + (q.strokes ? 'Writing' : q.f ? 'English → ' + esc(L.id === 'den' ? 'German' : L.name) : esc(L.id === 'den' ? 'German' : L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.psc || q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
       '<div class="v-opts">' + q.opts.map(function(o, n){ return '<button class="v-opt lg-opt" data-n="' + n + '">' + esc(o) + '</button>'; }).join('') + '</div><div id="fb"></div>';
     var done = false;
     Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(b){ b.onclick = function(){
