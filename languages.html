@@ -323,8 +323,8 @@ function scCls(){ return CURID === 'cmn' ? 'lg-sc lg-mong' : 'lg-sc'; }
 function bar(p){ return '<div class="v-bar"><i style="width:' + Math.round(p) + '%"></i></div>'; }
 
 /* ---- audio: browser voices, only when the device has a voice in this language (any region); otherwise nothing is shown ---- */
-var VOICE = { uz: 'uz', es: 'es', pt: 'pt', fr: 'fr', it: 'it', ro: 'ro', de: 'de', den: 'de', nl: 'nl', sv: 'sv', fi: 'fi', pl: 'pl', cs: 'cs', uk: 'uk', lv: 'lv', lt: 'lt', el: 'el', hu: 'hu', tr: 'tr', az: 'az', kk: 'kk', ky: 'ky', ug: 'ug', tt: 'tt', ka: 'ka', hy: 'hy', khl: 'ar', he: 'he', fa: 'fa', tg: 'tg', hi: 'hi', ur: 'ur', ja: 'ja', zh: 'zh', ko: 'ko', th: 'th', vi: 'vi', id: 'id', sw: 'sw', yo: 'yo', xh: 'xh', am: 'am', mn: 'mn', mi: 'mi', eu: 'eu', eo: 'eo', cy: 'cy', ga: 'ga', haw: 'haw', la: 'la' };
-var VOICE_ALT = { he: 'iw', id: 'in' };
+var VOICE = { uz: 'uz', es: 'es', pt: 'pt', fr: 'fr', it: 'it', ro: 'ro', de: 'de', den: 'de', nl: 'nl', sv: 'sv', no: 'nb', da: 'da', af: 'af', fi: 'fi', pl: 'pl', cs: 'cs', uk: 'uk', lv: 'lv', lt: 'lt', el: 'el', hu: 'hu', tr: 'tr', az: 'az', kk: 'kk', ky: 'ky', ug: 'ug', tt: 'tt', ka: 'ka', hy: 'hy', khl: 'ar', he: 'he', fa: 'fa', tg: 'tg', hi: 'hi', ur: 'ur', ja: 'ja', zh: 'zh', ko: 'ko', th: 'th', vi: 'vi', id: 'id', sw: 'sw', yo: 'yo', xh: 'xh', am: 'am', mn: 'mn', mi: 'mi', eu: 'eu', eo: 'eo', cy: 'cy', ga: 'ga', haw: 'haw', la: 'la' };
+var VOICE_ALT = { he: 'iw', id: 'in', nb: 'no' };
 var SPK_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>';
 function ttsVoice(id){
   var base = VOICE[id]; if(!base || !window.speechSynthesis) return null;
