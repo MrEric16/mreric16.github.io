@@ -12,7 +12,7 @@
 [afc] eng.league_cup schedule events: 2
 [afc] eng.league_cup schedule events: 1
 [afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260707-20270702&limit=500 HTTP Error 400: Bad Request
-[afc] liverpool rows: 3 [('2026-09-15', 'Liverpool', 3, 1, 'Tottenham Hotspur', None, None), ('2026-10-28', 'Liverpool', 1, 1, 'Chelsea', 6, 5), ('2026-12-15', 'Liverpool', None, None, 'AFC Bournemouth', None, None)]
+[afc] liverpool rows: 3 [('2026-09-15', 'Liverpool', 3, 1, 'Tottenham Hotspur', None, None), ('2026-10-28', 'Liverpool', 1, 1, 'Chelsea', 6, 5), ('2026-12-16', 'Liverpool', None, None, 'AFC Bournemouth', None, None)]
 [afc] eng.league_cup schedule events: 3
 [afc] eng.league_cup schedule events: 0
 [afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260707-20270702&limit=500 HTTP Error 400: Bad Request
