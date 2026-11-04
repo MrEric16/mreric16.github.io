@@ -272,8 +272,8 @@ body.dark-mode .cc-k.ac{color:#E57373;}
 .gr-in{flex:1; min-width:0; background:#eef3e4; border:2px solid #16221a; border-radius:4px; padding:7px 8px; font:700 16px 'Courier New',monospace; color:#16221a;}
 .gr-in.bad{border-color:#B3261E; background:#f7d9d6;}
 .gr-sw{width:12px; height:30px; border-radius:3px; flex:none;}
-.gr-chips{display:flex; flex-wrap:wrap; gap:5px; margin-top:6px;}
-.gr-chip{border:2px solid #16221a; background:#eef3e4; color:#16221a; border-radius:6px; padding:5px 8px; font:800 14px 'Courier New',monospace; cursor:pointer;}
+.gr-chips{display:grid; grid-template-columns:repeat(5,1fr); gap:5px; margin-top:6px;}
+.gr-chip{text-align:center; border:2px solid #16221a; background:#eef3e4; color:#16221a; border-radius:6px; padding:5px 8px; font:800 14px 'Courier New',monospace; cursor:pointer;}
 .gr-zoom{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
 .gr-zoom .gr-chip{padding:12px 6px; font-size:15px; text-align:center;}
 .gr-read{background:#0d1634; color:#dbe4cd; border-radius:6px; padding:6px 10px; margin-top:8px; font:700 14px 'Courier New',monospace; min-height:30px;}
@@ -678,6 +678,14 @@ function gInsert(txt){
   el.value = el.value.slice(0, a) + txt + el.value.slice(b); var p = a + txt.length; el.focus(); try{ el.setSelectionRange(p, p); }catch(e){}
   G.f[gFocus] = el.value; gSave(); gCheck(gFocus);
 }
+function gKey(v){
+  var el = document.getElementById('gy' + gFocus); if(!el) return;
+  if(v === 'C'){ el.value = ''; }
+  else { var a = el.selectionStart === null ? el.value.length : el.selectionStart, e = el.selectionEnd === null ? a : el.selectionEnd;
+    if(a === e){ var m = /(sin\(|cos\(|tan\(|ln\(|log\(|abs\(|√\()$/.exec(el.value.slice(0, a)); a = Math.max(0, a - (m ? m[0].length : 1)); }
+    el.value = el.value.slice(0, a) + el.value.slice(e); el.setSelectionRange(a, a); }
+  G.f[gFocus] = el.value; gSave(); gCheck(gFocus);
+}
 function gCheck(i){ var el = document.getElementById('gy' + i); if(!el) return; var v = el.value.trim(); el.className = 'gr-in' + (v && gTree(v) === false ? ' bad' : ''); }
 function renderGraph(){
   var sks = [['y', 'Y='], ['win', 'WINDOW'], ['zoom', 'ZOOM'], ['trace', 'TRACE'], ['graph', 'GRAPH']];
@@ -688,8 +696,8 @@ function renderGraph(){
     '<div class="cc-tabs"><button data-t="normal">Normal</button><button data-t="sci">Scientific</button><button data-t="graph" class="on">Graphing</button></div>' +
     '<div class="gr-body"><div class="gr-sks">' + sks.map(function(k){ return '<button class="gr-sk' + ((k[0] === gScreen && !(k[0] === 'graph' && gTrace)) || (k[0] === 'trace' && gTrace && gScreen === 'graph') ? ' on' : '') + '" data-s="' + k[0] + '" type="button">' + k[1] + '</button>'; }).join('') + '</div><div class="gr-lcd" id="grLcd">';
   if(gScreen === 'y'){
-    for(var i = 0; i < 3; i++) h += '<div class="gr-row"><span class="gr-sw" style="background:' + COLS[i] + '"></span><label data-on="' + i + '" class="' + (G.on[i] ? 'on' : '') + '">Y' + (i + 1) + '=</label><input class="gr-in" id="gy' + i + '" data-i="' + i + '" value="' + esc(G.f[i]) + '" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="text"></div>';
-    h += '<div class="gr-chips">' + ['x', '^', '(', ')', 'π', '√(', 'sin(', 'cos(', 'tan(', 'ln(', 'log(', 'abs(', 'e', '÷', '×', '−'].map(function(c){ return '<button class="gr-chip" data-c="' + esc(c) + '" type="button">' + esc(c) + '</button>'; }).join('') + '</div>';
+    for(var i = 0; i < 3; i++) h += '<div class="gr-row"><span class="gr-sw" style="background:' + COLS[i] + '"></span><label data-on="' + i + '" class="' + (G.on[i] ? 'on' : '') + '">Y' + (i + 1) + '=</label><input class="gr-in" id="gy' + i + '" data-i="' + i + '" value="' + esc(G.f[i]) + '" autocomplete="off" autocapitalize="off" spellcheck="false" inputmode="none"></div>';
+    h += '<div class="gr-chips">' + ['7','8','9','÷','⌫','4','5','6','×','C','1','2','3','−','x','0','.','(',')','+','sin(','cos(','tan(','^','π','ln(','log(','√(','abs(','e'].map(function(c){ return '<button class="gr-chip" data-c="' + esc(c) + '" type="button">' + esc(c) + '</button>'; }).join('') + '</div>';
   } else if(gScreen === 'win'){
     [['Xmin', 'x0'], ['Xmax', 'x1'], ['Ymin', 'y0'], ['Ymax', 'y1']].forEach(function(r){ h += '<div class="gr-row"><label>' + r[0] + '</label><input class="gr-in" data-w="' + r[1] + '" value="' + fmt(G.w[r[1]]) + '" inputmode="text" autocomplete="off"></div>'; });
     h += '<div class="gr-row"><label style="min-width:60px">Angle</label><button class="gr-chip" id="grAng" type="button">' + (G.rad ? 'RADIAN' : 'DEGREE') + '</button></div>';
@@ -712,7 +720,7 @@ function renderGraph(){
   if(gScreen === 'y'){
     [].forEach.call(app.querySelectorAll('.gr-in'), function(el){ var i = +el.getAttribute('data-i'); el.oninput = function(){ G.f[i] = el.value; gSave(); gCheck(i); }; el.onfocus = function(){ gFocus = i; }; gCheck(i); });
     [].forEach.call(app.querySelectorAll('.gr-row label[data-on]'), function(l){ l.onclick = function(){ var i = +l.getAttribute('data-on'); G.on[i] = !G.on[i]; gSave(); l.className = G.on[i] ? 'on' : ''; }; });
-    [].forEach.call(app.querySelectorAll('.gr-chip[data-c]'), function(c){ c.onmousedown = function(e){ e.preventDefault(); }; c.onclick = function(){ gInsert(c.getAttribute('data-c')); }; });
+    [].forEach.call(app.querySelectorAll('.gr-chip[data-c]'), function(c){ c.onmousedown = function(e){ e.preventDefault(); }; c.onclick = function(){ var v = c.getAttribute('data-c'); if(v === '⌫' || v === 'C') gKey(v); else gInsert(v); }; });
   } else if(gScreen === 'win'){
     [].forEach.call(app.querySelectorAll('.gr-in[data-w]'), function(el){ el.onchange = function(){ try{ var v = calc(el.value); G.w[el.getAttribute('data-w')] = v; el.className = 'gr-in'; if(G.w.x0 >= G.w.x1 || G.w.y0 >= G.w.y1) el.className = 'gr-in bad'; else gSave(); }catch(e){ el.className = 'gr-in bad'; } }; });
     document.getElementById('grAng').onclick = function(){ G.rad = !G.rad; gSave(); this.textContent = G.rad ? 'RADIAN' : 'DEGREE'; };
