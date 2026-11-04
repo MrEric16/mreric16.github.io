@@ -23940,6 +23940,100 @@ function viewPlaySingle(videoId, from){
   `;
 }
 
+/* - Keyword search engine (instruments + articles) -
+   Multi-word, order-free, plural/-ing tolerant, typo tolerant. Matches name/headline, description,
+   hand-written keywords (data/search-keywords.json, keyed by URL) and the article's URL words. */
+const SEARCH_KW = { i:{}, a:{}, p:null };
+function loadSearchKeywords(done){
+  if(!SEARCH_KW.p){
+    SEARCH_KW.p = fetch('data/search-keywords.json').then(r => r.ok ? r.json() : null).then(d => {
+      if(d){ SEARCH_KW.i = d.i || {}; SEARCH_KW.a = d.a || {}; SKIDX = new WeakMap(); }
+    }).catch(()=>{});
+  }
+  SEARCH_KW.p.then(()=>{ if(done) done(); });
+}
+let SKIDX = new WeakMap();
+const SK_STOP = new Set(['the','a','an','of','and','or','for','to','in','on','at','is','are','it','that','this','with','how','what','where','which','who','i','me','my','you','your','site','website','websites','page','thing','one','about','from','by','can','do','does']);
+function skNorm(t){ return String(t||'').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/['’]/g,'').replace(/[^a-z0-9+#]+/g,' ').trim(); }
+function skStem(w){
+  if(w.length > 4 && w.endsWith('ies')) return w.slice(0,-3) + 'y';
+  if(w.length > 4 && /(s|x|ch|sh|z)es$/.test(w)) return w.slice(0,-2);
+  if(w.length > 3 && w.endsWith('s') && !w.endsWith('ss') && !w.endsWith('us')) return w.slice(0,-1);
+  if(w.length > 6 && w.endsWith('ing')) return w.slice(0,-3);
+  if(w.length > 5 && w.endsWith('ed')) return w.slice(0,-2);
+  return w;
+}
+function skLev(a, b, max){
+  if(Math.abs(a.length - b.length) > max) return max + 1;
+  let prev = Array.from({length:b.length + 1}, (_, i) => i);
+  for(let i = 1; i <= a.length; i++){
+    const cur = [i]; let rowMin = i;
+    for(let j = 1; j <= b.length; j++){
+      const v = Math.min(prev[j] + 1, cur[j-1] + 1, prev[j-1] + (a[i-1] === b[j-1] ? 0 : 1));
+      cur.push(v); if(v < rowMin) rowMin = v;
+    }
+    if(rowMin > max) return max + 1;
+    prev = cur;
+  }
+  return prev[b.length];
+}
+function skBuild(item, kind){
+  let hit = SKIDX.get(item); if(hit) return hit;
+  const facLabel = (FAC_MAP[item.fac || item.faculty] || {}).label || '';
+  let name, desc, kw;
+  if(kind === 'a'){
+    name = item.headline; desc = facLabel + ' ' + String(item.url || '').replace(/^https?:\/\/(www\.)?[^\/]+/, '').replace(/[-_\/.]+/g, ' ');
+    kw = SEARCH_KW.a[item.url] || '';
+  } else {
+    name = item.name; desc = (item.desc || '') + ' ' + facLabel;
+    kw = SEARCH_KW.i[item.url] || '';
+  }
+  const n = skNorm(name), d = skNorm(desc), k = skNorm(kw.replace(/,/g, ' , ')), ks = kw.split(',').map(skNorm).filter(Boolean);
+  const words = new Set();
+  [n, d, k].forEach(t => t.split(' ').forEach(w => { if(w.length > 1) words.add(skStem(w)); }));
+  hit = { n, d, k, ks, words:[...words], nstems:n.split(' ').map(skStem) };
+  SKIDX.set(item, hit); return hit;
+}
+function skSearch(list, kind, rawQuery, fuzzy){
+  const q = skNorm(rawQuery); if(!q) return [];
+  let toks = q.split(' ').filter(Boolean);
+  const meaningful = toks.filter(t => !SK_STOP.has(t));
+  if(meaningful.length) toks = meaningful;
+  const stems = toks.map(skStem);
+  const need = toks.length >= 3 ? Math.ceil(toks.length * 0.6) : toks.length;
+  const out = [];
+  list.forEach((item, idx) => {
+    const x = skBuild(item, kind);
+    let score = 0, matched = 0;
+    stems.forEach((st, ti) => {
+      const raw = toks[ti]; let s = 0;
+      const long = raw.length >= 4;
+      if(x.nstems.some(w => w.startsWith(st))) s = 5;
+      else if(long && x.n.includes(raw)) s = 4;
+      else if(x.ks.some(p => p === raw || p === st)) s = 4;
+      else if(x.words.some(w => w === st)) s = 3;
+      else if(long && x.words.some(w => w.startsWith(st))) s = 2.5;
+      else if(long && x.d.includes(raw)) s = 2;
+      else if(fuzzy && st.length >= 4){
+        const max = st.length >= 8 ? 2 : 1;
+        if(x.words.some(w => skLev(st, w, max) <= max)) s = 1;
+      }
+      if(s){ matched++; score += s; }
+    });
+    if(matched >= need && matched > 0){
+      if(x.n.includes(q)) score += 6;
+      else if(x.k.includes(q) || x.d.includes(q)) score += 3;
+      out.push({ item, score: score + (matched === toks.length ? 2 : 0), idx });
+    }
+  });
+  out.sort((a, b) => b.score - a.score || a.idx - b.idx);
+  return out.map(o => o.item);
+}
+function skFind(list, kind, q){
+  const r = skSearch(list, kind, q, false);
+  return r.length ? r : skSearch(list, kind, q, true);
+}
+
 /* - Search - */
 function viewSearch(){
   return `
@@ -24670,6 +24764,7 @@ function wireSearch(container){
     }, 300);
   }
 
+  loadSearchKeywords(()=>{ if(input.isConnected && input.value.trim()) input.dispatchEvent(new Event('input')); });
   input.addEventListener('input', ()=>{
     const q = input.value.trim().toLowerCase();
     handleDictLookup(q);
@@ -24698,9 +24793,9 @@ function wireSearch(container){
     // headline, so students can find all the audio content in one place.
     const articleMatches = q.includes('listen')
       ? DISPATCHES.filter(a => NARRATION_AUDIO[a.url])
-      : DISPATCHES.filter(a => a.headline.toLowerCase().includes(q));
+      : skFind(DISPATCHES, 'a', q);
     const videoMatches = WATCH_VIDEOS.filter(v => v.title.toLowerCase().includes(q) || v.channel.toLowerCase().includes(q));
-    const exploreMatches = EXPLORE_SITES.filter(s => s.name.toLowerCase().includes(q) || s.desc.toLowerCase().includes(q));
+    const exploreMatches = skFind(EXPLORE_SITES, 'i', q);
     // Brain Train games (GEOGRAPHY_HUB_TILES) - internal:true only, since the external
     // entries (OpenGuessr) already surface under Instruments via exploreMatches,
     // and listing them twice would just be noise.
