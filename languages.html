@@ -276,7 +276,7 @@ function headF(title, f){ return '<div class="section-head" style="margin-top:8p
 function hash32(s){ var h = 5381; for(var i=0;i<s.length;i++){ h = ((h << 5) + h + s.charCodeAt(i)) | 0; } return (h >>> 0).toString(36); }
 
 var HUB_BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
-var SECS = [['sounds','Sounds'],['numbers','Numbers'],['greetings','Greetings'],['phrases','Phrases'],['vocab','Vocabulary'],['grammar','Grammar'],['reading','Reading'],['listening','Listening'],['test','Test']];
+var SECS = [['sounds','Sounds'],['numbers','Numbers'],['greetings','Greetings'],['phrases','Phrases'],['vocab','Vocabulary'],['grammar','Grammar'],['writing','Writing'],['reading','Reading'],['listening','Listening'],['test','Test']];
 var INDEX = null, cache = {}, quizDir = 'mix';
 
 /* ---- progress: lang_<id> = { itemHash: box 0..5 }, merged across devices by max ---- */
@@ -288,10 +288,11 @@ function build(L){
   if(L._b) return L; L._b = true; L.items = []; L.groups = {};
   function addGroup(sec, g){
     var gid = sec + '.' + g.id, list = [];
-    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
+    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, n: it[4] || null, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
     L.groups[gid] = { id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
   }
   ['numbers','greetings','phrases','vocab'].forEach(function(sec){ (L[sec] || []).forEach(function(g){ addGroup(sec, g); }); });
+  (L.writing || []).forEach(function(g){ addGroup('writing', g); });
   (L.grammar || []).forEach(function(les){ if(les.ex && les.ex.length) addGroup('grammar', { id: les.id, title: les.title, items: les.ex }); });
   return L;
 }
@@ -316,7 +317,7 @@ function scCls(){ return CURID === 'cmn' ? 'lg-sc lg-mong' : 'lg-sc'; }
 function bar(p){ return '<div class="v-bar"><i style="width:' + Math.round(p) + '%"></i></div>'; }
 
 /* ---- audio: browser voices, only when the device has a voice in this language (any region); otherwise nothing is shown ---- */
-var VOICE = { uz: 'uz', es: 'es', pt: 'pt', fr: 'fr', it: 'it', ro: 'ro', de: 'de', den: 'de', nl: 'nl', sv: 'sv', fi: 'fi', pl: 'pl', cs: 'cs', uk: 'uk', lv: 'lv', lt: 'lt', el: 'el', hu: 'hu', tr: 'tr', az: 'az', kk: 'kk', ky: 'ky', ug: 'ug', tt: 'tt', ka: 'ka', hy: 'hy', khl: 'ar', he: 'he', fa: 'fa', tg: 'tg', hi: 'hi', ur: 'ur', ja: 'ja', ko: 'ko', th: 'th', vi: 'vi', id: 'id', sw: 'sw', yo: 'yo', xh: 'xh', am: 'am', mn: 'mn', mi: 'mi', eu: 'eu', eo: 'eo', cy: 'cy', ga: 'ga', haw: 'haw', la: 'la' };
+var VOICE = { uz: 'uz', es: 'es', pt: 'pt', fr: 'fr', it: 'it', ro: 'ro', de: 'de', den: 'de', nl: 'nl', sv: 'sv', fi: 'fi', pl: 'pl', cs: 'cs', uk: 'uk', lv: 'lv', lt: 'lt', el: 'el', hu: 'hu', tr: 'tr', az: 'az', kk: 'kk', ky: 'ky', ug: 'ug', tt: 'tt', ka: 'ka', hy: 'hy', khl: 'ar', he: 'he', fa: 'fa', tg: 'tg', hi: 'hi', ur: 'ur', ja: 'ja', zh: 'zh', ko: 'ko', th: 'th', vi: 'vi', id: 'id', sw: 'sw', yo: 'yo', xh: 'xh', am: 'am', mn: 'mn', mi: 'mi', eu: 'eu', eo: 'eo', cy: 'cy', ga: 'ga', haw: 'haw', la: 'la' };
 var VOICE_ALT = { he: 'iw', id: 'in' };
 var SPK_SVG = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3z" fill="currentColor"/><path d="M15.5 8.5a5 5 0 010 7M18 6a8.5 8.5 0 010 12" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>';
 function ttsVoice(id){
@@ -397,12 +398,58 @@ function bucketOf(sec, title, L){
   return sec === 'grammar' ? 'Basics' : 'More';
 }
 var OPENB = {};
+/* ---- writing: hanzi-writer strokes, loaded per group ---- */
+var HW = null, WDATA = {};
+function loadHW(){ if(window.HanziWriter) return Promise.resolve(); if(HW) return HW; HW = new Promise(function(ok, no){ var s = document.createElement('script'); s.src = 'lib/hanzi/hanzi-writer.min.js'; s.onload = ok; s.onerror = function(){ HW = null; no(); }; document.head.appendChild(s); }); return HW; }
+function loadW(L, g){ var u = 'data/lang/' + L.id + '-w-' + g + '.json'; if(WDATA[u]) return Promise.resolve(WDATA[u]); return getJson(u).then(function(d){ WDATA[u] = d; return d; }); }
+function writingGroup(L, gid){
+  var G = L.groups['writing.' + gid]; if(!G) return home(L);
+  var p = prog(L.id), n = counts(L, G.items);
+  app.innerHTML = back('#l/' + L.id, L.name) + head(G.title) + (G.note ? '<div class="v-hint">' + esc(G.note) + '</div>' : '') +
+    '<div class="v-meta"><span>' + n + ' / ' + G.items.length + ' learned</span></div>' + bar(n * 100 / G.items.length) +
+    '<div class="lg-list">' + G.items.map(function(it, i){ var ok = (p[it.k] || 0) >= 3;
+      return '<a class="lg-it lg-wi' + (ok ? ' on' : '') + '" href="#l/' + L.id + '/writing/' + gid + '/' + i + '" style="display:block;text-decoration:none;color:inherit;"><div class="lg-en">' + esc(it.en) + '</div><div class="lg-t">' + esc(it.t) + '</div><div class="lg-sc" style="font-size:30px;">' + esc(it.sc) + '</div></a>'; }).join('') + '</div>' +
+    '<div class="v-row" style="margin-top:14px;"><button class="v-btn" id="qGo">Quiz this set</button></div>';
+  document.getElementById('qGo').onclick = function(){ quiz(L, G.items, '#l/' + L.id + '/writing/' + gid, G.title); };
+}
+function writingWord(L, gid, idx){
+  var G = L.groups['writing.' + gid], it = G && G.items[idx]; if(!it) return writingGroup(L, gid);
+  var chars = Array.from(it.sc), sizes = chars.length === 1 ? 220 : chars.length <= 3 ? 130 : 96;
+  var prev = idx > 0 ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx - 1) + '">←</a>' : '', next = idx + 1 < G.items.length ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx + 1) + '">→</a>' : '';
+  app.innerHTML = back('#l/' + L.id + '/writing/' + gid, G.title) + '<div class="v-card" style="text-align:center;"><div class="v-pos">' + esc(it.en) + '</div><div class="v-word" style="margin-top:6px;">' + esc(it.t) + ' ' + spk(it.sc) + '</div>' +
+    '<div class="v-hint" id="wcount">' + (it.n ? it.n.reduce(function(a, b){ return a + b; }, 0) + ' strokes' + (chars.length > 1 ? ' (' + it.n.join(' + ') + ')' : '') : '') + '</div>' +
+    '<div id="wbox" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px 0;">' + chars.map(function(c, i){ return '<div class="wc" data-i="' + i + '" style="width:' + sizes + 'px;height:' + sizes + 'px;background:#fff;border:2px solid var(--line,#d9cdbd);border-radius:12px;"></div>'; }).join('') + '</div>' +
+    '<div id="wfb" class="v-hint" style="min-height:20px;"></div>' +
+    '<div class="v-row" style="flex-wrap:wrap;"><button class="v-btn" id="wWatch">Watch</button><button class="v-btn" id="wTrace">Trace</button><button class="v-btn alt" id="wClear">Clear</button></div>' +
+    '<div class="v-row" style="margin-top:10px;">' + prev + next + '</div></div>' +
+    '<div class="v-hint" style="font-size:11px;margin-top:14px;">Stroke data: Arphic Public License. Hanzi Writer: MIT.</div>';
+  Promise.all([loadHW(), loadW(L, gid)]).then(function(r){
+    var data = r[1], ws = [];
+    if(location.hash.indexOf('/writing/' + gid + '/' + idx) < 0) return;
+    chars.forEach(function(c, i){
+      var el = app.querySelector('.wc[data-i="' + i + '"]'); if(!el) return;
+      ws.push(HanziWriter.create(el, c, { width: sizes - 4, height: sizes - 4, padding: 8, showOutline: true, strokeAnimationSpeed: 1.4, delayBetweenStrokes: 180, charDataLoader: function(ch, ok){ ok(data[ch]); } }));
+    });
+    var fb = document.getElementById('wfb'), busy = 0;
+    function stop(){ busy++; ws.forEach(function(w){ try{ w.cancelQuiz(); }catch(e){} }); }
+    function chain(fn, i, done){ if(i >= ws.length) return done && done(); fn(ws[i], function(){ chain(fn, i + 1, done); }); }
+    document.getElementById('wWatch').onclick = function(){ stop(); var my = busy; fb.textContent = ''; ws.forEach(function(w){ w.hideCharacter(); }); (function go(i){ if(i >= ws.length || my !== busy) return; ws[i].animateCharacter({ onComplete: function(){ go(i + 1); } }); })(0); };
+    document.getElementById('wClear').onclick = function(){ stop(); fb.textContent = ''; ws.forEach(function(w){ w.hideCharacter(); w.showOutline(); }); };
+    document.getElementById('wTrace').onclick = function(){ stop(); var my = busy, miss = 0; fb.textContent = ''; ws.forEach(function(w){ w.hideCharacter(); w.showOutline(); });
+      (function go(i){ if(i >= ws.length || my !== busy){ if(i >= ws.length && my === busy){ var b = prog(L.id)[it.k] || 0, ok = miss <= it.n.length; if(ok && b < 5){ setBox(L.id, it.k, b + 1); award(1, 'language'); } fb.textContent = ok ? 'Done' : 'Done. Watch it again, then retry.'; } return; }
+        ws[i].quiz({ onMistake: function(){ miss++; }, onComplete: function(){ go(i + 1); } }); })(0); };
+    document.getElementById('wWatch').click();
+  }).catch(function(){ var fb = document.getElementById('wfb'); if(fb) fb.textContent = 'Could not load strokes. Check your connection.'; });
+}
+function gs0(L){ return L.writing || []; }
 function section(L, sec){
   var title = SECS.filter(function(s){ return s[0] === sec; })[0][1];
   if(sec === 'sounds') return sounds(L);
   if(sec === 'test') return testPicker(L);
+  if(sec === 'writing' && gs0(L).length === 1) return writingGroup(L, gs0(L)[0].id);
   if(sec === 'reading' || sec === 'listening') return readList(L, sec);
   var gs = secGroups(L, sec);
+  if(sec === 'writing'){ app.innerHTML = back('#l/' + L.id, L.name) + head(title) + '<div class="sport-hub-grid">' + gs.map(function(g){ var G = L.groups[g.gid]; return tile('#l/' + L.id + '/writing/' + g.id, g.title, G ? counts(L, G.items) + ' / ' + G.items.length : ''); }).join('') + '</div>'; return; }
   if(gs.length === 1 && sec !== 'grammar') return group(L, sec, gs[0].id, true);
   function t(g){ var G = L.groups[g.gid], sub = G ? counts(L, G.items) + ' / ' + G.items.length : '';
     return tile('#l/' + L.id + '/' + sec + '/' + g.id, g.title, sub); }
@@ -449,7 +496,7 @@ function testPicker(L){
   var tn = L.id === 'den' ? 'German' : L.name, dirs = [['mix','Mixed'],['f','English → ' + tn],['r',tn + ' → English']];
   app.innerHTML = back('#l/' + L.id, L.name) + head('Test') +
     '<div class="v-row" style="margin-bottom:12px;flex-wrap:wrap;">' + dirs.map(function(d){ return '<button class="v-btn' + (quizDir === d[0] ? '' : ' alt') + '" data-d="' + d[0] + '" style="font-size:13px;padding:12px 6px;">' + esc(d[1]) + '</button>'; }).join('') + '</div>' +
-    '<div class="sport-hub-grid">' + [['all','Everything']].concat(SECS.filter(function(s){ return ['numbers','greetings','phrases','vocab','grammar'].indexOf(s[0]) > -1 && L.items.some(function(i){ return i.sec === s[0]; }); })).map(function(s){
+    '<div class="sport-hub-grid">' + [['all','Everything']].concat(SECS.filter(function(s){ return ['numbers','greetings','phrases','vocab','grammar','writing'].indexOf(s[0]) > -1 && L.items.some(function(i){ return i.sec === s[0]; }); })).map(function(s){
       return '<a class="sport-hub-tile" href="javascript:void(0)" data-p="' + s[0] + '"><span class="name">' + esc(s[1]) + '</span></a>'; }).join('') + '</div>';
   Array.prototype.forEach.call(app.querySelectorAll('[data-d]'), function(b){ b.onclick = function(){ quizDir = b.getAttribute('data-d'); testPicker(L); }; });
   Array.prototype.forEach.call(app.querySelectorAll('[data-p]'), function(a){ a.onclick = function(){
@@ -472,6 +519,11 @@ function makeQ(L, it, pool){
   pool.forEach(function(o){ if(o[pk] === prompt) bad[o[key]] = 1; });
   function take(arr, out){ shuffle(arr).forEach(function(o){ if(out.length < 3 && !bad[o[key]]){ bad[o[key]] = 1; out.push(f ? disp(o) : o.en); } }); }
   var out = [];
+  if(it.sec === 'writing' && it.n && Math.random() < .4){
+    var tot = it.n.reduce(function(a, b){ return a + b; }, 0), alt = {}; alt[tot] = 1;
+    [-2, -1, 1, 2, 3, -3, 4].forEach(function(d){ var v = tot + d; if(v > 0 && out.length < 3 && !alt[v]){ alt[v] = 1; out.push(String(v)); } });
+    return { it: it, f: false, prompt: it.sc, ans: String(tot), hint: 'How many strokes?', psc: '', opts: shuffle(out.concat([String(tot)])), strokes: true };
+  }
   take(L.groups[it.gid].items, out);
   if(out.length < 3) take(L.items.filter(function(o){ return o.sec === it.sec; }), out);
   if(out.length < 3) take(L.items, out);
@@ -485,7 +537,7 @@ function quiz(L, items, backHash, title){
     if(i >= qs.length) return end();
     var q = qs[i];
     app.innerHTML = back(backHash, 'Quit') + '<div class="v-meta"><span>' + esc(title) + '</span><span>' + (i + 1) + ' / ' + qs.length + '</span></div>' + bar(i * 100 / qs.length) +
-      '<div class="v-card"><div class="v-pos">' + (q.f ? 'English → ' + esc(L.id === 'den' ? 'German' : L.name) : esc(L.id === 'den' ? 'German' : L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.psc || q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
+      '<div class="v-card"><div class="v-pos">' + (q.strokes ? 'Strokes' : q.f ? 'English → ' + esc(L.id === 'den' ? 'German' : L.name) : esc(L.id === 'den' ? 'German' : L.name) + ' → English') + '</div><div class="v-word" style="margin-top:12px;">' + esc(q.prompt) + (q.f ? '' : ' ' + spk(q.psc || q.prompt)) + '</div>' + (q.psc ? '<div class="v-word' + (CURID === 'cmn' ? ' lg-mong' : '') + '" style="margin-top:6px;">' + esc(q.psc) + '</div>' : '') + (q.hint ? '<div class="v-ex">' + esc(q.hint) + '</div>' : '') + '</div>' +
       '<div class="v-opts">' + q.opts.map(function(o, n){ return '<button class="v-opt lg-opt" data-n="' + n + '">' + esc(o) + '</button>'; }).join('') + '</div><div id="fb"></div>';
     var done = false;
     Array.prototype.forEach.call(app.querySelectorAll('.v-opt'), function(b){ b.onclick = function(){
@@ -570,6 +622,7 @@ function route(){
     if(!a[2]) return home(L);
     if(a[2] === 'grammar' && a[3]) return grammar(L, a[3]);
     if(a[2] === 'reading' || a[2] === 'listening') return a[3] ? readPassage(L, a[3], a[2]) : readList(L, a[2]);
+    if(a[2] === 'writing' && a[3]) return a[4] != null ? writingWord(L, a[3], +a[4]) : writingGroup(L, a[3]);
     if(a[3]) return group(L, a[2], a[3], false);
     section(L, a[2]);
   }).catch(function(){ app.innerHTML = back('#', 'Back') + '<div class="v-hint">Could not load. Check your connection.</div>'; });
