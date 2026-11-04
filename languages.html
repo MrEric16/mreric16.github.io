@@ -288,8 +288,8 @@ function build(L){
   if(L._b) return L; L._b = true; L.items = []; L.groups = {};
   function addGroup(sec, g){
     var gid = sec + '.' + g.id, list = [];
-    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, n: it[4] || null, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
-    L.groups[gid] = { id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
+    (g.items || []).forEach(function(it){ var o = { en: it[0], t: it[1], s: it[2] || '', sc: it[3] || '', sec: sec, gid: gid, n: it[4] || null, d: it[5] || null, k: hash32(sec + '|' + it[0] + '|' + it[1]) }; list.push(o); L.items.push(o); });
+    L.groups[gid] = { file: g.file || g.id, id: g.id, gid: gid, sec: sec, title: g.title, items: list, note: g.note || '' };
   }
   ['numbers','greetings','phrases','vocab'].forEach(function(sec){ (L[sec] || []).forEach(function(g){ addGroup(sec, g); }); });
   (L.writing || []).forEach(function(g){ addGroup('writing', g); });
@@ -400,7 +400,8 @@ function bucketOf(sec, title, L){
 var OPENB = {};
 /* ---- writing: hanzi-writer strokes, loaded per group ---- */
 var HW = null, WDATA = {};
-function loadHW(){ if(window.HanziWriter) return Promise.resolve(); if(HW) return HW; HW = new Promise(function(ok, no){ var s = document.createElement('script'); s.src = 'lib/hanzi/hanzi-writer.min.js'; s.onload = ok; s.onerror = function(){ HW = null; no(); }; document.head.appendChild(s); }); return HW; }
+var SCR = {};
+function loadScript(src, chk){ if(chk()) return Promise.resolve(); if(SCR[src]) return SCR[src]; SCR[src] = new Promise(function(ok, no){ var s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = function(){ SCR[src] = null; no(); }; document.head.appendChild(s); }); return SCR[src]; }
 function loadW(L, g){ var u = 'data/lang/' + L.id + '-w-' + g + '.json'; if(WDATA[u]) return Promise.resolve(WDATA[u]); return getJson(u).then(function(d){ WDATA[u] = d; return d; }); }
 function writingGroup(L, gid){
   var G = L.groups['writing.' + gid]; if(!G) return home(L);
@@ -412,20 +413,40 @@ function writingGroup(L, gid){
     '<div class="v-row" style="margin-top:14px;"><button class="v-btn" id="qGo">Quiz this set</button></div>';
   document.getElementById('qGo').onclick = function(){ quiz(L, G.items, '#l/' + L.id + '/writing/' + gid, G.title); };
 }
+function kvgMode(L, it, chars, data, sizes){
+  var G = L.groups['writing.' + location.hash.split('/')[3]], strokes = data[chars[0]].s, fb = document.getElementById('wfb'), box = app.querySelector('.wc');
+  var sz = Math.min(280, Math.max(200, (window.innerWidth || 360) - 80));
+  box.style.cssText = 'width:' + sz + 'px;height:' + sz + 'px;border:0;background:none;';
+  var T = StrokeTrace.create(box, strokes, { size: sz, say: function(m){ fb.textContent = m; } });
+  var dirs = it.d || [];
+  document.getElementById('wdir').innerHTML = dirs.length ? dirs.map(function(d, i){ return '<span class="wd" data-i="' + i + '"><b>' + (i + 1) + '</b> ' + esc(d) + '</span>'; }).join(' &nbsp; ') : '';
+  document.getElementById('wcount').textContent = strokes.length + (strokes.length === 1 ? ' stroke' : ' strokes');
+  function lit(i){ Array.prototype.forEach.call(app.querySelectorAll('.wd'), function(x){ x.style.opacity = i == null || +x.getAttribute('data-i') === i ? 1 : .35; x.style.fontWeight = +x.getAttribute('data-i') === i ? 800 : 600; }); }
+  var g = document.getElementById('wGuide'); g.style.display = '';
+  document.getElementById('wWatch').onclick = function(){ fb.textContent = ''; T.watch(function(){ lit(null); }, lit); };
+  g.onclick = function(){ fb.textContent = ''; lit(null); T.guide(); };
+  document.getElementById('wClear').onclick = function(){ fb.textContent = ''; lit(null); T.clear(); };
+  document.getElementById('wTrace').onclick = function(){ fb.textContent = ''; lit(null); T.trace(function(miss){ var b = prog(L.id)[it.k] || 0, ok = miss <= strokes.length; if(ok && b < 5){ setBox(L.id, it.k, b + 1); award(1, 'language'); } fb.textContent = ok ? 'Done' : 'Done. Watch it again, then retry.'; }); };
+  document.getElementById('wWatch').click();
+}
 function writingWord(L, gid, idx){
   var G = L.groups['writing.' + gid], it = G && G.items[idx]; if(!it) return writingGroup(L, gid);
-  var chars = Array.from(it.sc), sizes = chars.length === 1 ? 220 : chars.length <= 3 ? 130 : 96;
+  var chars = Array.from(it.sc), sizes = chars.length === 1 ? 220 : chars.length <= 3 ? 130 : 96, isK = G.file !== gid || /^(hiragana|katakana)/.test(gid);
   var prev = idx > 0 ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx - 1) + '">←</a>' : '', next = idx + 1 < G.items.length ? '<a class="v-btn alt" href="#l/' + L.id + '/writing/' + gid + '/' + (idx + 1) + '">→</a>' : '';
   app.innerHTML = back('#l/' + L.id + '/writing/' + gid, G.title) + '<div class="v-card" style="text-align:center;"><div class="v-pos">' + esc(it.en) + '</div><div class="v-word" style="margin-top:6px;">' + esc(it.t) + ' ' + spk(it.sc) + '</div>' +
     '<div class="v-hint" id="wcount">' + (it.n ? it.n.reduce(function(a, b){ return a + b; }, 0) + ' strokes' + (chars.length > 1 ? ' (' + it.n.join(' + ') + ')' : '') : '') + '</div>' +
     '<div id="wbox" style="display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:10px 0;">' + chars.map(function(c, i){ return '<div class="wc" data-i="' + i + '" style="width:' + sizes + 'px;height:' + sizes + 'px;background:#fff;border:2px solid var(--line,#d9cdbd);border-radius:12px;"></div>'; }).join('') + '</div>' +
-    '<div id="wfb" class="v-hint" style="min-height:20px;"></div>' +
-    '<div class="v-row" style="flex-wrap:wrap;"><button class="v-btn" id="wWatch">Watch</button><button class="v-btn" id="wTrace">Trace</button><button class="v-btn alt" id="wClear">Clear</button></div>' +
+    '<div id="wfb" class="v-hint" style="min-height:20px;"></div><div id="wdir" class="v-hint" style="text-align:left;"></div>' +
+    '<div class="v-row" style="flex-wrap:wrap;"><button class="v-btn" id="wWatch">Watch</button><button class="v-btn alt" id="wGuide" style="display:none">Guide</button><button class="v-btn" id="wTrace">Trace</button><button class="v-btn alt" id="wClear">Clear</button></div>' +
     '<div class="v-row" style="margin-top:10px;">' + prev + next + '</div></div>' +
-    '<div class="v-hint" style="font-size:11px;margin-top:14px;">Stroke data: Arphic Public License. Hanzi Writer: MIT.</div>';
-  Promise.all([loadHW(), loadW(L, gid)]).then(function(r){
-    var data = r[1], ws = [];
+    '<div class="v-hint" style="font-size:11px;margin-top:14px;">' + (L.id === 'ja' ? 'Stroke data: KanjiVG (CC BY-SA 3.0, kanjivg.tagaini.net) and Arphic Public License. Hanzi Writer: MIT.' : 'Stroke data: Arphic Public License. Hanzi Writer: MIT.') + '</div>';
+  loadW(L, G.file).then(function(data){
+    var kvg = !!(data[chars[0]] && data[chars[0]].s);
+    return loadScript(kvg ? 'lib/stroke-trace.js' : 'lib/hanzi/hanzi-writer.min.js', function(){ return kvg ? window.StrokeTrace : window.HanziWriter; }).then(function(){ return [data, kvg]; });
+  }).then(function(r){
+    var data = r[0], kvg = r[1], ws = [];
     if(location.hash.indexOf('/writing/' + gid + '/' + idx) < 0) return;
+    if(kvg) return kvgMode(L, it, chars, data, sizes);
     chars.forEach(function(c, i){
       var el = app.querySelector('.wc[data-i="' + i + '"]'); if(!el) return;
       ws.push(HanziWriter.create(el, c, { width: sizes - 4, height: sizes - 4, padding: 8, showOutline: true, strokeAnimationSpeed: 1.4, delayBetweenStrokes: 180, charDataLoader: function(ch, ok){ ok(data[ch]); } }));
@@ -523,6 +544,10 @@ function makeQ(L, it, pool){
     var tot = it.n.reduce(function(a, b){ return a + b; }, 0), alt = {}; alt[tot] = 1;
     [-2, -1, 1, 2, 3, -3, 4].forEach(function(d){ var v = tot + d; if(v > 0 && out.length < 3 && !alt[v]){ alt[v] = 1; out.push(String(v)); } });
     return { it: it, f: false, prompt: it.sc, ans: String(tot), hint: 'How many strokes?', psc: '', opts: shuffle(out.concat([String(tot)])), strokes: true };
+  }
+  if(it.sec === 'writing' && it.d && it.d[0] && !/\(|dot|loop/.test(it.d[0]) && Math.random() < .3){
+    var DL = ['left to right', 'right to left', 'top to bottom', 'bottom to top', 'down-right', 'down-left', 'up-right', 'up-left'].filter(function(x){ return x !== it.d[0]; });
+    return { it: it, f: false, prompt: it.sc, ans: it.d[0], hint: 'First stroke goes', psc: '', opts: shuffle(shuffle(DL).slice(0, 3).concat([it.d[0]])), strokes: true };
   }
   take(L.groups[it.gid].items, out);
   if(out.length < 3) take(L.items.filter(function(o){ return o.sec === it.sec; }), out);
