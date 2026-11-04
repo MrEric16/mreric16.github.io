@@ -1,5 +1,6 @@
 rates FAIL direct HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /en/arkhiv-kursov-valyut/json/ (Caused by C
 rates FAIL direct ru HTTPSConnectionPool(host='cbu.uz', port=443): Max retries exceeded with url: /ru/arkhiv-kursov-valyut/json/ (Caused by C
+rates MARKET fallback used
 air ok
 prayer ok 61 days
 prayer cross-check unavailable: 502 Server Error: Bad Gateway for url: https://islomapi.uz/api/present/day?regio
