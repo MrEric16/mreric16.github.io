@@ -1,77 +1,6 @@
 {
-  "generatedAt": "2026-11-04T02:51:42.966966Z",
+  "generatedAt": "2026-11-04T04:40:07.852553Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/bayer-leverkusen-vs-rb-leipzig/lwF6ImiQ2BRFSXFfpw64P",
-      "date": null,
-      "home": "Bayer Leverkusen",
-      "away": "Rb Leipzig",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "P. Schick",
-          "minute": 44
-        },
-        {
-          "scorer": "M. Gutierrez",
-          "minute": 57
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/frosinone-vs-como/9M2WRX2MtnGMmptOdW72G",
-      "date": null,
-      "home": "Frosinone",
-      "away": "Como",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "G. Calo",
-          "minute": 14
-        },
-        {
-          "scorer": "G. Kvernadze",
-          "minute": 45
-        }
-      ],
-      "awayGoals": [],
-      "competition": "SA"
-    },
-    {
-      "url": "https://www.goal.com/en/match/parma-calcio-1913-vs-genoa/mYoyzcAnjo3piwiu4ruiX",
-      "date": null,
-      "home": "Parma Calcio 1913",
-      "away": "Genoa",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "D. Romero",
-          "minute": 38
-        },
-        {
-          "scorer": "P. Almqvist",
-          "minute": 80
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "M. Osmajic",
-          "minute": 70
-        }
-      ],
-      "competition": "SA"
-    },
     {
       "url": "https://www.goal.com/en/match/auxerre-vs-brest/SoLTbFfD9-V50gwVPzHbr",
       "date": null,
@@ -7880,6 +7809,77 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/galatasaray-vs-vfb-stuttgart/VH_mLzIPQEqbUYCrH9YH_",
+      "date": "2026-11-03",
+      "home": "Galatasaray",
+      "away": "Vfb Stuttgart",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "A. Batrakov",
+          "minute": 12
+        }
+      ],
+      "awayGoals": [],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lask-vs-slovan-bratislava/KganrTGoC5rhJ82CPYI4t",
+      "date": "2026-11-03",
+      "home": "Lask",
+      "away": "Slovan Bratislava",
+      "htHome": 3,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "K. Joergensen",
+          "minute": 19
+        },
+        {
+          "scorer": "R. Ljubicic",
+          "minute": 44
+        },
+        {
+          "scorer": "S. Adeniran",
+          "minute": 48
+        }
+      ],
+      "awayGoals": [],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/atletico-madrid-vs-real-madrid/N1G6_ecktix7-fSlFWLsF",
+      "date": null,
+      "home": "Atletico Madrid",
+      "away": "Real Madrid",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Grimaldo",
+          "minute": 53
+        },
+        {
+          "scorer": "J. David",
+          "minute": 59
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Ruediger",
+          "minute": 89
+        }
+      ],
+      "competition": "real-madrid"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7895,8 +7895,6 @@
     "https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy": 1,
     "https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI": 1,
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
-    "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
-    "https://www.goal.com/en/match/galatasaray-vs-vfb-stuttgart/VH_mLzIPQEqbUYCrH9YH_": 2,
-    "https://www.goal.com/en/match/lask-vs-slovan-bratislava/KganrTGoC5rhJ82CPYI4t": 2
+    "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1
   }
 }
