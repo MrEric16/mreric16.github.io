@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261021055556">
+<meta name="app-build" content="20261104192040">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -8319,7 +8319,6 @@ const EXPLORE_SITES = [
   { name:"Physics Playground", desc:"N-body gravity, force vectors, centre of mass and other mechanics playgrounds.", url:"https://physicsplayground.org/", fac:"science" },
   { name:"SimpliPhys", desc:"Interactive GCSE/A-level practical simulations with self-marking quizzes.", url:"https://simpliphys.com/", fac:"science" },
   { name:"Science Simulations", desc:"161+ interactive physical, life, earth-space and engineering simulations.", url:"https://sciencesimulations.com/", fac:"science" },
-  { name:"3JCN Physics Simulation", desc:"350+ interactive 3D physics simulations across mechanics, waves, E&M, optics and astronomy.", url:"https://3jcn.com/", fac:"science" },
   { name:"Neutron STEM Lab", desc:"Browser-local engineering simulators, calculators and visualisations.", url:"https://neutronstemlab.com/", fac:"technology" },
   { name:"EngForge", desc:"Interactive PID, projectile, beam and circuit simulations with live results.", url:"https://engforge.io/", fac:"technology" },
   { name:"EngineeringToolkit", desc:"Free-body diagrams, beam analysis, fluid tools, circuits and engineering formulas.", url:"https://www.engineeringtoolkit.info/", fac:"technology" },
@@ -8368,7 +8367,6 @@ const EXPLORE_SITES = [
   { name:"8gWiFi Physics Labs", desc:"Focused simulations including pendulums, springs, suspension, pistons and quadrotor dynamics.", url:"https://8gwifi.org/physics/labs/", fac:"science" },
   { name:"PrepOK", desc:"Collection of interactive STEM explorables including particle boxes, an orrery, periodic-table games and molecule building.", url:"https://prepok.com/", fac:"science" },
   { name:"Sunja Learning", desc:"Interactive 3D experiments involving gravity, sunlight, temperature, nuclear processes, genetics, seismic activity and more.", url:"https://sunja.ai/", fac:"science" },
-  { name:"SciFunLab", desc:"Interactive science simulations covering anatomy, genetics, astrobiology, physiology, cells and more.", url:"https://scifunlab.com/", fac:"biochem" },
   { name:"WarmerGames", desc:"Guess a mystery country using geographic-distance feedback from your guesses.", url:"https://warmergames.com/", fac:"travel" },
   { name:"EraGuessr", desc:"Identify both the location and historical period from 360-degree historical scenes.", url:"https://eraguessr.ai/", fac:"history" },
   { name:"The Expedition - Atlas Guide", desc:"Answer questions and use an interactive map to narrow 190+ countries to suitable destinations.", url:"https://www.atlas-guide.com/find-your-destination", fac:"travel" },
@@ -8409,7 +8407,6 @@ const EXPLORE_SITES = [
   { name:"Climate Reanalyzer", desc:"Interactive maps and charts of daily global temperatures, sea ice and climate records.", url:"https://climatereanalyzer.org", fac:"science" },
   { name:"Elementymology", desc:"The story of where each chemical element got its name.", url:"https://elements.vanderkrogt.net", fac:"science" },
   { name:"explore.org Live Cams", desc:"Live cameras on bears, puppies, oceans and wildlife from around the planet.", url:"https://explore.org/livecams", fac:"science" },
-  { name:"FloodMap", desc:"Raise the sea level on a world map and watch the land go under.", url:"https://flood.firetree.net", fac:"science" },
   { name:"Global Forest Watch", desc:"A near real time map of forests worldwide, showing where trees are disappearing or growing back.", url:"https://www.globalforestwatch.org/map/", fac:"science" },
   { name:"Google Earth Timelapse", desc:"Watch 40 years of change on Earth, from melting glaciers to growing cities, as time lapse video.", url:"https://earthengine.google.com/timelapse/", fac:"science" },
   { name:"IRIS Seismic Monitor", desc:"A live map of the world's earthquakes with the seismic waves recorded by stations.", url:"https://ds.iris.edu/seismon/", fac:"science" },
@@ -8708,13 +8705,11 @@ const DISPATCHES = [
   { headline:"Flow State", url:"https://positivepsychology.com/what-is-flow/", faculty:"psychology", date:"2026-07-22", read:"6 min" },
   { headline:"Sleep and Learning", url:"https://www.sleepfoundation.org/how-sleep-works/how-sleep-affects-learning", faculty:"psychology", date:"2026-07-22", read:"5 min" },
   { headline:"Why Habits Matter", url:"https://jamesclear.com/habits", faculty:"psychology", date:"2026-07-22", read:"5 min" },
-  { headline:"Growth Mindset", url:"https://www.mindsetworks.com/science/", faculty:"psychology", date:"2026-07-22", read:"4 min" },
   { headline:"How GPS Works", url:"https://www.britannica.com/technology/GPS", faculty:"technology", date:"2026-07-22", read:"5 min" },
   { headline:"Moore's Law", url:"https://www.britannica.com/technology/Moores-law", faculty:"technology", date:"2026-07-22", read:"4 min" },
   { headline:"A Brief History of the Internet", url:"https://www.britannica.com/technology/Internet", faculty:"it", date:"2026-07-22", read:"6 min" },
   { headline:"Website Security Basics", url:"https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Server-side/First_steps/Website_security", faculty:"it", date:"2026-07-22", read:"6 min" },
   { headline:"What Is Artificial Intelligence?", url:"https://www.ibm.com/think/topics/artificial-intelligence", faculty:"technology", date:"2026-07-22", read:"6 min" },
-  { headline:"Why Aeroplanes Fly", url:"https://science.howstuffworks.com/transport/flight/modern/airplanes-fly.htm", faculty:"aviation", date:"2026-07-22", read:"5 min" },
   { headline:"How QR Codes Work", url:"https://www.scienceabc.com/innovation/whats-qr-code-how-its-different-from-barcode", faculty:"science", date:"2026-07-22", read:"4 min" },
   { headline:"Why the Sky Is Blue", url:"https://www.britannica.com/story/why-is-the-sky-blue", faculty:"science", date:"2026-07-22", read:"4 min" },
   { headline:"Why Ice Floats", url:"https://www.britannica.com/science/water", faculty:"science", date:"2026-07-22", read:"5 min" },
@@ -8829,18 +8824,12 @@ const DISPATCHES = [
   { headline:"How Aeroplanes Work", url:"https://science.howstuffworks.com/transport/flight/modern/airplanes.htm", faculty:"aviation", date:"2026-08-27", read:"3 min" },
   { headline:"How Bridges Work", url:"https://science.howstuffworks.com/engineering/structural/bridge.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
   { headline:"How Skyscrapers Work", url:"https://science.howstuffworks.com/engineering/structural/skyscraper.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
-  { headline:"How Hydraulic Machines Work", url:"https://science.howstuffworks.com/hydraulics.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
-  { headline:"How Cranes Work", url:"https://science.howstuffworks.com/transport/engines-equipment/crane.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
   { headline:"How Lifts Work", url:"https://science.howstuffworks.com/transport/engines-equipment/elevator.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
-  { headline:"How Catapults Work", url:"https://science.howstuffworks.com/transport/engines-equipment/catapult.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
-  { headline:"How Steam Engines Work", url:"https://science.howstuffworks.com/transport/engines-equipment/steam-engine.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
   { headline:"How Gear Ratios Work", url:"https://science.howstuffworks.com/transport/engines-equipment/gear-ratio.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
   { headline:"How Turbines Work", url:"https://science.howstuffworks.com/engineering/structural/turbine.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
   { headline:"How Wind Turbines Work", url:"https://science.howstuffworks.com/environmental/green-science/wind-power.htm", faculty:"technology", date:"2026-08-27", read:"3 min" },
   { headline:"What Is a Franchise?", url:"https://www.investopedia.com/terms/f/franchise.asp", faculty:"business", date:"2026-08-27", read:"3 min" },
   { headline:"What Is a Business Model?", url:"https://www.investopedia.com/terms/b/businessmodel.asp", faculty:"business", date:"2026-08-27", read:"3 min" },
-  { headline:"Why Do Prices Change?", url:"https://www.economicshelp.org/blog/12136/economics/price-mechanism/", faculty:"economics", date:"2026-08-27", read:"3 min" },
-  { headline:"What Is Opportunity Cost?", url:"https://www.economicshelp.org/blog/11979/economics/opportunity-cost/", faculty:"economics", date:"2026-08-27", read:"3 min" },
   { headline:"The 17th-Century Language that Divided Everything in the Universe into 40 Categories", url:"https://www.atlasobscura.com/articles/the-17thcentury-language-that-divided-everything-in-the-universe-into-40-categories", faculty:"languages", date:"2026-08-27", read:"4 min" },
   { headline:"The Great Failure of Andrew Carnegie's Simplified Spelling Lobby", url:"https://www.atlasobscura.com/articles/the-great-failure-of-andrew-carnegies-simplified-spelling-lobby", faculty:"languages", date:"2026-08-27", read:"4 min" },
   { headline:"The 'Crispy R' and Why R Is the Weirdest Letter", url:"https://www.atlasobscura.com/articles/what-is-a-crispy-r", faculty:"languages", date:"2026-08-27", read:"4 min" },
@@ -21349,7 +21338,7 @@ const WATCH_VIDEOS = [
   { title:"How sneaky UI designs manipulate your choices online | Regulating Dark Patterns", channel:"Zerodha", videoId:"HTxqr7a9od4", faculty:"design" },
   { title:"100 Everyday Items with Genius Designs You Never Noticed", channel:"BRIGHT SIDE", videoId:"I3AQHPISeAQ", faculty:"design" },
   { title:"The Art of Everyday Objects: A Story Of Object Creation (Documentary)", channel:"The Local Project", videoId:"M5jrEMFftyg", faculty:"design" },
-  { title:"Samarkand Surprised Me 🇺🇿 Uzbekistan's Silk Road City That's Older Than Rome", channel:"David G", videoId:"N-ERCrWQSog", faculty:"history" },
+  { title:"I Accidentally Found An Afghan Silk Empire In Uzbekistan 🇺🇿", channel:"David G", videoId:"N-ERCrWQSog", faculty:"history" },
   { title:"Islamic Golden Age Episode 2 | History/Biography Of Al Khwarizmi | Muslim Scientist | Urdu/Hindi", channel:"History Founder", videoId:"aC6tiS8t6KI", faculty:"history" },
   { title:"10 Ancient Inventions Way Ahead of Their Era", channel:"Vadim Tries to Understand", videoId:"xVyZgrFUmJ8", faculty:"history" },
   { title:"Exploring the Ancient Silk Road | Samarkand Uzbekistan | Registan Light Show", channel:"Nature Connection", videoId:"XmRIauD1bSM", faculty:"history" },
@@ -27975,7 +27964,6 @@ const MT_COMFORT_DISPATCH_URLS = [
   "https://science.howstuffworks.com/engineering/civil/london-tube-map.htm",
   "https://www.britannica.com/topic/laughter",
   "https://positivepsychology.com/what-is-flow/",
-  "https://science.howstuffworks.com/transport/flight/modern/airplanes-fly.htm",
   "https://www.scienceabc.com/innovation/whats-qr-code-how-its-different-from-barcode",
   "https://www.britannica.com/story/why-is-the-sky-blue",
   "https://www.britannica.com/science/water",
