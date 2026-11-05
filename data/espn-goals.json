@@ -1,6 +1,335 @@
 {
- "generatedAt": "2026-11-04T18:59:02.249883Z",
+ "generatedAt": "2026-11-05T00:06:01.956476Z",
  "results": [
+  {
+   "url": "espn:401915383",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T17:45Z",
+   "home": "AEK Athens",
+   "away": "Real Madrid",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "A. Koita",
+     "minute": 12
+    },
+    {
+     "scorer": "S. Pilios",
+     "minute": 75
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Bellingham",
+     "minute": 32
+    },
+    {
+     "scorer": "K. Mbappé",
+     "minute": 78
+    },
+    {
+     "scorer": "F. Valverde",
+     "minute": "90+2"
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915382",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T17:45Z",
+   "home": "Fenerbahçe",
+   "away": "Liverpool",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "M. Greenwood",
+     "minute": 29
+    },
+    {
+     "scorer": "A. Brown",
+     "minute": 73
+    },
+    {
+     "scorer": "V. Muriqi",
+     "minute": 79
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "T. Nyoni",
+     "minute": 25
+    },
+    {
+     "scorer": "A. Isak",
+     "minute": 69
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915304",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "Dortmund",
+   "away": "Real Betis",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "F. Silva",
+     "minute": 49
+    },
+    {
+     "scorer": "K. Karetsas",
+     "minute": 72
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Ruibal",
+     "minute": 67
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915301",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "Porto",
+   "away": "Napoli",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Bednarek",
+     "minute": 11
+    },
+    {
+     "scorer": "G. Veiga",
+     "minute": 71
+    },
+    {
+     "scorer": "J. Kiwior",
+     "minute": 80
+    },
+    {
+     "scorer": "S. Aghehowa (pen)",
+     "minute": 90
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. McTominay",
+     "minute": 43
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915305",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "RC Lens",
+   "away": "Como",
+   "htHome": 0,
+   "htAway": 3,
+   "ftHome": 1,
+   "ftAway": 9,
+   "homeGoals": [
+    {
+     "scorer": "R. Aguilar",
+     "minute": 65
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "T. Douvikas",
+     "minute": 7
+    },
+    {
+     "scorer": "T. Douvikas",
+     "minute": 32
+    },
+    {
+     "scorer": "N. Paz",
+     "minute": 40
+    },
+    {
+     "scorer": "L. Da Cunha",
+     "minute": 47
+    },
+    {
+     "scorer": "M. Kempf",
+     "minute": 53
+    },
+    {
+     "scorer": "T. Douvikas",
+     "minute": 57
+    },
+    {
+     "scorer": "M. Liberali",
+     "minute": 62
+    },
+    {
+     "scorer": "M. Baturina",
+     "minute": 69
+    },
+    {
+     "scorer": "M. Papaccioli",
+     "minute": "90+1"
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915303",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "PSV",
+   "away": "Club Brugge",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "K. Sano",
+     "minute": 54
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Tresoldi",
+     "minute": 25
+    },
+    {
+     "scorer": "C. Forbs",
+     "minute": 65
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915306",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "RB Leipzig",
+   "away": "Man City",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "R. Baku",
+     "minute": 49
+    },
+    {
+     "scorer": "A. Nusa",
+     "minute": 61
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "C. Lukeba (og)",
+     "minute": 37
+    },
+    {
+     "scorer": "E. Fernández",
+     "minute": 58
+    },
+    {
+     "scorer": "E. Haaland",
+     "minute": 78
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915381",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "Slavia Praha",
+   "away": "Arsenal",
+   "htHome": 0,
+   "htAway": 2,
+   "ftHome": 1,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "W. Nowak",
+     "minute": 90
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Madueke",
+     "minute": 9
+    },
+    {
+     "scorer": "V. Gyökeres",
+     "minute": 38
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915302",
+   "date": "2026-11-04",
+   "utc": "2026-11-04T20:00Z",
+   "home": "Viking",
+   "away": "Sabah FK",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 4,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Botheim",
+     "minute": 27
+    },
+    {
+     "scorer": "Z. Tripic",
+     "minute": 69
+    },
+    {
+     "scorer": "H. Falchener",
+     "minute": 81
+    },
+    {
+     "scorer": "E. Botheim",
+     "minute": "90+4"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "O. Mbina",
+     "minute": 11
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
   {
    "url": "espn:401915311",
    "date": "2026-11-03",
@@ -2975,11 +3304,11 @@
    "ftAway": 0,
    "homeGoals": [
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 49
     },
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 60
     }
    ],
@@ -3288,7 +3617,7 @@
      "minute": 2
     },
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 49
     },
     {
@@ -4339,7 +4668,7 @@
      "minute": 36
     },
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 56
     }
    ],
@@ -5298,7 +5627,7 @@
      "minute": 18
     },
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": "90+3"
     }
    ],
@@ -10377,7 +10706,7 @@
      "minute": 15
     },
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 38
     },
     {
@@ -12740,7 +13069,7 @@
      "minute": 17
     },
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 34
     }
    ],
@@ -14584,7 +14913,7 @@
    ],
    "awayGoals": [
     {
-     "scorer": "A. Douvikas",
+     "scorer": "T. Douvikas",
      "minute": 54
     }
    ],
