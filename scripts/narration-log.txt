@@ -1,3 +1,4 @@
-[generate_voice_narration] provider=elevenlabs slug=contagious-yawning voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=771
-[generate_voice_narration] elevenlabs chunk 1/1 ok (771 chars)
-[generate_voice_narration] wrote data/audio/contagious-yawning.mp3 (650387 bytes, 1 chunk(s), no post-processing)
+[generate_voice_narration] provider=elevenlabs slug=animals-race voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=5504
+[generate_voice_narration] elevenlabs chunk 1/2 ok (4310 chars)
+[generate_voice_narration] elevenlabs chunk 2/2 ok (1192 chars)
+[generate_voice_narration] wrote data/audio/animals-race.mp3 (5395102 bytes, 2 chunk(s), no post-processing)
