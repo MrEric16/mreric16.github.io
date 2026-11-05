@@ -1,5 +1,3 @@
-ERROR: ElevenLabs request failed: HTTP 401
-{"detail":{"type":"payment_required","code":"payment_issue","message":"Your subscription has a failed or incomplete payment. Complete the latest invoice to continue usage.","status":"payment_issue","request_id":"d1de91e99e872a8ca56c51eeee6cd472"}}
-  -> API key rejected: check the ELEVENLABS_API_KEY secret (and that the key has Text to Speech permission).
 [generate_voice_narration] provider=elevenlabs slug=animal-trials voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=1973
-GENERATE_FAILED_SEE_LOG
+[generate_voice_narration] elevenlabs chunk 1/1 ok (1973 chars)
+[generate_voice_narration] wrote data/audio/animal-trials.mp3 (1849094 bytes, 1 chunk(s), no post-processing)
