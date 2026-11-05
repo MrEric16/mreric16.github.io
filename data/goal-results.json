@@ -1,41 +1,6 @@
 {
-  "generatedAt": "2026-11-04T23:51:23.573125Z",
+  "generatedAt": "2026-11-05T04:32:09.185250Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/manchester-city-vs-sunderland/RMrT3c_D0VQr01pFM2nyD",
-      "date": null,
-      "home": "Manchester City",
-      "away": "Sunderland",
-      "htHome": 3,
-      "htAway": 2,
-      "ftHome": 5,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "E. Fernandez",
-          "minute": 9
-        },
-        {
-          "scorer": "R. Cherki",
-          "minute": 29
-        },
-        {
-          "scorer": "A. Semenyo",
-          "minute": 43
-        },
-        {
-          "scorer": "E. Haaland",
-          "minute": 81
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. Brobbey",
-          "minute": 12
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/valencia-vs-real-sociedad/E2mXqekvnhyfAXnEXKITm",
       "date": null,
@@ -7935,6 +7900,28 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-atalanta/Vm65IQ6WpU_rE_JoKYlt3",
+      "date": null,
+      "home": "Juventus",
+      "away": "Atalanta",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "C. Conceicao",
+          "minute": 28
+        },
+        {
+          "scorer": "G. Bremer",
+          "minute": 77
+        }
+      ],
+      "awayGoals": [],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
