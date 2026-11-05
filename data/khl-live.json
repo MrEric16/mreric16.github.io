@@ -1,29 +1,29 @@
 {
-  "generatedAt": "2026-11-05T09:05:04.891594+00:00",
+  "generatedAt": "2026-11-05T17:21:27.226067+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
-      "played": 36,
-      "won": 24,
-      "otWon": 13,
+      "played": 38,
+      "won": 25,
+      "otWon": 14,
       "soWon": 3,
       "soLost": 1,
       "otLost": 1,
       "lost": 0,
-      "gf": 79,
-      "points": 82
+      "gf": 87,
+      "points": 86
     },
     {
       "team": "CSKA",
-      "played": 34,
-      "won": 22,
+      "played": 35,
+      "won": 23,
       "otWon": 14,
       "soWon": 1,
       "soLost": 2,
       "otLost": 0,
       "lost": 0,
-      "gf": 73,
-      "points": 76
+      "gf": 74,
+      "points": 78
     },
     {
       "team": "Lokomotiv",
@@ -52,14 +52,14 @@
     {
       "team": "Neftekhimik",
       "played": 29,
-      "won": 23,
+      "won": 24,
       "otWon": 12,
       "soWon": 1,
       "soLost": 0,
       "otLost": 0,
       "lost": 0,
-      "gf": 65,
-      "points": 72
+      "gf": 66,
+      "points": 74
     },
     {
       "team": "Torpedo",
@@ -120,6 +120,18 @@
       "lost": 0,
       "gf": 52,
       "points": 70
+    },
+    {
+      "team": "Avangard",
+      "played": 24,
+      "won": 21,
+      "otWon": 5,
+      "soWon": 5,
+      "soLost": 1,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 42,
+      "points": 63
     },
     {
       "team": "Amur",
@@ -194,18 +206,6 @@
       "points": 63
     },
     {
-      "team": "Avangard",
-      "played": 22,
-      "won": 20,
-      "otWon": 5,
-      "soWon": 4,
-      "soLost": 1,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 40,
-      "points": 59
-    },
-    {
       "team": "Sibir",
       "played": 21,
       "won": 24,
@@ -267,26 +267,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Avangard",
-      "away": "CSKA",
-      "start": "2026-11-05T15:00:00+05:00"
-    },
-    {
-      "home": "Metallurg Mg",
-      "away": "Neftekhimik",
-      "start": "2026-11-05T15:00:00+05:00"
-    },
-    {
-      "home": "HC Sochi",
-      "away": "Severstal",
-      "start": "2026-11-05T15:00:00+05:00"
-    },
-    {
-      "home": "Dragons",
-      "away": "Dynamo Msk",
-      "start": "2026-11-05T15:00:00+05:00"
-    },
     {
       "home": "Amur",
       "away": "SKA",
@@ -2779,6 +2759,22 @@
     }
   ],
   "results": [
+    {
+      "home": "Metallurg Mg",
+      "away": "Neftekhimik",
+      "start": "2026-11-05T15:00:00+05:00",
+      "homeScore": 8,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Avangard",
+      "away": "CSKA",
+      "start": "2026-11-05T15:00:00+05:00",
+      "homeScore": 2,
+      "awayScore": 1,
+      "finished": true
+    },
     {
       "home": "Salavat Yulaev",
       "away": "Lada",
