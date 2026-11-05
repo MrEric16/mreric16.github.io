@@ -9,33 +9,42 @@
 [scrape] calendar 2026-11-11: 2 new event URLs discovered
 [scrape] calendar 2026-11-12: 3 new event URLs discovered
 [scrape] calendar 2026-11-13: 8 new event URLs discovered
-[scrape] calendar 2026-11-14: 9 new event URLs discovered
+[scrape] calendar 2026-11-14: 10 new event URLs discovered
 [scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 21 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 92 unique event URLs to check
+[scrape] calendar discovery complete: 93 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка Мохамеда Беншалала': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/04/velvet-0611 title='Вечер Hollywood Night в Velvet' title_hits=[] text_hits=["'кино' ...' элегантная атмосфера в\\xa0духе настоящего кино и\\xa0кухня ресторана.\\nоб\\xa0условиях посе'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n294\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0241\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n297\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0251\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 231 events kept from 92 pages checked
-[scrape] calendar detail pass drops: {'checked': 92, 'no_title': 0, 'excluded_or_banned': 12}
+[scrape] calendar detail pass complete: 232 events kept from 93 pages checked
+[scrape] calendar detail pass drops: {'checked': 93, 'no_title': 0, 'excluded_or_banned': 12}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 10 events kept
-[scrape] iticket.uz cat=theatre: 14 events kept
-[scrape] iticket.uz cat=exhibition: 1 events kept
+[scrape] iticket.uz cat=concert: FAILED (Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://iticket.uz/en/events/concerts", waiting until "networkidle"
+)
+[scrape] iticket.uz cat=theatre: FAILED (Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://iticket.uz/en/events/theaters-tashkent", waiting until "networkidle"
+)
+[scrape] iticket.uz cat=exhibition: FAILED (Page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "https://iticket.uz/en/events/cultural-events", waiting until "networkidle"
+)
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
+[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 256  |  after dedup: 238
+[scrape] TOTAL before dedup: 232  |  after dedup: 216
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 176 titles
+[scrape] translation cache: 177 titles
