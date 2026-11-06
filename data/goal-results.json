@@ -1,33 +1,6 @@
 {
-  "generatedAt": "2026-11-06T08:10:46.478763Z",
+  "generatedAt": "2026-11-06T16:05:54.103525Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/marseille-vs-paris-saint-germain/svky1S1kX8DVg0gXNb82X",
-      "date": null,
-      "home": "Marseille",
-      "away": "Paris Saint Germain",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "A. Gomes",
-          "minute": 72
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "F. Torres",
-          "minute": 66
-        },
-        {
-          "scorer": "Marquinhos",
-          "minute": 74
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/inter-vs-monza/AirscAJQ9p6WiN_-XUL-0",
       "date": "2026-08-22",
@@ -7892,6 +7865,32 @@
           "minute": 52
         }
       ],
+      "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ac-milan-vs-lecce/X7qW0dcpTiiOozULzTaiP",
+      "date": null,
+      "home": "Ac Milan",
+      "away": "Lecce",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "C. Pulisic",
+          "minute": 14
+        },
+        {
+          "scorer": "A. Rabiot",
+          "minute": 61
+        },
+        {
+          "scorer": "D. Moreira",
+          "minute": 73
+        }
+      ],
+      "awayGoals": [],
       "competition": "ac-milan"
     }
   ],
