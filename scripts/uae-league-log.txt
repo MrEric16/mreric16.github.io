@@ -275,26 +275,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Al Wasl -1.0--1.0 Jazira Abu Dhabi 2027-01-30T21:15:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=63
 [uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Dhafra -1.0 away=Kalba -1.0
-[uae-365] NEW FIXTURE Al Wahda v Al Dhafra 2027-01-16T18:05:00+05:00
-[uae-365] NEW FIXTURE United FC v Sharjah FC 2027-01-16T18:05:00+05:00
-[uae-365] NEW FIXTURE Ajman Club v Al Nasr SC 2027-01-16T21:00:00+05:00
-[uae-365] NEW FIXTURE Shabab Al Ahli Club v Khor Fakkan Club 2027-01-17T18:05:00+05:00
-[uae-365] NEW FIXTURE Al Jazira Club v Hatta Club 2027-01-17T18:05:00+05:00
-[uae-365] NEW FIXTURE Al Ain FC v Baniyas SC 2027-01-17T21:00:00+05:00
-[uae-365] NEW FIXTURE Al Wasl v Ittihad Kalba FC 2027-01-17T21:00:00+05:00
-[uae-365] NEW FIXTURE Ittihad Kalba FC v United FC 2027-01-22T18:10:00+05:00
-[uae-365] NEW FIXTURE Al Nasr SC v Al Ain FC 2027-01-22T21:15:00+05:00
-[uae-365] NEW FIXTURE Baniyas SC v Khor Fakkan Club 2027-01-23T18:10:00+05:00
-[uae-365] NEW FIXTURE Sharjah FC v Al Wahda 2027-01-23T21:15:00+05:00
-[uae-365] NEW FIXTURE Al Dhafra v Al Wasl 2027-01-23T21:15:00+05:00
-[uae-365] NEW FIXTURE Hatta Club v Ajman Club 2027-01-24T18:10:00+05:00
-[uae-365] NEW FIXTURE Al Jazira Club v Shabab Al Ahli Club 2027-01-24T21:15:00+05:00
-[uae-365] NEW FIXTURE United FC v Al Dhafra 2027-01-29T18:15:00+05:00
-[uae-365] NEW FIXTURE Ittihad Kalba FC v Al Nasr SC 2027-01-29T18:15:00+05:00
-[uae-365] NEW FIXTURE Al Ain FC v Al Wahda 2027-01-29T21:15:00+05:00
-[uae-365] NEW FIXTURE Khor Fakkan Club v Hatta Club 2027-01-30T18:15:00+05:00
-[uae-365] NEW FIXTURE Shabab Al Ahli Club v Baniyas SC 2027-01-30T18:15:00+05:00
-[uae-365] NEW FIXTURE Sharjah FC v Ajman Club 2027-01-30T21:15:00+05:00
-[uae-365] NEW FIXTURE Al Wasl v Al Jazira Club 2027-01-30T21:15:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 42 results, 70 fixtures, 21 new
+[uae-365] wrote data/uae-league-live.json: 42 results, 70 fixtures, 0 new
