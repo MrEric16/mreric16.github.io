@@ -1,72 +1,6 @@
 {
-  "generatedAt": "2026-11-05T20:27:04.773557Z",
+  "generatedAt": "2026-11-06T01:02:13.335657Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/valencia-vs-real-sociedad/E2mXqekvnhyfAXnEXKITm",
-      "date": null,
-      "home": "Valencia",
-      "away": "Real Sociedad",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "A. Mayol",
-          "minute": 57
-        },
-        {
-          "scorer": "L. Beitia",
-          "minute": 84
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "L. Sucic",
-          "minute": 26
-        },
-        {
-          "scorer": "C. Soler",
-          "minute": 75
-        },
-        {
-          "scorer": "A. Barrenetxea",
-          "minute": 90
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/paderborn-vs-hoffenheim/FDPUBpO4x2I6iwNgQemBB",
-      "date": null,
-      "home": "Paderborn",
-      "away": "Hoffenheim",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "S. Castaneda",
-          "minute": 29
-        },
-        {
-          "scorer": "S. Marino",
-          "minute": 43
-        },
-        {
-          "scorer": "S. Tigges",
-          "minute": 69
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Daghim",
-          "minute": 50
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/ac-milan-vs-lecce/X7qW0dcpTiiOozULzTaiP",
       "date": null,
@@ -7922,6 +7856,51 @@
       ],
       "awayGoals": [],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/bayer-leverkusen-vs-marseille/cQpBEr2fSjzXKITFkJrmr",
+      "date": "2026-11-05",
+      "home": "Bayer Leverkusen",
+      "away": "Marseille",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "A. Gouiri",
+          "minute": 77
+        }
+      ],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/az-alkmaar-vs-juventus/0emvGLnSvhCvoQkkoeqxa",
+      "date": "2026-11-05",
+      "home": "Az Alkmaar",
+      "away": "Juventus",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "M. Meerdink",
+          "minute": 88
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "T. Koopmeiners",
+          "minute": 19
+        },
+        {
+          "scorer": "R. Kolo Muani",
+          "minute": 37
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7940,6 +7919,6 @@
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/ac-milan-vs-ferencvaros/irXUOKvc9dSverr6s4SgV": 1
+    "https://www.goal.com/en/match/ac-milan-vs-ferencvaros/irXUOKvc9dSverr6s4SgV": 2
   }
 }
