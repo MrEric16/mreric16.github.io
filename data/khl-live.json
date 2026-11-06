@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T17:28:04.166893+00:00",
+  "generatedAt": "2026-11-06T22:14:53.704720+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -38,6 +38,18 @@
       "points": 79
     },
     {
+      "team": "Spartak",
+      "played": 30,
+      "won": 24,
+      "otWon": 13,
+      "soWon": 0,
+      "soLost": 0,
+      "otLost": 3,
+      "lost": 0,
+      "gf": 65,
+      "points": 77
+    },
+    {
       "team": "Dragons",
       "played": 30,
       "won": 22,
@@ -72,18 +84,6 @@
       "lost": 0,
       "gf": 58,
       "points": 66
-    },
-    {
-      "team": "Spartak",
-      "played": 28,
-      "won": 23,
-      "otWon": 12,
-      "soWon": 0,
-      "soLost": 0,
-      "otLost": 3,
-      "lost": 0,
-      "gf": 60,
-      "points": 73
     },
     {
       "team": "Severstal",
@@ -220,14 +220,14 @@
     {
       "team": "Dinamo Mn",
       "played": 22,
-      "won": 22,
+      "won": 23,
       "otWon": 7,
       "soWon": 1,
       "soLost": 0,
       "otLost": 3,
       "lost": 0,
-      "gf": 51,
-      "points": 63
+      "gf": 54,
+      "points": 65
     },
     {
       "team": "Sibir",
@@ -318,18 +318,28 @@
       "start": "2026-11-09T16:30:00+05:00"
     },
     {
-      "home": "Neftekhimik",
-      "away": "Salavat Yulaev",
-      "start": "2026-11-10T15:00:00+05:00"
-    },
-    {
       "home": "Traktor",
       "away": "Dragons",
       "start": "2026-11-10T15:00:00+05:00"
     },
     {
+      "home": "Neftekhimik",
+      "away": "Salavat Yulaev",
+      "start": "2026-11-10T15:00:00+05:00"
+    },
+    {
       "home": "Dynamo Minsk",
       "away": "Avangard",
+      "start": "2026-11-10T15:00:00+05:00"
+    },
+    {
+      "home": "Dynamo Minsk",
+      "away": "Avangard",
+      "start": "2026-11-10T15:00:00+05:00"
+    },
+    {
+      "home": "Neftekhimik",
+      "away": "Salavat Yulaev",
       "start": "2026-11-10T15:00:00+05:00"
     },
     {
@@ -2729,6 +2739,14 @@
     }
   ],
   "results": [
+    {
+      "home": "Spartak",
+      "away": "Dynamo Minsk",
+      "start": "2026-11-06T11:30:00+05:00",
+      "homeScore": 5,
+      "awayScore": 3,
+      "finished": true
+    },
     {
       "home": "Lada",
       "away": "Lokomotiv",
