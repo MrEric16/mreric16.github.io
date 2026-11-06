@@ -1,98 +1,6 @@
 {
-  "generatedAt": "2026-11-06T16:05:54.103525Z",
+  "generatedAt": "2026-11-06T21:43:06.689358Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/inter-vs-monza/AirscAJQ9p6WiN_-XUL-0",
-      "date": "2026-08-22",
-      "home": "Inter",
-      "away": "Monza",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "H. Calhanoglu",
-          "minute": 6
-        },
-        {
-          "scorer": "P. Zielinski",
-          "minute": 48
-        },
-        {
-          "scorer": "F. Esposito",
-          "minute": 55
-        },
-        {
-          "scorer": "Y. Bisseck",
-          "minute": 63
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "G. Varela",
-          "minute": 29
-        }
-      ],
-      "competition": "inter-milan"
-    },
-    {
-      "url": "https://www.goal.com/en/match/marseille-vs-strasbourg/xckmrY_gB8GPpCzbnh0_Q",
-      "date": "2026-08-21",
-      "home": "Marseille",
-      "away": "Strasbourg",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "A. Gouiri",
-          "minute": 46
-        },
-        {
-          "scorer": "K. Abdallah",
-          "minute": 89
-        },
-        {
-          "scorer": "P. Hoejbjerg",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [],
-      "competition": "marseille"
-    },
-    {
-      "url": "https://www.goal.com/en/match/juventus-vs-cremonese/v_wWtjNuN7ql3j_bZEI7b",
-      "date": "2026-10-02",
-      "home": "Juventus",
-      "away": "Cremonese",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "F. Bonazzoli",
-          "minute": 12
-        }
-      ],
-      "competition": "juventus"
-    },
-    {
-      "url": "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I",
-      "date": "2026-10-03",
-      "home": "Inter",
-      "away": "Lumezzane",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "inter-milan"
-    },
     {
       "url": "https://www.goal.com/en/match/malaga-vs-espanyol/vxqW21bvXZbHhu-88aRyW",
       "date": "2026-10-09",
@@ -7892,6 +7800,122 @@
       ],
       "awayGoals": [],
       "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/hamburger-sv-vs-borussia-moenchengladbach/9Dx1x6D8cN8OtPsqZrU6m",
+      "date": "2026-11-06",
+      "home": "Hamburger Sv",
+      "away": "Borussia Moenchengladbach",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "M. Muheim",
+          "minute": 11
+        },
+        {
+          "scorer": "S. Nandja",
+          "minute": 60
+        },
+        {
+          "scorer": "A. Groenbaek",
+          "minute": 70
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Scally",
+          "minute": 44
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/venezia-vs-udinese/IONYrmmaw9Ok_eX4FMlJ_",
+      "date": "2026-11-06",
+      "home": "Venezia",
+      "away": "Udinese",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "T. Basic",
+          "minute": 54
+        },
+        {
+          "scorer": "K. Perez",
+          "minute": 65
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Moreno",
+          "minute": 57
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/toulouse-vs-strasbourg/28v7fnfyoiihwTdsMBHvC",
+      "date": "2026-11-06",
+      "home": "Toulouse",
+      "away": "Strasbourg",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "S. Hidalgo",
+          "minute": 45
+        },
+        {
+          "scorer": "M. McKenzie",
+          "minute": 56
+        },
+        {
+          "scorer": "T. Joergensen",
+          "minute": 76
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "G. Reyna",
+          "minute": 68
+        }
+      ],
+      "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/marseille-vs-paris-saint-germain/svky1S1kX8DVg0gXNb82X",
+      "date": null,
+      "home": "Marseille",
+      "away": "Paris Saint Germain",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "A. Gomes",
+          "minute": 72
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "F. Torres",
+          "minute": 66
+        },
+        {
+          "scorer": "Marquinhos",
+          "minute": 74
+        }
+      ],
+      "competition": "psg"
     }
   ],
   "scorerParseRetryCounts": {
