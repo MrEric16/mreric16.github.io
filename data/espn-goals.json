@@ -1,6 +1,101 @@
 {
- "generatedAt": "2026-11-06T16:26:47.717482Z",
+ "generatedAt": "2026-11-06T21:41:50.630491Z",
  "results": [
+  {
+   "url": "espn:401884739",
+   "date": "2026-11-06",
+   "utc": "2026-11-06T19:30Z",
+   "home": "HSV",
+   "away": "M'gladbach",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Muheim",
+     "minute": 11
+    },
+    {
+     "scorer": "S. Nandja",
+     "minute": 59
+    },
+    {
+     "scorer": "A. Grønbaek",
+     "minute": 70
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Hack",
+     "minute": 44
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401874815",
+   "date": "2026-11-06",
+   "utc": "2026-11-06T19:45Z",
+   "home": "Venezia FC",
+   "away": "Udinese",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "T. Basic",
+     "minute": 53
+    },
+    {
+     "scorer": "E. Perez",
+     "minute": 65
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Moreno (og)",
+     "minute": 57
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876405",
+   "date": "2026-11-06",
+   "utc": "2026-11-06T19:45Z",
+   "home": "Toulouse",
+   "away": "Strasbourg",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "S. Hidalgo",
+     "minute": "45+1"
+    },
+    {
+     "scorer": "M. McKenzie",
+     "minute": 56
+    },
+    {
+     "scorer": "T. Jørgensen",
+     "minute": 76
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "G. Reyna",
+     "minute": 67
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401915383",
    "date": "2026-11-04",
