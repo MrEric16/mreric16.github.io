@@ -1,32 +1,6 @@
 {
-  "generatedAt": "2026-11-06T01:02:13.335657Z",
+  "generatedAt": "2026-11-06T08:10:46.478763Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/ac-milan-vs-lecce/X7qW0dcpTiiOozULzTaiP",
-      "date": null,
-      "home": "Ac Milan",
-      "away": "Lecce",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "C. Pulisic",
-          "minute": 14
-        },
-        {
-          "scorer": "A. Rabiot",
-          "minute": 61
-        },
-        {
-          "scorer": "D. Moreira",
-          "minute": 73
-        }
-      ],
-      "awayGoals": [],
-      "competition": "SA"
-    },
     {
       "url": "https://www.goal.com/en/match/marseille-vs-paris-saint-germain/svky1S1kX8DVg0gXNb82X",
       "date": null,
@@ -7901,6 +7875,24 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ac-milan-vs-ferencvaros/irXUOKvc9dSverr6s4SgV",
+      "date": "2026-11-05",
+      "home": "Ac Milan",
+      "away": "Ferencvaros",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "L. Joseph",
+          "minute": 52
+        }
+      ],
+      "competition": "ac-milan"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7918,7 +7910,6 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/ac-milan-vs-ferencvaros/irXUOKvc9dSverr6s4SgV": 2
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
   }
 }
