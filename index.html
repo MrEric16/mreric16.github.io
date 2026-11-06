@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261105171143">
+<meta name="app-build" content="20261106013213">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -33896,7 +33896,7 @@ const CLUB_REGISTRY = [
     bg:'#DC052D', border:'#0066B2', fg:'#fff', labelBg:'#0066B2', labelFg:'#fff',
     dataType:'football', apiKey:'bayern', nameMatch:['bayern münchen','bayern munich','fc bayern'] },
   { key:'pakhtakor', name:'Pakhtakor Tashkent', short:'Pakhtakor', sub:"Uzbekistan Super League",
-    crest:'https://vectorseek.com/wp-content/uploads/2025/05/Pakhtakor-Tashkent-FK-Logo-PNG-SVG-Vector.png', crestScale:1.6,
+    crest:'https://vectorseek.com/wp-content/uploads/2025/05/Pakhtakor-Tashkent-FK-Logo-PNG-SVG-Vector.png', crestScale:1.5, crestShiftY:'-3.4%',
     bg:'#1C3F94', border:'#fff', fg:'#fff', labelBg:'#fff', labelFg:'#1C3F94',
     dataType:'uz', nameMatch:['pakhtakor'] },
   { key:'bunyodkor', name:'Bunyodkor Tashkent', short:'Bunyodkor', sub:"Uzbekistan Super League",
@@ -34109,7 +34109,7 @@ function clubCardHtml(entry, pos){
   return `
     <div class="carousel-slide club-card" data-pos="${pos}" data-club="${entry.key}" style="${style}">
       <div class="sports-header">
-        <div class="crest ${eggAttr}" style="${entry.egg ? 'cursor:pointer;' : ''}"><img src="${entry.crest}" alt="${escapeHtml(entry.name)} crest" style="width:100%;height:100%;object-fit:contain;${entry.crestScale ? ` transform:scale(${entry.crestScale});` : ''}" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="crest ${eggAttr}" style="${entry.egg ? 'cursor:pointer;' : ''}"><img src="${entry.crest}" alt="${escapeHtml(entry.name)} crest" style="width:100%;height:100%;object-fit:contain;${entry.crestScale ? ` transform:${entry.crestShiftY ? 'translateY('+entry.crestShiftY+') ' : ''}scale(${entry.crestScale});` : ''}" loading="lazy" onerror="this.style.display='none'"></div>
         <div>
           <div class="name">${teamNameHtml ? teamNameHtml(entry.name, false, !!entry.egg) : escapeHtml(entry.name)}</div>
           ${entry.dataType === 'arsenal' ? `<div class="sub">${escapeHtml(entry.sub || '')}</div>` : ''}
