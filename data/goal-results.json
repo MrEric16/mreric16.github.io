@@ -1,91 +1,6 @@
 {
-  "generatedAt": "2026-11-07T07:38:14.642368Z",
+  "generatedAt": "2026-11-07T14:34:00.501595Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-leeds-united/lNokptTIqLlhes3z_fJND",
-      "date": "2026-10-10",
-      "home": "Arsenal",
-      "away": "Leeds United",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "R. Calafiori",
-          "minute": 62
-        },
-        {
-          "scorer": "B. Guimaraes",
-          "minute": 70
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Justin",
-          "minute": 55
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/ipswich-town-vs-fulham/oEfyj2CLgC9BdE-NGtbRH",
-      "date": "2026-10-10",
-      "home": "Ipswich Town",
-      "away": "Fulham",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Ouattara",
-          "minute": 88
-        },
-        {
-          "scorer": "D. O'Shea",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "R. Sessegnon",
-          "minute": 55
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/aston-villa-vs-brentford/yGdp3eVQ0n0SbsmDPBrkw",
-      "date": "2026-10-10",
-      "home": "Aston Villa",
-      "away": "Brentford",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "N. Jackson",
-          "minute": 12
-        },
-        {
-          "scorer": "J. McGinn",
-          "minute": 77
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "Y. Yarmoliuk",
-          "minute": 10
-        },
-        {
-          "scorer": "K. Ajer",
-          "minute": 79
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/sunderland-vs-brighton-and-hove-albion/wHDPY2m20SdhC_OBwN1BN",
       "date": "2026-10-10",
@@ -7897,6 +7812,64 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV",
+      "date": "2026-11-06",
+      "home": "Everton",
+      "away": "Coventry City",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "T. Barry",
+          "minute": 56
+        },
+        {
+          "scorer": "K. Dewsbury-Hall",
+          "minute": 81
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "Y. Gboho",
+          "minute": 52
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/leeds-united-vs-tottenham-hotspur/Z-1ZBfsxF8nUZFyo-x1cw",
+      "date": "2026-11-07",
+      "home": "Leeds United",
+      "away": "Tottenham Hotspur",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "N. Okafor",
+          "minute": 79
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I",
+      "date": "2026-10-03",
+      "home": "Inter",
+      "away": "Lumezzane",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "inter-milan"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7914,8 +7887,6 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV": 2,
-    "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I": 2
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
   }
 }

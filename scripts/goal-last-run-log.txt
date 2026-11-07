@@ -1,7 +1,9 @@
 [goal-scraper] Run started.
-[goal-scraper] [PL] Found 1 finished-match links
+[goal-scraper] [PL] Found 2 finished-match links
 [goal-scraper] WARNING: Everton scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV
-[goal-scraper] [PL] SCORER PARSE FAILED (attempt 2/3) for Everton 3-1 Coventry City -- NOT committing, will retry next run: https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV
+[goal-scraper] [PL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Everton 3-1 Coventry City: https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV
+[goal-scraper] [PL] Added: Everton 3-1 Coventry City
+[goal-scraper] [PL] Added: Leeds United 1-0 Tottenham Hotspur
 [goal-scraper] [PD] Found 1 finished-match links
 [goal-scraper] [BL1] Found 1 finished-match links
 [goal-scraper] [SA] Found 1 finished-match links
@@ -85,7 +87,8 @@
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Inter vs Monza on 2026-08-22
 [goal-scraper] [inter-milan] Skipping stale match (older than 45 days): Cagliari vs Inter on 2026-08-30
 [goal-scraper] WARNING: Inter scored 2 but 0 scorers were parsed for https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I
-[goal-scraper] [inter-milan] SCORER PARSE FAILED (attempt 2/3) for Inter 2-0 Lumezzane -- NOT committing, will retry next run: https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I
+[goal-scraper] [inter-milan] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Inter 2-0 Lumezzane: https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I
+[goal-scraper] [inter-milan] Added: Inter 2-0 Lumezzane
 [goal-scraper] [ac-milan] Found 18 finished-match links
 [goal-scraper] WARNING: Ac Milan scored 2 but only 1 scorer(s) were parsed for https://www.goal.com/en/match/celtic-vs-ac-milan/AeYRZaZp8UbukBDDTNSA2
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Celtic vs Ac Milan on 2026-07-25
@@ -132,7 +135,6 @@
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Fc Tokyo vs Borussia Dortmund on 2026-08-01
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Arsenal vs Borussia Dortmund on 2026-08-09
 [goal-scraper] [dortmund] Skipping stale match (older than 45 days): Borussia Dortmund vs Roma on 2026-08-15
-[goal-scraper] [dortmund] Added: Borussia Dortmund 2-2 Werder Bremen
 [goal-scraper] [roma] Found 20 finished-match links
 [goal-scraper] WARNING: Roma scored 6 but 0 scorers were parsed for https://www.goal.com/en/match/roma-vs-asd-trastevere/rEpIoomMZP4MF3iBnJkkk
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Asd Trastevere on 2026-07-23
@@ -162,6 +164,6 @@
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Juventus vs Palermo on 2026-08-11
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Frosinone vs Juventus on 2026-08-23
 [goal-scraper] [arsenal-friendlies] Found 1 finished-match links
-[goal-scraper] TOTAL new results added this run: 1
-[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR', 'https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3', 'https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL', 'https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S', 'https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV', 'https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I']
+[goal-scraper] TOTAL new results added this run: 3
+[goal-scraper] Matches still awaiting a clean scorer parse (not yet committed): ['https://www.goal.com/en/match/slavia-prague-vs-lens/8tl536s9YeGCuVkrI5O7Y', 'https://www.goal.com/en/match/rennes-vs-auxerre/mrXeYVYV4qVm1todbHugv', 'https://www.goal.com/en/match/atalanta-vs-venezia/D6SItOz3__eVw7lzXZiUb', 'https://www.goal.com/en/match/lask-vs-liverpool/SA2Ap_qyrRuYa-BsWEfUD', 'https://www.goal.com/en/match/aston-villa-vs-fenerbahce/j71KODI3KJUFm7RV67bNo', 'https://www.goal.com/en/match/monza-vs-cagliari/-VOvvOVTEln5FokA87RUr', 'https://www.goal.com/en/match/parma-calcio-1913-vs-torino/xYOYBIdruGCkq7QDFovuK', 'https://www.goal.com/en/match/como-vs-manchester-united/vW89Y-GHAwsfeP6Z8UcX9', 'https://www.goal.com/en/match/lille-vs-galatasaray/c7Eb4s-qgwokd3PDDjo7v', 'https://www.goal.com/en/match/levante-vs-athletic-bilbao/pvx6upy1SQWmrnGgH2FLy', 'https://www.goal.com/en/match/sporting-cp-vs-lask/ZPXSGPMonJRjQ_z3hUXrI', 'https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR', 'https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3', 'https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL', 'https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S']
 [goal-scraper] Wrote data/goal-results.json
