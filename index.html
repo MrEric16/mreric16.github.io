@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261107192438">
+<meta name="app-build" content="20261107193603">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -24934,6 +24934,17 @@ document.addEventListener('click', function(e){
     if(cur) cur.focus();
     return;
   }
+  // Best route: open the search page right here inside the tap, so focusing the real field counts as
+  // part of the tap and the keyboard comes up on every device. The later hashchange is skipped.
+  try{
+    e.preventDefault();
+    mtOverlayParts = null;
+    window.__searchSyncHash = '#search';
+    location.hash = '#search';
+    renderRoute();
+    const inp = document.getElementById('searchInput');
+    if(inp){ try{ inp.focus({ preventScroll:true }); }catch(err2){ inp.focus(); } return; }
+  }catch(err){}
   try{
     const old = document.getElementById('searchKbProxy');
     if(old) old.remove();
@@ -39195,6 +39206,8 @@ document.getElementById('titleLink').addEventListener('click', ()=>{
   location.hash = '';
 });
 window.addEventListener('hashchange', () => {
+  if(window.__searchSyncHash && location.hash === window.__searchSyncHash){ window.__searchSyncHash = null; return; }   // search page already rendered inside the tap
+  window.__searchSyncHash = null;
   mtOverlayParts = null;
   // Back from a Mind Temple "Watch": reopen Mind Temple on the Read / Watch / Do page it was left on.
   const cf = mtComfortGet();
