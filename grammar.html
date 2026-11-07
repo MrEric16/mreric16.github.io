@@ -108,6 +108,7 @@ body.dark-mode.usertheme-dihl{--ff-accent:var(--gold)}
 </style>
 </head>
 <body>
+<script src="backnav.js"></script>
 <script src="lounge-core.js"></script>
 <script src="contrast-guard.js"></script>
 <script>
@@ -469,7 +470,6 @@ function showTopics(){
     '<div class="ivb-search-wrap"><span class="ivb-search-icon">' + icon('search') + '</span>' +
     '<input type="text" id="ggSearch" class="search-input" placeholder="Search a topic\u2026" autocomplete="off" autocapitalize="off" spellcheck="false"></div>' +
     '<div class="sport-hub-grid" id="ggGrid"><div class="empty-card" style="grid-column:1/-1;">Loading\u2026</div></div></section>';
-  var bl = app.querySelector('.back-link'); if(bl) bl.addEventListener('click', backToLounge);
   loadIndex().then(function(ix){
     var grid = document.getElementById('ggGrid'), input = document.getElementById('ggSearch');
     if(!grid) return;
@@ -518,24 +518,7 @@ function showExercise(topicId, level){
     ggWireExercise(app, { topics:[topic] }, topicId, level);
   }).catch(function(){ fail(); });
 }
-var depth = 0, lastD = -1;
-function noteDepth(){
-  var s = history.state;
-  if(s && typeof s.d === 'number') depth = s.d; else { depth = lastD + 1; try{ history.replaceState({ d: depth }, ''); }catch(e){} }
-  lastD = depth;
-}
-// "Back to Mr Eric's Lounge": if we came from the app, rewind history so the browser restores the
-// already-loaded home page instantly (no 2 MB reload); otherwise just open it.
-function backToLounge(e){
-  var ok = false;
-  try{ var u = new URL(document.referrer); ok = u.origin === location.origin && !/grammar\.html$/.test(u.pathname) && history.length > depth + 1; }catch(x){}
-  if(!ok) return;
-  e.preventDefault();
-  history.go(-(depth + 1));
-  setTimeout(function(){ location.href = 'index.html#geography-hub/study'; }, 1200);
-}
 function route(){
-  noteDepth();
   var parts = location.hash.replace(/^#/, '').split('/').filter(Boolean).map(decodeURIComponent);
   window.scrollTo(0, 0);
   if(parts[1]) showExercise(parts[0], parts[1]);

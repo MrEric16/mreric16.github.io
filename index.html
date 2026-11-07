@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261107043045">
+<meta name="app-build" content="20261107192438">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -41,6 +41,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&family=Jost:wght@500;700;900&display=swap" rel="stylesheet">
 <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="backnav.js"></script>
 <script src="lounge-core.js"></script>
 <script src="contrast-guard.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
@@ -32084,7 +32085,7 @@ function mtSaveGood(word, text){
 // ---- Draft (so an accidental reload does not wipe a long vent). Session only, cleared on exit or Done.
 const MT_DRAFT_KEY = 'mtDraft_v2';
 function mtSaveDraft(){ try{ if(mtState && mtState.step !== 'picker') sessionStorage.setItem(MT_DRAFT_KEY, JSON.stringify({ t: Date.now(), s: mtState })); }catch(e){} }
-function mtClearDraft(){ try{ sessionStorage.removeItem(MT_DRAFT_KEY); }catch(e){} }
+function mtClearDraft(){ try{ sessionStorage.removeItem(MT_DRAFT_KEY); sessionStorage.removeItem('mtComfort'); }catch(e){} }
 function mtLoadDraft(){ try{ const d = JSON.parse(sessionStorage.getItem(MT_DRAFT_KEY) || 'null'); return d && Date.now() - d.t < 2 * 3600 * 1000 ? d.s : null; }catch(e){ return null; } }
 // ---- Optional PIN for My Wellbeing
 async function mtHashPin(pin){
@@ -32615,20 +32616,48 @@ let mtState = null;
 let mtActiveEmbeddedCleanup = null; // cleanup() of whichever embedded mess-about game is currently mounted, if any
 function mtNewState(){
   return { step:'picker', category:null, emotion:null, situation:'', thought:'', reframe:'', reframeQ:'', tiny:'', before:null, after:null,
-           messAboutPick:null, messAboutCycleIndex:0, shown:{}, safetyTier:null, afterSafety:null, goodPick:null, saved:false, unlocked:false, resume:null, pinMode:'open', breathed:false };
+           messAboutPick:null, messAboutCycleIndex:0, shown:{}, safetyTier:null, afterSafety:null, goodPick:null, saved:false, unlocked:false, resume:null, pinMode:'open', breathed:false, trail:[] };
 }
+/* Read / Watch / Do: remember where Mind Temple was opened so that coming back from the article,
+   video or website lands on the same "Read, watch, or do?" page, not on the start page. */
+const MT_COMFORT_KEY = 'mtComfort';
+function mtComfortGet(){ try{ const c = JSON.parse(sessionStorage.getItem(MT_COMFORT_KEY) || 'null'); return c && Date.now() - c.t < 2 * 3600 * 1000 ? c : null; }catch(e){ return null; } }
+function mtComfortSet(c){ try{ sessionStorage.setItem(MT_COMFORT_KEY, JSON.stringify(c)); }catch(e){} }
+function mtComfortClear(){ try{ sessionStorage.removeItem(MT_COMFORT_KEY); }catch(e){} }
+function mtComfortMark(){ mtComfortSet({ origin: location.hash, t: Date.now(), back: false }); }
 function mtInit(){
   if(mtActiveEmbeddedCleanup){ mtActiveEmbeddedCleanup(); mtActiveEmbeddedCleanup = null; }
   const keepUnlock = mtState && mtState.unlocked;
   mtState = mtNewState();
   mtState.unlocked = !!keepUnlock;
   const d = mtLoadDraft();
+  const cf = mtComfortGet();
+  if(cf && cf.back && d && d.step === 'comfortChoice' && d.emotion){
+    cf.back = false; mtComfortSet(cf);
+    mtState = Object.assign(mtNewState(), d, { resume: null, unlocked: !!keepUnlock });
+    mtRender();
+    return;
+  }
   if(d && d.step && d.step !== 'picker' && d.emotion) mtState.resume = d;
   mtRender();
 }
+/* The trail is the path taken through the steps. Going to a step already on the trail cuts the trail back
+   to it, so Back always returns to the step the person actually came from. */
+const MT_TRANSIENT = ['safety', 'checkin', 'breathe', 'messAboutAfter', 'pin'];
 function mtGoTo(step){
-  mtState.step = step;
+  const s = mtState;
+  if(step !== s.step){
+    s.trail = s.trail || [];
+    const i = s.trail.lastIndexOf(step);
+    if(i >= 0) s.trail.length = i; else s.trail.push(s.step);
+  }
+  s.step = step;
   mtRender();
+}
+function mtPrev(fallback){
+  const t = (mtState.trail || []);
+  for(let i = t.length - 1; i >= 0; i--){ if(!MT_TRANSIENT.includes(t[i]) && t[i] !== mtState.step) return t[i]; }
+  return fallback;
 }
 const MT_TEXT_FIELD = { situation:'situation', thought:'thought', reframe:'reframe' };
 function mtIsPositive(){
@@ -32861,6 +32890,7 @@ function mtStepHtml(){
   }
   if(s.step === 'comfortChoice'){
     return `
+      <button class="mt-back-link" data-action="back-step">← Back</button>
       <div class="mt-closing-box">
         <div class="mt-closing-msg">Read, watch, or do?</div>
         <div class="mt-yn-row">
@@ -32920,7 +32950,7 @@ function mtWireStep(container){
     if(t.dataset.word){ return pickWord(t.dataset.word, t.dataset.cat); }
     if(t.dataset.cat && !t.dataset.action){ s.category = t.dataset.cat; return mtGoTo('subpicker'); }
     if(t.dataset.lang){ mtLang = t.dataset.lang; try{ localStorage.setItem('mtLang', mtLang); }catch(er){} return mtRender(); }
-    if(t.dataset.go){ return leave(t.dataset.go); }
+    if(t.dataset.go){ return leave(mtPrev(t.dataset.go)); }
     if(t.dataset.rq){ grab(); s.reframeQ = t.dataset.rq; return mtGoTo('reframe'); }
     if(t.dataset.tiny){ s.tiny = t.dataset.tiny; return mtGoTo('rate2'); }
     if(t.dataset.rate){
@@ -32930,7 +32960,8 @@ function mtWireStep(container){
       return;
     }
     switch(t.dataset.action){
-      case 'back-to-picker': return mtGoTo('picker');
+      case 'back-to-picker': return mtGoTo(mtPrev('picker'));
+      case 'back-step': return mtGoTo(mtPrev('picker'));
       case 'back-help': return mtGoTo('help');
       case 'resume-yes': { const d = s.resume; mtState = Object.assign(mtNewState(), d, { resume: null }); return mtRender(); }
       case 'resume-no': mtClearDraft(); s.resume = null; return mtRender();
@@ -32988,15 +33019,15 @@ function mtWireStep(container){
       case 'comfort-yes': return mtGoTo('comfortChoice');
       case 'comfort-read': {
         const pool = DISPATCHES.filter(d => MT_COMFORT_DISPATCH_URLS.includes(d.url)); if(!pool.length) return;
-        window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); return;
+        mtComfortMark(); window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); return;
       }
       case 'comfort-watch': {
         const pool = WATCH_VIDEOS.filter(v => MT_COMFORT_VIDEO_IDS.includes(v.videoId)); if(!pool.length) return;
-        location.hash = '#play/' + pool[Math.floor(Math.random() * pool.length)].videoId + '/mind'; return;
+        mtComfortMark(); location.hash = '#play/' + pool[Math.floor(Math.random() * pool.length)].videoId + '/mind'; return;
       }
       case 'comfort-do': {
         const pool = EXPLORE_SITES.filter(s2 => MT_COMFORT_INSTRUMENT_URLS.includes(s2.url)); if(!pool.length) return;
-        window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); return;
+        mtComfortMark(); window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); return;
       }
     }
   };
@@ -36238,7 +36269,7 @@ document.addEventListener('click', (e) => {
     // misattributed. Logging it explicitly here instead, same fix, same reason.
     logEvent('view', 'mind-temple');
     // Coming back from a video opened via Mind Temple: drop the #play/... hash so closing Mind Temple lands on home, not on the video again.
-    if(/^#play\/[^/]+\/mind$/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
+    if(/^#play\/[^/]+\/mind$/.test(location.hash)){ history.replaceState(history.state, '', location.pathname + location.search); const cf = mtComfortGet(); if(cf){ cf.back = true; mtComfortSet(cf); } }
     mtOpenOverlay(['mind-temple']);
     return;
   }
@@ -39163,7 +39194,18 @@ function checkAchievements(){
 document.getElementById('titleLink').addEventListener('click', ()=>{
   location.hash = '';
 });
-window.addEventListener('hashchange', () => { mtOverlayParts = null; renderRoute(); });
+window.addEventListener('hashchange', () => {
+  mtOverlayParts = null;
+  // Back from a Mind Temple "Watch": reopen Mind Temple on the Read / Watch / Do page it was left on.
+  const cf = mtComfortGet();
+  if(cf){
+    if(/^#play\/[^/]+\/mind$/.test(location.hash)){ /* still on the video */ }
+    else if(location.hash === cf.origin && window.BackNav && BackNav.lastDelta() < 0){
+      cf.back = true; mtComfortSet(cf); mtOverlayParts = ['mind-temple']; logEvent('view', 'mind-temple');
+    } else mtComfortClear();
+  }
+  renderRoute();
+});
 
 // Bottom tab bar - visible everywhere, built once from the existing icon set.
 document.getElementById('bottomTabs').innerHTML = `
@@ -40075,6 +40117,11 @@ document.addEventListener('visibilitychange', () => {
 // specific route were affected. Placed here (not earlier in the script) since
 // an earlier attempt crashed on a temporal-dead-zone error - BADGES and
 // other later const declarations weren't initialized yet at that point.
+// Reopened after the app was closed during a Read / Watch / Do: go straight back to that page.
+(function(){
+  const cf = mtComfortGet();
+  if(cf && !cf.back && location.hash === cf.origin && mtLoadDraft() && mtLoadDraft().step === 'comfortChoice'){ cf.back = true; mtComfortSet(cf); mtOverlayParts = ['mind-temple']; }
+})();
 renderRoute();
 onSupabaseReady(initLiveUserCounter);
 applySeasonalTheme();

@@ -59,7 +59,7 @@
 <body>
 <div id="app">
   <div class="bar">
-    <a class="b" href="index.html" aria-label="Back to the Lounge">&#8592;</a>
+    <a class="b" data-back href="index.html" aria-label="Back to the Lounge">&#8592;</a>
     <div class="title">Vocabulary &#8211; Easier</div>
     <div class="pgbox"><input id="pgin" inputmode="numeric" pattern="[0-9]*" aria-label="Jump to page" value="1"><span id="pgtot">/ 157</span></div>
     <button id="bContents" aria-label="Contents">&#9776;</button>
@@ -79,6 +79,7 @@
 <div id="scrim"></div>
 <div id="sheet"><h3><span id="sheetT">Contents</span><button id="sheetX" aria-label="Close">&#10005;</button></h3><div id="sheetbody"></div></div>
 
+<script src="backnav.js"></script>
 <script src="lib/pdfjs/pdf.min.js"></script>
 <script>
 (function(){
