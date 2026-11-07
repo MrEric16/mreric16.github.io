@@ -19,9 +19,9 @@
 [scrape]   'Выставка Мохамеда Беншалала': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n310\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0287\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n1\\xa0859\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n316\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0291\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n1\\xa0894\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
@@ -29,14 +29,14 @@
 [scrape] calendar detail pass complete: 236 events kept from 105 pages checked
 [scrape] calendar detail pass drops: {'checked': 105, 'no_title': 0, 'excluded_or_banned': 11}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 10 events kept
-[scrape] iticket.uz cat=theatre: 14 events kept
+[scrape] iticket.uz cat=concert: 20 events kept
+[scrape] iticket.uz cat=theatre: 31 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
+[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 261  |  after dedup: 244
+[scrape] TOTAL before dedup: 288  |  after dedup: 268
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 202 titles
