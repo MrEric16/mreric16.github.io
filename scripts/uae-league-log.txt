@@ -210,7 +210,7 @@ TSDB_FALLBACK_FAILED
 [uae-tsdb] UNMAPPED team name: 'Dibba Al Fujairah'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
 [uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866915&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866905&direction=1"}
-[uae-365]   game Al Dhafra -1.0--1.0 Kalba 2026-11-07T17:55:00+05:00 st=2/Sched.
+[uae-365]   game Al Dhafra 1.0-2.0 Kalba 2026-11-07T17:55:00+05:00 st=3/2nd Half
 [uae-365]   game Sharjah SC -1.0--1.0 Shabab Al Ahly 2026-11-07T20:30:00+05:00 st=2/Sched.
 [uae-365]   game Hatta Club -1.0--1.0 Khor Fakkan 2026-11-07T20:30:00+05:00 st=2/Sched.
 [uae-365]   game Jazira Abu Dhabi -1.0--1.0 Al Wasl 2026-11-08T17:55:00+05:00 st=2/Sched.
@@ -222,6 +222,6 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Kalba -1.0--1.0 Sharjah SC 2026-11-20T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Shabab Al Ahly -1.0--1.0 Ajman Club 2026-11-20T20:25:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=11
-[uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Dhafra -1.0 away=Kalba -1.0
-[uae-365] verified current
+[uae-365]   sample: {"startTime": "2026-11-07T17:55:00+05:00", "statusGroup": 3, "statusText": "2nd Half", "shortStatusText": "2nd Half"} home=Al Dhafra 1.0 away=Kalba 2.0
+[uae-365] 1 fixture(s) overdue with no result; NOT advancing generatedAt
 [uae-365] wrote data/uae-league-live.json: 42 results, 70 fixtures, 0 new
