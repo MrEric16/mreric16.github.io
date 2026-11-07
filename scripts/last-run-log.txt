@@ -1,7 +1,6 @@
-[scrape] Run started. Today (Tashkent): 2026-11-07  Window end: 2026-11-21
+[scrape] Run started. Today (Tashkent): 2026-11-08  Window end: 2026-11-22
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-11-07: 38 new event URLs discovered
-[scrape] calendar 2026-11-08: 13 new event URLs discovered
+[scrape] calendar 2026-11-08: 35 new event URLs discovered
 [scrape] calendar 2026-11-09: 3 new event URLs discovered
 [scrape] calendar 2026-11-10: 5 new event URLs discovered
 [scrape] calendar 2026-11-11: 2 new event URLs discovered
@@ -10,33 +9,34 @@
 [scrape] calendar 2026-11-14: 12 new event URLs discovered
 [scrape] calendar 2026-11-15: 9 new event URLs discovered
 [scrape] calendar 2026-11-16: 0 new event URLs discovered
-[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 21 total exhibition links seen on page
+[scrape] calendar 2026-11-17: 4 new event URLs discovered
+[scrape] exhibitions listing page (supplementary): 10 new event URLs discovered, 21 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 105 unique event URLs to check
+[scrape] calendar discovery complete: 94 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Мохамеда Беншалала': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/10/07/astro-days title='Дни астрономии в Планетарии' title_hits=[] text_hits=["'экскурси' ...'\\xa0награждением участников, звездное шоу, экскурсия по\\xa0планетарию и\\xa05d-программа п'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n326\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0307\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/09/25/pirates-0811 title='Детское шоу «Пираты на Острове обезьян»' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n330\\nво\\xa0дворце национального киноискусства «панорама» пройдет интерак'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0309\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/08/12/spektakl-syn-19-sentyabrya-2026 title='Спектакль «Сын»' title_hits=[] text_hits=["'вино' ...'етектив: зритель перебирает версии, кто виноват, но\\xa0у\\xa0каждого подозреваемого нах'"]
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Эстетика многослойности: в Ташкенте открылась выставка Бобура Алимходжаева Duality: X-Ray of Memory': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 230 events kept from 105 pages checked
-[scrape] calendar detail pass drops: {'checked': 105, 'no_title': 0, 'excluded_or_banned': 12}
+[scrape] calendar detail pass complete: 214 events kept from 94 pages checked
+[scrape] calendar detail pass drops: {'checked': 94, 'no_title': 0, 'excluded_or_banned': 12}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 19 events kept
-[scrape] iticket.uz cat=theatre: 30 events kept
+[scrape] iticket.uz cat=concert: 10 events kept
+[scrape] iticket.uz cat=theatre: 28 events kept
 [scrape] iticket.uz cat=exhibition: 2 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
+[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Human Verification'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 281  |  after dedup: 266
+[scrape] TOTAL before dedup: 254  |  after dedup: 239
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 202 titles
+[scrape] translation cache: 205 titles
