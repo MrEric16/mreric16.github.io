@@ -1,60 +1,6 @@
 {
-  "generatedAt": "2026-11-06T21:43:06.689358Z",
+  "generatedAt": "2026-11-07T01:31:16.195652Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/malaga-vs-espanyol/vxqW21bvXZbHhu-88aRyW",
-      "date": "2026-10-09",
-      "home": "Malaga",
-      "away": "Espanyol",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "A. Nino",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. Zaragoza",
-          "minute": 13
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/666xO0ZoCB0tVEA6-BGtP",
-      "date": "2026-10-09",
-      "home": "Borussia Dortmund",
-      "away": "Werder Bremen",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "D. Svensson",
-          "minute": 80
-        },
-        {
-          "scorer": "N. Schlotterbeck",
-          "minute": 85
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "L. Reis",
-          "minute": 88
-        },
-        {
-          "scorer": "N. Fuellkrug",
-          "minute": 90
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/lens-vs-lyon/tqzt-rj97nXTFi0KO8OiP",
       "date": "2026-10-09",
@@ -7916,6 +7862,37 @@
         }
       ],
       "competition": "psg"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sevilla-vs-deportivo-alaves/oU1bPnfXYaqNt-JWOKoDn",
+      "date": "2026-11-06",
+      "home": "Sevilla",
+      "away": "Deportivo Alaves",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-cremonese/v_wWtjNuN7ql3j_bZEI7b",
+      "date": "2026-10-02",
+      "home": "Juventus",
+      "away": "Cremonese",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "F. Bonazzoli",
+          "minute": 12
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7933,6 +7910,8 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
+    "https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV": 1,
+    "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I": 1
   }
 }
