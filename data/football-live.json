@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T06:22:51.238538Z",
+  "generatedAt": "2026-11-07T13:24:52.777711Z",
   "standings": {
     "PL": [
       {
@@ -73,6 +73,16 @@
         "pts": 14
       },
       {
+        "name": "Tottenham",
+        "pld": 10,
+        "w": 3,
+        "d": 4,
+        "l": 3,
+        "gf": 10,
+        "ga": 10,
+        "pts": 13
+      },
+      {
         "name": "Bournemouth",
         "pld": 9,
         "w": 3,
@@ -83,13 +93,13 @@
         "pts": 12
       },
       {
-        "name": "Tottenham",
-        "pld": 9,
-        "w": 3,
-        "d": 3,
-        "l": 3,
-        "gf": 10,
-        "ga": 10,
+        "name": "Leeds United",
+        "pld": 10,
+        "w": 2,
+        "d": 6,
+        "l": 2,
+        "gf": 9,
+        "ga": 8,
         "pts": 12
       },
       {
@@ -110,16 +120,6 @@
         "l": 2,
         "gf": 11,
         "ga": 10,
-        "pts": 11
-      },
-      {
-        "name": "Leeds United",
-        "pld": 9,
-        "w": 2,
-        "d": 5,
-        "l": 2,
-        "gf": 9,
-        "ga": 8,
         "pts": 11
       },
       {
@@ -335,6 +335,16 @@
         "pts": 12
       },
       {
+        "name": "Santander",
+        "pld": 12,
+        "w": 3,
+        "d": 3,
+        "l": 6,
+        "gf": 15,
+        "ga": 29,
+        "pts": 12
+      },
+      {
         "name": "Espanyol",
         "pld": 11,
         "w": 3,
@@ -352,16 +362,6 @@
         "l": 6,
         "gf": 11,
         "ga": 22,
-        "pts": 11
-      },
-      {
-        "name": "Santander",
-        "pld": 11,
-        "w": 3,
-        "d": 2,
-        "l": 6,
-        "gf": 15,
-        "ga": 29,
         "pts": 11
       },
       {
@@ -396,13 +396,13 @@
       },
       {
         "name": "Málaga",
-        "pld": 11,
+        "pld": 12,
         "w": 0,
-        "d": 5,
+        "d": 6,
         "l": 6,
         "gf": 8,
         "ga": 21,
-        "pts": 5
+        "pts": 6
       }
     ],
     "BL1": [
@@ -1339,7 +1339,7 @@
       "fixtures": [
         {
           "utcDate": "2026-11-07T12:30:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 341,
@@ -1352,11 +1352,11 @@
             "shortName": "Tottenham"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -6500,18 +6500,18 @@
     },
     "tottenham": {
       "nextFixture": {
-        "utcDate": "2026-11-07T12:30:00Z",
+        "utcDate": "2026-11-21T15:00:00Z",
         "status": "TIMED",
-        "matchday": 10,
+        "matchday": 11,
         "homeTeam": {
-          "id": 341,
-          "name": "Leeds United FC",
-          "shortName": "Leeds United"
-        },
-        "awayTeam": {
           "id": 73,
           "name": "Tottenham Hotspur FC",
           "shortName": "Tottenham"
+        },
+        "awayTeam": {
+          "id": 349,
+          "name": "Ipswich Town FC",
+          "shortName": "Ipswich Town"
         },
         "score": {
           "winner": null,
