@@ -1,33 +1,6 @@
 {
-  "generatedAt": "2026-11-07T01:31:16.195652Z",
+  "generatedAt": "2026-11-07T07:38:14.642368Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/lens-vs-lyon/tqzt-rj97nXTFi0KO8OiP",
-      "date": "2026-10-09",
-      "home": "Lens",
-      "away": "Lyon",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "F. Sotoca",
-          "minute": 36
-        },
-        {
-          "scorer": "M. Udol",
-          "minute": 76
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "K. Merah",
-          "minute": 85
-        }
-      ],
-      "competition": "FL1"
-    },
     {
       "url": "https://www.goal.com/en/match/arsenal-vs-leeds-united/lNokptTIqLlhes3z_fJND",
       "date": "2026-10-10",
@@ -7893,6 +7866,37 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/borussia-dortmund-vs-werder-bremen/666xO0ZoCB0tVEA6-BGtP",
+      "date": "2026-10-09",
+      "home": "Borussia Dortmund",
+      "away": "Werder Bremen",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "D. Svensson",
+          "minute": 80
+        },
+        {
+          "scorer": "N. Schlotterbeck",
+          "minute": 85
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Reis",
+          "minute": 88
+        },
+        {
+          "scorer": "N. Fuellkrug",
+          "minute": 90
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7911,7 +7915,7 @@
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV": 1,
-    "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I": 1
+    "https://www.goal.com/en/match/everton-vs-coventry-city/0ZOenjOrL0ui1IycCnQbV": 2,
+    "https://www.goal.com/en/match/inter-vs-lumezzane/wp38Y4IKyMcIdjOQHnu1I": 2
   }
 }
