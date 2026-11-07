@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261107193603">
+<meta name="app-build" content="20261107193912">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -4889,6 +4889,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     font-size:15px;
     box-shadow:0 3px 0 rgba(58,42,30,.08);
   }
+  #searchResults, #searchResults *{ transition:none !important; animation:none !important; }
   .search-input:focus{outline:2px solid var(--coral);}
   /* Irregular Verbs table (Train Your Brain) - reuses .search-input for the search box
      so it matches the site's one search-box look everywhere else, just with room made
@@ -25013,13 +25014,19 @@ function wireSearch(container){
   }
 
   loadSearchKeywords(()=>{ if(input.isConnected && input.value.trim()) input.dispatchEvent(new Event('input')); });
-  input.addEventListener('input', ()=>{
+  // Typing stays light on slow screens: nothing is searched until 3 characters, and then only
+  // once typing pauses (200 ms). Each group shows its first 8 results, with "Show all" for the rest.
+  const expanded = {}; let expandedFor = '';
+  const MAX_PER_GROUP = 8;
+  const cap = (list, key) => (expanded[key] || list.length <= MAX_PER_GROUP) ? list : list.slice(0, MAX_PER_GROUP);
+  const moreBtn = (list, key) => (expanded[key] || list.length <= MAX_PER_GROUP) ? '' : `<button class="nw-link" type="button" data-more="${key}">Show all ${list.length}</button>`;
+  let searchTimer = null;
+  function runSearch(){
+    if(!input.isConnected) return;
     const q = input.value.trim().toLowerCase();
+    if(q.length < 3){ handleDictLookup(''); results.innerHTML = ''; return; }
     handleDictLookup(q);
-    if(q.length === 0){
-      results.innerHTML = '';
-      return;
-    }
+    if(q !== expandedFor){ Object.keys(expanded).forEach(k => delete expanded[k]); expandedFor = q; }
     // Easter egg: typing "pixel8" surfaces the 4 in-house games directly, standalone
     // (via #arcade/<id>, not gated behind Mind Temple's emotion picker). Deliberately
     // undocumented anywhere in the UI - students find it or they don't. Short-circuits
@@ -25067,40 +25074,49 @@ function wireSearch(container){
     let html = '';
     if(birthdayMatches.length > 0){
       html += `<div class="section-head" style="margin-top:0;"><span class="emoji">${icon('cake')}</span><h2>Names</h2></div>`;
-      html += birthdayResultsHtml(birthdayMatches);
+      html += birthdayResultsHtml(cap(birthdayMatches, 'b')) + moreBtn(birthdayMatches, 'b');
     }
     if(pageMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('compass2')}</span><h2>Pages</h2></div>`;
-      html += pageResultsHtml(pageMatches);
+      html += pageResultsHtml(cap(pageMatches, 'p')) + moreBtn(pageMatches, 'p');
     }
     if(tashkentEventMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('calendar')}</span><h2>Events in Tashkent</h2></div>`;
-      html += pageResultsHtml(tashkentEventMatches.map(e => ({ name: e.title, desc: (e.category || '') + (e.startDate ? ' · ' + formatShortDate(e.startDate) : ''), url: e.url || '#events-tashkent', ext: !!e.url, icon: 'calendar' })));
+      html += pageResultsHtml(cap(tashkentEventMatches, 't').map(e => ({ name: e.title, desc: (e.category || '') + (e.startDate ? ' · ' + formatShortDate(e.startDate) : ''), url: e.url || '#events-tashkent', ext: !!e.url, icon: 'calendar' }))) + moreBtn(tashkentEventMatches, 't');
     }
     if(virtualEventMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('globe')}</span><h2>Online Events</h2></div>`;
-      html += pageResultsHtml(virtualEventMatches.map(e => ({ name: e.title, desc: (e.category || e.org || '') + (e.startDate ? ' · ' + formatShortDate(e.startDate) : ' · ongoing'), url: e.url || '#events-virtual', ext: !!e.url, icon: 'globe' })));
+      html += pageResultsHtml(cap(virtualEventMatches, 'v').map(e => ({ name: e.title, desc: (e.category || e.org || '') + (e.startDate ? ' · ' + formatShortDate(e.startDate) : ' · ongoing'), url: e.url || '#events-virtual', ext: !!e.url, icon: 'globe' }))) + moreBtn(virtualEventMatches, 'v');
     }
     if(exploreMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('compass2')}</span><h2>Websites</h2></div>`;
-      html += exploreResultsHtml(exploreMatches);
+      html += exploreResultsHtml(cap(exploreMatches, 'e')) + moreBtn(exploreMatches, 'e');
     }
     if(gameMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('dice')}</span><h2>Games</h2></div>`;
-      html += gameResultsHtml(gameMatches);
+      html += gameResultsHtml(cap(gameMatches, 'g')) + moreBtn(gameMatches, 'g');
     }
     if(articleMatches.length > 0){
       const isListenSearch = q.includes('listen');
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon(isListenSearch?'volume':'newspaper')}</span><h2>${isListenSearch?'Listen':'Articles'}</h2></div>`;
-      html += dispatchListHtml(articleMatches);
+      html += dispatchListHtml(cap(articleMatches, 'a')) + moreBtn(articleMatches, 'a');
     }
     if(videoMatches.length > 0){
       html += `<div class="section-head" style="margin-top:${html?'24px':'0'};"><span class="emoji">${icon('clapper')}</span><h2>Videos</h2></div>`;
-      html += `<div class="watch-grid">${watchGridHtml(videoMatches, 'search')}</div>`;
+      html += `<div class="watch-grid">${watchGridHtml(cap(videoMatches, 'vid'), 'search')}</div>` + moreBtn(videoMatches, 'vid');
     }
     results.innerHTML = html;
     wireEntryActions(results);
     wireWatchButtons(results);
+  }
+  input.addEventListener('input', ()=>{
+    clearTimeout(searchTimer);
+    if(input.value.trim().length < 3){ handleDictLookup(''); results.innerHTML = ''; return; }
+    searchTimer = setTimeout(runSearch, 200);
+  });
+  results.addEventListener('click', e => {
+    const m = e.target.closest ? e.target.closest('[data-more]') : null;
+    if(m){ e.preventDefault(); expanded[m.getAttribute('data-more')] = true; runSearch(); }
   });
 }
 
