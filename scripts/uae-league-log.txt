@@ -226,7 +226,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Dubai United -1.0--1.0 Al-Wahda 2026-11-21T20:25:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=7
 [uae-365]   sample: {"startTime": "2026-11-19T17:45:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Wasl -1.0 away=Hatta Club -1.0
-[uae-365] NEW RESULT Al Wahda 0-0 Al Ain FC 2026-11-08T20:30:00+05:00
-[uae-365] NEW RESULT Ajman Club 1-1 Baniyas SC 2026-11-08T20:30:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 49 results, 63 fixtures, 2 new
+[uae-365] wrote data/uae-league-live.json: 49 results, 63 fixtures, 0 new
