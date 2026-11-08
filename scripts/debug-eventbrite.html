@@ -1,7 +1,7 @@
 <!DOCTYPE html><html lang="en"><head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Human Verification</title>
+    <title>Let's confirm you are human</title>
     <style>
         body {
             font-family: "Arial";
@@ -10,13 +10,13 @@
     <script type="text/javascript">
     window.awsWafCookieDomainList = [];
     window.gokuProps = {
-"key":"AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AHRmMG0yr+GuLrBXZXhx8FCAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQML9honqqT2gAO8Ow+AgEQgDu5l9poUZRVGe2sEHWMXDOLNGNe1QFFRfEF8IPAmcJZ1ejDHY3pJksodoZgrhejYd3+hfQw9CK+ieV3fw==",
-          "iv":"NC4HQgD8sQAAC+C7",
-          "context":"X9K/u8cSyC5iz/vfmO+zMCIDCC6dbgxDD5WtjqQgfqV8HGnSxtDpFQWrSyVWDfXXCSH9q51Emh8inQqs4UO8O5NyAosqE3M10p4nI/H5nQohOKbmHBTbDLx/AMkj5x8iFTZG+ElsTlF4UuUAabyyFa39TJOhhIRLPKrbA/1WVVSQw/VMqKp9U+qTstH0iKSxeaxHAK7tOhJRGOOMv2/Is6CU4ERYqrMMYJCf5Ib27ImJsl6RCCRsH/3gVxHSa+1JJHq7flpnhAxDBxbpXcB2xDOhB+j5tM8zEc6md5hpw931U8sqG07OEJ/SkE3EDyXD2XW2cjkkDvswzn63dce/2k8mgkQQTiFgTjP+p8UyEPNNji8Dxq0lNuhyMWieePDhylIFqLbivr9/lt37KHxkwZoR0ds8f75+EoovxBbdWAaNVSKr2DcH8RWe47aoquZFjdF5TIrFNejI+6Si/El+dhlGifpjvLtI7bmaf49xa236Psno/xgNk2UIVjhdcyqDaOUj1nb6t1MCyB3koJfs59E3RR6zPaQyaZeNb4fbFiYGA7GQHLihVHt/VrMg1wfLc+uTjvfGLEEhHmRjirGYqNEw4BQbBJdyeuHf9Tf7e0ZC3/6hB8SCDf2lHobOOBBrznl+s4GG83gWIO541aRs1Rkl6bxoVkkz5ikw19PYB385oXxATBd700bhYssY6nVFPPB+nT2zZuNt7nknC8EG7X/fQbWYZzO8m2QDO39ygU7UAoPAD0eG1UgdItqw5BorW1jj8qkseQAPNux2zpLMhLJNjC71q4DecQljc5dNi20P0Q=="
+"key":"AQIDAHjcYu/GjX+QlghicBgQ/7bFaQZ+m5FKCMDnO+vTbNg96AEcUYorMiinvHa0SD3HsAgXAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMsTPqOrOgezybPGSlAgEQgDvE6j9FY2T1YGMmqNfGFMTxBixmWubg1qOPAfY6RwXhzSlpZZzS4tvHjtS20DhxUyHfhKS2J+xVctj1NQ==",
+          "iv":"D57KZAALJAAABdtq",
+          "context":"KRslxQlrCydSedWqIyTY2qPf8KbJ0D9KoNHROt26hxzmuNH/i6VpWXyEs1fUdtER6xPa09+x+wThYrflB2kCHs8cCyDMsC5qD91Y0+1s8JpPRIQQ8ExTwDnjhIDHFmljjD/SU2dMGJbCf0mY44WfZ3Kfqkoh2FrzYrP/vXUljKqwAdQAKuXm/lbhF10kQLKq7bNqVTniZzECjUVQ6jZJjic/VhLMEGy0tXJpfd/htKotX2n6CafNyEaql+G/+c9XCZW+8dzuN9j6DqK0cf6cVBpbrcWmLpnEP4uG/JqSl2VwhwtnCrL409mle315YammgFFcmzwkM2XlGCPfp1YT7Sntm3w9+ffkRpi0reF1t8S76hSdGjgInB8BBNZesRxE72gW4rj8cpt4gJ0ghJ+3qZSlvsg+lyrcHKhuDLJ2hDcEKBNOHfadlexm6ssXl34kfQ8KJFSOMhajnqt1Z2+ZEcekeO1AxbXTwR6qYENBSIzHZ/vcUuU2PaVhWT0RlIBHoMUsJCByEK7FHudF9TXV3E8Zv3c1F4GPk2QGG4oZHCsyFY5eKm0w0a4f5e23FvxII2nRMc1+tXinFT2gv65sFOfrU4dEUQHTKVk3VMelcgG3pU1C3RNw1sWwjqClw7hnCiAL+h74cUMMaeU9Uyk2IHhxlaWu/7nLAWOyKYKq8TpgmXV49EjUXxs7r/txhMvXVcWlwMxlBrQGFm/doSL8iVfzrjbBV50F6BtZcynjAKCO54DZuKMdU3jwBmcuKcfYdL+TfB9RWiXy64fyzRfO+ewNaZJDRqTsTP2ALfFi2qJ/lg=="
 };
     </script>
-    <script src="https://0af0bdf40465.bdeb2789.us-west-2.token.awswaf.com/0af0bdf40465/e3e3fa888aeb/63e329aa85c9/challenge.js"></script>
-    <script src="https://0af0bdf40465.bdeb2789.us-west-2.captcha.awswaf.com/0af0bdf40465/e3e3fa888aeb/63e329aa85c9/captcha.js"></script>
+    <script src="https://0af0bdf40465.bb81f591.us-east-1.token.awswaf.com/0af0bdf40465/e3e3fa888aeb/63e329aa85c9/challenge.js"></script>
+    <script src="https://0af0bdf40465.bb81f591.us-east-1.captcha.awswaf.com/0af0bdf40465/e3e3fa888aeb/63e329aa85c9/captcha.js"></script>
 <style>/*@font-face {
     font-family:AmazonEmber;
     src: url("https://a0.awsstatic.com/libra-css/fonts/amazon-ember/AmazonEmber_Rg.woff2") format("woff2"), url("https://a0.awsstatic.com/libra-css/fonts/amazon-ember/AmazonEmber_Rg.woff") format("woff");
@@ -54,6 +54,14 @@ body {
     border: 1px solid #EC7210;
     font-weight: bold;
 }
+/* Without this a disabled Confirm looks and hovers like it still works. */
+.btn-primary:disabled,
+.btn-primary:disabled:hover {
+    background-color: #FF9902;
+    border-color: #FF9902;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
 
 .btn-icon {
     background-color: transparent;
@@ -68,8 +76,11 @@ body {
     min-height: 24px;
 }
 
-.amzn-captcha-modal {
-    background-color: #fff,
+/* WCAG 2.2 AA 1.4.3 Contrast (Minimum): our colours assume white, so the widget sets its own surface, text and form-control colours instead of taking the customer page's. */
+.amzn-captcha-root {
+    background-color: #fff;
+    color: #000;
+    color-scheme: light;
 }
 
 /* TODO: Fix this so the root uses classes instead of an ID */
@@ -82,6 +93,13 @@ body {
 #root *:focus {
     outline: 3px solid #0972d3;
     outline-offset: 1px;
+}
+
+/* WCAG 2.2 AA 1.4.11 Non-text Contrast: a ring at the widget's edge falls outside its white, so controls bring their own; containers we focus without a visible ring are left out. */
+.amzn-captcha-root button:focus,
+.amzn-captcha-root select:focus,
+.amzn-captcha-root input:focus {
+    box-shadow: 0 0 0 5px #fff;
 }
 
 .amzn-captcha-state-container {
@@ -180,7 +198,7 @@ select,
 }
 </style><link rel="stylesheet" href="https://static.captcha.awswaf.com/fonts/AmazonEmberLt/stylesheet.css"></head>
 <body>
-    <div id="captcha-container" dir="ltr" style="width: 320px; max-width: 100%; margin: 0px auto;"><div id="root" lang="en" style="font-family: &quot;Amazon Ember&quot;, Helvetica, Arial, sans-serif; width: 100%;"><div style="padding: 50px 0px; text-align: center; border-top: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204); margin: 0px auto; max-width: 500px; width: 100%;"><div style="display: none; background-color: rgb(255, 233, 228); padding: 5px 20px; margin-bottom: 20px; font-size: 0.875em;"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDhDMCAxMi40MTgzIDMuNTgxNzIgMTYgOCAxNkMxMi40MTgzIDE2IDE2IDEyLjQxODMgMTYgOEMxNiAzLjU4MTcyIDEyLjQxODMgMCA4IDBDMy41ODE3MiAwIDAgMy41ODE3MiAwIDhaTTE0IDhDMTQgMTEuMzEzNyAxMS4zMTM3IDE0IDggMTRDNC42ODYyOSAxNCAyIDExLjMxMzcgMiA4QzIgNC42ODYyOSA0LjY4NjI5IDIgOCAyQzExLjMxMzcgMiAxNCA0LjY4NjI5IDE0IDhaTTYuNTg1NzkgOEw0LjQ2Mjg5IDEwLjEyMjlMNS44NzcxMSAxMS41MzcxTDggOS40MTQyMUwxMC4xMjI5IDExLjUzNzFMMTEuNTM3MSAxMC4xMjI5TDkuNDE0MjEgOEwxMS41MzcxIDUuODc3MTFMMTAuMTIyOSA0LjQ2Mjg5TDggNi41ODU3OUw1Ljg3NzExIDQuNDYyODlMNC40NjI4OSA1Ljg3NzExTDYuNTg1NzkgOFoiIGZpbGw9IiNEMTMyMTIiLz4gPC9zdmc+IA=="><p style="margin-left: 10px;">Temporary error. Please try again.</p></div><div style="display: none; background-color: rgb(255, 233, 228); padding: 5px 20px; margin-bottom: 20px; font-size: 0.875em;"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDhDMCAxMi40MTgzIDMuNTgxNzIgMTYgOCAxNkMxMi40MTgzIDE2IDE2IDEyLjQxODMgMTYgOEMxNiAzLjU4MTcyIDEyLjQxODMgMCA4IDBDMy41ODE3MiAwIDAgMy41ODE3MiAwIDhaTTE0IDhDMTQgMTEuMzEzNyAxMS4zMTM3IDE0IDggMTRDNC42ODYyOSAxNCAyIDExLjMxMzcgMiA4QzIgNC42ODYyOSA0LjY4NjI5IDIgOCAyQzExLjMxMzcgMiAxNCA0LjY4NjI5IDE0IDhaTTYuNTg1NzkgOEw0LjQ2Mjg5IDEwLjEyMjlMNS44NzcxMSAxMS41MzcxTDggOS40MTQyMUwxMC4xMjI5IDExLjUzNzFMMTEuNTM3MSAxMC4xMjI5TDkuNDE0MjEgOEwxMS41MzcxIDUuODc3MTFMMTAuMTIyOSA0LjQ2Mjg5TDggNi41ODU3OUw1Ljg3NzExIDQuNDYyODlMNC40NjI4OSA1Ljg3NzExTDYuNTg1NzkgOFoiIGZpbGw9IiNEMTMyMTIiLz4gPC9zdmc+IA=="><p style="margin-left: 10px;">Before proceeding to your request, you need to solve a puzzle, and the puzzle requires Google Translate to be disabled. Please disable Google Translate and retry.</p></div><div><h1 style="font-weight: normal; color: rgb(221, 107, 16);">Let's confirm you are human</h1></div><div style="display: flex; flex-direction: column; margin-top: 10px;"><div id="root-instructions" style="text-align: initial; align-self: center; line-height: 22px;"><p>Complete the security check before continuing. This step verifies that you are not a bot, which helps to protect your account and prevent spam.</p></div><div id="verification-status" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; align-self: center; margin-top: 20px;"><div class="amzn-captcha-state-container" style="align-self: center;"><button class="amzn-captcha-verify-button btn btn-primary" id="amzn-captcha-verify-button" type="button" style="display: flex; padding: 5px 30px;">Begin<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDkgMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMS43ODQ2NyAwTDAuNTAwMjA1IDEuMjg0NDZMNi4yMTUwMyA3TDAuNTAwMjA1IDEyLjcxNTVMMS43ODQ2NyAxNEw4Ljc4NDY3IDdMMS43ODQ2NyAwWiIgZmlsbD0iYmxhY2siLz4gPC9zdmc+IA==" alt="" style="margin-left: 5px;"></button></div></div></div></div><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 5px;"><label for="amzn-captcha-lang-select" style="font-size: 0.875em;">Select language</label><select class="amzn-captcha-lang-selector" id="amzn-captcha-lang-select"><option value="ar" lang="ar">العربية</option><option value="cs" lang="cs">Čeština</option><option value="da" lang="da">Dansk</option><option value="de" lang="de">Deutsch</option><option value="en" lang="en" selected="">English</option><option value="es" lang="es">Español</option><option value="fr" lang="fr">Français</option><option value="id" lang="id">Bahasa Indonesia</option><option value="it" lang="it">Italiano</option><option value="ja" lang="ja">日本語</option><option value="ko" lang="ko">한국어</option><option value="nl" lang="nl">Nederlands</option><option value="pl" lang="pl">Polski</option><option value="pt" lang="pt">Português</option><option value="sv" lang="sv">Svenska</option><option value="th" lang="th">ไทย</option><option value="tr" lang="tr">Türkçe</option><option value="zh" lang="zh">中文</option></select><button type="button" class="amzn-captcha-lang-apply">Apply</button></div></div></div>
+    <div id="captcha-container" dir="ltr" style="width: 320px; max-width: 100%; margin: 0px auto;"><div id="root" class="amzn-captcha-root" lang="en" style="font-family: &quot;Amazon Ember&quot;, Helvetica, Arial, sans-serif; width: 100%;"><div style="padding: 50px 0px; text-align: center; border-top: 1px solid rgb(204, 204, 204); border-bottom: 1px solid rgb(204, 204, 204); margin: 0px auto; max-width: 500px; width: 100%;"><div role="alert" style="display: none; background-color: rgb(255, 233, 228); padding: 5px 20px; margin-bottom: 20px; font-size: 0.875em;"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDhDMCAxMi40MTgzIDMuNTgxNzIgMTYgOCAxNkMxMi40MTgzIDE2IDE2IDEyLjQxODMgMTYgOEMxNiAzLjU4MTcyIDEyLjQxODMgMCA4IDBDMy41ODE3MiAwIDAgMy41ODE3MiAwIDhaTTE0IDhDMTQgMTEuMzEzNyAxMS4zMTM3IDE0IDggMTRDNC42ODYyOSAxNCAyIDExLjMxMzcgMiA4QzIgNC42ODYyOSA0LjY4NjI5IDIgOCAyQzExLjMxMzcgMiAxNCA0LjY4NjI5IDE0IDhaTTYuNTg1NzkgOEw0LjQ2Mjg5IDEwLjEyMjlMNS44NzcxMSAxMS41MzcxTDggOS40MTQyMUwxMC4xMjI5IDExLjUzNzFMMTEuNTM3MSAxMC4xMjI5TDkuNDE0MjEgOEwxMS41MzcxIDUuODc3MTFMMTAuMTIyOSA0LjQ2Mjg5TDggNi41ODU3OUw1Ljg3NzExIDQuNDYyODlMNC40NjI4OSA1Ljg3NzExTDYuNTg1NzkgOFoiIGZpbGw9IiNEMTMyMTIiLz4gPC9zdmc+IA==" alt=""><p style="margin-left: 10px;"></p></div><div role="alert" style="display: none; background-color: rgb(255, 233, 228); padding: 5px 20px; margin-bottom: 20px; font-size: 0.875em;"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4gPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0wIDhDMCAxMi40MTgzIDMuNTgxNzIgMTYgOCAxNkMxMi40MTgzIDE2IDE2IDEyLjQxODMgMTYgOEMxNiAzLjU4MTcyIDEyLjQxODMgMCA4IDBDMy41ODE3MiAwIDAgMy41ODE3MiAwIDhaTTE0IDhDMTQgMTEuMzEzNyAxMS4zMTM3IDE0IDggMTRDNC42ODYyOSAxNCAyIDExLjMxMzcgMiA4QzIgNC42ODYyOSA0LjY4NjI5IDIgOCAyQzExLjMxMzcgMiAxNCA0LjY4NjI5IDE0IDhaTTYuNTg1NzkgOEw0LjQ2Mjg5IDEwLjEyMjlMNS44NzcxMSAxMS41MzcxTDggOS40MTQyMUwxMC4xMjI5IDExLjUzNzFMMTEuNTM3MSAxMC4xMjI5TDkuNDE0MjEgOEwxMS41MzcxIDUuODc3MTFMMTAuMTIyOSA0LjQ2Mjg5TDggNi41ODU3OUw1Ljg3NzExIDQuNDYyODlMNC40NjI4OSA1Ljg3NzExTDYuNTg1NzkgOFoiIGZpbGw9IiNEMTMyMTIiLz4gPC9zdmc+IA==" alt=""><p style="margin-left: 10px;"></p></div><div><h1 style="font-weight: normal; color: rgb(221, 107, 16);">Let's confirm you are human</h1></div><div style="display: flex; flex-direction: column; margin-top: 10px;"><div id="root-instructions" style="text-align: initial; align-self: center; line-height: 22px;"><p>Complete the security check before continuing. This step verifies that you are not a bot, which helps to protect your account and prevent spam.</p></div><div id="verification-status" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center; align-self: center; margin-top: 20px;"><div class="amzn-captcha-state-container" style="align-self: center;"><button class="amzn-captcha-verify-button btn btn-primary" id="amzn-captcha-verify-button" type="button" style="display: flex; padding: 5px 30px;">Begin<img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSIxNCIgdmlld0JveD0iMCAwIDkgMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+IDxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMS43ODQ2NyAwTDAuNTAwMjA1IDEuMjg0NDZMNi4yMTUwMyA3TDAuNTAwMjA1IDEyLjcxNTVMMS43ODQ2NyAxNEw4Ljc4NDY3IDdMMS43ODQ2NyAwWiIgZmlsbD0iYmxhY2siLz4gPC9zdmc+IA==" alt="" style="margin-left: 5px;"></button></div></div></div></div><div style="display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 5px;"><label for="amzn-captcha-lang-select" style="font-size: 0.875em;">Select language</label><select class="amzn-captcha-lang-selector" id="amzn-captcha-lang-select"><option value="ar" lang="ar">العربية</option><option value="cs" lang="cs">Čeština</option><option value="da" lang="da">Dansk</option><option value="de" lang="de">Deutsch</option><option value="en" lang="en" selected="">English</option><option value="es" lang="es">Español</option><option value="fr" lang="fr">Français</option><option value="id" lang="id">Bahasa Indonesia</option><option value="it" lang="it">Italiano</option><option value="ja" lang="ja">日本語</option><option value="ko" lang="ko">한국어</option><option value="nl" lang="nl">Nederlands</option><option value="pl" lang="pl">Polski</option><option value="pt" lang="pt">Português</option><option value="sv" lang="sv">Svenska</option><option value="th" lang="th">ไทย</option><option value="tr" lang="tr">Türkçe</option><option value="zh" lang="zh">中文</option></select><button type="button" class="amzn-captcha-lang-apply">Apply</button></div></div></div>
     <script type="text/javascript">
         AwsWafIntegration.saveReferrer();
         window.addEventListener("load", function() {
