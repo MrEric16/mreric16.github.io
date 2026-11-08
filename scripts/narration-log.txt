@@ -1,5 +1,5 @@
 ERROR: ElevenLabs request failed: HTTP 401
-{"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 30066. You have 278 credits remaining, while 1244 credits are required for this request.","status":"quota_exceeded","request_id":"1842160fd3c116a702e7988861d900c5"}}
+{"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 30066. You have 278 credits remaining, while 1256 credits are required for this request.","status":"quota_exceeded","request_id":"5d1d6fe969127ad5b0630f193d452496"}}
   -> API key rejected: check the ELEVENLABS_API_KEY secret (and that the key has Text to Speech permission).
-[generate_voice_narration] provider=elevenlabs slug=airport-design-secrets voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=3109
+[generate_voice_narration] provider=elevenlabs slug=best-world-cup-finals voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=3139
 GENERATE_FAILED_SEE_LOG
