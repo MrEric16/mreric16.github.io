@@ -18,6 +18,17 @@
   ],
   "standings": [
     {
+      "team": "Al Jazira Club",
+      "played": 7,
+      "won": 5,
+      "drawn": 2,
+      "lost": 0,
+      "gf": 15,
+      "ga": 5,
+      "gd": 10,
+      "points": 17
+    },
+    {
       "team": "Sharjah FC",
       "played": 7,
       "won": 5,
@@ -29,25 +40,14 @@
       "points": 15
     },
     {
-      "team": "Al Jazira Club",
-      "played": 6,
-      "won": 4,
-      "drawn": 2,
-      "lost": 0,
-      "gf": 13,
-      "ga": 4,
-      "gd": 9,
-      "points": 14
-    },
-    {
       "team": "Al Wasl",
-      "played": 6,
+      "played": 7,
       "won": 4,
       "drawn": 1,
-      "lost": 1,
-      "gf": 17,
-      "ga": 6,
-      "gd": 11,
+      "lost": 2,
+      "gf": 18,
+      "ga": 8,
+      "gd": 10,
       "points": 13
     },
     {
@@ -84,6 +84,17 @@
       "points": 12
     },
     {
+      "team": "Al Nasr SC",
+      "played": 7,
+      "won": 3,
+      "drawn": 2,
+      "lost": 2,
+      "gf": 12,
+      "ga": 8,
+      "gd": 4,
+      "points": 11
+    },
+    {
       "team": "Ajman Club",
       "played": 6,
       "won": 3,
@@ -93,17 +104,6 @@
       "ga": 15,
       "gd": -3,
       "points": 9
-    },
-    {
-      "team": "Al Nasr SC",
-      "played": 6,
-      "won": 2,
-      "drawn": 2,
-      "lost": 2,
-      "gf": 8,
-      "ga": 7,
-      "gd": 1,
-      "points": 8
     },
     {
       "team": "Ittihad Kalba FC",
@@ -118,13 +118,13 @@
     },
     {
       "team": "United FC",
-      "played": 6,
+      "played": 7,
       "won": 2,
       "drawn": 1,
-      "lost": 3,
-      "gf": 13,
-      "ga": 15,
-      "gd": -2,
+      "lost": 4,
+      "gf": 14,
+      "ga": 19,
+      "gd": -5,
       "points": 7
     },
     {
@@ -173,16 +173,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Al Nasr SC",
-      "away": "United FC",
-      "start": "2026-11-08T14:55:00+05:00"
-    },
-    {
-      "home": "Al Jazira Club",
-      "away": "Al Wasl",
-      "start": "2026-11-08T14:55:00+05:00"
-    },
     {
       "home": "Ajman Club",
       "away": "Baniyas SC",
@@ -868,6 +858,22 @@
       "start": "2026-11-07T20:30:00+05:00",
       "homeScore": 1,
       "awayScore": 2,
+      "finished": true
+    },
+    {
+      "home": "Al Jazira Club",
+      "away": "Al Wasl",
+      "start": "2026-11-08T17:55:00+05:00",
+      "homeScore": 2,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Al Nasr SC",
+      "away": "United FC",
+      "start": "2026-11-08T17:55:00+05:00",
+      "homeScore": 4,
+      "awayScore": 1,
       "finished": true
     }
   ],
