@@ -3,10 +3,10 @@
 [ufc-fetch]   table preceded by/captioned: 'scheduled events'
 [ufc-fetch]   table preceded by/captioned: 'past events'
 [ufc-fetch]   table preceded by/captioned: 'number of events by year'
-[ufc-fetch]   preserved 4 previously-recorded result(s) across this run
+[ufc-fetch]   preserved 3 previously-recorded result(s) across this run
 [ufc-fetch] fetching ufc.com/events for Main Card start times (upcoming events only)...
-[ufc-fetch] ufc.com: captured 1793 chars of body text
-[ufc-fetch] ufc.com: text around first 'Main Card' match: 'ous\nNext\nCORTES ACOSTA VS WALKER\nSun, Nov 8 / 1:00 AM UTC / Main Card\nMeta APEX\n'
-[ufc-fetch] ufc.com: found 7 dated Main Card time(s): [('Nov', 8, 1, 0), ('Nov', 15, 2, 0), ('Nov', 21, 18, 0), ('Dec', 13, 2, 0), ('Jan', 17, 1, 0), ('Jan', 31, 2, 0), ('Feb', 6, 22, 0)]
-[ufc-fetch] attached a confirmed start time to 6/9 upcoming events
-[ufc-fetch] done: 9 scheduled events, 15 past events found (kept most recent slices)
+[ufc-fetch] ufc.com: captured 1652 chars of body text
+[ufc-fetch] ufc.com: text around first 'Main Card' match: 'NTS\nPrevious\nNext\nGANE VS HOKIT\nSun, Nov 15 / 2:00 AM UTC / Main Card\nMadison Sq'
+[ufc-fetch] ufc.com: found 6 dated Main Card time(s): [('Nov', 15, 2, 0), ('Nov', 21, 18, 0), ('Dec', 13, 2, 0), ('Jan', 17, 1, 0), ('Jan', 31, 2, 0), ('Feb', 6, 22, 0)]
+[ufc-fetch] attached a confirmed start time to 5/8 upcoming events
+[ufc-fetch] done: 8 scheduled events, 15 past events found (kept most recent slices)

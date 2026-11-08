@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T10:30:45.381914+00:00",
+  "generatedAt": "2026-11-08T10:38:13.583676+00:00",
   "scheduled": [
     {
       "name": "UFC Fight Night: Salkilld vs. Saint Denis",
@@ -37,7 +37,7 @@
     {
       "name": "UFC Fight Night 295",
       "date_text": "Dec 5, 2026",
-      "venue": "anb Arena",
+      "venue": "ANB Arena",
       "location": "Riyadh, Saudi Arabia"
     },
     {
@@ -53,21 +53,20 @@
       "venue": "Madison Square Garden",
       "location": "New York City,New York, U.S.",
       "start_tashkent": "2026-11-15T07:00:00+05:00"
-    },
-    {
-      "name": "UFC Fight Night: Cortes-Acosta vs. Walker",
-      "date_text": "Nov 7, 2026",
-      "venue": "Meta Apex",
-      "location": "Las Vegas,Nevada, U.S.",
-      "start_tashkent": "2026-11-08T06:00:00+05:00"
     }
   ],
   "past": [
     {
-      "name": "UFC Fight Night: Moicano vs. Nolan",
-      "date_text": "Oct 31, 2026",
+      "name": "UFC Fight Night: Cortes-Acosta vs. Walker",
+      "date_text": "Nov 7, 2026",
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S."
+    },
+    {
+      "name": "UFC Fight Night: Moicano vs. Nolan",
+      "date_text": "Oct 31, 2026",
+      "venue": "[20]",
+      "location": null
     },
     {
       "name": "UFC 333: Volkanovski vs. Evloev",
@@ -149,13 +148,6 @@
       "venue": "Belgrade Arena",
       "location": "Belgrade, Serbia",
       "result": "Uroš Medić def. Daniel Rodriguez (TKO, R1)"
-    },
-    {
-      "name": "UFC Fight Night: Ankalaev vs. Guskov",
-      "date_text": "Jul 25, 2026",
-      "venue": "Etihad Arena",
-      "location": "Abu Dhabi, United Arab Emirates",
-      "result": "Magomed Ankalaev def. Bogdan Guskov (TKO, R5 2:41)"
     }
   ]
 }
