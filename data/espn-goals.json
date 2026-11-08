@@ -1,6 +1,55 @@
 {
- "generatedAt": "2026-11-08T08:13:24.549591Z",
+ "generatedAt": "2026-11-08T15:27:25.518586Z",
  "results": [
+  {
+   "url": "espn:401882814",
+   "date": "2026-11-08",
+   "utc": "2026-11-08T13:00Z",
+   "home": "Elche",
+   "away": "Real Betis",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 2,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "R. Riquelme",
+     "minute": 81
+    },
+    {
+     "scorer": "M. Bartra",
+     "minute": 89
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401874810",
+   "date": "2026-11-08",
+   "utc": "2026-11-08T11:30Z",
+   "home": "Napoli",
+   "away": "Lazio",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "A. Pedraza (og)",
+     "minute": 48
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Frattesi",
+     "minute": 28
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
   {
    "url": "espn:401878758",
    "date": "2026-11-07",
