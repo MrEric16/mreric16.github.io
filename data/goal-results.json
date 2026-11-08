@@ -1,94 +1,6 @@
 {
-  "generatedAt": "2026-11-08T20:04:45.663364Z",
+  "generatedAt": "2026-11-08T23:53:34.584562Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/atletico-madrid-vs-manchester-united/0wFcZicmvz7v83QYu6zq4",
-      "date": "2026-10-13",
-      "home": "Atletico Madrid",
-      "away": "Manchester United",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "P. Barrios",
-          "minute": 1
-        },
-        {
-          "scorer": "A. Lookman",
-          "minute": 79
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/villarreal-vs-ssc-napoli/T_WiPJn1NqOSlEzGSn12w",
-      "date": "2026-10-13",
-      "home": "Villarreal",
-      "away": "Ssc Napoli",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 3,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "G. Mikautadze",
-          "minute": 23
-        },
-        {
-          "scorer": "S. Mourino",
-          "minute": 26
-        },
-        {
-          "scorer": "T. Oluwaseyi",
-          "minute": 86
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Rrahmani",
-          "minute": 8
-        }
-      ],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/galatasaray-vs-barcelona/eZxuHZ2WVD5Ku7oIFDNrO",
-      "date": "2026-10-13",
-      "home": "Galatasaray",
-      "away": "Barcelona",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 4,
-      "homeGoals": [
-        {
-          "scorer": "A. Batrakov",
-          "minute": 28
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Cancelo",
-          "minute": 43
-        },
-        {
-          "scorer": "F. Lopez",
-          "minute": 50
-        },
-        {
-          "scorer": "A. Gordon",
-          "minute": 53
-        },
-        {
-          "scorer": "K. Adeyemi",
-          "minute": 65
-        }
-      ],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/rb-leipzig-vs-psv-eindhoven/kY-7JMxqVtIPbOlnysNw4",
       "date": "2026-10-13",
@@ -7716,6 +7628,91 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/hoffenheim-vs-schalke-04/xCS3QwAa5rAFXLAd0piHD",
+      "date": "2026-11-08",
+      "home": "Hoffenheim",
+      "away": "Schalke 04",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "F. Asllani",
+          "minute": 10
+        },
+        {
+          "scorer": "T. Lemperle",
+          "minute": 26
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "C. Adamu",
+          "minute": 81
+        }
+      ],
+      "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/fiorentina-vs-juventus/9n9Ksmg7KzSPyfqRvugVK",
+      "date": "2026-11-08",
+      "home": "Fiorentina",
+      "away": "Juventus",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "M. Pellegrino",
+          "minute": 4
+        },
+        {
+          "scorer": "A. Njie",
+          "minute": 54
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "N. Woltemade",
+          "minute": 32
+        },
+        {
+          "scorer": "G. Bremer",
+          "minute": 66
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/lens-vs-marseille/ZWS4ofn50QNDJOYDCx2-6",
+      "date": "2026-11-08",
+      "home": "Lens",
+      "away": "Marseille",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "F. Thauvin",
+          "minute": 20
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "A. Gouiri",
+          "minute": 2
+        },
+        {
+          "scorer": "K. Abdallah",
+          "minute": 82
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7733,6 +7730,7 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
+    "https://www.goal.com/en/match/atletico-madrid-vs-barcelona/j8P7TrwQBXMYHPwkq0LUD": 2
   }
 }
