@@ -1,59 +1,6 @@
 {
-  "generatedAt": "2026-11-08T01:59:58.113405Z",
+  "generatedAt": "2026-11-08T08:39:40.600863Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/ac-milan-vs-venezia/wp3-igTHQzS7fx7UcH28w",
-      "date": "2026-08-28",
-      "home": "Ac Milan",
-      "away": "Venezia",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "G. Ramos",
-          "minute": 69
-        },
-        {
-          "scorer": "R. Halhal",
-          "minute": 89
-        }
-      ],
-      "awayGoals": [],
-      "competition": "ac-milan"
-    },
-    {
-      "url": "https://www.goal.com/en/match/hull-city-vs-everton/oAEjmfoe76gensqRDEPbP",
-      "date": "2026-10-11",
-      "home": "Hull City",
-      "away": "Everton",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "J. Gelhardt",
-          "minute": 48
-        },
-        {
-          "scorer": "M. Belloumi",
-          "minute": 74
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "K. Dewsbury-Hall",
-          "minute": 55
-        },
-        {
-          "scorer": "T. Barry",
-          "minute": 68
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/crystal-palace-vs-nottingham-forest/VuQE6wTUtMSkIQWPP9t1h",
       "date": "2026-10-11",
@@ -7814,6 +7761,46 @@
         }
       ],
       "competition": "psg"
+    },
+    {
+      "url": "https://www.goal.com/en/match/nottingham-forest-vs-manchester-city/-X8ZFe0pLlrlxh20SOEbC",
+      "date": "2026-11-07",
+      "home": "Nottingham Forest",
+      "away": "Manchester City",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "J. Cunha",
+          "minute": 6
+        },
+        {
+          "scorer": "L. Delap",
+          "minute": 18
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "R. Cherki",
+          "minute": 52
+        }
+      ],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/como-vs-roma/MxCD5JiW5oJjNJHTsfOyw",
+      "date": "2026-10-11",
+      "home": "Como",
+      "away": "Roma",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "roma"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7831,7 +7818,6 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/nottingham-forest-vs-manchester-city/-X8ZFe0pLlrlxh20SOEbC": 2
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
   }
 }
