@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261108092647">
+<meta name="app-build" content="20261108101117">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7628,6 +7628,11 @@ body.dark-mode .tool .v-pos{color:#d9a8ec; background:rgba(217,168,236,.16);}
 .tool .hc-link{border:none; background:transparent; color:var(--ff-accent); font:800 14px Nunito,sans-serif; cursor:pointer; padding:8px 4px;}
 .tool .mc-out{min-height:84px; padding:14px; border-radius:16px; background:var(--card); color:var(--ink); font:700 22px/1.5 'Baloo 2',sans-serif; word-break:break-word; margin:10px 0 0; box-shadow:0 3px 0 rgba(58,42,30,.08);}
 .tool .mc-out.idle{font:700 15px Nunito,sans-serif; color:var(--ink-soft);}
+.tool .mc-cam{position:relative; border-radius:16px; overflow:hidden; background:#14161B; margin:10px 0 0; aspect-ratio:4/3;}
+.tool .mc-cam video{position:absolute; inset:0; width:100%; height:100%; object-fit:fill; display:block;}
+.tool .mc-cam .mc-camMsg{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#F3EFE7; font:700 15px Nunito,sans-serif; text-align:center; padding:12px; pointer-events:none;}
+.tool .mc-mark{position:absolute; width:34px; height:34px; margin:-17px 0 0 -17px; border-radius:50%; border:3px solid var(--coral); box-shadow:0 0 0 2px rgba(0,0,0,.45); display:none; pointer-events:none;}
+.tool .mc-morseline{font:700 18px/1.5 'Baloo 2',sans-serif; letter-spacing:2px; color:var(--ink-soft); min-height:28px; margin-top:8px; word-break:break-word;}
 .tool .mc-keys{display:flex; gap:8px; margin:8px 0 0;}
 .tool .mc-keys button{flex:1; padding:12px 4px; border-radius:14px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 20px Nunito,sans-serif; cursor:pointer;}
 .tool .mc-keys button[data-k=" "], .tool .mc-keys button[data-k=" / "]{font-size:13px;}
@@ -37234,7 +37239,8 @@ var soundOn = lsGet('morseSound', true);
 var wpm = lsGet('morseWpm', 15);
 var text = lsGet('morseText', '');
 var ac = null, timers = [], playing = false, tones = [];
-__cl(function(){ stop(); try{ if(ac) ac.close(); }catch(e){} });
+__cl(function(){ alive = false; stop(); stopCam(); try{ if(ac) ac.close(); }catch(e){} });
+var alive = true;
 
 function morseOf(){ return mode === 'tm' ? toMorse(text).out : text.replace(/[\u00B7\u2022\u2219\u22C5]/g, '.').replace(/[\u2212\u2013\u2014\u2012]/g, '-').replace(/\|/g, '/'); }
 
@@ -37310,14 +37316,172 @@ function paint(){
   var c = document.getElementById('mcCount'); if(c) c.textContent = '';
 }
 function setMode(m){
-  if(m === mode) return; stop(); mode = m; lsSet('morseMode', mode); text = ''; lsSet('morseText', ''); render();
+  if(m === mode) return; stop(); stopCam(); mode = m; lsSet('morseMode', mode); text = ''; lsSet('morseText', ''); render();
 }
-function render(){
+
+/* ---- Camera: read a flashing light ---- */
+var GW = 80, GH = 60, GN = GW * GH, HN = 30, SN = 90;
+var CAM = null, camRuns = [], camMsgText = '';
+
+/* runs: alternating ON/OFF durations in ms, starting with ON. open: ms the current OFF has lasted so far. */
+function decodeRuns(runs, prior, open){
+  var ons = [], k;
+  for(k = 0; k < runs.length; k += 2) ons.push(runs[k]);
+  if(!ons.length) return { morse: '', text: '', unit: prior };
+  var sorted = ons.slice().sort(function(a, b){ return a - b; });
+  var c1 = sorted[0], c2 = sorted[sorted.length - 1], i, j;
+  for(i = 0; i < 10; i++){
+    var s1 = 0, n1 = 0, s2 = 0, n2 = 0;
+    for(j = 0; j < sorted.length; j++){ if(Math.abs(sorted[j] - c1) <= Math.abs(sorted[j] - c2)){ s1 += sorted[j]; n1++; } else { s2 += sorted[j]; n2++; } }
+    if(n1) c1 = s1 / n1;
+    if(n2) c2 = s2 / n2;
+  }
+  var unit;
+  if(c2 / c1 >= 2) unit = (c1 + c2 / 3) / 2;                       /* dots and dashes both seen */
+  else { var med = sorted[Math.floor(sorted.length / 2)]; unit = med < 2 * prior ? med : med / 3; }   /* one kind only: the Speed setting decides */
+  var all = runs.slice(); if(open > 0){ all.push(open); }
+  var morse = '', cur = '';
+  for(k = 0; k < all.length; k++){
+    var d = all[k];
+    if(k % 2 === 0){ cur += d < 2 * unit ? '.' : '-'; }
+    else if(d >= 2 * unit && cur){ morse += cur; cur = ''; morse += d >= 5 * unit ? ' / ' : ' '; }
+  }
+  if(cur) morse += cur;
+  morse = morse.replace(/ \/ $/, '').replace(/ $/, '');
+  var text = morse.split(' / ').map(function(w){ return w.split(' ').map(function(c){ return c ? (REV[c] || '?') : ''; }).join(''); }).join(' ');
+  return { morse: morse, text: text, unit: unit };
+}
+
+function camMsg(t){ camMsgText = t; var m = document.getElementById('mcCamMsg'); if(m){ m.textContent = t; m.style.display = t ? 'flex' : 'none'; } }
+function stopCam(){
+  var c = CAM; CAM = null;
+  if(c){ c.run = false; try{ c.stream.getTracks().forEach(function(t){ t.stop(); }); }catch(e){} }
+  var v = document.getElementById('mcVideo'); if(v){ try{ v.srcObject = null; }catch(e){} }
+  var mk = document.getElementById('mcMark'); if(mk) mk.style.display = 'none';
+  lamp(false);
+  var b = document.getElementById('mcCamBtn'); if(b) b.textContent = 'Start camera';
+  if(c) camMsg('Camera off');
+}
+function camPaint(){
+  var o = document.getElementById('mcOut'), m = document.getElementById('mcCamMorse'); if(!o || !m) return;
+  var open = (CAM && CAM.started && !CAM.on) ? performance.now() - CAM.t : 0;
+  var r = decodeRuns(camRuns, 1.2 / wpm * 1000, open);
+  m.textContent = r.morse;
+  o.textContent = r.text || 'Text appears here';
+  o.className = 'mc-out' + (r.text ? '' : ' idle');
+}
+function startCam(){
+  if(CAM) return;
+  var md = navigator.mediaDevices;
+  if(!md || !md.getUserMedia){ camMsg('Camera not available'); return; }
+  camMsg('Starting…');
+  md.getUserMedia({ video: { facingMode: { ideal: 'environment' }, width: { ideal: 640 }, height: { ideal: 480 } }, audio: false }).then(function(stream){
+    var v = document.getElementById('mcVideo');
+    if(!alive || mode !== 'cam' || !v){ stream.getTracks().forEach(function(t){ t.stop(); }); return; }
+    var cv = document.createElement('canvas'); cv.width = GW; cv.height = GH;
+    CAM = { stream: stream, run: true, ctx: cv.getContext('2d', { willReadFrequently: true }), cv: cv, f: 0,
+      hist: new Float32Array(HN * GN), cur: new Float32Array(GN), lock: -1, lockRange: 0,
+      ts: new Float64Array(HN), sig: new Float32Array(SN), sn: 0, on: false, started: false, t: performance.now() };
+    camRuns = [];
+    v.srcObject = stream; v.muted = true; v.setAttribute('playsinline', '');
+    v.onloadedmetadata = function(){ if(v.videoWidth) v.parentNode.style.aspectRatio = v.videoWidth + ' / ' + v.videoHeight; };
+    var p = v.play(); if(p && p.catch) p.catch(function(){});
+    camMsg('Point at the light'); var b = document.getElementById('mcCamBtn'); if(b) b.textContent = 'Stop camera';
+    var c = CAM;
+    var step = function(){ if(!CAM || CAM !== c || !c.run) return; camFrame(c, v); if(v.requestVideoFrameCallback) v.requestVideoFrameCallback(step); else requestAnimationFrame(step); };
+    if(v.requestVideoFrameCallback) v.requestVideoFrameCallback(step); else requestAnimationFrame(step);
+    var tick = function(){ if(!CAM || CAM !== c) return; camPaint(); window.setTimeout(tick, 200); };
+    tick();
+  }).catch(function(err){ camMsg(err && err.name === 'NotAllowedError' ? 'Camera blocked' : 'No camera found'); });
+}
+function camFrame(c, v){
+  if(!v.videoWidth) return;
+  var now = performance.now(), i, x, y;
+  c.ctx.drawImage(v, 0, 0, GW, GH);
+  var d = c.ctx.getImageData(0, 0, GW, GH).data, base = (c.f % HN) * GN;
+  for(i = 0; i < GN; i++){ var L = d[4 * i] * 0.299 + d[4 * i + 1] * 0.587 + d[4 * i + 2] * 0.114; c.cur[i] = L; c.hist[base + i] = L; }
+  c.ts[(c.f) % HN] = now; c.f++;
+  /* every 6 frames: find the cell that changes most over the last second = the flashing light */
+  if(c.f >= HN && c.f % 6 === 0){
+    var best = -1, br = 0, h, lr = 0;
+    for(i = 0; i < GN; i++){
+      var mn = 255, mx = 0;
+      for(h = 0; h < HN; h++){ var q = c.hist[h * GN + i]; if(q < mn) mn = q; if(q > mx) mx = q; }
+      var rg = mx - mn; if(rg > br){ br = rg; best = i; } if(i === c.lock) lr = rg;
+    }
+    c.lockRange = lr;
+    if(best >= 0 && br >= 45 && (c.lock < 0 || lr < 30 || br > lr * 1.4)){
+      var first = c.lock < 0; c.lock = best; c.lockRange = br;
+      if(first){   /* replay the last second so the flash that revealed the light is not lost */
+        var seq = [], t0, hh, mn2 = 255, mx2 = 0;
+        for(h = 0; h < HN; h++){ var ix = (c.f + h) % HN; seq.push({ v: c.hist[ix * GN + best], t: c.ts[ix] }); }
+        for(h = 0; h < seq.length; h++){ if(seq[h].v < mn2) mn2 = seq[h].v; if(seq[h].v > mx2) mx2 = seq[h].v; }
+        var on0 = false, t00 = seq[0].t;
+        for(h = 0; h < seq.length; h++){
+          var nv = on0 ? !(seq[h].v < mn2 + 0.4 * (mx2 - mn2)) : (seq[h].v > mn2 + 0.6 * (mx2 - mn2));
+          if(nv !== on0){
+            if(on0 || c.started) camRuns.push(seq[h].t - t00);
+            if(nv) c.started = true;
+            on0 = nv; t00 = seq[h].t;
+          }
+        }
+        for(h = 0; h < seq.length; h++){ c.sig[c.sn % SN] = seq[h].v; c.sn++; }
+        c.on = on0; c.t = t00; lamp(on0);
+      }
+    }
+  }
+  if(c.lock < 0){ return; }
+  /* signal = brightest value in a 5 x 5 block round the light, so a shaky hand does not lose it */
+  var lx = c.lock % GW, ly = (c.lock / GW) | 0, val = 0;
+  for(y = Math.max(0, ly - 2); y <= Math.min(GH - 1, ly + 2); y++) for(x = Math.max(0, lx - 2); x <= Math.min(GW - 1, lx + 2); x++){ var w = c.cur[y * GW + x]; if(w > val) val = w; }
+  c.sig[c.sn % SN] = val; c.sn++;
+  var n = Math.min(c.sn, SN), lo = 255, hi = 0;
+  for(i = 0; i < n; i++){ var z = c.sig[i]; if(z < lo) lo = z; if(z > hi) hi = z; }
+  var range = hi - lo, on = c.on;
+  if(range < 35){ on = false; } else if(!c.on && val > lo + 0.6 * range){ on = true; } else if(c.on && val < lo + 0.4 * range){ on = false; }
+  var mk = document.getElementById('mcMark');
+  if(mk){ mk.style.display = 'block'; mk.style.left = ((lx + 0.5) / GW * 100) + '%'; mk.style.top = ((ly + 0.5) / GH * 100) + '%'; }
+  if(on !== c.on){
+    var dur = now - c.t;
+    if(c.on || c.started){ camRuns.push(dur); }    /* an ON run, or an OFF run after the first flash, just ended */
+    if(on) c.started = true;
+    c.on = on; c.t = now; lamp(on);
+    if(camRuns.length > 600) camRuns.splice(0, 2);
+    camPaint();
+  }
+}
+function renderCam(){
   app.innerHTML =
     '<a class="back-link" href="#">← Back to the Lounge</a>' +
     '<div class="section-head" style="margin-top:8px;"><h2>Morse Code</h2></div>' +
     '<button id="mcSave" class="st-save" type="button">Save</button>' +
-    '<div class="st-tabs"><button data-m="tm" class="' + (mode === 'tm' ? 'on' : '') + '">Text → Morse</button><button data-m="mt" class="' + (mode === 'mt' ? 'on' : '') + '">Morse → Text</button></div>' +
+    '<div class="st-tabs"><button data-m="tm">Text → Morse</button><button data-m="mt">Morse → Text</button><button data-m="cam" class="on">Camera</button></div>' +
+    '<div class="mc-cam"><video id="mcVideo" playsinline muted></video><div class="mc-mark" id="mcMark"></div><div class="mc-camMsg" id="mcCamMsg"></div></div>' +
+    '<div class="mc-out idle" id="mcOut">Text appears here</div><div class="mc-morseline" id="mcCamMorse"></div>' +
+    '<div class="mc-lampwrap"><div class="mc-lamp" id="mcLamp"></div></div>' +
+    '<button class="hc-flip" id="mcCamBtn" type="button">Start camera</button>' +
+    '<div class="mc-btns"><button class="hc-link" id="mcCopy" type="button">Copy</button><button class="hc-link" id="mcClear" type="button">Clear</button></div>' +
+    '<div class="hc-opts"><label class="mc-speed">Speed <input type="range" id="mcWpm" min="5" max="30" step="1" value="' + wpm + '"> <b id="mcWpmV">' + wpm + '</b></label></div>';
+  Array.prototype.forEach.call(app.querySelectorAll('.st-tabs button'), function(b){ b.onclick = function(){ setMode(b.getAttribute('data-m')); }; });
+  camMsg(CAM ? camMsgText : 'Camera off');
+  document.getElementById('mcCamBtn').onclick = function(){ if(CAM) stopCam(); else startCam(); };
+  document.getElementById('mcWpm').oninput = function(e){ wpm = +e.target.value; lsSet('morseWpm', wpm); document.getElementById('mcWpmV').textContent = wpm; camPaint(); };
+  document.getElementById('mcClear').onclick = function(){ camRuns = []; if(CAM){ CAM.started = false; CAM.t = performance.now(); } camPaint(); };
+  document.getElementById('mcCopy').onclick = function(){
+    var r = decodeRuns(camRuns, 1.2 / wpm * 1000, 0).text; if(!r) return;
+    var b = this, done = function(){ b.textContent = 'Copied ✓'; window.setTimeout(function(){ b.textContent = 'Copy'; }, 1200); };
+    try{ navigator.clipboard.writeText(r).then(done, function(){}); }catch(e){}
+  };
+  document.getElementById('mcSave').onclick = toggleSave;
+  camPaint(); paintSave();
+}
+function render(){
+  if(mode === 'cam'){ renderCam(); return; }
+  app.innerHTML =
+    '<a class="back-link" href="#">← Back to the Lounge</a>' +
+    '<div class="section-head" style="margin-top:8px;"><h2>Morse Code</h2></div>' +
+    '<button id="mcSave" class="st-save" type="button">Save</button>' +
+    '<div class="st-tabs"><button data-m="tm" class="' + (mode === 'tm' ? 'on' : '') + '">Text → Morse</button><button data-m="mt" class="' + (mode === 'mt' ? 'on' : '') + '">Morse → Text</button><button data-m="cam" class="' + (mode === 'cam' ? 'on' : '') + '">Camera</button></div>' +
     '<textarea class="nw-ta" id="mcIn" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="' + (mode === 'tm' ? 'Type here' : '.... . .-.. .-.. --- / .-- --- .-. .-.. -..') + '"></textarea>' +
     (mode === 'mt' ? '<div class="mc-keys"><button type="button" data-k=".">·</button><button type="button" data-k="-">−</button><button type="button" data-k=" ">space</button><button type="button" data-k=" / ">/ word</button><button type="button" data-k="⌫">⌫</button></div>' : '') +
     '<div class="mc-out idle" id="mcOut"></div><div class="nw-hint" id="mcHint"></div>' +
@@ -37352,7 +37516,7 @@ function render(){
   paint(); paintSave();
 }
 render();
-window.MORSE = { toMorse: toMorse, fromMorse: fromMorse, TABLE: TABLE };
+window.MORSE = { toMorse: toMorse, fromMorse: fromMorse, TABLE: TABLE, decodeRuns: decodeRuns };
 
   return function(){ __td.forEach(function(f){ try{ f(); }catch(e){} }); __td = []; };
 };
