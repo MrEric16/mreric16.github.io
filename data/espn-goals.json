@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-08T19:09:58.200927Z",
+ "generatedAt": "2026-11-08T19:50:39.795044Z",
  "results": [
   {
    "url": "espn:401879244",
@@ -194,6 +194,45 @@
     {
      "scorer": "O. Óskarsson",
      "minute": 67
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882815",
+   "date": "2026-11-08",
+   "utc": "2026-11-08T17:30Z",
+   "home": "Celta",
+   "away": "Levante",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882807",
+   "date": "2026-11-08",
+   "utc": "2026-11-08T17:30Z",
+   "home": "Villarreal",
+   "away": "Getafe",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "T. Buchanan",
+     "minute": 80
+    },
+    {
+     "scorer": "C. Romero",
+     "minute": "90+1"
     }
    ],
    "awayGoals": [],
