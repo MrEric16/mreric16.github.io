@@ -10,6 +10,8 @@
 [uae-tsdb] TheSportsDB returned nothing; file untouched
 TSDB_FALLBACK_FAILED
 [uae-365] results: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4756581&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866909&direction=1"}
+[uae-365]   game Al-Wahda 0.0-0.0 Al Ain 2026-11-08T20:30:00+05:00 st=4/Ended
+[uae-365]   game Ajman Club 1.0-1.0 Baniyas 2026-11-08T20:30:00+05:00 st=4/Ended
 [uae-365]   game Jazira Abu Dhabi 2.0-1.0 Al Wasl 2026-11-08T17:55:00+05:00 st=4/Ended
 [uae-365]   game Al Nasr Dubai 4.0-1.0 Dubai United 2026-11-08T17:55:00+05:00 st=4/Ended
 [uae-365]   game Sharjah SC 2.0-0.0 Shabab Al Ahly 2026-11-07T20:30:00+05:00 st=4/Ended
@@ -178,8 +180,8 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Al-Wahda 1.0-1.0 Sharjah SC 2026-01-10T20:45:00+05:00 st=4/Ended
 [uae-365]   game Shabab Al Ahly 3.0-1.0 Al Wasl 2026-01-11T20:45:00+05:00 st=4/Ended
 [uae-365]   game Sharjah SC 0.0-2.0 Al Bataeh 2026-01-14T20:45:00+05:00 st=4/Ended
-[uae-365] results: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=168
-[uae-365]   sample: {"startTime": "2026-11-08T17:55:00+05:00", "statusGroup": 4, "statusText": "Ended", "shortStatusText": "Ended"} home=Jazira Abu Dhabi 2.0 away=Al Wasl 1.0
+[uae-365] results: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=170
+[uae-365]   sample: {"startTime": "2026-11-08T20:30:00+05:00", "statusGroup": 4, "statusText": "Ended", "shortStatusText": "Ended"} home=Al-Wahda 0.0 away=Al Ain 0.0
 [uae-tsdb] UNMAPPED team name: 'Dibba Al Fujairah'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
@@ -214,9 +216,7 @@ TSDB_FALLBACK_FAILED
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
 [uae-tsdb] UNMAPPED team name: 'Dibba Al Fujairah'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
-[uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866909&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866902&direction=1"}
-[uae-365]   game Al-Wahda 0.0-0.0 Al Ain 2026-11-08T20:30:00+05:00 st=3/1st Half
-[uae-365]   game Ajman Club 0.0-0.0 Baniyas 2026-11-08T20:30:00+05:00 st=3/1st Half
+[uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866908&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866902&direction=1"}
 [uae-365]   game Al Wasl -1.0--1.0 Hatta Club 2026-11-19T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Al Ain -1.0--1.0 Al Dhafra 2026-11-19T20:25:00+05:00 st=2/Sched.
 [uae-365]   game Kalba -1.0--1.0 Sharjah SC 2026-11-20T17:45:00+05:00 st=2/Sched.
@@ -224,9 +224,9 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Khor Fakkan -1.0--1.0 Jazira Abu Dhabi 2026-11-21T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Baniyas -1.0--1.0 Al Nasr Dubai 2026-11-21T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Dubai United -1.0--1.0 Al-Wahda 2026-11-21T20:25:00+05:00 st=2/Sched.
-[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=9
-[uae-365]   sample: {"startTime": "2026-11-08T20:30:00+05:00", "statusGroup": 3, "statusText": "1st Half", "shortStatusText": "1st Half"} home=Al-Wahda 0.0 away=Al Ain 0.0
-[uae-365] NEW RESULT Al Jazira Club 2-1 Al Wasl 2026-11-08T17:55:00+05:00
-[uae-365] NEW RESULT Al Nasr SC 4-1 United FC 2026-11-08T17:55:00+05:00
-[uae-365] 2 fixture(s) overdue with no result; NOT advancing generatedAt
-[uae-365] wrote data/uae-league-live.json: 47 results, 65 fixtures, 2 new
+[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=7
+[uae-365]   sample: {"startTime": "2026-11-19T17:45:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Wasl -1.0 away=Hatta Club -1.0
+[uae-365] NEW RESULT Al Wahda 0-0 Al Ain FC 2026-11-08T20:30:00+05:00
+[uae-365] NEW RESULT Ajman Club 1-1 Baniyas SC 2026-11-08T20:30:00+05:00
+[uae-365] verified current
+[uae-365] wrote data/uae-league-live.json: 49 results, 63 fixtures, 2 new
