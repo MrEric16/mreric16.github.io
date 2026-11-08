@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T14:40:48.439058+00:00",
+  "generatedAt": "2026-11-08T19:08:02.559969+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -218,6 +218,18 @@
       "points": 65
     },
     {
+      "team": "Dinamo Mn",
+      "played": 23,
+      "won": 24,
+      "otWon": 7,
+      "soWon": 1,
+      "soLost": 0,
+      "otLost": 3,
+      "lost": 0,
+      "gf": 56,
+      "points": 67
+    },
+    {
       "team": "Sibir",
       "played": 22,
       "won": 25,
@@ -230,16 +242,16 @@
       "points": 69
     },
     {
-      "team": "Dinamo Mn",
-      "played": 22,
-      "won": 23,
-      "otWon": 7,
-      "soWon": 1,
+      "team": "HC Sochi",
+      "played": 16,
+      "won": 24,
+      "otWon": 5,
+      "soWon": 3,
       "soLost": 0,
-      "otLost": 3,
+      "otLost": 0,
       "lost": 0,
-      "gf": 54,
-      "points": 65
+      "gf": 42,
+      "points": 64
     },
     {
       "team": "Lada",
@@ -252,18 +264,6 @@
       "lost": 0,
       "gf": 35,
       "points": 58
-    },
-    {
-      "team": "HC Sochi",
-      "played": 14,
-      "won": 23,
-      "otWon": 5,
-      "soWon": 2,
-      "soLost": 0,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 39,
-      "points": 60
     }
   ],
   "fixtures": [
@@ -2699,6 +2699,14 @@
     }
   ],
   "results": [
+    {
+      "home": "HC Sochi",
+      "away": "Dynamo Minsk",
+      "start": "2026-11-08T09:00:00+05:00",
+      "homeScore": 3,
+      "awayScore": 2,
+      "finished": true
+    },
     {
       "home": "Traktor",
       "away": "Avtomobilist",
