@@ -1,3 +1,5 @@
-[generate_voice_narration] provider=elevenlabs slug=two-hour-marathon voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=3045
-[generate_voice_narration] elevenlabs chunk 1/1 ok (3045 chars)
-[generate_voice_narration] wrote data/audio/two-hour-marathon.mp3 (2927011 bytes, 1 chunk(s), no post-processing)
+ERROR: ElevenLabs request failed: HTTP 401
+{"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 30066. You have 278 credits remaining, while 1244 credits are required for this request.","status":"quota_exceeded","request_id":"1842160fd3c116a702e7988861d900c5"}}
+  -> API key rejected: check the ELEVENLABS_API_KEY secret (and that the key has Text to Speech permission).
+[generate_voice_narration] provider=elevenlabs slug=airport-design-secrets voice_id=vA86gNSOveXJlcH1HsHW model=eleven_multilingual_v2 chars=3109
+GENERATE_FAILED_SEE_LOG
