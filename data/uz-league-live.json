@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-11-08T08:53:03.722672Z",
+  "generatedAt": "2026-11-08T15:55:21.057563Z",
   "teams": [
     {
       "name": "Neftchi Fargona",
-      "pld": 25,
-      "w": 18,
+      "pld": 26,
+      "w": 19,
       "d": 4,
       "l": 3,
-      "gf": 59,
-      "ga": 22,
-      "pts": 58
+      "gf": 61,
+      "ga": 23,
+      "pts": 61
     },
     {
       "name": "Pakhtakor",
-      "pld": 26,
-      "w": 16,
+      "pld": 27,
+      "w": 17,
       "d": 8,
       "l": 2,
-      "gf": 45,
-      "ga": 25,
-      "pts": 56
+      "gf": 48,
+      "ga": 26,
+      "pts": 59
     },
     {
       "name": "Navbahor Namangan",
@@ -32,13 +32,23 @@
       "pts": 55
     },
     {
+      "name": "Nasaf Qarshi",
+      "pld": 27,
+      "w": 12,
+      "d": 9,
+      "l": 6,
+      "gf": 39,
+      "ga": 24,
+      "pts": 45
+    },
+    {
       "name": "OKMK",
-      "pld": 26,
+      "pld": 27,
       "w": 13,
       "d": 6,
-      "l": 7,
-      "gf": 38,
-      "ga": 33,
+      "l": 8,
+      "gf": 39,
+      "ga": 35,
       "pts": 45
     },
     {
@@ -52,23 +62,13 @@
       "pts": 43
     },
     {
-      "name": "Nasaf Qarshi",
-      "pld": 26,
-      "w": 11,
-      "d": 9,
-      "l": 6,
-      "gf": 38,
-      "ga": 24,
-      "pts": 42
-    },
-    {
       "name": "Buxoro",
-      "pld": 26,
+      "pld": 27,
       "w": 12,
       "d": 6,
-      "l": 8,
+      "l": 9,
       "gf": 38,
-      "ga": 33,
+      "ga": 34,
       "pts": 42
     },
     {
@@ -143,12 +143,12 @@
     },
     {
       "name": "Kokand 1912",
-      "pld": 26,
+      "pld": 27,
       "w": 5,
       "d": 9,
-      "l": 12,
-      "gf": 25,
-      "ga": 36,
+      "l": 13,
+      "gf": 26,
+      "ga": 39,
       "pts": 24
     },
     {
@@ -163,6 +163,27 @@
     }
   ],
   "results": [
+    {
+      "home": "Pakhtakor",
+      "away": "Kokand 1912",
+      "raw_time": "08.11. 13:15",
+      "homeScore": 3,
+      "awayScore": 1
+    },
+    {
+      "home": "Buxoro",
+      "away": "Nasaf Qarshi",
+      "raw_time": "08.11. 11:00",
+      "homeScore": 0,
+      "awayScore": 1
+    },
+    {
+      "home": "Neftchi Fargona",
+      "away": "OKMK",
+      "raw_time": "08.11. 11:00",
+      "homeScore": 2,
+      "awayScore": 1
+    },
     {
       "home": "Qizilqum",
       "away": "Navbahor Namangan",
@@ -862,52 +883,9 @@
       "raw_time": "01.08. 14:30",
       "homeScore": 0,
       "awayScore": 0
-    },
-    {
-      "home": "Din. Samarkand",
-      "away": "Kokand 1912",
-      "raw_time": "29.07. 15:00",
-      "homeScore": 3,
-      "awayScore": 2
-    },
-    {
-      "home": "Nasaf Qarshi",
-      "away": "Qizilqum",
-      "raw_time": "28.07. 15:00",
-      "homeScore": 1,
-      "awayScore": 0
-    },
-    {
-      "home": "Neftchi Fargona",
-      "away": "Navbahor Namangan",
-      "raw_time": "28.07. 15:00",
-      "homeScore": 1,
-      "awayScore": 1
-    },
-    {
-      "home": "Xorazm Urganch",
-      "away": "Termez Surkhon",
-      "raw_time": "28.07. 15:00",
-      "homeScore": 1,
-      "awayScore": 0
     }
   ],
   "fixtures": [
-    {
-      "home": "Buxoro",
-      "away": "Nasaf Qarshi",
-      "raw_time": "08.11. 11:00"
-    },
-    {
-      "home": "Neftchi Fargona",
-      "away": "OKMK",
-      "raw_time": "08.11. 11:00"
-    },
-    {
-      "home": "Pakhtakor",
-      "away": "Kokand 1912",
-      "raw_time": "08.11. 13:15"
-    },
     {
       "home": "Neftchi Fargona",
       "away": "Bunyodkor",
