@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-08T07:19:25.520797Z",
+  "generatedAt": "2026-11-08T14:25:43.821784Z",
   "standings": {
     "PL": [
       {
@@ -13,6 +13,16 @@
         "pts": 27
       },
       {
+        "name": "Brighton Hove",
+        "pld": 10,
+        "w": 7,
+        "d": 1,
+        "l": 2,
+        "gf": 25,
+        "ga": 7,
+        "pts": 22
+      },
+      {
         "name": "Man City",
         "pld": 10,
         "w": 7,
@@ -23,24 +33,14 @@
         "pts": 21
       },
       {
-        "name": "Brighton Hove",
-        "pld": 9,
-        "w": 6,
-        "d": 1,
-        "l": 2,
-        "gf": 24,
-        "ga": 7,
-        "pts": 19
-      },
-      {
         "name": "Chelsea",
-        "pld": 9,
+        "pld": 10,
         "w": 5,
-        "d": 1,
+        "d": 2,
         "l": 3,
         "gf": 19,
         "ga": 15,
-        "pts": 16
+        "pts": 17
       },
       {
         "name": "Everton",
@@ -54,22 +54,32 @@
       },
       {
         "name": "Liverpool",
-        "pld": 9,
+        "pld": 10,
         "w": 4,
-        "d": 3,
+        "d": 4,
         "l": 2,
         "gf": 11,
         "ga": 9,
+        "pts": 16
+      },
+      {
+        "name": "Bournemouth",
+        "pld": 10,
+        "w": 4,
+        "d": 3,
+        "l": 3,
+        "gf": 15,
+        "ga": 13,
         "pts": 15
       },
       {
         "name": "Brentford",
-        "pld": 9,
+        "pld": 10,
         "w": 3,
         "d": 5,
-        "l": 1,
+        "l": 2,
         "gf": 16,
-        "ga": 9,
+        "ga": 10,
         "pts": 14
       },
       {
@@ -81,16 +91,6 @@
         "gf": 10,
         "ga": 8,
         "pts": 14
-      },
-      {
-        "name": "Bournemouth",
-        "pld": 9,
-        "w": 3,
-        "d": 3,
-        "l": 3,
-        "gf": 14,
-        "ga": 13,
-        "pts": 12
       },
       {
         "name": "Tottenham",
@@ -134,12 +134,12 @@
       },
       {
         "name": "Ipswich Town",
-        "pld": 9,
+        "pld": 10,
         "w": 3,
         "d": 2,
-        "l": 4,
+        "l": 5,
         "gf": 14,
-        "ga": 18,
+        "ga": 19,
         "pts": 11
       },
       {
@@ -173,6 +173,16 @@
         "pts": 9
       },
       {
+        "name": "Crystal Palace",
+        "pld": 10,
+        "w": 2,
+        "d": 2,
+        "l": 6,
+        "gf": 9,
+        "ga": 21,
+        "pts": 8
+      },
+      {
         "name": "Man United",
         "pld": 9,
         "w": 1,
@@ -183,24 +193,14 @@
         "pts": 7
       },
       {
-        "name": "Crystal Palace",
-        "pld": 9,
-        "w": 2,
-        "d": 1,
-        "l": 6,
-        "gf": 9,
-        "ga": 21,
-        "pts": 7
-      },
-      {
         "name": "Sunderland",
-        "pld": 9,
+        "pld": 10,
         "w": 1,
-        "d": 2,
+        "d": 3,
         "l": 6,
         "gf": 7,
         "ga": 17,
-        "pts": 5
+        "pts": 6
       }
     ],
     "PD": [
@@ -236,13 +236,13 @@
       },
       {
         "name": "Real Betis",
-        "pld": 11,
+        "pld": 12,
         "w": 7,
-        "d": 2,
+        "d": 3,
         "l": 2,
         "gf": 18,
         "ga": 15,
-        "pts": 23
+        "pts": 24
       },
       {
         "name": "Real Sociedad",
@@ -366,13 +366,13 @@
       },
       {
         "name": "Elche",
-        "pld": 11,
+        "pld": 12,
         "w": 2,
-        "d": 4,
+        "d": 5,
         "l": 5,
         "gf": 14,
         "ga": 18,
-        "pts": 10
+        "pts": 11
       },
       {
         "name": "Levante",
@@ -590,13 +590,13 @@
     "SA": [
       {
         "name": "Lazio",
-        "pld": 10,
+        "pld": 11,
         "w": 9,
-        "d": 1,
+        "d": 2,
         "l": 0,
-        "gf": 24,
-        "ga": 8,
-        "pts": 28
+        "gf": 25,
+        "ga": 9,
+        "pts": 29
       },
       {
         "name": "Roma",
@@ -619,6 +619,16 @@
         "pts": 25
       },
       {
+        "name": "Milan",
+        "pld": 11,
+        "w": 7,
+        "d": 3,
+        "l": 1,
+        "gf": 22,
+        "ga": 12,
+        "pts": 24
+      },
+      {
         "name": "Como 1907",
         "pld": 10,
         "w": 7,
@@ -627,16 +637,6 @@
         "gf": 18,
         "ga": 8,
         "pts": 23
-      },
-      {
-        "name": "Milan",
-        "pld": 10,
-        "w": 6,
-        "d": 3,
-        "l": 1,
-        "gf": 21,
-        "ga": 12,
-        "pts": 21
       },
       {
         "name": "Frosinone",
@@ -680,13 +680,13 @@
       },
       {
         "name": "Napoli",
-        "pld": 10,
+        "pld": 11,
         "w": 4,
-        "d": 2,
+        "d": 3,
         "l": 4,
-        "gf": 17,
-        "ga": 13,
-        "pts": 14
+        "gf": 18,
+        "ga": 14,
+        "pts": 15
       },
       {
         "name": "Torino",
@@ -700,23 +700,23 @@
       },
       {
         "name": "Genoa",
-        "pld": 10,
+        "pld": 11,
         "w": 4,
         "d": 1,
-        "l": 5,
+        "l": 6,
         "gf": 10,
-        "ga": 14,
+        "ga": 15,
         "pts": 13
       },
       {
         "name": "Atalanta",
-        "pld": 10,
+        "pld": 11,
         "w": 3,
-        "d": 2,
+        "d": 3,
         "l": 5,
         "gf": 16,
         "ga": 20,
-        "pts": 11
+        "pts": 12
       },
       {
         "name": "Lecce",
@@ -727,6 +727,16 @@
         "gf": 12,
         "ga": 22,
         "pts": 10
+      },
+      {
+        "name": "Monza",
+        "pld": 11,
+        "w": 2,
+        "d": 2,
+        "l": 7,
+        "gf": 17,
+        "ga": 24,
+        "pts": 8
       },
       {
         "name": "Fiorentina",
@@ -757,16 +767,6 @@
         "gf": 16,
         "ga": 29,
         "pts": 8
-      },
-      {
-        "name": "Monza",
-        "pld": 10,
-        "w": 2,
-        "d": 1,
-        "l": 7,
-        "gf": 17,
-        "ga": 24,
-        "pts": 7
       },
       {
         "name": "Venezia FC",
@@ -812,13 +812,13 @@
       },
       {
         "name": "Lille",
-        "pld": 9,
+        "pld": 10,
         "w": 5,
-        "d": 3,
+        "d": 4,
         "l": 1,
         "gf": 12,
         "ga": 6,
-        "pts": 18
+        "pts": 19
       },
       {
         "name": "Olympique Lyon",
@@ -832,13 +832,13 @@
       },
       {
         "name": "Stade Rennais",
-        "pld": 9,
+        "pld": 10,
         "w": 5,
-        "d": 1,
+        "d": 2,
         "l": 3,
         "gf": 20,
         "ga": 19,
-        "pts": 16
+        "pts": 17
       },
       {
         "name": "Marseille",
@@ -1339,7 +1339,7 @@
       "fixtures": [
         {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 354,
@@ -1352,11 +1352,11 @@
             "shortName": "Liverpool"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -1370,7 +1370,7 @@
         },
         {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 71,
@@ -1383,11 +1383,11 @@
             "shortName": "Chelsea"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -1401,7 +1401,7 @@
         },
         {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 349,
@@ -1414,11 +1414,11 @@
             "shortName": "Bournemouth"
           },
           "score": {
-            "winner": null,
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 1
             },
             "halfTime": {
               "home": null,
@@ -1432,7 +1432,7 @@
         },
         {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 397,
@@ -1445,11 +1445,11 @@
             "shortName": "Brentford"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -3030,39 +3030,8 @@
     "SA": {
       "fixtures": [
         {
-          "utcDate": "2026-11-08T11:30:00Z",
-          "status": "TIMED",
-          "matchday": 11,
-          "homeTeam": {
-            "id": 113,
-            "name": "SSC Napoli",
-            "shortName": "Napoli"
-          },
-          "awayTeam": {
-            "id": 110,
-            "name": "SS Lazio",
-            "shortName": "Lazio"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 11,
           "homeTeam": {
             "id": 107,
@@ -3075,11 +3044,11 @@
             "shortName": "Milan"
           },
           "score": {
-            "winner": null,
+            "winner": "AWAY_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 1
             },
             "halfTime": {
               "home": null,
@@ -3093,7 +3062,7 @@
         },
         {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 11,
           "homeTeam": {
             "id": 5911,
@@ -3106,11 +3075,11 @@
             "shortName": "Atalanta"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -3186,6 +3155,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-08T11:30:00Z",
+          "status": "FINISHED",
+          "matchday": 11,
+          "homeTeam": {
+            "id": 113,
+            "name": "SSC Napoli",
+            "shortName": "Napoli"
+          },
+          "awayTeam": {
+            "id": 110,
+            "name": "SS Lazio",
+            "shortName": "Lazio"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Serie A"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-07T19:45:00Z",
           "status": "FINISHED",
@@ -3619,37 +3619,6 @@
             "name": "Serie A"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-10-31T14:00:00Z",
-          "status": "FINISHED",
-          "matchday": 10,
-          "homeTeam": {
-            "id": 103,
-            "name": "Bologna FC 1909",
-            "shortName": "Bologna"
-          },
-          "awayTeam": {
-            "id": 5911,
-            "name": "AC Monza",
-            "shortName": "Monza"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
         }
       ]
     },
@@ -3657,7 +3626,7 @@
       "fixtures": [
         {
           "utcDate": "2026-11-08T14:00:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 10,
           "homeTeam": {
             "id": 529,
@@ -3670,11 +3639,11 @@
             "shortName": "Lille"
           },
           "score": {
-            "winner": null,
+            "winner": "DRAW",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             },
             "halfTime": {
               "home": null,
@@ -5874,18 +5843,18 @@
     },
     "liverpool": {
       "nextFixture": {
-        "utcDate": "2026-11-08T14:00:00Z",
+        "utcDate": "2026-11-22T16:30:00Z",
         "status": "TIMED",
-        "matchday": 10,
+        "matchday": 11,
         "homeTeam": {
-          "id": 354,
-          "name": "Crystal Palace FC",
-          "shortName": "Crystal Palace"
-        },
-        "awayTeam": {
           "id": 64,
           "name": "Liverpool FC",
           "shortName": "Liverpool"
+        },
+        "awayTeam": {
+          "id": 66,
+          "name": "Manchester United FC",
+          "shortName": "Man United"
         },
         "score": {
           "winner": null,
@@ -5938,18 +5907,18 @@
     },
     "chelsea": {
       "nextFixture": {
-        "utcDate": "2026-11-08T14:00:00Z",
+        "utcDate": "2026-11-21T15:00:00Z",
         "status": "TIMED",
-        "matchday": 10,
+        "matchday": 11,
         "homeTeam": {
-          "id": 71,
-          "name": "Sunderland AFC",
-          "shortName": "Sunderland"
-        },
-        "awayTeam": {
           "id": 61,
           "name": "Chelsea FC",
           "shortName": "Chelsea"
+        },
+        "awayTeam": {
+          "id": 341,
+          "name": "Leeds United FC",
+          "shortName": "Leeds United"
         },
         "score": {
           "winner": null,
