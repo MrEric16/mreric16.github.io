@@ -1,63 +1,6 @@
 {
-  "generatedAt": "2026-11-08T08:39:40.600863Z",
+  "generatedAt": "2026-11-08T15:43:18.630939Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/crystal-palace-vs-nottingham-forest/VuQE6wTUtMSkIQWPP9t1h",
-      "date": "2026-10-11",
-      "home": "Crystal Palace",
-      "away": "Nottingham Forest",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 3,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "D. Kamada",
-          "minute": 41
-        },
-        {
-          "scorer": "J. Lerma",
-          "minute": 45
-        },
-        {
-          "scorer": "Y. Pino",
-          "minute": 59
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "D. Ndoye",
-          "minute": 3
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/liverpool-vs-manchester-city/g37Ny3yw-CgQMBeIv7ntl",
-      "date": "2026-10-11",
-      "home": "Liverpool",
-      "away": "Manchester City",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 3,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "E. Haaland",
-          "minute": 65
-        },
-        {
-          "scorer": "J. Doku",
-          "minute": 68
-        },
-        {
-          "scorer": "R. Cherki",
-          "minute": 78
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/elche-vs-celta-vigo/dATE23CSDhdSFShjebgCd",
       "date": "2026-10-11",
@@ -7801,6 +7744,51 @@
       "homeGoals": [],
       "awayGoals": [],
       "competition": "roma"
+    },
+    {
+      "url": "https://www.goal.com/en/match/elche-vs-real-betis/ZSuBwwgVeqEPCfuJaTFH1",
+      "date": "2026-11-08",
+      "home": "Elche",
+      "away": "Real Betis",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "R. Riquelme",
+          "minute": 81
+        },
+        {
+          "scorer": "M. Bartra",
+          "minute": 89
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/ssc-napoli-vs-lazio/b_vqMecgWWAgB7FuYSwgh",
+      "date": "2026-11-08",
+      "home": "Ssc Napoli",
+      "away": "Lazio",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Pedraza",
+          "minute": 48
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Frattesi",
+          "minute": 28
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {

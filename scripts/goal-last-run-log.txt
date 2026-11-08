@@ -1,11 +1,10 @@
 [goal-scraper] Run started.
 [goal-scraper] [PL] Found 5 finished-match links
-[goal-scraper] WARNING: Nottingham Forest scored 3 but only 2 scorer(s) were parsed for https://www.goal.com/en/match/nottingham-forest-vs-manchester-city/-X8ZFe0pLlrlxh20SOEbC
-[goal-scraper] [PL] SCORER PARSE FAILED 3 times, giving up and committing WITH INCOMPLETE SCORER DATA (page structure likely changed) for Nottingham Forest 3-1 Manchester City: https://www.goal.com/en/match/nottingham-forest-vs-manchester-city/-X8ZFe0pLlrlxh20SOEbC
-[goal-scraper] [PL] Added: Nottingham Forest 3-1 Manchester City
-[goal-scraper] [PD] Found 5 finished-match links
+[goal-scraper] [PD] Found 6 finished-match links
+[goal-scraper] [PD] Added: Elche 0-2 Real Betis
 [goal-scraper] [BL1] Found 6 finished-match links
-[goal-scraper] [SA] Found 5 finished-match links
+[goal-scraper] [SA] Found 6 finished-match links
+[goal-scraper] [SA] Added: Ssc Napoli 1-1 Lazio
 [goal-scraper] [FL1] Found 3 finished-match links
 [goal-scraper] [CL] Found 0 finished-match links
 [goal-scraper] [real-madrid] Found 29 finished-match links
@@ -93,6 +92,7 @@
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Chelsea vs Ac Milan on 2026-08-08
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Manchester United vs Ac Milan on 2026-08-15
 [goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Torino vs Ac Milan on 2026-08-23
+[goal-scraper] [ac-milan] Skipping stale match (older than 45 days): Ac Milan vs Venezia on 2026-08-28
 [goal-scraper] [psg] Found 25 finished-match links
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Atletico Madrid on 2025-06-15
 [goal-scraper] [psg] Skipping stale match (older than 45 days): Paris Saint Germain vs Botafogo Rj on 2025-06-19
@@ -148,7 +148,6 @@
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Roma vs Fiorentina on 2026-08-24
 [goal-scraper] WARNING: Roma scored 4 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/lecce-vs-roma/tW1qvyr9_Qo8wjo8JeDaG
 [goal-scraper] [roma] Skipping stale match (older than 45 days): Lecce vs Roma on 2026-08-31
-[goal-scraper] [roma] Added: Como 0-0 Roma
 [goal-scraper] [juventus] Found 25 finished-match links
 [goal-scraper] WARNING: Juventus scored 5 but only 3 scorer(s) were parsed for https://www.goal.com/en/match/al-ain-vs-juventus/hZXoigptTekk6p6Awa3MU
 [goal-scraper] [juventus] Skipping stale match (older than 45 days): Al Ain vs Juventus on 2025-06-18
