@@ -1,59 +1,6 @@
 {
-  "generatedAt": "2026-11-08T23:53:34.584562Z",
+  "generatedAt": "2026-11-09T03:54:44.284624Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/rb-leipzig-vs-psv-eindhoven/kY-7JMxqVtIPbOlnysNw4",
-      "date": "2026-10-13",
-      "home": "Rb Leipzig",
-      "away": "Psv Eindhoven",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "B. Gruda",
-          "minute": 75
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/viking-vs-bayern-munich/gc46mKhuWDFt75R9KaSkZ",
-      "date": "2026-10-13",
-      "home": "Viking",
-      "away": "Bayern Munich",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "G. Stensness",
-          "minute": 2
-        },
-        {
-          "scorer": "P. Christiansen",
-          "minute": 38
-        },
-        {
-          "scorer": "H. Haugen",
-          "minute": 90
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "H. Kane",
-          "minute": 54
-        },
-        {
-          "scorer": "L. Diaz",
-          "minute": 71
-        }
-      ],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN",
       "date": "2026-10-13",
@@ -7713,6 +7660,64 @@
         }
       ],
       "competition": "FL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/galatasaray-vs-barcelona/eZxuHZ2WVD5Ku7oIFDNrO",
+      "date": "2026-10-13",
+      "home": "Galatasaray",
+      "away": "Barcelona",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "A. Batrakov",
+          "minute": 28
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Cancelo",
+          "minute": 43
+        },
+        {
+          "scorer": "F. Lopez",
+          "minute": 50
+        },
+        {
+          "scorer": "A. Gordon",
+          "minute": 53
+        },
+        {
+          "scorer": "K. Adeyemi",
+          "minute": 65
+        }
+      ],
+      "competition": "barcelona"
+    },
+    {
+      "url": "https://www.goal.com/en/match/atletico-madrid-vs-barcelona/j8P7TrwQBXMYHPwkq0LUD",
+      "date": "2026-11-08",
+      "home": "Atletico Madrid",
+      "away": "Barcelona",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "G. Simeone",
+          "minute": 10
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "F. Lopez",
+          "minute": 45
+        }
+      ],
+      "competition": "barcelona"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7730,7 +7735,6 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/atletico-madrid-vs-barcelona/j8P7TrwQBXMYHPwkq0LUD": 2
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
   }
 }
