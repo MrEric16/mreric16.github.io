@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261109172404">
+<meta name="app-build" content="20261109172647">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -36403,6 +36403,7 @@ function hlKey(el, i){
   if(q('.flaggame-tile')) return 'photos';
   if(q('.fac-tile.all')) return 'archive';
   if(q('.random-tile')) return 'random';
+  if(q('a.domain-summary[href="#daily-challenge"]')) return 'daily';
   var h = q(':scope > .section-head h2, :scope > details > summary h2');
   if(h) return 'h-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
   var c = q('[class]'); return 'x-' + (c ? String(c.className).split(' ')[0] : i);
@@ -36419,6 +36420,7 @@ function hlApply(){
   if(!saved.length) return;
   var byKey = {}; els.forEach(function(el){ byKey[el.dataset.hl] = el; });
   var ordered = saved.filter(function(k){ return byKey[k]; }).map(function(k){ return byKey[k]; });
+  if(byKey.daily && saved.indexOf('daily') < 0){ ordered.unshift(byKey.daily); }   /* Daily Challenge sits first until the user drags it somewhere */
   els.forEach(function(el){ if(ordered.indexOf(el) < 0) ordered.push(el); });
   var marks = els.map(function(el){ var m = document.createComment(''); el.parentNode.insertBefore(m, el); return m; });
   els.forEach(function(el){ el.parentNode.removeChild(el); });
