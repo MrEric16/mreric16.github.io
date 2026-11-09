@@ -1,11 +1,11 @@
 [scrape] Run started. Today (Tashkent): 2026-11-09  Window end: 2026-11-23
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-11-09: 16 new event URLs discovered
+[scrape] calendar 2026-11-09: 15 new event URLs discovered
 [scrape] calendar 2026-11-10: 5 new event URLs discovered
 [scrape] calendar 2026-11-11: 2 new event URLs discovered
 [scrape] calendar 2026-11-12: 5 new event URLs discovered
 [scrape] calendar 2026-11-13: 9 new event URLs discovered
-[scrape] calendar 2026-11-14: 12 new event URLs discovered
+[scrape] calendar 2026-11-14: 13 new event URLs discovered
 [scrape] calendar 2026-11-15: 9 new event URLs discovered
 [scrape] calendar 2026-11-16: 0 new event URLs discovered
 [scrape] calendar 2026-11-17: 4 new event URLs discovered
@@ -17,9 +17,9 @@
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0341\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0352\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/08/12/spektakl-syn-19-sentyabrya-2026 title='Спектакль «Сын»' title_hits=[] text_hits=["'вино' ...'етектив: зритель перебирает версии, кто виноват, но\\xa0у\\xa0каждого подозреваемого нах'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n2\\xa0034\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n2\\xa0083\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/gorod/2026/11/03/drift title='Drift Show 2026' title_hits=[] text_hits=[]
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
@@ -28,7 +28,7 @@
 [scrape] calendar detail pass complete: 186 events kept from 74 pages checked
 [scrape] calendar detail pass drops: {'checked': 74, 'no_title': 0, 'excluded_or_banned': 10}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 9 events kept
+[scrape] iticket.uz cat=concert: 20 events kept
 [scrape] iticket.uz cat=theatre: 27 events kept
 [scrape] iticket.uz cat=exhibition: 2 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
@@ -36,6 +36,6 @@
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 224  |  after dedup: 217
+[scrape] TOTAL before dedup: 235  |  after dedup: 229
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 205 titles
+[scrape] translation cache: 206 titles
