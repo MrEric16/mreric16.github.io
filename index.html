@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261109171730">
+<meta name="app-build" content="20261109172404">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7656,13 +7656,6 @@ body.dark-mode .tool .v-pos{color:#d9a8ec; background:rgba(217,168,236,.16);}
 .tool .tm-msg{grid-column:1/-1; color:var(--ink-soft); font:700 14px Nunito,sans-serif; text-align:center; padding:10px;}
 .tool .sd-today{text-align:center; margin:14px 0 6px; color:var(--ink-soft); font:700 14px Nunito,sans-serif;}
 .tool .sd-today b{color:var(--ink); font-size:18px;}
-.dc-tile{display:flex; align-items:center; gap:14px; padding:16px 18px; border-radius:20px; text-decoration:none; color:#fff; background:linear-gradient(135deg,var(--coral),#e8505b 60%,#b5334a); box-shadow:0 4px 0 rgba(0,0,0,.14); margin:6px 0 14px;}
-.dc-tile .dc-ico{width:44px; height:44px; flex:0 0 44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.22); border-radius:14px;}
-.dc-tile .dc-ico svg{width:26px; height:26px;}
-.dc-tile .dc-txt{display:flex; flex-direction:column; gap:2px; flex:1; min-width:0;}
-.dc-tile .dc-txt b{font:900 18px 'Baloo 2',Nunito,sans-serif; line-height:1.15;}
-.dc-tile .dc-txt i{font:700 13px Nunito,sans-serif; font-style:normal; opacity:.92;}
-.dc-tile .dc-go{font:900 28px Nunito,sans-serif; opacity:.9;}
 .tool .dc-card{padding:16px; border-radius:18px; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.08); margin:10px 0; font:600 15px/1.5 Nunito,sans-serif;}
 .tool .dc-card p{margin:0 0 12px;}
 .tool .dc-bar{display:flex; justify-content:space-between; align-items:center; font:800 14px Nunito,sans-serif; color:var(--ink-soft); margin:8px 0;}
@@ -37897,11 +37890,7 @@ function dcFmt(ms){ var s = Math.round(ms / 1000); return Math.floor(s / 60) + '
 function dcTotals(s){ var ok = 0, ms = 0; (s.res || []).forEach(function(r){ if(r.ok) ok++; ms += r.ms || 0; }); return { ok: ok, ms: ms }; }
 /* tile on the home page */
 function dailyTileHtml(){
-  var s = dcLoad(), sub;
-  if(s && s.done){ var t = dcTotals(s); sub = 'Done today: ' + t.ok + '/10 in ' + dcFmt(t.ms); }
-  else if(s && s.res && s.res.length) sub = 'In progress: question ' + (s.idx + 1) + ' of 10';
-  else sub = 'Ten quick questions. New every day.';
-  return '<section><a class="dc-tile" href="#daily-challenge"><span class="dc-ico">' + icon('trophy') + '</span><span class="dc-txt"><b>Daily Challenge</b><i>' + sub + '</i></span><span class="dc-go">›</span></a></section>';
+  return '<section><div class="domain-group"><a class="section-head domain-summary" href="#daily-challenge" style="text-decoration:none; color:inherit;"><span class="emoji">' + icon('trophy') + '</span><h2>Daily Challenge</h2><span class="domain-chevron" style="margin-left:auto;">' + icon('chevronDown') + '</span></a></div></section>';
 }
 
 TOOL_MOUNT['daily-challenge'] = function(app){
