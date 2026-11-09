@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261109163515">
+<meta name="app-build" content="20261109165458">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7632,6 +7632,30 @@ body.dark-mode .tool .v-pos{color:#d9a8ec; background:rgba(217,168,236,.16);}
 .tool .mc-cam video{position:absolute; inset:0; width:100%; height:100%; object-fit:fill; display:block;}
 .tool .mc-cam .mc-camMsg{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#F3EFE7; font:700 15px Nunito,sans-serif; text-align:center; padding:12px; pointer-events:none;}
 .tool .mc-mark{position:absolute; width:34px; height:34px; margin:-17px 0 0 -17px; border-radius:50%; border:3px solid var(--coral); box-shadow:0 0 0 2px rgba(0,0,0,.45); display:none; pointer-events:none;}
+.tool .uc-cats{display:flex; gap:8px; overflow-x:auto; padding:2px 0 8px; margin:6px 0; scrollbar-width:none;}
+.tool .uc-cats::-webkit-scrollbar{display:none;}
+.tool .uc-cats button{flex:0 0 auto; padding:9px 14px; border-radius:999px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 14px Nunito,sans-serif; cursor:pointer;}
+.tool .uc-cats button.on{background:var(--coral); border-color:var(--coral); color:var(--on-coral,#fff);}
+.tool .uc-box{display:flex; flex-direction:column; gap:8px; padding:12px; border-radius:16px; background:var(--card); box-shadow:0 3px 0 rgba(58,42,30,.08);}
+.tool .uc-box input{width:100%; box-sizing:border-box; padding:10px; border-radius:12px; border:2px solid var(--line); background:transparent; color:var(--ink); font:800 26px Nunito,sans-serif;}
+.tool .uc-box select{width:100%; box-sizing:border-box; padding:10px; border-radius:12px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:700 15px Nunito,sans-serif;}
+.tool .uc-res{min-height:48px; padding:6px 10px; font:800 26px/1.3 Nunito,sans-serif; color:var(--ink); word-break:break-word;}
+.tool .uc-swap{display:block; margin:6px auto; width:44px; height:44px; border-radius:50%; border:none; background:var(--coral); color:var(--on-coral,#fff); font:900 20px Nunito,sans-serif; cursor:pointer;}
+.tool .uc-all{margin-top:12px; display:flex; flex-direction:column; gap:4px;}
+.tool .uc-row{display:flex; justify-content:space-between; gap:10px; padding:8px 12px; border-radius:12px; background:var(--card); color:var(--ink); font:600 14px Nunito,sans-serif;}
+.tool .uc-row b{font-weight:800; text-align:right; word-break:break-word;}
+.tool .uc-row.sel{outline:2px solid var(--coral);}
+.tool .tm-text{width:100%; box-sizing:border-box; padding:12px; border-radius:14px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:700 16px Nunito,sans-serif; resize:vertical;}
+.tool .tm-count{display:flex; align-items:center; justify-content:center; gap:18px; margin:12px 0; color:var(--ink); font:700 16px Nunito,sans-serif;}
+.tool .tm-count button{width:44px; height:44px; border-radius:50%; border:2px solid var(--line); background:var(--card); color:var(--ink); font:900 22px Nunito,sans-serif; cursor:pointer;}
+.tool .tm-out{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; margin-top:14px;}
+.tool .tm-team{border:3px solid; border-radius:14px; overflow:hidden; background:var(--card);}
+.tool .tm-t{padding:8px 10px; color:#fff; font:900 15px Nunito,sans-serif; display:flex; justify-content:space-between;}
+.tool .tm-t i{font-style:normal; opacity:.85;}
+.tool .tm-n{padding:7px 10px; color:var(--ink); font:700 15px Nunito,sans-serif; border-top:1px solid var(--line);}
+.tool .tm-msg{grid-column:1/-1; color:var(--ink-soft); font:700 14px Nunito,sans-serif; text-align:center; padding:10px;}
+.tool .sd-today{text-align:center; margin:14px 0 6px; color:var(--ink-soft); font:700 14px Nunito,sans-serif;}
+.tool .sd-today b{color:var(--ink); font-size:18px;}
 .tool .mc-morseline{font:700 18px/1.5 'Baloo 2',sans-serif; letter-spacing:2px; color:var(--ink-soft); min-height:28px; margin-top:8px; word-break:break-word;}
 .tool .mc-keys{display:flex; gap:8px; margin:8px 0 0;}
 .tool .mc-keys button{flex:1; padding:12px 4px; border-radius:14px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 20px Nunito,sans-serif; cursor:pointer;}
@@ -19445,6 +19469,9 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Calculator", emoji: icon('mathSymbol'), url: "#calculator", internal: false, sameTab: true, hide: true, kw: ["graph", "graphing", "graphing calculator", "graphing calc", "ti-84", "ti 84", "plot", "function", "equation", "y=", "sin cos tan", "trigonometry", "parabola", "calculator", "calc", "scientific calculator", "maths", "math", "sum", "add", "subtract", "multiply", "divide", "percentage", "percent", "square root", "sin", "cos", "tan", "log", "ln", "factorial", "power", "exponent", "arithmetic", "numbers"] },
   { name: "Heads or Tails", emoji: icon('coin'), url: "#heads-or-tails", internal: false, sameTab: true, hide: true, kw: ["heads or tails", "coin", "coin flip", "coin toss", "flip a coin", "toss a coin", "heads", "tails", "toss", "decide", "decision", "50/50", "fifty fifty", "random", "choose", "who goes first", "luck"] },
   { name: "Morse Code", emoji: icon('volume'), url: "#morse-code", internal: false, sameTab: true, hide: true, kw: ["morse", "morse code", "morse translator", "translator", "translate", "decode", "encode", "decoder", "encoder", "dots and dashes", "dot dash", "dits and dahs", "sos", "telegraph", "signal", "signals", "beep", "cipher", "code", "secret code", "text to morse", "morse to text", "radio", "wireless", "samuel morse"] },
+  { name: "Unit Converter", emoji: icon('mathSymbol'), url: "#unit-converter", internal: false, sameTab: true, hide: true, kw: ["unit converter", "converter", "convert", "conversion", "units", "metric", "imperial", "distance", "length", "speed", "weight", "temperature", "area", "volume", "miles", "kilometres", "km", "yards", "feet", "inches", "metres", "centimetres", "knots", "stone", "pounds", "kilograms", "celsius", "fahrenheit", "light year", "light years", "litres", "pints", "gallons", "acres"] },
+  { name: "Team Maker", emoji: icon('dice'), url: "#team-maker", internal: false, sameTab: true, hide: true, kw: ["team maker", "teams", "make teams", "random teams", "groups", "make groups", "split into groups", "group maker", "split class", "pairs", "random groups", "classroom", "divide"] },
+  { name: "Study Timer", emoji: icon('hourglass'), url: "#study-timer", internal: false, sameTab: true, hide: true, kw: ["study timer", "pomodoro", "focus", "focus timer", "revision", "revise", "study", "break", "work timer", "25 minutes", "concentrate", "homework timer"] },
   { name: "Name Wheel", emoji: icon('dice'), url: "#name-wheel", internal: false, sameTab: true, hide: true, kw: ["name wheel", "wheel", "spinner", "spin", "random name", "random student", "pick a student", "student picker", "name picker", "picker", "who is next", "who goes next", "raffle", "lottery", "draw names", "randomiser", "randomizer", "choose a student", "wheel of names", "classroom"] },
   { name: "Timer", emoji: icon('hourglass'), url: "#mock-timer", internal: false, sameTab: true, kw: ["timer", "ielts timer", "toefl timer", "mock test", "countdown", "section timer"] },
   { name: "Vocabulary", emoji: icon('book'), url: "#vocab-hub", internal: true, hub: true, kw: ["vocabulary", "words", "collocations", "phrasal verbs", "word forms", "ielts vocabulary"] },
@@ -36448,7 +36475,7 @@ document.addEventListener('click', function(e){
 /* ---- tools moved in from standalone pages ---- */
 var TOOL_MOUNT = {};
 var toolCleanup = null;
-var TOOL_WRAP = {'mock-timer':'','speaking-timer':'','name-wheel':'','heads-or-tails':'','morse-code':'','calculator':'max-width:460px;margin:0 auto;'};
+var TOOL_WRAP = {'mock-timer':'','speaking-timer':'','name-wheel':'','heads-or-tails':'','morse-code':'','unit-converter':'max-width:520px;margin:0 auto;','team-maker':'max-width:620px;margin:0 auto;','study-timer':'max-width:520px;margin:0 auto;','calculator':'max-width:460px;margin:0 auto;'};
 TOOL_MOUNT['mock-timer'] = function(app){
 
   var __td = [], __cl = function(f){ __td.push(f); };
@@ -37527,6 +37554,242 @@ window.MORSE = { toMorse: toMorse, fromMorse: fromMorse, TABLE: TABLE, decodeRun
 
   return function(){ __td.forEach(function(f){ try{ f(); }catch(e){} }); __td = []; };
 };
+/* ===== Unit Converter, Team Maker, Study Timer ===== */
+var MINI_PRE = function(app){
+  var o = { td: [] };
+  o.cl = function(f){ o.td.push(f); };
+  o.title = document.title; o.cl(function(){ document.title = o.title; });
+  try{
+    var c = getComputedStyle(document.body).getPropertyValue('--coral').trim(), e = document.createElement('i'); e.style.color = c; document.body.appendChild(e);
+    var m = getComputedStyle(e).color.match(/\d+(\.\d+)?/g); document.body.removeChild(e);
+    if(m){
+      var L = function(v){ v = v / 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); };
+      var l = 0.2126 * L(+m[0]) + 0.7152 * L(+m[1]) + 0.0722 * L(+m[2]);
+      app.style.setProperty('--on-coral', (1.05 / (l + 0.05)) >= ((l + 0.05) / 0.0556) ? '#fff' : '#111');
+    }
+  }catch(e){}
+  o.esc = function(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); };
+  o.lsGet = function(k, d){ try{ var v = localStorage.getItem(k); return v === null ? d : JSON.parse(v); }catch(e){ return d; } };
+  o.lsSet = function(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} };
+  o.on = function(t, ev, f){ t.addEventListener(ev, f); o.cl(function(){ t.removeEventListener(ev, f); }); };
+  o.bms = function(){ try{ var l = JSON.parse(localStorage.getItem('bookmarks') || '[]'); return Array.isArray(l) ? l : []; }catch(e){ return []; } };
+  o.saveKit = function(url, name){
+    var key = 'game:' + url;
+    var kit = {
+      paint: function(){ var b = document.getElementById('miniSave'); if(b){ var on = o.bms().some(function(x){ return x && x.key === key; }); b.textContent = on ? 'Saved ✓' : 'Save'; b.className = 'st-save' + (on ? ' on' : ''); } },
+      toggle: function(){
+        var l = o.bms(), on = l.some(function(b){ return b && b.key === key; });
+        l = on ? l.filter(function(b){ return !(b && b.key === key); }) : l.concat([{ key: key, type: 'game', url: url, name: name }]);
+        try{ localStorage.setItem('bookmarks', JSON.stringify(l)); }catch(e){}
+        kit.paint();
+      }
+    };
+    return kit;
+  };
+  o.stop = function(){ o.td.forEach(function(f){ try{ f(); }catch(e){} }); o.td = []; };
+  return o;
+};
+var MINI_BACK = '<a class="back-link" href="#">← Back to the Lounge</a>';
+function miniHead(t){ return '<div class="section-head" style="margin-top:8px;"><h2>' + t + '</h2></div><button id="miniSave" class="st-save" type="button">Save</button>'; }
+
+/* ---------- Unit Converter ---------- */
+/* every factor is exact (or the official definition) and is relative to the category's base unit */
+var UNIT_CATS = {
+  length: { name: 'Length', base: 'm', units: [
+    ['mm','millimetres',0.001],['cm','centimetres',0.01],['m','metres',1],['km','kilometres',1000],
+    ['in','inches',0.0254],['ft','feet',0.3048],['yd','yards',0.9144],['mi','miles',1609.344],
+    ['nmi','nautical miles',1852],['au','astronomical units',149597870700],['ly','light years',9460730472580800]] },
+  speed: { name: 'Speed', base: 'm/s', units: [
+    ['m/s','metres per second',1],['km/h','kilometres per hour',1/3.6],['mph','miles per hour',0.44704],
+    ['kn','knots',1852/3600],['ft/s','feet per second',0.3048],['c','speed of light',299792458]] },
+  weight: { name: 'Weight', base: 'kg', units: [
+    ['g','grams',0.001],['kg','kilograms',1],['t','tonnes',1000],['oz','ounces',0.028349523125],
+    ['lb','pounds',0.45359237],['st','stone',6.35029318]] },
+  temp: { name: 'Temperature', base: '°C', units: [['°C','Celsius'],['°F','Fahrenheit'],['K','Kelvin']] },
+  area: { name: 'Area', base: 'm²', units: [
+    ['cm²','square centimetres',0.0001],['m²','square metres',1],['ha','hectares',10000],['km²','square kilometres',1000000],
+    ['ft²','square feet',0.09290304],['yd²','square yards',0.83612736],['ac','acres',4046.8564224],['mi²','square miles',2589988.110336]] },
+  volume: { name: 'Volume', base: 'l', units: [
+    ['ml','millilitres',0.001],['l','litres',1],['m³','cubic metres',1000],
+    ['fl oz','UK fluid ounces',0.0284130625],['pt','UK pints',0.56826125],['gal','UK gallons',4.54609],
+    ['US pt','US pints',0.473176473],['US gal','US gallons',3.785411784]] },
+  time: { name: 'Time', base: 's', units: [
+    ['s','seconds',1],['min','minutes',60],['h','hours',3600],['day','days',86400],['wk','weeks',604800],['yr','years (365.25 days)',31557600]] }
+};
+function ucFmt(x){
+  if(!isFinite(x)) return '–';
+  if(x === 0) return '0';
+  var a = Math.abs(x);
+  if(a >= 1e12 || a < 1e-6){ var s = x.toExponential(6).replace(/\.?0+e/, 'e').replace('e+', ' × 10^').replace('e-', ' × 10^-'); return s; }
+  var t = parseFloat(x.toPrecision(9));
+  var str = t.toLocaleString('en-GB', { maximumFractionDigits: 10 });
+  return str;
+}
+function ucToBase(cat, ui, v){
+  var u = UNIT_CATS[cat].units[ui];
+  if(cat === 'temp'){ return ui === 0 ? v : ui === 1 ? (v - 32) * 5 / 9 : v - 273.15; }
+  return v * u[2];
+}
+function ucFromBase(cat, ui, b){
+  var u = UNIT_CATS[cat].units[ui];
+  if(cat === 'temp'){ return ui === 0 ? b : ui === 1 ? b * 9 / 5 + 32 : b + 273.15; }
+  return b / u[2];
+}
+window.UNITCONV = { cats: UNIT_CATS, toBase: ucToBase, fromBase: ucFromBase, fmt: ucFmt };
+TOOL_MOUNT['unit-converter'] = function(app){
+  var P = MINI_PRE(app), esc = P.esc;
+  var kit = P.saveKit('#unit-converter', 'Unit Converter');
+  var st = P.lsGet('unitConvState', { cat: 'length', from: 5, to: 7, val: '1' });
+  if(!UNIT_CATS[st.cat]) st = { cat: 'length', from: 5, to: 7, val: '1' };
+  function opts(cat, sel){ return UNIT_CATS[cat].units.map(function(u, i){ return '<option value="' + i + '"' + (i === sel ? ' selected' : '') + '>' + esc(u[0]) + ' - ' + esc(u[1]) + '</option>'; }).join(''); }
+  function render(){
+    var n = UNIT_CATS[st.cat].units.length; if(st.from >= n) st.from = 0; if(st.to >= n) st.to = Math.min(1, n - 1);
+    var h = MINI_BACK + miniHead('Unit Converter');
+    h += '<div class="uc-cats">' + Object.keys(UNIT_CATS).map(function(k){ return '<button data-c="' + k + '" class="' + (k === st.cat ? 'on' : '') + '">' + UNIT_CATS[k].name + '</button>'; }).join('') + '</div>';
+    h += '<div class="uc-box"><input id="ucIn" type="text" inputmode="decimal" autocomplete="off" value="' + esc(st.val) + '" aria-label="Value"><select id="ucFrom">' + opts(st.cat, st.from) + '</select></div>';
+    h += '<button class="uc-swap" id="ucSwap" type="button" aria-label="Swap">⇅</button>';
+    h += '<div class="uc-box out"><div class="uc-res" id="ucOut"></div><select id="ucTo">' + opts(st.cat, st.to) + '</select></div>';
+    h += '<div class="uc-all" id="ucAll"></div>';
+    app.innerHTML = h;
+    Array.prototype.forEach.call(app.querySelectorAll('.uc-cats button'), function(b){ b.onclick = function(){ st.cat = b.getAttribute('data-c'); st.from = 0; st.to = 1; P.lsSet('unitConvState', st); render(); }; });
+    var inp = document.getElementById('ucIn');
+    inp.oninput = function(){ st.val = inp.value; P.lsSet('unitConvState', st); calc(); };
+    document.getElementById('ucFrom').onchange = function(e){ st.from = +e.target.value; P.lsSet('unitConvState', st); calc(); };
+    document.getElementById('ucTo').onchange = function(e){ st.to = +e.target.value; P.lsSet('unitConvState', st); calc(); };
+    document.getElementById('ucSwap').onclick = function(){ var t = st.from; st.from = st.to; st.to = t; P.lsSet('unitConvState', st); render(); };
+    document.getElementById('miniSave').onclick = kit.toggle;
+    calc(); kit.paint();
+  }
+  function calc(){
+    var raw = String(st.val).replace(/,/g, '.').replace(/\s/g, ''), v = raw === '' || raw === '-' || raw === '.' ? NaN : Number(raw);
+    var out = document.getElementById('ucOut'), all = document.getElementById('ucAll'); if(!out) return;
+    if(isNaN(v)){ out.textContent = '–'; all.innerHTML = ''; return; }
+    var b = ucToBase(st.cat, st.from, v);
+    out.textContent = ucFmt(ucFromBase(st.cat, st.to, b));
+    all.innerHTML = UNIT_CATS[st.cat].units.map(function(u, i){ return '<div class="uc-row' + (i === st.to ? ' sel' : '') + '"><span>' + esc(u[1]) + '</span><b>' + ucFmt(ucFromBase(st.cat, i, b)) + ' ' + esc(u[0]) + '</b></div>'; }).join('');
+  }
+  render();
+  return P.stop;
+};
+
+/* ---------- Team Maker ---------- */
+var TEAM_COLOURS = ['#E8505B', '#2E86DE', '#2BB673', '#F2A33A', '#8E5BD1', '#16A6B6', '#D6568C', '#7C8B3A'];
+function tmShuffle(a){
+  a = a.slice();
+  var rnd = function(n){ try{ var u = new Uint32Array(1); window.crypto.getRandomValues(u); return u[0] % n; }catch(e){ return Math.floor(Math.random() * n); } };
+  for(var i = a.length - 1; i > 0; i--){ var j = rnd(i + 1), t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+function tmNames(text){ return String(text).split(/[\n,;]+/).map(function(s){ return s.trim(); }).filter(Boolean); }
+function tmDeal(names, k){ var teams = []; for(var i = 0; i < k; i++) teams.push([]); tmShuffle(names).forEach(function(n, i){ teams[i % k].push(n); }); return teams; }
+window.TEAMMAKER = { names: tmNames, deal: tmDeal };
+TOOL_MOUNT['team-maker'] = function(app){
+  var P = MINI_PRE(app), esc = P.esc;
+  var kit = P.saveKit('#team-maker', 'Team Maker');
+  var text = P.lsGet('nameWheelText', '');          /* same class list as the Name Wheel */
+  var k = P.lsGet('teamMakerCount', 2), teams = null;
+  if(typeof text !== 'string') text = '';
+  function paint(){
+    var h = MINI_BACK + miniHead('Team Maker');
+    h += '<textarea id="tmText" class="tm-text" placeholder="One name per line" rows="6">' + esc(text) + '</textarea>';
+    h += '<div class="tm-count"><button id="tmMinus" type="button" aria-label="Fewer teams">−</button><span><b id="tmK">' + k + '</b> teams</span><button id="tmPlus" type="button" aria-label="More teams">+</button></div>';
+    h += '<button class="v-btn" id="tmGo" type="button">' + (teams ? 'Shuffle again' : 'Make teams') + '</button>';
+    h += '<div class="tm-out" id="tmOut"></div>';
+    app.innerHTML = h;
+    var ta = document.getElementById('tmText');
+    ta.oninput = function(){ text = ta.value; P.lsSet('nameWheelText', text); };
+    document.getElementById('tmMinus').onclick = function(){ k = Math.max(2, k - 1); P.lsSet('teamMakerCount', k); document.getElementById('tmK').textContent = k; };
+    document.getElementById('tmPlus').onclick = function(){ k = Math.min(8, k + 1); P.lsSet('teamMakerCount', k); document.getElementById('tmK').textContent = k; };
+    document.getElementById('tmGo').onclick = go;
+    document.getElementById('miniSave').onclick = kit.toggle;
+    paintTeams(); kit.paint();
+  }
+  function go(){
+    var names = tmNames(text), out = document.getElementById('tmOut');
+    if(names.length < 2){ out.innerHTML = '<div class="tm-msg">Add at least two names</div>'; return; }
+    var kk = Math.min(k, names.length);
+    teams = tmDeal(names, kk);
+    document.getElementById('tmGo').textContent = 'Shuffle again';
+    paintTeams();
+  }
+  function paintTeams(){
+    var out = document.getElementById('tmOut'); if(!out || !teams) return;
+    out.innerHTML = teams.map(function(t, i){ return '<div class="tm-team" style="border-color:' + TEAM_COLOURS[i % 8] + ';"><div class="tm-t" style="background:' + TEAM_COLOURS[i % 8] + ';">Team ' + (i + 1) + ' <i>' + t.length + '</i></div>' + t.map(function(n){ return '<div class="tm-n">' + esc(n) + '</div>'; }).join('') + '</div>'; }).join('');
+  }
+  paint();
+  return P.stop;
+};
+
+/* ---------- Study Timer ---------- */
+function stTodayKey(){ var d = new Date(); return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate(); }
+TOOL_MOUNT['study-timer'] = function(app){
+  var P = MINI_PRE(app);
+  var kit = P.saveKit('#study-timer', 'Study Timer');
+  var cfg = P.lsGet('studyTimerCfg', { focus: 25, brk: 5, long: 15 });
+  var day = P.lsGet('studyTimerDay', { d: '', n: 0 }); if(day.d !== stTodayKey()) day = { d: stTodayKey(), n: 0 };
+  var phase = 'focus', left = cfg.focus * 60000, endAt = 0, running = false, round = 0, tickId = 0, actx = null;
+  function clamp(v, d){ v = parseInt(v, 10); return v >= 1 && v <= 180 ? v : d; }
+  function phaseMs(p){ return (p === 'focus' ? cfg.focus : p === 'brk' ? cfg.brk : cfg.long) * 60000; }
+  function fmt(ms){ var s = Math.max(0, Math.ceil(ms / 1000)); return String(Math.floor(s / 60)).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+  function beep(){
+    try{
+      actx = actx || new (window.AudioContext || window.webkitAudioContext)(); P.cl(function(){ try{ actx.close(); }catch(e){} });
+      for(var i = 0; i < 3; i++){
+        var o = actx.createOscillator(), g = actx.createGain(); o.frequency.value = 880; o.connect(g); g.connect(actx.destination);
+        var t = actx.currentTime + i * 0.35; g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(0.3, t + 0.02); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.25); o.start(t); o.stop(t + 0.3);
+      }
+    }catch(e){}
+  }
+  var LABEL = { focus: 'Focus', brk: 'Break', long: 'Long break' };
+  function paintClock(){
+    var c = document.getElementById('sdClock'), b = document.getElementById('sdBar'), ph = document.getElementById('sdPhase'); if(!c) return;
+    var ms = running ? Math.max(0, endAt - Date.now()) : left;
+    c.textContent = fmt(ms); ph.textContent = LABEL[phase];
+    b.style.width = (100 * ms / phaseMs(phase)) + '%';
+    document.title = (running ? fmt(ms) + ' ' + LABEL[phase] + ' · ' : '') + P.title;
+    var n = document.getElementById('sdN'); if(n) n.textContent = day.n;
+  }
+  function next(){
+    if(phase === 'focus'){ day.n++; P.lsSet('studyTimerDay', day); round++; phase = round % 4 === 0 ? 'long' : 'brk'; }
+    else phase = 'focus';
+    left = phaseMs(phase); running = false; clearInterval(tickId); setBtn(); paintClock();
+  }
+  function tick(){
+    if(!running) return;
+    if(endAt - Date.now() <= 0){ beep(); next(); return; }
+    paintClock();
+  }
+  function setBtn(){ var g = document.getElementById('sdGo'); if(g) g.textContent = running ? 'Pause' : (left < phaseMs(phase) ? 'Resume' : 'Start'); }
+  function go(){
+    if(running){ left = Math.max(0, endAt - Date.now()); running = false; clearInterval(tickId); }
+    else { endAt = Date.now() + left; running = true; clearInterval(tickId); tickId = window.setInterval(tick, 250); P.cl(function(){ clearInterval(tickId); }); }
+    setBtn(); paintClock();
+  }
+  function render(){
+    var h = MINI_BACK + miniHead('Study Timer');
+    h += '<div class="st-phase" id="sdPhase"></div><div class="st-clock" id="sdClock"></div><div class="mt-bar"><i id="sdBar"></i></div>';
+    h += '<div class="v-row"><button class="v-btn" id="sdGo" type="button">Start</button><button class="v-btn alt" id="sdSkip" type="button">Skip</button><button class="v-btn alt" id="sdReset" type="button">Reset</button></div>';
+    h += '<div class="sd-today"><b id="sdN">0</b> focus sessions today</div>';
+    h += '<div class="st-set"><label>Focus (min)<input id="sdF" type="number" min="1" max="180" inputmode="numeric" value="' + cfg.focus + '"></label><label>Break (min)<input id="sdB" type="number" min="1" max="180" inputmode="numeric" value="' + cfg.brk + '"></label><label>Long break<input id="sdL" type="number" min="1" max="180" inputmode="numeric" value="' + cfg.long + '"></label></div>';
+    app.innerHTML = h;
+    document.getElementById('sdGo').onclick = go;
+    document.getElementById('sdSkip').onclick = function(){ if(phase === 'focus'){ phase = 'brk'; } else phase = 'focus'; left = phaseMs(phase); running = false; clearInterval(tickId); setBtn(); paintClock(); };
+    document.getElementById('sdReset').onclick = function(){ left = phaseMs(phase); running = false; clearInterval(tickId); setBtn(); paintClock(); };
+    var onCfg = function(){
+      cfg = { focus: clamp(document.getElementById('sdF').value, cfg.focus), brk: clamp(document.getElementById('sdB').value, cfg.brk), long: clamp(document.getElementById('sdL').value, cfg.long) };
+      P.lsSet('studyTimerCfg', cfg);
+      if(!running){ left = phaseMs(phase); paintClock(); setBtn(); }
+    };
+    ['sdF', 'sdB', 'sdL'].forEach(function(id){ document.getElementById(id).onchange = onCfg; });
+    document.getElementById('miniSave').onclick = kit.toggle;
+    P.on(document, 'visibilitychange', function(){ if(running) tick(); });
+    paintClock(); setBtn(); kit.paint();
+  }
+  render();
+  return P.stop;
+};
+
+
 TOOL_MOUNT['calculator'] = function(app){
 
   var __td = [], __cl = function(f){ __td.push(f); };
