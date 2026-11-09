@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261109165458">
+<meta name="app-build" content="20261109171730">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7656,6 +7656,43 @@ body.dark-mode .tool .v-pos{color:#d9a8ec; background:rgba(217,168,236,.16);}
 .tool .tm-msg{grid-column:1/-1; color:var(--ink-soft); font:700 14px Nunito,sans-serif; text-align:center; padding:10px;}
 .tool .sd-today{text-align:center; margin:14px 0 6px; color:var(--ink-soft); font:700 14px Nunito,sans-serif;}
 .tool .sd-today b{color:var(--ink); font-size:18px;}
+.dc-tile{display:flex; align-items:center; gap:14px; padding:16px 18px; border-radius:20px; text-decoration:none; color:#fff; background:linear-gradient(135deg,var(--coral),#e8505b 60%,#b5334a); box-shadow:0 4px 0 rgba(0,0,0,.14); margin:6px 0 14px;}
+.dc-tile .dc-ico{width:44px; height:44px; flex:0 0 44px; display:flex; align-items:center; justify-content:center; background:rgba(255,255,255,.22); border-radius:14px;}
+.dc-tile .dc-ico svg{width:26px; height:26px;}
+.dc-tile .dc-txt{display:flex; flex-direction:column; gap:2px; flex:1; min-width:0;}
+.dc-tile .dc-txt b{font:900 18px 'Baloo 2',Nunito,sans-serif; line-height:1.15;}
+.dc-tile .dc-txt i{font:700 13px Nunito,sans-serif; font-style:normal; opacity:.92;}
+.dc-tile .dc-go{font:900 28px Nunito,sans-serif; opacity:.9;}
+.tool .dc-card{padding:16px; border-radius:18px; background:var(--card); color:var(--ink); box-shadow:0 3px 0 rgba(58,42,30,.08); margin:10px 0; font:600 15px/1.5 Nunito,sans-serif;}
+.tool .dc-card p{margin:0 0 12px;}
+.tool .dc-bar{display:flex; justify-content:space-between; align-items:center; font:800 14px Nunito,sans-serif; color:var(--ink-soft); margin:8px 0;}
+.tool .dc-bar b{font:900 20px Nunito,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums;}
+.tool .dc-big{text-align:center; padding:30px 16px; font:800 28px/1.25 'Baloo 2',sans-serif; color:var(--ink);}
+.tool .dc-big.sm{font-size:21px;}
+.tool .dc-yr{font:900 30px 'Baloo 2',sans-serif; color:var(--coral);}
+.tool .dc-hint{text-align:center; color:var(--ink-soft); font:700 15px/1.4 Nunito,sans-serif; margin:14px 0;}
+.tool .dc-word{display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin:14px 0;}
+.tool .dc-word span{min-width:30px; height:38px; padding:0 4px; display:flex; align-items:center; justify-content:center; border-bottom:3px solid var(--coral); font:900 24px Nunito,sans-serif; color:var(--ink);}
+.tool .dc-word span.bad{color:#E57373;}
+.tool .dc-wrong{text-align:center; color:var(--ink-soft); font:800 14px Nunito,sans-serif; margin-bottom:10px;}
+.tool .dc-keys{display:flex; flex-wrap:wrap; gap:6px; justify-content:center;}
+.tool .dc-keys button{width:38px; height:42px; border-radius:10px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 16px Nunito,sans-serif; cursor:pointer;}
+.tool .dc-keys button:disabled{opacity:.3;}
+.tool .dc-in{width:100%; box-sizing:border-box; padding:12px; margin:8px 0; border-radius:12px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 20px Nunito,sans-serif; text-align:center;}
+.tool .dc-in.ok{border-color:#2BB673;} .tool .dc-in.no{border-color:#E57373;}
+.tool .dc-skip{display:block; margin:14px auto 0;}
+.tool .dc-score{text-align:center; font:900 56px 'Baloo 2',sans-serif; color:var(--ink);}
+.tool .dc-score span{font-size:26px; opacity:.6;}
+.tool .dc-time{text-align:center; font:800 18px Nunito,sans-serif; color:var(--ink-soft); margin-bottom:10px;}
+.tool .dc-dots{display:flex; gap:6px; justify-content:center; flex-wrap:wrap; margin-bottom:12px;}
+.tool .dc-dots span{width:28px; height:28px; border-radius:50%; display:flex; align-items:center; justify-content:center; font:900 14px Nunito,sans-serif; color:#fff;}
+.tool .dc-dots span.ok{background:#2BB673;} .tool .dc-dots span.no{background:#E57373;}
+.tool .dc-err{min-height:20px; color:#E57373; font:700 13px Nunito,sans-serif; text-align:center; margin-bottom:6px;}
+.tool .dc-note{text-align:center; color:var(--ink-soft); font:700 14px Nunito,sans-serif; margin-top:8px;}
+.tool .dc-bh{font:900 16px 'Baloo 2',sans-serif; color:var(--ink); margin:18px 0 6px;}
+.tool .dc-empty{color:var(--ink-soft); font:700 14px Nunito,sans-serif;}
+.tool .dc-row{display:flex; align-items:center; gap:10px; padding:9px 12px; margin-bottom:4px; border-radius:12px; background:var(--card); color:var(--ink); font:700 15px Nunito,sans-serif;}
+.tool .dc-pos{width:22px; font-weight:900; color:var(--coral);} .tool .dc-nm{flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis;} .tool .dc-sc{font-weight:900;} .tool .dc-tm{color:var(--ink-soft); width:44px; text-align:right;}
 .tool .mc-morseline{font:700 18px/1.5 'Baloo 2',sans-serif; letter-spacing:2px; color:var(--ink-soft); min-height:28px; margin-top:8px; word-break:break-word;}
 .tool .mc-keys{display:flex; gap:8px; margin:8px 0 0;}
 .tool .mc-keys button{flex:1; padding:12px 4px; border-radius:14px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:800 20px Nunito,sans-serif; cursor:pointer;}
@@ -19469,6 +19506,7 @@ const GEOGRAPHY_HUB_TILES = [
   { name: "Calculator", emoji: icon('mathSymbol'), url: "#calculator", internal: false, sameTab: true, hide: true, kw: ["graph", "graphing", "graphing calculator", "graphing calc", "ti-84", "ti 84", "plot", "function", "equation", "y=", "sin cos tan", "trigonometry", "parabola", "calculator", "calc", "scientific calculator", "maths", "math", "sum", "add", "subtract", "multiply", "divide", "percentage", "percent", "square root", "sin", "cos", "tan", "log", "ln", "factorial", "power", "exponent", "arithmetic", "numbers"] },
   { name: "Heads or Tails", emoji: icon('coin'), url: "#heads-or-tails", internal: false, sameTab: true, hide: true, kw: ["heads or tails", "coin", "coin flip", "coin toss", "flip a coin", "toss a coin", "heads", "tails", "toss", "decide", "decision", "50/50", "fifty fifty", "random", "choose", "who goes first", "luck"] },
   { name: "Morse Code", emoji: icon('volume'), url: "#morse-code", internal: false, sameTab: true, hide: true, kw: ["morse", "morse code", "morse translator", "translator", "translate", "decode", "encode", "decoder", "encoder", "dots and dashes", "dot dash", "dits and dahs", "sos", "telegraph", "signal", "signals", "beep", "cipher", "code", "secret code", "text to morse", "morse to text", "radio", "wireless", "samuel morse"] },
+  { name: "Daily Challenge", emoji: icon('trophy'), url: "#daily-challenge", internal: false, sameTab: true, hide: true, kw: ["daily challenge", "daily", "challenge", "leaderboard", "daily quiz", "daily games", "quiz", "today"] },
   { name: "Unit Converter", emoji: icon('mathSymbol'), url: "#unit-converter", internal: false, sameTab: true, hide: true, kw: ["unit converter", "converter", "convert", "conversion", "units", "metric", "imperial", "distance", "length", "speed", "weight", "temperature", "area", "volume", "miles", "kilometres", "km", "yards", "feet", "inches", "metres", "centimetres", "knots", "stone", "pounds", "kilograms", "celsius", "fahrenheit", "light year", "light years", "litres", "pints", "gallons", "acres"] },
   { name: "Team Maker", emoji: icon('dice'), url: "#team-maker", internal: false, sameTab: true, hide: true, kw: ["team maker", "teams", "make teams", "random teams", "groups", "make groups", "split into groups", "group maker", "split class", "pairs", "random groups", "classroom", "divide"] },
   { name: "Study Timer", emoji: icon('hourglass'), url: "#study-timer", internal: false, sameTab: true, hide: true, kw: ["study timer", "pomodoro", "focus", "focus timer", "revision", "revise", "study", "break", "work timer", "25 minutes", "concentrate", "homework timer"] },
@@ -34862,6 +34900,7 @@ function viewHome(){
   return `
     <div class="story-bar">${storyBarHtml}
     </div>
+    ${dailyTileHtml()}
     <section>
       <details class="domain-group">
         <summary class="section-head domain-summary">
@@ -36475,7 +36514,7 @@ document.addEventListener('click', function(e){
 /* ---- tools moved in from standalone pages ---- */
 var TOOL_MOUNT = {};
 var toolCleanup = null;
-var TOOL_WRAP = {'mock-timer':'','speaking-timer':'','name-wheel':'','heads-or-tails':'','morse-code':'','unit-converter':'max-width:520px;margin:0 auto;','team-maker':'max-width:620px;margin:0 auto;','study-timer':'max-width:520px;margin:0 auto;','calculator':'max-width:460px;margin:0 auto;'};
+var TOOL_WRAP = {'mock-timer':'','speaking-timer':'','name-wheel':'','heads-or-tails':'','morse-code':'','unit-converter':'max-width:520px;margin:0 auto;','team-maker':'max-width:620px;margin:0 auto;','study-timer':'max-width:520px;margin:0 auto;','daily-challenge':'max-width:520px;margin:0 auto;','calculator':'max-width:460px;margin:0 auto;'};
 TOOL_MOUNT['mock-timer'] = function(app){
 
   var __td = [], __cl = function(f){ __td.push(f); };
@@ -37789,6 +37828,230 @@ TOOL_MOUNT['study-timer'] = function(app){
   return P.stop;
 };
 
+
+/* ===== Daily Challenge: one hard question from each of ten games, same for everyone, resets 23:59 Tashkent ===== */
+var DC_KEY = 'dailyChallenge_v1';
+var DC_LIMITS = { flag: 20, capital: 20, language: 20, currency: 20, hello: 20, silhouette: 20, tf: 15, hl: 15, hangman: 60, scramble: 40 };
+var DC_ORDER = ['flag', 'capital', 'language', 'currency', 'hello', 'silhouette', 'tf', 'hl', 'hangman', 'scramble'];
+var DC_TITLES = { flag: 'Guess the flag', capital: 'Capital city', language: 'Guess the language', currency: 'Guess the currency', hello: 'Say hello', silhouette: 'Country silhouette', tf: 'True or false', hl: 'Higher or lower', hangman: 'Hangman', scramble: 'Word scramble' };
+var DC_BAD_SUBS = ['fuck','shit','bitch','cunt','whore','slut','nigg','fagg','retard','bastard','asshole','pussy','penis','vagina','nazi','hitler','blyat','blyad','pidor','pidar','pizd','mudak','suka','dolboeb','ebat','ebal','zalup','gandon','yeban','yobany','dalbayob','qotoq','jalab','porno','twat','wank','dildo','rapist','rape'];
+var DC_BAD_TOKS = ['ass','dick','cock','sex','porn','anal','cum','tit','tits','fag','hui','xuy','huy','sik','siq','bj','kut','gay'];
+function dcNameOk(n){
+  n = String(n || '').trim();
+  if(!/^[A-Za-z][A-Za-z '-]{0,19}$/.test(n)) return false;
+  var low = n.toLowerCase().replace(/[01345$@!]/g, function(c){ return { '0':'o','1':'l','3':'e','4':'a','5':'s','$':'s','@':'a','!':'i' }[c]; });
+  var norm = low.replace(/[^a-z]/g, '');
+  for(var i = 0; i < DC_BAD_SUBS.length; i++) if(norm.indexOf(DC_BAD_SUBS[i]) >= 0) return false;
+  var toks = low.split(/[^a-z]+/);
+  for(var j = 0; j < toks.length; j++) if(DC_BAD_TOKS.indexOf(toks[j]) >= 0) return false;
+  return true;
+}
+/* the challenge day rolls over at 23:59 Asia/Tashkent (UTC+5): shift to Tashkent time, add one minute, take the date */
+function dcDayKey(){ return new Date(Date.now() + 5 * 3600000 + 60000).toISOString().slice(0, 10); }
+function dcMsToReset(){ var t = Date.now() + 5 * 3600000 + 60000; return 86400000 - (t % 86400000); }
+function dcSeedOf(str){ var h = 2166136261; for(var i = 0; i < str.length; i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
+function dcRng(seed){ var a = seed; return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
+function dcSeeded(seed, fn){ var orig = Math.random; Math.random = dcRng(seed); try{ return fn(); } finally{ Math.random = orig; } }
+function dcBuild(day){
+  var seed = dcSeedOf('daily-' + day), Q = {};
+  var pick = function(arr, k){ return dcSeeded(seed + k, function(){ return arr[Math.floor(Math.random() * arr.length)]; }); };
+  var r;
+  r = dcSeeded(seed + 1, function(){ return fgBuildRounds(FLAG_COUNTRIES, 30); }); r = r[r.length - 1];
+  Q.flag = { type: 'flag', item: r.correct, options: r.options.map(function(o){ return o.name; }), answer: r.correct.name };
+  r = dcSeeded(seed + 2, function(){ return ccBuildRounds(FLAG_COUNTRIES, 30, 'country-to-capital'); }); r = r[r.length - 1];
+  Q.capital = { type: 'capital', country: r.correct.name, options: r.options.map(function(o){ return o.capital; }), answer: r.correct.capital };
+  r = dcSeeded(seed + 3, function(){ return langBuildRounds(60); }).filter(function(x){ return x.correct.language !== 'English' && x.correct.otherOfficial; });
+  r = r[0] || dcSeeded(seed + 3, function(){ return langBuildRounds(60); }).filter(function(x){ return x.correct.language !== 'English'; })[0];
+  Q.language = { type: 'language', country: r.correct.name, options: r.options, answer: r.correct.language };
+  r = dcSeeded(seed + 4, function(){ return curBuildRounds(60); }).filter(function(x){ return x.correct.currency !== 'Euro' && x.correct.currency !== 'Dollar'; })[0];
+  Q.currency = { type: 'currency', country: r.correct.name, options: r.options, answer: r.correct.currency };
+  r = dcSeeded(seed + 5, function(){ return phraseLangBuildRounds('hard'); })[0];
+  Q.hello = { type: 'hello', phrase: r.correct.phrase, options: r.options, answer: r.correct.language };
+  r = dcSeeded(seed + 6, function(){ return silhouetteBuildRounds(SILHOUETTE_COUNTRIES, 30, 'hard'); }); r = r[r.length - 1];
+  Q.silhouette = { type: 'silhouette', item: r.correct, options: r.options.map(function(o){ return o.name; }), answer: r.correct.name };
+  r = pick(TF_QUESTIONS, 7);
+  Q.tf = { type: 'tf', statement: r.statement, answer: !!r.answer };
+  var pairs = [];
+  HL_EVENTS.forEach(function(a, i){ HL_EVENTS.forEach(function(b, j){ var d = Math.abs(a.year - b.year); if(i < j && d >= 3 && d <= 20) pairs.push([a, b]); }); });
+  r = pick(pairs, 8);
+  var flip = dcSeeded(seed + 9, function(){ return Math.random() < 0.5; }), A = flip ? r[1] : r[0], B = flip ? r[0] : r[1];
+  Q.hl = { type: 'hl', anchor: A.event, anchorYear: A.year, event: B.event, answer: B.year > A.year ? 'later' : 'earlier' };
+  r = pick(HANGMAN_WORDS.hard, 10);
+  Q.hangman = { type: 'hangman', word: String(r[0]).toUpperCase(), hint: r[1] };
+  r = pick(ANAGRAM_WORDS.filter(function(w){ return w.tier >= 4; }), 11);
+  var scr = dcSeeded(seed + 12, function(){ return anagramScrambleWord(r.word).join(''); });
+  Q.scramble = { type: 'scramble', word: r.word, scrambled: scr, clue: r.clue };
+  return Q;
+}
+window.DAILY = { dayKey: dcDayKey, build: dcBuild, nameOk: dcNameOk, order: DC_ORDER };
+
+function dcLoad(){
+  try{ var s = JSON.parse(localStorage.getItem(DC_KEY) || 'null'); if(s && s.day === dcDayKey()) return s; }catch(e){}
+  return null;
+}
+function dcSave(s){ try{ localStorage.setItem(DC_KEY, JSON.stringify(s)); }catch(e){} }
+function dcDevice(){
+  try{ var d = localStorage.getItem('dcDevice'); if(!d){ d = ''; var c = 'abcdefghijklmnopqrstuvwxyz0123456789'; for(var i = 0; i < 20; i++) d += c[Math.floor(Math.random() * c.length)]; localStorage.setItem('dcDevice', d); } return d; }catch(e){ return 'nodevice' + Date.now(); }
+}
+function dcFmt(ms){ var s = Math.round(ms / 1000); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
+function dcTotals(s){ var ok = 0, ms = 0; (s.res || []).forEach(function(r){ if(r.ok) ok++; ms += r.ms || 0; }); return { ok: ok, ms: ms }; }
+/* tile on the home page */
+function dailyTileHtml(){
+  var s = dcLoad(), sub;
+  if(s && s.done){ var t = dcTotals(s); sub = 'Done today: ' + t.ok + '/10 in ' + dcFmt(t.ms); }
+  else if(s && s.res && s.res.length) sub = 'In progress: question ' + (s.idx + 1) + ' of 10';
+  else sub = 'Ten quick questions. New every day.';
+  return '<section><a class="dc-tile" href="#daily-challenge"><span class="dc-ico">' + icon('trophy') + '</span><span class="dc-txt"><b>Daily Challenge</b><i>' + sub + '</i></span><span class="dc-go">›</span></a></section>';
+}
+
+TOOL_MOUNT['daily-challenge'] = function(app){
+  var P = MINI_PRE(app), esc = P.esc;
+  var day = dcDayKey(), Q = null, S = dcLoad(), timerId = 0, lock = false;
+  try{ Q = dcBuild(day); }catch(e){ app.innerHTML = MINI_BACK + '<div class="empty-card">Challenge unavailable</div>'; return P.stop; }
+  P.cl(function(){ clearInterval(timerId); });
+  var limit = function(k){ return DC_LIMITS[k] * 1000; };
+  function head(){ return MINI_BACK + '<div class="section-head" style="margin-top:8px;"><h2>Daily Challenge</h2></div>'; }
+
+  function intro(){
+    var h = head();
+    if(S && S.done){ return results(); }
+    var started = S && S.res && S.res.length;
+    h += '<div class="dc-card"><p>Ten games, one hard question each. Most correct wins, fastest breaks ties. One go a day, resets at 23:59.</p>' +
+         '<button class="v-btn" id="dcStart" type="button">' + (started ? 'Continue' : 'Start') + '</button></div>';
+    h += '<div id="dcBoard"></div>';
+    app.innerHTML = h;
+    document.getElementById('dcStart').onclick = begin;
+    board();
+  }
+  function begin(){
+    if(!S){ S = { day: day, idx: 0, res: [], qStart: 0, done: false, posted: false, hang: [] }; }
+    S.qStart = S.qStart || Date.now();
+    dcSave(S); question();
+  }
+  function board(){
+    var el = document.getElementById('dcBoard'); if(!el) return;
+    el.innerHTML = '<div class="dc-bh">Today\'s leaderboard</div><div class="dc-empty">Loading…</div>';
+    if(typeof supabaseClient === 'undefined' || !supabaseClient){ el.innerHTML = '<div class="dc-bh">Today\'s leaderboard</div><div class="dc-empty">Not available offline</div>'; return; }
+    supabaseClient.from('daily_scores').select('name,score,time_ms').eq('day', day).order('score', { ascending: false }).order('time_ms', { ascending: true }).limit(25).then(function(r){
+      var e2 = document.getElementById('dcBoard'); if(!e2) return;
+      var rows = r && r.data;
+      if(!rows || !rows.length){ e2.innerHTML = '<div class="dc-bh">Today\'s leaderboard</div><div class="dc-empty">' + (r && r.error ? 'Could not load' : 'No scores yet') + '</div>'; return; }
+      e2.innerHTML = '<div class="dc-bh">Today\'s leaderboard</div>' + rows.map(function(x, i){ return '<div class="dc-row"><span class="dc-pos">' + (i + 1) + '</span><span class="dc-nm">' + esc(x.name) + '</span><span class="dc-sc">' + x.score + '/10</span><span class="dc-tm">' + dcFmt(x.time_ms) + '</span></div>'; }).join('');
+    }, function(){});
+  }
+
+  /* ---- one question ---- */
+  function finishQ(ok, ms){
+    if(lock) return; lock = true; clearInterval(timerId);
+    S.res.push({ k: DC_ORDER[S.idx], ok: !!ok, ms: Math.max(0, Math.min(ms, limit(DC_ORDER[S.idx]))) });
+    S.idx++; S.qStart = 0; S.hang = [];
+    if(S.idx >= 10){ S.done = true; }
+    dcSave(S);
+  }
+  function advance(delay){ window.setTimeout(function(){ lock = false; if(S.done) results(); else { S.qStart = Date.now(); dcSave(S); question(); } }, delay); }
+  function question(){
+    lock = false;
+    var k = DC_ORDER[S.idx], q = Q[k];
+    var lim = limit(k), el0 = S.qStart ? Date.now() - S.qStart : 0;
+    if(el0 >= lim){ finishQ(false, lim); advance(0); return; }   /* time ran out while away */
+    var h = MINI_BACK + '<div class="dc-bar"><span>' + (S.idx + 1) + ' / 10 · ' + DC_TITLES[k] + '</span><b id="dcClock"></b></div><div class="fg-progress-bar"><div class="fg-progress-fill" style="width:' + (S.idx * 10) + '%"></div></div><div class="fg-wrap" id="dcQ">';
+    var opts = function(list, attr){ return '<div class="fg-options">' + list.map(function(o){ return '<button class="fg-option-btn" data-v="' + esc(o) + '">' + esc(o) + '</button>'; }).join('') + '</div>'; };
+    if(k === 'flag'){ h += fgFlagImageHtml(q.item) + '<div class="fg-question">Which country is this?</div>' + opts(q.options); }
+    else if(k === 'capital'){ h += '<div class="dc-big">' + esc(q.country) + '</div><div class="fg-question">What is its capital city?</div>' + opts(q.options); }
+    else if(k === 'language'){ h += '<div class="dc-big">' + esc(q.country) + '</div><div class="fg-question">What\'s the main language?</div>' + opts(q.options); }
+    else if(k === 'currency'){ h += '<div class="dc-big">' + esc(q.country) + '</div><div class="fg-question">What is its currency?</div>' + opts(q.options); }
+    else if(k === 'hello'){ h += '<div class="dc-big sm">' + esc(q.phrase) + '</div><div class="fg-question">Which language is this?</div>' + opts(q.options); }
+    else if(k === 'silhouette'){ h += silhouetteImageHtml(q.item) + '<div class="fg-question">Which country is this?</div>' + opts(q.options); }
+    else if(k === 'tf'){ h += '<div class="dc-big sm">' + esc(q.statement) + '</div><div class="fg-options"><button class="fg-option-btn" data-v="true">True</button><button class="fg-option-btn" data-v="false">False</button></div>'; }
+    else if(k === 'hl'){ h += '<div class="dc-big sm">' + esc(q.anchor) + '<br><span class="dc-yr">' + q.anchorYear + '</span></div><div class="fg-question">Did "' + esc(q.event) + '" happen earlier or later?</div><div class="fg-options"><button class="fg-option-btn" data-v="earlier">Earlier</button><button class="fg-option-btn" data-v="later">Later</button></div>'; }
+    else if(k === 'hangman'){ h += '<div class="dc-hint">' + esc(q.hint) + '</div><div class="dc-word" id="dcWord"></div><div class="dc-wrong" id="dcWrong"></div><div class="dc-keys" id="dcKeys"></div>'; }
+    else if(k === 'scramble'){ h += '<div class="dc-hint">' + esc(q.clue) + '</div><div class="dc-word">' + q.scrambled.split('').map(function(c){ return '<span>' + c + '</span>'; }).join('') + '</div><input id="dcIn" class="dc-in" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="' + (q.word.length + 2) + '" placeholder="Your answer"><button class="v-btn" id="dcCheck" type="button">Check</button>'; }
+    h += '</div><button class="hc-link dc-skip" id="dcSkip" type="button">Skip</button>';
+    app.innerHTML = h;
+    var clock = document.getElementById('dcClock');
+    var tick = function(){ var left = lim - (Date.now() - S.qStart); if(left <= 0){ finishQ(false, lim); advance(300); return; } clock.textContent = Math.ceil(left / 1000) + 's'; };
+    tick(); clearInterval(timerId); timerId = window.setInterval(tick, 250);
+    document.getElementById('dcSkip').onclick = function(){ if(lock) return; finishQ(false, 0); advance(0); };
+    var mcq = ['flag', 'capital', 'language', 'currency', 'hello', 'silhouette', 'tf', 'hl'].indexOf(k) >= 0;
+    if(mcq){
+      Array.prototype.forEach.call(app.querySelectorAll('.fg-option-btn'), function(b){
+        b.onclick = function(){
+          if(lock) return;
+          var v = b.getAttribute('data-v'), ans = k === 'tf' ? String(q.answer) : q.answer, ok = v === ans;
+          Array.prototype.forEach.call(app.querySelectorAll('.fg-option-btn'), function(x){ x.disabled = true; if(x.getAttribute('data-v') === ans) x.classList.add('fg-correct'); else if(x === b) x.classList.add('fg-wrong'); });
+          finishQ(ok, Date.now() - S.qStart); advance(900);
+        };
+      });
+    } else if(k === 'hangman'){ hangman(q); }
+    else { scramble(q); }
+  }
+  function hangman(q){
+    var word = q.word, guessed = S.hang || [];
+    var paint = function(){
+      var wrong = guessed.filter(function(c){ return word.indexOf(c) < 0; });
+      document.getElementById('dcWord').innerHTML = word.split('').map(function(c){ return '<span>' + (guessed.indexOf(c) >= 0 ? c : '') + '</span>'; }).join('');
+      document.getElementById('dcWrong').textContent = 'Wrong: ' + wrong.length + ' / 6' + (wrong.length ? ' · ' + wrong.join(' ') : '');
+      document.getElementById('dcKeys').innerHTML = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(function(c){ return '<button data-c="' + c + '"' + (guessed.indexOf(c) >= 0 ? ' disabled' : '') + '>' + c + '</button>'; }).join('');
+      Array.prototype.forEach.call(document.querySelectorAll('#dcKeys button'), function(b){ b.onclick = function(){ if(lock) return; guessed.push(b.getAttribute('data-c')); S.hang = guessed; dcSave(S); paint(); check(); }; });
+    };
+    var check = function(){
+      var wrong = guessed.filter(function(c){ return word.indexOf(c) < 0; }).length;
+      var won = word.split('').every(function(c){ return guessed.indexOf(c) >= 0; });
+      if(won || wrong >= 6){
+        if(!won) document.getElementById('dcWord').innerHTML = word.split('').map(function(c){ return '<span class="bad">' + c + '</span>'; }).join('');
+        finishQ(won, Date.now() - S.qStart); advance(won ? 700 : 1400);
+      }
+    };
+    paint();
+  }
+  function scramble(q){
+    var inp = document.getElementById('dcIn'), btn = document.getElementById('dcCheck');
+    var go = function(){
+      if(lock) return;
+      var v = inp.value.trim().toUpperCase();
+      if(v === q.word){ inp.classList.add('ok'); finishQ(true, Date.now() - S.qStart); advance(700); }
+      else { inp.classList.add('no'); window.setTimeout(function(){ inp.classList.remove('no'); }, 400); }
+    };
+    btn.onclick = go; inp.onkeydown = function(e){ if(e.key === 'Enter') go(); };
+  }
+
+  /* ---- results ---- */
+  function results(msg){
+    var t = dcTotals(S);
+    var h = head() + '<div class="dc-card dc-res"><div class="dc-score">' + t.ok + '<span>/10</span></div><div class="dc-time">' + dcFmt(t.ms) + '</div>';
+    h += '<div class="dc-dots">' + S.res.map(function(r, i){ return '<span class="' + (r.ok ? 'ok' : 'no') + '" title="' + esc(DC_TITLES[r.k] || '') + '">' + (r.ok ? '✓' : '✗') + '</span>'; }).join('') + '</div>';
+    if(S.posted){ h += '<div class="dc-note">Posted ✓ Come back after 23:59 for a new challenge.</div>'; }
+    else if(S.declined){ h += '<div class="dc-note">Not posted. Come back after 23:59 for a new challenge.</div>'; }
+    else {
+      h += '<input id="dcName" class="dc-in" type="text" maxlength="20" autocomplete="off" placeholder="Your name"><div class="dc-err" id="dcErr">' + (msg || '') + '</div>' +
+           '<div class="v-row"><button class="v-btn" id="dcPost" type="button">Post my name</button><button class="v-btn alt" id="dcExit" type="button">Exit without saving</button></div>';
+    }
+    h += '</div><div id="dcBoard"></div>';
+    app.innerHTML = h;
+    var post = document.getElementById('dcPost');
+    if(post){
+      post.onclick = function(){
+        var name = document.getElementById('dcName').value.trim(), err = document.getElementById('dcErr');
+        if(!dcNameOk(name)){ err.textContent = 'Use a real first name: letters only, no rude words.'; return; }
+        if(typeof supabaseClient === 'undefined' || !supabaseClient){ err.textContent = 'No connection'; return; }
+        post.disabled = true; err.textContent = 'Posting…';
+        supabaseClient.from('daily_scores').insert({ device: dcDevice(), name: name, score: t.ok, time_ms: Math.max(15000, t.ms) }).then(function(r){
+          if(r && r.error){
+            var dup = /duplicate|unique/i.test(r.error.message || '');
+            if(dup){ S.posted = true; dcSave(S); results(); return; }
+            post.disabled = false; err.textContent = /name not allowed/i.test(r.error.message || '') ? 'Name not allowed.' : 'Could not post. Try again.'; return;
+          }
+          S.posted = true; dcSave(S); results();
+        }, function(){ post.disabled = false; err.textContent = 'Could not post. Try again.'; });
+      };
+      document.getElementById('dcExit').onclick = function(){ S.declined = true; dcSave(S); location.hash = '#'; };
+    }
+    board();
+  }
+
+  if(S && S.done) results(); else intro();
+  return P.stop;
+};
 
 TOOL_MOUNT['calculator'] = function(app){
 
