@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261109172647">
+<meta name="app-build" content="20261109173549">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -36397,13 +36397,13 @@ function hlDraggables(){
 }
 function hlKey(el, i){
   var q = function(s){ return el.querySelector(s); };
+  if(q('a.random-tile[href="#daily-challenge"]')) return 'daily';
   if(q('.goodnews-tile')) return 'goodnews';
   if(q('.books-tile')) return 'books';
   if(q('.events-tile')) return 'maths';
   if(q('.flaggame-tile')) return 'photos';
   if(q('.fac-tile.all')) return 'archive';
   if(q('.random-tile')) return 'random';
-  if(q('a.domain-summary[href="#daily-challenge"]')) return 'daily';
   var h = q(':scope > .section-head h2, :scope > details > summary h2');
   if(h) return 'h-' + h.textContent.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
   var c = q('[class]'); return 'x-' + (c ? String(c.className).split(' ')[0] : i);
@@ -37892,7 +37892,7 @@ function dcFmt(ms){ var s = Math.round(ms / 1000); return Math.floor(s / 60) + '
 function dcTotals(s){ var ok = 0, ms = 0; (s.res || []).forEach(function(r){ if(r.ok) ok++; ms += r.ms || 0; }); return { ok: ok, ms: ms }; }
 /* tile on the home page */
 function dailyTileHtml(){
-  return '<section><div class="domain-group"><a class="section-head domain-summary" href="#daily-challenge" style="text-decoration:none; color:inherit;"><span class="emoji">' + icon('trophy') + '</span><h2>Daily Challenge</h2><span class="domain-chevron" style="margin-left:auto;">' + icon('chevronDown') + '</span></a></div></section>';
+  return '<section><a class="random-tile" href="#daily-challenge" style="text-decoration:none;"><span class="icon">' + icon('trophy') + '</span><div><div class="title">Daily Challenge</div><div class="sub">Ten questions, one leaderboard</div></div></a></section>';
 }
 
 TOOL_MOUNT['daily-challenge'] = function(app){
