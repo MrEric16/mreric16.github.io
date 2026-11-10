@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261110152547">
+<meta name="app-build" content="20261110153425">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -23645,7 +23645,18 @@ function sayBtn(w){ return '<button type="button" class="say-btn" data-say="' + 
   function pick(){
     var vs = synth.getVoices() || [];
     var en = vs.filter(function(v){ return /^en[-_]/i.test(v.lang) || /^en$/i.test(v.lang); });
-    return en.find(function(v){ return /^en[-_]GB$/i.test(v.lang); }) || en[0] || null;
+    function score(v){
+      var n = (v.name || '') + ' ' + (v.voiceURI || ''), sc = 0;
+      if(/^en[-_]GB$/i.test(v.lang)) sc += 100;
+      if(/premium/i.test(n)) sc += 60; else if(/enhanced/i.test(n)) sc += 40;
+      if(/natural|neural|online/i.test(n)) sc += 50;
+      if(/daniel|oliver|serena|kate|arthur|martha|google uk/i.test(n)) sc += 10;
+      if(/eloquence|compact|novelty|whisper|bubbles|bad news|good news|cellos|zarvox|trinoids|organ|boing|bahh|albert|fred|junior|ralph|kathy|jester|superstar/i.test(n)) sc -= 80;
+      if(v.localService === false) sc += 5;
+      return sc;
+    }
+    en.sort(function(a, b){ return score(b) - score(a); });
+    return en[0] || null;
   }
   function check(){ document.body && document.body.classList.toggle('say-on', !!pick()); }
   try{ synth.addEventListener('voiceschanged', check); }catch(e){}
