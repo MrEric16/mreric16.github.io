@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261110162851">
+<meta name="app-build" content="20261110165608">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -26978,7 +26978,7 @@ function memoryFlagHtml(card){
   return `<div class="memory-card-flag-bg" data-fallback="${escapeHtml(emoji)}">` +
     `<img src="${url}" alt="" style="display:none" ` +
     `onload="this.parentElement.style.backgroundImage='url('+this.src+')'" ` +
-    `onerror="this.parentElement.textContent=this.parentElement.dataset.fallback; this.parentElement.classList.add('memory-card-flag-fallback');">` +
+    `onerror="var p=this.parentElement; p.textContent=p.dataset.fallback; p.classList.add('memory-card-flag-fallback');">` +
     `</div>`;
 }
 
@@ -37231,6 +37231,7 @@ function flip(){
   var pitch = PITCH[next.metal] || 2000;
   flipRing(pitch);
   var done = function(){
+    if(!document.getElementById('hcSpin')) return; /* left the page mid-flip */
     cur = want; setSpin(cur);
     busy = false; btn.disabled = false;
     if(heads) tally.h++; else tally.t++; lsSet('hcTally', tally);
