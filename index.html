@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261110152417">
+<meta name="app-build" content="20261110152547">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -24467,7 +24467,7 @@ function gameResultsHtml(list){
    arrays are frequently just empty [] in real responses - confirmed by checking actual
    API output before building this, not assumed - so a second, purpose-built source is
    used instead of shipping a feature that silently shows nothing half the time).
-   Deliberately no pronunciation/phonetics anywhere in this feature, per explicit request. */
+   Pronunciation: speaker button only (sayBtn), per explicit request 2026-11-10; no phonetic spelling. */
 // Static, in-house phrasal verb data - ~380 of the most common ESL/IELTS/TOEFL phrasal
 // verbs. Added because the two external dictionary APIs never even got a chance to cover
 // these: isDictLookupCandidate() only ever matched single words (or "to <word>"), so any
@@ -24984,7 +24984,7 @@ function dictCardHtml(entry){
     <div class="dict-card">
       <div class="dict-card-head">
         <div>
-          <span class="dict-word">${escapeHtml(entry.word)}</span>
+          <span class="dict-word">${escapeHtml(entry.word)}</span>${sayBtn(entry.word)}
           ${entry.partOfSpeech ? `<span class="dict-pos">${escapeHtml(entry.partOfSpeech)}</span>` : ''}
         </div>
         <button class="bookmark-btn dict-save-btn ${saved ? 'active' : ''}" title="Save word">${saved ? icon('bookmarkFilled') : icon('bookmark')}</button>
@@ -25001,12 +25001,12 @@ function dictCardHtml(entry){
       ${entry.synonyms && entry.synonyms.length ? `
       <div class="dict-section">
         <div class="dict-label">Synonyms</div>
-        <div class="dict-text">${entry.synonyms.map(escapeHtml).join(', ')}</div>
+        <div class="dict-text">${entry.synonyms.map(w => escapeHtml(w) + sayBtn(w)).join(' ')}</div>
       </div>` : ''}
       ${entry.antonyms && entry.antonyms.length ? `
       <div class="dict-section">
         <div class="dict-label">Antonyms</div>
-        <div class="dict-text">${entry.antonyms.map(escapeHtml).join(', ')}</div>
+        <div class="dict-text">${entry.antonyms.map(w => escapeHtml(w) + sayBtn(w)).join(' ')}</div>
       </div>` : ''}
     </div>
   `;
