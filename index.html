@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261110012749">
+<meta name="app-build" content="20261110152417">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -5096,6 +5096,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     font-weight:600;
   }
   .otd-card a{color:#fff; text-decoration:underline;}
+  .say-btn{display:none; align-items:center; justify-content:center; vertical-align:middle; margin-left:6px; padding:4px; background:none; border:none; color:inherit; cursor:pointer; opacity:.75; border-radius:8px;}
+  body.say-on .say-btn{display:inline-flex;}
+  .say-btn:active{opacity:1; transform:scale(.92);}
   .wotd-word{font-family:'Baloo 2', sans-serif; font-size:22px; font-weight:700;}
   .wotd-type{font-family:'Space Mono', monospace; font-size:12px; color:var(--gold); font-weight:400;}
   .wotd-def{margin-top:6px; font-size:15px; line-height:1.5; font-weight:600;}
@@ -23633,13 +23636,38 @@ const QUOTE_OF_THE_DAY_POOL = [
   { quote:"What you do makes a difference, and you have to decide what kind of difference you want to make.", author:"Jane Goodall" }
 ];
 
+/* Say-a-word: browser speech (no files, no credits). British voice preferred; the button
+   stays hidden unless the device actually has an English voice. */
+function sayBtn(w){ return '<button type="button" class="say-btn" data-say="' + escapeHtml(w) + '" aria-label="Hear it">' + icon('volume') + '</button>'; }
+(function(){
+  if(!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') return;
+  var synth = window.speechSynthesis;
+  function pick(){
+    var vs = synth.getVoices() || [];
+    var en = vs.filter(function(v){ return /^en[-_]/i.test(v.lang) || /^en$/i.test(v.lang); });
+    return en.find(function(v){ return /^en[-_]GB$/i.test(v.lang); }) || en[0] || null;
+  }
+  function check(){ document.body && document.body.classList.toggle('say-on', !!pick()); }
+  try{ synth.addEventListener('voiceschanged', check); }catch(e){}
+  document.addEventListener('DOMContentLoaded', check); setTimeout(check, 300); setTimeout(check, 1500);
+  document.addEventListener('click', function(e){
+    var b = e.target.closest && e.target.closest('.say-btn[data-say]');
+    if(!b) return;
+    e.preventDefault(); e.stopPropagation();
+    var v = pick(); if(!v) return;
+    synth.cancel();
+    var u = new SpeechSynthesisUtterance(b.getAttribute('data-say'));
+    u.voice = v; u.lang = v.lang; u.rate = 0.9;
+    synth.speak(u);
+  }, true);
+})();
 function wordOfTheDayHtml(){
   const now = new Date();
   const start = new Date(now.getFullYear(), 0, 0);
   const dayOfYear = Math.floor((now - start) / 86400000);
   const pick = WORD_OF_THE_DAY_POOL[dayOfYear % WORD_OF_THE_DAY_POOL.length];
   return `
-    <div class="wotd-word">${escapeHtml(pick.word)} <span class="wotd-type">${escapeHtml(pick.type)}</span></div>
+    <div class="wotd-word">${escapeHtml(pick.word)}${sayBtn(pick.word)} <span class="wotd-type">${escapeHtml(pick.type)}</span></div>
     <div class="wotd-def">${escapeHtml(pick.def)}</div>
     <div class="wotd-example">"${escapeHtml(pick.example)}"</div>
   `;
