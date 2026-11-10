@@ -16,12 +16,12 @@
 [scrape] calendar discovery complete: 84 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0363\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0377\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/08/12/spektakl-syn-19-sentyabrya-2026 title='Спектакль «Сын»' title_hits=[] text_hits=["'вино' ...'етектив: зритель перебирает версии, кто виноват, но\\xa0у\\xa0каждого подозреваемого нах'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n2\\xa0131\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n2\\xa0179\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/gorod/2026/11/03/drift title='Drift Show 2026' title_hits=[] text_hits=[]
-[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 152574 chars, <title>='Спектакль «Требуется лжец» — купить билеты на концерт в Ташкенте 19.11.2026 от 77\xa0000 сумов — Афиша Ташкента'
+[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 150394 chars, <title>='Спектакль «Требуется лжец» — купить билеты на концерт в Ташкенте 19.11.2026 от 77\xa0000 сумов — Афиша Ташкента'
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
@@ -30,13 +30,13 @@
 [scrape] calendar detail pass drops: {'checked': 84, 'no_title': 1, 'excluded_or_banned': 10}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
 [scrape] iticket.uz cat=concert: 20 events kept
-[scrape] iticket.uz cat=theatre: 28 events kept
+[scrape] iticket.uz cat=theatre: 27 events kept
 [scrape] iticket.uz cat=exhibition: 2 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
 [scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 263  |  after dedup: 258
+[scrape] TOTAL before dedup: 262  |  after dedup: 257
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 218 titles
