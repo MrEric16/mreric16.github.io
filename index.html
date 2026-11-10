@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261109173549">
+<meta name="app-build" content="20261110012749">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -38023,7 +38023,7 @@ TOOL_MOUNT['daily-challenge'] = function(app){
     if(post){
       post.onclick = function(){
         var name = document.getElementById('dcName').value.trim(), err = document.getElementById('dcErr');
-        if(!dcNameOk(name)){ err.textContent = 'Use a real first name: letters only, no rude words.'; return; }
+        if(!dcNameOk(name)){ err.textContent = 'Try another name.'; return; }
         if(typeof supabaseClient === 'undefined' || !supabaseClient){ err.textContent = 'No connection'; return; }
         post.disabled = true; err.textContent = 'Posting…';
         supabaseClient.from('daily_scores').insert({ device: dcDevice(), name: name, score: t.ok, time_ms: Math.max(15000, t.ms) }).then(function(r){
