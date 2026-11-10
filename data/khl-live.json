@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T18:01:14.839830+00:00",
+  "generatedAt": "2026-11-10T22:57:07.822932+00:00",
   "standings": [
     {
       "team": "Metallurg Mg",
@@ -36,6 +36,18 @@
       "lost": 0,
       "gf": 64,
       "points": 83
+    },
+    {
+      "team": "Neftekhimik",
+      "played": 31,
+      "won": 26,
+      "otWon": 12,
+      "soWon": 1,
+      "soLost": 1,
+      "otLost": 0,
+      "lost": 0,
+      "gf": 71,
+      "points": 79
     },
     {
       "team": "Torpedo",
@@ -86,16 +98,16 @@
       "points": 73
     },
     {
-      "team": "Neftekhimik",
-      "played": 29,
+      "team": "Salavat Yulaev",
+      "played": 26,
       "won": 25,
-      "otWon": 12,
-      "soWon": 1,
-      "soLost": 0,
-      "otLost": 0,
+      "otWon": 9,
+      "soWon": 2,
+      "soLost": 1,
+      "otLost": 1,
       "lost": 0,
-      "gf": 67,
-      "points": 76
+      "gf": 72,
+      "points": 74
     },
     {
       "team": "Traktor",
@@ -124,14 +136,14 @@
     {
       "team": "Avangard",
       "played": 26,
-      "won": 22,
+      "won": 23,
       "otWon": 5,
       "soWon": 6,
       "soLost": 1,
       "otLost": 0,
       "lost": 0,
       "gf": 46,
-      "points": 67
+      "points": 69
     },
     {
       "team": "Amur",
@@ -170,18 +182,6 @@
       "points": 69
     },
     {
-      "team": "Salavat Yulaev",
-      "played": 25,
-      "won": 24,
-      "otWon": 9,
-      "soWon": 2,
-      "soLost": 1,
-      "otLost": 0,
-      "lost": 0,
-      "gf": 69,
-      "points": 71
-    },
-    {
       "team": "Avtomobilist",
       "played": 25,
       "won": 23,
@@ -206,6 +206,18 @@
       "points": 70
     },
     {
+      "team": "Dinamo Mn",
+      "played": 25,
+      "won": 25,
+      "otWon": 8,
+      "soWon": 1,
+      "soLost": 0,
+      "otLost": 3,
+      "lost": 0,
+      "gf": 60,
+      "points": 71
+    },
+    {
       "team": "Dynamo Msk",
       "played": 25,
       "won": 26,
@@ -216,18 +228,6 @@
       "lost": 0,
       "gf": 56,
       "points": 71
-    },
-    {
-      "team": "Dinamo Mn",
-      "played": 23,
-      "won": 24,
-      "otWon": 7,
-      "soWon": 1,
-      "soLost": 0,
-      "otLost": 3,
-      "lost": 0,
-      "gf": 56,
-      "points": 67
     },
     {
       "team": "Sibir",
@@ -2664,6 +2664,22 @@
     }
   ],
   "results": [
+    {
+      "home": "Neftekhimik",
+      "away": "Salavat Yulaev",
+      "start": "2026-11-10T08:30:00+05:00",
+      "homeScore": 4,
+      "awayScore": 3,
+      "finished": true
+    },
+    {
+      "home": "Dynamo Minsk",
+      "away": "Avangard",
+      "start": "2026-11-10T08:10:00+05:00",
+      "homeScore": 4,
+      "awayScore": 0,
+      "finished": true
+    },
     {
       "home": "Traktor",
       "away": "Dragons",
