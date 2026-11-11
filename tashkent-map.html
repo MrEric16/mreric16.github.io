@@ -226,66 +226,114 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
 </script>
 
 <div class="wrap" id="app">
-  <a class="back-link" href="tashkent-route.html">← Back to Getting Around</a>
-  <div class="section-head" style="margin-top:8px;"><h2>Tashkent Map</h2></div>
+  <a class="back-link" href="index.html#events-hub">← Back to Tashkent</a>
+  <div class="section-head" style="margin-top:8px;"><h2>Getting Around</h2></div>
+  <form id="tm2Form" class="tm2-search" autocomplete="off">
+    <input id="tm2Q" type="search" placeholder="Where to? e.g. Magic City" enterkeyhint="search" aria-label="Search a place">
+    <button type="submit" class="tm2-btn on">Search</button>
+  </form>
+  <div id="tm2Res" class="tm2-res" style="display:none;"></div>
   <div class="tm2-bar">
-    <button type="button" class="tm2-btn on" data-mode="car">Car</button>
-    <button type="button" class="tm2-btn" data-mode="walk">Walking</button>
     <button type="button" class="tm2-btn" id="tm2Loc">My location</button>
     <button type="button" class="tm2-btn" id="tm2Reset">Reset</button>
+    <a class="tm2-btn" href="tashkent-route.html">Metro and bus</a>
   </div>
-  <div id="tm2Hint" class="tm2-hint">Tap the start point, then the destination.</div>
+  <div id="tm2Hint" class="tm2-hint">Search a place, or tap the map for your start and destination.</div>
   <div id="tm2Map"></div>
-  <div id="tm2Err" class="tm2-hint" style="display:none;"></div>
 </div>
 <style>
-  #tm2Map{ width:100%; height:68vh; min-height:360px; border-radius:18px; overflow:hidden; background:var(--cream-2); }
+  #tm2Map{ width:100%; height:62vh; min-height:340px; border-radius:18px; overflow:hidden; background:var(--cream-2); }
   .tm2-bar{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 10px; }
-  .tm2-btn{ border:none; border-radius:99px; padding:9px 16px; font:inherit; font-weight:800; font-size:14px; background:var(--card); color:var(--ink); cursor:pointer; }
+  .tm2-btn{ border:none; border-radius:99px; padding:9px 16px; font:inherit; font-weight:800; font-size:14px; background:var(--card); color:var(--ink); cursor:pointer; text-decoration:none; display:inline-block; }
   .tm2-btn.on{ background:var(--coral); color:var(--on-coral,#fff); }
   .tm2-hint{ font-weight:700; font-size:14px; color:var(--ink-soft); margin:0 0 10px; }
+  .tm2-search{ display:flex; gap:8px; margin:0 0 10px; }
+  .tm2-search input{ flex:1; min-width:0; border:none; border-radius:99px; padding:11px 16px; font:inherit; font-size:16px; background:var(--card); color:var(--ink); }
+  .tm2-res{ background:var(--card); border-radius:16px; margin:0 0 10px; overflow:hidden; }
+  .tm2-res button{ display:block; width:100%; text-align:left; border:none; background:none; color:var(--ink); font:inherit; padding:10px 14px; cursor:pointer; border-top:1px solid var(--line); }
+  .tm2-res button:first-child{ border-top:none; }
+  .tm2-res b{ display:block; font-weight:800; } .tm2-res span{ font-size:13px; color:var(--ink-soft); }
 </style>
-<script src="https://mapgl.2gis.com/api/js/v1"></script>
+<script>
+/* If the 2GIS map can't load (blocked, offline, key expired), fall back to the old planner. */
+(function(){
+  var done = false;
+  function fallback(){ if(done) return; done = true; try{ if(!sessionStorage.getItem('tm2fb')){ sessionStorage.setItem('tm2fb','1'); location.replace('tashkent-route.html'); } }catch(e){ location.replace('tashkent-route.html'); } }
+  window.__tm2Ok = function(){ done = true; try{ sessionStorage.removeItem('tm2fb'); }catch(e){} };
+  window.__tm2Fallback = fallback;
+  setTimeout(function(){ if(typeof mapgl === 'undefined') fallback(); }, 9000);
+})();
+</script>
+<script src="https://mapgl.2gis.com/api/js/v1" onerror="window.__tm2Fallback()"></script>
 <script src="https://unpkg.com/@2gis/mapgl-directions@2.2.1/dist/directions.js"></script>
 <script>
 (function(){
-  var KEY = '94e3b7bd-1e2b-410a-b073-e79cbce1dbf4';
-  var hint = document.getElementById('tm2Hint'), errEl = document.getElementById('tm2Err');
-  function fail(m){ errEl.style.display = 'block'; errEl.textContent = m; }
-  if(typeof mapgl === 'undefined'){ fail('Map could not load. Check your connection and reload.'); return; }
-  var map = new mapgl.Map('tm2Map', { key: KEY, center: [69.2797, 41.3111], zoom: 12 });
+  var KEY = '94e3b7bd-1e2b-410a-b073-e79cbce1dbf4', CENTER = [69.2797, 41.3111];
+  var hint = document.getElementById('tm2Hint'), resEl = document.getElementById('tm2Res');
+  if(typeof mapgl === 'undefined'){ if(window.__tm2Fallback) window.__tm2Fallback(); return; }
+  var map;
+  try{ map = new mapgl.Map('tm2Map', { key: KEY, center: CENTER, zoom: 12 }); }catch(e){ window.__tm2Fallback(); return; }
+  window.__tm2Ok();
   var directions = (typeof mapgl.Directions === 'function') ? new mapgl.Directions(map, { directionsApiKey: KEY }) : null;
-  var mode = 'car', pts = [], markers = [], me = null;
+  var start = null, dest = null, markers = [], me = null, meCoords = null;
   function clearMarkers(){ markers.forEach(function(m){ m.destroy(); }); markers = []; }
-  function reset(){ pts = []; clearMarkers(); if(directions) directions.clear(); hint.textContent = 'Tap the start point, then the destination.'; }
+  function setHint(t){ hint.textContent = t; }
+  function reset(){ start = null; dest = null; clearMarkers(); if(directions) directions.clear(); resEl.style.display = 'none'; setHint('Search a place, or tap the map for your start and destination.'); }
   function route(){
-    if(!directions || pts.length < 2) return;
-    hint.textContent = 'Finding route…';
-    var p = (mode === 'car') ? directions.carRoute({ points: pts }) : directions.pedestrianRoute({ points: pts });
-    Promise.resolve(p).then(function(){ clearMarkers(); hint.textContent = 'Tap Reset to plan another route.'; })
-      .catch(function(){ hint.textContent = 'No route found. Tap Reset and try other points.'; });
+    if(!directions || !start || !dest) return;
+    setHint('Finding route…');
+    Promise.resolve(directions.pedestrianRoute({ points: [start, dest] }))
+      .then(function(){ clearMarkers(); setHint('Walking route. Tap Reset to plan another.'); })
+      .catch(function(){ setHint('No walking route found. Tap Reset and try other points.'); });
+  }
+  function locate(cb, quiet){
+    if(!navigator.geolocation){ if(!quiet) setHint('Location is not available on this device.'); cb(null); return; }
+    navigator.geolocation.getCurrentPosition(function(pos){
+      meCoords = [pos.coords.longitude, pos.coords.latitude];
+      if(me) me.destroy();
+      me = (typeof mapgl.CircleMarker === 'function') ? new mapgl.CircleMarker(map, { coordinates: meCoords, radius: 9, color: '#1E6FD9', strokeColor: '#fff', strokeWidth: 3 }) : new mapgl.Marker(map, { coordinates: meCoords });
+      cb(meCoords);
+    }, function(){ if(!quiet) setHint('Could not get your location.'); cb(null); }, { enableHighAccuracy: true, timeout: 10000 });
   }
   map.on('click', function(e){
-    if(pts.length >= 2) return;
-    var c = e.lngLat; pts.push(c); markers.push(new mapgl.Marker(map, { coordinates: c }));
-    if(pts.length === 1) hint.textContent = 'Now tap the destination.'; else route();
-  });
-  document.querySelectorAll('.tm2-btn[data-mode]').forEach(function(b){
-    b.addEventListener('click', function(){
-      mode = b.dataset.mode;
-      document.querySelectorAll('.tm2-btn[data-mode]').forEach(function(x){ x.classList.toggle('on', x === b); });
-      if(pts.length >= 2){ if(directions) directions.clear(); route(); }
-    });
+    var c = e.lngLat;
+    if(dest && !start){ start = c; markers.push(new mapgl.Marker(map, { coordinates: c })); route(); return; }
+    if(start && dest) return;
+    if(!start){ start = c; markers.push(new mapgl.Marker(map, { coordinates: c })); setHint('Now tap the destination.'); }
+    else { dest = c; markers.push(new mapgl.Marker(map, { coordinates: c })); route(); }
   });
   document.getElementById('tm2Reset').addEventListener('click', reset);
   document.getElementById('tm2Loc').addEventListener('click', function(){
-    if(!navigator.geolocation){ hint.textContent = 'Location is not available on this device.'; return; }
-    hint.textContent = 'Finding you…';
-    navigator.geolocation.getCurrentPosition(function(pos){
-      var c = [pos.coords.longitude, pos.coords.latitude];
-      if(me) me.destroy(); me = (typeof mapgl.CircleMarker === 'function') ? new mapgl.CircleMarker(map, { coordinates: c, radius: 9, color: '#1E6FD9', strokeColor: '#fff', strokeWidth: 3 }) : new mapgl.Marker(map, { coordinates: c });
-      map.setCenter(c); map.setZoom(15); hint.textContent = pts.length ? hint.textContent : 'Tap the start point, then the destination.';
-    }, function(){ hint.textContent = 'Could not get your location.'; }, { enableHighAccuracy: true, timeout: 10000 });
+    setHint('Finding you…');
+    locate(function(c){ if(c){ map.setCenter(c); map.setZoom(15); setHint('You are here.'); } });
+  });
+  function pickResult(it){
+    resEl.style.display = 'none';
+    reset(); dest = [it.point.lon, it.point.lat]; markers.push(new mapgl.Marker(map, { coordinates: dest }));
+    map.setCenter(dest); map.setZoom(15);
+    setHint('Finding you…');
+    locate(function(c){
+      if(c){ start = c; route(); } else { setHint('Tap your start point on the map.'); }
+    }, true);
+  }
+  document.getElementById('tm2Form').addEventListener('submit', function(ev){
+    ev.preventDefault();
+    var q = document.getElementById('tm2Q').value.trim(); if(!q) return;
+    setHint('Searching…'); resEl.style.display = 'none';
+    var u = 'https://catalog.api.2gis.com/3.0/items?q=' + encodeURIComponent(q) + '&location=' + CENTER.join(',') + '&fields=items.point&page_size=8&key=' + KEY;
+    fetch(u).then(function(r){ if(!r.ok) throw new Error('http'); return r.json(); }).then(function(j){
+      var items = ((j.result && j.result.items) || []).filter(function(i){ return i.point; });
+      if(!items.length){ setHint('Nothing found. Try another name.'); return; }
+      resEl.innerHTML = '';
+      items.forEach(function(it){
+        var b = document.createElement('button'); b.type = 'button';
+        var n = document.createElement('b'); n.textContent = it.name || '';
+        var a = document.createElement('span'); a.textContent = it.address_name || '';
+        b.appendChild(n); b.appendChild(a); b.addEventListener('click', function(){ pickResult(it); });
+        resEl.appendChild(b);
+      });
+      resEl.style.display = 'block'; setHint('Pick a place.');
+    }).catch(function(){ setHint('Search failed. Check your connection and try again.'); });
   });
 })();
 </script>
