@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261110165608">
+<meta name="app-build" content="20261111123824">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -37911,7 +37911,7 @@ function dcBuild(day){
   r = pick(pairs, 8);
   var flip = dcSeeded(seed + 9, function(){ return Math.random() < 0.5; }), A = flip ? r[1] : r[0], B = flip ? r[0] : r[1];
   Q.hl = { type: 'hl', anchor: A.event, anchorYear: A.year, event: B.event, answer: B.year > A.year ? 'later' : 'earlier' };
-  r = pick(HANGMAN_WORDS.hard, 10);
+  r = pick(day >= '2026-11-12' ? HANGMAN_WORDS.easy : HANGMAN_WORDS.hard, 10); /* easier words from 12 Nov; earlier days keep their original word */
   Q.hangman = { type: 'hangman', word: String(r[0]).toUpperCase(), hint: r[1] };
   r = pick(ANAGRAM_WORDS.filter(function(w){ return w.tier >= 4; }), 11);
   var scr = dcSeeded(seed + 12, function(){ return anagramScrambleWord(r.word).join(''); });
