@@ -1,41 +1,6 @@
 {
-  "generatedAt": "2026-11-10T20:10:06.109184Z",
+  "generatedAt": "2026-11-11T00:46:08.141166Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/feyenoord-vs-como/ZYWtaD_Jdr3ZJ_uhyWl8e",
-      "date": "2026-10-14",
-      "home": "Feyenoord",
-      "away": "Como",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 3,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "G. Zechiel",
-          "minute": 20
-        },
-        {
-          "scorer": "A. Hadj Moussa",
-          "minute": 52
-        },
-        {
-          "scorer": "R. Sanchez",
-          "minute": 81
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Diao",
-          "minute": 18
-        },
-        {
-          "scorer": "A. Douvikas",
-          "minute": 90
-        }
-      ],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/real-betis-vs-fc-porto/Z5BYP-U1fWOI6ygkQ79Dx",
       "date": "2026-10-14",
@@ -7722,6 +7687,37 @@
         }
       ],
       "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN",
+      "date": "2026-10-13",
+      "home": "Inter",
+      "away": "Club Brugge",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 3,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "L. Martinez",
+          "minute": 44
+        },
+        {
+          "scorer": "A. Bonny",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "N. Tresoldi",
+          "minute": 30
+        },
+        {
+          "scorer": "R. Vermant",
+          "minute": 87
+        }
+      ],
+      "competition": "inter-milan"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7739,7 +7735,6 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/inter-vs-club-brugge/g0lYcZXDY14S09j-tvcsN": 2
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
   }
 }
