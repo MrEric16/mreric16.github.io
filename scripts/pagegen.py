@@ -14,7 +14,6 @@ PAGES = {
   'listening.html': 'Listening Practice',
   'reading.html': 'Reading Practice',
   'amendments.html': 'Amendments',
-  'tashkent-route.html': 'Getting Around Tashkent',
   'tashkent-today.html': 'Tashkent Today',
   'speaking.html': 'Speaking Practice',
   'collocations.html': 'Collocations and Phrasal Verbs',
