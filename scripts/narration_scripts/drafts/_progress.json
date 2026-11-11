@@ -1,6 +1,6 @@
 {
  "status": "drafts-awaiting-approval-no-audio",
- "count": 47,
+ "count": 49,
  "drafts": [
   {
    "file": "ai-chatbots-brain.txt",
@@ -189,6 +189,14 @@
   {
    "file": "nonnamaxxing-granny-travel.txt",
    "words": 519
+  },
+  {
+   "file": "silk-roads-sea-route.txt",
+   "words": 585
+  },
+  {
+   "file": "unesco-heritage-backlash.txt",
+   "words": 545
   }
  ],
  "skipped": [
@@ -223,7 +231,33 @@
    "reason": "skipped-stale (2015 tweets, dated claims)"
   },
   {
-   "domains_unreadable": [
+   "headline": "Read this before midnight (UK teen curfew)",
+   "reason": "skipped-topic (current contested politics, death mention)"
+  },
+  {
+   "headline": "Japanese philosophy of acceptance",
+   "reason": "skipped-too-short (page is a video listing, no article text)"
+  },
+  {
+   "headline": "Why AI companies want you to be afraid of them",
+   "reason": "skipped-topic (current contested AI politics, criticises Anthropic)"
+  },
+  {
+   "headline": "Surprise, surprise - books are actually useful?",
+   "reason": "skipped-topic (mental health heavy)"
+  },
+  {
+   "headline": "Nine extraordinary things about sharks",
+   "reason": "already scripted (shark-facts)"
+  },
+  {
+   "headline": "They knew all along (medieval burnout)",
+   "reason": "already drafted (medieval-burnout)"
+  },
+  {
+   "headline": "A very large number of articles on blocked domains",
+   "reason": "skipped-unreadable",
+   "domains": [
     "dezeen.com",
     "earthsky.org",
     "simpleflying.com",
@@ -237,23 +271,20 @@
     "sciencealert.com",
     "nasa.gov",
     "investopedia.com",
-    "and many others (proxy refused, HTTP 000/403)"
+    "jamesclear.com",
+    "history.com (some)",
+    "time.com",
+    "thedecisionlab.com",
+    "others: HTTP 000 proxy refused or 403"
    ]
   }
  ],
  "pending": [
-  "5 Feel like a sea urchin (bbc, kelp)",
-  "7 Read this before midnight (bbc)",
-  "8 books are useful (bbc)",
-  "10 They knew all along (bbc)",
-  "48 nine extraordinary things (bbc)",
-  "57 Why AI companies want you to be afraid (bbc)",
-  "62 Michelin chef (bbc)",
-  "63 Unesco sites (bbc)",
-  "72 Silk Roads (natgeo)",
-  "264 Trial by jury (history.com)",
-  "4 What motivates YOU (bbc)",
-  "12 Japanese acceptance (bbc)"
+  "4 What motivates YOU? (bbc, quiz article)",
+  "5 Feel like a sea urchin? (bbc, kelp farmer)",
+  "62 Michelin chef food-waste kitchens (bbc)",
+  "264 Why Americans have a right to trial by jury (history.com)",
+  "Not yet fetched or tested: most remaining nationalgeographic, livescience, mentalfloss, bbc items in DISPATCHES (indexes 221 to 398 of the non-narrated list were bulk-tested; only bbc, mentalfloss, natgeo, history.com, marketplace-style hosts were readable)"
  ],
  "note": "Drafts 1-40 listed above had no .txt files in the repo when run 2 started; they may need rewriting from their topics."
 }
