@@ -1,27 +1,27 @@
 [afc] afc.champions schedule events: 4
 [afc] afc.champions schedule events: 4
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.champions/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] afc.cup schedule events: 0
 [afc] afc.cup schedule events: 0
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.cup/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/afc.cup/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] pakhtakor rows: 8 [('2026-09-14', 'Al Ahli', 1, 1, 'Pakhtakor', None, None), ('2026-10-12', 'Pakhtakor', 1, 1, 'Al Qadsiah', None, None), ('2026-10-26', 'Al-Quwa Al-Jawiya', 1, 0, 'Pakhtakor', None, None), ('2026-11-02', 'Pakhtakor', 2, 6, 'Al Nassr', None, None), ('2026-11-23', 'Al Ittihad', None, None, 'Pakhtakor', None, None), ('2026-12-07', 'Pakhtakor', None, None, 'Tractor', None, None), ('2027-02-08', 'Pakhtakor', None, None, 'Esteghlal FC', None, None), ('2027-02-15', 'Al Hilal', None, None, 'Pakhtakor', None, None)]
 [afc] eng.league_cup schedule events: 1
 [afc] eng.league_cup schedule events: 0
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] man_utd rows: 1 [('2026-09-16', 'Manchester United', 2, 3, 'Brighton & Hove Albion', None, None)]
 [afc] eng.league_cup schedule events: 2
 [afc] eng.league_cup schedule events: 1
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] liverpool rows: 3 [('2026-09-15', 'Liverpool', 3, 1, 'Tottenham Hotspur', None, None), ('2026-10-28', 'Liverpool', 1, 1, 'Chelsea', 6, 5), ('2026-12-16', 'Liverpool', None, None, 'AFC Bournemouth', None, None)]
 [afc] eng.league_cup schedule events: 3
 [afc] eng.league_cup schedule events: 0
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] chelsea rows: 3 [('2026-08-27', 'Chelsea', 2, 0, 'Luton Town', None, None), ('2026-09-09', 'Chelsea', 6, 3, 'Leeds United', None, None), ('2026-10-28', 'Liverpool', 1, 1, 'Chelsea', 6, 5)]
 [afc] eng.league_cup schedule events: 2
 [afc] eng.league_cup schedule events: 1
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] man_city rows: 3 [('2026-09-17', 'Manchester City', 5, 0, 'Norwich City', None, None), ('2026-10-28', 'Manchester City', 2, 2, 'Brighton & Hove Albion', 4, 3), ('2026-12-15', 'Manchester City', None, None, 'Bradford City', None, None)]
 [afc] eng.league_cup schedule events: 2
 [afc] eng.league_cup schedule events: 0
-[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260713-20270708&limit=500 HTTP Error 400: Bad Request
+[afc] fail https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260714-20270709&limit=500 HTTP Error 400: Bad Request
 [afc] tottenham rows: 2 [('2026-08-26', 'Tottenham Hotspur', 5, 1, 'Charlton Athletic', None, None), ('2026-09-15', 'Liverpool', 3, 1, 'Tottenham Hotspur', None, None)]
