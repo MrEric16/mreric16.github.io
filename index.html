@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261111123824">
+<meta name="app-build" content="20261111162806">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -9582,8 +9582,8 @@ function initLiveUserCounter(){
     const count = Object.keys(state).length;
     currentSitePresenceCount = count;
     footerEl.textContent = count === 1
-      ? '1 user on the site right now'
-      : `${count} users on the site right now`;
+      ? '1 user online right now'
+      : `${count} users online right now`;
     // If a game is active and the opponent's presence key has disappeared from the
     // synced state, they've disconnected (closed the tab, lost connection) rather than
     // exited gracefully via the exit button - treated the same as any other forfeit.
