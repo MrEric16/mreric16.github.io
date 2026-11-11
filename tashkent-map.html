@@ -234,12 +234,15 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
   </form>
   <div id="tm2Res" class="tm2-res" style="display:none;"></div>
   <div class="tm2-bar">
+    <button type="button" class="tm2-btn on" data-mode="transit">Metro and bus</button>
+    <button type="button" class="tm2-btn" data-mode="walk">Walk</button>
     <button type="button" class="tm2-btn" id="tm2Loc">My location</button>
     <button type="button" class="tm2-btn" id="tm2Reset">Reset</button>
-    <a class="tm2-btn" href="tashkent-route.html">Metro and bus</a>
   </div>
   <div id="tm2Hint" class="tm2-hint">Search a place, or tap the map for your start and destination.</div>
+  <div id="tm2Out"></div>
   <div id="tm2Map"></div>
+  <a class="tm2-old" href="tashkent-route.html">Old planner</a>
 </div>
 <style>
   #tm2Map{ width:100%; height:62vh; min-height:340px; border-radius:18px; overflow:hidden; background:var(--cream-2); }
@@ -252,6 +255,10 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
   .tm2-res{ background:var(--card); border-radius:16px; margin:0 0 10px; overflow:hidden; }
   .tm2-res button{ display:block; width:100%; text-align:left; border:none; background:none; color:var(--ink); font:inherit; padding:10px 14px; cursor:pointer; border-top:1px solid var(--line); }
   .tm2-res button:first-child{ border-top:none; }
+  .tm2-old{ display:inline-block; margin-top:10px; font-size:13px; font-weight:700; color:var(--ink-soft); }
+  .tm2-opt{ background:var(--card); border-radius:16px; padding:12px 14px; margin:0 0 10px; }
+  .tm2-opt h4{ margin:0 0 6px; font-family:inherit; font-size:16px; font-weight:800; color:var(--ink); }
+  .tm2-opt ol{ margin:6px 0 0; padding-left:20px; font-weight:600; font-size:14px; line-height:1.45; }
   .tm2-res b{ display:block; font-weight:800; } .tm2-res span{ font-size:13px; color:var(--ink-soft); }
 </style>
 <script>
@@ -275,16 +282,59 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
   try{ map = new mapgl.Map('tm2Map', { key: KEY, center: CENTER, zoom: 12 }); }catch(e){ window.__tm2Fallback(); return; }
   window.__tm2Ok();
   var directions = (typeof mapgl.Directions === 'function') ? new mapgl.Directions(map, { directionsApiKey: KEY }) : null;
-  var start = null, dest = null, markers = [], me = null, meCoords = null;
+  var start = null, dest = null, markers = [], me = null, meCoords = null, mode = 'transit', outEl = document.getElementById('tm2Out');
   function clearMarkers(){ markers.forEach(function(m){ m.destroy(); }); markers = []; }
   function setHint(t){ hint.textContent = t; }
-  function reset(){ start = null; dest = null; clearMarkers(); if(directions) directions.clear(); resEl.style.display = 'none'; setHint('Search a place, or tap the map for your start and destination.'); }
+  function reset(){ start = null; dest = null; clearMarkers(); if(directions) directions.clear(); resEl.style.display = 'none'; outEl.innerHTML = ''; setHint('Search a place, or tap the map for your start and destination.'); }
+  function mins(sec){ return Math.max(1, Math.round(sec / 60)); }
+  function stepText(m){
+    var t = m.type || '', w = m.waypoint || {}, name = w.name || '', dur = m.moving_duration ? ' (' + mins(m.moving_duration) + ' min)' : '';
+    if(t === 'walkway') return (w.comment || ('Walk ' + (m.distance || 0) + ' m')) + (w.comment ? '' : dur);
+    var line = '';
+    ['metro','light_metro','bus','trolleybus','tram','shuttle_bus','suburban_train','monorail'].forEach(function(k){
+      if(!line && m[k] && typeof m[k] === 'object'){ var o = m[k]; line = o.line_name || o.name || (Array.isArray(o.routes_names) ? o.routes_names.join(', ') : '') || (Array.isArray(o.names) ? o.names.join(', ') : ''); if(!line) line = k.replace('_', ' '); line = (k === 'metro' ? 'Metro ' : (k === 'bus' ? 'Bus ' : '')) + line; }
+    });
+    if(!line && w.subtype) line = w.subtype;
+    var base = (line || t || 'Step') + (name ? ': ' + name : '');
+    return base + dur + (w.comment && !name ? ' - ' + w.comment : '');
+  }
+  function showTransit(list){
+    outEl.innerHTML = '';
+    list.slice(0, 4).forEach(function(r, i){
+      var d = document.createElement('div'); d.className = 'tm2-opt';
+      var h = document.createElement('h4');
+      h.textContent = mins(r.total_duration || 0) + ' min' + (r.pedestrian ? ', all on foot' : ', ' + (r.transfer_count || 0) + ' change' + ((r.transfer_count || 0) === 1 ? '' : 's')) + (r.total_walkway_distance ? ' · ' + r.total_walkway_distance : '');
+      d.appendChild(h);
+      var ol = document.createElement('ol');
+      (r.movements || []).forEach(function(m){ var li = document.createElement('li'); li.textContent = stepText(m); ol.appendChild(li); });
+      d.appendChild(ol); outEl.appendChild(d);
+    });
+  }
+  function transitCall(types){
+    var body = { source: { point: { lat: start[1], lon: start[0] } }, target: { point: { lat: dest[1], lon: dest[0] } }, transport: types, locale: 'en' };
+    return fetch('https://routing.api.2gis.com/public_transport/2.0?key=' + KEY, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+      .then(function(r){ if(!r.ok) throw new Error('http ' + r.status); return r.json(); });
+  }
   function route(){
-    if(!directions || !start || !dest) return;
-    setHint('Finding route…');
-    Promise.resolve(directions.pedestrianRoute({ points: [start, dest] }))
-      .then(function(){ clearMarkers(); setHint('Walking route. Tap Reset to plan another.'); })
-      .catch(function(){ setHint('No walking route found. Tap Reset and try other points.'); });
+    if(!start || !dest) return;
+    outEl.innerHTML = '';
+    if(mode === 'walk'){
+      if(!directions) return;
+      setHint('Finding route…');
+      Promise.resolve(directions.pedestrianRoute({ points: [start, dest] }))
+        .then(function(){ clearMarkers(); setHint('Walking route. Tap Reset to plan another.'); })
+        .catch(function(){ setHint('No walking route found. Tap Reset and try other points.'); });
+      return;
+    }
+    if(directions) directions.clear();
+    setHint('Finding metro and bus routes…');
+    transitCall(['pedestrian', 'metro', 'bus', 'tram', 'trolleybus', 'shuttle_bus'])
+      .catch(function(){ return transitCall(['bus', 'metro']); })
+      .then(function(j){
+        if(!Array.isArray(j) || !j.length){ setHint('No metro or bus route found. Try Walk, or other points.'); return; }
+        showTransit(j); setHint('Pick an option below. Tap Reset to plan another.');
+      })
+      .catch(function(){ setHint('Could not get routes. Try again, or use the old planner below.'); });
   }
   function locate(cb, quiet){
     if(!navigator.geolocation){ if(!quiet) setHint('Location is not available on this device.'); cb(null); return; }
@@ -301,6 +351,13 @@ input::placeholder,textarea::placeholder{color:var(--ink-soft); opacity:.9;}
     if(start && dest) return;
     if(!start){ start = c; markers.push(new mapgl.Marker(map, { coordinates: c })); setHint('Now tap the destination.'); }
     else { dest = c; markers.push(new mapgl.Marker(map, { coordinates: c })); route(); }
+  });
+  document.querySelectorAll('.tm2-btn[data-mode]').forEach(function(b){
+    b.addEventListener('click', function(){
+      mode = b.dataset.mode;
+      document.querySelectorAll('.tm2-btn[data-mode]').forEach(function(x){ x.classList.toggle('on', x === b); });
+      if(start && dest){ if(directions) directions.clear(); route(); }
+    });
   });
   document.getElementById('tm2Reset').addEventListener('click', reset);
   document.getElementById('tm2Loc').addEventListener('click', function(){
