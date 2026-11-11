@@ -137,6 +137,7 @@
   .pending-actions button{ flex:1; }
   .btn-approve{ background:var(--teal); color:#fff; }
   .btn-reject{ background:var(--coral-dark); color:#fff; }
+  .pending-actions .btn-rotate{ flex:0 0 52px; background:#555; color:#fff; font-size:22px; }
   .pending-actions button:disabled{ opacity:.5; }
   .hidden{ display:none !important; }
   .loading-text{
@@ -519,6 +520,7 @@ async function loadPending(){
         <img src="${signed ? signed.signedUrl : ''}" alt="Pending photo" loading="lazy">
         <div class="pending-meta">${escapeHtml(when)}</div>
         <div class="pending-actions">
+          <button class="btn-rotate" data-action="rotate" aria-label="Rotate 90 degrees">&#8635;</button>
           <button class="btn-approve" data-action="approve">Approve</button>
           <button class="btn-reject" data-action="reject">Reject</button>
         </div>
@@ -534,14 +536,37 @@ async function loadPending(){
   });
 }
 
+async function rotatePhoto(el){
+  const img = el.querySelector('img');
+  const src = el._blob || await (await fetch(img.src)).blob();
+  const bmp = await createImageBitmap(src);
+  const cv = document.createElement('canvas'); cv.width = bmp.height; cv.height = bmp.width;
+  const cx = cv.getContext('2d'); cx.translate(cv.width, 0); cx.rotate(Math.PI / 2); cx.drawImage(bmp, 0, 0);
+  const out = await new Promise(r => cv.toBlob(r, 'image/jpeg', 0.92));
+  if(!out) throw new Error('rotate failed');
+  el._blob = out; img.src = URL.createObjectURL(out);
+}
+
 async function handlePhotoAction(name, action, el){
+  if(action === 'rotate'){
+    const b = el.querySelector('.btn-rotate'); b.disabled = true;
+    try{ await rotatePhoto(el); }catch(e){ alert('Could not rotate — try again.'); }
+    b.disabled = false; return;
+  }
   el.querySelectorAll('button').forEach(b=> b.disabled = true);
   const fromPath = 'pending/' + name;
   try{
     if(action === 'approve'){
       const toPath = 'approved/' + name;
-      const { error } = await sb.storage.from(BUCKET).move(fromPath, toPath);
-      if(error) throw error;
+      if(el._blob){
+        const up = await sb.storage.from(BUCKET).upload(toPath, el._blob, { contentType: 'image/jpeg', upsert: true });
+        if(up.error) throw up.error;
+        const rm = await sb.storage.from(BUCKET).remove([fromPath]);
+        if(rm.error) throw rm.error;
+      } else {
+        const { error } = await sb.storage.from(BUCKET).move(fromPath, toPath);
+        if(error) throw error;
+      }
     } else {
       const { error } = await sb.storage.from(BUCKET).remove([fromPath]);
       if(error) throw error;
