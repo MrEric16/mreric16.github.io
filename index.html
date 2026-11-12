@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261111165705">
+<meta name="app-build" content="20261112173700">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -8348,7 +8348,7 @@ const SEARCHABLE_PAGES = [
 function searchRandomArticle(){ if(DISPATCHES.length) location.href = DISPATCHES[Math.floor(Math.random() * DISPATCHES.length)].url; }
 function searchRandomVideo(){ if(WATCH_VIDEOS.length) location.hash = '#play/' + WATCH_VIDEOS[Math.floor(Math.random() * WATCH_VIDEOS.length)].videoId; }
 function searchRandomExplore(){ const pool = EXPLORE_SITES.filter(s => !DO_SOMETHING_EXCLUDED_FACS.includes(s.fac)); if(pool.length) window.open(pool[Math.floor(Math.random() * pool.length)].url, '_blank', 'noopener'); }
-function searchRandomGame(){ const pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && t.url.charAt(0) === '#' && !t.hub && t.url !== '#irregular-verbs'); if(pool.length) location.hash = pool[Math.floor(Math.random() * pool.length)].url; }
+function searchRandomGame(){ const NOT_GAMES = ['#irregular-verbs', '#mock-timer', '#speaking-timer', '#calculator', '#heads-or-tails', '#morse-code', '#unit-converter', '#team-maker', '#study-timer', '#name-wheel']; const pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && t.url.charAt(0) === '#' && !t.hub && NOT_GAMES.indexOf(t.url) < 0); if(pool.length) location.hash = pool[Math.floor(Math.random() * pool.length)].url; }
 const SEARCH_EXTRA_TILES = [
   { name:"Home", desc:"Back to the Lounge's main page.", url:"#", icon:"compass2", keywords:["main page","front page","lounge","start"] },
   { name:"Read something", desc:"Jump straight to a random article.", js:"searchRandomArticle()", icon:"newspaper", keywords:["random article","random","surprise me","article"] },
@@ -23958,7 +23958,9 @@ function wireRandomGameButton(container){
   const btn = container.querySelector('#randomGameBtn');
   if(!btn) return;
   btn.addEventListener('click', () => {
-    let pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && t.url.charAt(0) === '#' && !t.hub && t.url !== '#irregular-verbs');
+    // Not games: timers, calculator, coin, morse, converter, team maker, name wheel.
+    const NOT_GAMES = ['#irregular-verbs', '#mock-timer', '#speaking-timer', '#calculator', '#heads-or-tails', '#morse-code', '#unit-converter', '#team-maker', '#study-timer', '#name-wheel'];
+    let pool = GEOGRAPHY_HUB_TILES.filter(t => t.url && t.url.charAt(0) === '#' && !t.hub && NOT_GAMES.indexOf(t.url) < 0);
     if(pool.length > 1) pool = pool.filter(t => t.url !== lastRandomGameUrl);
     if(!pool.length) return;
     const pick = pool[Math.floor(Math.random() * pool.length)];
