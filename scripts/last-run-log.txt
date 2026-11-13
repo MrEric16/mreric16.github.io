@@ -16,7 +16,7 @@
 [scrape] calendar discovery complete: 104 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/midnight1211 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/gaogao1311 title='Вечеринки в Gao Gao' title_hits=[] text_hits=[]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0458\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/07/30/gennadij-hazanov title='Творческий вечер Геннадия Хазанова' title_hits=[] text_hits=["'кино' ...'ля 2026\\n·\\n1\\xa0462\\nво\\xa0дворце национального киноискусства узбекистана пройдет сольны'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/08/12/spektakl-syn-19-sentyabrya-2026 title='Спектакль «Сын»' title_hits=[] text_hits=["'вино' ...'етектив: зритель перебирает версии, кто виноват, но\\xa0у\\xa0каждого подозреваемого нах'"]
 [scrape]   DEBUG: dumped raw HTML for qimmat page, 123333 chars
