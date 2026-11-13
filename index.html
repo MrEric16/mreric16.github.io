@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261112185500">
+<meta name="app-build" content="20261113075000">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -37864,7 +37864,7 @@ TOOL_MOUNT['study-timer'] = function(app){
 
 
 /* ===== Daily Challenge: one hard question from each of ten games, same for everyone, resets 23:59 Tashkent ===== */
-var DC_KEY = 'dailyChallenge_v1';
+var DC_KEY = 'dailyChallenge_v2';
 var DC_LIMITS = { flag: 20, capital: 20, language: 20, currency: 20, hello: 20, silhouette: 20, tf: 15, hl: 15, hangman: 60, scramble: 40 };
 var DC_ORDER = ['flag', 'capital', 'language', 'currency', 'hello', 'silhouette', 'tf', 'hl', 'hangman', 'scramble'];
 var DC_TITLES = { flag: 'Guess the flag', capital: 'Capital city', language: 'Guess the language', currency: 'Guess the currency', hello: 'Say hello', silhouette: 'Country silhouette', tf: 'True or false', hl: 'Higher or lower', hangman: 'Hangman', scramble: 'Word scramble' };
@@ -37886,38 +37886,73 @@ function dcMsToReset(){ var t = Date.now() + 5 * 3600000 + 60000; return 8640000
 function dcSeedOf(str){ var h = 2166136261; for(var i = 0; i < str.length; i++){ h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; }
 function dcRng(seed){ var a = seed; return function(){ a |= 0; a = a + 0x6D2B79F5 | 0; var t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }; }
 function dcSeeded(seed, fn){ var orig = Math.random; Math.random = dcRng(seed); try{ return fn(); } finally{ Math.random = orig; } }
+/* Rotation: every question type walks through its own shuffled cycle by day number, so the same item cannot come back until the whole pool has been used. Question order is shuffled per day. */
+function dcDayNum(day){ return Math.floor(Date.parse(day + 'T00:00:00Z') / 86400000); }
+function dcShuffled(arr, tag){ var a = arr.slice(), r = dcRng(dcSeedOf(tag)); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(r() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+function dcCyclePick(arr, tag, dn, skip){ var L = arr.length; return dcShuffled(arr, tag + '|c' + Math.floor((dn + (skip || 0)) / L))[(dn + (skip || 0)) % L]; }
+function dcOrderFor(day){ return dcShuffled(DC_ORDER, 'order|' + day); }
 function dcBuild(day){
-  var seed = dcSeedOf('daily-' + day), Q = {};
-  var pick = function(arr, k){ return dcSeeded(seed + k, function(){ return arr[Math.floor(Math.random() * arr.length)]; }); };
-  var r;
-  r = dcSeeded(seed + 1, function(){ return fgBuildRounds(FLAG_COUNTRIES, 30); }); r = r[r.length - 1];
-  Q.flag = { type: 'flag', item: r.correct, options: r.options.map(function(o){ return o.name; }), answer: r.correct.name };
-  r = dcSeeded(seed + 2, function(){ return ccBuildRounds(FLAG_COUNTRIES, 30, 'country-to-capital'); }); r = r[r.length - 1];
-  Q.capital = { type: 'capital', country: r.correct.name, options: r.options.map(function(o){ return o.capital; }), answer: r.correct.capital };
-  r = dcSeeded(seed + 3, function(){ return langBuildRounds(60); }).filter(function(x){ return x.correct.language !== 'English' && x.correct.otherOfficial; });
-  r = r[0] || dcSeeded(seed + 3, function(){ return langBuildRounds(60); }).filter(function(x){ return x.correct.language !== 'English'; })[0];
-  Q.language = { type: 'language', country: r.correct.name, options: r.options, answer: r.correct.language };
-  r = dcSeeded(seed + 4, function(){ return curBuildRounds(60); }).filter(function(x){ return x.correct.currency !== 'Euro' && x.correct.currency !== 'Dollar'; })[0];
-  Q.currency = { type: 'currency', country: r.correct.name, options: r.options, answer: r.correct.currency };
-  r = dcSeeded(seed + 5, function(){ return phraseLangBuildRounds('hard'); })[0];
+  var dn = dcDayNum(day), Q = {}, key = function(t){ return dcSeedOf('daily-' + day + '|' + t); };
+  var shuf = function(arr, t){ return dcShuffled(arr, 'opt|' + day + '|' + t); };
+  var r, c, T;
+  /* flag */
+  c = dcCyclePick(FLAG_COUNTRIES.filter(function(x){ return x.tier >= 4; }).map(function(x){ return x.name; }), 'flag', dn);
+  c = FLAG_COUNTRIES.filter(function(x){ return x.name === c; })[0];
+  r = dcSeeded(key('flag'), function(){ return shuf([c].concat(fgGetOptions(c, FLAG_COUNTRIES, 5, 6, new Set())), 'flag'); });
+  Q.flag = { type: 'flag', item: c, options: r.map(function(o){ return o.name; }), answer: c.name };
+  /* capital */
+  c = dcCyclePick(FLAG_COUNTRIES.filter(function(x){ return x.tier >= 4; }).map(function(x){ return x.name; }), 'capital', dn);
+  c = FLAG_COUNTRIES.filter(function(x){ return x.name === c; })[0];
+  r = dcSeeded(key('capital'), function(){ return shuf([c].concat(ccGetOptions(c, FLAG_COUNTRIES, 5, 6, new Set(), true)), 'capital'); });
+  Q.capital = { type: 'capital', country: c.name, options: r.map(function(o){ return o.capital; }), answer: c.capital };
+  /* language: walk through distinct languages, find a seeded round whose answer is that language */
+  var langs = []; LANGUAGE_COUNTRIES.forEach(function(x){ if(x.language !== 'English' && langs.indexOf(x.language) < 0) langs.push(x.language); });
+  for(var sk = 0; sk < 30 && !Q.language; sk++){
+    T = dcCyclePick(langs, 'language', dn, sk);
+    for(var t = 0; t < 120 && !Q.language; t++){
+      r = dcSeeded(key('language' + t), function(){ return langBuildRounds(60); }).filter(function(x){ return x.correct.language === T; })[0];
+      if(r) Q.language = { type: 'language', country: r.correct.name, options: r.options, answer: r.correct.language };
+    }
+  }
+  /* currency */
+  var curs = []; CURRENCY_COUNTRIES.forEach(function(x){ if(x.currency !== 'Euro' && x.currency !== 'Dollar' && curs.indexOf(x.currency) < 0) curs.push(x.currency); });
+  for(var sk2 = 0; sk2 < 30 && !Q.currency; sk2++){
+    T = dcCyclePick(curs, 'currency', dn, sk2);
+    for(var t2 = 0; t2 < 120 && !Q.currency; t2++){
+      r = dcSeeded(key('currency' + t2), function(){ return curBuildRounds(60); }).filter(function(x){ return x.correct.currency === T; })[0];
+      if(r) Q.currency = { type: 'currency', country: r.correct.name, options: r.options, answer: r.correct.currency };
+    }
+  }
+  /* hello */
+  var hp = PHRASE_LANGUAGES.filter(function(l){ return l.difficulty === 'hard'; });
+  c = dcCyclePick(hp.map(function(l){ return l.language; }), 'hello', dn);
+  c = hp.filter(function(l){ return l.language === c; })[0];
+  r = dcSeeded(key('hello'), function(){ return phraseLangBuildRound(c, hp); });
   Q.hello = { type: 'hello', phrase: r.correct.phrase, options: r.options, answer: r.correct.language };
-  r = dcSeeded(seed + 6, function(){ return silhouetteBuildRounds(SILHOUETTE_COUNTRIES, 30, 'hard'); }); r = r[r.length - 1];
-  Q.silhouette = { type: 'silhouette', item: r.correct, options: r.options.map(function(o){ return o.name; }), answer: r.correct.name };
-  r = pick(TF_QUESTIONS, 7);
+  /* silhouette */
+  c = dcCyclePick(SILHOUETTE_COUNTRIES.filter(function(x){ return x.tier >= 4; }).map(function(x){ return x.name; }), 'silhouette', dn);
+  c = SILHOUETTE_COUNTRIES.filter(function(x){ return x.name === c; })[0];
+  r = dcSeeded(key('silhouette'), function(){ return shuf([c].concat(silhouetteGetOptions(c, SILHOUETTE_COUNTRIES, 5, 4, new Set())), 'silhouette'); });
+  Q.silhouette = { type: 'silhouette', item: c, options: r.map(function(o){ return o.name; }), answer: c.name };
+  /* true or false */
+  r = dcCyclePick(TF_QUESTIONS, 'tf', dn);
   Q.tf = { type: 'tf', statement: r.statement, answer: !!r.answer };
+  /* higher or lower */
   var pairs = [];
   HL_EVENTS.forEach(function(a, i){ HL_EVENTS.forEach(function(b, j){ var d = Math.abs(a.year - b.year); if(i < j && d >= 3 && d <= 20) pairs.push([a, b]); }); });
-  r = pick(pairs, 8);
-  var flip = dcSeeded(seed + 9, function(){ return Math.random() < 0.5; }), A = flip ? r[1] : r[0], B = flip ? r[0] : r[1];
+  r = dcCyclePick(pairs, 'hl', dn);
+  var flip = dcRng(key('hlflip'))() < 0.5, A = flip ? r[1] : r[0], B = flip ? r[0] : r[1];
   Q.hl = { type: 'hl', anchor: A.event, anchorYear: A.year, event: B.event, answer: B.year > A.year ? 'later' : 'earlier' };
-  r = pick(day >= '2026-11-12' ? HANGMAN_WORDS.easy : HANGMAN_WORDS.hard, 10); /* easier words from 12 Nov; earlier days keep their original word */
+  /* hangman */
+  r = dcCyclePick(HANGMAN_WORDS.easy, 'hangman', dn);
   Q.hangman = { type: 'hangman', word: String(r[0]).toUpperCase(), hint: r[1] };
-  r = pick(ANAGRAM_WORDS.filter(function(w){ return w.tier >= 4; }), 11);
-  var scr = dcSeeded(seed + 12, function(){ return anagramScrambleWord(r.word).join(''); });
+  /* scramble */
+  var sp = ANAGRAM_WORDS.filter(function(w){ return w.tier >= 3; }); r = dcCyclePick(sp, 'scramble', dn); if(r.word === Q.hangman.word) r = dcCyclePick(sp, 'scramble', dn, 1);
+  var scr = dcSeeded(key('scr'), function(){ return anagramScrambleWord(r.word).join(''); });
   Q.scramble = { type: 'scramble', word: r.word, scrambled: scr, clue: r.clue };
   return Q;
 }
-window.DAILY = { dayKey: dcDayKey, build: dcBuild, nameOk: dcNameOk, order: DC_ORDER };
+window.DAILY = { dayKey: dcDayKey, build: dcBuild, nameOk: dcNameOk, order: DC_ORDER, orderFor: dcOrderFor };
 
 function dcLoad(){
   try{ var s = JSON.parse(localStorage.getItem(DC_KEY) || 'null'); if(s && s.day === dcDayKey()) return s; }catch(e){}
@@ -37936,7 +37971,7 @@ function dailyTileHtml(){
 
 TOOL_MOUNT['daily-challenge'] = function(app){
   var P = MINI_PRE(app), esc = P.esc;
-  var day = dcDayKey(), Q = null, S = dcLoad(), timerId = 0, lock = false;
+  var day = dcDayKey(), Q = null, S = dcLoad(), timerId = 0, lock = false, ORD = dcOrderFor(day);
   try{ Q = dcBuild(day); }catch(e){ app.innerHTML = MINI_BACK + '<div class="empty-card">Challenge unavailable</div>'; return P.stop; }
   P.cl(function(){ clearInterval(timerId); });
   var limit = function(k){ return DC_LIMITS[k] * 1000; };
@@ -37973,7 +38008,7 @@ TOOL_MOUNT['daily-challenge'] = function(app){
   /* ---- one question ---- */
   function finishQ(ok, ms){
     if(lock) return; lock = true; clearInterval(timerId);
-    S.res.push({ k: DC_ORDER[S.idx], ok: !!ok, ms: Math.max(0, Math.min(ms, limit(DC_ORDER[S.idx]))) });
+    S.res.push({ k: ORD[S.idx], ok: !!ok, ms: Math.max(0, Math.min(ms, limit(ORD[S.idx]))) });
     S.idx++; S.qStart = 0; S.hang = [];
     if(S.idx >= 10){ S.done = true; }
     dcSave(S);
@@ -37981,7 +38016,7 @@ TOOL_MOUNT['daily-challenge'] = function(app){
   function advance(delay){ window.setTimeout(function(){ lock = false; if(S.done) results(); else { S.qStart = Date.now(); dcSave(S); question(); } }, delay); }
   function question(){
     lock = false;
-    var k = DC_ORDER[S.idx], q = Q[k];
+    var k = ORD[S.idx], q = Q[k];
     var lim = limit(k), el0 = S.qStart ? Date.now() - S.qStart : 0;
     if(el0 >= lim){ finishQ(false, lim); advance(0); return; }   /* time ran out while away */
     var h = MINI_BACK + '<div class="dc-bar"><span>' + (S.idx + 1) + ' / 10 · ' + DC_TITLES[k] + '</span><b id="dcClock"></b></div><div class="fg-progress-bar"><div class="fg-progress-fill" style="width:' + (S.idx * 10) + '%"></div></div><div class="fg-wrap" id="dcQ">';
