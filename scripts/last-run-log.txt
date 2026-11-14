@@ -16,10 +16,10 @@
 [scrape] calendar discovery complete: 100 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/midnight1211 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/gaogao1311 title='Вечеринки в Gao Gao' title_hits=[] text_hits=[]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n2\\xa0500\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/31/zimmer-1411 title='Концерт The Music of Hans Zimmer в «Панораме»' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n2\\xa0630\\nво\\xa0дворце национального киноискусства «панорама» симфонический о'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/children/2026/11/11/magicelka title='Открытие новогодней елки' title_hits=[] text_hits=[]
-[scrape]   DEBUG: dumped raw HTML for qimmat page, 123333 chars
+[scrape]   DEBUG: dumped raw HTML for qimmat page, 123326 chars
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 150294 chars, <title>='Спектакль «Требуется лжец» — купить билеты на концерт в Ташкенте 19.11.2026 от 77\xa0000 сумов — Афиша Ташкента'
@@ -30,14 +30,13 @@
 [scrape] calendar detail pass complete: 215 events kept from 100 pages checked
 [scrape] calendar detail pass drops: {'checked': 100, 'no_title': 1, 'excluded_or_banned': 15}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 8 events kept
-[scrape] iticket.uz cat=theatre: 30 events kept
+[scrape] iticket.uz cat=concert: 30 events kept
+[scrape] iticket.uz cat=theatre: 26 events kept
 [scrape] iticket.uz cat=exhibition: 2 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
-[scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
+[scrape] eventbrite.com: 5 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 255  |  after dedup: 244
+[scrape] TOTAL before dedup: 278  |  after dedup: 261
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 251 titles
