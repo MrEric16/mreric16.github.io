@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Whiteboard | Mr Eric's Lounge</title>
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="theme-color" content="#1E2A44">
+<style>
+  :root{ --tb:#1E2A44; --tb-2:#2B3A5E; --tb-ink:#F4F7FF; --accent:#4DA3FF; --danger:#FF5C5C; }
+  *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body{ margin:0; height:100%; overflow:hidden; background:#222; overscroll-behavior:none; font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif; -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
+  #stage{ position:fixed; inset:0; touch-action:none; background:#fff; cursor:crosshair; }
+  #stage canvas{ position:absolute; left:0; top:0; width:100%; height:100%; display:block; touch-action:none; }
+  #live{ pointer-events:none; }
+  #ring{ position:fixed; border:2px solid rgba(80,80,80,.85); box-shadow:0 0 0 1px rgba(255,255,255,.8); border-radius:50%; pointer-events:none; z-index:9; display:none; transform:translate(-50%,-50%); }
+  /* selection */
+  #sel{ position:fixed; z-index:8; display:none; border:2px dashed var(--accent); pointer-events:none; }
+  #sel .h{ position:absolute; width:30px; height:30px; background:#fff; border:3px solid var(--accent); border-radius:50%; pointer-events:auto; touch-action:none; }
+  #sel .h.tl{ left:-17px; top:-17px; cursor:nwse-resize; } #sel .h.tr{ right:-17px; top:-17px; cursor:nesw-resize; }
+  #sel .h.bl{ left:-17px; bottom:-17px; cursor:nesw-resize; } #sel .h.br{ right:-17px; bottom:-17px; cursor:nwse-resize; }
+  #selbar{ position:fixed; z-index:9; display:none; gap:6px; padding:6px; border-radius:14px; background:var(--tb); box-shadow:0 6px 20px rgba(0,0,0,.35); }
+  #selbar button{ width:48px; height:48px; border:0; border-radius:10px; background:var(--tb-2); color:var(--tb-ink); display:grid; place-items:center; }
+  #selbar button.del{ background:#7a2b2b; }
+  /* curtain */
+  #curtain{ position:fixed; inset:0; z-index:12; display:none; pointer-events:none; }
+  #curtain .shade{ position:absolute; pointer-events:auto; touch-action:none; background:linear-gradient(135deg,#2a3550,#1b2438); box-shadow:0 0 40px rgba(0,0,0,.5); }
+  #curtain .grip{ position:absolute; background:#fff; border-radius:12px; display:grid; place-items:center; color:#1E2A44; box-shadow:0 2px 10px rgba(0,0,0,.4); touch-action:none; }
+  #curtain .grip{ pointer-events:auto; }
+  #curtain .grip svg{ pointer-events:none; }
+  /* toolbar */
+  #tb{ position:fixed; z-index:20; display:flex; align-items:center; gap:4px; padding:8px 10px; border-radius:36px; background:var(--tb); color:var(--tb-ink); box-shadow:0 8px 28px rgba(0,0,0,.4); touch-action:none; max-width:98vw; }
+  #tb.b{ touch-action:pan-x; left:50%; transform:translateX(-50%); bottom:calc(10px + env(safe-area-inset-bottom,0px)); flex-direction:row; overflow-x:auto; scrollbar-width:none; }
+  #tb.l{ left:10px; top:66px; flex-direction:column; max-height:calc(100vh - 82px); touch-action:pan-y; overflow-y:auto; scrollbar-width:none; border-radius:34px; padding:10px 8px; }
+  #tb.r{ right:10px; top:66px; flex-direction:column; max-height:calc(100vh - 82px); touch-action:pan-y; overflow-y:auto; scrollbar-width:none; border-radius:34px; padding:10px 8px; }
+  #tb::-webkit-scrollbar{ display:none; }
+  .tbb{ flex:none; width:54px; height:54px; border:0; border-radius:50%; background:transparent; color:var(--tb-ink); display:grid; place-items:center; position:relative; touch-action:manipulation; cursor:pointer; padding:0; }
+  .tbb:active{ background:rgba(255,255,255,.18); }
+  .tbb.on{ background:var(--accent); color:#06203F; }
+  .tbb[disabled]{ opacity:.3; pointer-events:none; }
+  .tbb svg{ width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; pointer-events:none; }
+  .sep{ flex:none; width:2px; height:30px; background:rgba(255,255,255,.2); margin:0 4px; }
+  #tb.l .sep, #tb.r .sep{ width:30px; height:2px; margin:4px 0; }
+  #grip{ cursor:grab; opacity:.7; touch-action:none; }
+  #tb.l .dot, #tb.r .dot{ width:26px; height:26px; }
+  #tb.l #wslider, #tb.r #wslider{ display:none; }
+  .dots{ display:flex; align-items:center; gap:7px; padding:0 4px; }
+  #tb.l .dots, #tb.r .dots{ flex-direction:column; padding:4px 0; }
+  .dot{ flex:none; width:30px; height:30px; border-radius:50%; border:3px solid rgba(255,255,255,.35); padding:0; touch-action:manipulation; }
+  .dot.on{ border-color:#fff; box-shadow:0 0 0 3px var(--accent); }
+  #wslider{ width:92px; accent-color:var(--accent); touch-action:none; }
+    #savestate{ position:fixed; z-index:6; top:calc(8px + env(safe-area-inset-top,0px)); right:12px; font-size:13px; color:#fff; background:rgba(0,0,0,.45); padding:4px 10px; border-radius:999px; opacity:0; transition:opacity .4s; pointer-events:none; }
+  #savestate.show{ opacity:1; }
+  #back{ position:fixed; z-index:6; top:calc(8px + env(safe-area-inset-top,0px)); left:10px; width:46px; height:46px; border-radius:50%; background:rgba(30,42,68,.9); color:#fff; display:grid; place-items:center; text-decoration:none; font-size:24px; box-shadow:0 4px 14px rgba(0,0,0,.3); }
+  /* popovers & panels */
+  #pop{ position:fixed; z-index:30; display:none; min-width:260px; max-width:min(92vw,420px); padding:14px; border-radius:20px; background:var(--tb); color:var(--tb-ink); box-shadow:0 10px 34px rgba(0,0,0,.5); touch-action:manipulation; }
+  #pop h4{ margin:0 0 10px; font-size:15px; font-weight:700; opacity:.8; }
+  #pop .row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px; align-items:center; }
+  #pop .row:last-child{ margin-bottom:0; }
+  .chip{ min-height:48px; min-width:48px; padding:0 14px; border:0; border-radius:12px; background:var(--tb-2); color:var(--tb-ink); font-size:16px; display:inline-flex; align-items:center; justify-content:center; gap:8px; touch-action:manipulation; }
+  .chip.on{ background:var(--accent); color:#06203F; }
+  .chip.warn{ background:#7a2b2b; }
+  .chip svg{ width:24px; height:24px; stroke:currentColor; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; }
+  .sw{ width:44px; height:44px; border-radius:12px; border:3px solid rgba(255,255,255,.3); padding:0; }
+  .sw.on{ border-color:#fff; box-shadow:0 0 0 3px var(--accent); }
+  #pop input[type=range]{ flex:1; min-width:150px; height:34px; accent-color:var(--accent); }
+  #pop input[type=color]{ width:48px; height:48px; border:0; background:none; padding:0; }
+  #pop input[type=text]{ flex:1; min-height:48px; border-radius:12px; border:2px solid var(--tb-2); background:#10182b; color:#fff; padding:0 12px; font-size:17px; -webkit-user-select:text; user-select:text; }
+  .panel{ position:fixed; z-index:25; display:none; background:var(--tb); color:var(--tb-ink); border-radius:20px; box-shadow:0 10px 34px rgba(0,0,0,.5); padding:12px; }
+  #pagesbar{ left:50%; transform:translateX(-50%); bottom:calc(86px + env(safe-area-inset-bottom,0px)); max-width:96vw; }
+  #pagesbar .strip{ display:flex; gap:10px; overflow-x:auto; padding:4px; max-width:calc(96vw - 28px); }
+  #pagesbar .th{ flex:none; width:150px; height:96px; border-radius:10px; border:3px solid transparent; background:#fff; padding:0; overflow:hidden; position:relative; touch-action:manipulation; }
+  #pagesbar .th.on{ border-color:var(--accent); }
+  #pagesbar .th canvas{ width:100%; height:100%; display:block; }
+  #pagesbar .th span{ position:absolute; left:6px; bottom:4px; font-size:13px; background:rgba(0,0,0,.6); color:#fff; border-radius:6px; padding:0 6px; }
+  #pagesbar .acts{ display:flex; gap:8px; margin-top:10px; justify-content:center; flex-wrap:wrap; }
+  #boards{ inset:0; margin:auto; width:min(94vw,560px); height:fit-content; max-height:86vh; overflow:auto; }
+  #boards h3{ margin:0 0 12px; }
+  #boards .bi{ display:flex; align-items:center; gap:8px; padding:8px; border-radius:12px; background:var(--tb-2); margin-bottom:8px; }
+  #boards .bi .nm{ flex:1; min-width:0; font-size:18px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #boards .bi small{ opacity:.65; display:block; font-size:12px; }
+  #toast{ position:fixed; z-index:40; left:50%; top:calc(14px + env(safe-area-inset-top,0px)); transform:translateX(-50%); background:#111c; color:#fff; padding:10px 18px; border-radius:12px; font-size:16px; display:none; }
+  @media (max-width:700px){ .tbb{ width:46px; height:46px; } .tbb svg{ width:24px; height:24px; } #wslider{ width:64px; } }
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="c"></canvas><canvas id="live"></canvas></div>
+<div id="ring"></div>
+<div id="sel"><i class="h tl" data-h="tl"></i><i class="h tr" data-h="tr"></i><i class="h bl" data-h="bl"></i><i class="h br" data-h="br"></i></div>
+<div id="selbar"></div>
+<div id="curtain"></div>
+<a id="back" href="index.html" aria-label="Back to the Lounge">&#8592;</a>
+<div id="savestate"></div>
+<div id="tb" class="b"></div>
+<div id="pop"></div>
+<div id="pagesbar" class="panel"></div>
+<div id="boards" class="panel"></div>
+<div id="toast"></div>
+<input type="file" id="file" accept="image/*" hidden>
+<script src="board.js"></script>
+</body>
+</html>

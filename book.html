@@ -35,6 +35,21 @@
   .hl i{position:absolute;background:rgba(255,214,0,.45);mix-blend-mode:multiply;border-radius:2px;}
   .hl i.cur{background:rgba(255,120,0,.6);outline:2px solid rgba(255,90,0,.85);}
   .pg .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#bbb;font-size:15px;pointer-events:none;}
+  /* covers: hide parts of a page (e.g. the definitions column) and tap to reveal */
+  .cv{position:absolute;z-index:6;background:#2B3A5E;border-radius:6px;box-shadow:inset 0 0 0 2px rgba(255,255,255,.16),0 2px 8px rgba(0,0,0,.3);cursor:pointer;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
+  .cv.open{background:transparent;box-shadow:none;border:2px dashed rgba(30,100,255,.55);}
+  .cv.sel{outline:3px solid #4DA3FF;outline-offset:1px;touch-action:none;}
+  .cv.draw{background:rgba(43,58,94,.55);border:2px dashed #fff;pointer-events:none;}
+  .cv .hd{position:absolute;width:30px;height:30px;border-radius:50%;background:#fff;border:3px solid #4DA3FF;touch-action:none;}
+  .cv .hd.tl{left:-16px;top:-16px}.cv .hd.tr{right:-16px;top:-16px}.cv .hd.bl{left:-16px;bottom:-16px}.cv .hd.br{right:-16px;bottom:-16px}
+  #pages.arm{cursor:crosshair;-webkit-user-select:none;user-select:none;}
+  #pages.arm .pg{touch-action:none;}
+  #bCover.on{background:var(--accent,#E8B355);color:#2a1d12;}
+  #cbar{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(64px + env(safe-area-inset-bottom,0px));z-index:30;display:none;gap:6px;flex-wrap:wrap;justify-content:center;max-width:96vw;padding:8px;border-radius:18px;background:rgba(61,42,34,.96);color:#F3EADD;box-shadow:0 6px 20px rgba(0,0,0,.4);}
+  #cbar button{min-height:44px;padding:0 14px;border:0;border-radius:12px;background:rgba(255,255,255,.14);color:inherit;font:inherit;font-size:15px;font-weight:700;cursor:pointer;}
+  #cbar button.on{background:#E8B355;color:#2a1d12;}
+  #cbar button[disabled]{opacity:.35;pointer-events:none;}
+  #cbar .hint{flex-basis:100%;text-align:center;font-size:13px;opacity:.8;}
   #zoom{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:2px;background:rgba(61,42,34,.94);color:var(--bar-ink);border-radius:26px;padding:4px;box-shadow:0 4px 16px rgba(0,0,0,.4);z-index:5;}
   #zoom button{width:44px;height:40px;border:0;border-radius:20px;background:transparent;color:inherit;font-size:20px;font-weight:800;cursor:pointer;}
   #zoom button:active{background:rgba(255,255,255,.2);}
@@ -123,6 +138,7 @@
     <div class="pgbox"><input id="pgin" inputmode="numeric" pattern="[0-9]*" aria-label="Jump to page" value="1"><span id="pgtot">/ 157</span></div>
     <button id="bContents" aria-label="Contents">&#9776;</button>
     <button id="bSearch" aria-label="Search the book">&#9906;</button>
+    <button id="bCover" aria-label="Cover parts of the page" title="Cover parts of the page"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M12 5v14" /><path d="M7 10h2M7 14h2" /></svg></button>
   </div>
   <div id="sbar">
     <input id="sq" type="search" placeholder="Search the book&hellip;" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
@@ -135,6 +151,7 @@
   <div id="scroller"><div id="pages"></div><div id="msg">Opening the book&hellip;</div></div>
 </div>
 <div id="zoom"><button id="zOut" aria-label="Zoom out">&#8722;</button><span class="pct" id="zpct">100%</span><button id="zIn" aria-label="Zoom in">+</button><button class="fit" id="zFit" aria-label="Fit to width">Fit</button></div>
+<div id="cbar"></div>
 <div id="scrim"></div>
 <div id="sheet"><h3><span id="sheetT">Contents</span><button id="sheetX" aria-label="Close">&#10005;</button></h3><div id="sheetbody"></div></div>
 
@@ -181,6 +198,89 @@
   function label(n){ return n <= OFFSET ? CFG.front[n - 1] : String(n - OFFSET); }
   function toPdfPage(p){ return clamp(p + OFFSET, 1, N); }
 
+  /* ---------- covers ---------- */
+  var CKEY = 'bookCovers_' + BK, covers = {}, cvEdit = false, cvArmed = false, cvSel = null;
+  try{ covers = JSON.parse(ls(CKEY) || '{}') || {}; }catch(e){ covers = {}; }
+  function saveCovers(){ try{ ls(CKEY, JSON.stringify(covers, function(k, v){ return k === 'o' ? undefined : v; })); }catch(e){} }
+  function buildCovers(n){
+    var el = els[n - 1]; if(!el) return;
+    var old = el.querySelectorAll('.cv'); for(var q = 0; q < old.length; q++) old[q].remove();
+    (covers[n] || []).forEach(function(c, i){
+      var d = document.createElement('div'), sel = cvEdit && cvSel && cvSel.n === n && cvSel.i === i;
+      d.className = 'cv' + (c.o ? ' open' : '') + (sel ? ' sel' : ''); d.dataset.n = n; d.dataset.i = i;
+      d.style.left = c.x * 100 + '%'; d.style.top = c.y * 100 + '%'; d.style.width = c.w * 100 + '%'; d.style.height = c.h * 100 + '%';
+      if(sel){ ['tl', 'tr', 'bl', 'br'].forEach(function(h){ var hd = document.createElement('i'); hd.className = 'hd ' + h; hd.dataset.h = h; d.appendChild(hd); }); }
+      el.appendChild(d);
+    });
+  }
+  function allCovers(fn){ Object.keys(covers).forEach(function(n){ (covers[n] || []).forEach(function(c){ fn(c); }); }); }
+  function rebuildAllCovers(){ Object.keys(covers).forEach(function(n){ buildCovers(+n); }); }
+  function cbarRender(){
+    var bar = $('cbar'); $('bCover').classList.toggle('on', bar.style.display === 'flex');
+    if(bar.style.display !== 'flex') return;
+    var has = !!(cvSel && covers[cvSel.n] && covers[cvSel.n][cvSel.i]);
+    bar.innerHTML = '<button data-a="new"' + (cvArmed ? ' class="on"' : '') + '>+ New cover</button><button data-a="edit"' + (cvEdit ? ' class="on"' : '') + '>Move / resize</button>'
+      + '<button data-a="hideall">Hide all</button><button data-a="showall">Reveal all</button>'
+      + '<button data-a="next"' + (has ? '' : ' disabled') + '>Copy to next page</button><button data-a="del"' + (has ? '' : ' disabled') + '>Delete</button><button data-a="done">Done</button>'
+      + '<div class="hint">' + (cvArmed ? 'Drag over the part you want to hide' : cvEdit ? 'Tap a cover, drag it, or drag a corner' : 'Tap a cover to reveal it') + '</div>';
+  }
+  function arm(on){ cvArmed = on; pagesEl.classList.toggle('arm', on); if(on) cvEdit = false; cbarRender(); rebuildAllCovers(); }
+  $('bCover').onclick = function(){ var bar = $('cbar'); if(bar.style.display === 'flex'){ bar.style.display = 'none'; cvEdit = false; cvSel = null; arm(false); } else { bar.style.display = 'flex'; cbarRender(); } };
+  $('cbar').addEventListener('click', function(e){
+    var b = e.target.closest('button'); if(!b || b.disabled) return; var a = b.dataset.a;
+    if(a === 'new') arm(!cvArmed);
+    else if(a === 'edit'){ cvEdit = !cvEdit; cvArmed = false; pagesEl.classList.remove('arm'); if(!cvEdit) cvSel = null; cbarRender(); rebuildAllCovers(); }
+    else if(a === 'hideall'){ allCovers(function(c){ c.o = false; }); rebuildAllCovers(); }
+    else if(a === 'showall'){ allCovers(function(c){ c.o = true; }); rebuildAllCovers(); }
+    else if(a === 'del' && cvSel){ covers[cvSel.n].splice(cvSel.i, 1); var n = cvSel.n; cvSel = null; saveCovers(); buildCovers(n); cbarRender(); }
+    else if(a === 'next' && cvSel){ var c = covers[cvSel.n][cvSel.i], t = cvSel.n + 1; if(t <= N){ (covers[t] = covers[t] || []).push({ x:c.x, y:c.y, w:c.w, h:c.h }); saveCovers(); buildCovers(t); var el = els[t - 1]; if(el) goPage(t); } }
+    else if(a === 'done'){ $('cbar').style.display = 'none'; cvEdit = false; cvSel = null; arm(false); }
+  });
+  pagesEl.addEventListener('click', function(e){
+    var d = e.target.closest && e.target.closest('.cv'); if(!d || cvArmed || e.target.classList.contains('hd')) return;
+    var n = +d.dataset.n, i = +d.dataset.i, c = covers[n] && covers[n][i]; if(!c) return;
+    if(cvEdit){ cvSel = { n:n, i:i }; var prev = cvSel; rebuildAllCovers(); cbarRender(); return; }
+    c.o = !c.o; d.classList.toggle('open', !!c.o);
+  });
+  pagesEl.addEventListener('pointerdown', function(e){
+    if(!cvArmed && !cvEdit) return;
+    var pg = e.target.closest && e.target.closest('.pg'); if(!pg) return; var n = +pg.dataset.n, rect = pg.getBoundingClientRect();
+    function fx(x){ return clamp((x - rect.left) / rect.width, 0, 1); } function fy(y){ return clamp((y - rect.top) / rect.height, 0, 1); }
+    if(cvArmed){
+      e.preventDefault(); var x0 = fx(e.clientX), y0 = fy(e.clientY), box = document.createElement('div'); box.className = 'cv draw'; pg.appendChild(box);
+      try{ pagesEl.setPointerCapture(e.pointerId); }catch(er){}
+      var mv = function(ev){ var x1 = fx(ev.clientX), y1 = fy(ev.clientY); box.style.left = Math.min(x0, x1) * 100 + '%'; box.style.top = Math.min(y0, y1) * 100 + '%'; box.style.width = Math.abs(x1 - x0) * 100 + '%'; box.style.height = Math.abs(y1 - y0) * 100 + '%'; };
+      var up = function(ev){
+        pagesEl.removeEventListener('pointermove', mv); pagesEl.removeEventListener('pointerup', up); pagesEl.removeEventListener('pointercancel', up); box.remove();
+        if(ev.type === 'pointercancel') return;
+        var x1 = fx(ev.clientX), y1 = fy(ev.clientY), c = { x:Math.min(x0, x1), y:Math.min(y0, y1), w:Math.abs(x1 - x0), h:Math.abs(y1 - y0) };
+        if(c.w < 0.02 || c.h < 0.01) return;
+        (covers[n] = covers[n] || []).push(c); saveCovers(); buildCovers(n); arm(false);
+      };
+      pagesEl.addEventListener('pointermove', mv); pagesEl.addEventListener('pointerup', up); pagesEl.addEventListener('pointercancel', up); return;
+    }
+    /* edit: move or resize the selected cover */
+    var d = e.target.closest('.cv'); if(!d) return; var i = +d.dataset.i, c = covers[n] && covers[n][i]; if(!c) return;
+    var isSel = cvSel && cvSel.n === n && cvSel.i === i, hd = e.target.classList.contains('hd') ? e.target.dataset.h : null;
+    if(!isSel){ return; }            /* first tap selects (click handler) */
+    e.preventDefault(); e.stopPropagation();
+    try{ d.setPointerCapture(e.pointerId); }catch(er){}
+    var o = { x:c.x, y:c.y, w:c.w, h:c.h }, sx = e.clientX, sy = e.clientY;
+    var mv2 = function(ev){
+      var dx = (ev.clientX - sx) / rect.width, dy = (ev.clientY - sy) / rect.height, nx = o.x, ny = o.y, nw = o.w, nh = o.h;
+      if(!hd){ nx = clamp(o.x + dx, 0, 1 - o.w); ny = clamp(o.y + dy, 0, 1 - o.h); }
+      else {
+        var l = o.x, t = o.y, r = o.x + o.w, b = o.y + o.h;
+        if(hd === 'tl' || hd === 'bl') l = clamp(o.x + dx, 0, r - 0.02); else r = clamp(o.x + o.w + dx, l + 0.02, 1);
+        if(hd === 'tl' || hd === 'tr') t = clamp(o.y + dy, 0, b - 0.01); else b = clamp(o.y + o.h + dy, t + 0.01, 1);
+        nx = l; ny = t; nw = r - l; nh = b - t;
+      }
+      c.x = nx; c.y = ny; c.w = nw; c.h = nh; d.style.left = nx * 100 + '%'; d.style.top = ny * 100 + '%'; d.style.width = nw * 100 + '%'; d.style.height = nh * 100 + '%';
+    };
+    var up2 = function(){ d.removeEventListener('pointermove', mv2); d.removeEventListener('pointerup', up2); d.removeEventListener('pointercancel', up2); saveCovers(); };
+    d.addEventListener('pointermove', mv2); d.addEventListener('pointerup', up2); d.addEventListener('pointercancel', up2);
+  });
+
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'lib/pdfjs/pdf.worker.min.js';
 
   /* ---------- layout ---------- */
@@ -202,7 +302,7 @@
       d.innerHTML = '<div class="ph">' + label(i) + '</div>';
       pagesEl.appendChild(d); els.push(d);
     }
-    layout();
+    layout(); rebuildAllCovers();
   }
 
   /* ---------- render (only pages near the screen) ---------- */
@@ -318,6 +418,7 @@
   }
   scroller.addEventListener('touchend', function(e){
     if(pinch){ endPinch(e); return; }
+    if(e.target && e.target.closest && e.target.closest('.cv')){ lastTap = 0; return; }
     if(e.touches.length === 0 && e.changedTouches.length === 1){
       var t = e.changedTouches[0], now = Date.now();
       if(now - lastTap < 300 && Math.hypot(t.clientX - lastTapX, t.clientY - lastTapY) < 30){
