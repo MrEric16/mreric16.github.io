@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261115150000">
+<meta name="app-build" content="20261115180223">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7517,6 +7517,140 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-uzbekistan2:not(.dark-mode) .section-head h2 *,
   body.usertheme-uzbekistan2:not(.dark-mode) .section-head svg{ color:#FEFEFE !important; }
   /* ===== END UZBEKISTAN 2 contrast plates ===== */
+  /* ===== CHALKBOARD (15 Nov 2026): slate board, wooden frame, chalk handwriting, chalk-drawn tiles, margin doodles, header ledge with the date in chalk.
+     All static (no endless animation). Effects that run once: heading write-on, eraser wipe between pages, dust puff on tap (see JS block 'CHALKBOARD FX').
+     To revert: delete from here to 'END CHALKBOARD', then remove 'chalkboard' from THEME_SWATCHES, buildThemeOrder, applyThemeState's class list, and the 'CHALKBOARD FX' script. ===== */
+  body.usertheme-chalkboard:not(.dark-mode){
+    --cream:#25382F; --cream-2:#1E2F27; --card:#2C443A;
+    --ink:#F3F0E6; --ink-solid:#F3F0E6; --ink-soft:#C6D3C8;
+    --coral:#C9505C; --coral-dark:#A23F4B; --gold:#F2D95C; --teal:#8FCBE3;
+    --line:rgba(243,240,230,.3);
+    --board-bg:rgba(30,47,39,.92);
+    background-color:#25382F;
+  }
+  body.usertheme-chalkboard:not(.dark-mode) .aurora-layer{ opacity:0; }
+  /* 1. slate surface with eraser smudges */
+  body.usertheme-chalkboard:not(.dark-mode)::before{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(ellipse 60% 22% at 25% 16%, rgba(255,255,255,.07), transparent 72%),
+      radial-gradient(ellipse 52% 20% at 80% 42%, rgba(255,255,255,.055), transparent 72%),
+      radial-gradient(ellipse 70% 18% at 38% 80%, rgba(255,255,255,.06), transparent 72%),
+      linear-gradient(100deg, transparent 18%, rgba(255,255,255,.035) 34%, transparent 50%, rgba(255,255,255,.03) 68%, transparent 86%),
+      #25382F;
+  }
+  /* 1. wooden frame around the page edge */
+  body.usertheme-chalkboard:not(.dark-mode)::after{
+    content:''; position:fixed; inset:0; z-index:35; pointer-events:none;
+    box-shadow: inset 0 0 0 6px #6e4521, inset 0 0 0 9px #9a6a36, inset 0 0 0 10px rgba(0,0,0,.45), inset 0 0 30px 10px rgba(0,0,0,.28);
+  }
+  @media (min-width:700px){
+    body.usertheme-chalkboard:not(.dark-mode)::after{ box-shadow: inset 0 0 0 10px #6e4521, inset 0 0 0 15px #9a6a36, inset 0 0 0 16px rgba(0,0,0,.45), inset 0 0 40px 16px rgba(0,0,0,.28); }
+  }
+  /* 6. header: a chalk ledge along the bottom with chalk + duster, and today's date written on the board */
+  body.usertheme-chalkboard:not(.dark-mode) header{
+    background:#22352c linear-gradient(#22352c, #1d2e26); border-bottom:0; padding-bottom:44px;
+  }
+  body.usertheme-chalkboard:not(.dark-mode) header,
+  body.usertheme-chalkboard:not(.dark-mode) header *{ color:#F3F0E6; text-shadow:none; }
+  body.usertheme-chalkboard:not(.dark-mode) header .search-icon-btn,
+  body.usertheme-chalkboard:not(.dark-mode) header .search-icon-btn *{ color:#F3F0E6 !important; }
+  body.usertheme-chalkboard:not(.dark-mode) header .flag-emblem{ display:none; }
+  body.usertheme-chalkboard:not(.dark-mode) header::before{
+    content:var(--chalk-date, ''); inset:auto auto 14px 18px; z-index:1; position:absolute; background:none; width:auto; height:auto; opacity:.9;
+    font-family:'Caveat','Baloo 2',cursive; font-weight:600; font-size:22px; line-height:1; color:#F2D95C; opacity:.9; transform:rotate(-1.2deg);
+    text-shadow:0 0 1px rgba(255,255,255,.5);
+  }
+  body.usertheme-chalkboard:not(.dark-mode) header::after{
+    content:''; inset:auto 0 0 0; height:12px; z-index:1; position:absolute; opacity:1;
+    background:
+      linear-gradient(#f3f0e6,#f3f0e6) right 76px bottom 8px / 26px 6px no-repeat,
+      linear-gradient(#2b2b2b,#2b2b2b) right 22px bottom 8px / 34px 8px no-repeat,
+      linear-gradient(#b8844a, #7d5329);
+    border-radius:0; box-shadow:0 -1px 0 rgba(0,0,0,.35), 0 2px 5px rgba(0,0,0,.4);
+  }
+  /* 2. chalk handwriting for headings; body copy stays the readable site font */
+  body.usertheme-chalkboard:not(.dark-mode) .title,
+  body.usertheme-chalkboard:not(.dark-mode) h1,
+  body.usertheme-chalkboard:not(.dark-mode) .section-head h2,
+  body.usertheme-chalkboard:not(.dark-mode) #app h2,
+  body.usertheme-chalkboard:not(.dark-mode) .random-tile .title,
+  body.usertheme-chalkboard:not(.dark-mode) .fac-tile .name{
+    font-family:'Caveat','Baloo 2',cursive !important; font-weight:700 !important; letter-spacing:.02em;
+    text-shadow:0 0 1px rgba(255,255,255,.55), 1px 1px 0 rgba(0,0,0,.25);
+  }
+  body.usertheme-chalkboard:not(.dark-mode) .title,
+  body.usertheme-chalkboard:not(.dark-mode) header .title, body.usertheme-chalkboard:not(.dark-mode) header .title *{ color:#F3F0E6 !important; transition:none !important; animation:none !important; -webkit-text-fill-color:#F3F0E6 !important; }
+  body.usertheme-chalkboard:not(.dark-mode) .title{ font-size:1.3em; }
+  body.usertheme-chalkboard:not(.dark-mode) .section-head h2,
+  body.usertheme-chalkboard:not(.dark-mode) #app h2{ font-size:1.45em; color:#F2D95C !important; }
+  body.usertheme-chalkboard:not(.dark-mode) .random-tile{ background:var(--card) !important; color:var(--ink) !important; }
+  body.usertheme-chalkboard:not(.dark-mode) .random-tile .title{ font-size:1.3em; color:#F2D95C !important; }
+  body.usertheme-chalkboard:not(.dark-mode) .random-tile .sub{ color:#C6D3C8 !important; }
+  body.usertheme-chalkboard:not(.dark-mode) .random-tile .icon{ color:#8FCBE3 !important; }
+  /* 4. colour-coded chalk: white = text, yellow = headings/highlights, blue = links, pink = labels */
+  body.usertheme-chalkboard:not(.dark-mode) .section-link,
+  body.usertheme-chalkboard:not(.dark-mode) a.headline{ color:#8FCBE3; }
+  body.usertheme-chalkboard:not(.dark-mode) .tag,
+  body.usertheme-chalkboard:not(.dark-mode) .watch-tag{ color:#F6A5B0; }
+  /* 3. chalk-drawn borders: wobbly hand-drawn outlines (two alternating shapes so they never look stamped) */
+  body.usertheme-chalkboard:not(.dark-mode) .fac-tile,
+  body.usertheme-chalkboard:not(.dark-mode) .sport-hub-tile,
+  body.usertheme-chalkboard:not(.dark-mode) .random-tile,
+  body.usertheme-chalkboard:not(.dark-mode) .books-tile,
+  body.usertheme-chalkboard:not(.dark-mode) .explore-card,
+  body.usertheme-chalkboard:not(.dark-mode) .watch-card,
+  body.usertheme-chalkboard:not(.dark-mode) .club-card,
+  body.usertheme-chalkboard:not(.dark-mode) .entry{
+    border:2px solid rgba(243,240,230,.82) !important;
+    border-radius:14px 6px 12px 8px / 8px 12px 6px 14px !important;
+  }
+  body.usertheme-chalkboard:not(.dark-mode) .fac-tile:nth-child(even),
+  body.usertheme-chalkboard:not(.dark-mode) .explore-card:nth-child(even),
+  body.usertheme-chalkboard:not(.dark-mode) .entry:nth-child(even){
+    border-radius:7px 13px 8px 14px / 13px 7px 14px 8px !important;
+  }
+  /* 5. margin doodles on the five top tiles (simple line drawings, chalk white) */
+  body.usertheme-chalkboard:not(.dark-mode) #randomBtn,
+  body.usertheme-chalkboard:not(.dark-mode) #randomVideoBtn,
+  body.usertheme-chalkboard:not(.dark-mode) #randomExploreBtn,
+  body.usertheme-chalkboard:not(.dark-mode) #randomGameBtn,
+  body.usertheme-chalkboard:not(.dark-mode) a.random-tile[href="#daily-challenge"]{ position:relative; padding-right:62px; }
+  body.usertheme-chalkboard:not(.dark-mode) #randomBtn::after,
+  body.usertheme-chalkboard:not(.dark-mode) #randomVideoBtn::after,
+  body.usertheme-chalkboard:not(.dark-mode) #randomExploreBtn::after,
+  body.usertheme-chalkboard:not(.dark-mode) #randomGameBtn::after,
+  body.usertheme-chalkboard:not(.dark-mode) a.random-tile[href="#daily-challenge"]::after{
+    content:''; position:absolute; right:12px; top:50%; width:38px; height:38px; margin-top:-19px;
+    background:center/contain no-repeat; opacity:.9; pointer-events:none; transform:rotate(7deg);
+  }
+  body.usertheme-chalkboard:not(.dark-mode) a.random-tile[href="#daily-challenge"]::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 10C8 6 3 14 5 22C7 30 12 33 16 31C20 33 25 30 27 22C29 14 24 6 16 10Z'/><path d='M16 10C16 6 17 4 19 2'/><path d='M18 6C21 3 25 4 26 6C23 8 20 8 18 6Z'/></svg>");
+  }
+  body.usertheme-chalkboard:not(.dark-mode) #randomBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 7L16 10L29 7V25L16 28L3 25Z'/><path d='M16 10V28'/><path d='M7 13L12 14.2M7 17L12 18.2'/></svg>");
+  }
+  body.usertheme-chalkboard:not(.dark-mode) #randomVideoBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='6' width='26' height='19' rx='3'/><path d='M13 11L22 15.5L13 20Z'/><path d='M10 29H22'/></svg>");
+  }
+  body.usertheme-chalkboard:not(.dark-mode) #randomExploreBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 3C10 3 6.5 7 6.5 11.5C6.5 15.5 9.5 17.5 10.5 21H21.5C22.5 17.5 25.5 15.5 25.5 11.5C25.5 7 22 3 16 3Z'/><path d='M11.5 25H20.5'/><path d='M13 28.5H19'/></svg>");
+  }
+  body.usertheme-chalkboard:not(.dark-mode) #randomGameBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='24' height='24' rx='5'/><circle cx='11' cy='11' r='1.6' fill='white'/><circle cx='21' cy='11' r='1.6' fill='white'/><circle cx='16' cy='16' r='1.6' fill='white'/><circle cx='11' cy='21' r='1.6' fill='white'/><circle cx='21' cy='21' r='1.6' fill='white'/></svg>");
+  }
+  /* 7. headings write themselves once per page (clip-path reveal, runs once and stops) */
+  @keyframes cbWrite{ from{ clip-path:inset(-4px 100% -4px 0); } to{ clip-path:inset(-4px -3% -4px 0); } }
+  body.usertheme-chalkboard:not(.dark-mode) .section-head h2,
+  body.usertheme-chalkboard:not(.dark-mode) #app > h1,
+  body.usertheme-chalkboard:not(.dark-mode) #app h2{ animation:cbWrite .85s steps(18,end) 1 both; transition:none !important; }
+  @media (prefers-reduced-motion:reduce){
+    body.usertheme-chalkboard:not(.dark-mode) .section-head h2,
+    body.usertheme-chalkboard:not(.dark-mode) #app > h1,
+    body.usertheme-chalkboard:not(.dark-mode) #app h2{ animation:none; }
+  }
+  #chalkSoundBtn{ font-size:15px; }
+  /* ===== END CHALKBOARD ===== */
 </style>
 <style id="tools-css">
 /* tools moved in from standalone pages; everything scoped under .tool */
@@ -40182,7 +40316,7 @@ const COMPLIMENTS = [
     // window) per Mr Eric - it's a real palette option forever, cyclable/pickable any
     // time. The window end (2 Sept 18:00 Tashkent) only controls the one-time default
     // reset below, not availability.
-    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus'];
+    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus','chalkboard'];
     return base;
   }
   let THEME_ORDER = buildThemeOrder();
@@ -40325,7 +40459,7 @@ const COMPLIMENTS = [
     const persist = !opts || opts.persist !== false;
     const isDark = key !== 'default' && key !== 'nationalday' && key.charAt(0) === 'd';
     document.body.classList.toggle('dark-mode', isDark);
-    ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','vintage','d1','dihl','darsenal','dvintage'].forEach(k => document.body.classList.remove('usertheme-' + k));
+    ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','chalkboard','vintage','d1','dihl','darsenal','dvintage'].forEach(k => document.body.classList.remove('usertheme-' + k));
     document.body.classList.remove('theme-nationalday');
     if(key === 'nationalday'){
       document.body.classList.add('theme-nationalday');
@@ -40465,6 +40599,7 @@ const COMPLIMENTS = [
     { key:'nebula', label:'Nebula', c1:'#3D0A66', c2:'#8B0A50' },
     { key:'synthwave', label:'Synthwave', c1:'#FF00C8', c2:'#00FFE1' },
     { key:'bauhaus', label:'Bauhaus', c1:'#D4141E', c2:'#0056A4' },
+    { key:'chalkboard', label:'Chalkboard', c1:'#2C443A', c2:'#F2D95C' },
   ];
 
   let themePickerBackdrop = null;
@@ -43681,5 +43816,74 @@ function setCornersNoZoom(active){
 
 </script>
 
+<script>
+/* ===== CHALKBOARD FX (15 Nov 2026): date on the board, eraser wipe between pages, chalk dust on tap, optional chalk squeak. Only active while the Chalkboard theme is on. Revert: delete this script. ===== */
+(function(){
+  var body = document.body, on = false, wired = false, soundBtn = null, ac = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function isOn(){ return body.classList.contains('usertheme-chalkboard') && !body.classList.contains('dark-mode'); }
+  function setDate(){
+    try{ document.documentElement.style.setProperty('--chalk-date', '"' + new Date().toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' }) + '"'); }catch(e){}
+  }
+  function soundOn(){ try{ return localStorage.getItem('chalkSound') === '1'; }catch(e){ return false; } }
+  function squeak(){
+    if(!soundOn()) return;
+    try{
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      if(ac.state === 'suspended') ac.resume();
+      var len = Math.floor(ac.sampleRate * 0.35), buf = ac.createBuffer(1, len, ac.sampleRate), d = buf.getChannelData(0);
+      for(var i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * (1 - i / len);
+      var src = ac.createBufferSource(); src.buffer = buf;
+      var f = ac.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = 6;
+      f.frequency.setValueAtTime(2200, ac.currentTime); f.frequency.linearRampToValueAtTime(3400, ac.currentTime + 0.3);
+      var g = ac.createGain(); g.gain.value = 0.06;
+      src.connect(f); f.connect(g); g.connect(ac.destination); src.start();
+    }catch(e){}
+  }
+  function wipe(){
+    if(reduce || !isOn() || !document.body.animate) return;
+    var el = document.createElement('div');
+    el.style.cssText = 'position:fixed;top:0;bottom:0;left:0;width:62vw;z-index:30;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(243,240,230,.14) 30%,rgba(243,240,230,.24) 62%,transparent);will-change:transform;';
+    document.body.appendChild(el);
+    var a = el.animate([{ transform:'translateX(-70vw)' }, { transform:'translateX(115vw)' }], { duration:520, easing:'ease-in-out' });
+    a.onfinish = a.oncancel = function(){ if(el.parentNode) el.parentNode.removeChild(el); };
+  }
+  function dust(e){
+    if(reduce || !isOn() || !e.target || !e.target.closest || !e.target.closest('a,button,[role="button"],summary,.fac-tile')) return;
+    for(var i = 0; i < 7; i++){
+      var p = document.createElement('i'), s = 2 + Math.random() * 3;
+      p.style.cssText = 'position:fixed;left:' + e.clientX + 'px;top:' + e.clientY + 'px;width:' + s + 'px;height:' + s + 'px;border-radius:50%;background:rgba(243,240,230,.85);z-index:40;pointer-events:none;';
+      document.body.appendChild(p);
+      var dx = (Math.random() - .5) * 46, dy = -8 - Math.random() * 26;
+      var an = p.animate([{ transform:'translate(0,0)', opacity:.9 }, { transform:'translate(' + dx + 'px,' + dy + 'px)', opacity:0 }], { duration:480 + Math.random() * 200, easing:'ease-out' });
+      an.onfinish = (function(n){ return function(){ if(n.parentNode) n.parentNode.removeChild(n); }; })(p);
+    }
+  }
+  function soundButton(show){
+    var row = document.querySelector('.header-icon-row');
+    if(!row) return;
+    if(!show){ if(soundBtn && soundBtn.parentNode) soundBtn.parentNode.removeChild(soundBtn); soundBtn = null; return; }
+    if(soundBtn && soundBtn.parentNode) return;
+    soundBtn = document.createElement('button');
+    soundBtn.className = 'search-icon-btn'; soundBtn.id = 'chalkSoundBtn'; soundBtn.title = 'Chalk sound';
+    var paint = function(){ soundBtn.textContent = soundOn() ? '🔊' : '🔇'; };
+    paint();
+    soundBtn.onclick = function(){ try{ localStorage.setItem('chalkSound', soundOn() ? '0' : '1'); }catch(e){} paint(); squeak(); };
+    row.insertBefore(soundBtn, row.firstChild);
+  }
+  function onRoute(){ if(!isOn()) return; setDate(); wipe(); setTimeout(squeak, 120); }
+  function sync(){
+    var now = isOn();
+    if(now === on) return;
+    on = now;
+    if(on){
+      setDate(); soundButton(true);
+      if(!wired){ wired = true; window.addEventListener('hashchange', onRoute); document.addEventListener('pointerdown', dust, true); }
+    } else { soundButton(false); }
+  }
+  new MutationObserver(sync).observe(body, { attributes:true, attributeFilter:['class'] });
+  sync();
+})();
+</script>
 </body>
 </html>
