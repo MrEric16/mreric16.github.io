@@ -192,6 +192,14 @@ body.tts-on .lg-novoice{display:none;}
 .rd-o.ok{border-color:#3bb273;}
 .rd-o.bad{border-color:#e5484d;}
 .rd-ev{margin-top:4px;}
+.tw{cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:3px;}
+.tw.on{background:rgba(255,213,74,.55);}
+#twb{position:absolute;z-index:60;display:none;max-width:min(80vw,320px);padding:8px 12px;border-radius:12px;background:#FFE08A;color:#1b1b1b;border:2px solid #C98F00;box-shadow:0 6px 18px rgba(0,0,0,.35);font-size:16px;line-height:1.35;font-weight:600;font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;pointer-events:none;}
+#twb i{font-weight:400;opacity:.75;font-style:normal;font-size:13px;}
+#twb:after{content:"";position:absolute;left:var(--ax,50%);width:12px;height:12px;background:#FFE08A;border:2px solid #C98F00;transform:translateX(-50%) rotate(45deg);}
+#twb.up:after{bottom:-8px;border-top:0;border-left:0;}
+#twb.dn:after{top:-8px;border-bottom:0;border-right:0;}
+
 .lg-det{margin-bottom:10px;}
 .lg-det>summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;background:var(--card);border-radius:14px;padding:14px 16px;font-weight:800;font-size:16px;box-shadow:0 2px 0 rgba(58,42,30,.08);}
 .lg-det>summary::-webkit-details-marker{display:none;}
@@ -644,6 +652,37 @@ function quiz(L, items, backHash, title){
 }
 
 /* ---- reading and listening: A1-A2 texts built from random facts, so every attempt is a new text ---- */
+/* ---- tap a word in a reading or listening text for its English meaning (Wiktionary glosses, data/lang/gloss) ---- */
+var TW = { id: null, map: null, el: null, w: null };
+var TW_RE = /[\p{L}\p{M}]+(?:-[\p{L}\p{M}]+)*['\u2019]?/gu;
+function twLoad(L){
+  if(TW.id === L.id) return; TW.id = L.id; TW.map = null;
+  getJson('data/lang/gloss/' + L.id + '.json').then(function(m){ if(TW.id === L.id) TW.map = m; }).catch(function(){ if(TW.id === L.id) TW.map = {}; });
+}
+function twHtml(t){
+  var out = '', last = 0, m; TW_RE.lastIndex = 0;
+  while((m = TW_RE.exec(t))){ out += esc(t.slice(last, m.index)) + '<span class="tw" data-w="' + esc(m[0]) + '">' + esc(m[0]) + '</span>'; last = m.index + m[0].length; }
+  return out + esc(t.slice(last));
+}
+function twClose(){ var b = document.getElementById('twb'); if(b) b.style.display = 'none'; if(TW.el) TW.el.classList.remove('on'); TW.el = null; }
+function twOpen(el){
+  var w = el.getAttribute('data-w').replace(/\u2019/g, "'"), m = TW.map || {}, g = m[w] || m[w.toLowerCase()];
+  var b = document.getElementById('twb'); if(!b){ b = document.createElement('div'); b.id = 'twb'; document.body.appendChild(b); }
+  b.innerHTML = g && g.length ? g.map(function(x){ return esc(x[0]) + (x[1] ? ' <i>(' + esc(x[1]) + ')</i>' : ''); }).join('<br>') : '<i>no entry</i>';
+  b.style.display = 'block'; b.className = '';
+  var r = el.getBoundingClientRect(), bw = b.offsetWidth, bh = b.offsetHeight, vw = document.documentElement.clientWidth;
+  var left = Math.max(8, Math.min(vw - bw - 8, r.left + r.width / 2 - bw / 2)), up = r.top > bh + 20;
+  b.className = up ? 'up' : 'dn';
+  b.style.left = (left + window.pageXOffset) + 'px'; b.style.top = ((up ? r.top - bh - 12 : r.bottom + 12) + window.pageYOffset) + 'px';
+  b.style.setProperty('--ax', Math.max(14, Math.min(bw - 14, r.left + r.width / 2 - left)) + 'px');
+  if(TW.el) TW.el.classList.remove('on'); TW.el = el; el.classList.add('on');
+}
+document.addEventListener('click', function(e){
+  var t = e.target && e.target.closest ? e.target.closest('.tw') : null;
+  if(t && t !== TW.el){ e.preventDefault(); twOpen(t); } else twClose();
+}, true);
+window.addEventListener('resize', twClose);
+
 function rdKey(id, sec){ return (sec === 'listening' ? 'lang_ls_' : 'lang_rd_') + id; }
 function rdBest(id, sec){ return lsGet(rdKey(id, sec), {}); }
 function readList(L, sec){
@@ -659,23 +698,23 @@ function rdGen(P){
 function paraText(P, p, g){ return p.t.replace(/\{(\d)\}/g, function(m, d){ return P.f[+d - 1].s[g.vals[+d - 1]]; }); }
 function paraHtml(P, p, g, hi){
   return '<p class="rd-p">' + p.t.split(/(\{\d\})/).map(function(x){
-    var m = /^\{(\d)\}$/.exec(x); if(!m) return esc(x);
-    var k = +m[1] - 1, sn = esc(P.f[k].s[g.vals[k]]); return hi ? '<mark>' + sn + '</mark>' : sn; }).join('') + '</p>';
+    var m = /^\{(\d)\}$/.exec(x); if(!m) return twHtml(x);
+    var k = +m[1] - 1, sn = twHtml(P.f[k].s[g.vals[k]]); return hi ? '<mark>' + sn + '</mark>' : sn; }).join('') + '</p>';
 }
 function readPassage(L, pid, sec){
   sec = sec || 'reading'; var listen = sec === 'listening';
   var P = (L.reading || []).filter(function(x){ return x.id === pid; })[0]; if(!P) return readList(L, sec);
-  var g = rdGen(P), ans = [], done = false, LET = ['A', 'B', 'C', 'D'], list = '#l/' + L.id + '/' + sec;
+  twLoad(L); var g = rdGen(P), ans = [], done = false, LET = ['A', 'B', 'C', 'D'], list = '#l/' + L.id + '/' + sec;
   function sayAll(){ SAYALL = P.paras.map(function(p){ return paraText(P, p, g); }); }
   function where(k){ for(var i = 0; i < P.paras.length; i++){ if(P.paras[i].t.indexOf('{' + (k + 1) + '}') >= 0) return P.paras[i].l; } return ''; }
   function draw(){
-    sayAll();
+    twClose(); sayAll();
     var qh = P.f.map(function(f, i){
       var q = g.qs[i], ok = done && ans[i] === q.a;
       return '<div class="rd-q"><div class="rd-qh"><b>' + (i + 1) + '</b> ' + esc(f.q) + '</div>' + q.perm.map(function(vi, j){
         var c = 'rd-o' + (ans[i] === j ? ' sel' : '') + (done && j === q.a ? ' ok' : '') + (done && ans[i] === j && j !== q.a ? ' bad' : '');
         return '<button class="' + c + '" data-q="' + i + '" data-o="' + j + '"' + (done ? ' disabled' : '') + '><b>' + LET[j] + '</b> ' + esc(f.o[vi]) + '</button>'; }).join('') +
-        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + '“' + esc(f.s[g.vals[i]]) + '”</div>' : '') + '</div>'; }).join('');
+        (done ? '<div class="v-hint rd-ev">' + (ok ? 'Correct. ' : (ans[i] == null ? 'No answer. ' : 'Not quite. ')) + '“' + twHtml(f.s[g.vals[i]]) + '”</div>' : '') + '</div>'; }).join('');
     var score = P.f.filter(function(f, i){ return ans[i] === g.qs[i].a; }).length;
     var listenBtn = '<div class="lg-spk-row"><button class="v-btn lg-spk" data-all="1">' + SPK_SVG + ' Play</button>' + SPDS.map(function(v){ return '<button class="v-btn lg-spd' + (v === spd() ? ' on' : '') + '" type="button" data-s="' + v + '">' + v + '\u00d7</button>'; }).join('') + '</div>';
     var passBody = listen && !done ? listenBtn + '<div class="v-hint lg-novoice">No voice on this device</div>' : (listenBtn + P.paras.map(function(p){ return paraHtml(P, p, g, done); }).join(''));
@@ -695,7 +734,7 @@ function readPassage(L, pid, sec){
   draw();
 }
 
-function route(){
+function route(){ twClose();
   if(!INDEX) return;
   var h = location.hash.replace(/^#/, ''), a = h.split('/');
   if(a[0] !== 'l' || !a[1]) return hub();
