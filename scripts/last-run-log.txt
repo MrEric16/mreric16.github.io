@@ -30,12 +30,13 @@
 [scrape] calendar detail pass drops: {'checked': 86, 'no_title': 1, 'excluded_or_banned': 12}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
 [scrape] iticket.uz cat=concert: 29 events kept
-[scrape] iticket.uz cat=theatre: 24 events kept
+[scrape] iticket.uz cat=theatre: 23 events kept
 [scrape] iticket.uz cat=exhibition: 2 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: 5 events found (dates NOT yet parsed -- see note in script)
+[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
+[scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 248  |  after dedup: 233
+[scrape] TOTAL before dedup: 242  |  after dedup: 232
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 254 titles
