@@ -1,6 +1,19 @@
 {
-  "generatedAt": "2026-11-14T15:48:37.414706+00:00",
+  "generatedAt": "2026-11-15T11:18:10.367751+00:00",
   "scheduled": [
+    {
+      "name": "UFC 337",
+      "date_text": "Feb 20, 2027",
+      "venue": "Kia Center",
+      "location": "Orlando, Florida, U.S."
+    },
+    {
+      "name": "UFC Fight Night: Pyfer vs. Nickal",
+      "date_text": "Feb 13, 2027",
+      "venue": "Rocket Arena",
+      "location": "Cleveland,Ohio, U.S.",
+      "start_tashkent": "2027-02-14T03:00:00+05:00"
+    },
     {
       "name": "UFC Fight Night: Salkilld vs. Saint Denis",
       "date_text": "Feb 7, 2027",
@@ -15,13 +28,14 @@
       "start_tashkent": "2027-01-31T07:00:00+05:00"
     },
     {
-      "name": "UFC Fight Night 297",
+      "name": "UFC Fight Night: Bonfim vs. Brady",
       "date_text": "Jan 23, 2027",
-      "venue": "TBA",
-      "location": "TBA"
+      "venue": "Meta Apex",
+      "location": "Las Vegas, Nevada, U.S.",
+      "start_tashkent": "2027-01-24T03:00:00+05:00"
     },
     {
-      "name": "UFC Fight Night 296",
+      "name": "UFC Fight Night: Rodríguez vs. Garcia",
       "date_text": "Jan 16, 2027",
       "venue": "American Airlines Center",
       "location": "Dallas, Texas, U.S.",
@@ -47,16 +61,15 @@
       "venue": "Ali Bin Hamad al-Attiyah Arena",
       "location": "Al Rayyan, Qatar",
       "start_tashkent": "2026-11-21T23:00:00+05:00"
-    },
+    }
+  ],
+  "past": [
     {
       "name": "UFC 334: Gane vs. Hokit",
       "date_text": "Nov 14, 2026",
       "venue": "Madison Square Garden",
-      "location": "New York City,New York, U.S.",
-      "start_tashkent": "2026-11-15T07:00:00+05:00"
-    }
-  ],
-  "past": [
+      "location": "New York City,New York, U.S."
+    },
     {
       "name": "UFC Fight Night: Cortes-Acosta vs. Walker",
       "date_text": "Nov 7, 2026",
@@ -66,7 +79,7 @@
     {
       "name": "UFC Fight Night: Moicano vs. Nolan",
       "date_text": "Oct 31, 2026",
-      "venue": "[21]",
+      "venue": "[23]",
       "location": null
     },
     {
@@ -142,13 +155,6 @@
       "venue": "Meta Apex",
       "location": "Las Vegas,Nevada, U.S.",
       "result": "Quillan Salkilld def. Mateusz Gamrot (Submission, R1)"
-    },
-    {
-      "name": "UFC Fight Night: Medić vs. Rodriguez",
-      "date_text": "Aug 1, 2026",
-      "venue": "Belgrade Arena",
-      "location": "Belgrade, Serbia",
-      "result": "Uroš Medić def. Daniel Rodriguez (TKO, R1)"
     }
   ]
 }
