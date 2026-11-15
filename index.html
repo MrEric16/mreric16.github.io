@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261115185919">
+<meta name="app-build" content="20261115190424">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -38966,20 +38966,21 @@ function dcSeeded(seed, fn){ var orig = Math.random; Math.random = dcRng(seed); 
 /* Rotation: every question type walks through its own shuffled cycle by day number, so the same item cannot come back until the whole pool has been used. Question order is shuffled per day. */
 function dcDayNum(day){ return Math.floor(Date.parse(day + 'T00:00:00Z') / 86400000); }
 var dcPermCache = {};
-function dcShuffled(arr, tag){ if(dcPermCache[tag] && dcPermCache[tag].n === arr.length) return dcPermCache[tag].a; var a = arr.slice(), r = dcRng(dcSeedOf(tag)); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(r() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } dcPermCache[tag] = { n: arr.length, a: a }; return a; }
+function dcShuffled(arr, tag){ var sg = arr.length + '|' + arr[0] + '|' + arr[arr.length - 1]; if(dcPermCache[tag] && dcPermCache[tag].n === sg) return dcPermCache[tag].a; var a = arr.slice(), r = dcRng(dcSeedOf(tag)); for(var i = a.length - 1; i > 0; i--){ var j = Math.floor(r() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } dcPermCache[tag] = { n: sg, a: a }; return a; }
 function dcCyclePick(arr, tag, dn, skip, fix){
   var L = arr.length, pos = dn + (skip || 0), c = Math.floor(pos / L), i = pos % L;
   if(!fix || L < 12) return dcShuffled(arr, tag + '|c' + c)[i];
   /* from the anchor on: the start of each new cycle skips what ended the previous one, so nothing returns within a few days across the join */
   var ck = tag + '|fix' + c;
-  if(!dcPermCache[ck] || dcPermCache[ck].n !== L){
+  var sg2 = L + '|' + arr[0] + '|' + arr[L - 1];
+  if(!dcPermCache[ck] || dcPermCache[ck].n !== sg2){
     var base = dcShuffled(arr, tag + '|c' + c).slice(), M = Math.min(60, Math.floor(L / 3));
     var tail = {}; dcShuffled(arr, tag + '|c' + (c - 1)).slice(-M).forEach(function(x){ tail[x] = 1; });
     var nxt = M;
     for(var j = 0; j < M; j++){
       if(tail[base[j]]){ while(nxt < L && tail[base[nxt]]) nxt++; if(nxt < L){ var t = base[j]; base[j] = base[nxt]; base[nxt] = t; nxt++; } }
     }
-    dcPermCache[ck] = { n: L, a: base };
+    dcPermCache[ck] = { n: sg2, a: base };
   }
   return dcPermCache[ck].a[i];
 }
