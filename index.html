@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261115190424">
+<meta name="app-build" content="20261115191415">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7650,6 +7650,124 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   #chalkSoundBtn{ font-size:15px; }
   /* ===== END CHALKBOARD ===== */
+  /* ===== NOTEBOOK (16 Nov 2026): lined paper, red margin, binder holes, pen handwriting, highlighter, taped tiles, red-pen marks, torn header, sticky notes, coffee ring, page-turn, optional pen click.
+     Static paper (fixed layer, no endless animation). Revert: delete from here to 'END NOTEBOOK', remove 'notebook' from THEME_SWATCHES, buildThemeOrder, applyThemeState's class list, and the 'NOTEBOOK FX' script. ===== */
+  body.usertheme-notebook:not(.dark-mode){
+    --cream:#FBF7EA; --cream-2:#F1EBD6; --card:#FFFDF4;
+    --ink:#22314F; --ink-solid:#22314F; --ink-soft:#4A5878;
+    --coral:#C23B3B; --coral-dark:#9E2B2B; --gold:#F5D84A; --teal:#2F6DB5;
+    --line:rgba(47,109,181,.35); --board-bg:rgba(255,253,244,.92);
+    background-color:#FBF7EA;
+  }
+  body.usertheme-notebook:not(.dark-mode) .aurora-layer{ opacity:0; }
+  /* 1+11. paper: blue rules, red margin, three binder holes, one coffee ring */
+  body.usertheme-notebook:not(.dark-mode)::before{
+    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
+    background:
+      radial-gradient(circle at calc(100% - 46px) calc(100% - 70px), transparent 0 26px, rgba(120,72,30,.16) 27px 29px, rgba(120,72,30,.05) 30px 34px, transparent 35px),
+      radial-gradient(circle 8px at 14px 18%, #CFC8B2 0 7px, rgba(0,0,0,.22) 8px, transparent 9px),
+      radial-gradient(circle 8px at 14px 50%, #CFC8B2 0 7px, rgba(0,0,0,.22) 8px, transparent 9px),
+      radial-gradient(circle 8px at 14px 82%, #CFC8B2 0 7px, rgba(0,0,0,.22) 8px, transparent 9px),
+      linear-gradient(90deg, transparent 38px, rgba(210,60,60,.55) 38px 40px, transparent 40px),
+      repeating-linear-gradient(180deg, transparent 0 27px, rgba(47,109,181,.28) 27px 28px),
+      #FBF7EA;
+  }
+  /* 2. pen handwriting everywhere */
+  body.usertheme-notebook:not(.dark-mode), body.usertheme-notebook:not(.dark-mode) *, body.usertheme-notebook:not(.dark-mode) input, body.usertheme-notebook:not(.dark-mode) textarea, body.usertheme-notebook:not(.dark-mode) select, body.usertheme-notebook:not(.dark-mode) button{
+    font-family:'Pangolin','Nunito',cursive !important; letter-spacing:.005em;
+  }
+  body.usertheme-notebook:not(.dark-mode) .title, body.usertheme-notebook:not(.dark-mode) h1, body.usertheme-notebook:not(.dark-mode) #app h2, body.usertheme-notebook:not(.dark-mode) .section-head h2, body.usertheme-notebook:not(.dark-mode) .random-tile .title, body.usertheme-notebook:not(.dark-mode) .fac-tile .name{
+    font-family:'Marck Script','Pangolin',cursive !important; font-weight:400 !important; letter-spacing:.01em;
+  }
+  body.usertheme-notebook:not(.dark-mode) header, body.usertheme-notebook:not(.dark-mode) header *, body.usertheme-notebook:not(.dark-mode) #app h2, body.usertheme-notebook:not(.dark-mode) .title, body.usertheme-notebook:not(.dark-mode) .title *{ transition:none !important; text-shadow:none; }
+  /* 9. torn spiral-notebook header, date written in pen */
+  body.usertheme-notebook:not(.dark-mode) header{ background:#F1EBD6 !important; border-bottom:0 !important; padding-bottom:40px; position:relative; }
+  body.usertheme-notebook:not(.dark-mode) header, body.usertheme-notebook:not(.dark-mode) header *{ color:#22314F; }
+  body.usertheme-notebook:not(.dark-mode) header .search-icon-btn, body.usertheme-notebook:not(.dark-mode) header .search-icon-btn *{ color:#22314F !important; }
+  body.usertheme-notebook:not(.dark-mode) header .flag-emblem{ display:none; }
+  body.usertheme-notebook:not(.dark-mode) header::before{
+    content:var(--nb-date, ''); position:absolute; inset:auto auto 14px 56px; width:auto; height:auto; background:none; opacity:1; z-index:1;
+    font-family:'Marck Script','Pangolin',cursive; font-size:21px; line-height:1; color:#2F4F9F; transform:rotate(-1.5deg);
+  }
+  body.usertheme-notebook:not(.dark-mode) header::after{
+    content:''; position:absolute; left:0; right:0; top:auto; bottom:-9px; height:10px; opacity:1; z-index:1; pointer-events:none;
+    background:linear-gradient(135deg, #F1EBD6 5px, transparent 0) 0 0/12px 10px, linear-gradient(225deg, #F1EBD6 5px, transparent 0) 0 0/12px 10px;
+    filter:drop-shadow(0 2px 1px rgba(0,0,0,.18));
+  }
+  /* 3. highlighter on headings */
+  body.usertheme-notebook:not(.dark-mode) #app h2, body.usertheme-notebook:not(.dark-mode) .section-head h2{
+    display:inline; width:auto; color:#22314F !important;
+    background:linear-gradient(transparent 52%, rgba(255,226,70,.85) 52% 90%, transparent 90%);
+    -webkit-box-decoration-break:clone; box-decoration-break:clone; padding:0 .2em; font-size:1.5em;
+  }
+  body.usertheme-notebook:not(.dark-mode) .section-head{ display:block; }
+  /* 5. pen-drawn wobbly borders */
+  body.usertheme-notebook:not(.dark-mode) .fac-tile, body.usertheme-notebook:not(.dark-mode) .sport-hub-tile, body.usertheme-notebook:not(.dark-mode) .random-tile, body.usertheme-notebook:not(.dark-mode) .books-tile, body.usertheme-notebook:not(.dark-mode) .explore-card, body.usertheme-notebook:not(.dark-mode) .watch-card, body.usertheme-notebook:not(.dark-mode) .club-card, body.usertheme-notebook:not(.dark-mode) .entry{
+    border:2px solid rgba(34,49,79,.85) !important;
+    border-radius:14px 6px 12px 8px / 8px 12px 6px 14px !important;
+  }
+  body.usertheme-notebook:not(.dark-mode) .fac-tile:nth-child(even), body.usertheme-notebook:not(.dark-mode) .explore-card:nth-child(even), body.usertheme-notebook:not(.dark-mode) .entry:nth-child(even){
+    border-radius:7px 13px 8px 14px / 13px 7px 14px 8px !important;
+  }
+  body.usertheme-notebook:not(.dark-mode) .random-tile{ background:var(--card) !important; color:var(--ink) !important; }
+  body.usertheme-notebook:not(.dark-mode) .random-tile .title{ color:#22314F !important; font-size:1.3em; }
+  body.usertheme-notebook:not(.dark-mode) .random-tile .sub{ color:#4A5878 !important; }
+  body.usertheme-notebook:not(.dark-mode) .random-tile .icon{ color:#2F6DB5 !important; }
+  /* 4. tape and clips, slight tilt (the rotate property, so hover transforms are untouched) */
+  body.usertheme-notebook:not(.dark-mode) .random-tile, body.usertheme-notebook:not(.dark-mode) .explore-card, body.usertheme-notebook:not(.dark-mode) .watch-card, body.usertheme-notebook:not(.dark-mode) .club-card, body.usertheme-notebook:not(.dark-mode) .books-tile{ position:relative; rotate:-.45deg; }
+  body.usertheme-notebook:not(.dark-mode) .random-tile:nth-child(even), body.usertheme-notebook:not(.dark-mode) .explore-card:nth-child(even), body.usertheme-notebook:not(.dark-mode) .watch-card:nth-child(even), body.usertheme-notebook:not(.dark-mode) .club-card:nth-child(even){ rotate:.5deg; }
+  body.usertheme-notebook:not(.dark-mode) .explore-card::before, body.usertheme-notebook:not(.dark-mode) .watch-card::before, body.usertheme-notebook:not(.dark-mode) .club-card::before, body.usertheme-notebook:not(.dark-mode) .books-tile::before{
+    content:''; position:absolute; top:-9px; left:50%; width:54px; height:16px; margin-left:-27px; transform:rotate(-3deg); pointer-events:none; z-index:2;
+    background:rgba(255,226,120,.78); box-shadow:0 1px 2px rgba(0,0,0,.15);
+    clip-path:polygon(0 0,4% 25%,0 50%,4% 75%,0 100%,100% 100%,96% 75%,100% 50%,96% 25%,100% 0);
+  }
+  body.usertheme-notebook:not(.dark-mode) .explore-card:nth-child(even)::before, body.usertheme-notebook:not(.dark-mode) .club-card:nth-child(even)::before{
+    width:16px; height:38px; top:-14px; left:auto; right:18px; margin:0; transform:rotate(6deg); clip-path:none; border-radius:8px; background:none;
+    border:2px solid #9aa3b5; border-bottom-color:transparent;
+  }
+  /* 6. coloured-pencil margin doodles on the five top tiles */
+  body.usertheme-notebook:not(.dark-mode) #randomBtn, body.usertheme-notebook:not(.dark-mode) #randomVideoBtn, body.usertheme-notebook:not(.dark-mode) #randomExploreBtn, body.usertheme-notebook:not(.dark-mode) #randomGameBtn, body.usertheme-notebook:not(.dark-mode) a.random-tile[href="#daily-challenge"]{ padding-right:62px; }
+  body.usertheme-notebook:not(.dark-mode) #randomBtn::after, body.usertheme-notebook:not(.dark-mode) #randomVideoBtn::after, body.usertheme-notebook:not(.dark-mode) #randomExploreBtn::after, body.usertheme-notebook:not(.dark-mode) #randomGameBtn::after, body.usertheme-notebook:not(.dark-mode) a.random-tile[href="#daily-challenge"]::after{
+    content:''; position:absolute; right:12px; top:50%; width:38px; height:38px; margin-top:-19px;
+    background:center/contain no-repeat; pointer-events:none; transform:rotate(7deg);
+  }
+  body.usertheme-notebook:not(.dark-mode) a.random-tile[href="#daily-challenge"]::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34' fill='none' stroke='%2322314F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M16 10C8 6 3 14 5 22C7 30 12 33 16 31C20 33 25 30 27 22C29 14 24 6 16 10Z' fill='%23E5444F'/><path d='M16 10C16 6 17 4 19 2' stroke='%23C98B5A' stroke-width='2'/><path d='M18 6C21 3 25 4 26 6C23 8 20 8 18 6Z' fill='%2374C46A'/><path d='M9 15C8 17 8 19 9 21' stroke='%23FFFFFF' stroke-opacity='.7'/></svg>");
+  }
+  body.usertheme-notebook:not(.dark-mode) #randomBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%2322314F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M3 7L16 10L29 7V25L16 28L3 25Z' fill='%23FFFFFF'/><path d='M16 10V28'/><path d='M3 7L16 10V28L3 25Z' fill='%235BA3DB' fill-opacity='.0'/><path d='M7 13L12 14.2M7 17L12 18.2M20 14.2L25 13M20 18.2L25 17' stroke='%235BA3DB'/><path d='M3 25L16 28L29 25' stroke='%23C9505C' stroke-width='2.4'/></svg>");
+  }
+  body.usertheme-notebook:not(.dark-mode) #randomVideoBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%2322314F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='6' width='26' height='19' rx='3' fill='%238FCBE3'/><path d='M13 11L22 15.5L13 20Z' fill='%23E5444F' stroke='%23E5444F'/><path d='M10 29H22'/></svg>");
+  }
+  body.usertheme-notebook:not(.dark-mode) #randomExploreBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%2322314F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M16 3C10 3 6.5 7 6.5 11.5C6.5 15.5 9.5 17.5 10.5 21H21.5C22.5 17.5 25.5 15.5 25.5 11.5C25.5 7 22 3 16 3Z' fill='%23F2D95C'/><path d='M11.5 25H20.5' stroke='%23C6D3C8'/><path d='M13 28.5H19' stroke='%23C6D3C8'/><path d='M13 8C11 9 10 11 10 13' stroke='%23FFFFFF' stroke-opacity='.8'/></svg>");
+  }
+  body.usertheme-notebook:not(.dark-mode) #randomGameBtn::after{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%2322314F' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='24' height='24' rx='5' fill='%23FFFFFF'/><circle cx='11' cy='11' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='21' cy='11' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='16' cy='16' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='11' cy='21' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='21' cy='21' r='1.8' fill='%23C9505C' stroke='none'/></svg>");
+  }
+  /* 7. teacher's red pen: circled scores, ticks on right answers and solved puzzles */
+  body.usertheme-notebook:not(.dark-mode) .dc-score, body.usertheme-notebook:not(.dark-mode) .fg-end-score, body.usertheme-notebook:not(.dark-mode) .match-score{
+    display:inline-block; padding:.1em .55em; border:2px solid #D23B3B; border-radius:52% 48% 55% 45% / 48% 55% 45% 52%; rotate:-3deg; color:#D23B3B !important;
+  }
+  body.usertheme-notebook:not(.dark-mode) .fg-correct, body.usertheme-notebook:not(.dark-mode) .tf-statement-card.correct, body.usertheme-notebook:not(.dark-mode) .xw-solved-banner{ position:relative; }
+  body.usertheme-notebook:not(.dark-mode) .fg-correct::after, body.usertheme-notebook:not(.dark-mode) .tf-statement-card.correct::after, body.usertheme-notebook:not(.dark-mode) .xw-solved-banner::after{
+    content:'✓'; position:absolute; right:10px; top:-2px; font-size:26px; line-height:1; color:#D23B3B; rotate:-8deg; font-family:'Marck Script',cursive; pointer-events:none;
+  }
+  /* 10. sticky notes */
+  body.usertheme-notebook:not(.dark-mode) .sotw-card, body.usertheme-notebook:not(.dark-mode) .bday-today-banner{
+    background:#FFE98A !important; color:#22314F !important; border:0 !important; border-radius:2px 2px 14px 2px !important; rotate:-1.2deg;
+    box-shadow:0 6px 10px -4px rgba(0,0,0,.35), inset 0 -18px 18px -18px rgba(150,110,0,.3);
+  }
+  body.usertheme-notebook:not(.dark-mode) .sotw-card *{ color:#22314F !important; }
+  body.usertheme-notebook:not(.dark-mode) .sotw-card{ position:relative; }
+  body.usertheme-notebook:not(.dark-mode) .sotw-card::before{
+    content:''; position:absolute; top:-8px; left:50%; width:48px; height:15px; margin-left:-24px; transform:rotate(2deg); background:rgba(255,255,255,.55); box-shadow:0 1px 2px rgba(0,0,0,.12); pointer-events:none;
+  }
+  /* 4b. link / label colours: blue ink, red-pen labels */
+  body.usertheme-notebook:not(.dark-mode) .section-link, body.usertheme-notebook:not(.dark-mode) a.headline{ color:#2F6DB5; }
+  body.usertheme-notebook:not(.dark-mode) .tag, body.usertheme-notebook:not(.dark-mode) .watch-tag{ color:#C23B3B; }
+  /* ===== END NOTEBOOK ===== */
 </style>
 <style id="tools-css">
 /* tools moved in from standalone pages; everything scoped under .tool */
@@ -40316,7 +40434,7 @@ const COMPLIMENTS = [
     // window) per Mr Eric - it's a real palette option forever, cyclable/pickable any
     // time. The window end (2 Sept 18:00 Tashkent) only controls the one-time default
     // reset below, not availability.
-    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus','chalkboard'];
+    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus','chalkboard','notebook'];
     return base;
   }
   let THEME_ORDER = buildThemeOrder();
@@ -40459,7 +40577,7 @@ const COMPLIMENTS = [
     const persist = !opts || opts.persist !== false;
     const isDark = key !== 'default' && key !== 'nationalday' && key.charAt(0) === 'd';
     document.body.classList.toggle('dark-mode', isDark);
-    ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','chalkboard','vintage','d1','dihl','darsenal','dvintage'].forEach(k => document.body.classList.remove('usertheme-' + k));
+    ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','chalkboard','notebook','vintage','d1','dihl','darsenal','dvintage'].forEach(k => document.body.classList.remove('usertheme-' + k));
     document.body.classList.remove('theme-nationalday');
     if(key === 'nationalday'){
       document.body.classList.add('theme-nationalday');
@@ -40600,6 +40718,7 @@ const COMPLIMENTS = [
     { key:'synthwave', label:'Synthwave', c1:'#FF00C8', c2:'#00FFE1' },
     { key:'bauhaus', label:'Bauhaus', c1:'#D4141E', c2:'#0056A4' },
     { key:'chalkboard', label:'Chalkboard', c1:'#2C443A', c2:'#F2D95C' },
+    { key:'notebook', label:'Notebook', c1:'#FBF7EA', c2:'#C23B3B' },
   ];
 
   let themePickerBackdrop = null;
@@ -43879,6 +43998,59 @@ function setCornersNoZoom(active){
     if(on){
       setDate(); soundButton(true);
       if(!wired){ wired = true; window.addEventListener('hashchange', onRoute); document.addEventListener('pointerdown', dust, true); }
+    } else { soundButton(false); }
+  }
+  new MutationObserver(sync).observe(body, { attributes:true, attributeFilter:['class'] });
+  sync();
+})();
+</script>
+<script>
+/* ===== NOTEBOOK FX (16 Nov 2026): date in pen, page-turn between pages, optional pen click. Only active while the Notebook theme is on. Revert: delete this script. ===== */
+(function(){
+  var body = document.body, on = false, wired = false, btn = null, ac = null;
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function isOn(){ return body.classList.contains('usertheme-notebook') && !body.classList.contains('dark-mode'); }
+  function setDate(){ try{ document.documentElement.style.setProperty('--nb-date', '"' + new Date().toLocaleDateString('en-GB', { weekday:'long', day:'numeric', month:'long' }) + '"'); }catch(e){} }
+  function soundOn(){ try{ return localStorage.getItem('penSound') === '1'; }catch(e){ return false; } }
+  function click(){
+    if(!soundOn()) return;
+    try{
+      ac = ac || new (window.AudioContext || window.webkitAudioContext)();
+      if(ac.state === 'suspended') ac.resume();
+      var o = ac.createOscillator(), g = ac.createGain(), t = ac.currentTime;
+      o.type = 'square'; o.frequency.setValueAtTime(1500, t); o.frequency.exponentialRampToValueAtTime(700, t + 0.03);
+      g.gain.setValueAtTime(0.05, t); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+      o.connect(g); g.connect(ac.destination); o.start(t); o.stop(t + 0.06);
+    }catch(e){}
+  }
+  function turn(){
+    if(reduce || !isOn() || !document.body.animate) return;
+    var el = document.createElement('div');
+    el.style.cssText = 'position:fixed;top:0;bottom:0;left:0;width:100vw;z-index:30;pointer-events:none;background:linear-gradient(105deg,transparent 0,rgba(0,0,0,.14) 44%,rgba(255,252,238,.95) 49%,rgba(251,247,234,0) 56%);will-change:transform;';
+    document.body.appendChild(el);
+    var a = el.animate([{ transform:'translateX(100vw)', opacity:1 }, { transform:'translateX(-100vw)', opacity:.9 }], { duration:480, easing:'ease-in-out' });
+    a.onfinish = a.oncancel = function(){ if(el.parentNode) el.parentNode.removeChild(el); };
+  }
+  function soundButton(show){
+    var row = document.querySelector('.header-icon-row');
+    if(!row) return;
+    if(!show){ if(btn && btn.parentNode) btn.parentNode.removeChild(btn); btn = null; return; }
+    if(btn && btn.parentNode) return;
+    btn = document.createElement('button');
+    btn.className = 'search-icon-btn'; btn.id = 'penSoundBtn'; btn.title = 'Pen click'; btn.style.fontSize = '15px';
+    var paint = function(){ btn.textContent = soundOn() ? '🔊' : '🔇'; };
+    paint();
+    btn.onclick = function(){ try{ localStorage.setItem('penSound', soundOn() ? '0' : '1'); }catch(e){} paint(); click(); };
+    row.insertBefore(btn, row.firstChild);
+  }
+  function onRoute(){ if(!isOn()) return; setDate(); turn(); setTimeout(click, 120); }
+  function sync(){
+    var now = isOn();
+    if(now === on) return;
+    on = now;
+    if(on){
+      setDate(); soundButton(true);
+      if(!wired){ wired = true; window.addEventListener('hashchange', onRoute); document.addEventListener('pointerdown', function(e){ if(isOn() && e.target && e.target.closest && e.target.closest('a,button,[role="button"],summary')) click(); }, true); }
     } else { soundButton(false); }
   }
   new MutationObserver(sync).observe(body, { attributes:true, attributeFilter:['class'] });
