@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261115184954">
+<meta name="app-build" content="20261115185919">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7541,20 +7541,21 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   }
   /* 1. wooden frame around the page edge */
   body.usertheme-chalkboard:not(.dark-mode)::after{
-    content:''; position:fixed; inset:0; z-index:35; pointer-events:none;
-    box-shadow: inset 0 0 0 6px #6e4521, inset 0 0 0 9px #9a6a36, inset 0 0 0 10px rgba(0,0,0,.45), inset 0 0 30px 10px rgba(0,0,0,.28);
+    content:''; position:fixed; inset:-140px 0 0 0; z-index:2147483000; pointer-events:none; box-sizing:border-box;
+    border:solid #6e4521; border-width:146px 6px 6px 6px;
+    box-shadow: inset 0 0 0 3px #9a6a36, inset 0 0 0 4px rgba(0,0,0,.45), inset 0 0 30px 10px rgba(0,0,0,.28);
   }
   @media (min-width:700px){
-    body.usertheme-chalkboard:not(.dark-mode)::after{ box-shadow: inset 0 0 0 10px #6e4521, inset 0 0 0 15px #9a6a36, inset 0 0 0 16px rgba(0,0,0,.45), inset 0 0 40px 16px rgba(0,0,0,.28); }
+    body.usertheme-chalkboard:not(.dark-mode)::after{ border-width:150px 10px 10px 10px; box-shadow: inset 0 0 0 5px #9a6a36, inset 0 0 0 6px rgba(0,0,0,.45), inset 0 0 40px 16px rgba(0,0,0,.28); }
   }
   /* 0. everything is chalk handwriting */
   body.usertheme-chalkboard:not(.dark-mode), body.usertheme-chalkboard:not(.dark-mode) *,
   body.usertheme-chalkboard:not(.dark-mode) input, body.usertheme-chalkboard:not(.dark-mode) textarea, body.usertheme-chalkboard:not(.dark-mode) select, body.usertheme-chalkboard:not(.dark-mode) button{
     font-family:'Caveat','Baloo 2',cursive !important; font-size-adjust:.5; letter-spacing:.01em;
   }
-  /* 6. header: a chalk ledge along the bottom with chalk + duster, and today's date written on the board */
+  /* 6. header: today's date written on the board */
   body.usertheme-chalkboard:not(.dark-mode) header{
-    background:#22352c linear-gradient(#22352c, #1d2e26); border-bottom:0; padding-bottom:44px;
+    background:#22352c linear-gradient(#22352c, #1d2e26); border-bottom:1px solid rgba(243,240,230,.25); padding-bottom:44px;
   }
   body.usertheme-chalkboard:not(.dark-mode) header,
   body.usertheme-chalkboard:not(.dark-mode) header *{ color:#F3F0E6; text-shadow:none; }
@@ -7566,14 +7567,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     font-family:'Caveat','Baloo 2',cursive; font-weight:600; font-size:22px; line-height:1; color:#F2D95C; opacity:.9; transform:rotate(-1.2deg);
     text-shadow:0 0 1px rgba(255,255,255,.5);
   }
-  body.usertheme-chalkboard:not(.dark-mode) header::after{
-    content:''; inset:auto 0 0 0; height:12px; z-index:1; position:absolute; opacity:1;
-    background:
-      linear-gradient(#f3f0e6,#f3f0e6) right 76px bottom 8px / 26px 6px no-repeat,
-      linear-gradient(#2b2b2b,#2b2b2b) right 22px bottom 8px / 34px 8px no-repeat,
-      linear-gradient(#b8844a, #7d5329);
-    border-radius:0; box-shadow:0 -1px 0 rgba(0,0,0,.35), 0 2px 5px rgba(0,0,0,.4);
-  }
+  body.usertheme-chalkboard:not(.dark-mode) header::after{ display:none; }
   /* 2. chalk handwriting for headings; body copy stays the readable site font */
   body.usertheme-chalkboard:not(.dark-mode) .title,
   body.usertheme-chalkboard:not(.dark-mode) h1,
@@ -7630,19 +7624,19 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     background:center/contain no-repeat; opacity:.9; pointer-events:none; transform:rotate(7deg);
   }
   body.usertheme-chalkboard:not(.dark-mode) a.random-tile[href="#daily-challenge"]::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 10C8 6 3 14 5 22C7 30 12 33 16 31C20 33 25 30 27 22C29 14 24 6 16 10Z'/><path d='M16 10C16 6 17 4 19 2'/><path d='M18 6C21 3 25 4 26 6C23 8 20 8 18 6Z'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34' fill='none' stroke='%23F3F0E6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M16 10C8 6 3 14 5 22C7 30 12 33 16 31C20 33 25 30 27 22C29 14 24 6 16 10Z' fill='%23E5444F'/><path d='M16 10C16 6 17 4 19 2' stroke='%23C98B5A' stroke-width='2'/><path d='M18 6C21 3 25 4 26 6C23 8 20 8 18 6Z' fill='%2374C46A'/><path d='M9 15C8 17 8 19 9 21' stroke='%23FFFFFF' stroke-opacity='.7'/></svg>");
   }
   body.usertheme-chalkboard:not(.dark-mode) #randomBtn::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M3 7L16 10L29 7V25L16 28L3 25Z'/><path d='M16 10V28'/><path d='M7 13L12 14.2M7 17L12 18.2'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23F3F0E6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M3 7L16 10L29 7V25L16 28L3 25Z' fill='%23F3F0E6'/><path d='M16 10V28'/><path d='M3 7L16 10V28L3 25Z' fill='%235BA3DB' fill-opacity='.0'/><path d='M7 13L12 14.2M7 17L12 18.2M20 14.2L25 13M20 18.2L25 17' stroke='%235BA3DB'/><path d='M3 25L16 28L29 25' stroke='%23C9505C' stroke-width='2.4'/></svg>");
   }
   body.usertheme-chalkboard:not(.dark-mode) #randomVideoBtn::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='6' width='26' height='19' rx='3'/><path d='M13 11L22 15.5L13 20Z'/><path d='M10 29H22'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23F3F0E6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='6' width='26' height='19' rx='3' fill='%238FCBE3'/><path d='M13 11L22 15.5L13 20Z' fill='%23E5444F' stroke='%23E5444F'/><path d='M10 29H22'/></svg>");
   }
   body.usertheme-chalkboard:not(.dark-mode) #randomExploreBtn::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M16 3C10 3 6.5 7 6.5 11.5C6.5 15.5 9.5 17.5 10.5 21H21.5C22.5 17.5 25.5 15.5 25.5 11.5C25.5 7 22 3 16 3Z'/><path d='M11.5 25H20.5'/><path d='M13 28.5H19'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23F3F0E6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><path d='M16 3C10 3 6.5 7 6.5 11.5C6.5 15.5 9.5 17.5 10.5 21H21.5C22.5 17.5 25.5 15.5 25.5 11.5C25.5 7 22 3 16 3Z' fill='%23F2D95C'/><path d='M11.5 25H20.5' stroke='%23C6D3C8'/><path d='M13 28.5H19' stroke='%23C6D3C8'/><path d='M13 8C11 9 10 11 10 13' stroke='%23FFFFFF' stroke-opacity='.8'/></svg>");
   }
   body.usertheme-chalkboard:not(.dark-mode) #randomGameBtn::after{
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='24' height='24' rx='5'/><circle cx='11' cy='11' r='1.6' fill='white'/><circle cx='21' cy='11' r='1.6' fill='white'/><circle cx='16' cy='16' r='1.6' fill='white'/><circle cx='11' cy='21' r='1.6' fill='white'/><circle cx='21' cy='21' r='1.6' fill='white'/></svg>");
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='none' stroke='%23F3F0E6' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'><rect x='4' y='4' width='24' height='24' rx='5' fill='%23F3F0E6'/><circle cx='11' cy='11' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='21' cy='11' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='16' cy='16' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='11' cy='21' r='1.8' fill='%23C9505C' stroke='none'/><circle cx='21' cy='21' r='1.8' fill='%23C9505C' stroke='none'/></svg>");
   }
   /* 7. headings write themselves once per page (clip-path reveal, runs once and stops) */
   @keyframes cbWrite{ from{ clip-path:inset(-4px 100% -4px 0); } to{ clip-path:inset(-4px -3% -4px 0); } }

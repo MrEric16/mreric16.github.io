@@ -55,8 +55,67 @@
   #scrim{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:9;display:none;}
   #scrim.on{display:block;}
 </style>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="theme-pages.css">
+<style>body[class*="usertheme-"]{--bar:var(--card);--bar-ink:var(--ink);--accent:var(--gold);--desk:var(--cream);}</style>
 </head>
 <body>
+<script>
+// Applies whatever theme/dark-mode the main app currently has active, read straight
+// from the same-origin localStorage key it writes to. Mirrors applyThemeState() and
+// applySeasonalTheme() in index.html exactly (including the "no explicit choice yet
+// -> fall back to the date-driven seasonal theme" case), minus the bits that don't
+// apply to this page (persisting, the toggle icon, the title-color DOM hack, National
+// Day's one-time fireworks/centering - none of them have anything to act on here).
+// Runs synchronously before any content below is parsed, so there's no flash of the
+// wrong theme.
+(function(){
+  function tashkentEffectiveDay(){
+    var parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Tashkent', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', hour12:false
+    }).formatToParts(new Date());
+    function get(t){ for(var i=0;i<parts.length;i++){ if(parts[i].type===t) return parts[i].value; } }
+    var y = +get('year'), mo = +get('month'), d = +get('day'), h = +get('hour');
+    var dayObj = new Date(Date.UTC(y, mo-1, d));
+    if(h < 4){ dayObj.setUTCDate(dayObj.getUTCDate() - 1); }
+    return dayObj.toISOString().slice(0,10);
+  }
+  var SEASONAL_THEMES = [
+    { key:'firstday',  start:'2026-08-29', end:'2026-08-31' },
+    { key:'christmas', start:'2026-12-24', end:'2026-12-26' },
+    { key:'newyear',   start:'2026-12-31', end:'2027-01-02' },
+    { key:'ramadan',   start:'2027-02-08', end:'2027-03-09' },
+    { key:'eidfitr',   start:'2027-03-10', end:'2027-03-12' },
+    { key:'nowruz',    start:'2027-03-20', end:'2027-03-22' },
+    { key:'eidadha',   start:'2027-05-15', end:'2027-05-17' },
+  ];
+  var USER_THEME_KEYS = ['ihl','arsenal','arsenal2','uzbekistan2','soviet','bazaar','hacker','nebula','synthwave','bauhaus','chalkboard','vintage','d1','dihl','darsenal','dvintage'];
+  var body = document.body;
+  var key = null;
+  try{ key = localStorage.getItem('themeChoice'); }catch(e){}
+  if(key === null){
+    var today = tashkentEffectiveDay();
+    var active = null;
+    for(var i=0;i<SEASONAL_THEMES.length;i++){
+      var t = SEASONAL_THEMES[i];
+      if(today >= t.start && today <= t.end){ active = t; break; }
+    }
+    if(active) body.classList.add('theme-' + active.key);
+    return;
+  }
+  if(key === 'dhalloween') key = 'dihl';
+  if(key !== 'default' && key !== 'nationalday' && USER_THEME_KEYS.indexOf(key) === -1){
+    key = 'default';
+  }
+  var isDark = key !== 'default' && key !== 'nationalday' && key.charAt(0) === 'd';
+  if(isDark) body.classList.add('dark-mode');
+  if(key === 'nationalday'){
+    body.classList.add('theme-nationalday');
+  } else if(key !== 'default'){
+    body.classList.add('usertheme-' + key);
+  }
+})();
+</script>
 <div id="app">
   <div class="bar">
     <a class="b" data-back href="index.html" aria-label="Back to the Lounge">&#8592;</a>
