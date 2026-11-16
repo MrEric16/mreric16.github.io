@@ -7,6 +7,9 @@ var $ = function(id){ return document.getElementById(id); };
 var stage = $('stage'), cv = $('c'), live = $('live'), tb = $('tb'), pop = $('pop'), ring = $('ring'), toastEl = $('toast');
 var ctx = cv.getContext('2d', { alpha:false });
 var lctx = live.getContext('2d', { desynchronized:true });
+var tail = document.createElement('canvas'); tail.id = 'tail'; stage.appendChild(tail);
+var tctx = tail.getContext('2d', { desynchronized:true });
+var finI = 0, tailBox = null, lastInkEv = null, inkPresenter = null;
 var dpr = 1, W = 0, H = 0;
 
 /* ---------- icons ---------- */
@@ -51,9 +54,10 @@ var S = {
   tool:'pen', color:'#111111', w:4, hlOn:false, eraser:'stroke', esize:36, shape:'line', dock:'b', left:false, collapsed:false,
   board:null
 };
-try{ var sv = JSON.parse(localStorage.getItem('boardPrefs') || '{}'); ['color','w','eraser','esize','shape','dock','left'].forEach(function(k){ if(sv[k] !== undefined) S[k] = sv[k]; }); }catch(e){}
+try{ var sv = JSON.parse(localStorage.getItem('boardPrefs') || '{}'); ['color','w','eraser','esize','shape','dock','left','ink'].forEach(function(k){ if(sv[k] !== undefined) S[k] = sv[k]; }); }catch(e){}
 if(['b','l','r'].indexOf(S.dock) < 0) S.dock = 'b';
-function savePrefs(){ try{ localStorage.setItem('boardPrefs', JSON.stringify({ color:S.color, w:S.w, eraser:S.eraser, esize:S.esize, shape:S.shape, dock:S.dock, left:S.left })); }catch(e){} }
+if(S.ink === undefined) S.ink = true;
+function savePrefs(){ try{ localStorage.setItem('boardPrefs', JSON.stringify({ color:S.color, w:S.w, eraser:S.eraser, esize:S.esize, shape:S.shape, dock:S.dock, left:S.left, ink:S.ink })); }catch(e){} }
 
 function newPage(bg){ return { id:uid(), bg:bg || 'white', items:[], undo:[], redo:[], view:{ x:0, y:0, s:1 } }; }
 function newBoard(name){ var p = newPage('white'); return { id:uid(), name:name || 'Board', created:Date.now(), updated:Date.now(), pages:[p], cur:0 }; }
@@ -72,9 +76,9 @@ function openDb(){
     }catch(e){ canSave = false; res(null); }
   });
 }
-function ser(b){
-  return JSON.parse(JSON.stringify(b, function(k, v){ if(k.charAt(0) === '_' || k === 'undo' || k === 'redo') return undefined; if(typeof v === 'number') return Math.round(v * 100) / 100; return v; }));
-}
+function strip(o){ var r = {}; for(var k in o){ if(k.charAt(0) !== '_' && k !== 'undo' && k !== 'redo') r[k] = o[k]; } return r; }
+/* shallow copies only: IndexedDB clones the rest natively (the old JSON round trip stalled the main thread on big boards) */
+function ser(b){ var r = strip(b); r.pages = b.pages.map(function(pg){ var q = strip(pg); q.items = pg.items.map(strip); return q; }); return r; }
 function dbPut(b){
   return new Promise(function(res){
     if(!db){ res(false); return; }
@@ -89,7 +93,9 @@ function markDirty(){
   clearTimeout(saveTimer); saveTimer = setTimeout(flushSave, 900);
 }
 function flushSave(){
-  if(!dirtyFlag) return; dirtyFlag = false; clearTimeout(saveTimer);
+  if(!dirtyFlag) return;
+  if(cur || eras || Object.keys(ptrs).length){ clearTimeout(saveTimer); saveTimer = setTimeout(flushSave, 500); return; }   /* never save while a finger or pen is down */
+  dirtyFlag = false; clearTimeout(saveTimer);
   var b = S.board; saveState('Saving');
   dbPut(b).then(function(ok){ saveState(ok ? 'Saved' : 'Not saved'); });
   try{ localStorage.setItem('boardLast', b.id); }catch(e){}
@@ -251,7 +257,7 @@ function render(){
 function resize(){
   if(!S.board) return;
   dpr = Math.min(window.devicePixelRatio || 1, 2.5); W = window.innerWidth; H = window.innerHeight;
-  [cv, live].forEach(function(c){ c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
+  [cv, live, tail].forEach(function(c){ c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
   render(); positionTb(); positionSel();
 }
 window.addEventListener('resize', function(){ resize(); });
@@ -414,6 +420,7 @@ function eraserR(){ return S.esize / 2 / view().s; }
 function startStroke(x, y){
   var it = { id:uid(), type:'pen', color:S.color, w:penWidth(), pts:[x, y] };
   if(S.hlOn) it.hl = 1;
+  finI = 0; tailBox = null; lastInkEv = null;
   cur = it; lastMoveT = performance.now(); clearTimeout(holdTimer);
   if(!S.hlOn) holdTimer = setTimeout(straighten, 650);
   scheduleLive();
@@ -429,10 +436,41 @@ function straighten(){
 }
 var liveRaf = 0;
 function scheduleLive(){ if(liveRaf) return; liveRaf = requestAnimationFrame(drawLive); }
+function drawInk(v){
+  var t0 = performance.now(), a = cur.pts, n = a.length / 2, k = dpr * v.s, w = cur.w;
+  /* 1. finished curve segments go onto the live canvas once and stay there */
+  lctx.setTransform(k, 0, 0, k, dpr * v.x, dpr * v.y); lctx.lineCap = 'round'; lctx.lineJoin = 'round'; lctx.lineWidth = w; lctx.strokeStyle = cur.color;
+  if(n >= 3 && finI < n - 2){
+    lctx.beginPath();
+    for(var i = finI + 1; i <= n - 2; i++){
+      if(i === 1) lctx.moveTo(a[0], a[1]); else lctx.moveTo((a[2 * i - 2] + a[2 * i]) / 2, (a[2 * i - 1] + a[2 * i + 1]) / 2);
+      lctx.quadraticCurveTo(a[2 * i], a[2 * i + 1], (a[2 * i] + a[2 * i + 2]) / 2, (a[2 * i + 1] + a[2 * i + 3]) / 2);
+    }
+    lctx.stroke(); finI = n - 2;
+  }
+  /* 2. the unfinished tip (last bit + predicted points) lives on its own canvas and only its small box is cleared and redrawn */
+  var pad = dpr * (w * v.s / 2 + 3);
+  if(tailBox){ tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(tailBox[0], tailBox[1], tailBox[2], tailBox[3]); tailBox = null; }
+  var ex = n >= 3 ? (a[2 * n - 4] + a[2 * n - 2]) / 2 : a[0], ey = n >= 3 ? (a[2 * n - 3] + a[2 * n - 1]) / 2 : a[1];
+  var xs = [ex, a[2 * n - 2]], ys = [ey, a[2 * n - 1]], pr = predicted;
+  for(var j = 0; j < pr.length; j += 2){ xs.push(pr[j]); ys.push(pr[j + 1]); }
+  tctx.setTransform(k, 0, 0, k, dpr * v.x, dpr * v.y); tctx.lineCap = 'round'; tctx.lineJoin = 'round'; tctx.lineWidth = w; tctx.strokeStyle = cur.color; tctx.fillStyle = cur.color;
+  if(n === 1 && !pr.length){ tctx.beginPath(); tctx.arc(a[0], a[1], w / 2, 0, 6.2832); tctx.fill(); }
+  else { tctx.beginPath(); tctx.moveTo(ex, ey); tctx.lineTo(a[2 * n - 2], a[2 * n - 1]); for(var m = 0; m < pr.length; m += 2) tctx.lineTo(pr[m], pr[m + 1]); tctx.stroke(); }
+  var x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+  for(var q = 0; q < xs.length; q++){ var sx = dpr * (v.x + v.s * xs[q]), sy = dpr * (v.y + v.s * ys[q]); if(sx < x0) x0 = sx; if(sx > x1) x1 = sx; if(sy < y0) y0 = sy; if(sy > y1) y1 = sy; }
+  tailBox = [Math.floor(x0 - pad), Math.floor(y0 - pad), Math.ceil(x1 - x0 + 2 * pad) + 1, Math.ceil(y1 - y0 + 2 * pad) + 1];
+  /* 3. let the OS draw an ink trail from the last drawn point to the pen tip, until this frame reaches the screen */
+  if(inkPresenter && S.ink && lastInkEv){ try{ inkPresenter.updateInkTrailStartPoint(lastInkEv, { color:cur.color, diameter:w * v.s }); }catch(er){ inkPresenter = null; } }
+  perfNote(t0);
+}
 function drawLive(){
   liveRaf = 0;
+  var v = view();
+  if(cur && cur.type === 'pen' && !cur.hl){ drawInk(v); return; }
+  if(tailBox){ tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tail.width, tail.height); tailBox = null; }
   lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height);
-  var v = view(); lctx.setTransform(dpr * v.s, 0, 0, dpr * v.s, dpr * v.x, dpr * v.y);
+  lctx.setTransform(dpr * v.s, 0, 0, dpr * v.s, dpr * v.x, dpr * v.y);
   if(cur){
     if(cur.type === 'pen'){
       var tmp = cur;
@@ -446,7 +484,7 @@ function drawLive(){
     lctx.beginPath(); var p = lasso.pts; lctx.moveTo(p[0], p[1]); for(var i = 2; i < p.length; i += 2) lctx.lineTo(p[i], p[i + 1]); lctx.closePath(); lctx.fill(); lctx.stroke(); lctx.setLineDash([]);
   }
 }
-function clearLive(){ lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height); }
+function clearLive(){ lctx.setTransform(1, 0, 0, 1, 0, 0); lctx.clearRect(0, 0, live.width, live.height); tctx.setTransform(1, 0, 0, 1, 0, 0); tctx.clearRect(0, 0, tail.width, tail.height); finI = 0; tailBox = null; }
 
 function commitCur(){
   clearTimeout(holdTimer);
@@ -456,7 +494,9 @@ function commitCur(){
   pg.items.push(it);
   /* paint it straight onto the committed canvas, no full redraw */
   var v = view(); ctx.setTransform(dpr * v.s, 0, 0, dpr * v.s, dpr * v.x, dpr * v.y); drawItem(ctx, it); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  clearLive(); commitDiff(before);
+  if(it.type === 'pen' && !it.hl){ var tok = it; requestAnimationFrame(function(){ requestAnimationFrame(function(){ if(!cur) clearLive(); }); }); }
+  else clearLive();
+  commitDiff(before);
 }
 function cancelCur(){ clearTimeout(holdTimer); cur = null; predicted = []; lasso = null; clearLive(); }
 
@@ -552,9 +592,10 @@ function onMove(e){
     var a = cur.pts, minD = 0.9 / v2.s;
     for(var i = 0; i < evs.length; i++){
       var w = toWorld(evs[i].clientX, evs[i].clientY), lx = a[a.length - 2], ly = a[a.length - 1];
+      if(PERF) pf.ev++;
       if(Math.abs(w[0] - lx) + Math.abs(w[1] - ly) >= minD){ a.push(w[0], w[1]); cur._p = null; lastMoveT = performance.now(); }
     }
-    predicted = [];
+    predicted = []; lastInkEv = e; lastEvT = e.timeStamp;
     if(e.getPredictedEvents){ var pe = e.getPredictedEvents(); for(var k = 0; k < Math.min(pe.length, 3); k++){ var pw = toWorld(pe[k].clientX, pe[k].clientY); predicted.push(pw[0], pw[1]); } }
     clearTimeout(holdTimer); if(!S.hlOn) holdTimer = setTimeout(straighten, 650);
     scheduleLive();
@@ -575,6 +616,19 @@ function onMove(e){
   } else if(lasso){ lasso.pts.push(e.clientX, e.clientY); scheduleLive(); }
 }
 stage.addEventListener('pointermove', onMove);
+/* ---------- low-latency ink (Chrome on Windows/ChromeOS) and the ?perf=1 overlay ---------- */
+var lastEvT = 0, PERF = /[?&]perf=1/.test(location.search), pf = { n:0, ms:0, mx:0, lag:0, lagMx:0, ev:0, t:performance.now() }, pfEl = null;
+try{ if(navigator.ink && navigator.ink.requestPresenter && !/[?&]ink=0/.test(location.search)) navigator.ink.requestPresenter({ presentationArea:stage }).then(function(pr){ inkPresenter = pr; }).catch(function(){}); }catch(er){}
+function perfNote(t0){
+  if(!PERF) return;
+  var now = performance.now(), d = now - t0, lag = lastEvT ? now - lastEvT : 0;
+  pf.n++; pf.ms += d; if(d > pf.mx) pf.mx = d; pf.lag += lag; if(lag > pf.lagMx) pf.lagMx = lag;
+  if(!pfEl){ pfEl = document.createElement('div'); pfEl.style.cssText = 'position:fixed;z-index:99;left:50%;top:8px;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#9f9;font:13px/1.35 monospace;padding:6px 10px;border-radius:8px;pointer-events:none;white-space:pre'; document.body.appendChild(pfEl); }
+  if(now - pf.t > 500){
+    pfEl.textContent = 'frames ' + Math.round(pf.n * 1000 / (now - pf.t)) + '/s   input pts ' + Math.round(pf.ev * 1000 / (now - pf.t)) + '/s\ndraw avg ' + (pf.ms / pf.n).toFixed(2) + ' ms  max ' + pf.mx.toFixed(1) + '\ninput to draw avg ' + (pf.lag / pf.n).toFixed(1) + ' ms  max ' + pf.lagMx.toFixed(0) + '\nink trail ' + (inkPresenter && S.ink ? 'on' : (inkPresenter ? 'off (setting)' : 'not supported')) + '   dpr ' + dpr + '  ' + live.width + 'x' + live.height;
+    pf.n = 0; pf.ms = 0; pf.mx = 0; pf.lag = 0; pf.lagMx = 0; pf.ev = 0; pf.t = now;
+  }
+}
 stage.addEventListener('pointerrawupdate', function(e){ /* extra input rate where supported: handled through coalesced events */ });
 
 function endErase(){
@@ -829,6 +883,7 @@ function openPop(kind, anchor){
     h += '<h4>Background</h4><div class="row">' + BGS.map(function(b){ return '<button class="chip' + (page().bg === b[0] ? ' on' : '') + '" data-bg="' + b[0] + '">' + b[1] + '</button>'; }).join('') + '<button class="chip" data-act="allbg">Use on all pages</button></div>';
     h += '<h4>Save</h4><div class="row"><button class="chip" data-act="png">' + ic('save') + ' This page (PNG)</button><button class="chip" data-act="pdf">' + ic('save') + ' All pages (PDF)</button></div>';
     h += '<h4>Board</h4><div class="row"><button class="chip" data-act="boards">' + ic('boards') + ' My boards</button><button class="chip" data-act="full">' + ic('full') + ' Full screen</button></div>';
+    h += '<h4>Pen</h4><div class="row"><button class="chip' + (S.ink ? ' on' : '') + '" data-act="ink">Fast ink trail' + (inkPresenter ? '' : ' (not available here)') + '</button></div>';
     h += '<h4>Toolbar</h4><div class="row"><button class="chip' + (S.dock === 'l' ? ' on' : '') + '" data-dock="l">Left</button><button class="chip' + (S.dock === 'b' ? ' on' : '') + '" data-dock="b">Bottom</button><button class="chip' + (S.dock === 'r' ? ' on' : '') + '" data-dock="r">Right</button></div>';
   } else if(kind === 'export'){
     h += '<h4>Export</h4><div class="row"><button class="chip" data-act="png">This page (PNG)</button><button class="chip" data-act="pdf">All pages (PDF)</button></div>';
@@ -854,6 +909,7 @@ pop.addEventListener('click', function(e){
   else if(act === 'allbg'){ var bg = page().bg; S.board.pages.forEach(function(p){ p.bg = bg; }); markDirty(); closePop(); toast('Background applied to all pages'); }
   else if(act === 'curtain-on'){ CUR.on = true; CUR.amt = 1; closePop(); buildTb(); curRender(); }
   else if(act === 'curtain-off'){ CUR.on = false; closePop(); buildTb(); curRender(); }
+  else if(act === 'ink'){ S.ink = !S.ink; savePrefs(); closePop(); toast('Fast ink trail ' + (S.ink ? 'on' : 'off')); }
   else if(act === 'boards'){ closePop(); openBoards(); }
   else if(act === 'full'){ closePop(); toggleFull(); }
   else if(act === 'png'){ closePop(); exportPng(); }
@@ -940,7 +996,7 @@ function boot(){
     if(bd && bd.pages && bd.pages.length){ hydrate(bd); S.board = bd; } else { S.board = newBoard('Board'); }
     var q = location.search.match(/[?&]new=1/); if(q){ S.board = newBoard('Board'); }
     resize(); buildTb(); autoInkQuiet(); buildTb(); updateUndo(); updateCursor();
-    window.__board = { S:S, page:page, undo:undo, redo:redo, render:render, bbox:bbox };
+    window.__board = { S:S, page:page, undo:undo, redo:redo, render:render, bbox:bbox, ser:ser };
   });
 }
 boot();
