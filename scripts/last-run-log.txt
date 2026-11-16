@@ -17,11 +17,11 @@
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 149972 chars, <title>='Спектакль «Требуется лжец» — купить билеты на концерт в Ташкенте 19.11.2026 от 77\xa0000 сумов — Афиша Ташкента'
+[scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 150301 chars, <title>='Afisha.uz'
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/gaogao1311 title='Вечеринки в Gao Gao' title_hits=[] text_hits=[]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/22/yulduz-2111 title='Концерт Yulduzlar oqshomi' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n846\\nво\\xa0дворце национального киноискусства «панорама» пройдет концерт'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/22/yulduz-2111 title='Концерт Yulduzlar oqshomi' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n847\\nво\\xa0дворце национального киноискусства «панорама» пройдет концерт'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/11/13/barber title='Опера «Севильский цирюльник»' title_hits=[] text_hits=["'кино' ...'оперетты) покажут комическую оперу джоаккино россини «севильский цирюльник».\\nлов'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/04/10/impro title='Шоу «Импровизаторы»' title_hits=[] text_hits=["'кино' ...'ано\\n:\\n10 апреля 2026\\n·\\n10\\xa0569\\nво\\xa0дворце кино имени алишера навои состоится шоу «'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/04/10/impro title='Шоу «Импровизаторы»' title_hits=[] text_hits=["'кино' ...'ано\\n:\\n10 апреля 2026\\n·\\n10\\xa0573\\nво\\xa0дворце кино имени алишера навои состоится шоу «'"]
 [scrape]   'В Ташкенте проходит выставка «Кто мы?», посвященная 30-летию работы Британского совета': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
@@ -33,10 +33,9 @@
 [scrape] iticket.uz cat=theatre: 17 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
-[scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
+[scrape] eventbrite.com: 5 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 213  |  after dedup: 208
+[scrape] TOTAL before dedup: 218  |  after dedup: 208
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 258 titles
