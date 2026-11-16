@@ -54,10 +54,11 @@ var S = {
   tool:'pen', color:'#111111', w:4, hlOn:false, eraser:'stroke', esize:36, shape:'line', dock:'b', left:false, collapsed:false,
   board:null
 };
-try{ var sv = JSON.parse(localStorage.getItem('boardPrefs') || '{}'); ['color','w','eraser','esize','shape','dock','left','ink'].forEach(function(k){ if(sv[k] !== undefined) S[k] = sv[k]; }); }catch(e){}
+try{ var sv = JSON.parse(localStorage.getItem('boardPrefs') || '{}'); ['color','w','eraser','esize','shape','dock','left','ink','dc','sharp'].forEach(function(k){ if(sv[k] !== undefined) S[k] = sv[k]; }); }catch(e){}
 if(['b','l','r'].indexOf(S.dock) < 0) S.dock = 'b';
 if(S.ink === undefined) S.ink = true;
-function savePrefs(){ try{ localStorage.setItem('boardPrefs', JSON.stringify({ color:S.color, w:S.w, eraser:S.eraser, esize:S.esize, shape:S.shape, dock:S.dock, left:S.left, ink:S.ink })); }catch(e){} }
+if(!(S.dc >= 1 && S.dc <= 2.5)) S.dc = 1.5;      /* resolution cap: big panels at 250% scaling paint millions of pixels per frame */
+function savePrefs(){ try{ localStorage.setItem('boardPrefs', JSON.stringify({ color:S.color, w:S.w, eraser:S.eraser, esize:S.esize, shape:S.shape, dock:S.dock, left:S.left, ink:S.ink, dc:S.dc, sharp:S.sharp })); }catch(e){} }
 
 function newPage(bg){ return { id:uid(), bg:bg || 'white', items:[], undo:[], redo:[], view:{ x:0, y:0, s:1 } }; }
 function newBoard(name){ var p = newPage('white'); return { id:uid(), name:name || 'Board', created:Date.now(), updated:Date.now(), pages:[p], cur:0 }; }
@@ -256,7 +257,7 @@ function render(){
 
 function resize(){
   if(!S.board) return;
-  dpr = Math.min(window.devicePixelRatio || 1, 2.5); W = window.innerWidth; H = window.innerHeight;
+  dpr = Math.min(window.devicePixelRatio || 1, S.sharp ? 2.5 : S.dc); W = window.innerWidth; H = window.innerHeight;
   [cv, live, tail].forEach(function(c){ c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); });
   render(); positionTb(); positionSel();
 }
@@ -420,7 +421,7 @@ function eraserR(){ return S.esize / 2 / view().s; }
 function startStroke(x, y){
   var it = { id:uid(), type:'pen', color:S.color, w:penWidth(), pts:[x, y] };
   if(S.hlOn) it.hl = 1;
-  finI = 0; tailBox = null; lastInkEv = null;
+  finI = 0; tailBox = null; lastInkEv = null; fN = 0; fSum = 0; fLast = 0;
   cur = it; lastMoveT = performance.now(); clearTimeout(holdTimer);
   if(!S.hlOn) holdTimer = setTimeout(straighten, 650);
   scheduleLive();
@@ -436,8 +437,10 @@ function straighten(){
 }
 var liveRaf = 0;
 function scheduleLive(){ if(liveRaf) return; liveRaf = requestAnimationFrame(drawLive); }
+var fN = 0, fSum = 0, fLast = 0;
 function drawInk(v){
-  var t0 = performance.now(), a = cur.pts, n = a.length / 2, k = dpr * v.s, w = cur.w;
+  var t0 = performance.now(); if(fLast && t0 - fLast < 200){ fN++; fSum += t0 - fLast; } fLast = t0;
+  var a = cur.pts, n = a.length / 2, k = dpr * v.s, w = cur.w;
   /* 1. finished curve segments go onto the live canvas once and stay there */
   lctx.setTransform(k, 0, 0, k, dpr * v.x, dpr * v.y); lctx.lineCap = 'round'; lctx.lineJoin = 'round'; lctx.lineWidth = w; lctx.strokeStyle = cur.color;
   if(n >= 3 && finI < n - 2){
@@ -497,6 +500,13 @@ function commitCur(){
   if(it.type === 'pen' && !it.hl){ var tok = it; requestAnimationFrame(function(){ requestAnimationFrame(function(){ if(!cur) clearLive(); }); }); }
   else clearLive();
   commitDiff(before);
+  adaptRes();
+}
+/* if strokes were drawn at under ~35 frames a second, drop the resolution one step (never goes up by itself) */
+function adaptRes(){
+  if(S.sharp || fN < 15 || fSum / fN < 29 || S.dc <= 1) return;
+  S.dc = S.dc > 1.25 ? 1.25 : 1; fN = 0; fSum = 0; savePrefs();
+  setTimeout(function(){ if(!cur && !Object.keys(ptrs).length){ resize(); toast('Faster drawing: sharpness lowered'); } }, 400);
 }
 function cancelCur(){ clearTimeout(holdTimer); cur = null; predicted = []; lasso = null; clearLive(); }
 
@@ -883,7 +893,7 @@ function openPop(kind, anchor){
     h += '<h4>Background</h4><div class="row">' + BGS.map(function(b){ return '<button class="chip' + (page().bg === b[0] ? ' on' : '') + '" data-bg="' + b[0] + '">' + b[1] + '</button>'; }).join('') + '<button class="chip" data-act="allbg">Use on all pages</button></div>';
     h += '<h4>Save</h4><div class="row"><button class="chip" data-act="png">' + ic('save') + ' This page (PNG)</button><button class="chip" data-act="pdf">' + ic('save') + ' All pages (PDF)</button></div>';
     h += '<h4>Board</h4><div class="row"><button class="chip" data-act="boards">' + ic('boards') + ' My boards</button><button class="chip" data-act="full">' + ic('full') + ' Full screen</button></div>';
-    h += '<h4>Pen</h4><div class="row"><button class="chip' + (S.ink ? ' on' : '') + '" data-act="ink">Fast ink trail' + (inkPresenter ? '' : ' (not available here)') + '</button><button class="chip' + (PERF ? ' on' : '') + '" data-act="perf">Speed numbers</button></div>';
+    h += '<h4>Pen</h4><div class="row"><button class="chip' + (S.ink ? ' on' : '') + '" data-act="ink">Fast ink trail' + (inkPresenter ? '' : ' (not available here)') + '</button><button class="chip' + (PERF ? ' on' : '') + '" data-act="perf">Speed numbers</button><button class="chip' + (S.sharp ? ' on' : '') + '" data-act="sharp">Max sharpness (slower)</button></div>';
     h += '<h4>Toolbar</h4><div class="row"><button class="chip' + (S.dock === 'l' ? ' on' : '') + '" data-dock="l">Left</button><button class="chip' + (S.dock === 'b' ? ' on' : '') + '" data-dock="b">Bottom</button><button class="chip' + (S.dock === 'r' ? ' on' : '') + '" data-dock="r">Right</button></div>';
   } else if(kind === 'export'){
     h += '<h4>Export</h4><div class="row"><button class="chip" data-act="png">This page (PNG)</button><button class="chip" data-act="pdf">All pages (PDF)</button></div>';
@@ -910,6 +920,7 @@ pop.addEventListener('click', function(e){
   else if(act === 'curtain-on'){ CUR.on = true; CUR.amt = 1; closePop(); buildTb(); curRender(); }
   else if(act === 'curtain-off'){ CUR.on = false; closePop(); buildTb(); curRender(); }
   else if(act === 'ink'){ S.ink = !S.ink; savePrefs(); closePop(); toast('Fast ink trail ' + (S.ink ? 'on' : 'off')); }
+  else if(act === 'sharp'){ S.sharp = !S.sharp; if(!S.sharp) S.dc = 1.5; savePrefs(); closePop(); resize(); toast(S.sharp ? 'Max sharpness' : 'Sharpness automatic'); }
   else if(act === 'perf'){ PERF = !PERF; try{ localStorage.setItem('boardPerf', PERF ? '1' : '0'); }catch(e){} if(!PERF && pfEl){ pfEl.remove(); pfEl = null; } closePop(); toast(PERF ? 'Speed numbers on: draw with the pen' : 'Speed numbers off'); }
   else if(act === 'boards'){ closePop(); openBoards(); }
   else if(act === 'full'){ closePop(); toggleFull(); }
