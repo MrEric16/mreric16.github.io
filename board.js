@@ -54,11 +54,12 @@ var S = {
   tool:'pen', color:'#111111', w:4, hlOn:false, eraser:'stroke', esize:36, shape:'line', dock:'b', left:false, collapsed:false,
   board:null
 };
-try{ var sv = JSON.parse(localStorage.getItem('boardPrefs') || '{}'); ['color','w','eraser','esize','shape','dock','left','ink','dc','sharp'].forEach(function(k){ if(sv[k] !== undefined) S[k] = sv[k]; }); }catch(e){}
+try{ var sv = JSON.parse(localStorage.getItem('boardPrefs') || '{}'); ['color','w','eraser','esize','shape','dock','left','ink','dc','sharp','dcv'].forEach(function(k){ if(sv[k] !== undefined) S[k] = sv[k]; }); }catch(e){}
 if(['b','l','r'].indexOf(S.dock) < 0) S.dock = 'b';
 if(S.ink === undefined) S.ink = true;
-if(!(S.dc >= 1 && S.dc <= 2.5)) S.dc = 1.5;      /* resolution cap: big panels at 250% scaling paint millions of pixels per frame */
-function savePrefs(){ try{ localStorage.setItem('boardPrefs', JSON.stringify({ color:S.color, w:S.w, eraser:S.eraser, esize:S.esize, shape:S.shape, dock:S.dock, left:S.left, ink:S.ink, dc:S.dc, sharp:S.sharp })); }catch(e){} }
+if(!(S.dc >= 1 && S.dc <= 2.5) || S.dcv !== 2){ S.dc = 1.5; S.dcv = 2; }   /* v2: earlier builds mistook a 30 Hz screen for a slow page */
+      /* resolution cap: big panels at 250% scaling paint millions of pixels per frame */
+function savePrefs(){ try{ localStorage.setItem('boardPrefs', JSON.stringify({ color:S.color, w:S.w, eraser:S.eraser, esize:S.esize, shape:S.shape, dock:S.dock, left:S.left, ink:S.ink, dc:S.dc, sharp:S.sharp, dcv:S.dcv })); }catch(e){} }
 
 function newPage(bg){ return { id:uid(), bg:bg || 'white', items:[], undo:[], redo:[], view:{ x:0, y:0, s:1 } }; }
 function newBoard(name){ var p = newPage('white'); return { id:uid(), name:name || 'Board', created:Date.now(), updated:Date.now(), pages:[p], cur:0 }; }
@@ -437,7 +438,8 @@ function straighten(){
 }
 var liveRaf = 0;
 function scheduleLive(){ if(liveRaf) return; liveRaf = requestAnimationFrame(drawLive); }
-var fN = 0, fSum = 0, fLast = 0;
+var fN = 0, fSum = 0, fLast = 0, refreshMs = 16.7;
+(function measure(){ var n = 0, t0 = 0; function f(t){ if(!t0) t0 = t; if(++n < 40) requestAnimationFrame(f); else if(document.visibilityState === 'visible'){ var ms = (t - t0) / (n - 1); if(ms > 6 && ms < 80) refreshMs = ms; } } requestAnimationFrame(f); })();
 function drawInk(v){
   var t0 = performance.now(); if(fLast && t0 - fLast < 200){ fN++; fSum += t0 - fLast; } fLast = t0;
   var a = cur.pts, n = a.length / 2, k = dpr * v.s, w = cur.w;
@@ -504,7 +506,8 @@ function commitCur(){
 }
 /* if strokes were drawn at under ~35 frames a second, drop the resolution one step (never goes up by itself) */
 function adaptRes(){
-  if(S.sharp || fN < 15 || fSum / fN < 29 || S.dc <= 1) return;
+  /* slow means well below what the screen itself can show (a 30 Hz panel is not slow) */
+  if(S.sharp || fN < 15 || fSum / fN < Math.max(29, refreshMs * 1.6) || S.dc <= 1) return;
   S.dc = S.dc > 1.25 ? 1.25 : 1; fN = 0; fSum = 0; savePrefs();
   setTimeout(function(){ if(!cur && !Object.keys(ptrs).length){ resize(); toast('Faster drawing: sharpness lowered'); } }, 400);
 }
