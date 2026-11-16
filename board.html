@@ -31,26 +31,26 @@
   #curtain .grip{ pointer-events:auto; }
   #curtain .grip svg{ pointer-events:none; }
   /* toolbar */
-  #tb{ position:fixed; z-index:20; display:flex; align-items:center; gap:4px; padding:8px 10px; border-radius:36px; background:var(--tb); color:var(--tb-ink); box-shadow:0 8px 28px rgba(0,0,0,.4); touch-action:none; max-width:98vw; }
-  #tb.b{ touch-action:pan-x; left:50%; transform:translateX(-50%); bottom:calc(10px + env(safe-area-inset-bottom,0px)); flex-direction:row; overflow-x:auto; scrollbar-width:none; }
+  #tb{ position:fixed; z-index:20; display:flex; align-items:center; gap:4px; padding:4px 10px; border-radius:30px; background:var(--tb); color:var(--tb-ink); box-shadow:0 8px 28px rgba(0,0,0,.4); touch-action:none; max-width:98vw; }
+  #tb.b{ touch-action:pan-x; left:50%; transform:translateX(-50%); bottom:calc(6px + env(safe-area-inset-bottom,0px)); flex-direction:row; overflow-x:auto; scrollbar-width:none; }
   #tb.l{ left:10px; top:66px; flex-direction:column; max-height:calc(100vh - 82px); touch-action:pan-y; overflow-y:auto; scrollbar-width:none; border-radius:34px; padding:10px 8px; }
   #tb.r{ right:10px; top:66px; flex-direction:column; max-height:calc(100vh - 82px); touch-action:pan-y; overflow-y:auto; scrollbar-width:none; border-radius:34px; padding:10px 8px; }
   #tb::-webkit-scrollbar{ display:none; }
-  .tbb{ flex:none; width:54px; height:54px; border:0; border-radius:50%; background:transparent; color:var(--tb-ink); display:grid; place-items:center; position:relative; touch-action:manipulation; cursor:pointer; padding:0; }
+  .tbb{ flex:none; width:44px; height:44px; border:0; border-radius:50%; background:transparent; color:var(--tb-ink); display:grid; place-items:center; position:relative; touch-action:manipulation; cursor:pointer; padding:0; }
   .tbb:active{ background:rgba(255,255,255,.18); }
   .tbb.on{ background:var(--accent); color:#06203F; }
   .tbb[disabled]{ opacity:.3; pointer-events:none; }
-  .tbb svg{ width:28px; height:28px; stroke:currentColor; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; pointer-events:none; }
-  .sep{ flex:none; width:2px; height:30px; background:rgba(255,255,255,.2); margin:0 4px; }
+  .tbb svg{ width:25px; height:25px; stroke:currentColor; fill:none; stroke-width:1.9; stroke-linecap:round; stroke-linejoin:round; pointer-events:none; }
+  .sep{ flex:none; width:2px; height:24px; background:rgba(255,255,255,.2); margin:0 4px; }
   #tb.l .sep, #tb.r .sep{ width:30px; height:2px; margin:4px 0; }
   #grip{ cursor:grab; opacity:.7; touch-action:none; }
   #tb.l .dot, #tb.r .dot{ width:26px; height:26px; }
   #tb.l #wslider, #tb.r #wslider{ display:none; }
   .dots{ display:flex; align-items:center; gap:7px; padding:0 4px; }
   #tb.l .dots, #tb.r .dots{ flex-direction:column; padding:4px 0; }
-  .dot{ flex:none; width:30px; height:30px; border-radius:50%; border:3px solid rgba(255,255,255,.35); padding:0; touch-action:manipulation; }
+  .dot{ flex:none; width:26px; height:26px; border-radius:50%; border:2px solid rgba(255,255,255,.35); padding:0; touch-action:manipulation; }
   .dot.on{ border-color:#fff; box-shadow:0 0 0 3px var(--accent); }
-  #wslider{ width:92px; accent-color:var(--accent); touch-action:none; }
+  #wslider{ width:84px; accent-color:var(--accent); touch-action:none; }
     #savestate{ position:fixed; z-index:6; top:calc(8px + env(safe-area-inset-top,0px)); right:12px; font-size:13px; color:#fff; background:rgba(0,0,0,.45); padding:4px 10px; border-radius:999px; opacity:0; transition:opacity .4s; pointer-events:none; }
   #savestate.show{ opacity:1; }
   #back{ position:fixed; z-index:6; top:calc(8px + env(safe-area-inset-top,0px)); left:10px; width:46px; height:46px; border-radius:50%; background:rgba(30,42,68,.9); color:#fff; display:grid; place-items:center; text-decoration:none; font-size:24px; box-shadow:0 4px 14px rgba(0,0,0,.3); }
@@ -69,7 +69,7 @@
   #pop input[type=color]{ width:48px; height:48px; border:0; background:none; padding:0; }
   #pop input[type=text]{ flex:1; min-height:48px; border-radius:12px; border:2px solid var(--tb-2); background:#10182b; color:#fff; padding:0 12px; font-size:17px; -webkit-user-select:text; user-select:text; }
   .panel{ position:fixed; z-index:25; display:none; background:var(--tb); color:var(--tb-ink); border-radius:20px; box-shadow:0 10px 34px rgba(0,0,0,.5); padding:12px; }
-  #pagesbar{ left:50%; transform:translateX(-50%); bottom:calc(86px + env(safe-area-inset-bottom,0px)); max-width:96vw; }
+  #pagesbar{ left:50%; transform:translateX(-50%); bottom:calc(66px + env(safe-area-inset-bottom,0px)); max-width:96vw; }
   #pagesbar .strip{ display:flex; gap:10px; overflow-x:auto; padding:4px; max-width:calc(96vw - 28px); }
   #pagesbar .th{ flex:none; width:150px; height:96px; border-radius:10px; border:3px solid transparent; background:#fff; padding:0; overflow:hidden; position:relative; touch-action:manipulation; }
   #pagesbar .th.on{ border-color:var(--accent); }
@@ -82,7 +82,7 @@
   #boards .bi .nm{ flex:1; min-width:0; font-size:18px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
   #boards .bi small{ opacity:.65; display:block; font-size:12px; }
   #toast{ position:fixed; z-index:40; left:50%; top:calc(14px + env(safe-area-inset-top,0px)); transform:translateX(-50%); background:#111c; color:#fff; padding:10px 18px; border-radius:12px; font-size:16px; display:none; }
-  @media (max-width:700px){ .tbb{ width:46px; height:46px; } .tbb svg{ width:24px; height:24px; } #wslider{ width:64px; } }
+  @media (max-width:700px){ .tbb{ width:42px; height:42px; } .tbb svg{ width:23px; height:23px; } #wslider{ width:64px; } }
 </style>
 </head>
 <body>
