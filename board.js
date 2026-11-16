@@ -629,13 +629,19 @@ stage.addEventListener('pointermove', onMove);
 /* ---------- low-latency ink (Chrome on Windows/ChromeOS) and the ?perf=1 overlay ---------- */
 var lastEvT = 0, PERF = /[?&]perf=1/.test(location.search) || (function(){ try{ return localStorage.getItem('boardPerf') === '1'; }catch(e){ return false; } })(), pf = { n:0, ms:0, mx:0, lag:0, lagMx:0, ev:0, t:performance.now() }, pfEl = null;
 try{ if(navigator.ink && navigator.ink.requestPresenter && !/[?&]ink=0/.test(location.search)) navigator.ink.requestPresenter({ presentationArea:stage }).then(function(pr){ inkPresenter = pr; }).catch(function(){}); }catch(er){}
+var hz = 0, hzN = 0, hzT = 0, hzRun = false;
+function hzStart(){
+  if(hzRun || !PERF) return; hzRun = true; hzN = 0; hzT = 0;
+  (function loop(){ if(!PERF){ hzRun = false; return; } requestAnimationFrame(function(t){ if(!hzT) hzT = t; hzN++; if(t - hzT >= 1000){ hz = Math.round(hzN * 1000 / (t - hzT)); hzN = 0; hzT = t; } loop(); }); })();
+}
+hzStart();
 function perfNote(t0){
   if(!PERF) return;
   var now = performance.now(), d = now - t0, lag = lastEvT ? now - lastEvT : 0;
   pf.n++; pf.ms += d; if(d > pf.mx) pf.mx = d; pf.lag += lag; if(lag > pf.lagMx) pf.lagMx = lag;
   if(!pfEl){ pfEl = document.createElement('div'); pfEl.style.cssText = 'position:fixed;z-index:99;left:50%;top:8px;transform:translateX(-50%);background:rgba(0,0,0,.75);color:#9f9;font:13px/1.35 monospace;padding:6px 10px;border-radius:8px;pointer-events:none;white-space:pre'; document.body.appendChild(pfEl); }
   if(now - pf.t > 500){
-    pfEl.textContent = 'frames ' + Math.round(pf.n * 1000 / (now - pf.t)) + '/s   input pts ' + Math.round(pf.ev * 1000 / (now - pf.t)) + '/s\ndraw avg ' + (pf.ms / pf.n).toFixed(2) + ' ms  max ' + pf.mx.toFixed(1) + '\ninput to draw avg ' + (pf.lag / pf.n).toFixed(1) + ' ms  max ' + pf.lagMx.toFixed(0) + '\nink trail ' + (inkPresenter && S.ink ? 'on' : (inkPresenter ? 'off (setting)' : 'not supported')) + '   dpr ' + dpr + '  ' + live.width + 'x' + live.height;
+    pfEl.textContent = 'frames ' + Math.round(pf.n * 1000 / (now - pf.t)) + '/s   input pts ' + Math.round(pf.ev * 1000 / (now - pf.t)) + '/s\ndraw avg ' + (pf.ms / pf.n).toFixed(2) + ' ms  max ' + pf.mx.toFixed(1) + '\ninput to draw avg ' + (pf.lag / pf.n).toFixed(1) + ' ms  max ' + pf.lagMx.toFixed(0) + '\ndisplay refresh ' + (hz || '...') + ' Hz\nink trail ' + (inkPresenter && S.ink ? 'on' : (inkPresenter ? 'off (setting)' : 'not supported')) + '   dpr ' + dpr + '  ' + live.width + 'x' + live.height;
     pf.n = 0; pf.ms = 0; pf.mx = 0; pf.lag = 0; pf.lagMx = 0; pf.ev = 0; pf.t = now;
   }
 }
@@ -921,7 +927,7 @@ pop.addEventListener('click', function(e){
   else if(act === 'curtain-off'){ CUR.on = false; closePop(); buildTb(); curRender(); }
   else if(act === 'ink'){ S.ink = !S.ink; savePrefs(); closePop(); toast('Fast ink trail ' + (S.ink ? 'on' : 'off')); }
   else if(act === 'sharp'){ S.sharp = !S.sharp; if(!S.sharp) S.dc = 1.5; savePrefs(); closePop(); resize(); toast(S.sharp ? 'Max sharpness' : 'Sharpness automatic'); }
-  else if(act === 'perf'){ PERF = !PERF; try{ localStorage.setItem('boardPerf', PERF ? '1' : '0'); }catch(e){} if(!PERF && pfEl){ pfEl.remove(); pfEl = null; } closePop(); toast(PERF ? 'Speed numbers on: draw with the pen' : 'Speed numbers off'); }
+  else if(act === 'perf'){ PERF = !PERF; hzStart(); try{ localStorage.setItem('boardPerf', PERF ? '1' : '0'); }catch(e){} if(!PERF && pfEl){ pfEl.remove(); pfEl = null; } closePop(); toast(PERF ? 'Speed numbers on: draw with the pen' : 'Speed numbers off'); }
   else if(act === 'boards'){ closePop(); openBoards(); }
   else if(act === 'full'){ closePop(); toggleFull(); }
   else if(act === 'png'){ closePop(); exportPng(); }
