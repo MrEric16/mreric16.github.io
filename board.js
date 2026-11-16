@@ -617,7 +617,7 @@ function onMove(e){
 }
 stage.addEventListener('pointermove', onMove);
 /* ---------- low-latency ink (Chrome on Windows/ChromeOS) and the ?perf=1 overlay ---------- */
-var lastEvT = 0, PERF = /[?&]perf=1/.test(location.search), pf = { n:0, ms:0, mx:0, lag:0, lagMx:0, ev:0, t:performance.now() }, pfEl = null;
+var lastEvT = 0, PERF = /[?&]perf=1/.test(location.search) || (function(){ try{ return localStorage.getItem('boardPerf') === '1'; }catch(e){ return false; } })(), pf = { n:0, ms:0, mx:0, lag:0, lagMx:0, ev:0, t:performance.now() }, pfEl = null;
 try{ if(navigator.ink && navigator.ink.requestPresenter && !/[?&]ink=0/.test(location.search)) navigator.ink.requestPresenter({ presentationArea:stage }).then(function(pr){ inkPresenter = pr; }).catch(function(){}); }catch(er){}
 function perfNote(t0){
   if(!PERF) return;
@@ -883,7 +883,7 @@ function openPop(kind, anchor){
     h += '<h4>Background</h4><div class="row">' + BGS.map(function(b){ return '<button class="chip' + (page().bg === b[0] ? ' on' : '') + '" data-bg="' + b[0] + '">' + b[1] + '</button>'; }).join('') + '<button class="chip" data-act="allbg">Use on all pages</button></div>';
     h += '<h4>Save</h4><div class="row"><button class="chip" data-act="png">' + ic('save') + ' This page (PNG)</button><button class="chip" data-act="pdf">' + ic('save') + ' All pages (PDF)</button></div>';
     h += '<h4>Board</h4><div class="row"><button class="chip" data-act="boards">' + ic('boards') + ' My boards</button><button class="chip" data-act="full">' + ic('full') + ' Full screen</button></div>';
-    h += '<h4>Pen</h4><div class="row"><button class="chip' + (S.ink ? ' on' : '') + '" data-act="ink">Fast ink trail' + (inkPresenter ? '' : ' (not available here)') + '</button></div>';
+    h += '<h4>Pen</h4><div class="row"><button class="chip' + (S.ink ? ' on' : '') + '" data-act="ink">Fast ink trail' + (inkPresenter ? '' : ' (not available here)') + '</button><button class="chip' + (PERF ? ' on' : '') + '" data-act="perf">Speed numbers</button></div>';
     h += '<h4>Toolbar</h4><div class="row"><button class="chip' + (S.dock === 'l' ? ' on' : '') + '" data-dock="l">Left</button><button class="chip' + (S.dock === 'b' ? ' on' : '') + '" data-dock="b">Bottom</button><button class="chip' + (S.dock === 'r' ? ' on' : '') + '" data-dock="r">Right</button></div>';
   } else if(kind === 'export'){
     h += '<h4>Export</h4><div class="row"><button class="chip" data-act="png">This page (PNG)</button><button class="chip" data-act="pdf">All pages (PDF)</button></div>';
@@ -910,6 +910,7 @@ pop.addEventListener('click', function(e){
   else if(act === 'curtain-on'){ CUR.on = true; CUR.amt = 1; closePop(); buildTb(); curRender(); }
   else if(act === 'curtain-off'){ CUR.on = false; closePop(); buildTb(); curRender(); }
   else if(act === 'ink'){ S.ink = !S.ink; savePrefs(); closePop(); toast('Fast ink trail ' + (S.ink ? 'on' : 'off')); }
+  else if(act === 'perf'){ PERF = !PERF; try{ localStorage.setItem('boardPerf', PERF ? '1' : '0'); }catch(e){} if(!PERF && pfEl){ pfEl.remove(); pfEl = null; } closePop(); toast(PERF ? 'Speed numbers on: draw with the pen' : 'Speed numbers off'); }
   else if(act === 'boards'){ closePop(); openBoards(); }
   else if(act === 'full'){ closePop(); toggleFull(); }
   else if(act === 'png'){ closePop(); exportPng(); }
