@@ -9,7 +9,7 @@
 [uae-tsdb] eventsseason.php?id=4678&s=2026-2027 failed: HTTP Error 403: Forbidden
 [uae-tsdb] TheSportsDB returned nothing; file untouched
 TSDB_FALLBACK_FAILED
-[uae-365] results: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4756587&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866909&direction=1"}
+[uae-365] results: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4756604&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866909&direction=1"}
 [uae-365]   game Al-Wahda 0.0-0.0 Al Ain 2026-11-08T20:30:00+05:00 st=4/Ended
 [uae-365]   game Ajman Club 1.0-1.0 Baniyas 2026-11-08T20:30:00+05:00 st=4/Ended
 [uae-365]   game Jazira Abu Dhabi 2.0-1.0 Al Wasl 2026-11-08T17:55:00+05:00 st=4/Ended
@@ -54,11 +54,11 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Kalba 0.0-3.0 Al Wasl 2026-08-21T19:00:00+05:00 st=4/Ended
 [uae-365]   game Baniyas 2.0-4.0 Al Ain 2026-08-16T21:45:00+05:00 st=4/Ended
 [uae-365]   game Hatta Club 0.0-2.0 Jazira Abu Dhabi 2026-08-16T19:10:00+05:00 st=4/Ended
-[uae-365]   game Al Wasl 5.0-1.0 Dubai United 2026-08-15T21:45:00+05:00 st=4/Ended
-[uae-365]   game Khor Fakkan 1.0-5.0 Shabab Al Ahly 2026-08-15T21:45:00+05:00 st=4/Ended
-[uae-365]   game Al Dhafra 1.0-3.0 Sharjah SC 2026-08-15T19:10:00+05:00 st=4/Ended
 [uae-365]   game Al Nasr Dubai 2.0-2.0 Kalba 2026-08-14T19:10:00+05:00 st=4/Ended
 [uae-365]   game Al-Wahda 2.0-3.0 Ajman Club 2026-08-14T21:45:00+05:00 st=4/Ended
+[uae-365]   game Al Dhafra 1.0-3.0 Sharjah SC 2026-08-15T19:10:00+05:00 st=4/Ended
+[uae-365]   game Al Wasl 5.0-1.0 Dubai United 2026-08-15T21:45:00+05:00 st=4/Ended
+[uae-365]   game Khor Fakkan 1.0-5.0 Shabab Al Ahly 2026-08-15T21:45:00+05:00 st=4/Ended
 [uae-365]   game Ajman Club 1.0-1.0 Jazira Abu Dhabi 2026-05-05T19:05:00+05:00 st=4/Ended
 [uae-365]   game Baniyas 2.0-2.0 Al Dhafra 2026-05-05T21:45:00+05:00 st=4/Ended
 [uae-365]   game Dibba Al Fujairah 2.0-1.0 Al Bataeh 2026-05-05T21:45:00+05:00 st=4/Ended
