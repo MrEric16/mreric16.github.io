@@ -1,41 +1,43 @@
-[scrape] Run started. Today (Tashkent): 2026-11-16  Window end: 2026-11-30
+[scrape] Run started. Today (Tashkent): 2026-11-17  Window end: 2026-12-01
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-11-16: 14 new event URLs discovered
-[scrape] calendar 2026-11-17: 4 new event URLs discovered
-[scrape] calendar 2026-11-18: 3 new event URLs discovered
+[scrape] calendar 2026-11-17: 18 new event URLs discovered
+[scrape] calendar 2026-11-18: 6 new event URLs discovered
 [scrape] calendar 2026-11-19: 7 new event URLs discovered
-[scrape] calendar 2026-11-20: 4 new event URLs discovered
-[scrape] calendar 2026-11-21: 12 new event URLs discovered
-[scrape] calendar 2026-11-22: 7 new event URLs discovered
+[scrape] calendar 2026-11-20: 6 new event URLs discovered
+[scrape] calendar 2026-11-21: 16 new event URLs discovered
+[scrape] calendar 2026-11-22: 8 new event URLs discovered
 [scrape] calendar 2026-11-23: 2 new event URLs discovered
 [scrape] calendar 2026-11-24: 3 new event URLs discovered
-[scrape] calendar 2026-11-25: 5 new event URLs discovered
-[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 21 total exhibition links seen on page
+[scrape] calendar 2026-11-25: 6 new event URLs discovered
+[scrape] calendar 2026-11-26: 4 new event URLs discovered
+[scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 20 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 70 unique event URLs to check
+[scrape] calendar discovery complete: 85 unique event URLs to check
+[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/16/midnight1611 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
+[scrape]   'Выставка Interflows в галерее ARTepa': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/11/16/jazz-evening title='Творческий «Вечер джаза»' title_hits=[] text_hits=["'кино' ...'амма, включающая лиричные композиции из\\xa0кинофильмов и\\xa0мюзиклов, а\\xa0также джазовые'"]
 [scrape]   detail page has NO <h1> (likely a bot-wall page, not the event): https://www.afisha.uz/ru/theatres/2026/08/27/a-liar-wanted HTTP 200, 150301 chars, <title>='Afisha.uz'
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/gaogao1311 title='Вечеринки в Gao Gao' title_hits=[] text_hits=[]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/22/yulduz-2111 title='Концерт Yulduzlar oqshomi' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n847\\nво\\xa0дворце национального киноискусства «панорама» пройдет концерт'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/11/13/barber title='Опера «Севильский цирюльник»' title_hits=[] text_hits=["'кино' ...'оперетты) покажут комическую оперу джоаккино россини «севильский цирюльник».\\nлов'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/04/10/impro title='Шоу «Импровизаторы»' title_hits=[] text_hits=["'кино' ...'ано\\n:\\n10 апреля 2026\\n·\\n10\\xa0573\\nво\\xa0дворце кино имени алишера навои состоится шоу «'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/22/yulduz-2111 title='Концерт Yulduzlar oqshomi' title_hits=[] text_hits=["'кино' ...'ября 2026\\n·\\n867\\nво\\xa0дворце национального киноискусства «панорама» пройдет концерт'"]
 [scrape]   'В Ташкенте проходит выставка «Кто мы?», посвященная 30-летию работы Британского совета': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 167 events kept from 70 pages checked
-[scrape] calendar detail pass drops: {'checked': 70, 'no_title': 1, 'excluded_or_banned': 10}
+[scrape] calendar detail pass complete: 215 events kept from 85 pages checked
+[scrape] calendar detail pass drops: {'checked': 85, 'no_title': 1, 'excluded_or_banned': 13}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
-[scrape] iticket.uz cat=concert: 28 events kept
-[scrape] iticket.uz cat=theatre: 17 events kept
+[scrape] iticket.uz cat=concert: 9 events kept
+[scrape] iticket.uz cat=theatre: 13 events kept
 [scrape] iticket.uz cat=exhibition: 1 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: 5 events found (dates NOT yet parsed -- see note in script)
+[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
+[scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 218  |  after dedup: 208
+[scrape] TOTAL before dedup: 238  |  after dedup: 219
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 258 titles
+[scrape] translation cache: 269 titles
