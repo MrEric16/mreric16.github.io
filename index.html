@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261118023246">
+<meta name="app-build" content="20261118025042">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -43,6 +43,34 @@
 <script defer src="lib/supabase.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2';document.head.appendChild(s)"></script>
 <script src="backnav.js"></script>
 <script src="lounge-core.js"></script>
+<script>
+/* Fast return from the separate pages: they jump back to this page's history entry, then ask for a route here. */
+(function(){
+  function go(){
+    try{
+      var r = sessionStorage.getItem('__goto'); if(!r) return;
+      sessionStorage.removeItem('__goto'); r = JSON.parse(r);
+      if(!r || Date.now() - r.t > 15000) return;
+      var u = location.pathname + (r.h && r.h !== '#' ? r.h : '');
+      if(location.hash === (r.h === '#' ? '' : r.h)) return;
+      history.replaceState(null, '', u);
+      window.dispatchEvent(new HashChangeEvent('hashchange'));
+    }catch(e){}
+  }
+  go();
+  window.addEventListener('pageshow', function(ev){ if(ev.persisted) go(); });
+  /* Train Your Brain: remember the last 4 games / study tools opened */
+  document.addEventListener('click', function(e){
+    try{
+      var a = e.target.closest && e.target.closest('a.sport-hub-tile[data-cat]'); if(!a) return;
+      var u = a.getAttribute('href') || '', n = (a.querySelector('.name') || a).textContent.replace(/\s+/g, ' ').trim();
+      if(!u || !n || /-hub$|^#word-match$|^#irregular-verbs$|^#geography-hub/.test(u)) return;
+      var r = JSON.parse(localStorage.getItem('bt_recent') || '[]').filter(function(x){ return x && x.u !== u; });
+      r.unshift({n: n, u: u}); localStorage.setItem('bt_recent', JSON.stringify(r.slice(0, 4)));
+    }catch(err){}
+  }, true);
+})();
+</script>
 <script src="contrast-guard.js"></script>
 <style>
   :root{
@@ -4425,6 +4453,12 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .hub-seg{display:flex; gap:6px; padding:5px; border-radius:999px; background:var(--cream-2); margin:0 0 14px;}
   .hub-seg a{flex:1; text-align:center; padding:10px 8px; border-radius:999px; font-family:'Nunito',sans-serif; font-weight:800; font-size:15px; color:var(--ink-soft); text-decoration:none;}
   .hub-seg a.on{background:var(--coral); color:#fff;}
+  .bt-sw{margin:0 0 12px;}
+  .bt-sw a{padding:8px 6px !important; font-size:13px !important;}
+  .bt-recent{display:flex; gap:6px; margin:0 0 12px; overflow-x:auto; scrollbar-width:none; align-items:center;}
+  .bt-recent::-webkit-scrollbar{display:none;}
+  .bt-recent b{flex:none; font-size:11px; letter-spacing:.4px; text-transform:uppercase; color:var(--ink-soft); font-weight:800; padding-right:2px;}
+  .bt-recent a{flex:none; padding:8px 13px; border-radius:999px; background:var(--cream-2); color:var(--ink); font-weight:800; font-size:13px; text-decoration:none; white-space:nowrap;}
   .sport-hub-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -20740,6 +20774,24 @@ const GEO_HUB_CATS = {
   GEOGRAPHY_HUB_TILES.sort((a, b) => a.pos - b.pos);
 })();
 
+function btRecentHtml(){
+  let r = []; try{ r = JSON.parse(localStorage.getItem('bt_recent') || '[]'); }catch(e){}
+  r = r.filter(x => x && x.n && x.u).slice(0, 4);
+  if(!r.length) return '';
+  return '<div class="bt-recent"><b>Recent</b>' + r.map(x => '<a href="' + escapeHtml(x.u) + '">' + escapeHtml(x.n) + '</a>').join('') + '</div>';
+}
+function navExtras(app, parts){
+  const SW = {
+    synonym: [['Synonym', '#synonym-match-game'], ['Antonym', '#antonym-match-game'], ['Idiom', '#idiom-match-game']],
+    iv: [['Common', '#irregular-verbs/common'], ['Uncommon', '#irregular-verbs/uncommon'], ['Practice', '#irregular-verbs/practice']],
+  };
+  let set = null, cur = '';
+  if(parts[0] === 'synonym-match-game' || parts[0] === 'antonym-match-game' || parts[0] === 'idiom-match-game'){ set = SW.synonym; cur = '#' + parts[0]; }
+  else if(parts[0] === 'irregular-verbs' && parts[1]){ set = SW.iv; cur = '#irregular-verbs/' + parts[1]; }
+  if(!set) return;
+  const bl = app.querySelector('.back-link'); if(!bl || app.querySelector('.bt-sw')) return;
+  bl.insertAdjacentHTML('afterend', '<div class="hub-seg bt-sw" role="tablist">' + set.map(x => '<a href="' + x[1] + '" role="tab"' + (x[1] === cur ? ' class="on" aria-selected="true"' : '') + '>' + x[0] + '</a>').join('') + '</div>');
+}
 function viewGeographyHub(){
   // Two pages in one tab: Games (everything playful) and Study (exam and language practice).
   const study = /^#geography-hub\/study/.test(location.hash);
@@ -20755,6 +20807,7 @@ function viewGeographyHub(){
         <a href="#geography-hub" role="tab" aria-selected="${!study}" class="${study ? '' : 'on'}">Play</a>
         <a href="#geography-hub/study" role="tab" aria-selected="${study}" class="${study ? 'on' : ''}">Study</a>
       </div>
+      ${btRecentHtml()}
       <div class="sport-hub-grid">
         ${tileHtml.join('')}
       </div>
@@ -40213,6 +40266,7 @@ function renderRoute(opts){
   if(parts[0] !== 'solitaire-game'){ solPause(); solEndDrag(); if(solitaireState){ solitaireState = null; } }
   if(parts[0] === 'irregular-verbs' && parts[1] === 'practice'){ wireIrregularVerbsPractice(app); }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ wireIrregularVerbsSearch(app); }
+  navExtras(app, parts);
   if(parts[0] === 'install'){ wireInstallPage(); }
   if(parts[0] === 'stats'){ loadStats(); }
   if(parts[0] === 'events-tashkent'){ loadTashkentEvents(); wireEventsDaystrip(); }
