@@ -73,6 +73,10 @@
     '#nbar a:active{background:rgba(127,127,127,.15);}' +
     '#nbar svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}' +
     'body{padding-bottom:calc(52px + env(safe-area-inset-bottom,0px)) !important;}' +
+    'body.rd-on #nbar{display:none}body.rd-on{padding-bottom:0 !important}' +
+    '.nb-modes{display:flex;gap:6px;margin:0 0 12px;}' +
+    '.nb-modes a{flex:1 1 0;text-align:center;padding:9px 4px;border-radius:12px;background:var(--card,#fff);color:var(--ink-soft,#666);font:800 13px/1.15 Nunito,-apple-system,Segoe UI,Roboto,sans-serif;text-decoration:none;box-shadow:0 2px 0 rgba(58,42,30,.08);}' +
+    '.nb-modes a.on{background:var(--coral,#c0392b);color:#fff;}' +
     '@media print{#nbar{display:none}body{padding-bottom:0 !important}}';
   document.head.appendChild(css);
 
@@ -91,4 +95,36 @@
     document.body.appendChild(n);
   }
   if (document.body) build(); else document.addEventListener('DOMContentLoaded', build);
+
+  /* Mode switcher chips: jump between a page's modes in one tap, without stacking history. */
+  var MODES = {
+    'vocabulary.html':[['Learn','#learn'],['Word \u2192 meaning','#w2m'],['Meaning \u2192 word','#m2w'],['Saved','#saved']],
+    'collocations.html':[['Gap','#gap'],['Meaning \u2192 phrase','#m2p'],['Phrase \u2192 meaning','#p2m'],['Browse','#browse']],
+    'wordforms.html':[['Choose','#choose'],['Type','#type'],['Families','#families']],
+    'listening.html':[['Section 1','#S1'],['Section 2','#S2'],['Section 3','#S3'],['Section 4','#S4']],
+    'speaking.html':[['Part 1','#p1'],['Part 2','#p2'],['Part 3','#p3']]
+  };
+  var M = MODES[file];
+  if (M){
+    var app = null, busy = false;
+    var place = function(){
+      app = app || document.getElementById('app'); if (!app || busy) return;
+      var h = location.hash, cur = null; M.forEach(function(m){ if (m[1] === h) cur = m; });
+      var ex = app.querySelector('.nb-modes');
+      if (!cur){ if (ex) ex.remove(); return; }
+      if (ex) return;
+      var bl = app.querySelector('.back-link'); if (!bl) return;
+      busy = true;
+      bl.insertAdjacentHTML('afterend', '<div class="nb-modes">' + M.map(function(m){ return '<a href="' + m[1] + '"' + (m === cur ? ' class="on"' : '') + '>' + m[0] + '</a>'; }).join('') + '</div>');
+      busy = false;
+    };
+    document.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('.nb-modes a'); if (!a) return;
+      e.preventDefault(); if (a.classList.contains('on')) return;
+      location.replace(location.pathname + location.search + a.getAttribute('href'));
+    });
+    var start = function(){ app = document.getElementById('app'); if (!app) return; new MutationObserver(place).observe(app, {childList:true}); place(); };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
+    window.addEventListener('hashchange', function(){ setTimeout(place, 0); });
+  }
 })();

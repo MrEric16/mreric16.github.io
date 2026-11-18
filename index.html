@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261118031428">
+<meta name="app-build" content="20261118051327">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -20797,6 +20797,11 @@ function navExtras(app, parts){
     synonym: [['Synonym', '#synonym-match-game'], ['Antonym', '#antonym-match-game'], ['Idiom', '#idiom-match-game']],
     iv: [['Common', '#irregular-verbs/common'], ['Uncommon', '#irregular-verbs/uncommon'], ['Practice', '#irregular-verbs/practice']],
   };
+  // End screens: an "Another game" button under "Play Again" (random game, replaces the current history entry).
+  if(/-game$/.test(parts[0] || '') && !app.querySelector('.bt-other')){
+    const pa = Array.from(app.querySelectorAll('button')).filter(b => /^play again$/i.test(b.textContent.trim()))[0];
+    if(pa) pa.insertAdjacentHTML('afterend', '<a href="#" class="fg-start-btn bt-other" style="display:block;text-align:center;text-decoration:none;margin-top:10px;background:var(--cream-2);color:var(--ink);box-shadow:none;">Another game</a>');
+  }
   let set = null, cur = '';
   if(parts[0] === 'synonym-match-game' || parts[0] === 'antonym-match-game' || parts[0] === 'idiom-match-game'){ set = SW.synonym; cur = '#' + parts[0]; }
   else if(parts[0] === 'irregular-verbs' && parts[1]){ set = SW.iv; cur = '#irregular-verbs/' + parts[1]; }
@@ -20804,6 +20809,14 @@ function navExtras(app, parts){
   const bl = app.querySelector('.back-link'); if(!bl || app.querySelector('.bt-sw')) return;
   bl.insertAdjacentHTML('afterend', '<div class="hub-seg bt-sw" role="tablist">' + set.map(x => '<a href="' + x[1] + '" role="tab"' + (x[1] === cur ? ' class="on" aria-selected="true"' : '') + '>' + x[0] + '</a>').join('') + '</div>');
 }
+document.addEventListener('click', function(e){
+  const a = e.target.closest && e.target.closest('.bt-other'); if(!a) return;
+  e.preventDefault();
+  const cur = location.hash;
+  const opts = GEOGRAPHY_HUB_TILES.filter(t => t.internal && /^#[a-z0-9]+(-[a-z0-9]+)*-game$/.test(t.url) && t.url !== cur && !t.hide && t.cat !== 'language');
+  if(!opts.length) return;
+  location.replace(location.pathname + location.search + opts[Math.floor(Math.random() * opts.length)].url);
+});
 function viewGeographyHub(){
   // Two pages in one tab: Games (everything playful) and Study (exam and language practice).
   const study = /^#geography-hub\/study/.test(location.hash);
