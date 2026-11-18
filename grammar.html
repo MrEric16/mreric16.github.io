@@ -49,6 +49,22 @@
   .gg-dot{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--coral); margin-left:4px; vertical-align:middle;}
   .gg-levels{grid-template-columns:1fr;}
   .gg-sub{font-weight:600; font-size:12px; color:var(--ink-soft);}
+  .gg-bar{position:sticky; top:0; z-index:20; background:var(--cream); padding:6px 0 8px; margin:0 0 6px;}
+  .gg-bar-row{display:flex; align-items:center; gap:8px;}
+  .gg-top{flex:none; display:inline-flex; align-items:center; gap:4px; min-height:42px; padding:0 12px; border-radius:12px; background:var(--card); box-shadow:0 2px 0 rgba(58,42,30,.08); font-weight:800; font-size:14px; color:var(--ff-accent); text-decoration:none;}
+  .gg-nav{flex:1; min-width:0; display:flex; align-items:center; gap:6px;}
+  .gg-arr{flex:none; width:42px; height:42px; border-radius:12px; background:var(--card); display:grid; place-items:center; font-size:22px; font-weight:800; line-height:1; color:var(--ink); text-decoration:none; box-shadow:0 2px 0 rgba(58,42,30,.08);}
+  .gg-arr.off{opacity:.3; pointer-events:none;}
+  .gg-tn{flex:1; min-width:0; text-align:center; font-weight:800; font-size:14px; color:var(--ink); overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+  .gg-tabs{display:flex; gap:6px; margin-top:8px;}
+  .gg-tab{flex:1; text-align:center; padding:10px 0; border-radius:12px; background:var(--card); box-shadow:0 2px 0 rgba(58,42,30,.08); font-weight:800; font-size:14px; color:var(--ink-soft); text-decoration:none;}
+  .gg-tab.on{background:var(--coral); color:#fff;}
+  .gg-next{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:12px;}
+  .gg-next a{flex:1 1 140px; text-align:center; padding:14px 12px; border-radius:14px; font-weight:800; font-size:15px; text-decoration:none; background:var(--card); color:var(--ink); box-shadow:0 2px 0 rgba(58,42,30,.08);}
+  .gg-next a.main{background:var(--coral); color:#fff;}
+  .gg-cont{display:flex; flex-direction:column; gap:2px; margin:0 0 12px; padding:12px 16px; border-radius:16px; background:var(--coral); color:#fff; text-decoration:none; box-shadow:0 3px 0 rgba(58,42,30,.12);}
+  .gg-cont b{font-size:12px; letter-spacing:.4px; text-transform:uppercase; opacity:.85;}
+  .gg-cont span{font-weight:800; font-size:16px;}
   .gg-meta{display:flex; justify-content:space-between; align-items:center; margin:2px 2px 12px; font-size:13px; font-weight:700; color:var(--ink-soft);}
   .gg-lvl{background:var(--coral); color:#fff; border-radius:999px; padding:3px 12px; font-size:12px; font-weight:800;}
   .gg-banner{border-radius:14px; padding:12px 14px; margin-bottom:12px; font-weight:800; font-size:15px;}
@@ -187,7 +203,7 @@ function hexToRgba(hex, a){ var h = hex.replace('#',''); return 'rgba(' + parseI
 // Same localStorage keys the main app used (ggs_<topic>_<level>), so saved progress carries over.
 function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
 function ggLoad(topic, level){ try{ var raw = localStorage.getItem(ggKey(topic, level)); if(raw) return JSON.parse(raw); }catch(e){} return null; }
-function ggSave(topic, level, st){ try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
+function ggSave(topic, level, st){ st.t = Date.now(); try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
 var DATA_V = 'b113d89341';
 function getJson(u){ return fetch(u + '?v=' + DATA_V).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
 var INDEX_P = null, TOPIC_P = {};
@@ -366,7 +382,8 @@ function ggWireExercise(app, bank, topicId, level){
         <button class="gg-btn gg-btn-main" id="ggCheck">Check</button>
         <button class="gg-btn" id="ggAgain">Reset</button>
       </div>
-      <div class="gg-banner" id="ggBanner2" style="display:none;"></div>`;
+      <div class="gg-banner" id="ggBanner2" style="display:none;"></div>
+      <div class="gg-next" id="ggNextBtns" style="display:none;"></div>`;
     ggSentColour(root);
     updateProg(); showBanner();
     wire();
@@ -386,6 +403,18 @@ function ggWireExercise(app, bank, topicId, level){
       b.className = 'gg-banner ' + (st.score === GG_PER_SET ? 'gg-banner-ok' : 'gg-banner-mid');
       b.textContent = st.score === GG_PER_SET ? '20/20. Perfect! Tap Reset for a new set.' : st.score + '/' + GG_PER_SET + ' correct. Fix the red ones and check again.';
     });
+    const nb = root.querySelector('#ggNextBtns');
+    if(nb){
+      if(!allChecked()){ nb.style.display = 'none'; }
+      else {
+        const li = GG_LEVELS.findIndex(l => l.key === level), nl = GG_LEVELS[li + 1];
+        const ti = GG_ORDER.findIndex(t => t.id === topicId), nt = ti >= 0 ? GG_ORDER[ti + 1] : null;
+        nb.style.display = '';
+        nb.innerHTML = (nl ? '<a class="main" data-rep="1" href="#' + topicId + '/' + nl.key + '">Next level \u2192</a>' : '') +
+          (nt ? '<a' + (nl ? '' : ' class="main"') + ' data-rep="1" href="#' + nt.id + '/' + level + '">Next topic \u2192</a>' : '') +
+          '<a data-rep="1" href="#">All topics</a>';
+      }
+    }
   }
   // Marks results in place (no re-render) so the page never jumps while checking.
   function applyResults(){
@@ -470,11 +499,15 @@ function showTopics(){
   app.innerHTML = '<a class="back-link" href="index.html#grammar-hub">\u2190 Back to Grammar</a>' +
     '<section style="padding-top:14px;"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Grammar Practice</h2></div>' +
     '<div class="ivb-search-wrap"><span class="ivb-search-icon">' + icon('search') + '</span>' +
-    '<input type="text" id="ggSearch" class="search-input" placeholder="Search a topic\u2026" autocomplete="off" autocapitalize="off" spellcheck="false"></div>' +
+    '<input type="text" id="ggSearch" class="search-input" placeholder="Search a topic\u2026" autocomplete="off" autocapitalize="off" spellcheck="false"></div><div id="ggCont"></div>' +
     '<div class="sport-hub-grid" id="ggGrid"><div class="empty-card" style="grid-column:1/-1;">Loading\u2026</div></div></section>';
   loadIndex().then(function(ix){
     var grid = document.getElementById('ggGrid'), input = document.getElementById('ggSearch');
     if(!grid) return;
+    var best = null;
+    ix.topics.forEach(function(t){ GG_LEVELS.forEach(function(l){ var s = ggLoad(t.id, l.key); if(s && !s.checked && ggFilled(s) > 0 && (!best || (s.t || 0) > (best.s.t || 0))) best = { t:t, l:l, s:s }; }); });
+    var cont = document.getElementById('ggCont');
+    if(best && cont) cont.innerHTML = '<a class="gg-cont" href="#' + best.t.id + '/' + best.l.key + '"><b>Continue</b><span>' + escapeHtml(best.t.name) + ' \u00b7 ' + best.l.label + ' \u00b7 ' + ggFilled(best.s) + '/' + GG_PER_SET + '</span></a>';
     var st = ggTileStyle();
     grid.innerHTML = ix.topics.map(function(t, ti){
       var busy = false;
@@ -511,15 +544,32 @@ function showLevels(topicId){
     }).join('');
   }).catch(fail);
 }
+var GG_ORDER = [];
+function ggNavHtml(ix, topicId, level){
+  var order = ix.topics, i = order.map(function(t){ return t.id; }).indexOf(topicId);
+  var prev = i > 0 ? order[i - 1] : null, next = i >= 0 && i < order.length - 1 ? order[i + 1] : null;
+  return '<div class="gg-bar-row"><a class="gg-top" data-rep="1" href="#">\u2190 Topics</a><div class="gg-nav">' +
+    '<a class="gg-arr' + (prev ? '' : ' off') + '" data-rep="1" aria-label="Previous topic" href="#' + (prev ? prev.id + '/' + level : '') + '">\u2039</a>' +
+    '<span class="gg-tn">' + escapeHtml(i >= 0 ? order[i].name : '') + '</span>' +
+    '<a class="gg-arr' + (next ? '' : ' off') + '" data-rep="1" aria-label="Next topic" href="#' + (next ? next.id + '/' + level : '') + '">\u203a</a></div></div>' +
+    '<div class="gg-tabs">' + GG_LEVELS.map(function(l){ return '<a class="gg-tab' + (l.key === level ? ' on' : '') + '" data-rep="1" href="#' + topicId + '/' + l.key + '">' + l.label + '</a>'; }).join('') + '</div>';
+}
 function showExercise(topicId, level){
-  app.innerHTML = '<a class="back-link" href="#' + escapeHtml(topicId) + '">\u2190 Back to levels</a><section style="padding-top:14px;" id="ggExercise"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Loading\u2026</h2></div><div class="empty-card">Loading\u2026</div></section>';
-  Promise.all([loadTopic(topicId), loadPools()]).then(function(r){
-    var topic = r[0]; POOLS = r[1];
+  app.innerHTML = '<div class="gg-bar" id="ggBar"><div class="gg-bar-row"><a class="gg-top" data-rep="1" href="#">\u2190 Topics</a></div></div><section style="padding-top:6px;" id="ggExercise"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Loading\u2026</h2></div><div class="empty-card">Loading\u2026</div></section>';
+  Promise.all([loadTopic(topicId), loadPools(), loadIndex()]).then(function(r){
+    var topic = r[0]; POOLS = r[1]; GG_ORDER = r[2].topics;
     if(!document.getElementById('ggExercise')) return;
     document.title = topic.name + " \u2014 Grammar Practice";
+    document.getElementById('ggBar').innerHTML = ggNavHtml(r[2], topicId, level);
     ggWireExercise(app, { topics:[topic] }, topicId, level);
   }).catch(function(){ fail(); });
 }
+// Topic arrows, level tabs and the "next" buttons replace the current history entry, so Back never stacks up.
+document.addEventListener('click', function(e){
+  var a = e.target.closest ? e.target.closest('a[data-rep]') : null;
+  if(!a || a.classList.contains('off')) return;
+  e.preventDefault(); location.replace(a.getAttribute('href'));
+});
 function route(){
   var parts = location.hash.replace(/^#/, '').split('/').filter(Boolean).map(decodeURIComponent);
   window.scrollTo(0, 0);
