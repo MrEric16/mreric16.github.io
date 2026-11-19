@@ -8,8 +8,8 @@ def negs(a):
 PS_END = ['every day','every morning','every week','on Mondays','at the weekend','twice a week','in the evening','every summer','on Fridays','every year']
 PS_PRE = ['usually','often','always','sometimes']
 PC_END = ['now','at the moment','right now']
-PC_END_FREE = PC_END + ['these days','this week']
-PAS_E = ['yesterday','last night','last week','two days ago','last Monday','last month','on Sunday','last weekend','last summer','three days ago']
+PC_END_FREE = PC_END + ['at this very moment']
+PAS_E = ['yesterday','last night','last week','two days ago','last Monday','last month','last Sunday','last weekend','last summer','three days ago']
 PAS_D = ['in 2015','ten years ago','five years ago','last year','in 2010','two years ago','in 2018','a long time ago']
 PAC_LEAD = ["At eight o'clock last night,","At nine o'clock yesterday morning,","At midnight,","This time yesterday,","At six o'clock yesterday evening,","At half past seven this morning,","At noon yesterday,","At ten o'clock last night,"]
 PAC_END = ['when the phone rang','when the headteacher came in','when it started to rain','when the lights went out','when I arrived','when I called','when the bell rang','when the storm began']
@@ -72,6 +72,21 @@ def cues(t, S, V, pol, rng, free=True):
         if far: c['lead'], c['end'] = rng.pick(FPN_FAR), rng.pick(['for two years','for ten years','for six months','for three years','for a whole year','for five years'])
         else: c['lead'], c['end'] = rng.pick(FPN_NEAR), rng.pick(['for two hours','for three hours','for an hour','for four hours'])
     return c
+
+def alt_ts(t, c):
+    """Other tenses that are also correct for this cue (their forms are accepted as answers too)."""
+    end = (c.get('end') or '').lower(); lead = (c.get('lead') or '').lower()
+    if t == 'pp' and ('this week' in end or 'recently' in end): return ['pas']
+    if t == 'pap' and (end.startswith('before') or end.startswith('by the time') or 'before' in end): return ['pas']
+    if t == 'fw': return ['fg']
+    if t == 'fp' and 'by the time' not in (end + ' ' + lead) and 'end of the lesson' not in (end + ' ' + lead): return ['fw']
+    return []
+def galt(t, S, V, neg, c):
+    out = list(grp(t, S, V, neg))
+    for a in alt_ts(t, c):
+        for x in grp(a, S, V, neg):
+            if x not in out: out.append(x)
+    return out
 
 def subj_text(S, kind): return S.text if kind in ('none','sentence') else S.mid
 
@@ -210,9 +225,9 @@ def gen_item(t, level, rng, free=True):
         else: pol = 'q'
         c = cues(t,S,V,pol,rng,free)
         if pol == 'aff':
-            q = aff(t,S,V,comp,c,f"___ ({V.base})"); return line(q, grp(t,S,V,False))
+            q = aff(t,S,V,comp,c,f"___ ({V.base})"); return line(q, galt(t,S,V,False,c))
         if pol == 'neg':
-            q = neg(t,S,V,comp,c,f"___ (not / {V.base})"); return line(q, grp(t,S,V,True))
+            q = neg(t,S,V,comp,c,f"___ (not / {V.base})"); return line(q, galt(t,S,V,True,c))
         a,_r = qp(t,S,V); q = ques(t,S,V,comp,c,'___',_r); return line(q, [a])
     # ---------------- medium ----------------
     if level == 'medium':
@@ -221,6 +236,7 @@ def gen_item(t, level, rng, free=True):
         if k == 'q2':
             a,_r = qp(t,S,V)
             c2 = cues(t,S,V,'q',rng,free)
+            if alt_ts(t, c2): return None
             q = ques(t,S,V,comp,c2,'___',f"___ ({V.base})")
             return line(q,[a],[_r])
         if k == 'short':
@@ -245,7 +261,7 @@ def gen_item(t, level, rng, free=True):
             return line(f"{st}, ___ {p}?", ans)
         if k == 'wh':
             w = wh_info(t,V)
-            if not w: return None
+            if not w or t == 'fw': return None
             a,_r = qp(t,S,V)
             if t == 'pp' and w == 'How many times' and V.ach: pass
             q = ' '.join([w,'___',S.mid,f"___ ({V.base})",comp]) + '?'
@@ -262,13 +278,13 @@ def gen_item(t, level, rng, free=True):
             if c['end']: body += ' ' + c['end']
             q = (c['lead'] + ' ' + body if c['lead'] else body) + '.'
             q = cap(q)
-            return line(q, grp(t,S,V,False), grp(t,S2,V2,False))
+            return line(q, galt(t,S,V,False,c), galt(t,S2,V2,False,c))
         if k == 'negq':
             c = cues(t,S,V,'neg',rng,free)
             q = neg(t,S,V,comp,c,f"___ (not / {V.base})")
             q2 = ques(t,S,V,comp,cues(t,S,V,'q',rng,free))
             # contrast: negative statement + question answered with blank aux
-            return line(q, grp(t,S,V,True))
+            return line(q, galt(t,S,V,True,cues(t,S,V,'neg',rng,free)) if False else galt(t,S,V,True,c))
     # ---------------- hard ----------------
     k = rng.pick(['neg','q','fix','fix','fix','aff'])
     if k == 'neg':

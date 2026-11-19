@@ -235,7 +235,6 @@ def gen_passive(tn, level, rng):
         cue = cuefor(tn, pol, rng)
         if pol == 'aff': return line(passive_sentence(tn, it, f"___ ({v})", cue, agent), P_group(tn,it))
         if pol == 'neg': return line(passive_sentence(tn, it, f"___ (not / {v})", cue, agent), P_group(tn,it,True))
-        if alt_tenses(tn, cue): return None
         a,rest = Q_parts(tn,it); return line(passive_q(tn, it, '___', rest, cue, agent), [cap(a)])
     if level == 'medium':
         k = rng.pick(['q2','q2','short','two','wh','act2pas','act2pas','neg'])
@@ -245,7 +244,6 @@ def gen_passive(tn, level, rng):
             return line(passive_q(tn, it, '___', f"___ ({v})", cue, agent), [cap(a)], [rest])
         if k == 'short':
             cue = cuefor(tn,'q',rng); a,rest = Q_parts(tn,it)
-            if alt_tenses(tn, cue): return None
             qq = passive_q(tn, it, cap(a), rest, cue, agent)
             p = 'it' if n=='sg' else 'they'
             if rng.pick([0,1]): return line(f"{qq} Yes, {p} ___.", [a])
@@ -449,11 +447,17 @@ def gen_topic(fn, counts, seed):
             seen.add(q); lines.append(l)
         out[level] = lines
     return out
+def _mixon(fn):
+    def w(level, rng):
+        _MIX['on'] = True
+        try: return fn(level, rng)
+        finally: _MIX['on'] = False
+    return w
 def gen_passive_jobs(C):
     j = {}
     for i,(tid,tns) in enumerate([('passive-present-simple',['ps']),('passive-past-simple',['pas']),('passive-continuous',['pc','pcp']),
                                   ('passive-perfect',['pf','pap']),('passive-future',['fw']),('passive-modals',['mod'])]):
-        j[tid] = (lambda tns=tns, i=i: gen_topic(lambda lv, rng: gen_passive(rng.pick(tns), lv, rng), C, 40+i))
-    j['active-or-passive'] = lambda: gen_topic(gen_active_or_passive, C, 47)
+        j[tid] = (lambda tns=tns, i=i, tid=tid: gen_topic((lambda lv, rng: gen_passive(rng.pick(tns), lv, rng)) if tid == 'passive-modals' else _mixon(lambda lv, rng: gen_passive(rng.pick(tns), lv, rng)), C, 40+i))
+    j['active-or-passive'] = lambda: gen_topic(_mixon(gen_active_or_passive), C, 47)
     j['mixed-tenses-active-passive'] = lambda: gen_topic(gen_mixed_tenses, C, 61)
     return j
