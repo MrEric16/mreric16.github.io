@@ -125,7 +125,7 @@ for ln in PRAW.strip().split('\n'):
 
 def be_p(n, past=False): return ('was' if n=='sg' else 'were') if past else ('is' if n=='sg' else 'are')
 def have_p(n): return 'has' if n=='sg' else 'have'
-def P_group(tn, it, neg=False):
+def _pg(tn, it, neg=False):
     v = it['verb']; s3,past,pp,ing = F[v]; n = it['onum']
     if tn == 'ps':
         b = be_p(n); return ([f"{b}n't {pp}", f"{b} not {pp}"] if neg else [f"{b} {pp}"])
@@ -143,7 +143,25 @@ def P_group(tn, it, neg=False):
         return ["won't be "+pp, "will not be "+pp] if neg else ["will be "+pp, "'ll be "+pp]
     if tn == 'fwp':
         return ["won't have been "+pp, "will not have been "+pp] if neg else ["will have been "+pp, "'ll have been "+pp]
+    if tn == 'g':
+        b = be_p(n); return ([f"{b}n't going to be {pp}", f"{b} not going to be {pp}"] if neg else [f"{b} going to be {pp}"])
     raise KeyError(tn)
+# Mixed-tenses mode: a gap can have more than one correct tense. These are the extra tenses that are also
+# correct for a given cue; their forms are added as accepted answers (the first answer stays the target tense).
+_MIX = {'on': False, 'cue': None}
+def alt_tenses(tn, cue):
+    if not _MIX['on']: return []
+    if tn == 'pcp' and cue != 'all morning yesterday': return ['pas']
+    if tn == 'pap': return ['pas']
+    if tn == 'fw': return ['g']
+    if tn == 'fwp': return ['fw', 'g']
+    return []
+def P_group(tn, it, neg=False):
+    out = list(_pg(tn, it, neg))
+    for t in alt_tenses(tn, _MIX['cue']):
+        for x in _pg(t, it, neg):
+            if x not in out: out.append(x)
+    return out
 def A_group(tn, it):
     v = it['verb']; s3,past,pp,ing = F[v]; an = it['anum']
     if tn == 'ps': return s3 if an=='sg' else v
@@ -154,6 +172,7 @@ def A_group(tn, it):
     if tn == 'pap': return f"had {pp}"
     if tn == 'fw': return f"will {v}"
     if tn == 'fwp': return f"will have {pp}"
+    if tn == 'g': return f"{be_p(an)} going to {v}"
 def Q_parts(tn, it):
     v = it['verb']; s3,past,pp,ing = F[v]; n = it['onum']
     return {'ps':(be_p(n),pp),'pas':(be_p(n,True),pp),'pc':(be_p(n),f"being {pp}"),'pcp':(be_p(n,True),f"being {pp}"),
@@ -172,11 +191,19 @@ CUES = {
 MODALS = [('must','must'),('should','should'),('can','can'),('could','could'),('may','may'),('might','might'),('has to',None),('ought to',None),("can't",None),("mustn't",None)]
 MCUE = ['today','tomorrow','before Friday','by the end of the week','immediately','as soon as possible','this week','before the exam']
 
+MIX_CUES = dict(CUES)
+MIX_CUES['pas'] = [c for c in CUES['pas'] if c != 'on Monday']
+MIX_CUES['pc'] = ['now','at the moment','right now','at this very moment']
+MIX_CUES['pcp'] = ["at six o'clock yesterday",'all morning yesterday',"at ten o'clock last night",'when I arrived','when the manager came in','when the bell rang']
+MIX_CUES['pf'] = ['so far','so far this week','so far this year','since Monday','since last year']
+MIX_CUES['fw'] = ['tomorrow','next week','next month','next year','soon','tonight','in two days']
+MIX_CUES['fwp'] = ['before next Friday','before next week','before the end of next month','before the end of next year','before 2030','before the end of next week']
 def cuefor(tn, pol, rng):
-    pool = CUES[tn]
-    if tn == 'pf' and pol != 'aff': pool = ['yet','this week','so far','recently']
-    if tn == 'pf' and pol == 'q': pool = ['yet','this week','so far']
-    return rng.pick(pool)
+    pool = (MIX_CUES if _MIX['on'] else CUES)[tn]
+    if tn == 'pf' and pol != 'aff': pool = ['yet','so far','so far this week'] if _MIX['on'] else ['yet','this week','so far','recently']
+    if tn == 'pf' and pol == 'q': pool = ['yet','so far'] if _MIX['on'] else ['yet','this week','so far']
+    c = rng.pick(pool); _MIX['cue'] = c
+    return c
 def NP(it): return it['obj']
 def by(it, rng, use): return f" by {it['agent']}" if use else ''
 def passive_sentence(tn, it, group, cue, agent=False, lead=''):
@@ -208,14 +235,18 @@ def gen_passive(tn, level, rng):
         cue = cuefor(tn, pol, rng)
         if pol == 'aff': return line(passive_sentence(tn, it, f"___ ({v})", cue, agent), P_group(tn,it))
         if pol == 'neg': return line(passive_sentence(tn, it, f"___ (not / {v})", cue, agent), P_group(tn,it,True))
+        if alt_tenses(tn, cue): return None
         a,rest = Q_parts(tn,it); return line(passive_q(tn, it, '___', rest, cue, agent), [cap(a)])
     if level == 'medium':
         k = rng.pick(['q2','q2','short','two','wh','act2pas','act2pas','neg'])
         if k == 'q2':
             cue = cuefor(tn,'q',rng); a,rest = Q_parts(tn,it)
+            if alt_tenses(tn, cue): return None
             return line(passive_q(tn, it, '___', f"___ ({v})", cue, agent), [cap(a)], [rest])
         if k == 'short':
-            cue = cuefor(tn,'q',rng); a,rest = Q_parts(tn,it); qq = passive_q(tn, it, cap(a), rest, cue, agent)
+            cue = cuefor(tn,'q',rng); a,rest = Q_parts(tn,it)
+            if alt_tenses(tn, cue): return None
+            qq = passive_q(tn, it, cap(a), rest, cue, agent)
             p = 'it' if n=='sg' else 'they'
             if rng.pick([0,1]): return line(f"{qq} Yes, {p} ___.", [a])
             return line(f"{qq} No, {p} ___.", [a+"n't", a+" not"] if a not in ('will',) else ["won't","will not"])
@@ -226,7 +257,7 @@ def gen_passive(tn, level, rng):
             q = cap(f"{NP(it)} ___ ({v}) and {it2['obj']} ___ ({it2['verb']}) {cue}") + '.'
             return line(q, g1, g2)
         if k == 'wh':
-            if tn not in ('ps','pas','fw'): return None
+            if tn not in ('ps','pas','fw') or (_MIX['on'] and tn == 'fw'): return None
             a,rest = Q_parts(tn,it)
             w = {'ps':'How often','pas':'When','fw':'When'}[tn]
             return line(f"{w} ___ {NP(it)} ___ ({v})?", [a], [rest])
@@ -356,7 +387,7 @@ def gen_active_or_passive(level, rng, tn=None):
         if k_act: q,a = active_blank()
         else: q,a = passive_blank()
         # active needs raw form: A_group gives a string
-        if k_act: return line(q,[act])
+        if k_act: return line(q,[act] + [A_group(t,it) for t in alt_tenses(tn, cue)])
         return line(q,pas)
     k = rng.pick(['topas','toact','fix','neg'])
     if k == 'topas':
@@ -383,8 +414,12 @@ MIX_TENSES = ['ps','pc','pf','pas','pcp','pap','fw','fwp']
 def gen_mixed_tenses(level, rng, _c=[0]):
     tn = MIX_TENSES[_c[0] % len(MIX_TENSES)]; _c[0] += 1
     if tn == 'pc' and False: return None
-    if rng.pick([True, False]): l = gen_passive(tn, level, rng)
-    else: l = gen_active_or_passive(level, rng, tn)
+    _MIX['on'] = True
+    try:
+        if rng.pick([True, False]): l = gen_passive(tn, level, rng)
+        else: l = gen_active_or_passive(level, rng, tn)
+    finally:
+        _MIX['on'] = False
     return l
 
 import re as _re_gt
