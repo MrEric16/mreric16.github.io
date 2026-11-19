@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261119041128">
+<meta name="app-build" content="20261119080313">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -34120,7 +34120,7 @@ function mtStepHtml(){
     const resume = s.resume ? `<div class="mt-resume"><span>Carry on where you left off?</span><button data-action="resume-yes">Yes</button><button data-action="resume-no">No</button></div>` : '';
     return `
       ${resume}
-      <p class="mt-intro">Private. Stays on this phone.</p>
+      <p class="mt-intro">Private, stays on this device only. Cannot be read or accessed by anybody else.</p>
       <div class="mt-lang">${['en','ru','uz'].map(l => `<button class="${mtLang === l ? 'on' : ''}" data-lang="${l}">${l.toUpperCase()}</button>`).join('')}</div>
       <input class="mt-search" id="mtSearch" type="search" placeholder="Type a feeling…" autocomplete="off">
       <div class="mt-sub-grid" id="mtSearchOut"></div>
