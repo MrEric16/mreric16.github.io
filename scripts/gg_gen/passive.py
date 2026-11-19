@@ -141,6 +141,8 @@ def P_group(tn, it, neg=False):
         return ["hadn't been "+pp, "had not been "+pp] if neg else ["had been "+pp]
     if tn == 'fw':
         return ["won't be "+pp, "will not be "+pp] if neg else ["will be "+pp, "'ll be "+pp]
+    if tn == 'fwp':
+        return ["won't have been "+pp, "will not have been "+pp] if neg else ["will have been "+pp, "'ll have been "+pp]
     raise KeyError(tn)
 def A_group(tn, it):
     v = it['verb']; s3,past,pp,ing = F[v]; an = it['anum']
@@ -151,10 +153,11 @@ def A_group(tn, it):
     if tn == 'pf': return f"{have_p(an)} {pp}"
     if tn == 'pap': return f"had {pp}"
     if tn == 'fw': return f"will {v}"
+    if tn == 'fwp': return f"will have {pp}"
 def Q_parts(tn, it):
     v = it['verb']; s3,past,pp,ing = F[v]; n = it['onum']
     return {'ps':(be_p(n),pp),'pas':(be_p(n,True),pp),'pc':(be_p(n),f"being {pp}"),'pcp':(be_p(n,True),f"being {pp}"),
-            'pf':(have_p(n),f"been {pp}"),'pap':('had',f"been {pp}"),'fw':('will',f"be {pp}")}[tn]
+            'pf':(have_p(n),f"been {pp}"),'pap':('had',f"been {pp}"),'fw':('will',f"be {pp}"),'fwp':('will',f"have been {pp}")}[tn]
 
 CUES = {
  'ps': ['every day','every week','every morning','twice a week','every year','on Mondays','every month','every weekend'],
@@ -164,6 +167,7 @@ CUES = {
  'pf': ['already','this week','so far','recently','twice this year'],
  'pap': ['before we arrived','by the time the guests came','before the lesson started','when I got there','before the manager came'],
  'fw': ['tomorrow','next week','next month','next year','by Friday','soon','on Monday','tonight','in two days'],
+ 'fwp': ['before Friday','before next week','before the end of the month','before the weekend','before lunch','before the guests arrive','before the lesson starts','before the end of the year'],
 }
 MODALS = [('must','must'),('should','should'),('can','can'),('could','could'),('may','may'),('might','might'),('has to',None),('ought to',None),("can't",None),("mustn't",None)]
 MCUE = ['today','tomorrow','before Friday','by the end of the week','immediately','as soon as possible','this week','before the exam']
@@ -261,6 +265,7 @@ def gen_passive(tn, level, rng):
      'pf': [f"{have_p(n)} {pp}", f"{have_p(n)} be {pp}", f"{have_p('pl' if n=='sg' else 'sg')} been {pp}", f"{have_p(n)} been {v}"],
      'pap': [f"had {pp}", f"had be {pp}", f"has been {pp}", f"had been {v}"],
      'fw': [f"will {pp}", f"will been {pp}", f"will be {v}", f"will {v}"],
+     'fwp': [f"will have {pp}", f"will have be {pp}", f"will be {pp}", f"will have been {v}"],
     }[tn]
     for _ in range(6):
         w = rng.pick(wr)
@@ -334,9 +339,9 @@ def gen_modal_passive(it, level, rng):
     if bad == sent(grp_): return None
     return line('Correct the mistake: ' + bad, [sent(grp_)])
 
-def gen_active_or_passive(level, rng):
+def gen_active_or_passive(level, rng, tn=None):
     it = rng.pick(ITEMS); v = it['verb']; s3,past,pp,ing = F[v]; n = it['onum']
-    tn = rng.pick(['ps','pas','pc','pf','fw','pap'])
+    tn = tn or rng.pick(['ps','pas','pc','pf','fw','pap'])
     cue = cuefor(tn,'aff',rng)
     if tn == 'pf' and cue == 'recently': cue = 'so far'
     # active/passive forms
@@ -372,6 +377,16 @@ def gen_active_or_passive(level, rng):
     bad = cap(' '.join([ob, act, 'by ' + ag, cue])) + '.'
     return line('Correct the mistake: ' + bad, [cap(' '.join([ob, pas[0], 'by ' + ag, cue])) + '.'])
 
+# Mixed tenses, active and passive: the 8 everyday tenses (present, past: simple / continuous / perfect;
+# future: simple / perfect). No tense is named in any item. The tenses are cycled so the pool is balanced.
+MIX_TENSES = ['ps','pc','pf','pas','pcp','pap','fw','fwp']
+def gen_mixed_tenses(level, rng, _c=[0]):
+    tn = MIX_TENSES[_c[0] % len(MIX_TENSES)]; _c[0] += 1
+    if tn == 'pc' and False: return None
+    if rng.pick([True, False]): l = gen_passive(tn, level, rng)
+    else: l = gen_active_or_passive(level, rng, tn)
+    return l
+
 import re as _re_gt
 _REP = _re_gt.compile(r"\b([A-Za-z']+) \1\b", _re_gt.I)
 _REP_OK = {'had had', 'that that'}
@@ -405,4 +420,5 @@ def gen_passive_jobs(C):
                                   ('passive-perfect',['pf','pap']),('passive-future',['fw']),('passive-modals',['mod'])]):
         j[tid] = (lambda tns=tns, i=i: gen_topic(lambda lv, rng: gen_passive(rng.pick(tns), lv, rng), C, 40+i))
     j['active-or-passive'] = lambda: gen_topic(gen_active_or_passive, C, 47)
+    j['mixed-tenses-active-passive'] = lambda: gen_topic(gen_mixed_tenses, C, 61)
     return j
