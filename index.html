@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261119080313">
+<meta name="app-build" content="20261119080527">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -20945,6 +20945,9 @@ function wireIrregularVerbsSearch(app){
 // tries) once. Progress is saved to localStorage so a single pass through 199 verbs
 // can span multiple sessions, not just one sitting.
 const IVP_STATE_KEY = 'ivPracticeState_v1';
+const IVP_CORE = new Set('be become begin bet bite blow break bring build burn buy catch choose come cost cut do draw dream drink drive eat fall feed feel fight find fly forget forgive freeze get give go grow hang have hear hide hit hold hurt keep know lay lead learn leave lend let lie lose make mean meet pay put read ride ring rise run say see sell send set shake shine shoot show shut sing sink sit sleep speak spend spread stand steal sweep swim take teach tear tell think throw understand wake wear win write'.split(' '));
+function ivpMode(){ let m = 'common'; try{ m = localStorage.getItem('ivpMode') || 'common'; }catch(e){} return (m === 'uncommon' || m === 'all') ? m : 'common'; }
+function ivpKey(){ const m = ivpMode(); return m === 'all' ? IVP_STATE_KEY : 'ivPracticeState_v2_' + m; }
 // 100 synonyms for "Correct!" - fully randomised (see nextPraise below: a plain
 // random pick each time, can repeat back to back) rather than the earlier no-repeat
 // shuffled-bag version. British spellings kept (Marvellous, not Marvelous) - same
@@ -20968,7 +20971,8 @@ const IVP_PRAISE = [
   'Corking!', 'Mighty fine!', 'A triumph!', 'Second to none!', 'Unbeatable!', 'Unstoppable!',
   'Prodigious!', 'Crikey, well done!',
 ];
-function ivpAllVerbs(){ return [...IRREGULAR_VERBS_COMMON, ...IRREGULAR_VERBS_UNCOMMON]; }
+function ivpEveryVerb(){ return [...IRREGULAR_VERBS_COMMON, ...IRREGULAR_VERBS_UNCOMMON]; }
+function ivpAllVerbs(){ const m = ivpMode(), a = ivpEveryVerb(); return m === 'all' ? a : a.filter(v => IVP_CORE.has(v[0]) === (m === 'common')); }
 function ivpVerbMap(){
   const m = new Map();
   ivpAllVerbs().forEach(v => m.set(v[0], v));
@@ -20988,7 +20992,7 @@ function ivpFreshState(){
 function ivpLoadState(){
   let state = null;
   try{
-    const raw = localStorage.getItem(IVP_STATE_KEY);
+    const raw = localStorage.getItem(ivpKey());
     if(raw) state = JSON.parse(raw);
   }catch(e){ state = null; }
   const validKeys = new Set(ivpAllVerbs().map(v => v[0]));
@@ -21014,14 +21018,14 @@ function ivpLoadState(){
   return state;
 }
 function ivpSaveState(state){
-  try{ localStorage.setItem(IVP_STATE_KEY, JSON.stringify(state)); }catch(e){}
+  try{ localStorage.setItem(ivpKey(), JSON.stringify(state)); }catch(e){}
 }
 function ivpCompletionHtml(total){
   return `
     <div class="ivp-card ivp-complete">
       <div style="font-size:40px; margin-bottom:8px;">🎉</div>
       <div style="font-weight:800; font-size:18px; margin-bottom:6px;">All ${total} verbs done!</div>
-      <div style="opacity:.8; margin-bottom:16px;">Every irregular verb, common and uncommon, correctly typed.</div>
+      <div style="opacity:.8; margin-bottom:16px;">Every verb in this set, correctly typed.</div>
       <button class="ivp-restart-btn" id="ivpRestartBtn" type="button">Start a new round</button>
     </div>
   `;
@@ -21031,6 +21035,7 @@ function viewIrregularVerbsPractice(){
     <a class="back-link" href="#irregular-verbs">← Back to Irregular Verbs</a>
     <section style="padding-top:14px;">
       <div class="section-head"><span class="emoji">${icon('checkDouble')}</span><h2>Practice</h2></div>
+      <div class="hub-seg" id="ivpModes" style="margin-bottom:10px;">${['common','uncommon','all'].map(m => `<a role="button" tabindex="0" data-m="${m}" class="${ivpMode() === m ? 'on' : ''}" style="cursor:pointer;">${m[0].toUpperCase() + m.slice(1)}</a>`).join('')}</div>
       <div class="ivp-bar-track"><div class="ivp-bar-fill" id="ivpBarFill" style="width:0%;"></div></div>
       <div class="ivp-bar-text" id="ivpBarText"></div>
       <div id="ivpPracticeArea">
@@ -21065,6 +21070,11 @@ function wireIrregularVerbsPractice(app){
   const barTextEl = app.querySelector('#ivpBarText');
   const skipBtn = app.querySelector('#ivpSkipBtn');
 
+  app.querySelectorAll('#ivpModes a').forEach(b => b.addEventListener('click', () => {
+    if(b.dataset.m === ivpMode()) return;
+    try{ localStorage.setItem('ivpMode', b.dataset.m); }catch(e){}
+    app.innerHTML = viewIrregularVerbsPractice(); wireIrregularVerbsPractice(app);
+  }));
   const pool = ivpVerbMap();
   const total = ivpAllVerbs().length;
   let state = ivpLoadState();
