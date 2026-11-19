@@ -47,7 +47,7 @@ for t in topics:
             seen.add(key); out.append({'q': q, 'a': a})
         t['levels'][k] = out
 print(ntag, 'items carry random-name/place/job slots')
-ORDER = '''present-simple-be present-simple-other present-continuous present-simple-vs-continuous past-simple-be past-simple-other past-continuous past-simple-vs-continuous
+ORDER = '''present-simple-be present-simple-other present-continuous present-simple-vs-continuous past-simple-be past-simple-other past-continuous past-simple-vs-continuous mixed-past
 present-perfect-simple present-perfect-continuous present-perfect-simple-vs-continuous present-perfect-vs-past-simple
 past-perfect past-perfect-continuous past-perfect-simple-vs-continuous past-perfect-vs-past-simple present-perfect-vs-past-perfect narrative-tenses
 future-will future-going-to future-present-continuous future-will-vs-going-to future-all-forms future-perfect future-perfect-continuous future-perfect-simple-vs-continuous

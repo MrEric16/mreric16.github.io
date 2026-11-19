@@ -122,15 +122,15 @@ def gen_or(tid, rng, level):
     if level == 'easy':
         r = rng.r.random(); pol = 'aff' if r < .6 else ('neg' if r < .85 else 'q')
         c = fcx(t,S,V,pol,rng)
-        if pol == 'aff': return line(aff(t,S,V,comp,c,f"___ ({V.base})"), grp(t,S,V))
-        if pol == 'neg': return line(neg(t,S,V,comp,c,f"___ (not / {V.base})"), grp(t,S,V,True))
+        if pol == 'aff': return line(aff(t,S,V,comp,c,f"___ ({V.base})"), galt(t,S,V,False,c))
+        if pol == 'neg': return line(neg(t,S,V,comp,c,f"___ (not / {V.base})"), galt(t,S,V,True,c))
         a,rr = qp(t,S,V); return line(ques(t,S,V,comp,c,'___',rr),[a])
     if level == 'medium':
         k = rng.pick(['single','single','q','contrast','contrast','contrast','short','tag','extra'])
         if k == 'single':
             pol = rng.pick(['aff','neg']); c = fcx(t,S,V,pol,rng)
-            if pol == 'aff': return line(aff(t,S,V,comp,c,f"___ ({V.base})"), grp(t,S,V))
-            return line(neg(t,S,V,comp,c,f"___ (not / {V.base})"), grp(t,S,V,True))
+            if pol == 'aff': return line(aff(t,S,V,comp,c,f"___ ({V.base})"), galt(t,S,V,False,c))
+            return line(neg(t,S,V,comp,c,f"___ (not / {V.base})"), galt(t,S,V,True,c))
         if k == 'q':
             c = fcx(t,S,V,'q',rng); a,rr = qp(t,S,V)
             return line(ques(t,S,V,comp,c,'___',f"___ ({V.base})"),[a],[rr])

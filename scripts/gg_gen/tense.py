@@ -78,6 +78,7 @@ def alt_ts(t, c):
     end = (c.get('end') or '').lower(); lead = (c.get('lead') or '').lower()
     if t == 'pp' and ('this week' in end or 'recently' in end): return ['pas']
     if t == 'pap' and (end.startswith('before') or end.startswith('by the time') or 'before' in end): return ['pas']
+    if t == 'pac' and c.get('lead'): return ['pas']   # "At eight o'clock last night, she cooked dinner" is also correct
     if t == 'fw': return ['fg']
     if t == 'fp' and 'by the time' not in (end + ' ' + lead) and 'end of the lesson' not in (end + ' ' + lead): return ['fw']
     return []
