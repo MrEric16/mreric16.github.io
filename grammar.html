@@ -516,14 +516,17 @@ function showTopics(){
       return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '" data-no="' + (ti + 1) + '"' + st.tint + '>' +
         '<span class="name"><span class="gg-no">' + (ti + 1) + '</span>' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
     }).join('') + '<div class="empty-card" id="ggNone" style="grid-column:1/-1;display:none;">No topic matches.</div>';
-    input.addEventListener('input', function(){
+    var applyQ = function(){
       var words = input.value.trim().toLowerCase().replace(/#/g, ' ').split(/\s+/).filter(Boolean), shown = 0;
       Array.prototype.forEach.call(grid.querySelectorAll('.gg-tile'), function(a){
-        var ok = words.every(function(w){ return /^\d+$/.test(w) ? (a.dataset.no === w || a.dataset.name.indexOf(w) !== -1) : a.dataset.name.indexOf(w) !== -1; });
+        var ok = words.every(function(w){ return /^\d+$/.test(w) ? (a.dataset.no === w || a.dataset.name.indexOf(w) !== -1) : (a.dataset.name.indexOf(w) !== -1 || (w.length > 3 && /s$/.test(w) && a.dataset.name.indexOf(w.slice(0, -1)) !== -1)); });
         a.style.display = ok ? '' : 'none'; if(ok) shown++;
       });
       document.getElementById('ggNone').style.display = shown ? 'none' : '';
-    });
+    };
+    // Remember the search while you work through a topic, so Back lands on the same filtered list.
+    input.addEventListener('input', function(){ applyQ(); try{ sessionStorage.setItem('ggq', JSON.stringify({ q: input.value, t: Date.now() })); }catch(e){} });
+    try{ var sq = JSON.parse(sessionStorage.getItem('ggq') || 'null'); if(sq && sq.q && Date.now() - sq.t < 3600000){ input.value = sq.q; applyQ(); } }catch(e){}
   }).catch(fail);
 }
 function showLevels(topicId){
