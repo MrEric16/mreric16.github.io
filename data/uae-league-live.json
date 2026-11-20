@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T12:07:37.457649+00:00",
+  "generatedAt": "2026-11-20T20:33:02.230937+00:00",
   "teams": [
     "Al Jazira Club",
     "Al Ain FC",
@@ -17,6 +17,17 @@
     "Baniyas SC"
   ],
   "standings": [
+    {
+      "team": "Sharjah FC",
+      "played": 8,
+      "won": 6,
+      "drawn": 0,
+      "lost": 2,
+      "gf": 18,
+      "ga": 8,
+      "gd": 10,
+      "points": 18
+    },
     {
       "team": "Al Jazira Club",
       "played": 7,
@@ -51,26 +62,15 @@
       "points": 16
     },
     {
-      "team": "Sharjah FC",
-      "played": 7,
+      "team": "Shabab Al Ahli Club",
+      "played": 8,
       "won": 5,
-      "drawn": 0,
+      "drawn": 1,
       "lost": 2,
       "gf": 15,
       "ga": 8,
       "gd": 7,
-      "points": 15
-    },
-    {
-      "team": "Shabab Al Ahli Club",
-      "played": 7,
-      "won": 4,
-      "drawn": 1,
-      "lost": 2,
-      "gf": 12,
-      "ga": 7,
-      "gd": 5,
-      "points": 13
+      "points": 16
     },
     {
       "team": "Al Wahda",
@@ -96,24 +96,24 @@
     },
     {
       "team": "Ajman Club",
-      "played": 7,
+      "played": 8,
       "won": 3,
       "drawn": 1,
-      "lost": 3,
-      "gf": 13,
-      "ga": 16,
-      "gd": -3,
+      "lost": 4,
+      "gf": 14,
+      "ga": 19,
+      "gd": -5,
       "points": 10
     },
     {
       "team": "Ittihad Kalba FC",
-      "played": 7,
+      "played": 8,
       "won": 2,
       "drawn": 2,
-      "lost": 3,
+      "lost": 4,
       "gf": 11,
-      "ga": 16,
-      "gd": -5,
+      "ga": 19,
+      "gd": -8,
       "points": 8
     },
     {
@@ -173,16 +173,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "Ittihad Kalba FC",
-      "away": "Sharjah FC",
-      "start": "2026-11-20T14:45:00+05:00"
-    },
-    {
-      "home": "Shabab Al Ahli Club",
-      "away": "Ajman Club",
-      "start": "2026-11-20T17:25:00+05:00"
-    },
     {
       "home": "Baniyas SC",
       "away": "Al Nasr SC",
@@ -357,6 +347,16 @@
       "home": "Baniyas SC",
       "away": "Sharjah FC",
       "start": "2026-12-30T17:40:00+05:00"
+    },
+    {
+      "home": "Al Wahda",
+      "away": "Hatta Club",
+      "start": "2026-12-30T17:55:00+05:00"
+    },
+    {
+      "home": "Shabab Al Ahli Club",
+      "away": "Ittihad Kalba FC",
+      "start": "2026-12-30T17:55:00+05:00"
     },
     {
       "home": "United FC",
@@ -915,6 +915,22 @@
       "away": "Al Dhafra",
       "start": "2026-11-19T20:25:00+05:00",
       "homeScore": 2,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "Ittihad Kalba FC",
+      "away": "Sharjah FC",
+      "start": "2026-11-20T17:45:00+05:00",
+      "homeScore": 0,
+      "awayScore": 3,
+      "finished": true
+    },
+    {
+      "home": "Shabab Al Ahli Club",
+      "away": "Ajman Club",
+      "start": "2026-11-20T20:25:00+05:00",
+      "homeScore": 3,
       "awayScore": 1,
       "finished": true
     }
