@@ -202,9 +202,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Hatta Club -1.0--1.0 Al Wasl 2027-02-19T22:30:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=60
 [uae-365]   sample: {"startTime": "2026-11-20T17:45:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Kalba -1.0 away=Sharjah SC -1.0
-[uae-365] NEW RESULT Al Ain FC 2-1 Al Dhafra 2026-11-19T20:25:00+05:00
-[uae-365] NEW RESULT Al Wasl 2-1 Hatta Club 2026-11-19T17:45:00+05:00
-[uae-365] NEW FIXTURE Shabab Al Ahli Club v United FC 2027-02-19T22:30:00+05:00
-[uae-365] NEW FIXTURE Hatta Club v Al Wasl 2027-02-19T22:30:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 51 results, 67 fixtures, 4 new
+[uae-365] wrote data/uae-league-live.json: 51 results, 67 fixtures, 0 new
