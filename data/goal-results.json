@@ -1,24 +1,6 @@
 {
-  "generatedAt": "2026-11-21T03:41:44.101341Z",
+  "generatedAt": "2026-11-21T11:57:23.077661Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/bodoe-glimt-vs-borussia-dortmund/ArIcjTWcAiECHd_CDljbA",
-      "date": "2026-10-14",
-      "home": "Bodoe Glimt",
-      "away": "Borussia Dortmund",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "F. Sjoevold",
-          "minute": 52
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/slovan-bratislava-vs-vfb-stuttgart/IR0iHNsrhiMCIf0uvLyn7",
       "date": "2026-10-14",
@@ -7693,6 +7675,33 @@
         }
       ],
       "competition": "BL1"
+    },
+    {
+      "url": "https://www.goal.com/en/match/troyes-vs-le-havre/vEdfP9xFiPYFjiZrZ8bpz",
+      "date": "2026-11-20",
+      "home": "Troyes",
+      "away": "Le Havre",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Mille",
+          "minute": 19
+        },
+        {
+          "scorer": "R. Ripart",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "J. Maja",
+          "minute": 3
+        }
+      ],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7710,7 +7719,6 @@
     "https://www.goal.com/en/match/frosinone-vs-lecce/8B1mqGavmRU4YdGGbzdeR": 1,
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
-    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/troyes-vs-le-havre/vEdfP9xFiPYFjiZrZ8bpz": 2
+    "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1
   }
 }
