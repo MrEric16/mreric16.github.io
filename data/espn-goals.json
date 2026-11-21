@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-21T15:31:42.287781Z",
+ "generatedAt": "2026-11-21T21:16:35.847386Z",
  "results": [
   {
    "url": "espn:401879233",
@@ -21,6 +21,176 @@
     {
      "scorer": "R. Muniz",
      "minute": 16
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879238",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T15:00Z",
+   "home": "Bournemouth",
+   "away": "Nottingham",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "Evanilson",
+     "minute": 19
+    },
+    {
+     "scorer": "J. Kluivert",
+     "minute": "45+3"
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878756",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T15:00Z",
+   "home": "Aston Villa",
+   "away": "Sunderland",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879236",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T15:00Z",
+   "home": "Chelsea",
+   "away": "Leeds United",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 4,
+   "homeGoals": [
+    {
+     "scorer": "E. Emegha",
+     "minute": 25
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Okafor",
+     "minute": 28
+    },
+    {
+     "scorer": "D. Calvert-Lewin (pen)",
+     "minute": 53
+    },
+    {
+     "scorer": "N. Okafor",
+     "minute": 58
+    },
+    {
+     "scorer": "B. Aaronson",
+     "minute": "90+1"
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879235",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T15:00Z",
+   "home": "Coventry City",
+   "away": "Crystal Palace",
+   "htHome": 2,
+   "htAway": 2,
+   "ftHome": 3,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "T. Awoniyi",
+     "minute": 5
+    },
+    {
+     "scorer": "T. Sakamoto",
+     "minute": 30
+    },
+    {
+     "scorer": "D. McNeil (og)",
+     "minute": 85
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Y. Pino",
+     "minute": 13
+    },
+    {
+     "scorer": "J. Larsen",
+     "minute": "45+1"
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401878754",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T15:00Z",
+   "home": "Tottenham",
+   "away": "Ipswich Town",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "L. Williams-Barnett",
+     "minute": 15
+    },
+    {
+     "scorer": "D. Solanke",
+     "minute": 51
+    }
+   ],
+   "awayGoals": [],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401879232",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T17:30Z",
+   "home": "Newcastle",
+   "away": "Arsenal",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "H. Barnes",
+     "minute": 49
+    },
+    {
+     "scorer": "M. Thiaw",
+     "minute": 62
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Eze",
+     "minute": 33
+    },
+    {
+     "scorer": "N. Madueke",
+     "minute": 78
     }
    ],
    "competition": "PL",
@@ -57,6 +227,329 @@
     }
    ],
    "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882799",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T15:15Z",
+   "home": "Rayo Vallecano",
+   "away": "Valencia",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "Copete",
+     "minute": 41
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401882797",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T17:30Z",
+   "home": "Sevilla FC",
+   "away": "Real Betis",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Salas",
+     "minute": "90+1"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "Antony",
+     "minute": 50
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884732",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:30Z",
+   "home": "Union Berlin",
+   "away": "RB Leipzig",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 5,
+   "homeGoals": [
+    {
+     "scorer": "M. Aebischer",
+     "minute": 41
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "A. Nusa (pen)",
+     "minute": 18
+    },
+    {
+     "scorer": "Rômulo",
+     "minute": 50
+    },
+    {
+     "scorer": "B. Gruda",
+     "minute": 72
+    },
+    {
+     "scorer": "R. Reitz",
+     "minute": 76
+    },
+    {
+     "scorer": "R. Baku",
+     "minute": 89
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884735",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:30Z",
+   "home": "Leverkusen",
+   "away": "SC Paderborn",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 4,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Moreira",
+     "minute": 14
+    },
+    {
+     "scorer": "A. Moreira",
+     "minute": 47
+    },
+    {
+     "scorer": "P. Schick",
+     "minute": 51
+    },
+    {
+     "scorer": "E. Fernández",
+     "minute": 59
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884731",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:30Z",
+   "home": "M'gladbach",
+   "away": "Dortmund",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "F. Nmecha",
+     "minute": 80
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884734",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:30Z",
+   "home": "Frankfurt",
+   "away": "Hoffenheim",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. Burkardt",
+     "minute": 25
+    }
+   ],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884728",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:30Z",
+   "home": "Elversberg",
+   "away": "Freiburg",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "I. Matanovic",
+     "minute": 68
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401884729",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T17:30Z",
+   "home": "Schalke",
+   "away": "Stuttgart",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401875056",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:00Z",
+   "home": "Como",
+   "away": "Cagliari",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "J. Ramón",
+     "minute": 24
+    },
+    {
+     "scorer": "L. Da Cunha",
+     "minute": 56
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874981",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T14:00Z",
+   "home": "Lazio",
+   "away": "Lecce",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "T. Noslin",
+     "minute": 25
+    },
+    {
+     "scorer": "T. Noslin",
+     "minute": 68
+    },
+    {
+     "scorer": "D. Frattesi",
+     "minute": 90
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401874967",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T17:00Z",
+   "home": "Parma",
+   "away": "Roma",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 5,
+   "homeGoals": [
+    {
+     "scorer": "N. Elphege",
+     "minute": 54
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Malen",
+     "minute": 39
+    },
+    {
+     "scorer": "D. Malen",
+     "minute": 68
+    },
+    {
+     "scorer": "R. Mora",
+     "minute": 71
+    },
+    {
+     "scorer": "D. Malen",
+     "minute": 77
+    },
+    {
+     "scorer": "D. Malen",
+     "minute": 90
+    }
+   ],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876398",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T16:15Z",
+   "home": "Nice",
+   "away": "PSG",
+   "htHome": 1,
+   "htAway": 2,
+   "ftHome": 2,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "M. Amoura",
+     "minute": 8
+    },
+    {
+     "scorer": "A. Abdi",
+     "minute": "90+5"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "S. Mayulu (pen)",
+     "minute": 31
+    },
+    {
+     "scorer": "D. Doué",
+     "minute": 32
+    },
+    {
+     "scorer": "F. Torres",
+     "minute": 85
+    }
+   ],
+   "competition": "FL1",
    "complete": true
   },
   {
