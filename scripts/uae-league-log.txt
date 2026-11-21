@@ -141,7 +141,7 @@ TSDB_FALLBACK_FAILED
 [uae-tsdb] UNMAPPED team name: 'Dibba Al Fujairah'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
-[uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866903&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4890882&direction=1"}
+[uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866903&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4890877&direction=1"}
 [uae-365]   game Khor Fakkan -1.0--1.0 Jazira Abu Dhabi 2026-11-21T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Baniyas -1.0--1.0 Al Nasr Dubai 2026-11-21T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Dubai United -1.0--1.0 Al-Wahda 2026-11-21T20:25:00+05:00 st=2/Sched.
@@ -172,6 +172,7 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Al Ain -1.0--1.0 Ajman Club 2026-12-29T20:45:00+05:00 st=2/Sched.
 [uae-365]   game Al-Wahda -1.0--1.0 Hatta Club 2026-12-30T17:55:00+05:00 st=2/Sched.
 [uae-365]   game Shabab Al Ahly -1.0--1.0 Kalba 2026-12-30T17:55:00+05:00 st=2/Sched.
+[uae-365]   game Jazira Abu Dhabi -1.0--1.0 Baniyas 2026-12-30T20:45:00+05:00 st=2/Sched.
 [uae-365]   game Dubai United -1.0--1.0 Al Ain 2027-01-02T17:55:00+05:00 st=2/Sched.
 [uae-365]   game Al Dhafra -1.0--1.0 Ajman Club 2027-01-02T21:00:00+05:00 st=2/Sched.
 [uae-365]   game Al Wasl -1.0--1.0 Al Nasr Dubai 2027-01-02T21:00:00+05:00 st=2/Sched.
@@ -202,11 +203,12 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Al Wasl -1.0--1.0 Jazira Abu Dhabi 2027-01-30T21:15:00+05:00 st=2/Sched.
 [uae-365]   game Shabab Al Ahly -1.0--1.0 Dubai United 2027-02-19T22:30:00+05:00 st=2/Sched.
 [uae-365]   game Hatta Club -1.0--1.0 Al Wasl 2027-02-19T22:30:00+05:00 st=2/Sched.
-[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=60
+[uae-365]   game Baniyas -1.0--1.0 Kalba 2027-02-20T22:30:00+05:00 st=2/Sched.
+[uae-365]   game Al Nasr Dubai -1.0--1.0 Sharjah SC 2027-02-20T22:30:00+05:00 st=2/Sched.
+[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=63
 [uae-365]   sample: {"startTime": "2026-11-21T17:45:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Khor Fakkan -1.0 away=Jazira Abu Dhabi -1.0
-[uae-365] NEW RESULT Shabab Al Ahli Club 3-1 Ajman Club 2026-11-20T20:25:00+05:00
-[uae-365] NEW RESULT Ittihad Kalba FC 0-3 Sharjah FC 2026-11-20T17:45:00+05:00
-[uae-365] NEW FIXTURE Al Wahda v Hatta Club 2026-12-30T17:55:00+05:00
-[uae-365] NEW FIXTURE Shabab Al Ahli Club v Ittihad Kalba FC 2026-12-30T17:55:00+05:00
+[uae-365] NEW FIXTURE Al Jazira Club v Baniyas SC 2026-12-30T20:45:00+05:00
+[uae-365] NEW FIXTURE Baniyas SC v Ittihad Kalba FC 2027-02-20T22:30:00+05:00
+[uae-365] NEW FIXTURE Al Nasr SC v Sharjah FC 2027-02-20T22:30:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 53 results, 67 fixtures, 4 new
+[uae-365] wrote data/uae-league-live.json: 53 results, 70 fixtures, 3 new
