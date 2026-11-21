@@ -174,7 +174,11 @@ def attach_time_if_known(event, times_list):
     except Exception as e:
         log(f"  could not parse date for {event['name']!r}: {e}")
         return
-    for month_abbr, day, hour_24_utc, minute in times_list:
+    # Prefer the same calendar day, then the next day (US evening -> next UTC day), and last the
+    # PREVIOUS day (events in Australia/Asia: Wikipedia's local date, e.g. Feb 7 in Sydney, is
+    # Feb 6 on ufc.com's UTC clock - this case was silently dropped before 2026-11-21).
+    for want in (0, 1, -1):
+      for month_abbr, day, hour_24_utc, minute in times_list:
         try:
             candidate_month = datetime.strptime(month_abbr, "%b").month
         except Exception:
@@ -186,7 +190,7 @@ def attach_time_if_known(event, times_list):
             except ValueError:
                 continue
             delta_days = (candidate_date.date() - event_date.date()).days
-            if delta_days in (0, 1):
+            if delta_days == want:
                 start_utc = datetime(candidate_date.year, candidate_date.month, candidate_date.day, hour_24_utc, minute, tzinfo=timezone.utc)
                 start_tashkent = start_utc + timedelta(hours=5)
                 # Stored PRE-SHIFTED to Tashkent wall-clock time (not a real UTC timestamp)

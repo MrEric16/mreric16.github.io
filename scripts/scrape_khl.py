@@ -197,6 +197,10 @@ KNOWN_TIME_CORRECTIONS = {
     # Tashkent (19:30 Novosibirsk local, per Sibir's own home-arena ticket page,
     # matching the official KHL app).
     ("Sibir", "Salavat Yulaev", "2026-10-07"): "2026-10-07T17:30:00+05:00",
+    # 2026-11-21: confirmed by TWO independent Russian sources (sport-express.net team schedule
+    # and sportmail.ru match page), both Moscow time: 14:00 MSK = 16:00 Tashkent; 17:00 MSK = 19:00.
+    ("Neftekhimik", "Spartak", "2026-11-21"): "2026-11-21T16:00:00+05:00",
+    ("Salavat Yulaev", "Neftekhimik", "2026-11-24"): "2026-11-24T19:00:00+05:00",
 }
 
 
@@ -205,6 +209,11 @@ def apply_known_time_corrections(matches):
         date_part = m["start"][:10]
         key = (m["home"], m["away"], date_part)
         correct_start = KNOWN_TIME_CORRECTIONS.get(key)
+        # liveresult.ru's times were checked against sport-express.net / sportmail.ru on
+        # 2026-11-21 and are wrong for most games (a 15:00 placeholder on ~95% of fixtures,
+        # UTC-looking times on results). Only hand-verified times may be shown as times; everything
+        # else carries tbc=True and the app shows the date only ("time TBC").
+        m["tbc"] = correct_start is None
         if correct_start and m["start"] != correct_start:
             log(f"applying hand-verified time correction: {m['home']} v {m['away']} "
                 f"on {date_part} -- liveresult said {m['start']}, overriding to "

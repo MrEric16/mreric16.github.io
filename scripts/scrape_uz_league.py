@@ -193,6 +193,10 @@ def main():
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36",
             viewport={"width": 1280, "height": 2000},
             locale="en-US",
+            # Flashscore shows match times in the VISITOR's timezone. The CI runner is UTC, so every
+            # time was 5 hours early when read as Tashkent (verified 2026-11-21 against the published
+            # Matchday 27 schedule: Bunyodkor v Xorazm 18:30 vs 13:30 scraped). Pin it.
+            timezone_id="Asia/Tashkent",
         )
         page = context.new_page()
 
@@ -212,6 +216,7 @@ def main():
 
     output = {
         "generatedAt": datetime.utcnow().isoformat() + "Z",
+        "tz": "Asia/Tashkent",
         "teams": teams,
         "results": results,
         "fixtures": fixtures,

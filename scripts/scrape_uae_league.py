@@ -176,8 +176,11 @@ def parse_matches(soup):
 
         day, month, year = MONTHS_NUM.match(current_date).groups()
         hour, minute = time_text.split(":")
-        # site displays UAE local time (UTC+4); convert to Tashkent (UTC+5) = +1 hour
-        uae_dt = datetime(int(year), int(month), int(day), int(hour), int(minute), tzinfo=timezone(timedelta(hours=4)))
+        # worldfootball.net shows CENTRAL EUROPEAN time, NOT UAE time (verified 2026-11-21 against fotmob
+        # and starting11: Baniyas v Al Nasr shown 13:45, real kick-off 12:45 UTC = 16:45 UAE). The old
+        # "UAE +4" reading made every time 3 hours (winter) / 2 hours (summer) early in Tashkent.
+        from zoneinfo import ZoneInfo
+        uae_dt = datetime(int(year), int(month), int(day), int(hour), int(minute), tzinfo=ZoneInfo("Europe/Berlin"))
         tashkent_dt = uae_dt.astimezone(timezone(timedelta(hours=5)))
         start = tashkent_dt.strftime("%Y-%m-%dT%H:%M:00+05:00")
 
