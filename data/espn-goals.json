@@ -1,6 +1,64 @@
 {
- "generatedAt": "2026-11-21T07:29:49.436164Z",
+ "generatedAt": "2026-11-21T15:31:42.287781Z",
  "results": [
+  {
+   "url": "espn:401879233",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T12:30Z",
+   "home": "Man City",
+   "away": "Fulham",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Anderson",
+     "minute": 57
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Muniz",
+     "minute": 16
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882806",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T13:00Z",
+   "home": "Alavés",
+   "away": "Deportivo",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "Á. Pérez",
+     "minute": 2
+    },
+    {
+     "scorer": "L. Boyé",
+     "minute": 62
+    },
+    {
+     "scorer": "D. Suárez",
+     "minute": 90
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "N. Tenaglia (og)",
+     "minute": 41
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
   {
    "url": "espn:401882805",
    "date": "2026-11-20",
