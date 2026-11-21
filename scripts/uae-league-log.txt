@@ -10,6 +10,7 @@
 [uae-tsdb] TheSportsDB returned nothing; file untouched
 TSDB_FALLBACK_FAILED
 [uae-365] results: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866915&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866902&direction=1"}
+[uae-365]   game Dubai United 1.0-1.0 Al-Wahda 2026-11-21T20:25:00+05:00 st=4/Ended
 [uae-365]   game Khor Fakkan 1.0-1.0 Jazira Abu Dhabi 2026-11-21T17:45:00+05:00 st=4/Ended
 [uae-365]   game Baniyas 2.0-1.0 Al Nasr Dubai 2026-11-21T17:45:00+05:00 st=4/Ended
 [uae-365]   game Shabab Al Ahly 3.0-1.0 Ajman Club 2026-11-20T20:25:00+05:00 st=4/Ended
@@ -124,8 +125,8 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Al Nasr Dubai 2.0-2.0 Al-Wahda 2026-04-04T18:50:00+05:00 st=4/Ended
 [uae-365]   game Al Bataeh 2.0-2.0 Kalba 2026-04-04T18:50:00+05:00 st=4/Ended
 [uae-365]   game Shabab Al Ahly 2.0-1.0 Jazira Abu Dhabi 2026-04-04T21:30:00+05:00 st=4/Ended
-[uae-365] results: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=114
-[uae-365]   sample: {"startTime": "2026-11-21T17:45:00+05:00", "statusGroup": 4, "statusText": "Ended", "shortStatusText": "Ended"} home=Khor Fakkan 1.0 away=Jazira Abu Dhabi 1.0
+[uae-365] results: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=115
+[uae-365]   sample: {"startTime": "2026-11-21T20:25:00+05:00", "statusGroup": 4, "statusText": "Ended", "shortStatusText": "Ended"} home=Dubai United 1.0 away=Al-Wahda 1.0
 [uae-tsdb] UNMAPPED team name: 'Dibba Al Fujairah'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
@@ -143,8 +144,7 @@ TSDB_FALLBACK_FAILED
 [uae-tsdb] UNMAPPED team name: 'Dibba Al Fujairah'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
 [uae-tsdb] UNMAPPED team name: 'Al Bataeh'
-[uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866902&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4890877&direction=1"}
-[uae-365]   game Dubai United 1.0-0.0 Al-Wahda 2026-11-21T20:25:00+05:00 st=3/2nd Half
+[uae-365] fixtures: paging={"previousPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4866920&direction=-1", "nextPage": "/web/games/?langId=1&timezoneId=32&userCountryId=8&apptype=5&competitions=549&games=1&aftergame=4890877&direction=1"}
 [uae-365]   game Al Wasl -1.0--1.0 Al Dhafra 2026-11-28T19:15:00+05:00 st=2/Sched.
 [uae-365]   game Al-Wahda -1.0--1.0 Al Wasl 2026-12-03T17:45:00+05:00 st=2/Sched.
 [uae-365]   game Jazira Abu Dhabi -1.0--1.0 Al Ain 2026-12-03T20:25:00+05:00 st=2/Sched.
@@ -205,9 +205,8 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Hatta Club -1.0--1.0 Al Wasl 2027-02-19T22:30:00+05:00 st=2/Sched.
 [uae-365]   game Baniyas -1.0--1.0 Kalba 2027-02-20T22:30:00+05:00 st=2/Sched.
 [uae-365]   game Al Nasr Dubai -1.0--1.0 Sharjah SC 2027-02-20T22:30:00+05:00 st=2/Sched.
-[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=61
-[uae-365]   sample: {"startTime": "2026-11-21T20:25:00+05:00", "statusGroup": 3, "statusText": "2nd Half", "shortStatusText": "2nd Half"} home=Dubai United 1.0 away=Al-Wahda 0.0
-[uae-365] NEW RESULT Khor Fakkan Club 1-1 Al Jazira Club 2026-11-21T17:45:00+05:00
-[uae-365] NEW RESULT Baniyas SC 2-1 Al Nasr SC 2026-11-21T17:45:00+05:00
+[uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=60
+[uae-365]   sample: {"startTime": "2026-11-28T19:15:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Wasl -1.0 away=Al Dhafra -1.0
+[uae-365] NEW RESULT United FC 1-1 Al Wahda 2026-11-21T20:25:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 55 results, 66 fixtures, 2 new
+[uae-365] wrote data/uae-league-live.json: 56 results, 65 fixtures, 1 new

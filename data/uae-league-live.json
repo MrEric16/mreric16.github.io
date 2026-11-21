@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T16:46:29.301236+00:00",
+  "generatedAt": "2026-11-21T21:58:52.078581+00:00",
   "teams": [
     "Al Jazira Club",
     "Al Ain FC",
@@ -74,14 +74,14 @@
     },
     {
       "team": "Al Wahda",
-      "played": 7,
+      "played": 8,
       "won": 4,
-      "drawn": 1,
+      "drawn": 2,
       "lost": 2,
-      "gf": 9,
-      "ga": 7,
+      "gf": 10,
+      "ga": 8,
       "gd": 2,
-      "points": 13
+      "points": 14
     },
     {
       "team": "Al Nasr SC",
@@ -106,6 +106,17 @@
       "points": 10
     },
     {
+      "team": "United FC",
+      "played": 8,
+      "won": 2,
+      "drawn": 2,
+      "lost": 4,
+      "gf": 15,
+      "ga": 20,
+      "gd": -5,
+      "points": 8
+    },
+    {
       "team": "Khor Fakkan Club",
       "played": 8,
       "won": 2,
@@ -126,17 +137,6 @@
       "ga": 19,
       "gd": -8,
       "points": 8
-    },
-    {
-      "team": "United FC",
-      "played": 7,
-      "won": 2,
-      "drawn": 1,
-      "lost": 4,
-      "gf": 14,
-      "ga": 19,
-      "gd": -5,
-      "points": 7
     },
     {
       "team": "Al Dhafra",
@@ -173,11 +173,6 @@
     }
   ],
   "fixtures": [
-    {
-      "home": "United FC",
-      "away": "Al Wahda",
-      "start": "2026-11-21T20:25:00+05:00"
-    },
     {
       "home": "Al Wasl",
       "away": "Al Dhafra",
@@ -1042,6 +1037,14 @@
       "away": "Al Nasr SC",
       "start": "2026-11-21T17:45:00+05:00",
       "homeScore": 2,
+      "awayScore": 1,
+      "finished": true
+    },
+    {
+      "home": "United FC",
+      "away": "Al Wahda",
+      "start": "2026-11-21T20:25:00+05:00",
+      "homeScore": 1,
       "awayScore": 1,
       "finished": true
     }
