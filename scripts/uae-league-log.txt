@@ -207,8 +207,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Al Nasr Dubai -1.0--1.0 Sharjah SC 2027-02-20T22:30:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=63
 [uae-365]   sample: {"startTime": "2026-11-21T17:45:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Khor Fakkan -1.0 away=Jazira Abu Dhabi -1.0
-[uae-365] NEW FIXTURE Al Jazira Club v Baniyas SC 2026-12-30T20:45:00+05:00
-[uae-365] NEW FIXTURE Baniyas SC v Ittihad Kalba FC 2027-02-20T22:30:00+05:00
-[uae-365] NEW FIXTURE Al Nasr SC v Sharjah FC 2027-02-20T22:30:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 53 results, 70 fixtures, 3 new
+[uae-365] wrote data/uae-league-live.json: 53 results, 68 fixtures, 0 new
