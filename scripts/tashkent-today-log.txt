@@ -1,5 +1,5 @@
 rates cross-check vs open.er-api.com ok, worst 1.27% (EUR 0.19%, GBP 0.16%, RUB 0.14%, AED 0.01%, KZT 1.27%, CNY 0.19%, KGS 0.05%)
 rates ok via direct 21.11.2026
-air ok
+air FAIL 429 Client Error: Too Many Requests for url: https://air-quality-api.open-meteo.com/v1/air-quality?latitude=41.3111&long
 prayer ok 61 days
 prayer cross-check unavailable: 502 Server Error: Bad Gateway for url: https://islomapi.uz/api/present/day?regio
