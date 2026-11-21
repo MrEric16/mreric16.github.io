@@ -1,6 +1,84 @@
 {
- "generatedAt": "2026-11-20T18:54:53.774280Z",
+ "generatedAt": "2026-11-21T00:27:11.096070Z",
  "results": [
+  {
+   "url": "espn:401882805",
+   "date": "2026-11-20",
+   "utc": "2026-11-20T20:00Z",
+   "home": "Athletic",
+   "away": "Espanyol",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "R. Fernández",
+     "minute": 66
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
+   "url": "espn:401884736",
+   "date": "2026-11-20",
+   "utc": "2026-11-20T19:30Z",
+   "home": "Bayern",
+   "away": "1. FC Köln",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "N. Brown",
+     "minute": 37
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Moore",
+     "minute": 12
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876395",
+   "date": "2026-11-20",
+   "utc": "2026-11-20T19:45Z",
+   "home": "Troyes",
+   "away": "Le Havre",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "A. Mille",
+     "minute": 19
+    },
+    {
+     "scorer": "A. Mille",
+     "minute": 69
+    },
+    {
+     "scorer": "R. Ripart (pen)",
+     "minute": "90+8"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Maja",
+     "minute": 3
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401879244",
    "date": "2026-11-08",
