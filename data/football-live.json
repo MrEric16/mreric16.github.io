@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T19:00:12.786088Z",
+  "generatedAt": "2026-11-21T00:45:35.103223Z",
   "standings": {
     "PL": [
       {
@@ -266,12 +266,12 @@
       },
       {
         "name": "Athletic",
-        "pld": 11,
+        "pld": 12,
         "w": 4,
         "d": 4,
-        "l": 3,
+        "l": 4,
         "gf": 15,
-        "ga": 11,
+        "ga": 12,
         "pts": 16
       },
       {
@@ -291,6 +291,16 @@
         "d": 6,
         "l": 3,
         "gf": 15,
+        "ga": 14,
+        "pts": 15
+      },
+      {
+        "name": "Espanyol",
+        "pld": 13,
+        "w": 4,
+        "d": 3,
+        "l": 6,
+        "gf": 14,
         "ga": 14,
         "pts": 15
       },
@@ -323,16 +333,6 @@
         "gf": 15,
         "ga": 17,
         "pts": 13
-      },
-      {
-        "name": "Espanyol",
-        "pld": 12,
-        "w": 3,
-        "d": 3,
-        "l": 6,
-        "gf": 13,
-        "ga": 14,
-        "pts": 12
       },
       {
         "name": "Rayo Vallecano",
@@ -408,13 +408,13 @@
     "BL1": [
       {
         "name": "Bayern",
-        "pld": 9,
+        "pld": 10,
         "w": 6,
-        "d": 3,
+        "d": 4,
         "l": 0,
-        "gf": 29,
-        "ga": 9,
-        "pts": 21
+        "gf": 30,
+        "ga": 10,
+        "pts": 22
       },
       {
         "name": "Dortmund",
@@ -537,6 +537,16 @@
         "pts": 10
       },
       {
+        "name": "1. FC Köln",
+        "pld": 10,
+        "w": 2,
+        "d": 4,
+        "l": 4,
+        "gf": 11,
+        "ga": 15,
+        "pts": 10
+      },
+      {
         "name": "Augsburg",
         "pld": 9,
         "w": 2,
@@ -544,16 +554,6 @@
         "l": 4,
         "gf": 20,
         "ga": 20,
-        "pts": 9
-      },
-      {
-        "name": "1. FC Köln",
-        "pld": 9,
-        "w": 2,
-        "d": 3,
-        "l": 4,
-        "gf": 10,
-        "ga": 14,
         "pts": 9
       },
       {
@@ -911,6 +911,16 @@
         "pts": 13
       },
       {
+        "name": "Troyes",
+        "pld": 11,
+        "w": 3,
+        "d": 2,
+        "l": 6,
+        "gf": 10,
+        "ga": 18,
+        "pts": 11
+      },
+      {
         "name": "Strasbourg",
         "pld": 10,
         "w": 3,
@@ -951,23 +961,13 @@
         "pts": 8
       },
       {
-        "name": "Troyes",
-        "pld": 10,
-        "w": 2,
-        "d": 2,
-        "l": 6,
-        "gf": 7,
-        "ga": 17,
-        "pts": 8
-      },
-      {
         "name": "Le Havre",
-        "pld": 10,
+        "pld": 11,
         "w": 0,
         "d": 2,
-        "l": 8,
-        "gf": 9,
-        "ga": 22,
+        "l": 9,
+        "gf": 10,
+        "ga": 25,
         "pts": 2
       }
     ],
@@ -2152,6 +2152,37 @@
       ],
       "results": [
         {
+          "utcDate": "2026-11-20T20:00:00Z",
+          "status": "FINISHED",
+          "matchday": 13,
+          "homeTeam": {
+            "id": 77,
+            "name": "Athletic Club",
+            "shortName": "Athletic"
+          },
+          "awayTeam": {
+            "id": 80,
+            "name": "RCD Espanyol de Barcelona",
+            "shortName": "Espanyol"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 0,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Primera Division"
+          },
+          "venue": null
+        },
+        {
           "utcDate": "2026-11-08T20:00:00Z",
           "status": "FINISHED",
           "matchday": 12,
@@ -2584,73 +2615,11 @@
             "name": "Primera Division"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-11-01T13:00:00Z",
-          "status": "FINISHED",
-          "matchday": 11,
-          "homeTeam": {
-            "id": 82,
-            "name": "Getafe CF",
-            "shortName": "Getafe"
-          },
-          "awayTeam": {
-            "id": 559,
-            "name": "Sevilla FC",
-            "shortName": "Sevilla FC"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 3,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Primera Division"
-          },
-          "venue": null
         }
       ]
     },
     "BL1": {
       "fixtures": [
-        {
-          "utcDate": "2026-11-20T19:30:00Z",
-          "status": "TIMED",
-          "matchday": 10,
-          "homeTeam": {
-            "id": 5,
-            "name": "FC Bayern München",
-            "shortName": "Bayern"
-          },
-          "awayTeam": {
-            "id": 1,
-            "name": "1. FC Köln",
-            "shortName": "1. FC Köln"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
         {
           "utcDate": "2026-11-21T14:30:00Z",
           "status": "TIMED",
@@ -2901,6 +2870,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-20T19:30:00Z",
+          "status": "FINISHED",
+          "matchday": 10,
+          "homeTeam": {
+            "id": 5,
+            "name": "FC Bayern München",
+            "shortName": "Bayern"
+          },
+          "awayTeam": {
+            "id": 1,
+            "name": "1. FC Köln",
+            "shortName": "1. FC Köln"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-08T18:30:00Z",
           "status": "FINISHED",
@@ -3328,37 +3328,6 @@
             "halfTime": {
               "home": 0,
               "away": 1
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-31T14:30:00Z",
-          "status": "FINISHED",
-          "matchday": 8,
-          "homeTeam": {
-            "id": 16,
-            "name": "FC Augsburg",
-            "shortName": "Augsburg"
-          },
-          "awayTeam": {
-            "id": 17,
-            "name": "SC Freiburg",
-            "shortName": "Freiburg"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 1,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 0
             }
           },
           "competition": {
@@ -4152,37 +4121,6 @@
     "FL1": {
       "fixtures": [
         {
-          "utcDate": "2026-11-20T19:45:00Z",
-          "status": "TIMED",
-          "matchday": 11,
-          "homeTeam": {
-            "id": 531,
-            "name": "ES Troyes AC",
-            "shortName": "Troyes"
-          },
-          "awayTeam": {
-            "id": 533,
-            "name": "Le Havre AC",
-            "shortName": "Le Havre"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Ligue 1"
-          },
-          "venue": null
-        },
-        {
           "utcDate": "2026-11-21T16:15:00Z",
           "status": "TIMED",
           "matchday": 11,
@@ -4432,6 +4370,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-20T19:45:00Z",
+          "status": "FINISHED",
+          "matchday": 11,
+          "homeTeam": {
+            "id": 531,
+            "name": "ES Troyes AC",
+            "shortName": "Troyes"
+          },
+          "awayTeam": {
+            "id": 533,
+            "name": "Le Havre AC",
+            "shortName": "Le Havre"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 3,
+              "away": 1
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Ligue 1"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-08T19:45:00Z",
           "status": "FINISHED",
@@ -4855,37 +4824,6 @@
             "fullTime": {
               "home": 5,
               "away": 1
-            },
-            "halfTime": {
-              "home": 1,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Ligue 1"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-10-31T19:45:00Z",
-          "status": "FINISHED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 531,
-            "name": "ES Troyes AC",
-            "shortName": "Troyes"
-          },
-          "awayTeam": {
-            "id": 535,
-            "name": "Le Mans FC",
-            "shortName": "Le Mans"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 0
             },
             "halfTime": {
               "home": 1,
@@ -6911,18 +6849,18 @@
     },
     "bayern": {
       "nextFixture": {
-        "utcDate": "2026-11-20T19:30:00Z",
+        "utcDate": "2026-11-25T20:00:00Z",
         "status": "TIMED",
-        "matchday": 10,
+        "matchday": 5,
         "homeTeam": {
+          "id": 521,
+          "name": "Lille OSC",
+          "shortName": "Lille"
+        },
+        "awayTeam": {
           "id": 5,
           "name": "FC Bayern München",
           "shortName": "Bayern"
-        },
-        "awayTeam": {
-          "id": 1,
-          "name": "1. FC Köln",
-          "shortName": "1. FC Köln"
         },
         "score": {
           "winner": null,
@@ -6937,33 +6875,33 @@
           }
         },
         "competition": {
-          "name": "Bundesliga"
+          "name": "UEFA Champions League"
         },
         "venue": null
       },
       "lastResult": {
-        "utcDate": "2026-11-07T14:30:00Z",
+        "utcDate": "2026-11-20T19:30:00Z",
         "status": "FINISHED",
-        "matchday": 9,
+        "matchday": 10,
         "homeTeam": {
-          "id": 15,
-          "name": "1. FSV Mainz 05",
-          "shortName": "Mainz"
-        },
-        "awayTeam": {
           "id": 5,
           "name": "FC Bayern München",
           "shortName": "Bayern"
         },
+        "awayTeam": {
+          "id": 1,
+          "name": "1. FC Köln",
+          "shortName": "1. FC Köln"
+        },
         "score": {
-          "winner": "AWAY_TEAM",
+          "winner": "DRAW",
           "duration": "REGULAR",
           "fullTime": {
             "home": 1,
-            "away": 2
+            "away": 1
           },
           "halfTime": {
-            "home": 0,
+            "home": 1,
             "away": 1
           }
         },
