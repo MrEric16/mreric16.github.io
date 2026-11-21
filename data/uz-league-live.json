@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-21T10:53:15.388105Z",
+  "generatedAt": "2026-11-21T17:56:39.798847Z",
   "tz": "Asia/Tashkent",
   "teams": [
     {
@@ -33,6 +33,16 @@
       "pts": 58
     },
     {
+      "name": "Nasaf Qarshi",
+      "pld": 28,
+      "w": 13,
+      "d": 9,
+      "l": 6,
+      "gf": 41,
+      "ga": 24,
+      "pts": 48
+    },
+    {
       "name": "Lok. Tashkent",
       "pld": 28,
       "w": 13,
@@ -41,16 +51,6 @@
       "gf": 46,
       "ga": 35,
       "pts": 46
-    },
-    {
-      "name": "Nasaf Qarshi",
-      "pld": 27,
-      "w": 12,
-      "d": 9,
-      "l": 6,
-      "gf": 39,
-      "ga": 24,
-      "pts": 45
     },
     {
       "name": "OKMK",
@@ -64,13 +64,13 @@
     },
     {
       "name": "Buxoro",
-      "pld": 27,
+      "pld": 28,
       "w": 12,
-      "d": 6,
+      "d": 7,
       "l": 9,
       "gf": 38,
       "ga": 34,
-      "pts": 42
+      "pts": 43
     },
     {
       "name": "Qizilqum",
@@ -93,6 +93,16 @@
       "pts": 37
     },
     {
+      "name": "Sogdiana",
+      "pld": 28,
+      "w": 9,
+      "d": 6,
+      "l": 13,
+      "gf": 45,
+      "ga": 53,
+      "pts": 33
+    },
+    {
       "name": "Andijan",
       "pld": 28,
       "w": 9,
@@ -113,24 +123,14 @@
       "pts": 32
     },
     {
-      "name": "Sogdiana",
-      "pld": 27,
-      "w": 8,
-      "d": 6,
-      "l": 13,
-      "gf": 44,
-      "ga": 53,
-      "pts": 30
-    },
-    {
       "name": "Xorazm Urganch",
-      "pld": 27,
+      "pld": 28,
       "w": 6,
-      "d": 8,
+      "d": 9,
       "l": 13,
       "gf": 23,
       "ga": 38,
-      "pts": 26
+      "pts": 27
     },
     {
       "name": "Bunyodkor",
@@ -144,26 +144,47 @@
     },
     {
       "name": "Kokand 1912",
-      "pld": 27,
+      "pld": 28,
       "w": 5,
       "d": 9,
-      "l": 13,
+      "l": 14,
       "gf": 26,
-      "ga": 39,
+      "ga": 40,
       "pts": 24
     },
     {
       "name": "Mashal Muborak",
-      "pld": 27,
+      "pld": 28,
       "w": 1,
       "d": 2,
-      "l": 24,
+      "l": 25,
       "gf": 12,
-      "ga": 53,
+      "ga": 55,
       "pts": 5
     }
   ],
   "results": [
+    {
+      "home": "Xorazm Urganch",
+      "away": "Buxoro",
+      "raw_time": "21.11. 18:00",
+      "homeScore": 0,
+      "awayScore": 0
+    },
+    {
+      "home": "Kokand 1912",
+      "away": "Sogdiana",
+      "raw_time": "21.11. 17:00",
+      "homeScore": 0,
+      "awayScore": 1
+    },
+    {
+      "home": "Nasaf Qarshi",
+      "away": "Mashal Muborak",
+      "raw_time": "21.11. 17:00",
+      "homeScore": 2,
+      "awayScore": 0
+    },
     {
       "home": "Navbahor Namangan",
       "away": "Neftchi Fargona",
@@ -863,66 +884,9 @@
       "raw_time": "06.08. 19:00",
       "homeScore": 1,
       "awayScore": 0
-    },
-    {
-      "home": "Din. Samarkand",
-      "away": "Neftchi Fargona",
-      "raw_time": "03.08. 20:30",
-      "homeScore": 0,
-      "awayScore": 0
-    },
-    {
-      "home": "OKMK",
-      "away": "Nasaf Qarshi",
-      "raw_time": "03.08. 20:00",
-      "homeScore": 1,
-      "awayScore": 2
-    },
-    {
-      "home": "Kokand 1912",
-      "away": "Termez Surkhon",
-      "raw_time": "03.08. 19:30",
-      "homeScore": 0,
-      "awayScore": 1
-    },
-    {
-      "home": "Qizilqum",
-      "away": "Bunyodkor",
-      "raw_time": "02.08. 20:30\nAwrd",
-      "homeScore": 3,
-      "awayScore": 0
-    },
-    {
-      "home": "Mashal Muborak",
-      "away": "Sogdiana",
-      "raw_time": "02.08. 20:00",
-      "homeScore": 1,
-      "awayScore": 3
-    },
-    {
-      "home": "Navbahor Namangan",
-      "away": "Xorazm Urganch",
-      "raw_time": "02.08. 19:30",
-      "homeScore": 5,
-      "awayScore": 1
     }
   ],
   "fixtures": [
-    {
-      "home": "Kokand 1912",
-      "away": "Sogdiana",
-      "raw_time": "21.11. 17:00"
-    },
-    {
-      "home": "Nasaf Qarshi",
-      "away": "Mashal Muborak",
-      "raw_time": "21.11. 17:00"
-    },
-    {
-      "home": "Xorazm Urganch",
-      "away": "Buxoro",
-      "raw_time": "21.11. 18:00"
-    },
     {
       "home": "Din. Samarkand",
       "away": "Bunyodkor",
