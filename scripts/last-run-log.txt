@@ -17,7 +17,7 @@
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/16/midnight1611 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/16/italian-week title='Тематическое мероприятие Italian Week' title_hits=[] text_hits=["'кино' ...'амма с\\xa0аниматорами;\\nпоказы итальянского кино;\\nвечера живой итальянской музыки;\\nп'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/12/gaogao1311 title='Вечеринки в Gao Gao' title_hits=[] text_hits=[]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/22/yulduz-2111 title='Концерт Yulduzlar oqshomi' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n1\\xa0061\\nво\\xa0дворце национального киноискусства «панорама» пройдет концерт'"]
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/10/22/yulduz-2111 title='Концерт Yulduzlar oqshomi' title_hits=[] text_hits=["'кино' ...'ря 2026\\n·\\n1\\xa0142\\nво\\xa0дворце национального киноискусства «панорама» пройдет концерт'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка Interflows в галерее ARTepa': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
@@ -33,10 +33,9 @@
 [scrape] iticket.uz cat=theatre: 0 events kept
 [scrape] iticket.uz cat=exhibition: 0 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
-[scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
+[scrape] eventbrite.com: 5 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 224  |  after dedup: 211
+[scrape] TOTAL before dedup: 229  |  after dedup: 211
 [scrape] Wrote data/events-tashkent.json
 [scrape] translation cache: 299 titles
