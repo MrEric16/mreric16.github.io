@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-11-22T16:45:14.739016+00:00",
+  "generatedAt": "2026-11-22T22:06:16.046504+00:00",
   "standings": [
     {
       "team": "CSKA",
       "played": 44,
-      "won": 28,
+      "won": 29,
       "otWon": 18,
       "soWon": 1,
       "soLost": 2,
       "otLost": 1,
       "lost": 0,
-      "gf": 93,
-      "points": 97
+      "gf": 94,
+      "points": 99
     },
     {
       "team": "Metallurg Mg",
@@ -122,6 +122,18 @@
       "points": 83
     },
     {
+      "team": "Dynamo Msk",
+      "played": 33,
+      "won": 30,
+      "otWon": 8,
+      "soWon": 3,
+      "soLost": 3,
+      "otLost": 2,
+      "lost": 0,
+      "gf": 68,
+      "points": 87
+    },
+    {
       "team": "Dragons",
       "played": 31,
       "won": 28,
@@ -144,18 +156,6 @@
       "lost": 0,
       "gf": 68,
       "points": 84
-    },
-    {
-      "team": "Dynamo Msk",
-      "played": 31,
-      "won": 29,
-      "otWon": 7,
-      "soWon": 3,
-      "soLost": 3,
-      "otLost": 2,
-      "lost": 0,
-      "gf": 65,
-      "points": 83
     },
     {
       "team": "SKA",
@@ -400,20 +400,26 @@
       "tbc": true
     },
     {
+      "home": "Amur",
+      "away": "Avangard",
+      "start": "2026-11-28T15:00:00+05:00",
+      "tbc": true
+    },
+    {
       "home": "Neftekhimik",
       "away": "Barys",
       "start": "2026-11-29T15:00:00+05:00",
       "tbc": true
     },
     {
-      "home": "Severstal",
-      "away": "Lokomotiv",
+      "home": "SKA",
+      "away": "Salavat Yulaev",
       "start": "2026-11-29T15:00:00+05:00",
       "tbc": true
     },
     {
-      "home": "SKA",
-      "away": "Salavat Yulaev",
+      "home": "Severstal",
+      "away": "Lokomotiv",
       "start": "2026-11-29T15:00:00+05:00",
       "tbc": true
     },
@@ -442,8 +448,8 @@
       "tbc": true
     },
     {
-      "home": "Ak Bars",
-      "away": "Salavat Yulaev",
+      "home": "Avtomobilist",
+      "away": "Barys",
       "start": "2026-12-01T15:00:00+05:00",
       "tbc": true
     },
@@ -454,8 +460,8 @@
       "tbc": true
     },
     {
-      "home": "Avtomobilist",
-      "away": "Barys",
+      "home": "Ak Bars",
+      "away": "Salavat Yulaev",
       "start": "2026-12-01T15:00:00+05:00",
       "tbc": true
     },
@@ -490,6 +496,12 @@
       "tbc": true
     },
     {
+      "home": "Torpedo",
+      "away": "HC Sochi",
+      "start": "2026-12-02T10:30:00+05:00",
+      "tbc": true
+    },
+    {
       "home": "Avtomobilist",
       "away": "Traktor",
       "start": "2026-12-03T15:00:00+05:00",
@@ -502,8 +514,8 @@
       "tbc": true
     },
     {
-      "home": "Torpedo",
-      "away": "Admiral",
+      "home": "Sibir",
+      "away": "Spartak",
       "start": "2026-12-04T15:00:00+05:00",
       "tbc": true
     },
@@ -514,14 +526,14 @@
       "tbc": true
     },
     {
-      "home": "Lokomotiv",
-      "away": "Severstal",
+      "home": "Lada",
+      "away": "HC Sochi",
       "start": "2026-12-04T15:00:00+05:00",
       "tbc": true
     },
     {
-      "home": "Lada",
-      "away": "HC Sochi",
+      "home": "Lokomotiv",
+      "away": "Severstal",
       "start": "2026-12-04T15:00:00+05:00",
       "tbc": true
     },
@@ -532,8 +544,8 @@
       "tbc": true
     },
     {
-      "home": "Sibir",
-      "away": "Spartak",
+      "home": "Torpedo",
+      "away": "Admiral",
       "start": "2026-12-04T15:00:00+05:00",
       "tbc": true
     },
@@ -556,6 +568,12 @@
       "tbc": true
     },
     {
+      "home": "Avangard",
+      "away": "Amur",
+      "start": "2026-12-06T15:00:00+05:00",
+      "tbc": true
+    },
+    {
       "home": "Barys",
       "away": "Spartak",
       "start": "2026-12-06T15:00:00+05:00",
@@ -564,6 +582,12 @@
     {
       "home": "Salavat Yulaev",
       "away": "Severstal",
+      "start": "2026-12-06T15:00:00+05:00",
+      "tbc": true
+    },
+    {
+      "home": "Lada",
+      "away": "CSKA",
       "start": "2026-12-06T15:00:00+05:00",
       "tbc": true
     },
@@ -580,20 +604,8 @@
       "tbc": true
     },
     {
-      "home": "Avangard",
-      "away": "Amur",
-      "start": "2026-12-06T15:00:00+05:00",
-      "tbc": true
-    },
-    {
       "home": "Dynamo Minsk",
       "away": "HC Sochi",
-      "start": "2026-12-06T15:00:00+05:00",
-      "tbc": true
-    },
-    {
-      "home": "Lada",
-      "away": "CSKA",
       "start": "2026-12-06T15:00:00+05:00",
       "tbc": true
     },
@@ -2855,6 +2867,15 @@
     }
   ],
   "results": [
+    {
+      "home": "Dynamo Msk",
+      "away": "CSKA",
+      "start": "2026-11-22T10:46:00+05:00",
+      "homeScore": 3,
+      "awayScore": 1,
+      "finished": true,
+      "tbc": true
+    },
     {
       "home": "Torpedo",
       "away": "Avtomobilist",
