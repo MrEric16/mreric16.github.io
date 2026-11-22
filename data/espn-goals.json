@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-21T21:16:35.847386Z",
+ "generatedAt": "2026-11-22T01:28:49.697677Z",
  "results": [
   {
    "url": "espn:401879233",
@@ -275,6 +275,35 @@
    "complete": true
   },
   {
+   "url": "espn:401882798",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T20:00Z",
+   "home": "Real Madrid",
+   "away": "Celta",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "J. Bellingham",
+     "minute": 66
+    },
+    {
+     "scorer": "C. Espí",
+     "minute": 85
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "P. Durán",
+     "minute": 6
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
+  {
    "url": "espn:401884732",
    "date": "2026-11-21",
    "utc": "2026-11-21T14:30Z",
@@ -516,6 +545,26 @@
    "complete": true
   },
   {
+   "url": "espn:401875067",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T19:45Z",
+   "home": "Napoli",
+   "away": "Torino",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "S. McTominay",
+     "minute": 73
+    }
+   ],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
    "url": "espn:401876398",
    "date": "2026-11-21",
    "utc": "2026-11-21T16:15Z",
@@ -547,6 +596,96 @@
     {
      "scorer": "F. Torres",
      "minute": 85
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876399",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T19:45Z",
+   "home": "Monaco",
+   "away": "Auxerre",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "E. Diop",
+     "minute": 82
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "R. Faivre",
+     "minute": 29
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876403",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T19:45Z",
+   "home": "RC Lens",
+   "away": "Toulouse",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 1,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "M. Cuisance",
+     "minute": 47
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "J. Russell-Rowe",
+     "minute": 39
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876402",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T19:45Z",
+   "home": "Lille",
+   "away": "Lyon",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "M. Bidstrup",
+     "minute": 40
+    }
+   ],
+   "competition": "FL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401876396",
+   "date": "2026-11-21",
+   "utc": "2026-11-21T19:45Z",
+   "home": "Strasbourg",
+   "away": "Brest",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "N. Edjouma",
+     "minute": 22
     }
    ],
    "competition": "FL1",
