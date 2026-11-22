@@ -210,8 +210,5 @@ TSDB_FALLBACK_FAILED
 [uae-365]   game Ajman Club -1.0--1.0 Al Ain 2027-02-21T22:30:00+05:00 st=2/Sched.
 [uae-365] fixtures: keys=['lastUpdateId', 'requestedUpdateId', 'ttl', 'paging', 'summary', 'roundFilters', 'sports', 'countries'] games=63
 [uae-365]   sample: {"startTime": "2026-11-28T19:15:00+05:00", "statusGroup": 2, "statusText": "Scheduled", "shortStatusText": "Sched."} home=Al Wasl -1.0 away=Al Dhafra -1.0
-[uae-365] NEW FIXTURE Al Dhafra v Al Jazira Club 2027-02-21T22:30:00+05:00
-[uae-365] NEW FIXTURE Al Wahda v Khor Fakkan Club 2027-02-21T22:30:00+05:00
-[uae-365] NEW FIXTURE Ajman Club v Al Ain FC 2027-02-21T22:30:00+05:00
 [uae-365] verified current
-[uae-365] wrote data/uae-league-live.json: 56 results, 68 fixtures, 3 new
+[uae-365] wrote data/uae-league-live.json: 56 results, 68 fixtures, 0 new
