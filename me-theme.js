@@ -32,50 +32,110 @@
     try{ ctx = new C(); }catch(e){ ctx = null; }
     return ctx;
   }
-  function voice(c, out, type, t0, dur, f0, f1, peak, formant, vib){
-    var o = c.createOscillator(), g = c.createGain(), f = c.createBiquadFilter();
-    o.type = type;
-    o.frequency.setValueAtTime(f0, t0);
-    o.frequency.exponentialRampToValueAtTime(Math.max(30, f1), t0 + dur);
-    if(vib){
-      var l = c.createOscillator(), lg = c.createGain();
-      l.frequency.value = vib; lg.gain.value = f0 * 0.018; l.connect(lg); lg.connect(o.frequency); l.start(t0); l.stop(t0 + dur + .05);
+  /* One animal voice: a buzzy (sawtooth) source whose pitch follows a curve, wobbled by jitter, chopped by a
+     rough amplitude flutter (the "rattle" of a bray / chatter), pushed through two or three formant filters
+     (the throat/mouth shape) and a touch of breath noise. pts = [[seconds, Hz], ...] */
+  var noiseBuf = null;
+  function noise(c){
+    if(noiseBuf) return noiseBuf;
+    noiseBuf = c.createBuffer(1, c.sampleRate, c.sampleRate);
+    var d = noiseBuf.getChannelData(0); for(var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    return noiseBuf;
+  }
+  function animal(c, out, t0, dur, pts, o){
+    var src = c.createOscillator(); src.type = 'sawtooth';
+    src.frequency.setValueAtTime(pts[0][1], t0);
+    for(var i = 1; i < pts.length; i++) src.frequency.linearRampToValueAtTime(pts[i][1], t0 + pts[i][0]);
+    // pitch jitter
+    var jl = c.createOscillator(), jg = c.createGain(); jl.frequency.value = o.jit || 9; jg.gain.value = (o.jitDepth || 0.025) * pts[0][1] * 2;
+    jl.connect(jg); jg.connect(src.frequency);
+    // rough flutter (amplitude)
+    var amp = c.createGain(); amp.gain.value = 1 - (o.rough || 0) / 2;
+    if(o.rough){
+      var rl = c.createOscillator(), rg = c.createGain(); rl.type = 'square'; rl.frequency.value = o.roughHz || 28; rg.gain.value = o.rough / 2;
+      rl.connect(rg); rg.connect(amp.gain); rl.start(t0); rl.stop(t0 + dur + .05);
     }
-    f.type = 'bandpass'; f.frequency.value = formant; f.Q.value = 2.2;
-    g.gain.setValueAtTime(0.0001, t0);
-    g.gain.exponentialRampToValueAtTime(peak, t0 + Math.min(.05, dur * .25));
-    g.gain.setValueAtTime(peak, t0 + dur * .7);
-    g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
-    o.connect(f); f.connect(g); g.connect(out);
-    o.start(t0); o.stop(t0 + dur + .05);
+    // grit
+    var sh = c.createWaveShaper(), n = 256, cu = new Float32Array(n);
+    for(var k = 0; k < n; k++){ var x = k * 2 / n - 1; cu[k] = Math.tanh(x * (o.drive || 2.2)); }
+    sh.curve = cu;
+    // envelope
+    var env = c.createGain();
+    env.gain.setValueAtTime(0.0001, t0);
+    env.gain.exponentialRampToValueAtTime(o.peak, t0 + Math.min(.06, dur * .3));
+    env.gain.setValueAtTime(o.peak, t0 + dur * .72);
+    env.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+    src.connect(sh); sh.connect(amp);
+    // parallel formants
+    (o.formants || [[800, 1]]).forEach(function(fm){
+      var f = c.createBiquadFilter(); f.type = 'bandpass'; f.Q.value = fm[2] || 4;
+      if(fm[3]){ f.frequency.setValueAtTime(fm[0], t0); f.frequency.linearRampToValueAtTime(fm[3], t0 + dur); } else f.frequency.value = fm[0];
+      var g = c.createGain(); g.gain.value = fm[1];
+      amp.connect(f); f.connect(g); g.connect(env);
+    });
+    // breath
+    if(o.breath){
+      var ns = c.createBufferSource(); ns.buffer = noise(c); ns.loop = true;
+      var nf = c.createBiquadFilter(); nf.type = 'bandpass'; nf.frequency.value = o.breathHz || 1800; nf.Q.value = .8;
+      var ng = c.createGain(); ng.gain.value = o.breath;
+      ns.connect(nf); nf.connect(ng); ng.connect(env); ns.start(t0); ns.stop(t0 + dur + .05);
+    }
+    env.connect(out);
+    src.start(t0); src.stop(t0 + dur + .05); jl.start(t0); jl.stop(t0 + dur + .05);
   }
-  /* right answer: "oo-oo-ah!" - three quick rising monkey chirps */
+  /* right answer: monkey - "oo-oo-oo" hoots then excited "ee-ee-ee-ee" chatter */
   function monkey(c, out, t){
-    voice(c, out, 'triangle', t,        .11, 520, 780, .65, 1500);
-    voice(c, out, 'triangle', t + .15,  .11, 560, 840, .65, 1600);
-    voice(c, out, 'triangle', t + .30,  .20, 620, 1050, .72, 1900, 9);
+    [0, .21, .42].forEach(function(d, i){
+      animal(c, out, t + d, .17, [[0, 360 + i * 25], [.17, 300 + i * 20]], { peak: .5, rough: .25, roughHz: 40, drive: 1.6, jit: 7, jitDepth: .03,
+        formants: [[420, 1, 5], [950, .7, 5]], breath: .05, breathHz: 900 });
+    });
+    [0, .1, .2, .3].forEach(function(d, i){
+      animal(c, out, t + .70 + d, .085, [[0, 850 + i * 60], [.085, 1500 + i * 70]], { peak: .45, rough: .3, roughHz: 55, drive: 2, jit: 14, jitDepth: .035,
+        formants: [[1100, .8, 6], [2700, 1, 6]], breath: .08, breathHz: 3200 });
+    });
   }
-  /* wrong answer: "hee-HAW" - inhale glide up, then a long falling bray */
+  /* wrong answer: donkey - "hee" (inhaled, rising squeal) then a long, rattly, falling "HAW", then a short echo "haw" */
   function donkey(c, out, t){
-    voice(c, out, 'sawtooth', t,       .26, 330, 700, .4, 1300, 7);
-    voice(c, out, 'sawtooth', t + .30, .50, 560, 215, .48, 900, 8);
+    animal(c, out, t, .50, [[0, 420], [.30, 880], [.50, 760]], { peak: .5, rough: .5, roughHz: 34, drive: 3, jit: 11, jitDepth: .03,
+      formants: [[850, 1, 4], [2100, .8, 5, 1700]], breath: .10, breathHz: 2400 });
+    animal(c, out, t + .52, .78, [[0, 500], [.10, 440], [.45, 260], [.78, 170]], { peak: .62, rough: .6, roughHz: 26, drive: 3.4, jit: 8, jitDepth: .04,
+      formants: [[520, 1, 3.5], [1250, .8, 4, 800]], breath: .06, breathHz: 1200 });
+    animal(c, out, t + 1.38, .34, [[0, 330], [.34, 190]], { peak: .34, rough: .55, roughHz: 28, drive: 3, jit: 8, jitDepth: .04,
+      formants: [[520, 1, 3.5], [1100, .8, 4]] });
   }
-  function play(kind){
+  function play(kind, force){
     if(!on() || !soundOn() || document.hidden) return;
     var nowMs = Date.now();
-    if(nowMs - last < 1100) return;
+    if(!force && nowMs - last < 1100) return;
     var c = audio(); if(!c) return;
     if(c.state === 'suspended') try{ c.resume(); }catch(e){}
     last = nowMs;
-    var out = c.createGain(); out.gain.value = 1; out.connect(c.destination);
-    var t = c.currentTime + .02;
+    var comp = c.createDynamicsCompressor(); comp.connect(c.destination);
+    var out = c.createGain(); out.gain.value = .85; out.connect(comp);
+    var t = c.currentTime + .03;
     if(kind === 'bad') donkey(c, out, t); else monkey(c, out, t);
     window.__meLast = kind;
   }
   window.MEplay = play;
 
-  /* tokens that mark a checked answer. A wrong mark beats a right mark in the same moment
-     (a wrong tap usually also highlights the right option in green). */
+  /* tappable mascots in the header (index.html only): monkey left, donkey right */
+  function mascots(){
+    var h = document.querySelector('header');
+    var want = on() && h && document.getElementById('app') !== null && /(^|\/)(index\.html)?$/.test(location.pathname);
+    var ex = document.querySelectorAll('.me-mascot');
+    if(!want){ ex.forEach(function(e){ e.remove(); }); return; }
+    if(ex.length) return;
+    [['me-monkey', '🐒', 'good', 'Monkey'], ['me-donkey', '', 'bad', 'Donkey']].forEach(function(d){
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'me-mascot ' + d[0]; b.textContent = d[1]; b.setAttribute('aria-label', d[3]);
+      b.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        b.classList.remove('me-boing'); void b.offsetWidth; b.classList.add('me-boing');
+        play(d[2], true);
+      });
+      h.appendChild(b);
+    });
+  }
+
   var GOOD = /(^|-)(correct|ok|good|right)$/;
   var BAD  = /(^|-)(wrong|incorrect|bad)$/;
   var SKIP = /^(gg-banner-ok|fg-review-wrong|safety-ok|save-good|top-right|bottom-right|tetris-right|down-right|up-right|margin-right|padding-right|border-right|text-right|float-right|align-right|justify-right)$/;
@@ -130,6 +190,7 @@
     mo.observe(document.body, { subtree: true, childList: true, attributes: true, attributeFilter: ['class'], attributeOldValue: true });
   }
   // index.html switches themes live: begin listening the moment M&E is picked
-  window.addEventListener('themechange', function(){ if(on()) start(); });
+  window.addEventListener('themechange', function(){ if(on()) start(); mascots(); });
   if(on()) start();
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mascots); else mascots();
 })();
