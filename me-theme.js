@@ -186,11 +186,12 @@
     var m = document.querySelector('.' + cls); if(!m) return;
     m.classList.remove('me-boing'); void m.offsetWidth; m.classList.add('me-boing');
   }
+  function mood(who, cls, ms){ var m = document.querySelector('.' + who); if(!m) return; m.classList.remove(cls); void m.offsetWidth; m.classList.add(cls); setTimeout(function(){ m.classList.remove(cls); }, ms); }
   function record(kind){
     var t = Date.now(); if(t - recLast < 1100) return; recLast = t;
     var o = stats();
-    if(kind === 'bad'){ o.b++; o.streak = 0; boing('me-donkey'); }
-    else { o.g++; o.streak++; if(o.streak > o.best) o.best = o.streak; boing('me-monkey'); if(o.streak && o.streak % 5 === 0) rain(6); }
+    if(kind === 'bad'){ o.b++; o.streak = 0; boing('me-donkey'); mood('me-donkey', 'me-sulk', 4000); }
+    else { o.g++; o.streak++; if(o.streak > o.best) o.best = o.streak; boing('me-monkey'); if(o.streak >= 3) mood('me-monkey', 'me-cheer', 2400); if(o.streak && o.streak % 5 === 0) rain(6); }
     saveStats(o); paintPill();
   }
 
@@ -297,9 +298,59 @@
   window.MEtheme.ambOn = ambOn;
   window.MEtheme.setAmb = function(v){ try{ localStorage.setItem('me_amb', v ? '1' : '0'); }catch(e){} if(v){ audio(); if(ctx && ctx.state === 'suspended') try{ ctx.resume(); }catch(e){} ambTick(); } else clearTimeout(ambT); };
 
+
+  /* ---------- barn extras (index only) ---------- */
+  var SUBS = ['Eshak approves. Maymun doubts it.', 'Feed the monkey, rest the donkey.', 'Hee-haw for wrong, ooh-ah for right.', 'Clever monkeys, stubborn donkeys, one teacher.',
+    'More bananas, less braying.', 'The barn is open. The homework is not.', 'Homework done? The donkey checked.', 'No donkeys were harmed in this lesson.',
+    'Work like a monkey, study like a mule.', 'Today’s forecast: bananas.'];
+  function skyKey(){ var h = new Date().getHours(); return h >= 5 && h < 8 ? 'dawn' : h >= 8 && h < 17 ? 'day' : h >= 17 && h < 20 ? 'dusk' : 'night'; }
+  function barn(){
+    if(!document.body) return;
+    var isIdx = /(^|\/)(index\.html)?$/.test(location.pathname) && document.getElementById('app');
+    if(!on() || !isIdx){
+      document.body.removeAttribute('data-me-sky');
+      document.querySelectorAll('.me-lantern, .me-flies').forEach(function(e){ e.remove(); });
+      return;
+    }
+    document.body.setAttribute('data-me-sky', skyKey());
+    var h = document.querySelector('header'); if(!h) return;
+    if(!h.querySelector('.me-lantern')){ var l = document.createElement('div'); l.className = 'me-lantern'; h.insertBefore(l, h.firstChild); }
+    if(!h.querySelector('.me-flies')){
+      var f = document.createElement('div'); f.className = 'me-flies';
+      for(var i = 0; i < 6; i++){ var s = document.createElement('i'); s.style.left = (8 + i * 15 + Math.random() * 6) + '%'; s.style.top = (18 + Math.random() * 60) + '%'; s.style.animationDelay = (-Math.random() * 9) + 's'; s.style.animationDuration = (7 + Math.random() * 5) + 's'; f.appendChild(s); }
+      h.insertBefore(f, h.firstChild);
+    }
+    var st = document.getElementById('subtitleText');
+    if(st && !st.dataset.meSub){ st.dataset.meSub = '1'; st.textContent = SUBS[Math.floor(Math.random() * SUBS.length)]; }
+  }
+  setInterval(function(){ if(on() && !document.hidden){ barn(); var st = document.getElementById('subtitleText'); if(st && document.getElementById('app') && st.dataset.meSub){ st.textContent = SUBS[Math.floor(Math.random() * SUBS.length)]; } } }, 45000);
+  document.addEventListener('visibilitychange', function(){ document.body && document.body.classList.toggle('me-hidden', document.hidden); });
+  // barn doors on page change + a short trail of paw prints (at most once a minute)
+  var lastPaw = 0, firstNav = true;
+  function pawTrail(){
+    if(reduced || Date.now() - lastPaw < 60000) return; lastPaw = Date.now();
+    var left = Math.random() < .5;
+    for(var i = 0; i < 6; i++){
+      var p = document.createElement('div'); p.className = 'me-paw'; p.textContent = '🐾';
+      p.style.bottom = (78 + i * 7 + (i % 2 ? 10 : 0)) + 'px'; p.style[left ? 'left' : 'right'] = (6 + i * 15) + '%'; p.style.animationDelay = (i * .35) + 's';
+      p.style.transform = 'rotate(' + (left ? 80 : -80) + 'deg)';
+      p.addEventListener('animationend', function(){ this.remove(); }); document.body.appendChild(p);
+    }
+  }
+  function doors(){
+    if(reduced || !on() || !document.body || document.querySelector('.me-doors')) return;
+    var d = document.createElement('div'); d.className = 'me-doors'; d.innerHTML = '<i></i><i></i>'; document.body.appendChild(d);
+    void d.offsetWidth; requestAnimationFrame(function(){ d.classList.add('open'); });
+    setTimeout(function(){ d.remove(); }, 700);
+    setTimeout(pawTrail, 900);
+  }
+  window.addEventListener('hashchange', function(){ if(on()) doors(); });
+  setTimeout(function(){ if(on()) pawTrail(); }, 2500);
+
   // index.html switches themes live: begin listening the moment M&E is picked
-  window.addEventListener('themechange', function(){ if(on()) start(); mascots(); ambTick(); preload(); });
+  window.addEventListener('themechange', function(){ if(on()) start(); mascots(); ambTick(); preload(); barn(); });
   if(on()){ start(); ambTick(); preload(); }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', barn); else barn();
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', watchLevel); else watchLevel();
   if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mascots); else mascots();
 })();
