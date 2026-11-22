@@ -175,7 +175,16 @@
       '@keyframes me-gfall{to{transform:translateY(calc(100vh + 60px))}}' +
       '.me-g-sway{margin-left:0;animation-name:me-gfall,me-gsway;animation-timing-function:linear,ease-in-out;animation-iteration-count:1,infinite}' +
       '@keyframes me-gsway{0%,100%{margin-left:-22px}50%{margin-left:22px}}' +
-      '.me-g-pop{transition:transform .15s,opacity .15s;opacity:0;scale:1.4}';
+'.me-doors{position:fixed;inset:0;z-index:99999;pointer-events:none;display:flex;perspective:1400px;overflow:hidden}' +
+      '.me-doors i{flex:1;position:relative;background:repeating-linear-gradient(90deg,#A03527 0 26px,#8A2B20 26px 28px);transition:transform .7s cubic-bezier(.55,0,.35,1);backface-visibility:hidden}' +
+      '.me-doors i:first-child{transform-origin:0 50%;border-right:5px solid #3E2813}.me-doors i:last-child{transform-origin:100% 50%;border-left:5px solid #3E2813}' +
+      '.me-doors i::before{content:"";position:absolute;inset:14px;border:6px solid #EADFC8;border-radius:4px;background:linear-gradient(to top right,transparent calc(50% - 3px),#EADFC8 calc(50% - 3px),#EADFC8 calc(50% + 3px),transparent calc(50% + 3px)),linear-gradient(to bottom right,transparent calc(50% - 3px),#EADFC8 calc(50% - 3px),#EADFC8 calc(50% + 3px),transparent calc(50% + 3px))}' +
+      '.me-doors i::after{content:"";position:absolute;top:50%;width:14px;height:34px;margin-top:-17px;border-radius:7px;background:#2B2118;box-shadow:0 0 0 3px #8A8176}' +
+      '.me-doors i:first-child::after{right:18px}.me-doors i:last-child::after{left:18px}' +
+      '.me-doors.open i:first-child{transform:rotateY(-86deg)}.me-doors.open i:last-child{transform:rotateY(86deg)}' +
+      '.me-doors.quick i{transition-duration:.45s}' +
+      '.me-roof,.me-loft,.me-vane{display:block}' +
+            '.me-g-pop{transition:transform .15s,opacity .15s;opacity:0;scale:1.4}';
     (document.head || document.documentElement).appendChild(st);
   })();
   /* ---------- scoreboard + streak (items 3 & 4) ---------- */
@@ -197,12 +206,20 @@
     m.classList.remove('me-boing'); void m.offsetWidth; m.classList.add('me-boing');
   }
   function mood(who, cls, ms){ var m = document.querySelector('.' + who); if(!m) return; m.classList.remove(cls); void m.offsetWidth; m.classList.add(cls); setTimeout(function(){ m.classList.remove(cls); }, ms); }
+  var SAY = { good: ['Ooh-ah! Correct!', 'Banana for you!', 'Clever human!', 'Nailed it!', 'Ooh ooh, ah ah!', 'Top banana!', 'Even I am impressed.'],
+              bad: ['Hee-haw! Not quite.', 'Even I knew that one.', 'Hee-haw… no.', 'Try again, genius.', 'Stubborn answer, stubborn donkey.', 'The hay says no.', 'Bray-ve effort.'] };
+  function say(kind){
+    if(reduced && false) return;
+    var el = document.createElement('div'); el.className = 'me-say ' + (kind === 'bad' ? 'r' : 'l');
+    var arr = SAY[kind]; el.innerHTML = '<b>' + (kind === 'bad' ? 'Eshak says' : 'Maymun says') + '</b>' + arr[Math.floor(Math.random() * arr.length)];
+    document.body.appendChild(el); setTimeout(function(){ el.remove(); }, 2700);
+  }
   function record(kind){
     var t = Date.now(); if(t - recLast < 1100) return; recLast = t;
     var o = stats();
     if(kind === 'bad'){ o.b++; o.streak = 0; boing('me-donkey'); mood('me-donkey', 'me-sulk', 4000); }
     else { o.g++; o.streak++; if(o.streak > o.best) o.best = o.streak; boing('me-monkey'); if(o.streak >= 3) mood('me-monkey', 'me-cheer', 2400); if(o.streak && o.streak % 5 === 0) rain(6); }
-    saveStats(o); paintPill();
+    saveStats(o); paintPill(); say(kind);
   }
 
   /* ---------- banana rain on level-up (item 6) and the swing-across easter egg (item 5) ---------- */
@@ -326,6 +343,15 @@
     }
     document.body.setAttribute('data-me-sky', skyKey());
     var h = document.querySelector('header'); if(!h) return;
+    if(!h.querySelector('.me-roof')){
+      var ro = document.createElement('div'); ro.className = 'me-roof'; h.insertBefore(ro, h.firstChild);
+      var lo = document.createElement('div'); lo.className = 'me-loft'; h.appendChild(lo);
+      var va = document.createElement('div'); va.className = 'me-vane';
+      va.innerHTML = '<svg viewBox="0 0 56 34" aria-hidden="true"><line x1="28" y1="14" x2="28" y2="34" stroke="#1c1814" stroke-width="2.4"/><line x1="4" y1="20" x2="52" y2="20" stroke="#1c1814" stroke-width="2.2"/><polygon points="52,20 44,16 44,24" fill="#1c1814"/><polygon points="4,20 10,15 10,25" fill="#1c1814"/><g fill="#1c1814"><path d="M20 20 L20 11 Q20 6 26 6 L33 6 L36 2 L37 8 L40 6 L40 11 Q36 11 35 14 L34 20 Z"/></g></svg>';
+      h.appendChild(va);
+      var wk = 6; try{ fetch('data/weather-live.json', { cache:'force-cache' }).then(function(r){ return r.json(); }).then(function(j){
+        var t = (j.locations || []).find(function(l){ return l.city === 'Tashkent'; }); if(t && typeof t.windKn === 'number'){ va.firstChild.style.animationDuration = Math.max(2.5, 9 - t.windKn * 0.45) + 's'; } }).catch(function(){}); }catch(e){}
+    }
     if(!h.querySelector('.me-lantern')){ var l = document.createElement('div'); l.className = 'me-lantern'; h.insertBefore(l, h.firstChild); }
     if(!h.querySelector('.me-flies')){
       var f = document.createElement('div'); f.className = 'me-flies';
@@ -351,12 +377,19 @@
   }
   function doors(){
     if(reduced || !on() || !document.body || document.querySelector('.me-doors')) return;
-    var d = document.createElement('div'); d.className = 'me-doors'; d.innerHTML = '<i></i><i></i>'; document.body.appendChild(d);
+    var d = document.createElement('div'); d.className = 'me-doors quick'; d.innerHTML = '<i></i><i></i>'; document.body.appendChild(d);
     void d.offsetWidth; requestAnimationFrame(function(){ d.classList.add('open'); });
     setTimeout(function(){ d.remove(); }, 700);
     setTimeout(pawTrail, 900);
   }
   window.addEventListener('hashchange', function(){ if(on()) doors(); });
+  // barn doors swing open once when the app launches
+  if(on() && !reduced && /(^|\/)(index\.html)?$/.test(location.pathname)){
+    var bd = document.createElement('div'); bd.className = 'me-doors'; bd.innerHTML = '<i></i><i></i>';
+    (document.documentElement).appendChild(bd);
+    var openIt = function(){ bd.classList.add('open'); setTimeout(function(){ bd.remove(); }, 900); };
+    setTimeout(function(){ requestAnimationFrame(openIt); }, 650);
+  }
   setTimeout(function(){ if(on()) pawTrail(); }, 2500);
 
   // index.html switches themes live: begin listening the moment M&E is picked
