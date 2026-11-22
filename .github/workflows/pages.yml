@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: write
 
 concurrency:
   group: "pages"
@@ -24,6 +25,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Prune old Pages artifacts (storage quota)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --paginate "repos/${{ github.repository }}/actions/artifacts?per_page=100" --jq '.artifacts[] | select(.name=="github-pages") | .id' | while read id; do
+            gh api -X DELETE "repos/${{ github.repository }}/actions/artifacts/$id" >/dev/null 2>&1 || true
+          done
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
