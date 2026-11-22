@@ -75,7 +75,7 @@
     var h = document.querySelector('header');
     var want = on() && h && document.getElementById('app') !== null && /(^|\/)(index\.html)?$/.test(location.pathname);
     var ex = document.querySelectorAll('.me-mascot');
-    if(!want){ ex.forEach(function(e){ e.remove(); }); var pl = document.querySelector('.me-pill'); if(pl) pl.remove(); return; }
+    if(!want){ ex.forEach(function(e){ e.remove(); }); var pl = document.querySelector('.me-pill'); if(pl) pl.remove(); document.querySelectorAll('.me-tools').forEach(function(e){ e.remove(); }); return; }
     if(ex.length) return;
     [['me-monkey', '🐒', 'good', 'Monkey'], ['me-donkey', '', 'bad', 'Donkey']].forEach(function(d){
       var b = document.createElement('button'); b.type = 'button'; b.className = 'me-mascot ' + d[0]; b.textContent = d[1]; b.setAttribute('aria-label', d[3]);
@@ -89,6 +89,14 @@
     var pill = document.createElement('button'); pill.type = 'button'; pill.className = 'me-pill'; pill.setAttribute('aria-label', 'Banana Catch game');
     pill.addEventListener('click', function(ev){ ev.stopPropagation(); openGame(); });
     h.appendChild(pill); paintPill();
+    var tools = document.createElement('div'); tools.className = 'me-tools';
+    var snd = document.createElement('button'); snd.type = 'button'; snd.className = 'me-tool'; snd.setAttribute('aria-label', 'Animal sounds');
+    var paintS = function(){ snd.textContent = soundOn() ? '\uD83D\uDD0A' : '\uD83D\uDD07'; };
+    paintS();
+    snd.addEventListener('click', function(ev){ ev.stopPropagation(); window.MEtheme.setSound(!soundOn()); paintS(); if(soundOn()) play('good', true); });
+    var gm = document.createElement('button'); gm.type = 'button'; gm.className = 'me-tool'; gm.textContent = '\uD83C\uDF4C'; gm.setAttribute('aria-label', 'Banana Catch');
+    gm.addEventListener('click', function(ev){ ev.stopPropagation(); openGame(); });
+    tools.appendChild(snd); tools.appendChild(gm); h.appendChild(tools);
   }
 
   var GOOD = /(^|-)(correct|ok|good|right)$/;
@@ -163,8 +171,10 @@
       '.me-g-msg{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;font-size:18px}' +
       '.me-g-h{font-size:34px;font-weight:900}.me-g-b{opacity:.75;font-size:15px}' +
       '.me-g-go{padding:10px 30px;border-radius:999px;border:0;background:#F4C430;color:#2B3A1F;font:800 18px inherit;cursor:pointer}' +
-      '.me-g-item{position:absolute;top:-60px;width:54px;height:54px;font-size:44px;line-height:54px;text-align:center;background:center/contain no-repeat;animation:me-gfall 3s linear forwards;cursor:pointer;touch-action:manipulation}' +
+      '.me-g-item{position:absolute;top:-60px;width:44px;height:44px;font-size:34px;line-height:44px;text-align:center;background:center/contain no-repeat;animation:me-gfall 3s linear forwards;cursor:pointer;touch-action:manipulation}' +
       '@keyframes me-gfall{to{transform:translateY(calc(100vh + 60px))}}' +
+      '.me-g-sway{margin-left:0;animation-name:me-gfall,me-gsway;animation-timing-function:linear,ease-in-out;animation-iteration-count:1,infinite}' +
+      '@keyframes me-gsway{0%,100%{margin-left:-22px}50%{margin-left:22px}}' +
       '.me-g-pop{transition:transform .15s,opacity .15s;opacity:0;scale:1.4}';
     (document.head || document.documentElement).appendChild(st);
   })();
@@ -230,11 +240,11 @@
   /* ---------- Banana Catch (item 2) ---------- */
   function openGame(){
     if(document.getElementById('meGame')) return;
-    var best = 0; try{ best = +localStorage.getItem('me_catch_best') || 0; }catch(e){}
+    var best = 0; try{ best = +localStorage.getItem('me_catch_best2') || 0; }catch(e){}
     var don = ''; var dn = document.querySelector('.me-donkey'); if(dn) don = getComputedStyle(dn).backgroundImage;
     var ov = document.createElement('div'); ov.id = 'meGame'; ov.className = 'me-game';
     ov.innerHTML = '<div class="me-g-bar"><span id="meGS">0</span><span id="meGT">30</span><button type="button" class="me-g-x" aria-label="Close">✕</button></div>' +
-      '<div class="me-g-area" id="meGA"><div class="me-g-msg" id="meGM"><div class="me-g-h">Banana Catch</div><div>Tap 🍌   Avoid the donkey</div><div class="me-g-b">Best: ' + best + '</div><button type="button" class="me-g-go">Start</button></div></div>';
+      '<div class="me-g-area" id="meGA"><div class="me-g-msg" id="meGM"><div class="me-g-h">Banana Catch</div><div>Tap 🍌   Donkey = -5</div><div class="me-g-b">Best: ' + best + '</div><button type="button" class="me-g-go">Start</button></div></div>';
     document.body.appendChild(ov);
     var area = ov.querySelector('#meGA'), msg = ov.querySelector('#meGM'), sEl = ov.querySelector('#meGS'), tEl = ov.querySelector('#meGT');
     var score = 0, left = 30, tick = 0, spawn = 0, run = false;
@@ -243,19 +253,21 @@
     ov.querySelector('.me-g-x').onclick = close;
     function put(){
       if(!run) return;
-      var isD = Math.random() < .2, e = document.createElement('div');
-      e.className = 'me-g-item' + (isD ? ' me-g-d' : '');
-      if(isD){ if(don) e.style.backgroundImage = don; else e.textContent = '🐴'; } else e.textContent = '🍌';
-      e.style.left = (4 + Math.random() * 80) + '%'; e.style.animationDuration = (2.2 + Math.random() * 1.2) + 's';
+      var prog = Math.min(1, (30 - left) / 30);           // 0 -> 1 over the round: it keeps getting faster and meaner
+      var isD = Math.random() < (.26 + prog * .2), e = document.createElement('div');
+      e.className = 'me-g-item' + (isD ? ' me-g-d' : '') + (Math.random() < .45 ? ' me-g-sway' : '');
+      if(isD){ if(don) e.style.backgroundImage = don; else e.textContent = '\uD83D\uDC34'; } else e.textContent = '\uD83C\uDF4C';
+      e.style.left = (4 + Math.random() * 84) + '%';
+      e.style.animationDuration = ((1.25 + Math.random() * .75) * (1 - prog * .4)) + 's';
       e.addEventListener('animationend', function(){ e.remove(); });
       e.addEventListener('pointerdown', function(ev){
         ev.preventDefault(); if(!run || e.dataset.hit) return; e.dataset.hit = 1;
-        if(isD){ score = Math.max(0, score - 3); play('bad', true); e.classList.add('me-g-pop'); }
+        if(isD){ score = Math.max(0, score - 5); play('bad', true); e.classList.add('me-g-pop'); }
         else { score++; e.classList.add('me-g-pop'); }
         sEl.textContent = score; setTimeout(function(){ e.remove(); }, 160);
       });
       area.appendChild(e);
-      spawn = setTimeout(put, 380 + Math.random() * 380);
+      spawn = setTimeout(put, (200 + Math.random() * 260) * (1 - prog * .45));
     }
     var startRound = function(){
       msg.style.display = 'none'; area.querySelectorAll('.me-g-item').forEach(function(x){ x.remove(); });
@@ -264,7 +276,7 @@
         left -= .1; tEl.textContent = Math.max(0, Math.ceil(left));
         if(left <= 0){
           stop(); area.querySelectorAll('.me-g-item').forEach(function(x){ x.remove(); });
-          var nb = score > best; if(nb){ best = score; try{ localStorage.setItem('me_catch_best', best); }catch(e){} play('good', true); }
+          var nb = score > best; if(nb){ best = score; try{ localStorage.setItem('me_catch_best2', best); }catch(e){} play('good', true); }
           msg.innerHTML = '<div class="me-g-h">' + score + ' 🍌</div><div>' + (nb ? 'New best!' : 'Best: ' + best) + '</div><button type="button" class="me-g-go">Again</button>';
           msg.style.display = ''; msg.querySelector('.me-g-go').onclick = startRound;
         }
@@ -300,9 +312,9 @@
 
 
   /* ---------- barn extras (index only) ---------- */
-  var SUBS = ['Eshak approves. Maymun doubts it.', 'Feed the monkey, rest the donkey.', 'Hee-haw for wrong, ooh-ah for right.', 'Clever monkeys, stubborn donkeys, one teacher.',
+  var SUBS = ['xurmatli maymunlar va eshaklar', 'xurmatli maymunlar va eshaklar', 'Eshak approves. Maymun doubts it.', 'Feed the monkey, rest the donkey.', 'Hee-haw for wrong, ooh-ah for right.', 'Clever monkeys, stubborn donkeys, one teacher.',
     'More bananas, less braying.', 'The barn is open. The homework is not.', 'Homework done? The donkey checked.', 'No donkeys were harmed in this lesson.',
-    'Work like a monkey, study like a mule.', 'Today’s forecast: bananas.'];
+    'Work like a monkey, study like a mule.', 'Today’s forecast: bananas.', "The donkey did the reading. The monkey did not.", "Bray if you must. Learn anyway.", "Banana first, grammar second. Actually, grammar.", "Even the donkey knows the past simple.", "A monkey, a donkey and an IELTS exam walk into a barn.", "Stubborn as a donkey, curious as a monkey: perfect students.", "Don’t monkey around. Eshak is watching.", "Straw in the hair is optional. Homework is not.", "The harder you study, the fewer the hee-haws.", "Maymun swings by. Eshak stays put. Both learn.", "Ask the donkey. He has been wrong before too.", "Ooh-ooh, ah-ah: that’s ‘present perfect’ in monkey.", "Today’s homework is brought to you by bananas.", "Tap the monkey. Spare the donkey.", "Every barn has a clever monkey on the roof.", "No bananas for late homework.", "Practise like a donkey: slow, steady, relentless.", "Hay is for donkeys. Vocabulary is for you.", "Mr Eric: part monkey, part donkey, all teacher.", "Be the monkey who read the instructions."];
   function skyKey(){ var h = new Date().getHours(); return h >= 5 && h < 8 ? 'dawn' : h >= 8 && h < 17 ? 'day' : h >= 17 && h < 20 ? 'dusk' : 'night'; }
   function barn(){
     if(!document.body) return;

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261122080659">
+<meta name="app-build" content="20261122164617">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -6578,55 +6578,84 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     :root{ --theme-fade: 0s !important; }
   }
 
-  /* - Photo lightbox - */
+  /* - Photo lightbox - (swipe-only; X is the only way out) */
   .lightbox{
     display:none;
     position:fixed;
     inset:0;
-    background:rgba(10,6,4,.94);
+    background:rgba(10,6,4,.96);
     z-index:9999;
+    opacity:0;
+    transition:opacity .2s ease;
+    overflow:hidden;
+    touch-action:none;
+    overscroll-behavior:contain;
+    -webkit-user-select:none; user-select:none;
   }
   .lightbox.active{display:block;}
+  .lightbox.show{opacity:1;}
   .lightbox-close{
     position:fixed;
-    top:16px;
-    right:16px;
+    top:calc(env(safe-area-inset-top, 0px) + 14px);
+    right:14px;
     z-index:10001;
-    width:44px;
-    height:44px;
+    width:48px;
+    height:48px;
     border-radius:50%;
-    background:rgba(255,255,255,.15);
+    background:rgba(255,255,255,.18);
     color:#fff;
     border:none;
-    font-size:20px;
+    font-size:22px;
     display:flex;
     align-items:center;
     justify-content:center;
     cursor:pointer;
   }
+  .lb-count{
+    position:fixed; left:50%; bottom:calc(env(safe-area-inset-bottom, 0px) + 18px); transform:translateX(-50%);
+    z-index:10001; color:rgba(255,255,255,.8); font:700 13px Nunito,system-ui,sans-serif;
+    padding:4px 12px; border-radius:999px; background:rgba(0,0,0,.35); pointer-events:none;
+  }
   .lightbox-track{
     display:flex;
     height:100%;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
+    width:100%;
+    will-change:transform;
+    transition:transform .32s cubic-bezier(.22,.8,.3,1);
+    touch-action:none;
   }
+  .lightbox-track.dragging{ transition:none; }
   .lightbox-slide{
     flex:0 0 100%;
-    scroll-snap-align:center;
+    width:100%;
+    position:relative;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:0 20px;
+    padding:0 12px;
     box-sizing:border-box;
   }
   .lightbox-slide img{
     max-width:100%;
-    max-height:88vh;
+    max-height:86vh;
+    max-height:86dvh;
     object-fit:contain;
-    border-radius:12px;
+    border-radius:10px;
     display:block;
+    opacity:0;
+    transition:opacity .25s ease;
+    -webkit-user-drag:none; user-drag:none; pointer-events:none;
   }
+  .lightbox-slide.loaded img{ opacity:1; }
+  .lb-spin{
+    position:absolute; left:50%; top:50%; width:34px; height:34px; margin:-17px 0 0 -17px;
+    border:3px solid rgba(255,255,255,.2); border-top-color:#fff; border-radius:50%;
+    animation:lbSpin .8s linear infinite;
+  }
+  .lightbox-slide.loaded .lb-spin{ display:none; }
+  @keyframes lbSpin{ to{ transform:rotate(360deg); } }
+  .photo-item img{ opacity:0; transition:opacity .3s ease; }
+  .photo-item img.loaded{ opacity:1; }
   .photo-caption{
     padding:8px 10px 10px 10px;
     font-size:12px;
@@ -7598,6 +7627,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     content:'\1F319'; position:absolute; inset:10px 62px auto auto; z-index:1; width:auto; height:auto; font-size:24px; background:none; opacity:.9;
   }
   /* tappable mascots (real buttons, injected by me-theme.js): monkey left, donkey right */
+  .me-tools{ position:absolute; z-index:3; top:10px; left:10px; display:flex; gap:8px; }
+  .me-tool{ width:36px; height:36px; border-radius:50%; border:2px solid rgba(255,235,170,.55); background:rgba(0,0,0,.3); color:#fff8e1; font-size:18px; line-height:1; padding:0; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+  .me-tool:active{ transform:scale(.9); }
   .me-mascot{ position:absolute; z-index:3; bottom:7px; top:auto; width:46px; height:46px; padding:0; border:0; background:none; cursor:pointer; -webkit-tap-highlight-color:transparent; font-size:36px; line-height:46px; text-align:center; filter:drop-shadow(0 2px 0 rgba(0,0,0,.22)); transition:transform .15s; }
   .me-mascot:active{ transform:scale(.88); }
   .me-monkey{ left:10px; transform-origin:50% -10px; }
@@ -7664,8 +7696,6 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   .me-paw{ position:fixed; z-index:9996; pointer-events:none; font-size:20px; opacity:0; animation:me-paw 3.2s ease-out forwards; }
   @keyframes me-paw{ 0%{ opacity:0; } 15%{ opacity:.55; } 70%{ opacity:.45; } 100%{ opacity:0; } }
   @media (prefers-reduced-motion:reduce){ .me-flies, .me-doors, .me-paw, .me-lantern{ display:none !important; } .me-mascot.me-cheer{ animation:none; } }
-  .me-sound-row{ display:block; margin:10px auto 2px; padding:9px 18px; border-radius:999px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:inherit; font-weight:700; font-size:14px; cursor:pointer; }
-  .me-sound-row[hidden]{ display:none; }
   /* ===== END M&E ===== */
   /* ===== CHALKBOARD (15 Nov 2026): slate board, wooden frame, chalk handwriting, chalk-drawn tiles, margin doodles, header ledge with the date in chalk.
      All static (no endless animation). Effects that run once: heading write-on, eraser wipe between pages, dust puff on tap (see JS block 'CHALKBOARD FX').
@@ -9939,7 +9969,7 @@ const STUDENTS_OF_WEEK = [
   // { name:"Student Name", note:"Why they earned it", photoUrl:"", date:"dd/mm/yyyy", dateLabel:"optional - shown instead of date if given" },
   { name:"Daniyar \"Tofu Bear\" Muxamediyarov", note:"For your unwavering dedication to your work, setting and maintaining high standards for yourself, and fearlessness in the face of difficulty.", photoUrl:"photos/superstar-muxamediyarov-daniyar.jpeg", date:"20/11/2026", dateLabel:"November, week 3" },
   { name:"Kulina \"Gimli\" Idelya", note:"For being an inspiration and help to all those around you, your contagious determination and kind-heartedness, and for never failing to make me smile.", photoUrl:"photos/superstar-kulina-idelya-gimli.jpeg", date:"14/11/2026", dateLabel:"November, week 2" },
-  { name:"Farmonov Shomuhammad", note:"For your remarkable dedication to academic and disciplinary improvement, your initiative, and hard work.", photoUrl:"photos/superstar-farmonov-shomuhammad.jpeg", date:"03/11/2026", dateLabel:"November, week 1" },
+  { name:"Farmonov \"Big Ben\" Shomuhammad", note:"For your remarkable dedication to academic and disciplinary improvement, your initiative, and hard work.", photoUrl:"photos/superstar-farmonov-shomuhammad.jpeg", date:"03/11/2026", dateLabel:"November, week 1" },
   { name:"Pulatov Shakhriyor", note:"For seeing what needed to be done and doing it without being asked, treating your classmates' problems as top priority to be solved over all else, and consistency in your academic work.", photoUrl:"photos/superstar-pulatov-shakhriyor.jpeg", date:"27/10/2026", dateLabel:"October, week 4" },
   { name:"Nazimxanova Farzona", note:"For standing up for yourself with courage and integrity, even when it meant standing against those closest to you. Disciplined, punctual and responsible, and never afraid to try something new.", photoUrl:"photos/superstar-nazimxanova-farzona.jpeg", date:"20/10/2026", dateLabel:"October, week 3" },
   { name:"Aliakbarova Sevinch", note:"For your discipline in bettering yourself every single day, your organisation, your honesty in your work and in your character, and your refusal to give up when things get difficult.", photoUrl:"photos/superstar-aliakbarova-sevinch.jpeg", date:"13/10/2026", dateLabel:"October, week 2" },
@@ -12324,13 +12354,13 @@ let SUBMITTED_PHOTOS = [];
 // Photo Library - selfies, memes, class photos. Only added when Eric sends them; each image is
 // uploaded to the repo (in a /photos folder) and referenced here by its relative path.
 const PHOTOS = [
-  { url:"photos/meme-crocodile.jpeg", caption:"See you later, alligator", date:"2026-07-19" },
-  { url:"photos/meme-bears.jpeg", caption:"Bears. B.", date:"2026-07-19" },
-  { url:"photos/meme-bobby.jpeg", caption:"Bobby has more money", date:"2026-07-19" },
-  { url:"photos/meme-ambulance.jpeg", caption:"You're an ambulance", date:"2026-07-19" },
-  { url:"photos/monkey-selfie-01.png", caption:"First upload - testing, testing", date:"2026-07-19" },
-  { url:"photos/class-horse.jpeg", caption:"Class, with a horse", date:"2026-10-30" },
-  { url:"photos/class-grammar-book.jpeg", caption:"Grammar, serious business", date:"2026-10-30" },
+  { url:"photos/meme-crocodile.jpeg", thumb:"photos/thumbs/meme-crocodile.jpg", full:"photos/full/meme-crocodile.jpg", caption:"See you later, alligator", date:"2026-07-19" },
+  { url:"photos/meme-bears.jpeg", thumb:"photos/thumbs/meme-bears.jpg", full:"photos/full/meme-bears.jpg", caption:"Bears. B.", date:"2026-07-19" },
+  { url:"photos/meme-bobby.jpeg", thumb:"photos/thumbs/meme-bobby.jpg", full:"photos/full/meme-bobby.jpg", caption:"Bobby has more money", date:"2026-07-19" },
+  { url:"photos/meme-ambulance.jpeg", thumb:"photos/thumbs/meme-ambulance.jpg", full:"photos/full/meme-ambulance.jpg", caption:"You're an ambulance", date:"2026-07-19" },
+  { url:"photos/monkey-selfie-01.png", thumb:"photos/thumbs/monkey-selfie-01.jpg", full:"photos/full/monkey-selfie-01.jpg", caption:"First upload - testing, testing", date:"2026-07-19" },
+  { url:"photos/class-horse.jpeg", thumb:"photos/thumbs/class-horse.jpg", full:"photos/full/class-horse.jpg", caption:"Class, with a horse", date:"2026-10-30" },
+  { url:"photos/class-grammar-book.jpeg", thumb:"photos/thumbs/class-grammar-book.jpg", full:"photos/full/class-grammar-book.jpg", caption:"Grammar, serious business", date:"2026-10-30" },
 ];
 
 // Sports - league tables. As of build time (19 Jul 2026), only the Uzbek Super League is
@@ -35086,19 +35116,13 @@ function viewPhotoLibrary(){
   }
   const grid = `<div class="photo-grid">${sorted.map((p,i) => `
     <button class="photo-item" data-index="${i}">
-      <img src="${p.url}" alt="${escapeHtml(p.caption || 'Photo')}" loading="lazy">
+      <img src="${p.thumb || p.url}" alt="${escapeHtml(p.caption || 'Photo')}" ${i < 8 ? '' : 'loading="lazy"'} decoding="async" onload="this.classList.add('loaded')" onerror="this.classList.add('loaded')">
     </button>
   `).join('')}</div>`;
-  // Real bug fixed here: every slide previously carried a real src="", so
-  // opening the lightbox requested every full-resolution photo in the whole
-  // library at once, regardless of which one was actually being viewed -
-  // this is exactly what was causing the slow "LimeWire-style" loading.
-  // Now slides only carry data-src; wirePhotoLightbox() populates the real
-  // src for the current slide plus its immediate neighbors only, and swaps
-  // it in dynamically as the user navigates, so at most 3 full-size images
-  // are ever loaded at a time instead of the entire library.
+  // Slides carry only data-src/data-thumb at render time; wirePhotoLightbox() loads the one being
+  // viewed first (thumb instantly, then full size), its neighbours next, then the rest one at a time.
   const slides = sorted.map(p => `
-    <div class="lightbox-slide"><img data-src="${p.url}" alt="${escapeHtml(p.caption || 'Photo')}"></div>
+    <div class="lightbox-slide"><div class="lb-spin"></div><img data-src="${p.full || p.url}" data-thumb="${p.thumb || ''}" alt="${escapeHtml(p.caption || 'Photo')}" draggable="false"></div>
   `).join('');
   return `
     <a class="back-link" href="#">← Back to Mr Eric's Lounge</a>
@@ -35107,7 +35131,8 @@ function viewPhotoLibrary(){
       ${grid}
     </section>
     <div class="lightbox" id="photoLightbox">
-      <button class="lightbox-close" id="lightboxClose">✕</button>
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+      <div class="lb-count" id="lbCount"></div>
       <div class="lightbox-track" id="lightboxTrack">${slides}</div>
     </div>
     ${uploadWidget}
@@ -35159,6 +35184,14 @@ function wirePhotoUpload(container){
     }
   });
 }
+const PHOTO_CACHE_KEY = 'submittedPhotosCache_v1';
+(function primeSubmittedPhotos(){
+  // Reuse last visit's list straight away so the library renders ONCE, complete, instead of in two batches.
+  try{
+    const c = JSON.parse(localStorage.getItem(PHOTO_CACHE_KEY) || 'null');
+    if(c && Array.isArray(c.items) && Date.now() - c.at < 5 * 24 * 3600 * 1000){ SUBMITTED_PHOTOS = c.items; }
+  }catch(e){}
+})();
 async function loadSubmittedPhotos(){
   await whenSupabase();
   if(!supabaseClient) return;
@@ -35169,25 +35202,32 @@ async function loadSubmittedPhotos(){
     });
     if(error || !files) return;
     const realFiles = files.filter(f => f.name && !f.name.startsWith('.'));
-    const withUrls = await Promise.all(realFiles.map(async f=>{
-      const { data: signed } = await supabaseClient.storage.from(SUPABASE_BUCKET).createSignedUrl('approved/' + f.name, 60 * 60 * 24 * 7);
-      if(!signed) return null;
+    const sameSet = (a, b) => a.length === b.length && a.every((x, i) => (x.key || x.url) === (b[i].key || b[i].url));
+    const prevKeys = SUBMITTED_PHOTOS.map(x => x.key || '');
+    const keys = realFiles.map(f => f.name + '|' + (f.created_at || ''));
+    // unchanged set and the cached URLs are still fresh: nothing to do, nothing re-renders
+    if(SUBMITTED_PHOTOS.length === keys.length && SUBMITTED_PHOTOS.length > 0 && keys.every((k, i) => k === prevKeys[i])) return;
+    let signed = [];
+    if(realFiles.length){
+      const r = await supabaseClient.storage.from(SUPABASE_BUCKET).createSignedUrls(realFiles.map(f => 'approved/' + f.name), 60 * 60 * 24 * 7);
+      signed = (r && r.data) || [];
+    }
+    const withUrls = realFiles.map((f, i) => {
+      const u = signed[i] && signed[i].signedUrl;
+      if(!u) return null;
       return {
-        url: signed.signedUrl,
+        key: keys[i],
+        url: u,
         caption: "Shared by a student",
         date: (f.created_at || '').slice(0,10) || new Date().toISOString().slice(0,10)
       };
-    }));
-    SUBMITTED_PHOTOS = withUrls.filter(Boolean);
-    // Real bug fixed here: this checked hash === 'photos' and re-rendered via
-    // viewPhotos() - but 'photos' is a DIFFERENT page (the Superstars/Photo
-    // Library menu). The actual Photo Library grid lives at 'photo-library'
-    // via viewPhotoLibrary(). Because of the mismatch, submitted photos were
-    // finishing their fetch in the background but never actually appearing on
-    // screen - only a fresh navigation away and back would show them, which is
-    // exactly the "sometimes they load late, sometimes they don't" symptom.
+    }).filter(Boolean);
+    SUBMITTED_PHOTOS = withUrls;
+    try{ localStorage.setItem(PHOTO_CACHE_KEY, JSON.stringify({ at: Date.now(), items: withUrls })); }catch(e){}
+    // Only repaint when it can't disturb anything: the viewer is closed.
     const hash = location.hash.replace(/^#/, '');
-    if(hash.split('/')[0] === 'photo-library' && SUBMITTED_PHOTOS.length > 0){
+    const lb = document.getElementById('photoLightbox');
+    if(hash.split('/')[0] === 'photo-library' && withUrls.length > 0 && !(lb && lb.classList.contains('active'))){
       const app = document.getElementById('app');
       app.innerHTML = viewPhotoLibrary();
       wirePhotoLightbox(app);
@@ -35199,81 +35239,129 @@ function wirePhotoLightbox(container){
   const lightbox = container.querySelector('#photoLightbox');
   const track = container.querySelector('#lightboxTrack');
   const closeBtn = container.querySelector('#lightboxClose');
+  const countEl = container.querySelector('#lbCount');
   if(!lightbox || !track) return;
-  let currentIndex = 0;
-  // Real bug found and fixed: swiping between slides is native browser scroll-
-  // snap (see .lightbox-track/.lightbox-slide CSS) - there is no scroll listener
-  // on the track, so a touch swipe never runs any JS at all. The previous
-  // approach only ever promoted data-src -> src for the CURRENT slide's
-  // immediate neighbours, and only from goToSlide() (keyboard/click navigation).
-  // A native swipe past that one neighbour landed on a slide that had never been
-  // given a real src - an empty <img>, showing the dimmed backdrop through it
-  // until the user gave up and closed it. Loading every slide's real src the
-  // moment the lightbox actually opens (not before - the slides still carry
-  // only data-src at page-render time, so the Photo Library page itself never
-  // pays for this) fixes it: every swipe, in either direction, is instant.
-  function loadAll(){
-    for(let i = 0; i < track.children.length; i++){
-      const img = track.children[i].querySelector('img');
-      if(img && img.dataset.src){
-        img.src = img.dataset.src;
-        delete img.dataset.src;
+  const slides = Array.from(track.children);
+  const N = slides.length;
+  let idx = 0, queueRunning = false;
+  const state = slides.map(()=> 0);   // 0 = not requested, 1 = loading, 2 = done
+
+  // grid thumbnails: fade in once decoded (also covers already-cached images)
+  container.querySelectorAll('.photo-item img').forEach(im=>{ if(im.complete) im.classList.add('loaded'); });
+
+  function loadSlide(i){
+    if(i < 0 || i >= N || state[i]) return Promise.resolve();
+    state[i] = 1;
+    const slide = slides[i], img = slide.querySelector('img');
+    const thumb = img.dataset.thumb, full = img.dataset.src;
+    return new Promise(res=>{
+      const done = ()=>{ state[i] = 2; slide.classList.add('loaded'); res(); };
+      if(thumb && thumb !== full){
+        img.src = thumb;                                  // instant: already cached by the grid
+        img.onload = ()=>{ slide.classList.add('loaded'); img.onload = null; };
+        const big = new Image();
+        big.onload = big.onerror = ()=>{ if(big.naturalWidth){ const go = ()=>{ img.src = full; done(); }; (big.decode ? big.decode().then(go, go) : go()); } else done(); };
+        big.src = full;
+      }else{
+        img.onload = img.onerror = ()=>{ img.onload = img.onerror = null; done(); };
+        img.src = full;
+        if(img.complete && img.naturalWidth) done();
       }
-    }
+    });
   }
-  function openAt(idx){
-    currentIndex = idx;
+  // nearest-first, one at a time, never in a burst
+  function nextToLoad(){
+    for(let d = 0; d < N; d++){
+      if(idx + d < N && !state[idx + d]) return idx + d;
+      if(idx - d >= 0 && !state[idx - d]) return idx - d;
+    }
+    return -1;
+  }
+  function pump(){
+    if(queueRunning) return;
+    queueRunning = true;
+    (async function run(){
+      let j;
+      while(lightbox.classList.contains('active') && (j = nextToLoad()) !== -1){ await loadSlide(j); }
+      queueRunning = false;
+    })();
+  }
+  function paint(animated){
+    track.classList.remove('dragging');
+    track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+    if(countEl) countEl.textContent = (idx + 1) + ' / ' + N;
+    loadSlide(idx); loadSlide(idx + 1); loadSlide(idx - 1);
+    pump();
+  }
+  function openAt(i){
+    idx = Math.max(0, Math.min(N - 1, i));
+    track.style.transition = 'none';
     lightbox.classList.add('active');
     document.body.style.overflow = 'hidden';
-    loadAll();
-    const slide = track.children[idx];
-    if(slide) slide.scrollIntoView({ block:'nearest', inline:'center' });
+    paint();
+    void lightbox.offsetWidth;
+    track.style.transition = '';
+    lightbox.classList.add('show');
+    window.addEventListener('hashchange', ()=>{ document.body.style.overflow = ''; }, { once:true });
   }
   function closeLightbox(){
-    lightbox.classList.remove('active');
+    lightbox.classList.remove('show');
     document.body.style.overflow = '';
-  }
-  function goToSlide(idx){
-    const clamped = Math.max(0, Math.min(track.children.length - 1, idx));
-    currentIndex = clamped;
-    const slide = track.children[clamped];
-    if(slide) slide.scrollIntoView({ block:'nearest', inline:'center', behavior:'smooth' });
+    setTimeout(()=>{ lightbox.classList.remove('active'); }, 210);
   }
   container.querySelectorAll('.photo-item').forEach(btn=>{
     btn.addEventListener('click', ()=> openAt(parseInt(btn.dataset.index, 10)));
   });
-  closeBtn.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+  // the ONLY way out is the X button: no backdrop tap, no swipe-down, no Escape
+  closeBtn.addEventListener('click', (e)=>{ e.stopPropagation(); closeLightbox(); });
 
-  // Real bug found and fixed: this lightbox had NO keyboard handling at all -
-  // not arrow keys, not space, not even Escape (the earlier global Escape
-  // handler covers stories/popups/Arsenal detail but was never extended to
-  // this lightbox, since it was built with its own separate open/close
-  // functions). Scoped to only act while this specific lightbox is open, so
-  // it doesn't interfere with keyboard use elsewhere on the page.
+  // desktop: arrow keys move between photos
   document.addEventListener('keydown', (e)=>{
-    if(!lightbox.classList.contains('active')) return;
-    if(e.key === 'Escape'){ e.preventDefault(); closeLightbox(); }
-    else if(e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Spacebar'){ e.preventDefault(); goToSlide(currentIndex + 1); }
-    else if(e.key === 'ArrowLeft'){ e.preventDefault(); goToSlide(currentIndex - 1); }
+    if(!lightbox.isConnected || !lightbox.classList.contains('active')) return;
+    if(e.key === 'ArrowRight'){ e.preventDefault(); idx = Math.min(N - 1, idx + 1); paint(); }
+    else if(e.key === 'ArrowLeft'){ e.preventDefault(); idx = Math.max(0, idx - 1); paint(); }
   });
 
-  let touchStartY = 0, touchStartX = 0, touching = false;
-  lightbox.addEventListener('touchstart', (e)=>{
-    if(e.touches.length !== 1) return;
-    touchStartY = e.touches[0].clientY;
-    touchStartX = e.touches[0].clientX;
-    touching = true;
-  }, { passive:true });
-  lightbox.addEventListener('touchend', (e)=>{
-    if(!touching) return;
-    touching = false;
-    const dy = e.changedTouches[0].clientY - touchStartY;
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if(Math.abs(dy) > 70 && Math.abs(dy) > Math.abs(dx)){
-      closeLightbox();
+  // swipe: finger-following, horizontal only (vertical movement is ignored completely)
+  let down = false, locked = '', sx = 0, sy = 0, lx = 0, lt = 0, vx = 0, pid = null;
+  track.addEventListener('pointerdown', (e)=>{
+    if(down) return;
+    down = true; locked = ''; sx = lx = e.clientX; sy = e.clientY; lt = performance.now(); vx = 0; pid = e.pointerId;
+    try{ track.setPointerCapture(pid); }catch(_){}
+  });
+  track.addEventListener('pointermove', (e)=>{
+    if(!down || e.pointerId !== pid) return;
+    const dx = e.clientX - sx, dy = e.clientY - sy;
+    if(!locked){
+      if(Math.abs(dx) < 9 && Math.abs(dy) < 9) return;
+      locked = Math.abs(dx) > Math.abs(dy) * 1.2 ? 'x' : 'y';
+      if(locked === 'x') track.classList.add('dragging');
     }
-  }, { passive:true });
+    if(locked !== 'x') return;
+    const now = performance.now(), dt = now - lt;
+    if(dt > 0){ vx = 0.8 * vx + 0.2 * ((e.clientX - lx) / dt); }
+    lx = e.clientX; lt = now;
+    let off = dx;
+    if((idx === 0 && dx > 0) || (idx === N - 1 && dx < 0)) off = dx * 0.28;   // rubber-band at the ends
+    track.style.transform = 'translateX(calc(' + (-idx * 100) + '% + ' + off + 'px))';
+  });
+  function end(e){
+    if(!down || (e && e.pointerId !== pid)) return;
+    down = false;
+    try{ track.releasePointerCapture(pid); }catch(_){}
+    if(locked === 'x'){
+      const dx = lx - sx, w = lightbox.clientWidth || 360;
+      if(dx < -w * 0.2 || vx < -0.45) idx = Math.min(N - 1, idx + 1);
+      else if(dx > w * 0.2 || vx > 0.45) idx = Math.max(0, idx - 1);
+    }
+    paint();
+    locked = '';
+  }
+  track.addEventListener('pointerup', end);
+  track.addEventListener('pointercancel', end);
+  track.addEventListener('lostpointercapture', end);
+  // belt and braces: no browser-level gestures on the viewer
+  lightbox.addEventListener('touchmove', (e)=>{ e.preventDefault(); }, { passive:false });
 }
 
 // Full names that reliably clip to a second line in the tight table/match-row layout.
@@ -39476,11 +39564,17 @@ function dcBuild(day){
 }
 window.DAILY = { dayKey: dcDayKey, build: dcBuild, nameOk: dcNameOk, order: DC_ORDER, orderFor: dcOrderFor };
 
+function dcCookieGet(){ try{ var m = document.cookie.match(/(?:^|; )dcS=([^;]*)/); return m ? JSON.parse(decodeURIComponent(m[1])) : null; }catch(e){ return null; } }
 function dcLoad(){
   try{ var s = JSON.parse(localStorage.getItem(DC_KEY) || 'null'); if(s && s.day === dcDayKey()) return s; }catch(e){}
+  /* backup copy in a cookie: clearing localStorage alone does not give a fresh attempt */
+  var c = dcCookieGet(); if(c && c.day === dcDayKey()) return c;
   return null;
 }
-function dcSave(s){ try{ localStorage.setItem(DC_KEY, JSON.stringify(s)); }catch(e){} }
+function dcSave(s){
+  try{ localStorage.setItem(DC_KEY, JSON.stringify(s)); }catch(e){}
+  try{ document.cookie = 'dcS=' + encodeURIComponent(JSON.stringify(s)) + '; path=/; max-age=172800; SameSite=Lax'; }catch(e){}
+}
 function dcDevice(){
   try{ var d = localStorage.getItem('dcDevice'); if(!d){ d = ''; var c = 'abcdefghijklmnopqrstuvwxyz0123456789'; for(var i = 0; i < 20; i++) d += c[Math.floor(Math.random() * c.length)]; localStorage.setItem('dcDevice', d); } return d; }catch(e){ return 'nodevice' + Date.now(); }
 }
@@ -39503,7 +39597,7 @@ TOOL_MOUNT['daily-challenge'] = function(app){
     var h = head();
     if(S && S.done){ return results(); }
     var started = S && S.res && S.res.length;
-    h += '<div class="dc-card"><p>Ten games, one hard question each. Most correct wins, fastest breaks ties. One go a day, resets at 23:59.</p>' +
+    h += '<div class="dc-card"><p>Ten games, one hard question each. Most correct wins, fastest breaks ties. One go a day, resets at 23:59. Leave a question and it counts as wrong.</p>' +
          '<button class="v-btn" id="dcStart" type="button">' + (started ? 'Continue' : 'Start') + '</button></div>';
     h += '<div id="dcBoard"></div>';
     app.innerHTML = h;
@@ -39512,7 +39606,15 @@ TOOL_MOUNT['daily-challenge'] = function(app){
   }
   function begin(){
     if(!S){ S = { day: day, idx: 0, res: [], qStart: 0, done: false, posted: false, hang: [] }; }
-    S.qStart = S.qStart || Date.now();
+    /* a question that was already on screen when the app was left is lost: no second look, no going back */
+    if(S.qStart && !S.done){
+      S.res.push({ k: ORD[S.idx], ok: false, ms: limit(ORD[S.idx]) });
+      S.idx++; S.qStart = 0; S.hang = [];
+      if(S.idx >= 10){ S.done = true; }
+      dcSave(S);
+      if(S.done){ results(); return; }
+    }
+    S.qStart = Date.now();
     dcSave(S); question();
   }
   function board(){
@@ -40995,8 +41097,6 @@ const COMPLIMENTS = [
             </button>
           `).join('')}
         </div>
-        <button type="button" class="me-sound-row" id="meSoundRow" hidden></button>
-        <button type="button" class="me-sound-row" id="meGameRow" hidden>\uD83C\uDF4C Play Banana Catch</button>
       </div>
     `;
     backdrop.addEventListener('click', (e)=>{
@@ -41017,25 +41117,6 @@ const COMPLIMENTS = [
     themePickerBackdrop.querySelectorAll('[data-theme-key]').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.themeKey === currentKey);
     });
-    const meRow = themePickerBackdrop.querySelector('#meSoundRow');
-    if(meRow){
-      const isMe = currentKey === 'me' || currentKey === 'dme';
-      meRow.hidden = !isMe;
-      const ambRow = themePickerBackdrop.querySelector('#meAmbRow'), gameRow = themePickerBackdrop.querySelector('#meGameRow');
-      if(ambRow){
-        ambRow.hidden = !isMe;
-        const paintA = () => { ambRow.textContent = (window.MEtheme && MEtheme.ambOn && MEtheme.ambOn()) ? '\uD83C\uDF3F Ambience: on' : '\uD83C\uDF3F Ambience: off'; };
-        paintA();
-        ambRow.onclick = () => { if(window.MEtheme && MEtheme.setAmb){ MEtheme.setAmb(!MEtheme.ambOn()); paintA(); } };
-      }
-      if(gameRow){
-        gameRow.hidden = !isMe;
-        gameRow.onclick = () => { if(typeof closeThemePicker === 'function') closeThemePicker(); if(window.MEgame) MEgame(); };
-      }
-      const paint = () => { meRow.textContent = (window.MEtheme && MEtheme.soundOn() ? '\uD83D\uDD0A Animal sounds: on' : '\uD83D\uDD07 Animal sounds: off'); };
-      paint();
-      meRow.onclick = () => { if(window.MEtheme){ MEtheme.setSound(!MEtheme.soundOn()); paint(); if(MEtheme.soundOn() && window.MEplay) MEplay('good'); } };
-    }
   }
   function openThemePicker(){
     if(!themePickerBackdrop) themePickerBackdrop = buildThemePicker();
@@ -41612,6 +41693,7 @@ requestAnimationFrame(syncTabBarHeight); // catch any late font-load reflow
 
   document.addEventListener('touchstart', (e)=>{
     if(refreshing || e.touches.length !== 1 || window.scrollY > 0) return;
+    if(document.querySelector('.lightbox.active, .me-game')) return;   // never pull-to-refresh under a full-screen viewer/game
     startY = e.touches[0].clientY;
     pulling = true;
   }, { passive:true });
