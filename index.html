@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261122070456">
+<meta name="app-build" content="20261122071242">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7556,13 +7556,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
      Static and cheap: gradients + emoji only, one short swing on load. Bananas replace XP (lounge-core.js via me-theme.js),
      answer sounds live in me-theme.js. To revert: delete from here to 'END M&E', remove 'me'/'dme' from THEME_SWATCHES,
      buildThemeOrder, applyThemeState's class list (index + every sub-page USER_THEME_KEYS), the picker sound row, and me-theme.js. ===== */
-  body.usertheme-me:not(.dark-mode){
-    --cream:#EAF2D3; --cream-2:#DCE8B8; --card:#FBFDF1;
-    --ink:#27361C; --ink-solid:#27361C; --ink-soft:#566838;
-    --coral:#3E8E4A; --coral-dark:#2C6B37; --gold:#F4C430; --teal:#B5763A;
-    --line:rgba(62,142,74,.30); --board-bg:rgba(251,253,241,.92);
-    background-color:#EAF2D3;
-  }
+  
   body.usertheme-dme.dark-mode{
     --cream:#2A1D14; --cream-2:#1F150E; --card:#3A291C;
     --ink:#F6E8CC; --ink-solid:#F6E8CC; --ink-soft:#D2B68B;
@@ -7570,17 +7564,9 @@ body.usertheme-vintage:not(.dark-mode) header::before{
     --line:rgba(224,150,63,.36); --board-bg:rgba(42,29,20,.92);
     background-color:#2A1D14;
   }
-  body.usertheme-me:not(.dark-mode) .aurora-layer, body.usertheme-dme.dark-mode .aurora-layer{ opacity:0; }
+   body.usertheme-dme.dark-mode .aurora-layer{ opacity:0; }
   /* background: soft leaves (day) / barn planks with a lantern glow (night) */
-  body.usertheme-me:not(.dark-mode)::before{
-    content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
-    background:
-      radial-gradient(circle at 12% 18%, rgba(62,142,74,.10) 0 46px, transparent 47px),
-      radial-gradient(circle at 78% 30%, rgba(62,142,74,.08) 0 64px, transparent 65px),
-      radial-gradient(circle at 36% 78%, rgba(244,196,48,.12) 0 52px, transparent 53px),
-      radial-gradient(circle at 90% 88%, rgba(62,142,74,.09) 0 58px, transparent 59px),
-      linear-gradient(180deg, #F1F7DE 0%, #E3EEC6 100%);
-  }
+  
   body.usertheme-dme.dark-mode::before{
     content:''; position:fixed; inset:0; z-index:-1; pointer-events:none;
     background:
@@ -7589,33 +7575,23 @@ body.usertheme-vintage:not(.dark-mode) header::before{
       linear-gradient(180deg, #33231A 0%, #231810 100%);
   }
   /* header: leafy green band (day) / dark planks with hay edge (night) */
-  body.usertheme-me:not(.dark-mode) header{
-    background:linear-gradient(180deg,#3E8E4A 0%,#2F7A3F 100%); border-bottom:5px solid #F4C430;
-  }
+  
   body.usertheme-dme.dark-mode header{
     background:linear-gradient(180deg,#43301F 0%,#2E2015 100%); border-bottom:5px solid #C99A4A;
   }
-  body.usertheme-me:not(.dark-mode) header, body.usertheme-me:not(.dark-mode) header *,
+  
   body.usertheme-dme.dark-mode header, body.usertheme-dme.dark-mode header *{ text-shadow:none; }
-  body.usertheme-me:not(.dark-mode) header .title, body.usertheme-me:not(.dark-mode) header .title *,
-  body.usertheme-me:not(.dark-mode) header .subtitle{ color:#FFFBE6 !important; }
   body.usertheme-dme.dark-mode header .title, body.usertheme-dme.dark-mode header .title *,
   body.usertheme-dme.dark-mode header .subtitle{ color:#F6E8CC !important; }
-  body.usertheme-me:not(.dark-mode) header .search-icon-btn, body.usertheme-me:not(.dark-mode) header .search-icon-btn *,
+  
   body.usertheme-dme.dark-mode header .search-icon-btn, body.usertheme-dme.dark-mode header .search-icon-btn *{ color:#FFFBE6 !important; }
-  body.usertheme-me:not(.dark-mode) header .flag-emblem, body.usertheme-dme.dark-mode header .flag-emblem{ display:none; }
-  body.usertheme-me:not(.dark-mode) .title, body.usertheme-dme.dark-mode .title,
-  body.usertheme-me:not(.dark-mode) .section-head h2, body.usertheme-dme.dark-mode .section-head h2,
-  body.usertheme-me:not(.dark-mode) #app h2, body.usertheme-dme.dark-mode #app h2{
+   body.usertheme-dme.dark-mode header .flag-emblem{ display:none; }
+   body.usertheme-dme.dark-mode .title, body.usertheme-dme.dark-mode .section-head h2, body.usertheme-dme.dark-mode #app h2{
     font-family:'Baloo 2','Nunito',system-ui,sans-serif !important; letter-spacing:.01em;
   }
   /* the mascots: monkey swinging from a vine (day), donkey peeking over the fence with the moon (night) */
-  body.usertheme-me:not(.dark-mode) header::before, body.usertheme-dme.dark-mode header::before{
+   body.usertheme-dme.dark-mode header::before{
     content:''; position:absolute; inset:auto; z-index:1; pointer-events:none; background:none; opacity:1; display:block;
-  }
-  body.usertheme-me:not(.dark-mode) header::before{ content:none; }
-  body.usertheme-me:not(.dark-mode) header::after{
-    content:'\1F33F  \1F34C  \1F33F'; position:absolute; inset:auto 12px 4px auto; z-index:1; width:auto; height:auto; font-size:16px; letter-spacing:6px; opacity:.85; background:none;
   }
   body.usertheme-dme.dark-mode header::before{ content:none; }
   body.usertheme-dme.dark-mode header::after{
@@ -7630,26 +7606,34 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   @keyframes me-boing{ 0%{ transform:rotate(0) scale(1); } 20%{ transform:rotate(-16deg) scale(1.18); } 45%{ transform:rotate(12deg) scale(1.1); } 70%{ transform:rotate(-6deg); } 100%{ transform:rotate(0) scale(1); } }
   @media (prefers-reduced-motion:reduce){ .me-mascot.me-boing{ animation:none; } }
   @keyframes me-swing{ 0%{ transform:rotate(-14deg); } 35%{ transform:rotate(11deg); } 65%{ transform:rotate(-6deg); } 100%{ transform:rotate(0); } }
-  @media (prefers-reduced-motion:reduce){ body.usertheme-me:not(.dark-mode) header::before{ animation:none; } }
   /* tiles and cards: soft, rounded, a hair of shadow */
-  body.usertheme-me:not(.dark-mode) .fac-tile, body.usertheme-me:not(.dark-mode) .sport-hub-tile,
-  body.usertheme-me:not(.dark-mode) .random-tile, body.usertheme-me:not(.dark-mode) .books-tile,
-  body.usertheme-me:not(.dark-mode) .explore-card, body.usertheme-me:not(.dark-mode) .watch-card,
-  body.usertheme-me:not(.dark-mode) .entry,
+  
   body.usertheme-dme.dark-mode .fac-tile, body.usertheme-dme.dark-mode .sport-hub-tile,
   body.usertheme-dme.dark-mode .random-tile, body.usertheme-dme.dark-mode .books-tile,
   body.usertheme-dme.dark-mode .explore-card, body.usertheme-dme.dark-mode .watch-card,
   body.usertheme-dme.dark-mode .entry{
     border-radius:18px !important; box-shadow:0 3px 0 rgba(0,0,0,.12), 0 8px 18px -10px rgba(0,0,0,.35);
   }
-  body.usertheme-me:not(.dark-mode) .random-tile, body.usertheme-me:not(.dark-mode) .entry, body.usertheme-me:not(.dark-mode) .books-tile{ border:2px solid rgba(62,142,74,.35) !important; }
   body.usertheme-dme.dark-mode .random-tile, body.usertheme-dme.dark-mode .entry, body.usertheme-dme.dark-mode .books-tile{ border:2px solid rgba(224,150,63,.4) !important; }
   /* bananas: the level chip carries one */
-  body.usertheme-me #xpChip .xp-lv::before, body.usertheme-dme #xpChip .xp-lv::before{ content:'\1F34C\00a0'; }
-  body.usertheme-me header .search-icon-btn, body.usertheme-me header .search-icon-btn svg{ color:#2D6B38; stroke:#2D6B38; }
-  body.usertheme-me header .search-icon-btn{ background:#FBFCEF; border:2px solid #F4C430; }
-  body.usertheme-me header .xp-lv{ color:#2D6B38; }
+   body.usertheme-dme #xpChip .xp-lv::before{ content:'\1F34C\00a0'; }
   body.usertheme-dme header .subtitle{ color:#E9D3A8; }
+  /* ---- barn details: fence along the header, hanging vine, stars, hay-edged tabs and cards, lantern glow ---- */
+  body.usertheme-dme.dark-mode header{ background:linear-gradient(180deg,#2B2250 0%,#3B2A3A 38%,#43301F 70%,#2E2015 100%); }
+  body.usertheme-dme.dark-mode header .masthead::before{
+    content:''; position:absolute; top:0; left:0; width:2px; height:2px; border-radius:50%; background:#FFF3C4; pointer-events:none; z-index:0;
+    box-shadow:60px 18px 0 #FFF3C4, 130px 8px 0 #FFF3C4, 215px 30px 0 #FFF3C4, 300px 12px 0 #FFF3C4, 360px 34px 0 #FFF3C4, 95px 44px 0 #FFF3C4, 250px 52px 0 #FFF3C4, 20px 52px 0 #FFF3C4, 400px 6px 0 #FFF3C4;
+  }
+  body.usertheme-dme.dark-mode header::before{
+    content:''; position:absolute; left:0; right:0; bottom:0; height:22px; z-index:1; pointer-events:none; inset:auto 0 0 0; background:
+      linear-gradient(#6B4A2A,#6B4A2A) 0 5px/100% 3px no-repeat, linear-gradient(#6B4A2A,#6B4A2A) 0 13px/100% 3px no-repeat,
+      repeating-linear-gradient(90deg,#7A5530 0 7px,transparent 7px 34px);
+    opacity:.9; display:block;
+  }
+  .me-monkey::before{ content:''; position:absolute; left:50%; bottom:100%; width:3px; height:60px; margin-left:-1px; background:linear-gradient(#4E8B3A,#7FB35A); border-radius:2px; pointer-events:none; }
+  body.usertheme-dme.dark-mode .bottom-tabs, body.usertheme-dme.dark-mode nav.tabs, body.usertheme-dme.dark-mode #bottomTabs{ border-top:4px solid #C99A4A !important; }
+  body.usertheme-dme.dark-mode .fac-tile, body.usertheme-dme.dark-mode .sport-hub-tile{ border-bottom:4px solid rgba(201,154,74,.55) !important; }
+  body.usertheme-dme.dark-mode #app h2::after, body.usertheme-dme.dark-mode .section-head h2::after{ content:' \1F33E'; font-size:.8em; }
   .me-sound-row{ display:block; margin:10px auto 2px; padding:9px 18px; border-radius:999px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:inherit; font-weight:700; font-size:14px; cursor:pointer; }
   .me-sound-row[hidden]{ display:none; }
   /* ===== END M&E ===== */
@@ -40674,7 +40658,7 @@ const COMPLIMENTS = [
     // window) per Mr Eric - it's a real palette option forever, cyclable/pickable any
     // time. The window end (2 Sept 18:00 Tashkent) only controls the one-time default
     // reset below, not availability.
-    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus','chalkboard','notebook','me','dme'];
+    const base = ['default','d1','ihl','dihl','nationalday','uzbekistan2','arsenal','arsenal2','darsenal','vintage','dvintage','soviet','hacker','bazaar','nebula','synthwave','bauhaus','chalkboard','notebook','dme'];
     return base;
   }
   let THEME_ORDER = buildThemeOrder();
@@ -40859,6 +40843,7 @@ const COMPLIMENTS = [
   // so an existing user's dark preference survives this upgrade instead of silently
   // resetting to default.
   let initial = (()=>{ try{ return localStorage.getItem('themeChoice'); }catch(e){ return null; } })();
+  if(initial === 'me'){ initial = 'dme'; try{ localStorage.setItem('themeChoice','dme'); }catch(e){} } // the green M&E was removed
   if(initial === null){
     const legacy = (()=>{ try{ return localStorage.getItem('darkMode'); }catch(e){ return null; } })();
     // New default for anyone with no saved preference at all is IHL Dark, starting now
@@ -40960,8 +40945,7 @@ const COMPLIMENTS = [
     { key:'bauhaus', label:'Bauhaus', c1:'#D4141E', c2:'#0056A4' },
     { key:'chalkboard', label:'Chalkboard', c1:'#2C443A', c2:'#F2D95C' },
     { key:'notebook', label:'Notebook', c1:'#FBF7EA', c2:'#C23B3B' },
-    { key:'me', label:'M&E', c1:'#3E8E4A', c2:'#F4C430' },
-    { key:'dme', label:'M&E (Night)', c1:'#43301F', c2:'#E0963F' },
+    { key:'dme', label:'M&E', c1:'#43301F', c2:'#E0963F' },
   ];
 
   let themePickerBackdrop = null;

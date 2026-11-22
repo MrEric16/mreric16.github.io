@@ -7,8 +7,8 @@
    Sound on/off: localStorage 'me_sound' ('0' = off), switchable from the theme picker. */
 (function(){
   'use strict';
-  function themeKey(){ try{ return localStorage.getItem('themeChoice') || ''; }catch(e){ return ''; } }
-  function on(){ var k = themeKey(); return k === 'me' || k === 'dme'; }
+  function themeKey(){ try{ var k = localStorage.getItem('themeChoice') || ''; if(k === 'me'){ k = 'dme'; localStorage.setItem('themeChoice', 'dme'); } return k; }catch(e){ return ''; } }
+  function on(){ return themeKey() === 'dme'; }
   function soundOn(){ try{ return localStorage.getItem('me_sound') !== '0'; }catch(e){ return true; } }
   window.MEUnit = function(){ return on() ? '🍌' : 'XP'; };
   window.MEtheme = { on: on, soundOn: soundOn, setSound: function(v){ try{ localStorage.setItem('me_sound', v ? '1' : '0'); }catch(e){} } };
@@ -18,7 +18,6 @@
   if(on() && !/(^|\/)(index\.html)?$/.test(location.pathname) && !document.getElementById('me-palette')){
     var st = document.createElement('style'); st.id = 'me-palette';
     st.textContent =
-      'body.usertheme-me:not(.dark-mode){--cream:#EFF3DA;--cream-2:#E4EBC4;--card:#FBFCEF;--ink:#2B3A1F;--ink-soft:#5C6B3F;--coral:#3F8F4B;--coral-dark:#2D6B38;--gold:#F2C230;--teal:#B8793A;--line:rgba(63,143,75,.32);--board-bg:rgba(251,252,239,.9)}' +
       'body.usertheme-dme.dark-mode{--cream:#241A12;--cream-2:#1B130D;--card:#33251A;--ink:#F3E6CF;--ink-soft:#CDB48A;--coral:#D9923F;--coral-dark:#B3741F;--gold:#F2C230;--teal:#8FB58A;--line:rgba(217,146,63,.35);--board-bg:rgba(36,26,18,.92)}';
     (document.head || document.documentElement).appendChild(st);
   }
