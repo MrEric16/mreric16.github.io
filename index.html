@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mr Eric's Lounge</title>
-<meta name="app-build" content="20261122063540">
+<meta name="app-build" content="20261122064541">
 <script>
   // PWA update-detection: an installed home-screen app's standalone-mode navigation
   // cache can hold an old shell far longer than the CDN's 10-minute cache -
@@ -7650,7 +7650,7 @@ body.usertheme-vintage:not(.dark-mode) header::before{
   body.usertheme-me header .search-icon-btn{ background:#FBFCEF; border:2px solid #F4C430; }
   body.usertheme-me header .xp-lv{ color:#2D6B38; }
   body.usertheme-dme header .subtitle{ color:#E9D3A8; }
-  .me-sound-row{ display:block; margin:14px auto 2px; padding:9px 18px; border-radius:999px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:inherit; font-weight:700; font-size:14px; cursor:pointer; }
+  .me-sound-row{ display:block; margin:10px auto 2px; padding:9px 18px; border-radius:999px; border:2px solid var(--line); background:var(--card); color:var(--ink); font:inherit; font-weight:700; font-size:14px; cursor:pointer; }
   .me-sound-row[hidden]{ display:none; }
   /* ===== END M&E ===== */
   /* ===== CHALKBOARD (15 Nov 2026): slate board, wooden frame, chalk handwriting, chalk-drawn tiles, margin doodles, header ledge with the date in chalk.
@@ -40982,6 +40982,8 @@ const COMPLIMENTS = [
           `).join('')}
         </div>
         <button type="button" class="me-sound-row" id="meSoundRow" hidden></button>
+        <button type="button" class="me-sound-row" id="meAmbRow" hidden></button>
+        <button type="button" class="me-sound-row" id="meGameRow" hidden>\uD83C\uDF4C Play Banana Catch</button>
       </div>
     `;
     backdrop.addEventListener('click', (e)=>{
@@ -41006,6 +41008,17 @@ const COMPLIMENTS = [
     if(meRow){
       const isMe = currentKey === 'me' || currentKey === 'dme';
       meRow.hidden = !isMe;
+      const ambRow = themePickerBackdrop.querySelector('#meAmbRow'), gameRow = themePickerBackdrop.querySelector('#meGameRow');
+      if(ambRow){
+        ambRow.hidden = !isMe;
+        const paintA = () => { ambRow.textContent = (window.MEtheme && MEtheme.ambOn && MEtheme.ambOn()) ? '\uD83C\uDF3F Ambience: on' : '\uD83C\uDF3F Ambience: off'; };
+        paintA();
+        ambRow.onclick = () => { if(window.MEtheme && MEtheme.setAmb){ MEtheme.setAmb(!MEtheme.ambOn()); paintA(); } };
+      }
+      if(gameRow){
+        gameRow.hidden = !isMe;
+        gameRow.onclick = () => { if(typeof closeThemePicker === 'function') closeThemePicker(); if(window.MEgame) MEgame(); };
+      }
       const paint = () => { meRow.textContent = (window.MEtheme && MEtheme.soundOn() ? '\uD83D\uDD0A Animal sounds: on' : '\uD83D\uDD07 Animal sounds: off'); };
       paint();
       meRow.onclick = () => { if(window.MEtheme){ MEtheme.setSound(!MEtheme.soundOn()); paint(); if(MEtheme.soundOn() && window.MEplay) MEplay('good'); } };
