@@ -33,20 +33,28 @@
     return ctx;
   }
   /* real recorded samples (sounds/me-monkey.mp3, sounds/me-donkey.mp3), decoded once and played through Web Audio */
-  var bufs = {}, loading = {};
-  var FILES = { good: ['sounds/me-monkey.mp3', 1.1], bad: ['sounds/me-donkey.mp3', 1.6] };
+  var bufs = {}, loading = {}, lastPick = { good: -1, bad: -1 };
+  var VARIANTS = { good: ['sounds/me-monkey-1.mp3','sounds/me-monkey-2.mp3','sounds/me-monkey-3.mp3','sounds/me-monkey-4.mp3','sounds/me-monkey-5.mp3','sounds/me-monkey-6.mp3'],
+                   bad:  ['sounds/me-donkey-1.mp3','sounds/me-donkey-2.mp3','sounds/me-donkey-3.mp3','sounds/me-donkey-4.mp3','sounds/me-donkey-5.mp3'] };
+  var GAIN = { good: 1.1, bad: 1.6 };
   function base(){ try{ var sc = document.querySelector('script[src$="me-theme.js"]'); return sc ? sc.src.replace(/me-theme\.js.*$/, '') : ''; }catch(e){ return ''; } }
-  function load(kind, cb){
-    if(bufs[kind]) return cb(bufs[kind]);
-    if(loading[kind]) { loading[kind].push(cb); return; }
+  function load(file, cb){
+    if(bufs[file]) return cb(bufs[file]);
+    if(loading[file]){ loading[file].push(cb); return; }
     var c = audio(); if(!c) return;
-    loading[kind] = [cb];
-    fetch(base() + FILES[kind][0]).then(function(r){ return r.arrayBuffer(); }).then(function(ab){
+    loading[file] = [cb];
+    fetch(base() + file).then(function(r){ return r.arrayBuffer(); }).then(function(ab){
       return new Promise(function(res, rej){ c.decodeAudioData(ab, res, rej); });
-    }).then(function(b){ bufs[kind] = b; var q = loading[kind]; loading[kind] = null; q.forEach(function(f){ f(b); }); })
-      .catch(function(){ loading[kind] = null; });
+    }).then(function(b){ bufs[file] = b; var q = loading[file]; loading[file] = null; q.forEach(function(f){ f(b); }); })
+      .catch(function(){ loading[file] = null; });
   }
-  function preload(){ if(on() && soundOn()){ load('good', function(){}); load('bad', function(){}); } }
+  function preload(){ if(on() && soundOn()){ VARIANTS.good.concat(VARIANTS.bad).forEach(function(f){ load(f, function(){}); }); } }
+  // a different recording every time (never the same one twice in a row)
+  function pick(kind){
+    var n = VARIANTS[kind].length, i;
+    do{ i = Math.floor(Math.random() * n); }while(n > 1 && i === lastPick[kind]);
+    lastPick[kind] = i; return VARIANTS[kind][i];
+  }
   function play(kind, force){
     if(!on() || !soundOn() || document.hidden) return;
     var nowMs = Date.now();
@@ -55,9 +63,9 @@
     if(c.state === 'suspended') try{ c.resume(); }catch(e){}
     last = nowMs;
     window.__meLast = kind;
-    load(kind, function(b){
+    load(pick(kind), function(b){
       var src = c.createBufferSource(); src.buffer = b;
-      var g = c.createGain(); g.gain.value = FILES[kind][1] * 0.8;
+      var g = c.createGain(); g.gain.value = GAIN[kind] * 0.8;
       src.connect(g); g.connect(c.destination); src.start();
     });
   }
