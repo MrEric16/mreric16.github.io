@@ -1,81 +1,6 @@
 {
-  "generatedAt": "2026-11-22T04:23:06.286753Z",
+  "generatedAt": "2026-11-22T12:45:56.263920Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/brighton-and-hove-albion-vs-crystal-palace/x9CJJvvQQ-_Q1h_y8Ishr",
-      "date": "2026-10-18",
-      "home": "Brighton And Hove Albion",
-      "away": "Crystal Palace",
-      "htHome": 3,
-      "htAway": 0,
-      "ftHome": 5,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "J. Canvot",
-          "minute": 4
-        },
-        {
-          "scorer": "D. Gomez",
-          "minute": 7
-        },
-        {
-          "scorer": "Y. Ayari",
-          "minute": 10
-        },
-        {
-          "scorer": "C. Kostoulas",
-          "minute": 49
-        },
-        {
-          "scorer": "J. Hinshelwood",
-          "minute": 84
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/leeds-united-vs-manchester-united/ZB3DPj0PQPkCKJ-dG5C39",
-      "date": "2026-10-18",
-      "home": "Leeds United",
-      "away": "Manchester United",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "D. Calvert-Lewin",
-          "minute": 51
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "B. Mbeumo",
-          "minute": 35
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/nottingham-forest-vs-arsenal/yCfK_x5j40aA9iXgIDAXA",
-      "date": "2026-10-18",
-      "home": "Nottingham Forest",
-      "away": "Arsenal",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "N. Madueke",
-          "minute": 80
-        }
-      ],
-      "competition": "PL"
-    },
     {
       "url": "https://www.goal.com/en/match/celta-vigo-vs-deportivo-alaves/F9i31GSJ1CWjmrAtsQWOK",
       "date": "2026-10-18",
@@ -7692,6 +7617,85 @@
       "homeGoals": [],
       "awayGoals": [],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR",
+      "date": "2026-10-15",
+      "home": "Salzburg",
+      "away": "Ac Milan",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 0,
+      "ftAway": 4,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "A. Cisse",
+          "minute": 15
+        },
+        {
+          "scorer": "G. Ramos",
+          "minute": 72
+        }
+      ],
+      "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/manchester-city-vs-paris-saint-germain/QIrT8Lujk8ClaoGlq0jHO",
+      "date": "2026-10-14",
+      "home": "Manchester City",
+      "away": "Paris Saint Germain",
+      "htHome": 0,
+      "htAway": 3,
+      "ftHome": 2,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "E. Haaland",
+          "minute": 53
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "D. Doue",
+          "minute": 13
+        },
+        {
+          "scorer": "O. Dembele",
+          "minute": 15
+        },
+        {
+          "scorer": "Vitinha",
+          "minute": 32
+        },
+        {
+          "scorer": "M. Akliouche",
+          "minute": 63
+        }
+      ],
+      "competition": "psg"
+    },
+    {
+      "url": "https://www.goal.com/en/match/roma-vs-genoa/Z2EISlJfBAlYc6neQEjdh",
+      "date": "2026-10-17",
+      "home": "Roma",
+      "away": "Genoa",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "S. Castro",
+          "minute": 50
+        },
+        {
+          "scorer": "E. Lulli",
+          "minute": 68
+        }
+      ],
+      "awayGoals": [],
+      "competition": "roma"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7710,7 +7714,6 @@
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/salzburg-vs-ac-milan/w83BGUboXZdxXCSJKX9iR": 2,
-    "https://www.goal.com/en/match/manchester-city-vs-paris-saint-germain/QIrT8Lujk8ClaoGlq0jHO": 2
+    "https://www.goal.com/en/match/bayern-munich-vs-rb-leipzig/X86zsz2J-34byaI_FqRJw": 1
   }
 }
