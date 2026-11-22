@@ -166,6 +166,8 @@
     clearTimeout(toastTimer); clearTimeout(toast._h);
     toastTimer = setTimeout(function(){ t.style.setProperty('opacity', '0', 'important'); toast._h = setTimeout(function(){ t.style.visibility = 'hidden'; }, 300); }, 1000);
   }
+  // M&E theme (me-theme.js) counts bananas instead of XP; every other theme says XP.
+  function xpUnit(){ try{ return window.MEUnit ? window.MEUnit() : 'XP'; }catch(e){ return 'XP'; } }
   var XP = {
     total: totalXP,
     info: function(){ return levelOf(totalXP()); },
@@ -180,7 +182,7 @@
       pending += amt;
       clearTimeout(XP._t);
       XP._t = setTimeout(function(){
-        toast('+' + pending + ' XP' + (after.level > before ? '  •  Level ' + after.level + ': ' + after.name : '')); pending = 0;
+        toast('+' + pending + ' ' + xpUnit() + (after.level > before ? '  •  Level ' + after.level + ': ' + after.name : '')); pending = 0;
       }, 350);
       if(after.level > before) toast('Level ' + after.level + ': ' + after.name);
       XP.refresh(); Sync.markDirty();
@@ -247,9 +249,9 @@
       var x = document.getElementById('xpCard'), s = document.getElementById('syncCard');
       if(x){
         var i = XP.info(), pct = Math.min(100, Math.round(i.into / i.span * 100));
-        x.innerHTML = '<div style="' + card + '"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;"><b style="font-size:17px;">Level ' + i.level + ': ' + esc(i.name) + '</b><span style="opacity:.7;font-size:13px;">' + totalXP() + ' XP</span></div>' +
+        x.innerHTML = '<div style="' + card + '"><div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px;"><b style="font-size:17px;">Level ' + i.level + ': ' + esc(i.name) + '</b><span style="opacity:.7;font-size:13px;">' + totalXP() + ' ' + xpUnit() + '</span></div>' +
           '<div style="height:10px;border-radius:99px;background:var(--line);margin:10px 0 6px;overflow:hidden;"><div style="height:100%;width:' + pct + '%;background:var(--coral,#c0392b);"></div></div>' +
-          '<div style="font-size:12.5px;opacity:.75;">' + i.toNext + ' XP to level ' + (i.level + 1) + ' · x' + multiplier().toFixed(1) + ' today</div></div>';
+          '<div style="font-size:12.5px;opacity:.75;">' + i.toNext + ' ' + xpUnit() + ' to level ' + (i.level + 1) + ' · x' + multiplier().toFixed(1) + ' today</div></div>';
       }
       if(s){
         var code = Sync.code(), st = Sync.status();
