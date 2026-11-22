@@ -151,7 +151,7 @@
     if(document.getElementById('me-extra')) return;
     var st = document.createElement('style'); st.id = 'me-extra';
     st.textContent =
-      '.me-pill{position:absolute;z-index:3;top:12px;left:50%;transform:translateX(-50%);padding:3px 10px;border-radius:999px;border:0;background:rgba(0,0,0,.26);color:#fff8e1;font:700 12px/1.4 "Nunito",system-ui,sans-serif;white-space:pre;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
+      '.me-pill{position:absolute;z-index:3;bottom:3px;left:50%;transform:translateX(-50%);padding:3px 10px;border-radius:999px;border:0;background:rgba(0,0,0,.26);color:#fff8e1;font:700 12px/1.4 "Nunito",system-ui,sans-serif;white-space:pre;cursor:pointer;-webkit-tap-highlight-color:transparent}' +
       '.me-fall{position:fixed;top:-40px;z-index:9998;pointer-events:none;animation:me-fall 2.6s ease-in forwards}' +
       '@keyframes me-fall{to{transform:translateY(110vh) rotate(260deg);opacity:.9}}' +
       '.me-monkey.me-cross{animation:me-cross 2.4s ease-in-out}' +
