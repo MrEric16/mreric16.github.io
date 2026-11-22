@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T11:41:02.405952Z",
+  "generatedAt": "2026-11-22T18:41:00.723751Z",
   "tz": "Asia/Tashkent",
   "teams": [
     {
@@ -84,12 +84,12 @@
     },
     {
       "name": "Din. Samarkand",
-      "pld": 27,
+      "pld": 28,
       "w": 10,
       "d": 7,
-      "l": 10,
+      "l": 11,
       "gf": 42,
-      "ga": 40,
+      "ga": 41,
       "pts": 37
     },
     {
@@ -123,6 +123,16 @@
       "pts": 32
     },
     {
+      "name": "Bunyodkor",
+      "pld": 28,
+      "w": 9,
+      "d": 2,
+      "l": 17,
+      "gf": 28,
+      "ga": 47,
+      "pts": 29
+    },
+    {
       "name": "Xorazm Urganch",
       "pld": 28,
       "w": 6,
@@ -131,16 +141,6 @@
       "gf": 23,
       "ga": 38,
       "pts": 27
-    },
-    {
-      "name": "Bunyodkor",
-      "pld": 27,
-      "w": 8,
-      "d": 2,
-      "l": 17,
-      "gf": 27,
-      "ga": 47,
-      "pts": 26
     },
     {
       "name": "Kokand 1912",
@@ -164,6 +164,13 @@
     }
   ],
   "results": [
+    {
+      "home": "Din. Samarkand",
+      "away": "Bunyodkor",
+      "raw_time": "22.11. 16:00",
+      "homeScore": 0,
+      "awayScore": 1
+    },
     {
       "home": "Xorazm Urganch",
       "away": "Buxoro",
