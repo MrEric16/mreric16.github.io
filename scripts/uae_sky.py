@@ -31,7 +31,7 @@ def khalifa():
     body = poly(left + [(0, -252)] + right)
     body += '<path d="M0,-236 L0,-262" />'
     body += windows(-18, 16, -190, -6, 8, 6)
-    body += beacon(0, -264, 2.2)
+    body += beacon(0, -264, 0.9)
     return body
 
 def burj_al_arab():
@@ -122,7 +122,7 @@ def block_row(x0, x1, base, seed, hmin, hmax, wins=True):
 def build():
     s = []
     # row 1 (far): Zayed Mosque + Ain Dubai
-    s.append(g(175, 215, zayed(), .8))
+    s.append(g(152, 215, zayed(), .8))
     s.append(g(500, 215, ain_dubai(), .85))
     # row 2 (middle): Museum, Burj Al Arab, WTC, Emirates Towers + filler
     s.append(g(0, 430, block_row(0, 600, 0, 5, 18, 50, False), .45))
@@ -133,7 +133,7 @@ def build():
     # row 3 (front): Burj Khalifa + city
     s.append(g(0, 640, block_row(0, 275, 0, 11, 40, 110), .95))
     s.append(g(0, 640, block_row(365, 600, 0, 23, 40, 120), .95))
-    s.append('<g transform="translate(320,640) scale(1.3)" opacity="1">%s</g>' % khalifa())
+    s.append('<g transform="translate(320,640) scale(2.3)" stroke-width=".6" opacity="1">%s</g>' % khalifa())
     return ''.join(s)
 
 SVG = ('<svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">'
