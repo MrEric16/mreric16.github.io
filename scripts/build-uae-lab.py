@@ -328,13 +328,23 @@ setInterval(function(){var t=Date.now();if(sim===null&&prevT<F_START&&t>=F_START
 
 
 
+var SKYF=252;
+function flagBottomDoc(){var h=document.querySelector('header'),fw=document.querySelector('.uae-flagwrap');if(!h||!fw)return 252;var y=0,e=h;while(e){y+=e.offsetTop||0;e=e.offsetParent;}return y+fw.offsetHeight;}
+/* skyline is sized for the "pinned" state (top of screen to the bottom nav) and scaled down from its bottom edge,
+   so at the top of the page the Burj Khalifa tip sits just under the flag; as you scroll it grows up to the top of the screen. */
 function layoutSky(){
-  var el=document.getElementById('uaeSky'),fw=document.querySelector('.uae-flagwrap');
-  if(!el||!fw||!on())return;
-  var top=Math.round(fw.getBoundingClientRect().bottom+(window.scrollY||0))+4;
-  var h=Math.max(260,innerHeight-top-56);
-  el.style.top=top+'px';el.style.height=h+'px';el.style.width=Math.min(innerWidth,Math.round(h*600/850))+'px';
+  var el=document.getElementById('uaeSky');if(!el||!on())return;
+  var top1=70,H1=Math.max(260,innerHeight-top1-56);
+  el.style.top=top1+'px';el.style.height=H1+'px';el.style.width=Math.min(innerWidth,Math.round(H1*600/980))+'px';
+  el.style.transformOrigin='50% 100%';SKYF=flagBottomDoc()+4;scaleSky();
 }
+function scaleSky(){
+  var el=document.getElementById('uaeSky');if(!el||!on())return;
+  var topNow=Math.max(70,SKYF-(window.scrollY||window.pageYOffset||0)),H1=el.offsetHeight||1;
+  var sc=Math.min(1,Math.max(.3,(innerHeight-56-topNow)/H1));
+  el.style.transform='translateX(-50%) scale('+sc+')';
+}
+var _sk=0;addEventListener('scroll',function(){if(_sk)return;_sk=requestAnimationFrame(function(){_sk=0;scaleSky();});},{passive:true});
 addEventListener('resize',layoutSky);
 
 /* ===== skyline fireworks: Burj Khalifa (tip + cascading sides), Burj Al Arab, behind Ain Dubai ===== */
@@ -342,8 +352,8 @@ var bg=document.getElementById('uaeBg'),bx=bg.getContext('2d'),bp=[],braf=0,BW=0
 function bsize(){BW=bg.width=innerWidth;BH=bg.height=innerHeight;}
 addEventListener('resize',bsize);bsize();
 function geo(){
-  var r=document.getElementById('uaeSky').getBoundingClientRect(),sc=Math.min(r.width/600,r.height/850);
-  var ox=r.left+(r.width-600*sc)/2,oy=r.bottom-850*sc;
+  var r=document.getElementById('uaeSky').getBoundingClientRect(),sc=Math.min(r.width/600,r.height/980);
+  var ox=r.left+(r.width-600*sc)/2,oy=r.bottom-980*sc;
   return function(x,y){return [ox+x*sc,oy+y*sc];};
 }
 var BCOL=['#FFE08A','#FFF3CF','#FF3B3B','#2FD36B','#FFFFFF','#FFC24A'];
@@ -362,12 +372,12 @@ function btick(){
   if(bp.length&&!document.hidden){braf=requestAnimationFrame(btick);}else{braf=0;bx.clearRect(0,0,BW,BH);}
 }
 var LEDGE=[[22,34],[18,70],[14,108],[11,140],[8,172],[5,198]];
-function fkKhTop(P){var t=P(320,850-264*3.1);bburst(t,46,3.4);setTimeout(function(){bburst(P(320,850-264*3.1),26,2,'#FFF3CF');},220);}
+function fkKhTop(P){var t=P(320,980-264*3.6);bburst(t,46,3.4);setTimeout(function(){bburst(P(320,980-264*3.6),26,2,'#FFF3CF');},220);}
 function fkKhSides(P){var k=0;(function go(){var L=LEDGE[(Math.random()*LEDGE.length)|0],s=Math.random()<.5?-1:1;
-  var pt=P(320+s*L[0]*3.1,850-L[1]*3.1);bspark(pt,s,5);if(++k<30)setTimeout(go,60);})();}
-function fkBaa(P){bburst(P(195,409),30,2.6);setTimeout(function(){bburst(P(152,485),22,2.2);},180);
-  var k=0;(function go(){var pt=P(160+Math.random()*18,450+Math.random()*40);bspark(pt,-1,3);if(++k<20)setTimeout(go,65);})();}
-function fkAin(P){var h=P(495,224),sc=P(589,224)[0]-h[0];var a=Math.random()*6.283,d=Math.random()*sc*.9;bburst([h[0]+Math.cos(a)*d,h[1]+Math.sin(a)*d],40,3);}
+  var pt=P(320+s*L[0]*3.6,980-L[1]*3.6);bspark(pt,s,5);if(++k<30)setTimeout(go,60);})();}
+function fkBaa(P){bburst(P(220,475),30,2.6);setTimeout(function(){bburst(P(173,560),22,2.2);},180);
+  var k=0;(function go(){var pt=P(182+Math.random()*20,520+Math.random()*50);bspark(pt,-1,3);if(++k<20)setTimeout(go,65);})();}
+function fkAin(P){var h=P(480,271),sc=P(585,271)[0]-h[0];var a=Math.random()*6.283,d=Math.random()*sc*.9;bburst([h[0]+Math.cos(a)*d,h[1]+Math.sin(a)*d],40,3);}
 var FK=[fkKhTop,fkKhSides,fkBaa,fkAin,fkKhTop,fkAin];
 function fire(){if(!on()||document.hidden)return;var P=geo();FK[(Math.random()*FK.length)|0](P);}
 function overload(){

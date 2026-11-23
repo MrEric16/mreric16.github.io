@@ -119,25 +119,25 @@ def block_row(x0, x1, base, seed, hmin, hmax, wins=True):
         x += w + rnd.randint(2, 8)
     return out
 
-VBH = 850
+VBH = 980
 def gs(tx, ty, k, body, op=1):
     return f'<g transform="translate({tx},{ty}) scale({k})" stroke-width="{round(1.35/k,3)}" opacity="{op}">{body}</g>'
 
 def build():
     s = []
     # row 1 (far): Zayed Mosque + Ain Dubai
-    s.append(gs(170, 330, 1.1, zayed(), .8))
-    s.append(gs(495, 330, 1.2, ain_dubai(), .85))
+    s.append(gs(178, 390, 1.15, zayed(), .8))
+    s.append(gs(480, 390, 1.35, ain_dubai(), .85))
     # row 2 (middle): Museum, Burj Al Arab, WTC, Emirates Towers + filler
-    s.append(gs(0, 610, 1.25, block_row(0, 480, 0, 5, 18, 50, False), .45))
-    s.append(gs(70, 610, 1.25, museum(), .95))
-    s.append(gs(150, 610, 1.25, burj_al_arab(), .95))
-    s.append(gs(262, 610, 1.25, dwtc(), .95))
-    s.append(gs(470, 610, 1.25, emirates_towers(), .95))
+    s.append(gs(0, 700, 1.4, block_row(0, 430, 0, 5, 18, 50, False), .45))
+    s.append(gs(78, 700, 1.4, museum(), .95))
+    s.append(gs(170, 700, 1.4, burj_al_arab(), .95))
+    s.append(gs(252, 700, 1.4, dwtc(), .95))
+    s.append(gs(480, 700, 1.4, emirates_towers(), .95))
     # row 3 (front): Burj Khalifa + city
-    s.append(gs(0, 850, 1.3, block_row(0, 192, 0, 11, 40, 110), .95))
-    s.append(gs(0, 850, 1.3, block_row(300, 462, 0, 23, 40, 120), .95))
-    s.append(gs(320, 850, 3.1, khalifa(), 1))
+    s.append(gs(0, 980, 1.4, block_row(0, 168, 0, 11, 40, 110), .95))
+    s.append(gs(0, 980, 1.4, block_row(261, 428, 0, 23, 40, 120), .95))
+    s.append(gs(320, 980, 3.6, khalifa(), 1))
     return ''.join(s)
 
 SVG = ('<svg viewBox="0 0 600 %d" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">'
