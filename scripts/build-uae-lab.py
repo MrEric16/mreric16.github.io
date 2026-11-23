@@ -137,6 +137,15 @@ body.theme-uae .uae-emirates{ display:flex; }
 
 
 /* night skyline backdrop: three depth rows, outline style, fixed behind the content */
+#uaeFounders{ display:none; background:#fff; margin:26px -16px 0; border-top:3px solid #C9A646; border-bottom:3px solid #C9A646; }
+body.theme-uae #uaeFounders{ display:block; }
+#uaeFounders img{ display:block; width:100%; height:auto; max-width:900px; margin:0 auto; }
+#uaeSplash{ position:fixed; inset:0; z-index:100000; background:#fff; display:none; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:12px; opacity:0; transition:opacity .6s ease; }
+#uaeSplash.show{ display:flex; } #uaeSplash.in{ opacity:1; }
+#uaeSplash img{ max-width:min(96vw,1000px); max-height:68vh; width:auto; height:auto; object-fit:contain; }
+#uaeSplash .t{ font:800 clamp(16px,3.6vw,26px)/1.2 system-ui,sans-serif; color:#111; text-align:center; letter-spacing:.02em; }
+#uaeSplash .t small{ display:block; font-weight:600; font-size:.7em; color:#00732F; margin-top:4px; }
+#uaeSplash button{ appearance:none; border:0; border-radius:999px; padding:12px 30px; font:800 17px system-ui,sans-serif; background:#C9A646; color:#111; cursor:pointer; }
 #uaeSky{ position:fixed; left:50%; transform:translateX(-50%); top:260px; height:540px; width:380px; z-index:-1; pointer-events:none; display:none; opacity:1; }
 body.theme-uae #uaeSky{ display:block; }
 body.theme-uae #uaeDunes{ display:none; }
@@ -178,6 +187,8 @@ __SKY__
 <button id="uaeDallah" title="Qahwa">☕</button>
 <div class="uae-ribbon" id="uaeRibbon"><span id="uaeRib">…</span></div>
 <canvas id="uaeFx"></canvas>
+<section id="uaeFounders" aria-hidden="true"><img alt="" decoding="async"></section>
+<div id="uaeSplash"><img alt="The seven Founding Fathers of the UAE beneath the flag"><div class="t">Happy 55th National Day, UAE<small>Eid Al Etihad · 2 December</small></div><button id="uaeSplashGo">Enter</button></div>
 <div id="uaeLab">
   <div class="panel">
     <b>UAE theme lab</b>
@@ -194,6 +205,7 @@ __SKY__
     </select>
     <button class="b" id="uaePick">Use UAE theme</button>
     <button class="b" id="uaeFw">Fireworks</button>
+    <button class="b" id="uaeSpl">Splash</button>
     <div class="n">Lab copy of the home page. Optional 30 Nov 00:00 to 3 Dec 00:00, forced 2 Dec 00:00 to 24:00 (Tashkent time). Your normal theme is never changed.</div>
   </div>
   <div class="pill" id="uaePill">UAE lab</div>
@@ -382,7 +394,29 @@ function stopOver(){clearInterval(overT);overT=0;bg.classList.remove('over');}
 addEventListener('pointerdown',function(){if(overT)stopOver();},true);
 clearInterval(ambT);ambT=setInterval(function(){if(!overT&&bp.length<500){fire();if(Math.random()<.5)fire();}},1040);
 
-var _apply=apply,wasOn=false;apply=function(){_apply();sky();watch();setTimeout(layoutSky,0);setTimeout(layoutSky,600);var o=on();if(o&&!wasOn)setTimeout(overload,500);if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
+var FIMG='uae-founders.png';
+var fd=document.getElementById('uaeFounders'),app=document.getElementById('app');
+if(fd&&app&&app.parentNode)app.parentNode.insertBefore(fd,app.nextSibling);
+var spl=document.getElementById('uaeSplash'),splOpen=false;
+function founders(){var im=fd&&fd.querySelector('img');if(im&&on()&&!im.getAttribute('src'))im.src=FIMG;}
+function dayKey(){return new Date(now()+OFF).toISOString().slice(0,10);}
+function splashSeen(){try{return localStorage.getItem('uaeSplashSeen')===dayKey();}catch(e){return false;}}
+function openSplash(){
+  if(!spl||splOpen)return;splOpen=true;
+  var im=spl.querySelector('img');if(!im.getAttribute('src'))im.src=FIMG;
+  spl.classList.add('show');void spl.offsetWidth;spl.classList.add('in');
+  clearTimeout(openSplash.t);openSplash.t=setTimeout(closeSplash,9000);
+}
+function closeSplash(){
+  if(!splOpen)return;splOpen=false;clearTimeout(openSplash.t);
+  if(sim===null){try{localStorage.setItem('uaeSplashSeen',dayKey());}catch(e){}}
+  spl.classList.remove('in');setTimeout(function(){spl.classList.remove('show');},650);
+  if(on())setTimeout(overload,300);
+}
+document.getElementById('uaeSplashGo').onclick=closeSplash;
+spl.addEventListener('pointerdown',function(e){if(e.target===spl)closeSplash();});
+document.getElementById('uaeSpl').onclick=function(){if(!on()){picked=true;sim=sim===null?F_START:sim;apply();}openSplash();};
+var _apply=apply,wasOn=false;apply=function(){_apply();founders();sky();watch();setTimeout(layoutSky,0);setTimeout(layoutSky,600);var o=on();if(o&&!wasOn){ if(state()==='forced'&&(sim!==null||!splashSeen())) setTimeout(openSplash,300); else setTimeout(overload,500); }if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
 apply();
 
 setInterval(function(){subtitle();ribbon();},30000);
