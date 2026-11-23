@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Builds uae-lab.html: a copy of the real home page (index.html) with the UAE National Day
 theme + a floating time simulator injected. index.html is never modified."""
-import re, pathlib
+import re, pathlib, sys
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import uae_sky
 root = pathlib.Path(__file__).resolve().parent.parent
 src = (root/'index.html').read_text(encoding='utf-8')
 
@@ -132,6 +134,17 @@ body.theme-uae .uae-emirates{ display:flex; }
 .uae-em b{ display:block; color:#F1D77A; font-size:15px; margin-bottom:3px; }
 .uae-em span{ display:block; font-size:12px; opacity:.92; line-height:1.4; }
 
+
+/* night skyline backdrop: three depth rows, outline style, fixed behind the content */
+#uaeSky{ position:fixed; left:50%; transform:translateX(-50%); bottom:56px; width:min(100vw,640px); aspect-ratio:600/640; max-height:74vh; z-index:-1; pointer-events:none; display:none; opacity:.75; }
+body.theme-uae #uaeSky{ display:block; }
+body.theme-uae #uaeDunes{ display:none; }
+#uaeSky svg{ width:100%; height:100%; display:block; }
+#uaeSky .lw{ fill:#FFD97A; stroke:none; opacity:.85; }
+#uaeSky .cab{ fill:#EADFC3; stroke:none; }
+#uaeSky .beacon{ fill:#FF3B3B; stroke:none; animation:uaeBeacon 2.4s ease-in-out infinite; }
+@keyframes uaeBeacon{ 0%,100%{opacity:.25} 50%{opacity:1} }
+
 /* ===== simulator (floating, collapsible) ===== */
 #uaeLab{ position:fixed; left:8px; bottom:78px; z-index:99999; font:13px/1.35 system-ui,sans-serif; color:#eee; }
 #uaeLab .pill{ padding:7px 12px; border-radius:99px; background:#111; border:2px solid #555; cursor:pointer; font-weight:700; color:#fff; }
@@ -144,6 +157,7 @@ body.theme-uae .uae-emirates{ display:flex; }
 '''
 
 HTML = r'''
+__SKY__
 <div class="uae-sadu uae-only" id="uaeSadu"></div>
 <div class="uae-emirates" id="uaeEm"><div class="uae-em"><b>Abu Dhabi</b><span>Capital: Abu Dhabi</span><span>Area: 67,340 km²</span><span>Largest emirate</span></div><div class="uae-em"><b>Dubai</b><span>Capital: Dubai</span><span>Area: 4,114 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Sharjah</b><span>Capital: Sharjah</span><span>Area: 2,590 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Ajman</b><span>Capital: Ajman</span><span>Area: 259 km²</span><span>Smallest emirate</span></div><div class="uae-em"><b>Umm Al Quwain</b><span>Capital: Umm Al Quwain</span><span>Area: 720 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Ras Al Khaimah</b><span>Capital: Ras Al Khaimah</span><span>Area: 1,684 km²</span><span>Joined 10 Feb 1972</span></div><div class="uae-em"><b>Fujairah</b><span>Capital: Fujairah</span><span>Area: 1,450 km²</span><span>Joined 2 Dec 1971</span></div></div>
 <div id="uaeDunes" data-sky="night"><svg class="d1" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c1" d="M0 80 C100 40 200 90 300 60 C400 30 500 85 600 55 C700 30 750 70 800 80 L800 110 L0 110Z"/></svg><svg class="d2" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c2" d="M0 95 C120 65 230 100 340 80 C450 60 560 100 680 78 C740 68 780 88 800 95 L800 110 L0 110Z"/></svg></div>
@@ -309,6 +323,7 @@ setInterval(function(){subtitle();ribbon();},30000);
 '''
 
 out = src
+HTML = HTML.replace('__SKY__', '<div id="uaeSky" aria-hidden="true">' + uae_sky.SVG + '</div>')
 out = out.replace('<head>', '<head>\n<meta name="robots" content="noindex,nofollow">', 1)
 out = out.replace('</head>', CSS + '</head>', 1)
 out = out.replace('</body>', '<template id="uaeFlagTpl">' + FLAG + '</template>' + HTML + JS + '</body>', 1)
