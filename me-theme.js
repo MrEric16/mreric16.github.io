@@ -363,24 +363,13 @@
   }
   setInterval(function(){ if(on() && !document.hidden){ barn(); var st = document.getElementById('subtitleText'); if(st && document.getElementById('app') && st.dataset.meSub){ st.textContent = SUBS[Math.floor(Math.random() * SUBS.length)]; } } }, 45000);
   document.addEventListener('visibilitychange', function(){ document.body && document.body.classList.toggle('me-hidden', document.hidden); });
-  // barn doors on page change + a short trail of paw prints (at most once a minute)
-  var lastPaw = 0, firstNav = true;
-  function pawTrail(){
-    if(reduced || Date.now() - lastPaw < 60000) return; lastPaw = Date.now();
-    var left = Math.random() < .5;
-    for(var i = 0; i < 6; i++){
-      var p = document.createElement('div'); p.className = 'me-paw'; p.textContent = '🐾';
-      p.style.bottom = (78 + i * 7 + (i % 2 ? 10 : 0)) + 'px'; p.style[left ? 'left' : 'right'] = (6 + i * 15) + '%'; p.style.animationDelay = (i * .35) + 's';
-      p.style.transform = 'rotate(' + (left ? 80 : -80) + 'deg)';
-      p.addEventListener('animationend', function(){ this.remove(); }); document.body.appendChild(p);
-    }
-  }
+  // barn doors on page change
+  var firstNav = true;
   function doors(){
     if(reduced || !on() || !document.body || document.querySelector('.me-doors')) return;
     var d = document.createElement('div'); d.className = 'me-doors quick'; d.innerHTML = '<i></i><i></i>'; document.body.appendChild(d);
     void d.offsetWidth; requestAnimationFrame(function(){ d.classList.add('open'); });
     setTimeout(function(){ d.remove(); }, 700);
-    setTimeout(pawTrail, 900);
   }
   window.addEventListener('hashchange', function(){ if(on()) doors(); });
   // barn doors swing open once when the app launches
@@ -390,7 +379,6 @@
     var openIt = function(){ bd.classList.add('open'); setTimeout(function(){ bd.remove(); }, 900); };
     setTimeout(function(){ requestAnimationFrame(openIt); }, 650);
   }
-  setTimeout(function(){ if(on()) pawTrail(); }, 2500);
 
   // index.html switches themes live: begin listening the moment M&E is picked
   window.addEventListener('themechange', function(){ if(on()) start(); mascots(); ambTick(); preload(); barn(); });
