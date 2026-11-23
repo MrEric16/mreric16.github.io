@@ -8,7 +8,7 @@
 <style>
 /* UAE flag colours (official): red #FF0000, green #00732F, white #FFFFFF, black #000000 */
 :root{
-  --red:#E4002B; --green:#00732F; --white:#FFFFFF; --black:#0B0B0B;
+  --red:#FF0000; --green:#00732F; --white:#FFFFFF; --black:#0B0B0B;
   --gold:#D4AF37; --gold2:#F1D77A; --sand:#EBD9B4; --night:#0E1417; --night2:#162126;
   --ink:#F7F1E1;
 }
@@ -33,47 +33,31 @@ body.uae::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none
   background-size:64px 64px}
 body.uae > *{position:relative;z-index:1}
 
-/* ---- header: flag band + stripes, gold plaque title, skyline ---- */
-.uhead{position:relative;z-index:2;height:250px;overflow:hidden;color:#fff;
-  background:
-    linear-gradient(180deg,#07241A 0%,#0A3A27 100%);
-  border-bottom:4px solid var(--gold)}
-/* flag: red hoist + 3 stripes, lying behind the skyline */
-.uhead .flag{position:absolute;left:0;top:0;right:0;bottom:0;display:grid;grid-template-columns:22% 1fr;opacity:1}
-.uhead .flag i{display:block;background:var(--red)}
-.uhead .flag div{display:grid;grid-template-rows:1fr 1fr 1fr}
-.uhead .flag div b{display:block}
-.uhead .flag div b:nth-child(1){background:var(--green)}
-.uhead .flag div b:nth-child(2){background:var(--white)}
-.uhead .flag div b:nth-child(3){background:var(--black)}
-.uhead .flag::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,12,16,.25),rgba(6,12,16,.70));}
-/* gold plaque */
-.plaque{position:absolute;left:50%;top:28px;transform:translateX(-50%);z-index:5;text-align:center;
-  padding:10px 26px 12px;border:3px solid var(--gold);border-radius:10px;
-  background:linear-gradient(180deg,#14201B,#0B1511);box-shadow:0 0 0 3px #0B1511,0 0 0 5px var(--gold2),0 8px 18px rgba(0,0,0,.5);
+/* ---- header: title plaque + exact UAE flag (1:2, red = 1/4 of length, three equal stripes) ---- */
+.uhead{position:relative;z-index:2;padding:16px 12px 18px;text-align:center;color:#fff;
+  background:linear-gradient(180deg,#0C1613,#0E1417);border-bottom:4px solid var(--gold)}
+.plaque{display:inline-block;margin:0 auto 14px;text-align:center;
+  padding:8px 26px 10px;border:3px solid var(--gold);border-radius:10px;
+  background:linear-gradient(180deg,#14201B,#0B1511);box-shadow:0 0 0 3px #0B1511,0 0 0 5px var(--gold2);
   min-width:min(86vw,360px)}
 .plaque h1{font-size:clamp(18px,5.2vw,28px);letter-spacing:.04em;color:var(--gold2);font-weight:800}
 .plaque small{display:block;margin-top:2px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#E8DDBE}
 .plaque .ar{font-size:20px;color:#fff;margin-top:2px;font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic",serif}
-/* skyline */
-.sky{position:absolute;left:0;right:0;bottom:0;height:150px;z-index:3;display:block;width:100%}
-.sky .b{fill:#05090B}
-.sky .w{fill:#FFD97A;opacity:0}
-.sky .w.on{opacity:.9;animation:tw 4s ease-in-out infinite}
-@keyframes tw{0%,100%{opacity:.95}45%{opacity:.35}60%{opacity:.9}}
-/* falcon */
-.falcon{position:absolute;z-index:6;top:96px;left:-70px;width:56px;height:30px;cursor:pointer;
-  animation:glide 26s linear 3s infinite;filter:drop-shadow(0 2px 3px rgba(0,0,0,.6));-webkit-tap-highlight-color:transparent}
-.falcon svg{width:100%;height:100%;display:block;animation:flap .9s ease-in-out infinite;transform-origin:50% 60%}
-.falcon.dive{animation:dive 1.1s ease-in forwards}
-@keyframes glide{0%{transform:translate(0,0)}25%{transform:translate(30vw,-18px)}50%{transform:translate(65vw,8px)}100%{transform:translate(120vw,-10px)}}
-@keyframes flap{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.62)}}
-@keyframes dive{0%{transform:translate(var(--fx,40vw),0) rotate(0)}100%{transform:translate(calc(var(--fx,40vw) + 20vw),150px) rotate(40deg);opacity:0}}
+.flagbox{position:relative;width:min(100%,560px);margin:0 auto;aspect-ratio:2/1;box-shadow:0 6px 18px rgba(0,0,0,.55)}
+.flagbox .flag{position:absolute;inset:0;display:grid;grid-template-columns:25% 1fr}
+.flagbox .flag i{display:block;background:#FF0000}
+.flagbox .flag div{display:grid;grid-template-rows:1fr 1fr 1fr}
+.flagbox .flag div b{display:block}
+.flagbox .flag div b:nth-child(1){background:#00732F}
+.flagbox .flag div b:nth-child(2){background:#FFFFFF}
+.flagbox .flag div b:nth-child(3){background:#000000}
+/* emblem: centre of the white stripe = x 62.5% of length, y 50% of height */
+.flagbox .emb{position:absolute;left:62.5%;top:50%;height:29%;aspect-ratio:360/463;transform:translate(-50%,-50%);object-fit:contain;display:block}
 /* fireworks canvas */
 #fx{position:absolute;inset:0;z-index:4;width:100%;height:100%;pointer-events:none}
 /* countdown ribbon */
 .ribbon{position:relative;z-index:3;text-align:center;font-weight:800;letter-spacing:.06em;padding:8px 12px;
-  background:linear-gradient(90deg,var(--green) 0 25%,#fff 25% 50%,#111 50% 75%,var(--red) 75%);
+  background:#0C1613;border-bottom:2px solid var(--gold);
   color:#fff}
 .ribbon span{display:inline-block;padding:2px 14px;border-radius:99px;background:rgba(8,14,12,.92);border:1.5px solid var(--gold);color:var(--gold2);font-size:14px}
 .ribbon.big span{font-size:16px;background:linear-gradient(180deg,#1b2a1f,#0b1511)}
@@ -111,7 +95,6 @@ ul.dates li:nth-child(2n)::before{content:"⛵"}
 .btns button{padding:10px 14px;border-radius:10px;border:2px solid var(--gold);background:#0E2A1E;color:var(--gold2);font:inherit;font-weight:700;cursor:pointer}
 .optional{margin:16px 0;padding:12px 14px;border:2px dashed var(--gold);border-radius:12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
 
-@media (prefers-reduced-motion:reduce){.falcon,.sky .w.on{animation:none}}
 
 /* when the theme is OFF the sample page shows the plain look */
 body:not(.uae) .uhead,body:not(.uae) .ribbon{display:none}
@@ -150,17 +133,13 @@ body:not(.uae) .plain-title{display:block}
 <div class="plain-title">Eric's Lounge (theme off)</div>
 
 <header class="uhead" id="uhead">
-  <div class="flag"><i></i><div><b></b><b></b><b></b></div></div>
   <canvas id="fx"></canvas>
   <div class="plaque">
     <h1>ERIC'S LOUNGE</h1>
     <small id="sub">Happy National Day, UAE</small>
     <div class="ar" lang="ar" dir="rtl">عيد الاتحاد</div>
   </div>
-  <div class="falcon" id="falcon" title="Falcon">
-    <svg viewBox="0 0 60 32" aria-hidden="true"><path fill="#0A0A0A" stroke="#D4AF37" stroke-width="1" d="M30 14 C24 6 12 3 1 6 C9 9 14 13 17 18 C22 19 26 19 30 22 C34 19 38 19 43 18 C46 13 51 9 59 6 C48 3 36 6 30 14 Z"/><circle cx="30" cy="16" r="2.4" fill="#0A0A0A"/><path fill="#D4AF37" d="M31.5 15.4 L35 16.4 L31.5 17.2Z"/></svg>
-  </div>
-  <svg class="sky" id="sky" viewBox="0 0 400 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true"></svg>
+  <div class="flagbox"><div class="flag"><i></i><div><b></b><b></b><b></b></div></div><img class="emb" src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div>
 </header>
 <div class="ribbon" id="ribbon"><span id="rib">…</span></div>
 
@@ -181,8 +160,8 @@ body:not(.uae) .plain-title{display:block}
   <ul class="dates">
     <li>The UAE was founded on 2 December 1971.</li>
     <li>Seven emirates joined in the federation.</li>
-    <li>The falcon is the national bird.</li>
-  </ul>
+    <li>The UAE flag has been used since 1971.</li>
+      </ul>
 
   <div class="say"><span class="cam" id="cam">🐪</span><div class="bub" id="bub">Yalla! Let's learn.</div></div>
   <div class="btns"><button id="bShukran">Tap the camel</button></div>
@@ -203,49 +182,6 @@ function now(){return sim!==null?sim:Date.now();}
 function state(){var t=now(); if(t>=F_START&&t<F_END)return 'forced'; if(t>=START&&t<END)return 'optional'; return 'off';}
 var picked=false;
 function themeOn(){var s=state(); return s==='forced'||(s==='optional'&&picked);}
-
-/* ---------- skyline ---------- */
-var sky=document.getElementById('sky'),NS='http://www.w3.org/2000/svg';
-function el(n,a,p){var e=document.createElementNS(NS,n);for(var k in a)e.setAttribute(k,a[k]);(p||sky).appendChild(e);return e;}
-var wins=[];
-function win(x,y,w,h){var e=el('rect',{x:x,y:y,width:w,height:h,class:'w'});wins.push(e);}
-function block(x,w,h,step){ // generic tower
-  var y=120-h; el('rect',{x:x,y:y,width:w,height:h,class:'b'});
-  for(var yy=y+6;yy<118;yy+=step)for(var xx=x+3;xx<x+w-3;xx+=5)win(xx,yy,2,2);
-}
-(function build(){
-  /* back row of generic towers */
-  [[2,18,48],[22,14,62],[38,20,40],[62,16,70],[300,18,58],[320,14,44],[340,20,66],[362,16,52],[380,18,38]].forEach(function(b){block(b[0],b[1],b[2],7);});
-  /* Etihad Towers: five slanted slabs (left-centre) */
-  [[88,10,64],[99,10,76],[110,10,88],[121,10,58],[132,9,46]].forEach(function(b,i){
-    el('path',{d:'M'+b[0]+' 120 V'+(120-b[2]+6)+' L'+(b[0]+b[1])+' '+(120-b[2])+' V120Z',class:'b'});
-    for(var y=120-b[2]+10;y<118;y+=7)win(b[0]+3,y,2,2),win(b[0]+6,y,2,2);
-  });
-  /* Burj Al Arab: sail */
-  el('path',{d:'M165 120 C163 98 170 80 192 56 C196 84 198 100 200 120Z',class:'b'});
-  el('rect',{x:188,y:52,width:1.6,height:8,class:'b'});
-  for(var y=70;y<116;y+=7){win(176,y,2,2);win(182,y,2,2);}
-  /* Burj Khalifa: stepped tapering spire (centre-right), the tallest */
-  el('path',{d:'M222 120 V92 L226 92 V72 L229 72 V52 L231.5 52 V30 L232.5 30 L233 2 L233.5 30 L234.5 30 V52 L237 52 V72 L240 72 V92 L244 92 V120Z',class:'b'});
-  for(var y=34;y<116;y+=6){win(230,y,1.6,2);win(235.5,y,1.6,2);}
-  /* Museum of the Future: oval torus with a hole */
-  el('rect',{x:262,y:94,width:30,height:26,class:'b'});
-  el('ellipse',{cx:277,cy:78,rx:17,ry:25,class:'b'});
-  el('ellipse',{cx:277,cy:78,rx:6,ry:15,fill:'#0A3A27'});
-  el('ellipse',{cx:277,cy:78,rx:6,ry:15,fill:'none',stroke:'#FFD97A','stroke-opacity':.6,'stroke-width':.8});
-  /* ground */
-  el('rect',{x:0,y:116,width:400,height:4,class:'b'});
-})();
-function lights(){
-  var h=new Date(now()+OFF).getUTCHours(); // Tashkent hour
-  var night=(h>=17||h<7), dusk=(h>=15&&h<17)||(h>=7&&h<9);
-  var share=night?0.8:dusk?0.45:0.12;
-  wins.forEach(function(w,i){
-    var on=((i*2654435761)%1000)/1000<share;
-    w.setAttribute('class','w'+(on?' on':''));
-    if(on)w.style.animationDelay=((i*37)%40)/10+'s';
-  });
-}
 
 /* ---------- countdown ribbon ---------- */
 function ribbon(){
@@ -283,15 +219,6 @@ function show(n){size();var k=0;(function go(){burst(W*(Math.random()<.5?.08+Mat
 function small(){size();burst(W*(.3+Math.random()*.4),H*.3,18,2);}
 function big(){show(7);}
 
-/* ---------- falcon ---------- */
-var fa=document.getElementById('falcon');
-fa.addEventListener('click',function(){
-  var r=fa.getBoundingClientRect();fa.style.setProperty('--fx',r.left+'px');
-  fa.classList.add('dive');small();
-  setTimeout(function(){fa.classList.remove('dive');fa.style.animation='none';void fa.offsetWidth;fa.style.animation='';},1300);
-  say('Shaheen! Fast as a falcon.');
-});
-
 /* ---------- camel one-liners ---------- */
 var LINES=['Yalla! Let\'s learn.','Shukran! Correct.','Mashallah! Well done.','Habibi, try again.','Sand today, success tomorrow.','Slow camel, still arrives.'];
 var li=0;
@@ -308,7 +235,7 @@ function apply(){
   var row=document.getElementById('optRow');
   row.style.display=(st==='optional')?'flex':'none';
   document.getElementById('bPick').textContent=picked?'Turn off':'Use it';
-  ribbon();lights();
+  ribbon();
   if(on){size();}
 }
 document.getElementById('bPick').onclick=function(){picked=!picked;apply();if(themeOn())show(3);};
@@ -320,7 +247,6 @@ document.addEventListener('visibilitychange',function(){if(!document.hidden&&par
 
 apply();
 if(themeOn())setTimeout(function(){show(5);},600);
-setInterval(lights,60000);
 })();
 </script>
 </body>
