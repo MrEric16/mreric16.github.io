@@ -35,13 +35,13 @@ body.theme-uae .uae-flagwrap{ display:block; }
 .uae-flagbox .fl b:nth-child(2){ background:#FFFFFF; }
 .uae-flagbox .fl b:nth-child(3){ background:#000000; }
 .uae-flagbox img{ position:absolute; left:62.5%; top:50%; height:28%; aspect-ratio:360/463; transform:translate(-50%,-50%); object-fit:contain; display:block; }
-body.theme-uae header{ position:relative !important; height:306px; overflow:hidden; background:#0C1613 !important; }
+body.theme-uae header{ position:relative !important; height:306px; overflow:hidden; background:transparent !important; }
 body.theme-uae header > *:not(.uae-flagwrap){ position:relative; z-index:1; }
 body.theme-uae header > .masthead{ position:absolute !important; left:0; right:0; bottom:4px; }
 body.theme-uae .title-row, body.theme-uae .subtitle, body.theme-uae .board{ display:none !important; }
 
 /* countdown ribbon under the header */
-.uae-ribbon{ display:none; text-align:center; padding:8px 12px; background:#0C1613; border-bottom:2px solid #D4AF37; position:relative; z-index:2; }
+.uae-ribbon{ display:none; text-align:center; padding:8px 12px; background:transparent; border-bottom:2px solid #D4AF37; position:relative; z-index:2; }
 body.theme-uae .uae-ribbon{ display:block; }
 .uae-ribbon span{ display:inline-block; padding:3px 14px; border-radius:99px; background:rgba(8,14,12,.92); border:1.5px solid #D4AF37; color:#F1D77A; font-weight:800; letter-spacing:.06em; font-size:14px; }
 .uae-ribbon.big span{ font-size:16px; }
@@ -137,7 +137,7 @@ body.theme-uae .uae-emirates{ display:flex; }
 
 
 /* night skyline backdrop: three depth rows, outline style, fixed behind the content */
-#uaeSky{ position:fixed; left:50%; transform:translateX(-50%); bottom:56px; width:min(100vw,640px); aspect-ratio:600/640; max-height:74vh; z-index:-1; pointer-events:none; display:none; opacity:1; }
+#uaeSky{ position:fixed; left:50%; transform:translateX(-50%); top:260px; height:540px; width:380px; z-index:-1; pointer-events:none; display:none; opacity:1; }
 body.theme-uae #uaeSky{ display:block; }
 body.theme-uae #uaeDunes{ display:none; }
 #uaeSky svg{ width:100%; height:100%; display:block; }
@@ -327,13 +327,23 @@ var prevT=Date.now();
 setInterval(function(){var t=Date.now();if(sim===null&&prevT<F_START&&t>=F_START){apply();show(10);say('Eid Al Etihad Mubarak!');}prevT=t;},1000);
 
 
+
+function layoutSky(){
+  var el=document.getElementById('uaeSky'),fw=document.querySelector('.uae-flagwrap');
+  if(!el||!fw||!on())return;
+  var top=Math.round(fw.getBoundingClientRect().bottom+(window.scrollY||0))+4;
+  var h=Math.max(260,innerHeight-top-56);
+  el.style.top=top+'px';el.style.height=h+'px';el.style.width=Math.min(innerWidth,Math.round(h*600/850))+'px';
+}
+addEventListener('resize',layoutSky);
+
 /* ===== skyline fireworks: Burj Khalifa (tip + cascading sides), Burj Al Arab, behind Ain Dubai ===== */
 var bg=document.getElementById('uaeBg'),bx=bg.getContext('2d'),bp=[],braf=0,BW=0,BH=0,overT=0,overEnd=0,ambT=0;
 function bsize(){BW=bg.width=innerWidth;BH=bg.height=innerHeight;}
 addEventListener('resize',bsize);bsize();
 function geo(){
-  var r=document.getElementById('uaeSky').getBoundingClientRect(),sc=Math.min(r.width/600,r.height/640);
-  var ox=r.left+(r.width-600*sc)/2,oy=r.bottom-640*sc;
+  var r=document.getElementById('uaeSky').getBoundingClientRect(),sc=Math.min(r.width/600,r.height/850);
+  var ox=r.left+(r.width-600*sc)/2,oy=r.bottom-850*sc;
   return function(x,y){return [ox+x*sc,oy+y*sc];};
 }
 var BCOL=['#FFE08A','#FFF3CF','#FF3B3B','#2FD36B','#FFFFFF','#FFC24A'];
@@ -352,12 +362,12 @@ function btick(){
   if(bp.length&&!document.hidden){braf=requestAnimationFrame(btick);}else{braf=0;bx.clearRect(0,0,BW,BH);}
 }
 var LEDGE=[[22,34],[18,70],[14,108],[11,140],[8,172],[5,198]];
-function fkKhTop(P){var t=P(320,640-264*2.3);bburst(t,46,3.4);setTimeout(function(){bburst(P(320,640-264*2.3),26,2,'#FFF3CF');},220);}
+function fkKhTop(P){var t=P(320,850-264*3.1);bburst(t,46,3.4);setTimeout(function(){bburst(P(320,850-264*3.1),26,2,'#FFF3CF');},220);}
 function fkKhSides(P){var k=0;(function go(){var L=LEDGE[(Math.random()*LEDGE.length)|0],s=Math.random()<.5?-1:1;
-  var pt=P(320+s*L[0]*2.3,640-L[1]*2.3);bspark(pt,s,5);if(++k<30)setTimeout(go,60);})();}
-function fkBaa(P){bburst(P(166,430-161),30,2.6);setTimeout(function(){bburst(P(132,430-100),22,2.2);},180);
-  var k=0;(function go(){var pt=P(150+Math.random()*14,430-120+Math.random()*30);bspark(pt,-1,3);if(++k<20)setTimeout(go,65);})();}
-function fkAin(P){var h=P(500,127),sc=P(578,127)[0]-h[0];var a=Math.random()*6.283,d=Math.random()*sc*.9;bburst([h[0]+Math.cos(a)*d,h[1]+Math.sin(a)*d],40,3);}
+  var pt=P(320+s*L[0]*3.1,850-L[1]*3.1);bspark(pt,s,5);if(++k<30)setTimeout(go,60);})();}
+function fkBaa(P){bburst(P(195,409),30,2.6);setTimeout(function(){bburst(P(152,485),22,2.2);},180);
+  var k=0;(function go(){var pt=P(160+Math.random()*18,450+Math.random()*40);bspark(pt,-1,3);if(++k<20)setTimeout(go,65);})();}
+function fkAin(P){var h=P(495,224),sc=P(589,224)[0]-h[0];var a=Math.random()*6.283,d=Math.random()*sc*.9;bburst([h[0]+Math.cos(a)*d,h[1]+Math.sin(a)*d],40,3);}
 var FK=[fkKhTop,fkKhSides,fkBaa,fkAin,fkKhTop,fkAin];
 function fire(){if(!on()||document.hidden)return;var P=geo();FK[(Math.random()*FK.length)|0](P);}
 function overload(){
@@ -368,7 +378,7 @@ function stopOver(){clearInterval(overT);overT=0;bg.classList.remove('over');}
 addEventListener('pointerdown',function(){if(overT)stopOver();},true);
 clearInterval(ambT);ambT=setInterval(function(){if(!overT&&bp.length<500){fire();if(Math.random()<.5)fire();}},1040);
 
-var _apply=apply,wasOn=false;apply=function(){_apply();sky();watch();var o=on();if(o&&!wasOn)setTimeout(overload,500);if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
+var _apply=apply,wasOn=false;apply=function(){_apply();sky();watch();setTimeout(layoutSky,0);setTimeout(layoutSky,600);var o=on();if(o&&!wasOn)setTimeout(overload,500);if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
 apply();
 
 setInterval(function(){subtitle();ribbon();},30000);
