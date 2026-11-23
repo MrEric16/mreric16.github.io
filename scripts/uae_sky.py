@@ -74,7 +74,7 @@ def emirates_towers():
 
 def ain_dubai():
     cx, cy, r = 0, -88, 78
-    body = f'<circle cx="{cx}" cy="{cy}" r="{r}"/><circle cx="{cx}" cy="{cy}" r="{r-9}"/>'
+    body = f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none"/><circle cx="{cx}" cy="{cy}" r="{r-9}" fill="none"/>'
     import math
     for i in range(24):
         a = math.pi * 2 * i / 24

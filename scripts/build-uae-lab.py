@@ -151,6 +151,11 @@ body.theme-uae #uaeDunes{ display:none; }
 #uaeSky svg > g{ animation:uaeGleam 6s ease-in-out infinite; }
 @keyframes uaeGleam{ 0%,100%{stroke:#FFF3CF} 50%{stroke:#FFFFFF} }
 
+
+#uaeBg{ position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:-2; pointer-events:none; display:none; }
+body.theme-uae #uaeBg{ display:block; }
+#uaeBg.over{ z-index:99989; }
+
 /* ===== simulator (floating, collapsible) ===== */
 #uaeLab{ position:fixed; left:8px; bottom:78px; z-index:99999; font:13px/1.35 system-ui,sans-serif; color:#eee; }
 #uaeLab .pill{ padding:7px 12px; border-radius:99px; background:#111; border:2px solid #555; cursor:pointer; font-weight:700; color:#fff; }
@@ -163,6 +168,7 @@ body.theme-uae #uaeDunes{ display:none; }
 '''
 
 HTML = r'''
+<canvas id="uaeBg"></canvas>
 __SKY__
 <div class="uae-sadu uae-only" id="uaeSadu"></div>
 <div class="uae-emirates" id="uaeEm"><div class="uae-em"><b>Abu Dhabi</b><span><i>Father of the gazelle</i></span><span>Sheikh Mohamed bin Zayed Al Nahyan</span><span>Pop. 4.14M (2024)</span></div><div class="uae-em"><b>Dubai</b><span><i>Origin unclear</i></span><span>Sheikh Mohammed bin Rashid Al Maktoum</span><span>Pop. 4.47M (2024)</span></div><div class="uae-em"><b>Sharjah</b><span><i>The east / sunrise (disputed)</i></span><span>Sheikh Sultan bin Muhammad Al Qasimi</span><span>Pop. 1.81M (2022)</span></div><div class="uae-em"><b>Ajman</b><span><i>From 'Ajam', foreigners (unclear)</i></span><span>Sheikh Humaid bin Rashid Al Nuaimi</span><span>Pop. 505k (2017)</span></div><div class="uae-em"><b>Umm Al Quwain</b><span><i>Mother of two powers</i></span><span>Sheikh Saud bin Rashid Al Mualla</span><span>Pop. 49k (2005)</span></div><div class="uae-em"><b>Ras Al Khaimah</b><span><i>Head of the tent</i></span><span>Sheikh Saud bin Saqr Al Qasimi</span><span>Pop. 345k (2015)</span></div><div class="uae-em"><b>Fujairah</b><span><i>Springs below the mountains (one source)</i></span><span>Sheikh Hamad bin Mohammed Al Sharqi</span><span>Pop. 203k (2014)</span></div></div>
@@ -280,9 +286,9 @@ function small(){size();var _t=hb();burst(W*(.2+Math.random()*.6),_t+30+Math.ran
 function show(n){size();var k=0;(function go(){var _t=hb();burst(W*(.1+Math.random()*.8),_t+30+Math.random()*Math.max(60,(H-_t)*.4),32,3.4);if(++k<n)setTimeout(go,280+Math.random()*260);})();}
 
 document.getElementById('uaePill').onclick=function(){document.getElementById('uaeLab').classList.toggle('open');};
-document.getElementById('uaeSim').onchange=function(e){sim=e.target.value?tk(e.target.value):null;apply();if(on())show(4);};
-document.getElementById('uaePick').onclick=function(){picked=!picked;apply();if(on())show(3);};
-document.getElementById('uaeFw').onclick=function(){if(!on()){picked=true;sim=sim===null?START:sim;apply();}show(6);};
+document.getElementById('uaeSim').onchange=function(e){sim=e.target.value?tk(e.target.value):null;apply();};
+document.getElementById('uaePick').onclick=function(){picked=!picked;apply();};
+document.getElementById('uaeFw').onclick=function(){if(!on()){picked=true;sim=sim===null?START:sim;apply();}overload();};
 
 /* ===== extras: all placed away from the flag ===== */
 var rb=document.getElementById('uaeRibbon');
@@ -320,9 +326,51 @@ function watch(){
 var prevT=Date.now();
 setInterval(function(){var t=Date.now();if(sim===null&&prevT<F_START&&t>=F_START){apply();show(10);say('Eid Al Etihad Mubarak!');}prevT=t;},1000);
 
-var _apply=apply;apply=function(){_apply();sky();watch();};
+
+/* ===== skyline fireworks: Burj Khalifa (tip + cascading sides), Burj Al Arab, behind Ain Dubai ===== */
+var bg=document.getElementById('uaeBg'),bx=bg.getContext('2d'),bp=[],braf=0,BW=0,BH=0,overT=0,overEnd=0,ambT=0;
+function bsize(){BW=bg.width=innerWidth;BH=bg.height=innerHeight;}
+addEventListener('resize',bsize);bsize();
+function geo(){
+  var r=document.getElementById('uaeSky').getBoundingClientRect(),sc=Math.min(r.width/600,r.height/640);
+  var ox=r.left+(r.width-600*sc)/2,oy=r.bottom-640*sc;
+  return function(x,y){return [ox+x*sc,oy+y*sc];};
+}
+var BCOL=['#FFE08A','#FFF3CF','#FF3B3B','#2FD36B','#FFFFFF','#FFC24A'];
+function bpart(x,y,vx,vy,c,l,dec){if(bp.length>420)return;bp.push({x:x,y:y,vx:vx,vy:vy,c:c,l:l||1,d:dec||.012});}
+function bburst(P,n,pw,c){var c1=c||BCOL[(Math.random()*BCOL.length)|0];for(var i=0;i<n;i++){var a=Math.PI*2*i/n+Math.random()*.1,v=(.5+Math.random()*.5)*pw;bpart(P[0],P[1],Math.cos(a)*v,Math.sin(a)*v,Math.random()<.25?'#FFE08A':c1);}kick();}
+function bspark(P,dir,n){for(var i=0;i<n;i++){bpart(P[0],P[1],dir*(.4+Math.random()*1.1),-(.2+Math.random()*1.0),Math.random()<.5?'#FFC24A':'#FFF3CF',1,.009);}kick();}
+function hdrB(){var h=document.querySelector('header');var r=h?h.getBoundingClientRect().bottom:0;return Math.max(0,Math.min(r,BH));}
+function kick(){if(!braf)braf=requestAnimationFrame(btick);}
+function btick(){
+  bx.globalCompositeOperation='destination-out';bx.fillStyle='rgba(0,0,0,.28)';bx.fillRect(0,0,BW,BH);
+  bx.globalCompositeOperation='source-over';
+  var hh=hdrB();bx.save();bx.beginPath();bx.rect(0,hh,BW,BH-hh);bx.clip();
+  bp=bp.filter(function(p){return p.l>0;});
+  for(var i=0;i<bp.length;i++){var p=bp[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.04;p.vx*=.988;p.l-=p.d;bx.globalAlpha=Math.max(p.l,0);bx.fillStyle=p.c;bx.fillRect(p.x,p.y,2.6,2.6);}
+  bx.restore();bx.globalAlpha=1;
+  if(bp.length&&!document.hidden){braf=requestAnimationFrame(btick);}else{braf=0;bx.clearRect(0,0,BW,BH);}
+}
+var LEDGE=[[22,34],[18,70],[14,108],[11,140],[8,172],[5,198]];
+function fkKhTop(P){var t=P(320,640-264*2.3);bburst(t,46,3.4);setTimeout(function(){bburst(P(320,640-264*2.3),26,2,'#FFF3CF');},220);}
+function fkKhSides(P){var k=0;(function go(){var L=LEDGE[(Math.random()*LEDGE.length)|0],s=Math.random()<.5?-1:1;
+  var pt=P(320+s*L[0]*2.3,640-L[1]*2.3);bspark(pt,s,5);if(++k<16)setTimeout(go,85);})();}
+function fkBaa(P){bburst(P(166,430-161),30,2.6);setTimeout(function(){bburst(P(132,430-100),22,2.2);},180);
+  var k=0;(function go(){var pt=P(150+Math.random()*14,430-120+Math.random()*30);bspark(pt,-1,3);if(++k<10)setTimeout(go,90);})();}
+function fkAin(P){var h=P(500,127),sc=P(578,127)[0]-h[0];var a=Math.random()*6.283,d=Math.random()*sc*.9;bburst([h[0]+Math.cos(a)*d,h[1]+Math.sin(a)*d],40,3);}
+var FK=[fkKhTop,fkKhSides,fkBaa,fkAin,fkKhTop,fkAin];
+function fire(){if(!on()||document.hidden)return;var P=geo();FK[(Math.random()*FK.length)|0](P);}
+function overload(){
+  if(!on())return;bsize();bg.classList.add('over');overEnd=Date.now()+7000;clearInterval(overT);
+  var n=0;overT=setInterval(function(){fire();fire();if(Date.now()>overEnd)stopOver();},150);
+}
+function stopOver(){clearInterval(overT);overT=0;bg.classList.remove('over');}
+addEventListener('pointerdown',function(){if(overT)stopOver();},true);
+clearInterval(ambT);ambT=setInterval(function(){if(!overT&&bp.length<160)fire();},2600);
+
+var _apply=apply,wasOn=false;apply=function(){_apply();sky();watch();var o=on();if(o&&!wasOn)setTimeout(overload,500);if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
 apply();
-if(on())setTimeout(function(){show(5);},900);
+
 setInterval(function(){subtitle();ribbon();},30000);
 })();
 </script>
