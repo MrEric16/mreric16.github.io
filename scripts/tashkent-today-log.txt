@@ -1,5 +1,5 @@
-rates FAIL direct HTTPSConnectionPool(host='cbu.uz', port=443): Read timed out. (read timeout=10)
-rates FAIL direct ru ('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))
+rates cross-check vs open.er-api.com ok, worst 0.15% (EUR 0.15%, GBP 0.00%, RUB 0.10%, AED 0.01%, KZT 0.03%, CNY 0.03%, KGS 0.01%)
+rates ok via direct 21.11.2026
 air ok
 prayer ok 61 days
 prayer cross-check unavailable: 502 Server Error: Bad Gateway for url: https://islomapi.uz/api/present/day?regio
