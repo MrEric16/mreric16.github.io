@@ -137,14 +137,19 @@ body.theme-uae .uae-emirates{ display:flex; }
 
 
 /* night skyline backdrop: three depth rows, outline style, fixed behind the content */
-#uaeSky{ position:fixed; left:50%; transform:translateX(-50%); bottom:56px; width:min(100vw,640px); aspect-ratio:600/640; max-height:74vh; z-index:-1; pointer-events:none; display:none; opacity:.75; }
+#uaeSky{ position:fixed; left:50%; transform:translateX(-50%); bottom:56px; width:min(100vw,640px); aspect-ratio:600/640; max-height:74vh; z-index:-1; pointer-events:none; display:none; opacity:1; }
 body.theme-uae #uaeSky{ display:block; }
 body.theme-uae #uaeDunes{ display:none; }
 #uaeSky svg{ width:100%; height:100%; display:block; }
-#uaeSky .lw{ fill:#FFD97A; stroke:none; opacity:.85; }
-#uaeSky .cab{ fill:#EADFC3; stroke:none; }
-#uaeSky .beacon{ fill:#FF3B3B; stroke:none; animation:uaeBeacon 2.4s ease-in-out infinite; }
-@keyframes uaeBeacon{ 0%,100%{opacity:.25} 50%{opacity:1} }
+#uaeSky .lw{ fill:#FFE29A; stroke:none; opacity:.95; animation:uaeTwinkle 5s ease-in-out infinite; }
+#uaeSky .lw:nth-child(3n){ animation-delay:1.3s; } #uaeSky .lw:nth-child(4n+1){ animation-delay:2.7s; }
+@keyframes uaeTwinkle{ 0%,100%{opacity:.95} 50%{opacity:.4} }
+#uaeSky .cab{ fill:#FFF3CF; stroke:none; }
+#uaeSky .beacon{ fill:#FF2A2A; stroke:none; opacity:.15; animation:uaeBeacon 2.4s ease-in-out infinite; }
+#uaeSky .beacon.glow{ fill:#FF2A2A; opacity:.12; }
+@keyframes uaeBeacon{ 0%,45%,100%{opacity:.12} 12%,28%{opacity:1} }
+#uaeSky svg > g{ animation:uaeGleam 6s ease-in-out infinite; }
+@keyframes uaeGleam{ 0%,100%{stroke:#FFF3CF} 50%{stroke:#FFFFFF} }
 
 /* ===== simulator (floating, collapsible) ===== */
 #uaeLab{ position:fixed; left:8px; bottom:78px; z-index:99999; font:13px/1.35 system-ui,sans-serif; color:#eee; }

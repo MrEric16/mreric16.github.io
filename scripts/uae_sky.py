@@ -2,6 +2,12 @@
 Landmarks: Burj Khalifa, Burj Al Arab, Emirates Towers, Ain Dubai, Museum of the Future,
 Sheikh Zayed Grand Mosque, Dubai World Trade Centre. Three depth rows."""
 BG = '#0E1417'
+_bn = [0]
+def beacon(x, y, r=2):
+    _bn[0] += 1
+    d = round((_bn[0] * 0.53) % 2.4, 2)
+    return (f'<circle class="beacon glow" cx="{x}" cy="{y}" r="{r*2.6}" style="animation-delay:{d}s"/>'
+            f'<circle class="beacon" cx="{x}" cy="{y}" r="{r}" style="animation-delay:{d}s"/>')
 def g(tx, ty, body, op):  # group translated so (0,0) is the building's ground centre
     return f'<g transform="translate({tx},{ty})" opacity="{op}">{body}</g>'
 def poly(pts, close=True):
@@ -25,7 +31,7 @@ def khalifa():
     body = poly(left + [(0, -252)] + right)
     body += '<path d="M0,-236 L0,-262" />'
     body += windows(-18, 16, -190, -6, 8, 6)
-    body += '<circle class="beacon" cx="0" cy="-264" r="2"/>'
+    body += beacon(0, -264, 2.2)
     return body
 
 def burj_al_arab():
@@ -34,6 +40,7 @@ def burj_al_arab():
     body += '<path d="M-2,-30 C6,-60 20,-90 36,-118"/><path d="M8,-20 C14,-50 26,-80 36,-100"/>'  # fabric lines
     body += '<path d="M-26,0 L-26,-6 C-10,-14 40,-14 56,-6 L56,0Z"/>'                               # island/base
     body += '<path d="M21,-100 L4,-100"/><circle cx="2" cy="-100" r="3"/>'                          # helipad
+    body += beacon(36, -161, 1.8)
     return body
 
 def museum():
@@ -51,7 +58,7 @@ def museum():
 def dwtc():
     body = poly([(-17,0),(-17,-150),(-13,-154),(13,-154),(17,-150),(17,0)])
     body += ''.join(f'<path d="M{x},-150 L{x},0"/>' for x in range(-12, 13, 6))
-    body += '<path d="M-17,-150 L17,-150"/><path d="M-3,-154 L-3,-166 L3,-166 L3,-154"/>'
+    body += '<path d="M-17,-150 L17,-150"/><path d="M-3,-154 L-3,-166 L3,-166 L3,-154"/>' + beacon(0, -169, 1.8)
     body += poly([(-40,0),(-40,-26),(-17,-26)], False) + poly([(40,0),(40,-26),(17,-26)], False)
     return body
 
@@ -61,7 +68,7 @@ def emirates_towers():
         return (poly([(cx-hw,0),(cx-hw,-(h-34)),(cx,-h),(cx+hw,-(h-34)),(cx+hw,0)]) +
                 f'<path d="M{cx},{-h} L{cx},{-(h+24)}"/>' +
                 f'<path d="M{cx-hw},{-(h-34)} L{cx+hw},{-(h-34)}"/>' + f'<path d="M{cx},{-h} L{cx},0"/>')
-    body = tower(-12, 36, 170) + tower(26, 32, 136)
+    body = tower(-12, 36, 170) + tower(26, 32, 136) + beacon(-12, -196, 2) + beacon(26, -162, 2)
     body += '<path d="M-30,0 L-30,-12 L42,-12 L42,0Z"/>'
     return body
 
@@ -108,25 +115,26 @@ def block_row(x0, x1, base, seed, hmin, hmax, wins=True):
         else:
             out += poly([(x,base),(x,top),(x+w,top),(x+w,base)])
         if wins: out += windows(x+3, x+w-3, top+6, base-4, 8, 6)
+        if h >= 88: out += beacon(round(x+w/2,1), top-10 if roof < .25 else top-8, 1.4)
         x += w + rnd.randint(2, 8)
     return out
 
 def build():
     s = []
     # row 1 (far): Zayed Mosque + Ain Dubai
-    s.append(g(175, 215, zayed(), .45))
-    s.append(g(500, 215, ain_dubai(), .45))
+    s.append(g(175, 215, zayed(), .8))
+    s.append(g(500, 215, ain_dubai(), .85))
     # row 2 (middle): Museum, Burj Al Arab, WTC, Emirates Towers + filler
-    s.append(g(0, 430, block_row(0, 600, 0, 5, 18, 50, False), .3))
-    s.append(g(55, 430, museum(), .62))
-    s.append(g(130, 430, burj_al_arab(), .62))
-    s.append(g(215, 430, dwtc(), .62))
-    s.append(g(450, 430, emirates_towers(), .62))
+    s.append(g(0, 430, block_row(0, 600, 0, 5, 18, 50, False), .45))
+    s.append(g(55, 430, museum(), .95))
+    s.append(g(130, 430, burj_al_arab(), .95))
+    s.append(g(215, 430, dwtc(), .95))
+    s.append(g(450, 430, emirates_towers(), .95))
     # row 3 (front): Burj Khalifa + city
-    s.append(g(0, 640, block_row(0, 275, 0, 11, 40, 110), .75))
-    s.append(g(0, 640, block_row(365, 600, 0, 23, 40, 120), .75))
-    s.append('<g transform="translate(320,640) scale(1.3)" opacity=".95">%s</g>' % khalifa())
+    s.append(g(0, 640, block_row(0, 275, 0, 11, 40, 110), .95))
+    s.append(g(0, 640, block_row(365, 600, 0, 23, 40, 120), .95))
+    s.append('<g transform="translate(320,640) scale(1.3)" opacity="1">%s</g>' % khalifa())
     return ''.join(s)
 
 SVG = ('<svg viewBox="0 0 600 640" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">'
-       '<g fill="%s" stroke="#EADFC3" stroke-width="1.1" stroke-linejoin="round" stroke-linecap="round">%s</g></svg>') % (BG, build())
+       '<g fill="%s" stroke="#FFF3CF" stroke-width="1.35" stroke-linejoin="round" stroke-linecap="round">%s</g></svg>') % (BG, build())
