@@ -1,122 +1,6 @@
 {
-  "generatedAt": "2026-11-23T01:01:35.661242Z",
+  "generatedAt": "2026-11-23T08:45:21.159606Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/getafe-vs-rayo-vallecano/s5m0b9Ja8UC_Z6_9TwL0s",
-      "date": "2026-10-19",
-      "home": "Getafe",
-      "away": "Rayo Vallecano",
-      "htHome": 0,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "M. Satriano",
-          "minute": 56
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "A. Garcia",
-          "minute": 11
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/fenerbahce-vs-slavia-prague/lPbnNLMfECCc7GnjOBOTL",
-      "date": "2026-10-20",
-      "home": "Fenerbahce",
-      "away": "Slavia Prague",
-      "htHome": 2,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "O. Aydin",
-          "minute": 4
-        },
-        {
-          "scorer": "M. Greenwood",
-          "minute": 11
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "L. Provod",
-          "minute": 15
-        },
-        {
-          "scorer": "P. Kacor",
-          "minute": 90
-        }
-      ],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU",
-      "date": "2026-10-20",
-      "home": "Sabah Fk",
-      "away": "Borussia Dortmund",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 1,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "A. McCarthy",
-          "minute": 39
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "S. Guirassy",
-          "minute": 10
-        }
-      ],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-barcelona/p5qSwYXAtxFw4tfzdmg-1",
-      "date": "2026-10-20",
-      "home": "Paris Saint Germain",
-      "away": "Barcelona",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "D. Doue",
-          "minute": 38
-        },
-        {
-          "scorer": "L. Hernandez",
-          "minute": 72
-        },
-        {
-          "scorer": "Vitinha",
-          "minute": 81
-        },
-        {
-          "scorer": "F. Ruiz",
-          "minute": 86
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "X. Espart",
-          "minute": 55
-        },
-        {
-          "scorer": "L. Yamal",
-          "minute": 79
-        }
-      ],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/roma-vs-slovan-bratislava/_REzB-KGFWGMLEFWnAkbt",
       "date": "2026-10-20",
@@ -7708,6 +7592,108 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/hull-city-vs-brighton-and-hove-albion/OoSYMtEm-hHGYQBLikLyp",
+      "date": "2026-11-22",
+      "home": "Hull City",
+      "away": "Brighton And Hove Albion",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "O. McBurnie",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [],
+      "competition": "PL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/racing-santander-vs-real-sociedad/E6nnqrlmXefE0mNL0ynq9",
+      "date": "2026-11-22",
+      "home": "Racing Santander",
+      "away": "Real Sociedad",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 3,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "Y. Zabiri",
+          "minute": 6
+        },
+        {
+          "scorer": "S. Canales",
+          "minute": 68
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Oyarzabal",
+          "minute": 45
+        },
+        {
+          "scorer": "G. Guedes",
+          "minute": 60
+        }
+      ],
+      "competition": "PD"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sassuolo-vs-genoa/YuzhUYOrKbOOQhX8-2qaT",
+      "date": "2026-11-22",
+      "home": "Sassuolo",
+      "away": "Genoa",
+      "htHome": 0,
+      "htAway": 2,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "M. Osmajic",
+          "minute": 26
+        }
+      ],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/atalanta-vs-inter/OEXemUGMb20B6uO9m-owA",
+      "date": "2026-11-22",
+      "home": "Atalanta",
+      "away": "Inter",
+      "htHome": 1,
+      "htAway": 2,
+      "ftHome": 4,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "E. Elmas",
+          "minute": 35
+        },
+        {
+          "scorer": "C. De Ketelaere",
+          "minute": 72
+        },
+        {
+          "scorer": "F. Kessie",
+          "minute": 90
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "F. Esposito",
+          "minute": 16
+        },
+        {
+          "scorer": "P. Sucic",
+          "minute": 76
+        }
+      ],
+      "competition": "SA"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7726,11 +7712,8 @@
     "https://www.goal.com/en/match/sassuolo-vs-fiorentina/HnJ0bvgsUasA_NBcHKlX3": 1,
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
-    "https://www.goal.com/en/match/hull-city-vs-brighton-and-hove-albion/OoSYMtEm-hHGYQBLikLyp": 2,
-    "https://www.goal.com/en/match/racing-santander-vs-real-sociedad/E6nnqrlmXefE0mNL0ynq9": 2,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
     "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
-    "https://www.goal.com/en/match/sassuolo-vs-genoa/YuzhUYOrKbOOQhX8-2qaT": 2,
-    "https://www.goal.com/en/match/atalanta-vs-inter/OEXemUGMb20B6uO9m-owA": 2
+    "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI": 1
   }
 }
