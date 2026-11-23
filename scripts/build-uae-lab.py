@@ -63,6 +63,74 @@ body.theme-uae #app ul:not([class]) > li{ position:relative; padding-left:28px; 
 body.theme-uae #app ul:not([class]) > li::before{ content:"\1F334"; position:absolute; left:0; }
 body.theme-uae #app ul:not([class]) > li:nth-child(2n)::before{ content:"\26F5"; }
 
+
+/* ---- more UAE: nothing below touches the flag ---- */
+.uae-only{ display:none; }
+body.theme-uae .uae-only{ display:block; }
+/* Sadu weave divider under the ribbon */
+.uae-sadu{ height:14px; background:
+  linear-gradient(135deg,transparent 40%,#E4002B 40% 60%,transparent 60%) 0 0/14px 14px,
+  linear-gradient(45deg,transparent 40%,#D4AF37 40% 60%,transparent 60%) 0 0/14px 14px, #1A1410;
+  border-bottom:2px solid #D4AF37; position:relative; z-index:2; }
+/* majlis tiles: Sadu stripe on top, gold tassel bottom-right, lattice texture */
+body.theme-uae .fac-tile, body.theme-uae .sport-hub-tile, body.theme-uae .random-tile, body.theme-uae a[class$="-tile"]{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><path d='M14 2 L26 14 L14 26 L2 14Z' fill='none' stroke='%23D4AF37' stroke-opacity='.16'/><circle cx='14' cy='14' r='3' fill='none' stroke='%23D4AF37' stroke-opacity='.16'/></svg>"), linear-gradient(135deg,#0D3F2A,#0A2A1D) !important; }
+body.theme-uae .sport-hub-tile, body.theme-uae .goodnews-tile, body.theme-uae .watch-tile{
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28'><path d='M14 2 L26 14 L14 26 L2 14Z' fill='none' stroke='%23D4AF37' stroke-opacity='.16'/><circle cx='14' cy='14' r='3' fill='none' stroke='%23D4AF37' stroke-opacity='.16'/></svg>"), linear-gradient(135deg,#7A0E22,#4D0914) !important; }
+body.theme-uae .fac-tile::before, body.theme-uae .sport-hub-tile::before, body.theme-uae .random-tile::before, body.theme-uae a[class$="-tile"]::before{
+  content:""; position:absolute; left:0; right:0; top:0; height:7px; pointer-events:none; z-index:0;
+  background:linear-gradient(135deg,transparent 40%,#E4002B 40% 60%,transparent 60%) 0 0/8px 7px,linear-gradient(45deg,transparent 40%,#D4AF37 40% 60%,transparent 60%) 0 0/8px 7px,#1A1410; }
+body.theme-uae .fac-tile::after, body.theme-uae .sport-hub-tile::after, body.theme-uae .random-tile::after, body.theme-uae a[class$="-tile"]::after{
+  content:""; position:absolute; right:12px; bottom:-10px; top:auto; width:10px; height:26px; transform:none; border:none;
+  background:linear-gradient(#D4AF37,#A8861C); border-radius:5px 5px 3px 3px; box-shadow:0 0 0 2px #1A1410; pointer-events:none; }
+/* gold foil shimmer on section headings */
+body.theme-uae .section-head h2{
+  background:linear-gradient(100deg,#B8921F 0%,#F1D77A 35%,#FFF6CF 50%,#F1D77A 65%,#B8921F 100%) 0 0/250% 100%;
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent !important; color:transparent !important;
+  animation:uaeFoil 7s linear infinite; }
+@keyframes uaeFoil{ 0%{background-position:150% 0} 100%{background-position:-100% 0} }
+/* dhow on the ribbon */
+.uae-ribbon{ position:relative; overflow:hidden; }
+.uae-ribbon span{ position:relative; z-index:2; }
+.uae-dhow{ position:absolute; z-index:1; bottom:2px; left:-70px; width:54px; height:34px; cursor:pointer; animation:uaeSail 38s linear infinite; -webkit-tap-highlight-color:transparent; }
+.uae-dhow svg{ width:100%; height:100%; display:block; animation:uaeBob 3s ease-in-out infinite; }
+.uae-dhow.toot{ animation-play-state:paused; }
+@keyframes uaeSail{ 0%{transform:translateX(0)} 100%{transform:translateX(calc(100vw + 140px))} }
+@keyframes uaeBob{ 0%,100%{transform:translateY(0) rotate(-1.5deg)} 50%{transform:translateY(-2px) rotate(1.5deg)} }
+/* desert horizon above the bottom nav */
+#uaeDunes{ position:fixed; left:0; right:0; bottom:56px; height:110px; z-index:0; pointer-events:none; opacity:.5; overflow:hidden; display:none; }
+body.theme-uae #uaeDunes{ display:block; }
+#uaeDunes svg{ position:absolute; left:0; bottom:0; width:200%; height:100%; }
+#uaeDunes .d1{ animation:uaeDrift 90s linear infinite; } #uaeDunes .d2{ animation:uaeDrift 60s linear infinite reverse; }
+@keyframes uaeDrift{ 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+#uaeDunes[data-sky=dawn] .c1{fill:#C98A5B}#uaeDunes[data-sky=dawn] .c2{fill:#9A6446}
+#uaeDunes[data-sky=day]  .c1{fill:#E3C48A}#uaeDunes[data-sky=day]  .c2{fill:#C9A16A}
+#uaeDunes[data-sky=dusk] .c1{fill:#B8643F}#uaeDunes[data-sky=dusk] .c2{fill:#7E3F2B}
+#uaeDunes[data-sky=night] .c1{fill:#3A3A4E}#uaeDunes[data-sky=night] .c2{fill:#25263A}
+/* incense smoke, bottom-right (nowhere near the flag) */
+.uae-smoke{ position:fixed; right:70px; bottom:64px; width:30px; height:90px; z-index:90; pointer-events:none; display:none; }
+body.theme-uae .uae-smoke{ display:block; }
+.uae-smoke i{ position:absolute; bottom:0; left:50%; width:14px; height:14px; border-radius:50%; background:rgba(235,225,205,.38); filter:blur(5px); animation:uaeSmoke 5s ease-in infinite; opacity:0; }
+.uae-smoke i:nth-child(2){ animation-delay:1.6s } .uae-smoke i:nth-child(3){ animation-delay:3.2s }
+@keyframes uaeSmoke{ 0%{transform:translate(-50%,0) scale(.6);opacity:0} 20%{opacity:.7} 100%{transform:translate(-10%,-90px) scale(2.4);opacity:0} }
+.uae-smoke b{ position:absolute; bottom:-6px; left:50%; transform:translateX(-50%); font-size:18px; }
+/* camel + dallah (fixed, bottom) */
+#uaeCamel{ position:fixed; right:8px; bottom:64px; z-index:95; display:none; align-items:flex-end; gap:6px; }
+body.theme-uae #uaeCamel{ display:flex; }
+#uaeCamel .cam{ font-size:34px; cursor:pointer; user-select:none; -webkit-tap-highlight-color:transparent; }
+#uaeCamel .bub{ background:#F4E6C3; color:#2B2112; padding:7px 11px; border-radius:12px 12px 3px 12px; font:600 13px/1.3 system-ui,sans-serif; max-width:190px; box-shadow:0 2px 0 rgba(0,0,0,.4); opacity:0; transform:translateY(6px); transition:opacity .25s, transform .25s; }
+#uaeCamel .bub.show{ opacity:1; transform:none; }
+#uaeDallah{ position:fixed; left:8px; bottom:124px; z-index:99998; display:none; width:44px; height:44px; border-radius:50%; background:#111; border:2px solid #D4AF37; font-size:22px; cursor:pointer; align-items:center; justify-content:center; }
+body.theme-uae #uaeDallah{ display:flex; }
+#uaeDallah.steam::after{ content:"\2615"; position:absolute; top:-24px; left:8px; font-size:20px; animation:uaeSmoke 2s ease-out 1; }
+/* seven emirates strip */
+.uae-emirates{ display:none; overflow-x:auto; scroll-snap-type:x mandatory; gap:10px; padding:12px 14px; position:relative; z-index:2; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+body.theme-uae .uae-emirates{ display:flex; }
+.uae-emirates::-webkit-scrollbar{ display:none; }
+.uae-em{ flex:0 0 150px; scroll-snap-align:start; padding:10px 12px; border:2px solid #D4AF37; border-radius:12px; color:#FFF7E3; background:linear-gradient(135deg,#0D3F2A,#0A2A1D); box-shadow:0 3px 0 rgba(0,0,0,.45); }
+.uae-em b{ display:block; color:#F1D77A; font-size:15px; margin-bottom:3px; }
+.uae-em span{ display:block; font-size:12px; opacity:.92; line-height:1.4; }
+
 /* ===== simulator (floating, collapsible) ===== */
 #uaeLab{ position:fixed; left:8px; bottom:78px; z-index:99999; font:13px/1.35 system-ui,sans-serif; color:#eee; }
 #uaeLab .pill{ padding:7px 12px; border-radius:99px; background:#111; border:2px solid #555; cursor:pointer; font-weight:700; color:#fff; }
@@ -75,6 +143,12 @@ body.theme-uae #app ul:not([class]) > li:nth-child(2n)::before{ content:"\26F5";
 '''
 
 HTML = r'''
+<div class="uae-sadu uae-only" id="uaeSadu"></div>
+<div class="uae-emirates" id="uaeEm"><div class="uae-em"><b>Abu Dhabi</b><span>Capital: Abu Dhabi</span><span>Area: 67,340 km²</span><span>Largest emirate</span></div><div class="uae-em"><b>Dubai</b><span>Capital: Dubai</span><span>Area: 4,114 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Sharjah</b><span>Capital: Sharjah</span><span>Area: 2,590 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Ajman</b><span>Capital: Ajman</span><span>Area: 259 km²</span><span>Smallest emirate</span></div><div class="uae-em"><b>Umm Al Quwain</b><span>Capital: Umm Al Quwain</span><span>Area: 720 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Ras Al Khaimah</b><span>Capital: Ras Al Khaimah</span><span>Area: 1,684 km²</span><span>Joined 10 Feb 1972</span></div><div class="uae-em"><b>Fujairah</b><span>Capital: Fujairah</span><span>Area: 1,450 km²</span><span>Joined 2 Dec 1971</span></div></div>
+<div id="uaeDunes" data-sky="night"><svg class="d1" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c1" d="M0 80 C100 40 200 90 300 60 C400 30 500 85 600 55 C700 30 750 70 800 80 L800 110 L0 110Z"/></svg><svg class="d2" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c2" d="M0 95 C120 65 230 100 340 80 C450 60 560 100 680 78 C740 68 780 88 800 95 L800 110 L0 110Z"/></svg></div>
+<div class="uae-smoke"><i></i><i></i><i></i><b>🪔</b></div>
+<div id="uaeCamel"><div class="bub" id="uaeBub"></div><div class="cam" id="uaeCam">🐪</div></div>
+<button id="uaeDallah" title="Qahwa">☕</button>
 <div class="uae-ribbon" id="uaeRibbon"><span id="uaeRib">…</span></div>
 <canvas id="uaeFx"></canvas>
 <div id="uaeLab">
@@ -174,18 +248,58 @@ var cv=document.getElementById('uaeFx'),cx=cv.getContext('2d'),parts=[],raf=0,W=
 function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
 addEventListener('resize',size);size();
 var COL=['#FF2B2B','#00A84F','#FFFFFF','#F1D77A','#F1D77A'];
+function hb(){var h=document.querySelector('header');var r=h?h.getBoundingClientRect().bottom:0;return Math.max(0,Math.min(r,H));}
 function burst(x,y,n,pw){if(parts.length>300)return;var c=COL[(Math.random()*COL.length)|0];
   for(var i=0;i<n;i++){var a=Math.PI*2*i/n,v=(.4+Math.random()*.6)*pw;parts.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c:Math.random()<.2?'#F1D77A':c});}
   if(!raf)raf=requestAnimationFrame(tick);}
-function tick(){cx.clearRect(0,0,W,H);parts=parts.filter(function(p){return p.l>0;});
+function tick(){cx.clearRect(0,0,W,H);cx.save();cx.beginPath();var _h=hb();cx.rect(0,_h,W,H-_h);cx.clip();parts=parts.filter(function(p){return p.l>0;});
   parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.vx*=.985;p.l-=.013;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,3.4,3.4);});
-  cx.globalAlpha=1;raf=(parts.length&&!document.hidden)?requestAnimationFrame(tick):0;}
-function show(n){size();var k=0;(function go(){burst(W*(.1+Math.random()*.8),H*(.1+Math.random()*.35),32,3.4);if(++k<n)setTimeout(go,280+Math.random()*260);})();}
+  cx.restore();cx.globalAlpha=1;raf=(parts.length&&!document.hidden)?requestAnimationFrame(tick):0;}
+function small(){size();var _t=hb();burst(W*(.2+Math.random()*.6),_t+30+Math.random()*Math.max(40,(H-_t)*.3),18,2.4);}
+function show(n){size();var k=0;(function go(){var _t=hb();burst(W*(.1+Math.random()*.8),_t+30+Math.random()*Math.max(60,(H-_t)*.4),32,3.4);if(++k<n)setTimeout(go,280+Math.random()*260);})();}
 
 document.getElementById('uaePill').onclick=function(){document.getElementById('uaeLab').classList.toggle('open');};
 document.getElementById('uaeSim').onchange=function(e){sim=e.target.value?tk(e.target.value):null;apply();if(on())show(4);};
 document.getElementById('uaePick').onclick=function(){picked=!picked;apply();if(on())show(3);};
 document.getElementById('uaeFw').onclick=function(){if(!on()){picked=true;sim=sim===null?START:sim;apply();}show(6);};
+
+/* ===== extras: all placed away from the flag ===== */
+var rb=document.getElementById('uaeRibbon');
+if(rb){var dh=document.createElement('div');dh.className='uae-dhow';dh.innerHTML='<svg viewBox="0 0 60 38" aria-hidden="true"><path d="M3 26 L57 26 L50 33 L11 33Z" fill="#6B3E1B" stroke="#D4AF37" stroke-width="1"/><path d="M30 25 L30 3" stroke="#D4AF37" stroke-width="1.6"/><path d="M30 4 L52 24 L30 24Z" fill="#F7F1E1"/><path d="M29 8 L10 24 L29 24Z" fill="#EADFC3"/></svg>';rb.appendChild(dh);
+  dh.onclick=function(){say('Toot toot!');};}
+var sadu=document.getElementById('uaeSadu'),emS=document.getElementById('uaeEm');
+if(rb&&sadu&&emS){rb.parentNode.insertBefore(sadu,rb.nextSibling);sadu.parentNode.insertBefore(emS,sadu.nextSibling);}
+function sky(){var h=new Date(now()+OFF).getUTCHours();var k=(h>=5&&h<8)?'dawn':(h>=8&&h<16)?'day':(h>=16&&h<19)?'dusk':'night';document.getElementById('uaeDunes').setAttribute('data-sky',k);}
+var BUB=document.getElementById('uaeBub'),bt=0;
+var LINES=['Yalla! Let\'s learn.','Shukran! Correct.','Mashallah! Well done.','Habibi, try again.','Slow camel, still arrives.','Eid Mubarak!','Ya hala!'],li=0;
+function say(t){BUB.textContent=t||LINES[(li=(li+1)%LINES.length)];BUB.classList.add('show');clearTimeout(bt);bt=setTimeout(function(){BUB.classList.remove('show');},2600);}
+document.getElementById('uaeCam').onclick=function(){say();};
+var da=document.getElementById('uaeDallah');
+da.onclick=function(){da.classList.remove('steam');void da.offsetWidth;da.classList.add('steam');say('Qahwa? Tfaddal.');};
+/* answers + level-up hooks (read-only observers, only while the theme is on) */
+var GOOD=/(^|-)(correct|ok|good|right)$/,BAD=/(^|-)(wrong|incorrect|bad)$/,SKIP=/^(gg-banner-ok|fg-review-wrong|safety-ok|save-good|top-right|bottom-right|tetris-right|down-right|up-right|margin-right|padding-right|border-right|text-right|float-right|align-right|justify-right)$/;
+var lastG=0,lastS=0,ao=null,xo=null;
+addEventListener('pointerdown',function(){lastG=Date.now();},true);addEventListener('keydown',function(){lastG=Date.now();},true);
+function watch(){
+  if(on()&&!ao){
+    ao=new MutationObserver(function(ms){
+      if(Date.now()-lastG>1800||Date.now()-lastS<1100)return;
+      for(var i=0;i<ms.length;i++){var t=ms[i].target;if(!t.classList||t.closest&&t.closest('#uaeLab'))continue;
+        var add=[].slice.call(t.classList).filter(function(c){return !SKIP.test(c);});
+        var g=add.some(function(c){return GOOD.test(c);}),b=add.some(function(c){return BAD.test(c);});
+        if(g&&ms[i].oldValue!==null&&!(ms[i].oldValue||'').split(/\s+/).some(function(c){return GOOD.test(c);})){lastS=Date.now();small();say('Shukran! Correct.');da.classList.remove('steam');void da.offsetWidth;da.classList.add('steam');return;}
+        if(b&&!(ms[i].oldValue||'').split(/\s+/).some(function(c){return BAD.test(c);})){lastS=Date.now();say('Habibi, try again.');return;}
+      }
+    });
+    ao.observe(document.getElementById('app')||document.body,{attributes:true,attributeFilter:['class'],attributeOldValue:true,subtree:true});
+    var xp=document.getElementById('xpChip');if(xp){var lv=xp.textContent;xo=new MutationObserver(function(){var n=xp.textContent;if(n!==lv){lv=n;show(6);say('Mashallah! Level up.');}});xo.observe(xp,{childList:true,characterData:true,subtree:true});}
+  }else if(!on()&&ao){ao.disconnect();ao=null;if(xo){xo.disconnect();xo=null;}}
+}
+/* midnight show: the moment 2 Dec 00:00 (Tashkent) arrives while the app is open */
+var prevT=Date.now();
+setInterval(function(){var t=Date.now();if(sim===null&&prevT<F_START&&t>=F_START){apply();show(10);say('Eid Al Etihad Mubarak!');}prevT=t;},1000);
+
+var _apply=apply;apply=function(){_apply();sky();watch();};
 apply();
 if(on())setTimeout(function(){show(5);},900);
 setInterval(function(){subtitle();ribbon();},30000);
