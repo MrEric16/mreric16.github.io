@@ -242,27 +242,21 @@ function dayNumber(){ var d = new Date(); return Math.floor(Date.UTC(d.getFullYe
 function award(n, why){ if(window.LoungeXP) LoungeXP.award(n, why); }
 var BACK = back('index.html#geography-hub/study', 'Back to Train Your Brain');
 var D = null, rec = null, tm = null, stream = null, chunks = [], recUrl = null;
-function stopAll(){ try{ if(window.speechSynthesis) speechSynthesis.cancel(); }catch(e){} if(tm){ clearInterval(tm); tm = null; } if(rec && rec.state !== 'inactive'){ try{ rec.stop(); }catch(e){} } if(stream){ stream.getTracks().forEach(function(t){ t.stop(); }); stream = null; } }
+function stopAll(){ if(tm){ clearInterval(tm); tm = null; } if(rec && rec.state !== 'inactive'){ try{ rec.stop(); }catch(e){} } if(stream){ stream.getTracks().forEach(function(t){ t.stop(); }); stream = null; } }
 function mmss(s){ s = Math.max(0, s); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); }
-var CAN_SAY = !!(window.speechSynthesis && window.SpeechSynthesisUtterance), showTxt = false;
-function say(t){
-  if(!CAN_SAY) return;
-  try{
-    speechSynthesis.cancel();
-    var u = new SpeechSynthesisUtterance(t), v = speechSynthesis.getVoices().filter(function(x){ return /en[-_]GB/i.test(x.lang); })[0] || speechSynthesis.getVoices().filter(function(x){ return /^en/i.test(x.lang); })[0];
-    if(v) u.voice = v; u.lang = v ? v.lang : 'en-GB'; u.rate = 0.92; speechSynthesis.speak(u);
-  }catch(e){}
+function exq(t){ return '<div class="sp-card"><div class="v-hint">Examiner</div><div class="sp-q">' + esc(t) + '</div></div>'; }
+function wireEx(){}
+var RECS = [], curLbl = '';
+function recList(){
+  if(!RECS.length) return '';
+  return '<div class="section-head" style="margin-top:12px;"><h2>Your recordings</h2></div>' + RECS.map(function(r){ return '<div class="sp-card"><div class="v-hint">' + esc(r.l) + '</div><audio controls src="' + r.u + '" style="width:100%;margin-top:6px;"></audio></div>'; }).join('');
 }
-if(CAN_SAY){ try{ speechSynthesis.getVoices(); }catch(e){} }
-function exq(t, id){
-  if(!MOCK || !CAN_SAY) return '<div class="sp-card"><div class="sp-q">' + esc(t) + '</div></div>';
-  return '<div class="sp-card"><div class="v-hint">Examiner</div><div class="sp-q" id="' + (id || 'exT') + '" style="' + (showTxt ? '' : 'display:none;') + '">' + esc(t) + '</div>' +
-    '<div class="v-row"><button class="v-btn alt" data-say="' + esc(t) + '">Repeat</button><button class="v-btn alt" id="exShow">' + (showTxt ? 'Hide text' : 'Show text') + '</button></div></div>';
-}
-function wireEx(t){
-  var r = document.querySelector('[data-say]'); if(r) r.onclick = function(){ say(r.getAttribute('data-say')); };
-  var sh = document.getElementById('exShow'); if(sh) sh.onclick = function(){ showTxt = !showTxt; var e = document.getElementById('exT'); if(e) e.style.display = showTxt ? '' : 'none'; sh.textContent = showTxt ? 'Hide text' : 'Show text'; };
-  if(t && MOCK) say(t);
+function clearRecs(){ RECS.forEach(function(r){ try{ URL.revokeObjectURL(r.u); }catch(e){} }); RECS = []; recUrl = null; }
+function review(next){
+  stopAll();
+  if(!RECS.length){ next(); return; }
+  app.innerHTML = BACK + head('Review') + recList() + '<div class="v-row"><button class="v-btn" id="rvDone">Done</button></div>';
+  document.getElementById('rvDone').onclick = function(){ clearRecs(); next(); };
 }
 function hub(){
   stopAll();
@@ -278,7 +272,7 @@ function recorder(){
   if(!(navigator.mediaDevices && window.MediaRecorder)) return '<div class="v-hint">Recording is not supported in this browser. You can still use the timer.</div>';
   return '<div class="v-row"><button class="v-btn alt" id="spRec">Record myself</button></div><div id="spPlay"></div>';
 }
-function wireRec(){
+function wireRec(lbl){
   var b = document.getElementById('spRec'); if(!b) return;
   b.onclick = function(){
     if(rec && rec.state === 'recording'){ rec.stop(); b.textContent = 'Record myself'; return; }
@@ -286,8 +280,8 @@ function wireRec(){
       stream = s; chunks = []; rec = new MediaRecorder(s);
       rec.ondataavailable = function(e){ if(e.data.size) chunks.push(e.data); };
       rec.onstop = function(){
-        if(recUrl) URL.revokeObjectURL(recUrl);
         recUrl = URL.createObjectURL(new Blob(chunks, { type: rec.mimeType || 'audio/webm' }));
+        RECS.push({ l: lbl || 'Answer', u: recUrl });
         var p = document.getElementById('spPlay'); if(p) p.innerHTML = '<audio controls src="' + recUrl + '" style="width:100%;margin-top:8px;"></audio>';
         if(stream){ stream.getTracks().forEach(function(t){ t.stop(); }); stream = null; }
       };
@@ -311,38 +305,38 @@ function part1(){
   stopAll();
   if(MOCK && !introDone){
     var it = 'Good afternoon. My name is Mr Eric. Could you tell me your full name, please? Thank you. And can I see your identification, please? Thank you, that is fine. In this first part, I would like to ask you some questions about yourself.';
-    app.innerHTML = BACK + head('Speaking test', 'Real test conditions. Listen to the examiner. Questions are spoken, not shown.') + exq(it) +
-      (CAN_SAY ? '' : '<div class="v-hint">Voice is not available on this device, so questions are shown as text.</div>') +
+    app.innerHTML = BACK + head('Speaking test') + exq(it) +
       '<div class="v-row"><button class="v-btn" id="exGo">Start Part 1</button></div>';
     wireEx(it); document.getElementById('exGo').onclick = function(){ introDone = true; part1(); };
     return;
   }
   if(!p1){ p1 = newTopic(1, []); }
   var T = D.p1[p1.t], q = T.q[p1.qs[p1.i]], last = p1.i + 1 >= p1.qs.length;
+  curLbl = 'Part 1 · ' + T.t + ' · Q' + (p1.i + 1) + ': ' + q;
   var ttl = MOCK ? 'Part 1: topic ' + p1.n + ' of 3' : 'Part 1: ' + esc(T.t);
   app.innerHTML = BACK + head(ttl, 'Answer in 2 to 3 sentences. Give a reason and an example. Do not answer with one word.') +
-    exq(q) + (MOCK && CAN_SAY ? '' : '<div class="v-hint">Question ' + (p1.i + 1) + ' of ' + p1.qs.length + '</div>') +
-    (MOCK ? '' : '<div class="sp-clock" id="spClk">0:00</div>') + recorder() +
+    '<div class="sp-card"><div class="sp-q">' + esc(q) + '</div><div class="v-hint">Question ' + (p1.i + 1) + ' of ' + p1.qs.length + '</div></div>' +
+    '<div class="sp-clock" id="spClk">0:00</div>' + recorder() +
     '<div class="v-row"><button class="v-btn" id="spNext">' + (!last ? 'Next question' : (MOCK && p1.n < 3 ? 'Next topic' : (MOCK ? 'Go to Part 2' : 'Finish topic'))) + '</button>' + (MOCK ? '' : '<button class="v-btn alt" id="spTopic">Other topic</button>') + '</div>';
   var t0 = Date.now(); tm = setInterval(function(){ var c = document.getElementById('spClk'); if(c) c.textContent = mmss(Math.floor((Date.now() - t0) / 1000)); }, 500);
-  wireRec(); wireEx((MOCK && p1.i === 0 ? 'Now let us talk about ' + T.t.toLowerCase() + '. ' : '') + q);
+  wireRec(curLbl);
   document.getElementById('spNext').onclick = function(){
     if(!last){ p1.i++; part1(); }
     else if(MOCK && p1.n < 3){ p1 = newTopic(p1.n + 1, p1.used); part1(); }
     else if(MOCK){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p1 = null; p2 = null; part2(); }
-    else { lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p1 = null; location.hash = ''; hub(); }
+    else { lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p1 = null; review(function(){ location.hash = ''; hub(); }); }
   };
   var ot = document.getElementById('spTopic'); if(ot) ot.onclick = function(){ p1 = null; part1(); };
 }
 function q3html(C, st, onNext){
   var last = st.i + 1 >= C.q.length;
-  return exq(C.q[st.i]) + (MOCK && CAN_SAY ? '' : '<div class="v-hint">Question ' + (st.i + 1) + ' of ' + C.q.length + '</div>') +
-    (MOCK ? '' : '<div class="sp-clock" id="spClk">0:00</div>') + recorder() +
+  return '<div class="sp-card"><div class="sp-q">' + esc(C.q[st.i]) + '</div><div class="v-hint">Question ' + (st.i + 1) + ' of ' + C.q.length + '</div></div>' +
+    '<div class="sp-clock" id="spClk">0:00</div>' + recorder() +
     '<div class="v-row"><button class="v-btn" id="spNext3">' + (last ? 'Finish' : 'Next question') + '</button></div>';
 }
 function run3(C, st, redraw, done){
   var t0 = Date.now(); tm = setInterval(function(){ var c = document.getElementById('spClk'); if(c) c.textContent = mmss(Math.floor((Date.now() - t0) / 1000)); }, 500);
-  wireRec(); wireEx((MOCK && st.i === 0 ? 'We have been talking about ' + C.c.replace(/^Describe /, '').replace(/\.$/, '') + '. Now I would like to discuss with you one or two general questions related to this. ' : '') + C.q[st.i]);
+  wireRec('Part 3 · Q' + (st.i + 1) + ': ' + C.q[st.i]);
   document.getElementById('spNext3').onclick = function(){
     if(st.i + 1 < C.q.length){ st.i++; stopAll(); redraw(); } else { stopAll(); done(); }
   };
@@ -355,7 +349,7 @@ function part3(){
   app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
     '<div class="v-hint" style="margin-bottom:8px;">We have been talking about: ' + esc(C.c.replace(/^Describe /, '').replace(/\.$/, '')) + '.</div>' + q3html(C, p3) +
     '<div class="v-row"><button class="v-btn alt" id="spOther">Other topic</button></div>';
-  run3(C, p3, part3, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p3 = null; if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); });
+  run3(C, p3, part3, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p3 = null; review(function(){ location.hash = ''; hub(); }); });
   document.getElementById('spOther').onclick = function(){ stopAll(); p3 = null; part3(); };
 }
 var p2 = null;
@@ -368,7 +362,7 @@ function part2(){
     var mt = 'Now I am going to give you a topic, and I would like you to talk about it for one to two minutes. Before you talk, you have one minute to think about what you are going to say. You can make some notes if you wish. Here is some paper and a pencil for making notes, and here is your topic.';
     app.innerHTML = BACK + head('Part 2: the long turn', MOCK ? '' : 'You get 1 minute to prepare (make notes on paper) and then speak for 1 to 2 minutes.') + (MOCK ? exq(mt) : '') + card +
       '<div class="v-row"><button class="v-btn" id="spGo">Start 1 minute prep</button>' + (MOCK ? '' : '<button class="v-btn alt" id="spOther">Other card</button>') + '</div>';
-    if(MOCK) wireEx(mt);
+    
     document.getElementById('spGo').onclick = function(){ p2.ph = 'prep'; part2(); };
     var so = document.getElementById('spOther'); if(so) so.onclick = function(){ p2 = null; part2(); };
   } else if(p2.ph === 'prep' || p2.ph === 'talk'){
@@ -377,11 +371,10 @@ function part2(){
     app.innerHTML = BACK + head(prep ? 'Prepare' : 'Speak now', prep ? 'Write key words only. Do not write full sentences.' : (MOCK ? '' : 'Keep going until the timer ends. Aim for at least 1 minute 30.')) + (MOCK && !prep ? exq(tt) : '') + card +
       '<div class="sp-clock" id="spClk">' + mmss(total) + '</div>' + (prep ? '' : recorder()) +
       '<div class="v-row"><button class="v-btn" id="spSkip">' + (prep ? 'Start speaking now' : 'Next: Part 3') + '</button></div>';
-    if(MOCK && !prep) wireEx(tt);
-    var t0 = Date.now() + (MOCK && !prep ? 9000 : 0);
+    var t0 = Date.now();
     function end(){ stopAll(); p2.ph = prep ? 'talk' : 'part3'; part2(); }
-    tm = setInterval(function(){ var left = total - Math.floor((Date.now() - t0) / 1000), c = document.getElementById('spClk'); if(c) c.textContent = mmss(Math.min(left, total)); if(left <= 0 && prep) end(); if(left <= 0 && !prep && MOCK){ say('Thank you.'); var tm0 = tm; clearInterval(tm); tm = null; setTimeout(function(){ if(p2 && p2.ph === 'talk'){ p2.ph = 'part3'; part2(); } }, 1200); return; } if(left <= 0 && !prep){ clearInterval(tm); tm = null; if(c) c.textContent = '0:00'; var sk = document.getElementById('spSkip'); if(sk) sk.textContent = 'Time is up. Next: Part 3'; } }, 500);
-    if(!prep) wireRec();
+    tm = setInterval(function(){ var left = total - Math.floor((Date.now() - t0) / 1000), c = document.getElementById('spClk'); if(c) c.textContent = mmss(Math.min(left, total)); if(left <= 0 && prep) end(); if(left <= 0 && !prep && MOCK){ clearInterval(tm); tm = null; setTimeout(function(){ if(p2 && p2.ph === 'talk'){ p2.ph = 'part3'; part2(); } }, 1200); return; } if(left <= 0 && !prep){ clearInterval(tm); tm = null; if(c) c.textContent = '0:00'; var sk = document.getElementById('spSkip'); if(sk) sk.textContent = 'Time is up. Next: Part 3'; } }, 500);
+    if(!prep) wireRec('Part 2 · ' + C.c);
     document.getElementById('spSkip').onclick = function(){
       function finish(){ if(tm){ clearInterval(tm); tm = null; } p2.ph = prep ? 'talk' : 'part3'; part2(); }
       // wait for the recording to be saved first, so it shows up on the Part 3 page
@@ -392,15 +385,14 @@ function part2(){
     if(p2.i3 == null) p2.i3 = 0;
     var st = p2.st || (p2.st = { i: 0 });
     app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
-      (recUrl && st.i === 0 ? '<div class="sp-card"><div class="v-hint">Your Part 2 recording</div><audio controls src="' + recUrl + '" style="width:100%;"></audio></div>' : '') +
-      q3html(C, st) +
+            q3html(C, st) +
       '<div class="sp-card"><b>Self-check</b><ul class="sp-ul"><li>Did you give reasons and examples?</li><li>Did you compare past, present and future?</li><li>Did you avoid one-sentence answers?</li><li>Did you use at least two less common words or idioms?</li></ul></div>';
-    run3(C, st, part2, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(20, 'speaking'); if(MOCK){ showTxt = true; var et = 'Thank you. That is the end of the speaking test.'; app.innerHTML = BACK + head('Speaking test finished') + exq(et) + '<div class="v-hint" style="margin:8px 0;">Total time: ' + mmss(Math.floor((Date.now() - mockT0) / 1000)) + '</div><div class="v-row"><button class="v-btn" id="exEnd">Done</button></div>'; wireEx(et); document.getElementById('exEnd').onclick = function(){ stopAll(); p2 = null; MOCK = false; location.hash = ''; hub(); }; return; } p2 = null; MOCK = false; if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); });
+    run3(C, st, part2, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(20, 'speaking'); if(MOCK){ var et = 'Thank you. That is the end of the speaking test.'; app.innerHTML = BACK + head('Speaking test finished') + exq(et) + '<div class="v-hint" style="margin:8px 0;">Total time: ' + mmss(Math.floor((Date.now() - mockT0) / 1000)) + '</div>' + recList() + '<div class="v-row"><button class="v-btn" id="exEnd">Done</button></div>'; document.getElementById('exEnd').onclick = function(){ stopAll(); clearRecs(); p2 = null; MOCK = false; location.hash = ''; hub(); }; return; } p2 = null; MOCK = false; review(function(){ location.hash = ''; hub(); }); });
   }
 }
 function route(){
   var h = location.hash.replace('#', '');
-  if(h === 'mock'){ MOCK = true; introDone = false; mockT0 = Date.now(); showTxt = false; p1 = null; p2 = null; part1(); } else if(h === 'p1'){ MOCK = false; part1(); } else if(h === 'p2'){ MOCK = false; part2(); } else if(h === 'p3'){ MOCK = false; part3(); } else { MOCK = false; p1 = null; p2 = null; p3 = null; hub(); }
+  if(h === 'mock'){ clearRecs(); MOCK = true; introDone = false; mockT0 = Date.now(); p1 = null; p2 = null; part1(); } else if(h === 'p1'){ MOCK = false; part1(); } else if(h === 'p2'){ MOCK = false; part2(); } else if(h === 'p3'){ MOCK = false; part3(); } else { clearRecs(); MOCK = false; p1 = null; p2 = null; p3 = null; hub(); }
 }
 window.addEventListener('hashchange', route);
 getJson('data/games/speaking.json').then(function(d){ D = d; route(); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
