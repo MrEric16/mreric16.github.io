@@ -139,6 +139,8 @@ body.theme-uae #uaeDallah{ display:flex; }
 body.theme-uae .uae-emirates{ display:flex; }
 .uae-emirates::-webkit-scrollbar{ display:none; }
 .uae-em{ flex:0 0 196px; scroll-snap-align:start; padding:10px 12px; border:2px solid #D4AF37; border-radius:12px; color:#FFF7E3; background:linear-gradient(135deg,#0D3F2A,#0A2A1D); box-shadow:0 3px 0 rgba(0,0,0,.45); }
+.uae-em{ min-height:96px; transition:opacity .45s ease; }
+.uae-em.fade{ opacity:0; }
 .uae-em b{ display:block; color:#F1D77A; font-size:15px; margin-bottom:3px; }
 .uae-em span{ display:block; font-size:12px; opacity:.92; line-height:1.4; }
 .uae-em span i{ color:#EADFC3; }
@@ -185,7 +187,7 @@ HTML = r'''
 <canvas id="uaeBg"></canvas>
 __SKY__
 <div class="uae-sadu uae-only" id="uaeSadu"></div>
-<div class="uae-emirates" id="uaeEm"><div class="uae-em"><b>Abu Dhabi</b><span><i>Father of the gazelle</i></span><span>Sheikh Mohamed bin Zayed Al Nahyan</span><span>Pop. 4.14M (2024)</span></div><div class="uae-em"><b>Dubai</b><span><i>Origin unclear</i></span><span>Sheikh Mohammed bin Rashid Al Maktoum</span><span>Pop. 4.47M (2024)</span></div><div class="uae-em"><b>Sharjah</b><span><i>The east / sunrise (disputed)</i></span><span>Sheikh Sultan bin Muhammad Al Qasimi</span><span>Pop. 1.81M (2022)</span></div><div class="uae-em"><b>Ajman</b><span><i>From 'Ajam', foreigners (unclear)</i></span><span>Sheikh Humaid bin Rashid Al Nuaimi</span><span>Pop. 505k (2017)</span></div><div class="uae-em"><b>Umm Al Quwain</b><span><i>Mother of two powers</i></span><span>Sheikh Saud bin Rashid Al Mualla</span><span>Pop. 49k (2005)</span></div><div class="uae-em"><b>Ras Al Khaimah</b><span><i>Head of the tent</i></span><span>Sheikh Saud bin Saqr Al Qasimi</span><span>Pop. 345k (2015)</span></div><div class="uae-em"><b>Fujairah</b><span><i>Springs below the mountains (one source)</i></span><span>Sheikh Hamad bin Mohammed Al Sharqi</span><span>Pop. 203k (2014)</span></div></div>
+<div class="uae-emirates" id="uaeEm"><div class="uae-em"></div><div class="uae-em"></div><div class="uae-em"></div><div class="uae-em"></div><div class="uae-em"></div><div class="uae-em"></div><div class="uae-em"></div></div>
 <div id="uaeDunes" data-sky="night"><svg class="d1" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c1" d="M0 80 C100 40 200 90 300 60 C400 30 500 85 600 55 C700 30 750 70 800 80 L800 110 L0 110Z"/></svg><svg class="d2" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c2" d="M0 95 C120 65 230 100 340 80 C450 60 560 100 680 78 C740 68 780 88 800 95 L800 110 L0 110Z"/></svg></div>
 <div class="uae-smoke"><i></i><i></i><i></i><b>🪔</b></div>
 <div id="uaeCamel"><div class="bub" id="uaeBub"></div><div class="cam" id="uaeCam">🐪</div></div>
@@ -437,6 +439,28 @@ document.getElementById('uaeSplashGo').onclick=closeSplash;
 spl.addEventListener('pointerdown',function(e){if(e.target===spl)closeSplash();});
 document.getElementById('uaeSpl').onclick=function(){if(!on()){picked=true;sim=sim===null?F_START:sim;apply();}openSplash();};
 var _apply=apply,wasOn=false;apply=function(){_apply();slides();sky();watch();setTimeout(layoutSky,0);setTimeout(layoutSky,600);var o=on();if(o&&!wasOn){ if(state()==='forced'&&(sim!==null||!splashSeen())) setTimeout(openSplash,300); else setTimeout(overload,500); }if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
+var UF=[["UAE", "The UAE was formed on 2 December 1971 by six emirates."], ["UAE", "Ras Al Khaimah became the seventh emirate on 10 February 1972."], ["UAE", "Sheikh Zayed bin Sultan Al Nahyan was the first President of the UAE."], ["UAE", "The flag was designed by Abdullah Mohammed Al Maainah in 1971."], ["UAE", "The dirham is pegged to the US dollar at 3.6725."], ["UAE", "The falcon is the national bird of the UAE."], ["UAE", "The Arabian oryx is the national animal of the UAE."], ["UAE", "The ghaf tree is the national tree of the UAE."], ["UAE", "The Hope Probe reached Mars orbit on 9 February 2021, a first for the Arab world."], ["UAE", "Hazza Al Mansouri became the first Emirati in space in September 2019."], ["Abu Dhabi", "Abu Dhabi is the capital and the largest emirate, about 87% of the UAE's land."], ["Abu Dhabi", "Sheikh Zayed Grand Mosque opened in 2007 and holds about 40,000 worshippers."], ["Abu Dhabi", "The Louvre Abu Dhabi opened in 2017 under a dome of 7,850 stars."], ["Abu Dhabi", "Yas Marina Circuit hosts the Formula 1 season finale in Abu Dhabi."], ["Abu Dhabi", "Al Ain's cultural sites became UNESCO World Heritage in 2011."], ["Abu Dhabi", "Al Ain is called the Garden City for its oases and green streets."], ["Dubai", "Burj Khalifa in Dubai is 828 metres tall and opened in 2010."], ["Dubai", "Dubai Metro opened on 9 September 2009, at 9:09 pm."], ["Dubai", "Dubai Creek was the old trading harbour where the city began."], ["Dubai", "Palm Jumeirah is an artificial island shaped like a palm tree."], ["Dubai", "The Museum of the Future in Dubai opened in 2022."], ["Dubai", "Dubai hosted Expo 2020 from October 2021 to March 2022."], ["Dubai", "Dubai International is among the world's busiest airports for international travel."], ["Sharjah", "Sharjah was UNESCO World Book Capital in 2019."], ["Sharjah", "Sharjah has coasts on both the Arabian Gulf and the Gulf of Oman."], ["Sharjah", "The Sharjah International Book Fair is one of the largest in the world."], ["Sharjah", "Sharjah is known as the cultural capital of the UAE."], ["Ajman", "Ajman is the smallest of the seven emirates."], ["Ajman", "Ajman Museum is inside a fort built in the late 1700s."], ["Ajman", "Ajman has a long tradition of building wooden dhows."], ["Umm Al Quwain", "Umm Al Quwain is the second smallest emirate."], ["Umm Al Quwain", "Khor Al Beidah in Umm Al Quwain has mangroves and rich birdlife."], ["Umm Al Quwain", "Ed-Dur in Umm Al Quwain is an ancient trading site about 2,000 years old."], ["Ras Al Khaimah", "Jebel Jais is the UAE's highest peak at about 1,934 metres."], ["Ras Al Khaimah", "Jebel Jais has a 2.83 km zipline, one of the longest in the world."], ["Ras Al Khaimah", "Ras Al Khaimah is the northernmost of the seven emirates."], ["Ras Al Khaimah", "Julfar, near Ras Al Khaimah, was a major trading port in the Middle Ages."], ["Fujairah", "Fujairah is the only emirate entirely on the Gulf of Oman coast."], ["Fujairah", "Al Bidyah Mosque in Fujairah is believed to be the oldest in the UAE."], ["Fujairah", "Fujairah is one of the world's busiest ship refuelling ports."], ["Fujairah", "Snoopy Island near Fujairah is a popular snorkelling spot."]];
+(function(){
+  var box=document.getElementById('uaeEm');if(!box)return;
+  var tiles=[].slice.call(box.querySelectorAll('.uae-em')),q=[],shown=[];
+  function sh(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t;}return a;}
+  function next(){
+    for(var n=0;n<UF.length*2;n++){
+      if(!q.length)q=sh(UF.map(function(_,i){return i;}));
+      var k=q.shift();if(shown.indexOf(k)<0)return k;
+    }
+    return 0;
+  }
+  function put(i,anim){
+    var t=tiles[i],old=shown[i],k=next();shown[i]=k;
+    function w(){t.innerHTML='<b>'+UF[k][0]+'</b><span>'+UF[k][1]+'</span>';}
+    if(anim){t.classList.add('fade');setTimeout(function(){w();t.classList.remove('fade');},460);}else w();
+  }
+  tiles.forEach(function(_,i){shown[i]=-1;});
+  tiles.forEach(function(_,i){put(i,false);});
+  var c=0;
+  setInterval(function(){if(document.hidden)return;put(c%tiles.length,true);c++;},2600);
+})();
 apply();
 
 setInterval(function(){subtitle();ribbon();},30000);
