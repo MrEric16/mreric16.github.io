@@ -1,0 +1,197 @@
+#!/usr/bin/env python3
+"""Builds uae-lab.html: a copy of the real home page (index.html) with the UAE National Day
+theme + a floating time simulator injected. index.html is never modified."""
+import re, pathlib
+root = pathlib.Path(__file__).resolve().parent.parent
+src = (root/'index.html').read_text(encoding='utf-8')
+
+CSS = r'''
+<style id="uae-lab-css">
+/* ===== UAE National Day theme (lab) ===== */
+body.theme-uae{ background:#0E1417 !important; }
+body.theme-uae::before{ content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><g fill='none' stroke='%23D4AF37' stroke-opacity='.13' stroke-width='1'><path d='M32 4 L40 24 L60 32 L40 40 L32 60 L24 40 L4 32 L24 24 Z'/><rect x='18' y='18' width='28' height='28' transform='rotate(45 32 32)'/></g></svg>");
+  background-size:64px 64px; }
+body.theme-uae .aurora-layer, body.theme-uae .flag-emblem{ display:none !important; }
+body.theme-uae header{ background:linear-gradient(180deg,#0C1613,#0E1417) !important; border-bottom:4px solid #D4AF37 !important; box-shadow:none !important; }
+body.theme-uae header::before, body.theme-uae header::after{ content:none !important; }
+body.theme-uae h1.title, body.theme-uae h1.title *{ color:#F1D77A !important; -webkit-text-fill-color:#F1D77A !important; background:none !important; letter-spacing:.02em; }
+body.theme-uae .subtitle{ color:#EADFC3 !important; }
+body.theme-uae .board{ background:linear-gradient(180deg,#14201B,#0B1511) !important; border:2px solid #D4AF37 !important; box-shadow:0 0 0 3px #0B1511,0 0 0 5px rgba(241,215,122,.6) !important; }
+body.theme-uae .board *{ color:#F7F1E1 !important; }
+
+/* the flag: exact 1:2, red = 1/4 of length, three equal stripes. Official colours. */
+.uae-flagwrap{ display:none; padding:14px 0 6px; text-align:center; position:relative; z-index:2; }
+body.theme-uae .uae-flagwrap{ display:block; }
+.uae-flagbox{ position:relative; width:min(72%,440px); margin:0 auto; aspect-ratio:2/1; box-shadow:0 6px 18px rgba(0,0,0,.55); }
+.uae-flagbox .fl{ position:absolute; inset:0; display:grid; grid-template-columns:25% 1fr; }
+.uae-flagbox .fl i{ display:block; background:#FF0000; }
+.uae-flagbox .fl div{ display:grid; grid-template-rows:1fr 1fr 1fr; }
+.uae-flagbox .fl b{ display:block; }
+.uae-flagbox .fl b:nth-child(1){ background:#00732F; }
+.uae-flagbox .fl b:nth-child(2){ background:#FFFFFF; }
+.uae-flagbox .fl b:nth-child(3){ background:#000000; }
+.uae-flagbox img{ position:absolute; left:62.5%; top:50%; height:29%; aspect-ratio:360/463; transform:translate(-50%,-50%); object-fit:contain; display:block; }
+
+/* countdown ribbon under the header */
+.uae-ribbon{ display:none; text-align:center; padding:8px 12px; background:#0C1613; border-bottom:2px solid #D4AF37; position:relative; z-index:2; }
+body.theme-uae .uae-ribbon{ display:block; }
+.uae-ribbon span{ display:inline-block; padding:3px 14px; border-radius:99px; background:rgba(8,14,12,.92); border:1.5px solid #D4AF37; color:#F1D77A; font-weight:800; letter-spacing:.06em; font-size:14px; }
+.uae-ribbon.big span{ font-size:16px; }
+#uaeFx{ position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:99990; pointer-events:none; }
+
+/* tiles: green/gold cards (red for sport-like), gold frame, diamond corner */
+body.theme-uae .fac-tile, body.theme-uae .sport-hub-tile, body.theme-uae .random-tile, body.theme-uae a[class$="-tile"]{
+  position:relative; overflow:hidden; border:2px solid #D4AF37 !important; border-radius:12px !important;
+  background:linear-gradient(135deg,#0D3F2A,#0A2A1D) !important; box-shadow:0 4px 0 rgba(0,0,0,.45) !important; }
+body.theme-uae .sport-hub-tile, body.theme-uae .goodnews-tile, body.theme-uae .watch-tile{ background:linear-gradient(135deg,#7A0E22,#4D0914) !important; }
+body.theme-uae .fac-tile::after, body.theme-uae .sport-hub-tile::after, body.theme-uae .random-tile::after, body.theme-uae a[class$="-tile"]::after{
+  content:""; position:absolute; right:-18px; top:-18px; width:70px; height:70px; border:2px solid rgba(212,175,55,.28); transform:rotate(45deg); pointer-events:none; }
+body.theme-uae .fac-tile, body.theme-uae .fac-tile *, body.theme-uae .sport-hub-tile, body.theme-uae .sport-hub-tile *, body.theme-uae .random-tile, body.theme-uae .random-tile *, body.theme-uae a[class$="-tile"], body.theme-uae a[class$="-tile"] *{ color:#FFF7E3 !important; }
+/* section headings: gold plaque + sand-dune strip */
+body.theme-uae .section-head h2{ color:#F1D77A !important; letter-spacing:.03em; }
+body.theme-uae .section-head{ position:relative; padding-bottom:16px; }
+body.theme-uae .section-head::after{ content:""; position:absolute; left:0; right:0; bottom:0; height:12px; pointer-events:none; opacity:.9;
+  background: radial-gradient(40px 10px at 20px 100%,#EBD9B4 98%,transparent 100%) 0 0/40px 12px repeat-x, radial-gradient(60px 8px at 50px 100%,#C9A96A 98%,transparent 100%) 0 3px/60px 12px repeat-x;
+  border-bottom:2px solid #D4AF37; }
+body.theme-uae #app ul:not([class]){ list-style:none; padding-left:4px; }
+body.theme-uae #app ul:not([class]) > li{ position:relative; padding-left:28px; }
+body.theme-uae #app ul:not([class]) > li::before{ content:"\1F334"; position:absolute; left:0; }
+body.theme-uae #app ul:not([class]) > li:nth-child(2n)::before{ content:"\26F5"; }
+
+/* ===== simulator (floating, collapsible) ===== */
+#uaeLab{ position:fixed; left:8px; bottom:78px; z-index:99999; font:13px/1.35 system-ui,sans-serif; color:#eee; }
+#uaeLab .pill{ padding:7px 12px; border-radius:99px; background:#111; border:2px solid #555; cursor:pointer; font-weight:700; color:#fff; }
+#uaeLab .pill.forced{ background:#b3001f; border-color:#ff7a8d; } #uaeLab .pill.opt{ background:#7a5d00; border-color:#F1D77A; }
+#uaeLab .panel{ display:none; margin-bottom:8px; width:min(300px,86vw); padding:10px; border-radius:12px; background:#111; border:2px solid #555; box-shadow:0 8px 24px rgba(0,0,0,.6); }
+#uaeLab.open .panel{ display:block; }
+#uaeLab select, #uaeLab button.b{ width:100%; margin:4px 0; padding:8px; border-radius:8px; border:1px solid #666; background:#222; color:#fff; font:inherit; }
+#uaeLab .n{ color:#aaa; font-size:11.5px; margin-top:4px; }
+</style>
+'''
+
+HTML = r'''
+<div class="uae-ribbon" id="uaeRibbon"><span id="uaeRib">…</span></div>
+<canvas id="uaeFx"></canvas>
+<div id="uaeLab">
+  <div class="panel">
+    <b>UAE theme lab</b>
+    <select id="uaeSim">
+      <option value="">Real time</option>
+      <option value="2026-11-29T12:00">29 Nov (before window)</option>
+      <option value="2026-11-30T00:00">30 Nov 00:00 (opens, optional)</option>
+      <option value="2026-12-01T18:00">1 Dec 18:00 (tomorrow)</option>
+      <option value="2026-12-01T23:59">1 Dec 23:59</option>
+      <option value="2026-12-02T00:00">2 Dec 00:00 (FORCED)</option>
+      <option value="2026-12-02T23:59">2 Dec 23:59 (FORCED)</option>
+      <option value="2026-12-03T00:00">3 Dec 00:00 (back to optional)</option>
+      <option value="2026-12-04T00:00">4 Dec 00:00 (window closed)</option>
+    </select>
+    <button class="b" id="uaePick">Use UAE theme</button>
+    <button class="b" id="uaeFw">Fireworks</button>
+    <div class="n">Lab copy of the home page. Optional 30 Nov 00:00 to 3 Dec 00:00, forced 2 Dec 00:00 to 24:00 (Tashkent time). Your normal theme is never changed.</div>
+  </div>
+  <div class="pill" id="uaePill">UAE lab</div>
+</div>
+'''
+
+FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div><img src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div></div>
+'''
+
+JS = r'''
+<script id="uae-lab-js">
+(function(){
+'use strict';
+var OFF=5*3600e3;
+function tk(s){var m=s.match(/(\d+)-(\d+)-(\d+)T(\d+):(\d+)/);return Date.UTC(+m[1],+m[2]-1,+m[3],+m[4],+m[5])-OFF;}
+var START=tk('2026-11-30T00:00'),F_START=tk('2026-12-02T00:00'),END=tk('2026-12-03T00:00');
+var sim=null,picked=false;
+function now(){return sim!==null?sim:Date.now();}
+function state(){var t=now();if(t>=F_START&&t<END)return 'forced';if(t>=START&&t<END)return 'optional';return 'off';}
+function on(){var s=state();return s==='forced'||(s==='optional'&&picked);}
+
+/* place flag as first child of header, ribbon right after header */
+var hdr=document.querySelector('header');
+var tpl=document.getElementById('uaeFlagTpl');
+if(hdr&&tpl){hdr.insertBefore(tpl.content.firstElementChild,hdr.firstChild);}
+var rib=document.getElementById('uaeRibbon');
+if(hdr&&rib&&hdr.parentNode){hdr.parentNode.insertBefore(rib,hdr.nextSibling);}
+
+var KILL=/(^|\s)(usertheme-[\w-]+|theme-nationalday)(?=\s|$)/g;
+var guard=false,saved=new Map();
+function enforce(){
+  if(guard)return;guard=true;
+  var b=document.body,want=on();
+  b.classList.toggle('theme-uae',want);
+  if(want){
+    var c=b.className.replace(KILL,' ').replace(/\s+/g,' ').trim();
+    if(c!==b.className)b.className=c;
+    b.classList.add('theme-uae','dark-mode');
+  }
+  var t=document.querySelector('h1.title');
+  if(t){
+    var els=[t].concat([].slice.call(t.querySelectorAll('*')));
+    els.forEach(function(e){
+      if(e.classList.contains('tittle-cycle'))return;
+      if(want){ if(!saved.has(e))saved.set(e,e.getAttribute('style')); e.style.setProperty('color','#F1D77A','important'); e.style.setProperty('-webkit-text-fill-color','#F1D77A','important'); }
+      else if(saved.has(e)){ var v=saved.get(e); if(v===null)e.removeAttribute('style');else e.setAttribute('style',v); saved.delete(e); }
+    });
+  }
+  guard=false;
+}
+setInterval(enforce,700);
+
+function ribbon(){
+  var s=document.getElementById('uaeRib'),r=document.getElementById('uaeRibbon');
+  var t=now(),d=Math.ceil((F_START-t)/864e5);
+  if(t>=F_START&&t<END){r.classList.add('big');s.textContent='55th Eid Al Etihad · UAE National Day';}
+  else if(t<F_START){r.classList.remove('big');s.textContent=d<=1?'Eid Al Etihad · tomorrow':'Eid Al Etihad · '+d+' days to go';}
+  else{r.classList.remove('big');s.textContent='Eid Al Etihad · 2 December';}
+}
+var sub=null,origSub=null;
+function subtitle(){
+  var el=document.getElementById('subtitleText');if(!el)return;
+  if(on()){if(origSub===null)origSub=el.textContent;el.textContent=(now()>=F_START&&now()<END)?'Happy 55th National Day, UAE':'Happy National Day, UAE';}
+  else if(origSub!==null){el.textContent=origSub;origSub=null;}
+}
+function apply(){
+  var st=state();
+  enforce();ribbon();subtitle();
+  var pill=document.getElementById('uaePill');
+  pill.className='pill '+(st==='forced'?'forced':st==='optional'?'opt':'');
+  pill.textContent=st==='forced'?'UAE · FORCED':st==='optional'?('UAE · optional'+(picked?' · on':'')):'UAE lab';
+  var pk=document.getElementById('uaePick');
+  pk.style.display=st==='optional'?'block':'none';
+  pk.textContent=picked?'Turn UAE theme off':'Use UAE theme';
+}
+
+/* fireworks (fixed overlay canvas, capped particles) */
+var cv=document.getElementById('uaeFx'),cx=cv.getContext('2d'),parts=[],raf=0,W=0,H=0;
+function size(){W=cv.width=innerWidth;H=cv.height=innerHeight;}
+addEventListener('resize',size);size();
+var COL=['#FF2B2B','#00A84F','#FFFFFF','#F1D77A','#F1D77A'];
+function burst(x,y,n,pw){if(parts.length>300)return;var c=COL[(Math.random()*COL.length)|0];
+  for(var i=0;i<n;i++){var a=Math.PI*2*i/n,v=(.4+Math.random()*.6)*pw;parts.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,l:1,c:Math.random()<.2?'#F1D77A':c});}
+  if(!raf)raf=requestAnimationFrame(tick);}
+function tick(){cx.clearRect(0,0,W,H);parts=parts.filter(function(p){return p.l>0;});
+  parts.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.05;p.vx*=.985;p.l-=.013;cx.globalAlpha=Math.max(p.l,0);cx.fillStyle=p.c;cx.fillRect(p.x,p.y,3.4,3.4);});
+  cx.globalAlpha=1;raf=(parts.length&&!document.hidden)?requestAnimationFrame(tick):0;}
+function show(n){size();var k=0;(function go(){burst(W*(.1+Math.random()*.8),H*(.1+Math.random()*.35),32,3.4);if(++k<n)setTimeout(go,280+Math.random()*260);})();}
+
+document.getElementById('uaePill').onclick=function(){document.getElementById('uaeLab').classList.toggle('open');};
+document.getElementById('uaeSim').onchange=function(e){sim=e.target.value?tk(e.target.value):null;apply();if(on())show(4);};
+document.getElementById('uaePick').onclick=function(){picked=!picked;apply();if(on())show(3);};
+document.getElementById('uaeFw').onclick=function(){if(!on()){picked=true;sim=sim===null?START:sim;apply();}show(6);};
+apply();
+if(on())setTimeout(function(){show(5);},900);
+setInterval(function(){subtitle();ribbon();},30000);
+})();
+</script>
+'''
+
+out = src
+out = out.replace('<head>', '<head>\n<meta name="robots" content="noindex,nofollow">', 1)
+out = out.replace('</head>', CSS + '</head>', 1)
+out = out.replace('</body>', '<template id="uaeFlagTpl">' + FLAG + '</template>' + HTML + JS + '</body>', 1)
+(root/'uae-lab.html').write_text(out, encoding='utf-8')
+print('uae-lab.html', len(out))
