@@ -24,7 +24,16 @@ body.theme-uae .board *{ color:#F7F1E1 !important; }
 
 /* the flag IS the header (like the Uzbekistan theme): red band = 1/4 of width, three equal stripes, official colours.
    Title + subtitle removed; clock board sits at the bottom so the emblem stays visible, dead centre of the white stripe. */
-.uae-flagwrap{ display:none; position:absolute; left:0; right:0; top:0; bottom:58px; z-index:0; pointer-events:none; }
+.uae-flagwrap{ display:none; position:absolute; left:0; right:0; top:0; bottom:58px; z-index:0; overflow:hidden; touch-action:pan-y; cursor:pointer; -webkit-tap-highlight-color:transparent; }
+.uae-flagbox, .uae-fbox{ transition:transform .55s cubic-bezier(.4,0,.2,1); }
+.uae-fbox{ position:absolute; inset:0; background:#fff; transform:translateX(100%); }
+.uae-fbox img{ width:100%; height:100%; object-fit:cover; object-position:50% 8%; display:block; user-select:none; -webkit-user-drag:none; }
+@media (min-width:760px){ .uae-fbox img{ object-fit:contain; object-position:50% 100%; } }
+.uae-flagwrap[data-i="1"] .uae-flagbox{ transform:translateX(-100%); }
+.uae-flagwrap[data-i="1"] .uae-fbox{ transform:translateX(0); }
+.uae-dots{ position:absolute; left:0; right:0; bottom:6px; display:flex; justify-content:center; gap:7px; z-index:3; pointer-events:none; }
+.uae-dots i{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.55); box-shadow:0 0 0 1px rgba(0,0,0,.45); }
+.uae-flagwrap[data-i="0"] .uae-dots i:nth-child(1), .uae-flagwrap[data-i="1"] .uae-dots i:nth-child(2){ background:#D4AF37; }
 body.theme-uae .uae-flagwrap{ display:block; }
 .uae-flagbox{ position:absolute; inset:0; }
 .uae-flagbox .fl{ position:absolute; inset:0; display:grid; grid-template-columns:25% 1fr; }
@@ -137,9 +146,6 @@ body.theme-uae .uae-emirates{ display:flex; }
 
 
 /* night skyline backdrop: three depth rows, outline style, fixed behind the content */
-#uaeFounders{ display:none; background:#fff; margin:26px -16px 0; border-top:3px solid #C9A646; border-bottom:3px solid #C9A646; }
-body.theme-uae #uaeFounders{ display:block; }
-#uaeFounders img{ display:block; width:100%; height:auto; max-width:900px; margin:0 auto; }
 #uaeSplash{ position:fixed; inset:0; z-index:100000; background:#fff; display:none; flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:12px; opacity:0; transition:opacity .6s ease; }
 #uaeSplash.show{ display:flex; } #uaeSplash.in{ opacity:1; }
 #uaeSplash img{ max-width:min(96vw,1000px); max-height:68vh; width:auto; height:auto; object-fit:contain; }
@@ -187,7 +193,6 @@ __SKY__
 <button id="uaeDallah" title="Qahwa">☕</button>
 <div class="uae-ribbon" id="uaeRibbon"><span id="uaeRib">…</span></div>
 <canvas id="uaeFx"></canvas>
-<section id="uaeFounders" aria-hidden="true"><img alt="" decoding="async"></section>
 <div id="uaeSplash"><img alt="The seven Founding Fathers of the UAE beneath the flag"><div class="t">Happy 55th National Day, UAE<small>Eid Al Etihad · 2 December</small></div><button id="uaeSplashGo">Enter</button></div>
 <div id="uaeLab">
   <div class="panel">
@@ -212,7 +217,7 @@ __SKY__
 </div>
 '''
 
-FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div><img src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div></div>
+FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div><img src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div><div class="uae-fbox"><img alt="The seven Founding Fathers of the UAE beneath the flag" draggable="false"></div><div class="uae-dots"><i></i><i></i></div></div>
 '''
 
 JS = r'''
@@ -395,10 +400,26 @@ addEventListener('pointerdown',function(){if(overT)stopOver();},true);
 clearInterval(ambT);ambT=setInterval(function(){if(!overT&&bp.length<500){fire();if(Math.random()<.5)fire();}},1040);
 
 var FIMG='uae-founders.png';
-var fd=document.getElementById('uaeFounders'),app=document.getElementById('app');
-if(fd&&app&&app.parentNode)app.parentNode.insertBefore(fd,app.nextSibling);
+var fw=document.querySelector('.uae-flagwrap'),si=0,lastUser=0,sx=null,sy=0,moved=false;
+function setSlide(i){si=i;if(fw)fw.setAttribute('data-i',i);}
+function slides(){
+  if(!fw)return;
+  if(on()){var im=fw.querySelector('.uae-fbox img');if(im&&!im.getAttribute('src'))im.src=FIMG;}
+  if(!fw.hasAttribute('data-i'))setSlide(0);
+}
+if(fw){
+  fw.addEventListener('pointerdown',function(e){sx=e.clientX;sy=e.clientY;moved=false;});
+  fw.addEventListener('pointermove',function(e){if(sx!==null&&Math.abs(e.clientX-sx)>12)moved=true;});
+  fw.addEventListener('pointerup',function(e){
+    if(sx===null)return;var dx=e.clientX-sx,dy=e.clientY-sy;sx=null;
+    if(Math.abs(dy)>Math.abs(dx)&&Math.abs(dy)>30)return;
+    lastUser=Date.now();
+    if(Math.abs(dx)>40){setSlide(dx<0?1:0);}else{setSlide(si?0:1);}
+  });
+  fw.addEventListener('pointercancel',function(){sx=null;});
+  setInterval(function(){if(on()&&!document.hidden&&!splOpen&&Date.now()-lastUser>20000)setSlide(si?0:1);},9000);
+}
 var spl=document.getElementById('uaeSplash'),splOpen=false;
-function founders(){var im=fd&&fd.querySelector('img');if(im&&on()&&!im.getAttribute('src'))im.src=FIMG;}
 function dayKey(){return new Date(now()+OFF).toISOString().slice(0,10);}
 function splashSeen(){try{return localStorage.getItem('uaeSplashSeen')===dayKey();}catch(e){return false;}}
 function openSplash(){
@@ -416,7 +437,7 @@ function closeSplash(){
 document.getElementById('uaeSplashGo').onclick=closeSplash;
 spl.addEventListener('pointerdown',function(e){if(e.target===spl)closeSplash();});
 document.getElementById('uaeSpl').onclick=function(){if(!on()){picked=true;sim=sim===null?F_START:sim;apply();}openSplash();};
-var _apply=apply,wasOn=false;apply=function(){_apply();founders();sky();watch();setTimeout(layoutSky,0);setTimeout(layoutSky,600);var o=on();if(o&&!wasOn){ if(state()==='forced'&&(sim!==null||!splashSeen())) setTimeout(openSplash,300); else setTimeout(overload,500); }if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
+var _apply=apply,wasOn=false;apply=function(){_apply();slides();sky();watch();setTimeout(layoutSky,0);setTimeout(layoutSky,600);var o=on();if(o&&!wasOn){ if(state()==='forced'&&(sim!==null||!splashSeen())) setTimeout(openSplash,300); else setTimeout(overload,500); }if(!o){stopOver();bx.clearRect(0,0,BW,BH);bp=[];}wasOn=o;};
 apply();
 
 setInterval(function(){subtitle();ribbon();},30000);
