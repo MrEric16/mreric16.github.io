@@ -27,8 +27,7 @@ body.theme-uae .board *{ color:#F7F1E1 !important; }
 .uae-flagwrap{ display:none; position:absolute; left:0; right:0; top:0; bottom:58px; z-index:0; overflow:hidden; touch-action:pan-y; cursor:pointer; -webkit-tap-highlight-color:transparent; }
 .uae-flagbox, .uae-fbox{ transition:transform .55s cubic-bezier(.4,0,.2,1); }
 .uae-fbox{ position:absolute; inset:0; background:#fff; transform:translateX(100%); }
-.uae-fbox img{ width:100%; height:100%; object-fit:cover; object-position:50% 8%; display:block; user-select:none; -webkit-user-drag:none; }
-@media (min-width:760px){ .uae-fbox img{ object-fit:contain; object-position:50% 100%; } }
+.uae-fbox img{ width:100%; height:100%; object-fit:contain; object-position:50% 100%; display:block; user-select:none; -webkit-user-drag:none; }
 .uae-flagwrap[data-i="1"] .uae-flagbox{ transform:translateX(-100%); }
 .uae-flagwrap[data-i="1"] .uae-fbox{ transform:translateX(0); }
 .uae-dots{ position:absolute; left:0; right:0; bottom:6px; display:flex; justify-content:center; gap:7px; z-index:3; pointer-events:none; }
