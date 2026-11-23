@@ -1,36 +1,6 @@
 {
-  "generatedAt": "2026-11-23T08:45:21.159606Z",
+  "generatedAt": "2026-11-23T20:47:00.845038Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/roma-vs-slovan-bratislava/_REzB-KGFWGMLEFWnAkbt",
-      "date": "2026-10-20",
-      "home": "Roma",
-      "away": "Slovan Bratislava",
-      "htHome": 2,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "M. Hermoso",
-          "minute": 21
-        },
-        {
-          "scorer": "N. Molina",
-          "minute": 39
-        },
-        {
-          "scorer": "N. Pisilli",
-          "minute": 52
-        },
-        {
-          "scorer": "D. Malen",
-          "minute": 58
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-atletico-madrid/RTW_wFdh6EAfgLyTmEin-",
       "date": "2026-10-20",
@@ -7694,6 +7664,45 @@
         }
       ],
       "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/paris-saint-germain-vs-barcelona/p5qSwYXAtxFw4tfzdmg-1",
+      "date": "2026-10-20",
+      "home": "Paris Saint Germain",
+      "away": "Barcelona",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "D. Doue",
+          "minute": 38
+        },
+        {
+          "scorer": "L. Hernandez",
+          "minute": 72
+        },
+        {
+          "scorer": "Vitinha",
+          "minute": 81
+        },
+        {
+          "scorer": "F. Ruiz",
+          "minute": 86
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "X. Espart",
+          "minute": 55
+        },
+        {
+          "scorer": "L. Yamal",
+          "minute": 79
+        }
+      ],
+      "competition": "barcelona"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7714,6 +7723,7 @@
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
     "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
-    "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI": 1
+    "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI": 2,
+    "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU": 1
   }
 }
