@@ -20,10 +20,11 @@ body.theme-uae .subtitle{ color:#EADFC3 !important; }
 body.theme-uae .board{ background:linear-gradient(180deg,#14201B,#0B1511) !important; border:2px solid #D4AF37 !important; box-shadow:0 0 0 3px #0B1511,0 0 0 5px rgba(241,215,122,.6) !important; }
 body.theme-uae .board *{ color:#F7F1E1 !important; }
 
-/* the flag: exact 1:2, red = 1/4 of length, three equal stripes. Official colours. */
-.uae-flagwrap{ display:none; padding:14px 0 6px; text-align:center; position:relative; z-index:2; }
+/* the flag IS the header (like the Uzbekistan theme): red band = 1/4 of width, three equal stripes, official colours.
+   Title + subtitle removed; clock board sits at the bottom so the emblem stays visible, dead centre of the white stripe. */
+.uae-flagwrap{ display:none; position:absolute; inset:0; z-index:0; pointer-events:none; }
 body.theme-uae .uae-flagwrap{ display:block; }
-.uae-flagbox{ position:relative; width:min(72%,440px); margin:0 auto; aspect-ratio:2/1; box-shadow:0 6px 18px rgba(0,0,0,.55); }
+.uae-flagbox{ position:absolute; inset:0; }
 .uae-flagbox .fl{ position:absolute; inset:0; display:grid; grid-template-columns:25% 1fr; }
 .uae-flagbox .fl i{ display:block; background:#FF0000; }
 .uae-flagbox .fl div{ display:grid; grid-template-rows:1fr 1fr 1fr; }
@@ -31,7 +32,11 @@ body.theme-uae .uae-flagwrap{ display:block; }
 .uae-flagbox .fl b:nth-child(1){ background:#00732F; }
 .uae-flagbox .fl b:nth-child(2){ background:#FFFFFF; }
 .uae-flagbox .fl b:nth-child(3){ background:#000000; }
-.uae-flagbox img{ position:absolute; left:62.5%; top:50%; height:29%; aspect-ratio:360/463; transform:translate(-50%,-50%); object-fit:contain; display:block; }
+.uae-flagbox img{ position:absolute; left:62.5%; top:50%; height:18.5%; aspect-ratio:360/463; transform:translate(-50%,-50%); object-fit:contain; display:block; }
+body.theme-uae header{ position:relative !important; height:420px; overflow:hidden; background:#000 !important; }
+body.theme-uae header > *:not(.uae-flagwrap){ position:relative; z-index:1; }
+body.theme-uae header > .masthead{ position:absolute !important; left:0; right:0; bottom:4px; }
+body.theme-uae .title-row, body.theme-uae .subtitle{ display:none !important; }
 
 /* countdown ribbon under the header */
 .uae-ribbon{ display:none; text-align:center; padding:8px 12px; background:#0C1613; border-bottom:2px solid #D4AF37; position:relative; z-index:2; }
