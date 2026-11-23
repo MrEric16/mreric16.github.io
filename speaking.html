@@ -290,15 +290,15 @@ function wireRec(lbl){
   };
 }
 var MOCK = false, p1 = null, introDone = false, mockT0 = 0;
-var P1_FIRST = ['Hometown','Home','Studies','Work'];
-function pickTopic(first, used){
+var NOT_PERSONAL = ['Environment','Pollution','Rubbish and recycling','Rules and laws','Safety','Charity','Volunteering','Advertising','Banks and saving','Online privacy','Persuasion','Reputation','Opinions','Leadership','Responsibility','Retirement','Jobs of the future','Rich and famous','Celebrities','Heroes','Role models','Culture','Cultural differences','Energy','Inventions','Scientists','Science','History','Architecture','Bridges','Politeness','Communication','Online learning','Learning styles','Lifestyle','Pressure','Popularity','Trust','Honesty','Generosity','Freedom','Independence','Gossip','Secrets','Elderly people','Young people','Teenagers','Tourists','Meetings','Presentations','Public speaking','Interviews','Complaints','Competitions','Queues','Crowds','Roads and traffic','Space and stars','Deserts','Islands','Insects','Wild animals','Boats and ships','Water','Wind','Fear','Dreams','Luck','Privacy','Time management','Planning','Patience','Memory','Concentration','Work-life balance','Kindness','Helping others','Imagination','Optimism','Self-confidence','Shyness','Smiling','Laughter','Curiosity','Boredom','Offices','Online friends','Grammar','Typing and keyboards','Languages at home'];
+function pickTopic(used){
   var ix = [];
-  D.p1.forEach(function(t, i){ if(used.indexOf(i) < 0 && (first ? P1_FIRST.indexOf(t.t) >= 0 : P1_FIRST.indexOf(t.t) < 0)) ix.push(i); });
+  D.p1.forEach(function(t, i){ if(used.indexOf(i) < 0 && NOT_PERSONAL.indexOf(t.t) < 0) ix.push(i); });
   return ix[Math.floor(Math.random() * ix.length)];
 }
 function newTopic(n, used){
-  var t = MOCK ? pickTopic(n === 1, used) : Math.floor(Math.random() * D.p1.length);
-  var idx = shuffle([0,1,2,3,4].slice(0, D.p1[t].q.length)).slice(0, 4).sort();
+  var t = pickTopic(used);
+  var idx = shuffle([0,1,2,3,4].slice(0, D.p1[t].q.length)).slice(0, 4);
   return { t: t, qs: idx, i: 0, n: n, used: used.concat([t]) };
 }
 function part1(){
