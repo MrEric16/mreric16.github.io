@@ -303,7 +303,7 @@ function newTopic(n, used){
 }
 function part1(){
   stopAll();
-  if(MOCK && !introDone){
+  if(false){
     var it = 'Good afternoon. My name is Mr Eric. Could you tell me your full name, please? Thank you. And can I see your identification, please? Thank you, that is fine. In this first part, I would like to ask you some questions about yourself.';
     app.innerHTML = BACK + head('Speaking test') + exq(it) +
       '<div class="v-row"><button class="v-btn" id="exGo">Start Part 1</button></div>';
@@ -360,7 +360,7 @@ function part2(){
   var card = '<div class="sp-card"><div class="sp-q">' + esc(C.c) + '</div><div style="font-weight:800;margin-top:8px;">You should say:</div><ul class="sp-ul">' + C.b.map(function(x){ return '<li>' + esc(x) + '</li>'; }).join('') + '</ul></div>';
   if(p2.ph === 'show'){
     var mt = 'Now I am going to give you a topic, and I would like you to talk about it for one to two minutes. Before you talk, you have one minute to think about what you are going to say. You can make some notes if you wish. Here is some paper and a pencil for making notes, and here is your topic.';
-    app.innerHTML = BACK + head('Part 2: the long turn', MOCK ? '' : 'You get 1 minute to prepare (make notes on paper) and then speak for 1 to 2 minutes.') + (MOCK ? exq(mt) : '') + card +
+    app.innerHTML = BACK + head('Part 2: the long turn', MOCK ? '' : 'You get 1 minute to prepare (make notes on paper) and then speak for 1 to 2 minutes.') + card +
       '<div class="v-row"><button class="v-btn" id="spGo">Start 1 minute prep</button>' + (MOCK ? '' : '<button class="v-btn alt" id="spOther">Other card</button>') + '</div>';
     
     document.getElementById('spGo').onclick = function(){ p2.ph = 'prep'; part2(); };
@@ -368,7 +368,7 @@ function part2(){
   } else if(p2.ph === 'prep' || p2.ph === 'talk'){
     var prep = p2.ph === 'prep', total = prep ? 60 : 120;
     var tt = 'Remember, you have one to two minutes for this, so do not worry if I stop you. I will tell you when the time is up. Can you start speaking now, please?';
-    app.innerHTML = BACK + head(prep ? 'Prepare' : 'Speak now', prep ? 'Write key words only. Do not write full sentences.' : (MOCK ? '' : 'Keep going until the timer ends. Aim for at least 1 minute 30.')) + (MOCK && !prep ? exq(tt) : '') + card +
+    app.innerHTML = BACK + head(prep ? 'Prepare' : 'Speak now', prep ? 'Write key words only. Do not write full sentences.' : (MOCK ? '' : 'Keep going until the timer ends. Aim for at least 1 minute 30.')) + card +
       '<div class="sp-clock" id="spClk">' + mmss(total) + '</div>' + (prep ? '' : recorder()) +
       '<div class="v-row"><button class="v-btn" id="spSkip">' + (prep ? 'Start speaking now' : 'Next: Part 3') + '</button></div>';
     var t0 = Date.now();
@@ -387,12 +387,12 @@ function part2(){
     app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
             q3html(C, st) +
       '<div class="sp-card"><b>Self-check</b><ul class="sp-ul"><li>Did you give reasons and examples?</li><li>Did you compare past, present and future?</li><li>Did you avoid one-sentence answers?</li><li>Did you use at least two less common words or idioms?</li></ul></div>';
-    run3(C, st, part2, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(20, 'speaking'); if(MOCK){ var et = 'Thank you. That is the end of the speaking test.'; app.innerHTML = BACK + head('Speaking test finished') + exq(et) + '<div class="v-hint" style="margin:8px 0;">Total time: ' + mmss(Math.floor((Date.now() - mockT0) / 1000)) + '</div>' + recList() + '<div class="v-row"><button class="v-btn" id="exEnd">Done</button></div>'; document.getElementById('exEnd').onclick = function(){ stopAll(); clearRecs(); p2 = null; MOCK = false; location.hash = ''; hub(); }; return; } p2 = null; MOCK = false; review(function(){ location.hash = ''; hub(); }); });
+    run3(C, st, part2, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(20, 'speaking'); if(MOCK){ var et = 'Thank you. That is the end of the speaking test.'; app.innerHTML = BACK + head('Speaking test finished') + '<div class="v-hint" style="margin:8px 0;">Total time: ' + mmss(Math.floor((Date.now() - mockT0) / 1000)) + '</div>' + recList() + '<div class="v-row"><button class="v-btn" id="exEnd">Done</button></div>'; document.getElementById('exEnd').onclick = function(){ stopAll(); clearRecs(); p2 = null; MOCK = false; location.hash = ''; hub(); }; return; } p2 = null; MOCK = false; review(function(){ location.hash = ''; hub(); }); });
   }
 }
 function route(){
   var h = location.hash.replace('#', '');
-  if(h === 'mock'){ clearRecs(); MOCK = true; introDone = false; mockT0 = Date.now(); p1 = null; p2 = null; part1(); } else if(h === 'p1'){ MOCK = false; part1(); } else if(h === 'p2'){ MOCK = false; part2(); } else if(h === 'p3'){ MOCK = false; part3(); } else { clearRecs(); MOCK = false; p1 = null; p2 = null; p3 = null; hub(); }
+  if(h === 'mock'){ clearRecs(); MOCK = true; introDone = true; mockT0 = Date.now(); p1 = null; p2 = null; part1(); } else if(h === 'p1'){ MOCK = false; part1(); } else if(h === 'p2'){ MOCK = false; part2(); } else if(h === 'p3'){ MOCK = false; part3(); } else { clearRecs(); MOCK = false; p1 = null; p2 = null; p3 = null; hub(); }
 }
 window.addEventListener('hashchange', route);
 getJson('data/games/speaking.json').then(function(d){ D = d; route(); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
