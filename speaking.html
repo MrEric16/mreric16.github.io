@@ -251,6 +251,7 @@ function hub(){
     '<div class="sport-hub-grid"><a class="sport-hub-tile" href="#p1"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 1</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p1.length + ' topics</span></span></a>' +
     '<a class="sport-hub-tile" href="#p2"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 2</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">' + D.p2.length + ' cue cards</span></span></a>' +
     '<a class="sport-hub-tile" href="#p3"><span class="name" style="flex-direction:column;gap:2px;"><span>Part 3</span><span style="font-size:12px;color:var(--ink-soft);font-weight:700;">discussion</span></span></a></div>' +
+    '<div class="v-row" style="margin-top:12px;"><a class="v-btn" href="#mock" style="text-decoration:none;text-align:center;">Full mock test (Parts 1 to 3)</a></div>' +
     (done ? '<div class="v-hint" style="margin-top:12px;">Sessions finished: ' + done + '</div>' : '');
 }
 function recorder(){
@@ -274,36 +275,61 @@ function wireRec(){
     }).catch(function(){ var p = document.getElementById('spPlay'); if(p) p.innerHTML = '<div class="v-hint">Microphone blocked. Allow it in your browser settings.</div>'; });
   };
 }
-var p1 = null;
+var MOCK = false, p1 = null;
+var P1_FIRST = ['Hometown','Home','Studies','Work'];
+function pickTopic(first, used){
+  var ix = [];
+  D.p1.forEach(function(t, i){ if(used.indexOf(i) < 0 && (first ? P1_FIRST.indexOf(t.t) >= 0 : P1_FIRST.indexOf(t.t) < 0)) ix.push(i); });
+  return ix[Math.floor(Math.random() * ix.length)];
+}
+function newTopic(n, used){
+  var t = MOCK ? pickTopic(n === 1, used) : Math.floor(Math.random() * D.p1.length);
+  var idx = shuffle([0,1,2,3,4].slice(0, D.p1[t].q.length)).slice(0, 4).sort();
+  return { t: t, qs: idx, i: 0, n: n, used: used.concat([t]) };
+}
 function part1(){
   stopAll();
-  if(!p1){ p1 = { t: Math.floor(Math.random() * D.p1.length), i: 0 }; }
-  var T = D.p1[p1.t], q = T.q[p1.i];
-  app.innerHTML = BACK + head('Part 1: ' + esc(T.t), 'Answer in 2 to 3 sentences. Give a reason and an example. Do not answer with one word.') +
-    '<div class="sp-card"><div class="sp-q">' + esc(q) + '</div><div class="v-hint">Question ' + (p1.i + 1) + ' of ' + T.q.length + '</div></div>' +
+  if(!p1){ p1 = newTopic(1, []); }
+  var T = D.p1[p1.t], q = T.q[p1.qs[p1.i]], last = p1.i + 1 >= p1.qs.length;
+  var ttl = MOCK ? 'Part 1: topic ' + p1.n + ' of 3' : 'Part 1: ' + esc(T.t);
+  app.innerHTML = BACK + head(ttl, 'Answer in 2 to 3 sentences. Give a reason and an example. Do not answer with one word.') +
+    (MOCK ? '<div class="v-hint" style="margin-bottom:8px;">Let us talk about ' + esc(T.t.toLowerCase()) + '.</div>' : '') +
+    '<div class="sp-card"><div class="sp-q">' + esc(q) + '</div><div class="v-hint">Question ' + (p1.i + 1) + ' of ' + p1.qs.length + '</div></div>' +
     '<div class="sp-clock" id="spClk">0:00</div>' + recorder() +
-    '<div class="v-row"><button class="v-btn" id="spNext">' + (p1.i + 1 < T.q.length ? 'Next question' : 'Finish topic') + '</button><button class="v-btn alt" id="spTopic">Other topic</button></div>';
+    '<div class="v-row"><button class="v-btn" id="spNext">' + (!last ? 'Next question' : (MOCK && p1.n < 3 ? 'Next topic' : (MOCK ? 'Go to Part 2' : 'Finish topic'))) + '</button>' + (MOCK ? '' : '<button class="v-btn alt" id="spTopic">Other topic</button>') + '</div>';
   var t0 = Date.now(); tm = setInterval(function(){ var c = document.getElementById('spClk'); if(c) c.textContent = mmss(Math.floor((Date.now() - t0) / 1000)); }, 500);
   wireRec();
   document.getElementById('spNext').onclick = function(){
-    if(p1.i + 1 < T.q.length){ p1.i++; part1(); }
+    if(!last){ p1.i++; part1(); }
+    else if(MOCK && p1.n < 3){ p1 = newTopic(p1.n + 1, p1.used); part1(); }
+    else if(MOCK){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p1 = null; p2 = null; part2(); }
     else { lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p1 = null; location.hash = ''; hub(); }
   };
-  document.getElementById('spTopic').onclick = function(){ p1 = null; part1(); };
+  var ot = document.getElementById('spTopic'); if(ot) ot.onclick = function(){ p1 = null; part1(); };
+}
+function q3html(C, st, onNext){
+  var last = st.i + 1 >= C.q.length;
+  return '<div class="sp-card"><div class="sp-q">' + esc(C.q[st.i]) + '</div><div class="v-hint">Question ' + (st.i + 1) + ' of ' + C.q.length + '</div></div>' +
+    '<div class="sp-clock" id="spClk">0:00</div>' + recorder() +
+    '<div class="v-row"><button class="v-btn" id="spNext3">' + (last ? 'Finish' : 'Next question') + '</button></div>';
+}
+function run3(C, st, redraw, done){
+  var t0 = Date.now(); tm = setInterval(function(){ var c = document.getElementById('spClk'); if(c) c.textContent = mmss(Math.floor((Date.now() - t0) / 1000)); }, 500);
+  wireRec();
+  document.getElementById('spNext3').onclick = function(){
+    if(st.i + 1 < C.q.length){ st.i++; stopAll(); redraw(); } else { stopAll(); done(); }
+  };
 }
 var p3 = null;
 function part3(){
   stopAll();
-  if(p3 == null) p3 = Math.floor(Math.random() * D.p2.length);
-  var C = D.p2[p3];
+  if(p3 == null) p3 = { c: Math.floor(Math.random() * D.p2.length), i: 0 };
+  var C = D.p2[p3.c];
   app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
-    '<div class="v-hint" style="margin-bottom:8px;">Topic: ' + esc(C.c) + '</div>' +
-    C.q.map(function(x, i){ return '<div class="sp-card"><div class="sp-q">' + (i + 1) + '. ' + esc(x) + '</div></div>'; }).join('') +
-    recorder() +
-    '<div class="v-row"><button class="v-btn" id="spDone">Finish</button><button class="v-btn alt" id="spOther">Other topic</button></div>';
-  wireRec();
+    '<div class="v-hint" style="margin-bottom:8px;">We have been talking about: ' + esc(C.c.replace(/^Describe /, '').replace(/\.$/, '')) + '.</div>' + q3html(C, p3) +
+    '<div class="v-row"><button class="v-btn alt" id="spOther">Other topic</button></div>';
+  run3(C, p3, part3, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p3 = null; if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); });
   document.getElementById('spOther').onclick = function(){ stopAll(); p3 = null; part3(); };
-  document.getElementById('spDone').onclick = function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(10, 'speaking'); p3 = null; stopAll(); if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); };
 }
 var p2 = null;
 function part2(){
@@ -332,17 +358,18 @@ function part2(){
       finish();
     };
   } else {
+    if(p2.i3 == null) p2.i3 = 0;
+    var st = p2.st || (p2.st = { i: 0 });
     app.innerHTML = BACK + head('Part 3: discussion', 'Give longer, more abstract answers. Use phrases like "On the whole", "It depends on", "One reason is".') +
-      (recUrl ? '<div class="sp-card"><div class="v-hint">Your Part 2 recording</div><audio controls src="' + recUrl + '" style="width:100%;"></audio></div>' : '') +
-      C.q.map(function(x, i){ return '<div class="sp-card"><div class="sp-q">' + (i + 1) + '. ' + esc(x) + '</div></div>'; }).join('') +
-      '<div class="sp-card"><b>Self-check</b><ul class="sp-ul"><li>Did you speak for 90 seconds or more?</li><li>Did you cover every bullet?</li><li>Did you pause to search for words, or use fillers like "erm" often?</li><li>Did you use at least two less common words or idioms?</li><li>Did you use past, present and future structures where they fit?</li></ul></div>' +
-      '<div class="v-row"><button class="v-btn" id="spDone">Finish and next card</button></div>';
-    document.getElementById('spDone').onclick = function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(20, 'speaking'); p2 = null; stopAll(); if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); };
+      (recUrl && st.i === 0 ? '<div class="sp-card"><div class="v-hint">Your Part 2 recording</div><audio controls src="' + recUrl + '" style="width:100%;"></audio></div>' : '') +
+      q3html(C, st) +
+      '<div class="sp-card"><b>Self-check</b><ul class="sp-ul"><li>Did you give reasons and examples?</li><li>Did you compare past, present and future?</li><li>Did you avoid one-sentence answers?</li><li>Did you use at least two less common words or idioms?</li></ul></div>';
+    run3(C, st, part2, function(){ lsSet('speakDone', lsGet('speakDone', 0) + 1); award(20, 'speaking'); p2 = null; MOCK = false; if(recUrl){ URL.revokeObjectURL(recUrl); recUrl = null; } location.hash = ''; hub(); });
   }
 }
 function route(){
   var h = location.hash.replace('#', '');
-  if(h === 'p1') part1(); else if(h === 'p2') part2(); else if(h === 'p3') part3(); else { p1 = null; p2 = null; p3 = null; hub(); }
+  if(h === 'mock'){ MOCK = true; p1 = null; p2 = null; part1(); } else if(h === 'p1'){ MOCK = false; part1(); } else if(h === 'p2'){ MOCK = false; part2(); } else if(h === 'p3'){ MOCK = false; part3(); } else { MOCK = false; p1 = null; p2 = null; p3 = null; hub(); }
 }
 window.addEventListener('hashchange', route);
 getJson('data/games/speaking.json').then(function(d){ D = d; route(); }).catch(function(){ app.innerHTML = BACK + '<div class="v-hint">Could not load. Check your connection.</div>'; });
