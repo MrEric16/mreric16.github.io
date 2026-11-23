@@ -37,10 +37,15 @@ def burj_al_arab():
     return body
 
 def museum():
-    body = '<path d="M-30,0 L-24,-14 L24,-14 L30,0Z"/>'                       # base mound
-    body += '<ellipse cx="0" cy="-70" rx="34" ry="58"/>'                      # torus outer
-    body += '<ellipse cx="0" cy="-74" rx="11" ry="36"/>'                      # the void
-    body += ''.join(f'<path d="M{x},{y1} L{x},{y2}"/>' for x, y1, y2 in [(-24,-96,-50),(-19,-110,-40),(19,-110,-40),(24,-96,-50),(-27,-82,-60),(27,-82,-60)])
+    # elongated ring (egg-shaped, a little wider at the bottom, leaning slightly) with an off-centre almond void,
+    # on a grass-covered mound. Approximation from written descriptions only (no reference photo available).
+    body = '<path d="M-52,0 C-46,-12 -30,-16 0,-16 C30,-16 46,-12 52,0Z"/>'              # mound
+    body += ('<g transform="rotate(-6 0 -60)">'
+             '<path d="M0,-124 C26,-124 44,-96 44,-62 C44,-30 30,-14 0,-14 C-30,-14 -46,-30 -46,-62 C-46,-96 -26,-124 0,-124Z"/>'   # outer oval
+             '<path d="M6,-104 C16,-90 20,-70 16,-48 C13,-34 8,-28 4,-28 C-2,-34 -6,-48 -6,-66 C-6,-84 -2,-98 6,-104Z" transform="rotate(8 6 -66)"/>'  # almond void
+             '<path d="M-36,-96 C-42,-76 -41,-52 -33,-34"/><path d="M-27,-104 C-35,-84 -34,-58 -26,-40"/>'     # calligraphy bands (left)
+             '<path d="M34,-92 C39,-74 38,-54 31,-38"/><path d="M26,-100 C31,-82 30,-60 24,-44"/>'             # (right)
+             '</g>')
     return body
 
 def dwtc():
