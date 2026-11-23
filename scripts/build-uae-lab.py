@@ -338,13 +338,7 @@ function layoutSky(){
   el.style.top=top1+'px';el.style.height=H1+'px';el.style.width=Math.min(innerWidth,Math.round(H1*600/980))+'px';
   el.style.transformOrigin='50% 100%';SKYF=flagBottomDoc()+4;scaleSky();
 }
-function scaleSky(){
-  var el=document.getElementById('uaeSky');if(!el||!on())return;
-  var topNow=Math.max(70,SKYF-(window.scrollY||window.pageYOffset||0)),H1=el.offsetHeight||1;
-  var sc=Math.min(1,Math.max(.3,(innerHeight-56-topNow)/H1));
-  el.style.transform='translateX(-50%) scale('+sc+')';
-}
-var _sk=0;addEventListener('scroll',function(){if(_sk)return;_sk=requestAnimationFrame(function(){_sk=0;scaleSky();});},{passive:true});
+function scaleSky(){var el=document.getElementById('uaeSky');if(el)el.style.transform='translateX(-50%)';}
 addEventListener('resize',layoutSky);
 
 /* ===== skyline fireworks: Burj Khalifa (tip + cascading sides), Burj Al Arab, behind Ain Dubai ===== */
