@@ -130,9 +130,10 @@ body.theme-uae #uaeDallah{ display:flex; }
 .uae-emirates{ display:none; overflow-x:auto; scroll-snap-type:x mandatory; gap:10px; padding:12px 14px; position:relative; z-index:2; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
 body.theme-uae .uae-emirates{ display:flex; }
 .uae-emirates::-webkit-scrollbar{ display:none; }
-.uae-em{ flex:0 0 150px; scroll-snap-align:start; padding:10px 12px; border:2px solid #D4AF37; border-radius:12px; color:#FFF7E3; background:linear-gradient(135deg,#0D3F2A,#0A2A1D); box-shadow:0 3px 0 rgba(0,0,0,.45); }
+.uae-em{ flex:0 0 196px; scroll-snap-align:start; padding:10px 12px; border:2px solid #D4AF37; border-radius:12px; color:#FFF7E3; background:linear-gradient(135deg,#0D3F2A,#0A2A1D); box-shadow:0 3px 0 rgba(0,0,0,.45); }
 .uae-em b{ display:block; color:#F1D77A; font-size:15px; margin-bottom:3px; }
 .uae-em span{ display:block; font-size:12px; opacity:.92; line-height:1.4; }
+.uae-em span i{ color:#EADFC3; }
 
 
 /* night skyline backdrop: three depth rows, outline style, fixed behind the content */
@@ -159,7 +160,7 @@ body.theme-uae #uaeDunes{ display:none; }
 HTML = r'''
 __SKY__
 <div class="uae-sadu uae-only" id="uaeSadu"></div>
-<div class="uae-emirates" id="uaeEm"><div class="uae-em"><b>Abu Dhabi</b><span>Capital: Abu Dhabi</span><span>Area: 67,340 km²</span><span>Largest emirate</span></div><div class="uae-em"><b>Dubai</b><span>Capital: Dubai</span><span>Area: 4,114 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Sharjah</b><span>Capital: Sharjah</span><span>Area: 2,590 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Ajman</b><span>Capital: Ajman</span><span>Area: 259 km²</span><span>Smallest emirate</span></div><div class="uae-em"><b>Umm Al Quwain</b><span>Capital: Umm Al Quwain</span><span>Area: 720 km²</span><span>Joined 2 Dec 1971</span></div><div class="uae-em"><b>Ras Al Khaimah</b><span>Capital: Ras Al Khaimah</span><span>Area: 1,684 km²</span><span>Joined 10 Feb 1972</span></div><div class="uae-em"><b>Fujairah</b><span>Capital: Fujairah</span><span>Area: 1,450 km²</span><span>Joined 2 Dec 1971</span></div></div>
+<div class="uae-emirates" id="uaeEm"><div class="uae-em"><b>Abu Dhabi</b><span><i>Father of the gazelle</i></span><span>Sheikh Mohamed bin Zayed Al Nahyan</span><span>Pop. 4.14M (2024)</span></div><div class="uae-em"><b>Dubai</b><span><i>Origin unclear</i></span><span>Sheikh Mohammed bin Rashid Al Maktoum</span><span>Pop. 4.47M (2024)</span></div><div class="uae-em"><b>Sharjah</b><span><i>The east / sunrise (disputed)</i></span><span>Sheikh Sultan bin Muhammad Al Qasimi</span><span>Pop. 1.81M (2022)</span></div><div class="uae-em"><b>Ajman</b><span><i>From 'Ajam', foreigners (unclear)</i></span><span>Sheikh Humaid bin Rashid Al Nuaimi</span><span>Pop. 505k (2017)</span></div><div class="uae-em"><b>Umm Al Quwain</b><span><i>Mother of two powers</i></span><span>Sheikh Saud bin Rashid Al Mualla</span><span>Pop. 49k (2005)</span></div><div class="uae-em"><b>Ras Al Khaimah</b><span><i>Head of the tent</i></span><span>Sheikh Saud bin Saqr Al Qasimi</span><span>Pop. 345k (2015)</span></div><div class="uae-em"><b>Fujairah</b><span><i>Springs below the mountains (one source)</i></span><span>Sheikh Hamad bin Mohammed Al Sharqi</span><span>Pop. 203k (2014)</span></div></div>
 <div id="uaeDunes" data-sky="night"><svg class="d1" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c1" d="M0 80 C100 40 200 90 300 60 C400 30 500 85 600 55 C700 30 750 70 800 80 L800 110 L0 110Z"/></svg><svg class="d2" viewBox="0 0 800 110" preserveAspectRatio="none"><path class="c2" d="M0 95 C120 65 230 100 340 80 C450 60 560 100 680 78 C740 68 780 88 800 95 L800 110 L0 110Z"/></svg></div>
 <div class="uae-smoke"><i></i><i></i><i></i><b>🪔</b></div>
 <div id="uaeCamel"><div class="bub" id="uaeBub"></div><div class="cam" id="uaeCam">🐪</div></div>
