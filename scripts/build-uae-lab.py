@@ -32,6 +32,7 @@ body.theme-uae .uae-flagwrap{ display:block; }
 .uae-flagbox .fl b:nth-child(1){ background:#00732F; }
 .uae-flagbox .fl b:nth-child(2){ background:#FFFFFF; }
 .uae-flagbox .fl b:nth-child(3){ background:#000000; }
+.uae-flagbox img{ position:absolute; left:62.5%; top:50%; height:28%; aspect-ratio:360/463; transform:translate(-50%,-50%); object-fit:contain; display:block; }
 body.theme-uae header{ position:relative !important; height:306px; overflow:hidden; background:#0C1613 !important; }
 body.theme-uae header > *:not(.uae-flagwrap){ position:relative; z-index:1; }
 body.theme-uae header > .masthead{ position:absolute !important; left:0; right:0; bottom:4px; }
@@ -173,7 +174,7 @@ HTML = r'''
 </div>
 '''
 
-FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div></div></div>
+FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div><img src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div></div>
 '''
 
 JS = r'''
