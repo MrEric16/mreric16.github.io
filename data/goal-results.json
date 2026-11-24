@@ -1,19 +1,6 @@
 {
-  "generatedAt": "2026-11-24T05:06:40.456965Z",
+  "generatedAt": "2026-11-24T16:05:19.923142Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/real-sociedad-vs-celta-vigo/uBjlTAkMFXO3hOrLFaIz-",
-      "date": null,
-      "home": "Real Sociedad",
-      "away": "Celta Vigo",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/malaga-vs-villarreal/PCEduGGdaYN4KZlTPoJUM",
       "date": null,
@@ -7723,6 +7710,29 @@
       ],
       "awayGoals": [],
       "competition": "roma"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU",
+      "date": "2026-10-20",
+      "home": "Sabah Fk",
+      "away": "Borussia Dortmund",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 1,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "A. McCarthy",
+          "minute": 39
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Guirassy",
+          "minute": 10
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7742,7 +7752,6 @@
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
-    "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
-    "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU": 2
+    "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2
   }
 }
