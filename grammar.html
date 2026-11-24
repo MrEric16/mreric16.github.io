@@ -496,7 +496,7 @@ var TILE_HEX = '#85389F';
 function ggTileStyle(){ return { tint: ' style="background:' + hexToRgba(TILE_HEX, 0.14) + '"', ico: ' style="color:var(--f-des)"' }; }
 var app = document.getElementById('app');
 function fail(){ app.innerHTML = '<a class="back-link" href="index.html#grammar-hub">\u2190 Back to Grammar</a><div class="empty-card" style="margin-top:14px;">Could not load the exercises. Check your connection and reload.</div>'; }
-function showTopics(){
+function showTopics(findQ, findIds){
   document.title = "Grammar Practice \u2014 Mr Eric's Lounge";
   app.innerHTML = '<a class="back-link" href="index.html#grammar-hub">\u2190 Back to Grammar</a>' +
     '<section style="padding-top:14px;"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Grammar Practice</h2></div>' +
@@ -514,7 +514,7 @@ function showTopics(){
     grid.innerHTML = ix.topics.map(function(t, ti){
       var busy = false;
       GG_LEVELS.forEach(function(l){ var s = ggLoad(t.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; });
-      return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '" data-no="' + (ti + 1) + '"' + st.tint + '>' +
+      return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-id="' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '" data-no="' + (ti + 1) + '"' + st.tint + '>' +
         '<span class="name"><span class="gg-no">' + (ti + 1) + '</span>' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
     }).join('') + '<div class="empty-card" id="ggNone" style="grid-column:1/-1;display:none;">No topic matches.</div>';
     var applyQ = function(){
@@ -527,6 +527,16 @@ function showTopics(){
     };
     // Remember the search while you work through a topic, so Back lands on the same filtered list.
     input.addEventListener('input', function(){ applyQ(); try{ sessionStorage.setItem('ggq', JSON.stringify({ q: input.value, t: Date.now() })); }catch(e){} });
+    if(findQ){
+      input.value = findQ;
+      if(findIds){
+        // exact list from the app search, so the count there always equals what opens here
+        var set = {}; findIds.split(',').forEach(function(i){ set[i] = 1; }); var shown = 0;
+        Array.prototype.forEach.call(grid.querySelectorAll('.gg-tile'), function(a){ var ok = !!set[a.dataset.id]; a.style.display = ok ? '' : 'none'; if(ok) shown++; });
+        document.getElementById('ggNone').style.display = shown ? 'none' : '';
+      } else applyQ();
+      return;
+    }
     try{ var sq = JSON.parse(sessionStorage.getItem('ggq') || 'null'); if(sq && sq.q && Date.now() - sq.t < 3600000){ input.value = sq.q; applyQ(); } }catch(e){}
   }).catch(fail);
 }
@@ -578,7 +588,8 @@ document.addEventListener('click', function(e){
 function route(){
   var parts = location.hash.replace(/^#/, '').split('/').filter(Boolean).map(decodeURIComponent);
   window.scrollTo(0, 0);
-  if(parts[1]) showExercise(parts[0], parts[1]);
+  if(parts[0] === 'find') showTopics(parts[1] || '', parts[2] || '');
+  else if(parts[1]) showExercise(parts[0], parts[1]);
   else if(parts[0]) showLevels(parts[0]);
   else showTopics();
 }
