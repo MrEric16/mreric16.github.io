@@ -1,47 +1,6 @@
 {
-  "generatedAt": "2026-11-23T20:47:00.845038Z",
+  "generatedAt": "2026-11-24T05:06:40.456965Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-atletico-madrid/RTW_wFdh6EAfgLyTmEin-",
-      "date": "2026-10-20",
-      "home": "Vfb Stuttgart",
-      "away": "Atletico Madrid",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "J. Leweling",
-          "minute": 36
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Alvarez",
-          "minute": 47
-        }
-      ],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/fc-porto-vs-psv-eindhoven/bSQqZk0drZcZdEO6Pz8oZ",
-      "date": "2026-10-20",
-      "home": "Fc Porto",
-      "away": "Psv Eindhoven",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "G. Til",
-          "minute": 57
-        }
-      ],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/real-sociedad-vs-celta-vigo/uBjlTAkMFXO3hOrLFaIz-",
       "date": null,
@@ -7703,6 +7662,67 @@
         }
       ],
       "competition": "barcelona"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI",
+      "date": "2026-10-18",
+      "home": "Real Madrid",
+      "away": "Sevilla",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Guler",
+          "minute": 30
+        },
+        {
+          "scorer": "K. Mbappe",
+          "minute": 37
+        },
+        {
+          "scorer": "Y. Diomande",
+          "minute": 82
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Bueno",
+          "minute": 80
+        }
+      ],
+      "competition": "real-madrid"
+    },
+    {
+      "url": "https://www.goal.com/en/match/roma-vs-slovan-bratislava/_REzB-KGFWGMLEFWnAkbt",
+      "date": "2026-10-20",
+      "home": "Roma",
+      "away": "Slovan Bratislava",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 4,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "M. Hermoso",
+          "minute": 21
+        },
+        {
+          "scorer": "N. Molina",
+          "minute": 39
+        },
+        {
+          "scorer": "N. Pisilli",
+          "minute": 52
+        },
+        {
+          "scorer": "D. Malen",
+          "minute": 58
+        }
+      ],
+      "awayGoals": [],
+      "competition": "roma"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7723,7 +7743,6 @@
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
     "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
-    "https://www.goal.com/en/match/real-madrid-vs-sevilla/LQRDn5WzLlvyN8r_K5NlI": 2,
-    "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU": 1
+    "https://www.goal.com/en/match/sabah-fk-vs-borussia-dortmund/NaGVZBpJvrxKIzFHOqtnU": 2
   }
 }
