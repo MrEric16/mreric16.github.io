@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T08:36:53.844732Z",
+  "generatedAt": "2026-11-24T19:43:09.454914Z",
   "standings": {
     "PL": [
       {
@@ -587,6 +587,208 @@
         "pts": 4
       }
     ],
+    "SA": [
+      {
+        "name": "Lazio",
+        "pld": 12,
+        "w": 10,
+        "d": 2,
+        "l": 0,
+        "gf": 28,
+        "ga": 9,
+        "pts": 32
+      },
+      {
+        "name": "Roma",
+        "pld": 12,
+        "w": 9,
+        "d": 3,
+        "l": 0,
+        "gf": 36,
+        "ga": 11,
+        "pts": 30
+      },
+      {
+        "name": "Inter",
+        "pld": 12,
+        "w": 9,
+        "d": 2,
+        "l": 1,
+        "gf": 32,
+        "ga": 17,
+        "pts": 29
+      },
+      {
+        "name": "Milan",
+        "pld": 12,
+        "w": 8,
+        "d": 3,
+        "l": 1,
+        "gf": 28,
+        "ga": 14,
+        "pts": 27
+      },
+      {
+        "name": "Como 1907",
+        "pld": 12,
+        "w": 8,
+        "d": 2,
+        "l": 2,
+        "gf": 20,
+        "ga": 10,
+        "pts": 26
+      },
+      {
+        "name": "Juventus",
+        "pld": 12,
+        "w": 6,
+        "d": 3,
+        "l": 3,
+        "gf": 19,
+        "ga": 12,
+        "pts": 21
+      },
+      {
+        "name": "Frosinone",
+        "pld": 12,
+        "w": 6,
+        "d": 2,
+        "l": 4,
+        "gf": 25,
+        "ga": 20,
+        "pts": 20
+      },
+      {
+        "name": "Napoli",
+        "pld": 12,
+        "w": 5,
+        "d": 3,
+        "l": 4,
+        "gf": 19,
+        "ga": 14,
+        "pts": 18
+      },
+      {
+        "name": "Bologna",
+        "pld": 12,
+        "w": 5,
+        "d": 3,
+        "l": 4,
+        "gf": 17,
+        "ga": 15,
+        "pts": 18
+      },
+      {
+        "name": "Genoa",
+        "pld": 12,
+        "w": 5,
+        "d": 1,
+        "l": 6,
+        "gf": 13,
+        "ga": 16,
+        "pts": 16
+      },
+      {
+        "name": "Cagliari",
+        "pld": 12,
+        "w": 5,
+        "d": 1,
+        "l": 6,
+        "gf": 10,
+        "ga": 17,
+        "pts": 16
+      },
+      {
+        "name": "Atalanta",
+        "pld": 12,
+        "w": 4,
+        "d": 3,
+        "l": 5,
+        "gf": 21,
+        "ga": 24,
+        "pts": 15
+      },
+      {
+        "name": "Torino",
+        "pld": 12,
+        "w": 4,
+        "d": 2,
+        "l": 6,
+        "gf": 15,
+        "ga": 18,
+        "pts": 14
+      },
+      {
+        "name": "Monza",
+        "pld": 12,
+        "w": 3,
+        "d": 1,
+        "l": 8,
+        "gf": 20,
+        "ga": 25,
+        "pts": 10
+      },
+      {
+        "name": "Lecce",
+        "pld": 12,
+        "w": 3,
+        "d": 1,
+        "l": 8,
+        "gf": 12,
+        "ga": 25,
+        "pts": 10
+      },
+      {
+        "name": "Fiorentina",
+        "pld": 12,
+        "w": 2,
+        "d": 3,
+        "l": 7,
+        "gf": 17,
+        "ga": 28,
+        "pts": 9
+      },
+      {
+        "name": "Parma",
+        "pld": 12,
+        "w": 2,
+        "d": 2,
+        "l": 8,
+        "gf": 10,
+        "ga": 22,
+        "pts": 8
+      },
+      {
+        "name": "Sassuolo",
+        "pld": 12,
+        "w": 2,
+        "d": 2,
+        "l": 8,
+        "gf": 16,
+        "ga": 31,
+        "pts": 8
+      },
+      {
+        "name": "Udinese",
+        "pld": 12,
+        "w": 1,
+        "d": 3,
+        "l": 8,
+        "gf": 13,
+        "ga": 26,
+        "pts": 6
+      },
+      {
+        "name": "Venezia FC",
+        "pld": 12,
+        "w": 2,
+        "d": 0,
+        "l": 10,
+        "gf": 8,
+        "ga": 25,
+        "pts": 6
+      }
+    ],
     "FL1": [
       {
         "name": "PSG",
@@ -821,21 +1023,21 @@
         "pts": 9
       },
       {
-        "name": "Aston Villa",
-        "pld": 4,
-        "w": 3,
-        "d": 0,
-        "l": 1,
-        "gf": 12,
-        "ga": 6,
-        "pts": 9
-      },
-      {
         "name": "Man City",
         "pld": 4,
         "w": 3,
         "d": 0,
         "l": 1,
+        "gf": 12,
+        "ga": 7,
+        "pts": 9
+      },
+      {
+        "name": "Aston Villa",
+        "pld": 5,
+        "w": 3,
+        "d": 0,
+        "l": 2,
         "gf": 12,
         "ga": 7,
         "pts": 9
@@ -891,6 +1093,16 @@
         "pts": 9
       },
       {
+        "name": "Galatasaray",
+        "pld": 5,
+        "w": 3,
+        "d": 0,
+        "l": 2,
+        "gf": 9,
+        "ga": 9,
+        "pts": 9
+      },
+      {
         "name": "Bayern",
         "pld": 4,
         "w": 2,
@@ -911,6 +1123,16 @@
         "pts": 7
       },
       {
+        "name": "Bodø/Glimt",
+        "pld": 5,
+        "w": 2,
+        "d": 1,
+        "l": 2,
+        "gf": 5,
+        "ga": 9,
+        "pts": 7
+      },
+      {
         "name": "Inter",
         "pld": 4,
         "w": 2,
@@ -922,12 +1144,12 @@
       },
       {
         "name": "LASK",
-        "pld": 4,
+        "pld": 5,
         "w": 2,
         "d": 0,
-        "l": 2,
+        "l": 3,
         "gf": 10,
-        "ga": 9,
+        "ga": 10,
         "pts": 6
       },
       {
@@ -938,16 +1160,6 @@
         "l": 2,
         "gf": 8,
         "ga": 8,
-        "pts": 6
-      },
-      {
-        "name": "Galatasaray",
-        "pld": 4,
-        "w": 2,
-        "d": 0,
-        "l": 2,
-        "gf": 8,
-        "ga": 9,
         "pts": 6
       },
       {
@@ -1008,16 +1220,6 @@
         "l": 2,
         "gf": 3,
         "ga": 4,
-        "pts": 4
-      },
-      {
-        "name": "Bodø/Glimt",
-        "pld": 4,
-        "w": 1,
-        "d": 1,
-        "l": 2,
-        "gf": 4,
-        "ga": 9,
         "pts": 4
       },
       {
@@ -4701,7 +4903,7 @@
       "fixtures": [
         {
           "utcDate": "2026-11-24T17:45:00Z",
-          "status": "TIMED",
+          "status": "IN_PLAY",
           "matchday": 5,
           "homeTeam": {
             "id": 610,
@@ -4714,46 +4916,15 @@
             "shortName": "Aston Villa"
           },
           "score": {
-            "winner": null,
+            "winner": "HOME_TEAM",
             "duration": "REGULAR",
             "fullTime": {
-              "home": null,
-              "away": null
+              "home": 1,
+              "away": 0
             },
             "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-11-24T17:45:00Z",
-          "status": "TIMED",
-          "matchday": 5,
-          "homeTeam": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt"
-          },
-          "awayTeam": {
-            "id": 2016,
-            "name": "LASK Linz",
-            "shortName": "LASK"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
+              "home": 0,
+              "away": 0
             }
           },
           "competition": {
@@ -5260,6 +5431,37 @@
       ],
       "results": [
         {
+          "utcDate": "2026-11-24T17:45:00Z",
+          "status": "FINISHED",
+          "matchday": 5,
+          "homeTeam": {
+            "id": 5721,
+            "name": "FK Bodø/Glimt",
+            "shortName": "Bodø/Glimt"
+          },
+          "awayTeam": {
+            "id": 2016,
+            "name": "LASK Linz",
+            "shortName": "LASK"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "UEFA Champions League"
+          },
+          "venue": null
+        },
+        {
           "utcDate": "2026-11-04T20:00:00Z",
           "status": "FINISHED",
           "matchday": 4,
@@ -5686,37 +5888,6 @@
             "halfTime": {
               "home": 0,
               "away": 2
-            }
-          },
-          "competition": {
-            "name": "UEFA Champions League"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-11-03T20:00:00Z",
-          "status": "FINISHED",
-          "matchday": 4,
-          "homeTeam": {
-            "id": 5721,
-            "name": "FK Bodø/Glimt",
-            "shortName": "Bodø/Glimt"
-          },
-          "awayTeam": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille"
-          },
-          "score": {
-            "winner": "DRAW",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 0,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
             }
           },
           "competition": {
