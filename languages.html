@@ -429,7 +429,7 @@ function home0(L){
     '<div class="sport-hub-grid">' + SECS.filter(function(s){
       if(s[0] === 'sounds') return L.sounds; if(s[0] === 'test') return L.items.length; if(s[0] === 'listening') return ttsVoice(L.id) && (L.reading || []).length; return (L[s[0]] || []).length; }).map(function(s){
       var sub = ''; if(s[0] !== 'sounds' && s[0] !== 'test' && s[0] !== 'reading' && s[0] !== 'listening'){ var its = []; secGroups(L, s[0]).forEach(function(g){ if(L.groups[g.gid]) its = its.concat(L.groups[g.gid].items); }); if(its.length) sub = counts(L, its) + ' / ' + its.length; }
-      return tile('#l/' + L.id + '/' + s[0], s[1], sub); }).join('') + (L.id === 'de' ? tile('#l/den', 'Nana', 'A2 and up') : '') + '</div>';
+      return tile('#l/' + L.id + '/' + s[0], s[1], sub); }).join('') + (L.id === 'de' ? tile('#l/den', 'Nana', 'A2 and up') : '') + (L.id === 'fr' ? tile('safina.html', 'Safina', 'C1') : '') + '</div>';
 }
 function sounds(L){
   var S = L.sounds;
