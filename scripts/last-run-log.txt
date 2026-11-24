@@ -1,34 +1,34 @@
-[scrape] Run started. Today (Tashkent): 2026-11-23  Window end: 2026-12-07
+[scrape] Run started. Today (Tashkent): 2026-11-24  Window end: 2026-12-08
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
-[scrape] calendar 2026-11-23: 17 new event URLs discovered
-[scrape] calendar 2026-11-24: 5 new event URLs discovered
-[scrape] calendar 2026-11-25: 6 new event URLs discovered
+[scrape] calendar 2026-11-24: 22 new event URLs discovered
+[scrape] calendar 2026-11-25: 8 new event URLs discovered
 [scrape] calendar 2026-11-26: 5 new event URLs discovered
 [scrape] calendar 2026-11-27: 10 new event URLs discovered
-[scrape] calendar 2026-11-28: 14 new event URLs discovered
+[scrape] calendar 2026-11-28: 17 new event URLs discovered
 [scrape] calendar 2026-11-29: 8 new event URLs discovered
-[scrape] calendar 2026-11-30: 0 new event URLs discovered
-[scrape] calendar 2026-12-01: 5 new event URLs discovered
+[scrape] calendar 2026-11-30: 1 new event URLs discovered
+[scrape] calendar 2026-12-01: 6 new event URLs discovered
 [scrape] calendar 2026-12-02: 3 new event URLs discovered
+[scrape] calendar 2026-12-03: 1 new event URLs discovered
 [scrape] exhibitions listing: EXCLUDED '/ru/exhibitions/2026/07/02/tiff-2026' on link text 'Международная туристическая выставка «Туризм по Шелковому пути — 2026»\nс 25 по 2'
 [scrape] exhibitions listing page (supplementary): 9 new event URLs discovered, 21 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 82 unique event URLs to check
+[scrape] calendar discovery complete: 90 unique event URLs to check
+[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/24/midnight2311 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/16/italian-week title='Тематическое мероприятие Italian Week' title_hits=[] text_hits=["'кино' ...'амма с\\xa0аниматорами;\\nпоказы итальянского кино;\\nвечера живой итальянской музыки;\\nп'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/exhibitions/2026/10/22/savitskys-diaries title='Мультимедийная выставка «Дневники Савицкого. Старое и новое»' title_hits=[] text_hits=["'скидк' ...'ход свободный, в\\xa0порядке живой очереди.\\nскидки:\\nшкольникам, студентам и\\xa0пенсионе'"]
 [scrape]   'Выставка Interflows в галерее ARTepa': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка «Ялт-Юлт» в музее ICHKARI': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Выставка Hikmah в CCA Tashkent': no dates found in window (no schedule/date-range parsed) -- kept 0 events
+[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/11/16/jazz-evening title='Творческий «Вечер джаза»' title_hits=[] text_hits=["'кино' ...'амма, включающая лиричные композиции из\\xa0кинофильмов и\\xa0мюзиклов, а\\xa0также джазовые'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/theatres/2026/10/12/tortil-2611 title='Мюзикл «Квартал Тортилья-Флэт»' title_hits=[] text_hits=["'пиво' ...'орнийского монтерея\\xa0— бессребреников, выпивох и\\xa0философов. постановку, в\\xa0которой'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/11/20/kurcman title='Концерт Ди Курцмана «Дети Просвета»' title_hits=[] text_hits=["'кино' ...'ский рок и\\xa0романсы, песни из\\xa0советского кино и\\xa0идеализм шестидесятых.\\nновая прог'"]
-[scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/10/madsalama title='Вечеринка MADORAS × Salama' title_hits=[] text_hits=[]
 [scrape]   'В Ташкенте проходит выставка «Кто мы?», посвященная 30-летию работы Британского совета': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 183 events kept from 82 pages checked
-[scrape] calendar detail pass drops: {'checked': 82, 'no_title': 0, 'excluded_or_banned': 16}
+[scrape] calendar detail pass complete: 198 events kept from 90 pages checked
+[scrape] calendar detail pass drops: {'checked': 90, 'no_title': 0, 'excluded_or_banned': 19}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
 [scrape] iticket.uz cat=concert: 0 events kept
 [scrape] iticket.uz cat=theatre: 0 events kept
@@ -38,6 +38,6 @@
 [scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 183  |  after dedup: 174
+[scrape] TOTAL before dedup: 198  |  after dedup: 189
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 306 titles
+[scrape] translation cache: 312 titles
