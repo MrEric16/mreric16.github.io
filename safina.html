@@ -383,12 +383,20 @@ function carnet() {
 }
 
 /* ---------- Pour toi ---------- */
-function toi() {
+async function toi() {
   const m = mine();
-  $('#v').innerHTML = `<div class="card"><h2>Pour toi</h2><p>Choisis ce qui t'intéresse. Les sujets d'expression orale, d'écriture et de lecture seront tirés d'abord parmi ces thèmes.</p>
+  $('#v').innerHTML = `<div class="card"><h2>Pour toi</h2><p>Choisis ce qui t'intéresse. Les sujets d'oral, d'écriture et de lecture viendront d'abord de ces thèmes.</p>
   <div class="row" id="ch">${MAIN.map(t => `<button class="chip ${m.includes(t) ? 'on' : ''}" data-t="${t}">${INTERESTS[t]}</button>`).join('')}</div>
-  <p class="small">Rien n'est choisi = tout est possible. Tes choix restent sur cet appareil.</p></div>`;
-  $('#ch').onclick = e => { const b = e.target.closest('[data-t]'); if (!b) return; const s = mine(), t = b.dataset.t; store.set('interests', s.includes(t) ? s.filter(x => x !== t) : s.concat(t)); b.classList.toggle('on'); };
+  <p class="small">Rien n'est choisi = tout est possible. Tes choix restent sur cet appareil.</p></div>
+  <div class="card" id="pv"></div>`;
+  const [S, W, I] = await Promise.all([load('speaking'), load('writing'), load('articles-index')]);
+  const prev = () => {
+    const a = S.filter(x => liked(x.tag)), b = W.filter(x => liked(x.tag)), c = I.filter(x => liked(x.tag));
+    const sel = mine().length;
+    $('#pv').innerHTML = sel ? `<h3>Avec tes thèmes</h3><a class="link" href="#parler"><b>${a.length} sujets à l'oral</b><span class="small">ex. ${esc(pick(a).title)}</span></a><a class="link" href="#ecrire"><b>${b.length} sujets d'écriture</b><span class="small">ex. ${esc(pick(b).title)}</span></a><a class="link" href="#lire"><b>${c.length} articles</b><span class="small">ex. ${esc(pick(c).title)}</span></a>` : `<h3>Tout est ouvert</h3><p class="small">${S.length} sujets à l'oral, ${W.length} d'écriture, ${I.length} articles.</p>`;
+  };
+  prev();
+  $('#ch').onclick = e => { const b = e.target.closest('[data-t]'); if (!b) return; const s = mine(), t = b.dataset.t; store.set('interests', s.includes(t) ? s.filter(x => x !== t) : s.concat(t)); b.classList.toggle('on'); prev(); };
 }
 route();
 </script>
