@@ -26,13 +26,15 @@ body.theme-uae .board *{ color:#F7F1E1 !important; }
    Title + subtitle removed; clock board sits at the bottom so the emblem stays visible, dead centre of the white stripe. */
 .uae-flagwrap{ display:none; position:absolute; left:0; right:0; top:0; bottom:58px; z-index:0; overflow:hidden; touch-action:pan-y; cursor:pointer; -webkit-tap-highlight-color:transparent; }
 .uae-flagbox, .uae-fbox{ transition:transform .55s cubic-bezier(.4,0,.2,1); }
-.uae-fbox{ position:absolute; inset:0; background:#fff; transform:translateX(100%); }
+.uae-fbox{ position:absolute; inset:0; background:#fff; --k:1; transform:translateX(calc((var(--k) - var(--i,0)) * 100%)); }
+.uae-flagbox{ --k:0; transform:translateX(calc((var(--k) - var(--i,0)) * 100%)); }
+.uae-zr{ --k:2; background:#111; }
+.uae-zr img{ object-fit:cover !important; object-position:50% 35% !important; }
+.uae-zr small{ position:absolute; left:8px; bottom:7px; font:600 10px/1 system-ui,sans-serif; color:rgba(255,255,255,.85); text-shadow:0 1px 2px #000; }
 .uae-fbox img{ width:100%; height:100%; object-fit:contain; object-position:50% 100%; display:block; user-select:none; -webkit-user-drag:none; }
-.uae-flagwrap[data-i="1"] .uae-flagbox{ transform:translateX(-100%); }
-.uae-flagwrap[data-i="1"] .uae-fbox{ transform:translateX(0); }
 .uae-dots{ position:absolute; left:0; right:0; bottom:6px; display:flex; justify-content:center; gap:7px; z-index:3; pointer-events:none; }
 .uae-dots i{ width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,.55); box-shadow:0 0 0 1px rgba(0,0,0,.45); }
-.uae-flagwrap[data-i="0"] .uae-dots i:nth-child(1), .uae-flagwrap[data-i="1"] .uae-dots i:nth-child(2){ background:#D4AF37; }
+.uae-flagwrap[data-i="0"] .uae-dots i:nth-child(1), .uae-flagwrap[data-i="1"] .uae-dots i:nth-child(2), .uae-flagwrap[data-i="2"] .uae-dots i:nth-child(3){ background:#D4AF37; }
 body.theme-uae .uae-flagwrap{ display:block; }
 .uae-flagbox{ position:absolute; inset:0; }
 .uae-flagbox .fl{ position:absolute; inset:0; display:grid; grid-template-columns:25% 1fr; }
@@ -218,7 +220,7 @@ __SKY__
 </div>
 '''
 
-FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div><img src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div><div class="uae-fbox"><img alt="The seven Founding Fathers of the UAE beneath the flag" draggable="false"></div><div class="uae-dots"><i></i><i></i></div></div>
+FLAG = r'''<div class="uae-flagwrap" id="uaeFlag"><div class="uae-flagbox"><div class="fl"><i></i><div><b></b><b></b><b></b></div></div><img src="uae-emblem.png" alt="Emblem of the United Arab Emirates"></div><div class="uae-fbox"><img alt="The seven Founding Fathers of the UAE beneath the flag" draggable="false"></div><div class="uae-fbox uae-zr"><img alt="Sheikh Zayed bin Sultan Al Nahyan and Sheikh Rashid bin Saeed Al Maktoum" draggable="false"><small>UAE National Library &amp; Archives</small></div><div class="uae-dots"><i></i><i></i><i></i></div></div>
 '''
 
 JS = r'''
@@ -402,10 +404,10 @@ clearInterval(ambT);ambT=setInterval(function(){if(!overT&&bp.length<500){fire()
 
 var FIMG='uae-founders.png';
 var fw=document.querySelector('.uae-flagwrap'),si=0,lastUser=0,sx=null,sy=0,moved=false;
-function setSlide(i){si=i;if(fw)fw.setAttribute('data-i',i);}
+function setSlide(i){si=(i+3)%3;if(fw){fw.setAttribute('data-i',si);fw.style.setProperty('--i',si);}}
 function slides(){
   if(!fw)return;
-  if(on()){var im=fw.querySelector('.uae-fbox img');if(im&&!im.getAttribute('src'))im.src=FIMG;}
+  if(on()){var im=fw.querySelector('.uae-fbox img');if(im&&!im.getAttribute('src'))im.src=FIMG;var z=fw.querySelector('.uae-zr img');if(z&&!z.getAttribute('src'))z.src='uae-zayed-rashid.jpg';}
   if(!fw.hasAttribute('data-i'))setSlide(0);
 }
 if(fw){
@@ -415,10 +417,10 @@ if(fw){
     if(sx===null)return;var dx=e.clientX-sx,dy=e.clientY-sy;sx=null;
     if(Math.abs(dy)>Math.abs(dx)&&Math.abs(dy)>30)return;
     lastUser=Date.now();
-    if(Math.abs(dx)>40){setSlide(dx<0?1:0);}else{setSlide(si?0:1);}
+    if(Math.abs(dx)>40){setSlide(si+(dx<0?1:-1));}else{setSlide(si+1);}
   });
   fw.addEventListener('pointercancel',function(){sx=null;});
-  setInterval(function(){if(on()&&!document.hidden&&!splOpen&&Date.now()-lastUser>20000)setSlide(si?0:1);},9000);
+  setInterval(function(){if(on()&&!document.hidden&&!splOpen&&Date.now()-lastUser>20000)setSlide(si+1);},9000);
 }
 var spl=document.getElementById('uaeSplash'),splOpen=false;
 function dayKey(){return new Date(now()+OFF).toISOString().slice(0,10);}
