@@ -115,6 +115,7 @@ function dayIdx(n) { let h = 0; const d = today(); for (let i = 0; i < d.length;
 async function home() {
   $('#v').innerHTML = `
   <div class="card"><div class="note">${esc(NOTE)}</div></div>
+  <div class="card" id="en"></div>
   <div class="card" id="jour"><h2>Idée du jour</h2><p class="small">Une seule chose suffit.</p></div>
   <div class="card"><h2>Par où commencer ?</h2>
   <div class="row">
@@ -131,11 +132,30 @@ async function home() {
     const s = ok(S, x => x.tag), w = ok(W.filter(x => x.fmt !== 'lettre' && x.fmt !== 'personnel'), x => x.tag), a = ok(I, x => x.tag);
     const ps = s[dayIdx(s.length)], pw = w[dayIdx(w.length + 7) % w.length], pa = a[dayIdx(a.length + 3) % a.length];
     const wi = W.indexOf(pw[0]);
+    energy(S, W, I, s, w, a);
     $('#jour').innerHTML = `<h2>Idée du jour</h2><p class="small">Une seule chose suffit.</p>
     <a class="link" href="#parler/t/${ps[1]}"><b>Parler</b><span class="small">${esc(ps[0].title)}</span></a>
     <a class="link" href="#ecrire/p/${wi}"><b>Écrire</b><span class="small">${esc(pw[0].title)}</span></a>
     <a class="link" href="#lire/a/${pa[0].id}"><b>Lire</b><span class="small">${esc(pa[0].title)}</span></a>`;
   } catch (e) {}
+}
+
+const EN = { low: 'Fatiguée', mid: 'Ça va', high: 'En forme' };
+function energy(S, W, I, s, w, a) {
+  const box = $('#en'), cur = store.get('energy', {}), v = cur.d === today() ? cur.v : null, nm = pile.get().length;
+  const link = (h, t, sub) => `<a class="link" href="${h}"><b>${t}</b><span class="small">${sub}</span></a>`;
+  const short = I.filter(x => liked(x.tag)).slice().sort((p, q) => p.title.length - q.title.length)[0] || I[0];
+  const pw = w.filter(p => p[0].fmt === 'essai'), pr = (pw.length ? pw : w)[Math.random() * (pw.length ? pw.length : w.length) | 0];
+  const plans = {
+    low: ['Aujourd\'hui, être là suffit déjà. Choisis ce qui est doux.', link('#lire/a/' + short.id, 'Lire un article', esc(short.title)), link('#conj/choix', 'Quelques phrases faciles', 'Indicatif ou subjonctif ?'), nm ? link('#conj/revoir', 'À revoir', nm + ' exercices') : '', '<p class="small">Ou respire avec le cercle en bas de la page, puis ferme l\'onglet. C\'est valable.</p>'],
+    mid: ['Un petit rythme tranquille.', link('#conj', 'Conjugaison', 'Phrases à trous'), link('#ecrire/p/' + W.indexOf(w[(dayIdx(w.length) + 1) % w.length][0]), 'Un sujet d\'écriture', esc(w[(dayIdx(w.length) + 1) % w.length][0].title)), nm ? link('#conj/revoir', 'À revoir', nm + ' exercices') : ''],
+    high: ['Profite de l\'élan.', link('#parler/t/' + s[(dayIdx(s.length) + 2) % s.length][1], 'Un exposé complet', esc(s[(dayIdx(s.length) + 2) % s.length][0].title)), link('#ecrire/p/' + W.indexOf(pr[0]), 'Un essai', esc(pr[0].title)), link('#conj/tableau', 'Tableaux de conjugaison', 'Tous les temps')]
+  };
+  const paint = () => {
+    box.innerHTML = `<h2>Comment tu te sens ?</h2><div class="row">${Object.keys(EN).map(k => `<button class="chip ${v2 === k ? 'on' : ''}" data-e="${k}">${EN[k]}</button>`).join('')}</div>` + (v2 ? `<p style="margin-top:12px">${plans[v2][0]}</p>${plans[v2].slice(1).join('')}` : '<p class="small">Touche l\'un des trois. Je te propose quoi faire.</p>');
+  };
+  let v2 = v; paint();
+  box.onclick = e => { const b = e.target.closest('[data-e]'); if (!b) return; v2 = b.dataset.e; store.set('energy', { d: today(), v: v2 }); paint(); };
 }
 
 /* ---------- Conjugaison ---------- */
@@ -144,7 +164,7 @@ const GROUPS = { subj: ['Subjonctif', ['sp', 'spa']], cond: ['Conditionnel', ['c
 let cfg = store.get('cfg2', { g: ['subj', 'cond'] });
 const tset = () => cfg.g.flatMap(k => GROUPS[k][1]);
 function conj(mode) {
-  const modes = [['phrases', 'Phrases'], ['choix', 'Indicatif ou subjonctif ?'], ['tableau', 'Tableaux'], ['contraste', 'Trois humeurs'], ['memo', 'Mémo']];
+  const modes = [['phrases', 'Phrases'], ['choix', 'Indicatif ou subjonctif ?'], ['tableau', 'Tableaux'], ['contraste', 'Trois humeurs'], ['revoir', 'À revoir' + (pile.get().length ? ' (' + pile.get().length + ')' : '')], ['memo', 'Mémo']];
   mode = mode || 'phrases';
   $('#v').innerHTML = `<div class="card"><div class="row">${modes.map(m => `<button class="chip ${m[0] === mode ? 'on' : ''}" data-m="${m[0]}">${m[1]}</button>`).join('')}</div>
   ${mode === 'phrases' || mode === 'tableau' ? `<div class="row" style="margin-top:10px">${Object.keys(GROUPS).map(k => `<button class="chip gn ${cfg.g.includes(k) ? 'on' : ''}" data-k="${k}">${GROUPS[k][0]}</button>`).join('')}</div>` : ''}</div><div id="cx"></div>`;
@@ -152,7 +172,7 @@ function conj(mode) {
     const m = e.target.closest('[data-m]'); if (m) { location.hash = '#conj/' + m.dataset.m; return; }
     const k = e.target.closest('.gn'); if (k) { const g = cfg.g.includes(k.dataset.k) ? cfg.g.filter(x => x !== k.dataset.k) : cfg.g.concat(k.dataset.k); if (!g.length) return; cfg.g = g; store.set('cfg2', cfg); k.classList.toggle('on'); ({ phrases: phrases, tableau: tableau })[mode](); }
   };
-  ({ phrases, choix, tableau, contraste, memo })[mode]();
+  ({ phrases, choix, tableau, contraste, revoir, memo })[mode]();
 }
 const ACC = ['é', 'è', 'ê', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'û', 'ù', 'œ'];
 function accBar() { return '<div class="acc">' + ACC.map(a => `<button type="button" data-a="${a}">${a}</button>`).join('') + '</div>'; }
@@ -169,65 +189,89 @@ function same(inp, answers) {
   if (answers.some(a => strip(a) === strip(inp))) return 'acc';
   return 'no';
 }
+/* ---- pile « à revoir » : ce qui s'est mal passé revient, et part après deux réussites ---- */
+const pile = { get: () => store.get('miss', []), set: v => store.set('miss', v) };
+function track(kind, key, data, ok) {
+  const L = pile.get(), i = L.findIndex(x => x.k === key);
+  if (!ok) { if (i >= 0) L[i].ok = 0; else L.push({ k: key, kind, d: data, ok: 0 }); }
+  else if (i >= 0) { L[i].ok++; if (L[i].ok >= 2) L.splice(i, 1); }
+  pile.set(L);
+}
+function renderPhrase(box, x, next) {
+  let tries = 0, first = true;
+  const key = 'p|' + x.pre + x.inf + x.t + x.pr;
+  box.innerHTML = `<div class="card"><span class="tag">${TENSES[x.t]}</span><span class="tag">${esc(x.inf)}</span>
+    <div class="sent">${esc(x.pre)}<input id="a" autocomplete="off" autocapitalize="none" spellcheck="false" size="${Math.max(10, x.ans[0].length)}">${esc(x.post)}</div>
+    ${accBar()}<div class="row"><button class="btn" id="ck">Vérifier</button><button class="btn soft" id="sh">Montrer</button><button class="btn alt" id="nx">Suivant</button></div>
+    <div class="msg" id="m"></div></div>`;
+  const a = $('#a'), m = $('#m'); a.focus();
+  const done = () => { m.innerHTML += `<div class="small" style="margin-top:6px">${esc(x.note || '')}</div>`; };
+  $('#ck').onclick = () => {
+    const r = same(a.value, x.ans);
+    if (r === 'ok') { a.className = 'ok'; m.className = 'msg ok'; m.textContent = 'Oui.'; done(); if (first) { track('p', key, x, true); first = false; } }
+    else { first && r === 'no' && (track('p', key, x, false), first = false); a.className = 'no'; m.className = 'msg no'; m.textContent = r === 'acc' ? 'Presque : regarde les accents.' : (++tries > 1 ? 'Pas encore. Tu peux demander la réponse, sans honte.' : 'Pas tout à fait. Réessaie.'); }
+  };
+  $('#sh').onclick = () => { if (first) { track('p', key, x, false); first = false; } a.value = x.ans[0]; a.className = 'ok'; m.className = 'msg'; m.innerHTML = 'Réponse : <b>' + esc(x.ans.join(' / ')) + '</b>'; done(); };
+  $('#nx').onclick = next;
+  a.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); $('#ck').click(); } };
+}
+function renderChoix(box, x, next) {
+  const opts = shuffle(x.opts); let fin = false, first = true; const key = 'c|' + x.stem;
+  box.innerHTML = `<div class="card"><div class="sent">${esc(x.stem)}</div><div>${opts.map(o => `<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="msg" id="m"></div><button class="btn alt hide" id="nx">Suivant</button></div>`;
+  box.onclick = e => {
+    const b = e.target.closest('.opt'); if (!b || fin) return;
+    const good = b.dataset.o === x.ans; b.classList.add(good ? 'ok' : 'no');
+    if (first) { track('c', key, x, good); first = false; }
+    if (!good) { $('#m').className = 'msg no'; $('#m').textContent = 'Pas celle-ci. Essaie une autre.'; return; }
+    fin = true; box.querySelectorAll('.opt').forEach(o => o.disabled = true);
+    $('#m').className = 'msg ok'; $('#m').innerHTML = 'Oui. <span class="small">' + esc(x.note) + '</span>';
+    $('#nx').classList.remove('hide');
+  };
+  $('#nx').onclick = next;
+}
 async function phrases() {
   const ts = tset();
   const all = (await load('conj-sentences')).filter(x => ts.includes(x.t));
   const box = $('#cx'); if (!all.length) { box.innerHTML = '<div class="card">Aucune phrase pour ce choix. Essaie un autre groupe.</div>'; return; }
-  let deck = shuffle(all), i = 0, tries = 0;
-  function show() {
-    if (i >= deck.length) { deck = shuffle(all); i = 0; }
-    const x = deck[i]; tries = 0;
-    box.innerHTML = `<div class="card"><span class="tag">${TENSES[x.t]}</span><span class="tag">${esc(x.inf)}</span>
-      <div class="sent">${esc(x.pre)}<input id="a" autocomplete="off" autocapitalize="none" spellcheck="false" size="${Math.max(10, x.ans[0].length)}">${esc(x.post)}</div>
-      ${accBar()}<div class="row"><button class="btn" id="ck">Vérifier</button><button class="btn soft" id="sh">Montrer</button><button class="btn alt" id="nx">Suivant</button></div>
-      <div class="msg" id="m"></div></div>`;
-    const a = $('#a'), m = $('#m'); a.focus();
-    const done = () => { m.innerHTML += `<div class="small" style="margin-top:6px">${esc(x.note || '')}</div>`; };
-    $('#ck').onclick = () => {
-      const r = same(a.value, x.ans);
-      if (r === 'ok') { a.className = 'ok'; m.className = 'msg ok'; m.textContent = 'Oui.'; done(); }
-      else if (r === 'acc') { a.className = 'no'; m.className = 'msg no'; m.textContent = 'Presque : regarde les accents.'; }
-      else { a.className = 'no'; m.className = 'msg no'; m.textContent = ++tries > 1 ? 'Pas encore. Tu peux demander la réponse, sans honte.' : 'Pas tout à fait. Réessaie.'; }
-    };
-    $('#sh').onclick = () => { a.value = x.ans[0]; a.className = 'ok'; m.className = 'msg'; m.innerHTML = 'Réponse : <b>' + esc(x.ans.join(' / ')) + '</b>'; done(); };
-    $('#nx').onclick = () => { i++; show(); };
-    a.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); $('#ck').click(); } };
-  }
+  let deck = shuffle(all), i = 0;
+  const show = () => { if (i >= deck.length) { deck = shuffle(all); i = 0; } renderPhrase(box, deck[i], () => { i++; show(); }); };
   show();
 }
 async function choix() {
   const all = await load('choices'); let deck = shuffle(all), i = 0; const box = $('#cx');
-  function show() {
-    if (i >= deck.length) { deck = shuffle(all); i = 0; }
-    const x = deck[i], opts = shuffle(x.opts); let fin = false;
-    box.innerHTML = `<div class="card"><div class="sent">${esc(x.stem)}</div><div>${opts.map(o => `<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="msg" id="m"></div><button class="btn alt hide" id="nx">Suivant</button></div>`;
-    box.onclick = e => {
-      const b = e.target.closest('.opt'); if (!b || fin) return;
-      const good = b.dataset.o === x.ans;
-      b.classList.add(good ? 'ok' : 'no');
-      if (!good) { $('#m').className = 'msg no'; $('#m').textContent = 'Pas celle-ci. Essaie une autre.'; return; }
-      fin = true; box.querySelectorAll('.opt').forEach(o => o.disabled = true);
-      $('#m').className = 'msg ok'; $('#m').innerHTML = 'Oui. <span class="small">' + esc(x.note) + '</span>';
-      $('#nx').classList.remove('hide');
-    };
-    $('#nx').onclick = () => { i++; show(); };
-  }
+  const show = () => { if (i >= deck.length) { deck = shuffle(all); i = 0; } renderChoix(box, deck[i], () => { i++; show(); }); };
   show();
 }
 const PRN = ['je', 'tu', 'il', 'nous', 'vous', 'ils'];
 function lab(t, p) { const s = ['sp', 'spa', 'sip', 'spp'].includes(t); return s ? (p === 'il' ? "qu'il" : p === 'ils' ? "qu'ils" : 'que ' + p) : p; }
+function renderTab(box, v, t, next) {
+  let first = true; const key = 't|' + v.v + '|' + t, rows = PRN.map((p, i) => [p, i, v.f[t][i]]).filter(r => r[2]);
+  box.innerHTML = `<div class="card"><h3>${esc(v.v)} <span class="small">(${esc(v.g)})</span></h3><span class="tag">${TENSES[t]}</span>
+  <table class="tb">${rows.map(r => `<tr><td class="p">${lab(t, r[0])}</td><td><input data-i="${r[1]}" autocomplete="off" autocapitalize="none" spellcheck="false"></td></tr>`).join('')}</table>
+  ${accBar()}<div class="row"><button class="btn" id="ck">Vérifier</button><button class="btn soft" id="sh">Montrer</button><button class="btn alt" id="nx">Suivant</button></div><div class="msg" id="m"></div></div>`;
+  const ins = [...box.querySelectorAll('input')]; ins[0].focus();
+  ins.forEach((inp, k) => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); (ins[k + 1] || $('#ck')).focus(); } });
+  $('#ck').onclick = () => { let n = 0; ins.forEach(inp => { const r = same(inp.value, v.f[t][inp.dataset.i].split('/')); inp.className = r === 'ok' ? 'ok' : 'no'; if (r === 'ok') n++; }); if (first) { track('t', key, { v: v.v, t }, n === ins.length); first = false; } $('#m').className = 'msg ' + (n === ins.length ? 'ok' : 'no'); $('#m').textContent = n === ins.length ? 'Tout est juste.' : n + ' sur ' + ins.length + ' pour l\'instant.'; };
+  $('#sh').onclick = () => { if (first) { track('t', key, { v: v.v, t }, false); first = false; } ins.forEach(inp => { inp.value = v.f[t][inp.dataset.i].split('/')[0]; inp.className = 'ok'; }); };
+  $('#nx').onclick = next;
+}
 async function tableau() {
   const V = await load('verbs'), ts = tset(), box = $('#cx');
+  const show = () => renderTab(box, pick(V), pick(ts), show);
+  show();
+}
+async function revoir() {
+  const box = $('#cx'), V = await load('verbs');
+  let L = shuffle(pile.get()), i = 0;
+  const head = n => `<div class="card"><b>${n} à revoir</b> <span class="small">· chaque exercice part après deux réussites</span></div>`;
   function show() {
-    const v = pick(V), t = pick(ts), rows = PRN.map((p, i) => [p, i, v.f[t][i]]).filter(r => r[2]);
-    box.innerHTML = `<div class="card"><h3>${esc(v.v)} <span class="small">(${esc(v.g)})</span></h3><span class="tag">${TENSES[t]}</span>
-    <table class="tb">${rows.map(r => `<tr><td class="p">${lab(t, r[0])}</td><td><input data-i="${r[1]}" autocomplete="off" autocapitalize="none" spellcheck="false"></td></tr>`).join('')}</table>
-    ${accBar()}<div class="row"><button class="btn" id="ck">Vérifier</button><button class="btn soft" id="sh">Montrer</button><button class="btn alt" id="nx">Suivant</button></div><div class="msg" id="m"></div></div>`;
-    const ins = [...box.querySelectorAll('input')]; ins[0].focus();
-    ins.forEach((inp, k) => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); (ins[k + 1] || $('#ck')).focus(); } });
-    $('#ck').onclick = () => { let n = 0; ins.forEach(inp => { const r = same(inp.value, v.f[t][inp.dataset.i].split('/')); inp.className = r === 'ok' ? 'ok' : 'no'; if (r === 'ok') n++; }); $('#m').className = 'msg ' + (n === ins.length ? 'ok' : 'no'); $('#m').textContent = n === ins.length ? 'Tout est juste.' : n + ' sur ' + ins.length + ' pour l\'instant.'; };
-    $('#sh').onclick = () => ins.forEach(inp => { inp.value = v.f[t][inp.dataset.i].split('/')[0]; inp.className = 'ok'; });
-    $('#nx').onclick = show;
+    if (!pile.get().length) { box.innerHTML = '<div class="card"><h3>Rien à revoir.</h3><p>Tout va bien. Reviens quand tu veux.</p></div>'; return; }
+    if (i >= L.length) { L = shuffle(pile.get()); i = 0; }
+    const it = L[i], w = document.createElement('div'); box.innerHTML = '<div id="hd"></div><div id="rx"></div>'; $('#hd').innerHTML = head(pile.get().length);
+    const nx = () => { i++; show(); }, rx = $('#rx');
+    if (it.kind === 'p') renderPhrase(rx, it.d, nx);
+    else if (it.kind === 'c') renderChoix(rx, it.d, nx);
+    else { const v = V.find(x => x.v === it.d.v); if (v) renderTab(rx, v, it.d.t, nx); else nx(); }
   }
   show();
 }
