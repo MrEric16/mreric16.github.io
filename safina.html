@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Safina</title>
+<meta name="theme-color" content="#2F4A43">
+<style>
+:root{--bg:#F4EFE6;--card:#FBF8F2;--ink:#2B3A36;--soft:#6B7A74;--sage:#5E8575;--sage-d:#2F4A43;--rose:#C98C7C;--gold:#B9954A;--line:#E2D9C8;--ok:#4E8B6A;--hmm:#B07B3A}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,'Iowan Old Style','Times New Roman',serif;line-height:1.55;-webkit-text-size-adjust:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+h1,h2,h3{font-weight:600;margin:0}
+a{color:var(--sage-d)}
+.wrap{max-width:760px;margin:0 auto;padding:18px 16px 70px}
+header.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+header.top h1{font-size:26px;color:var(--sage-d);letter-spacing:.3px}
+.back{font:600 14px system-ui,sans-serif;color:var(--sage-d);text-decoration:none;opacity:.8}
+nav.tabs{display:flex;gap:6px;overflow-x:auto;padding:6px 0 12px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);padding:9px 15px;border-radius:999px;cursor:pointer;font:600 14px system-ui,sans-serif;color:var(--soft)}
+nav.tabs button.on{background:var(--sage-d);color:#fff;border-color:var(--sage-d)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 14px;box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.lead{font-size:19px}
+.small{font:14px system-ui,sans-serif;color:var(--soft)}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn{border:0;background:var(--sage);color:#fff;padding:11px 18px;border-radius:12px;cursor:pointer;font:600 15px system-ui,sans-serif}
+.btn.alt{background:transparent;color:var(--sage-d);border:1px solid var(--sage)}
+.btn.soft{background:#E8E1D1;color:var(--ink)}
+.btn:disabled{opacity:.4;cursor:default}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 13px;cursor:pointer;font:600 13px system-ui,sans-serif;color:var(--soft)}
+.chip.on{background:var(--sage);border-color:var(--sage);color:#fff}
+.tag{display:inline-block;font:600 12px system-ui,sans-serif;background:#E8E1D1;color:var(--sage-d);border-radius:999px;padding:3px 10px;margin-right:6px}
+.sent{font-size:21px;line-height:1.9}
+.sent input{font:inherit;border:0;border-bottom:2px solid var(--sage);background:transparent;min-width:130px;max-width:100%;padding:0 4px;text-align:center;outline:0}
+.sent input.ok{border-color:var(--ok);color:var(--ok)}
+.sent input.no{border-color:var(--hmm)}
+.msg{min-height:26px;margin-top:10px;font:15px system-ui,sans-serif}
+.msg.ok{color:var(--ok)}.msg.no{color:var(--hmm)}
+.acc{display:flex;gap:5px;flex-wrap:wrap;margin:10px 0}
+.acc button{border:1px solid var(--line);background:#fff;border-radius:8px;min-width:36px;padding:6px 8px;cursor:pointer;font-size:17px}
+table.tb{width:100%;border-collapse:collapse;font-size:18px}
+table.tb td{padding:6px 4px;border-bottom:1px dashed var(--line)}
+table.tb td.p{color:var(--soft);width:34%;text-align:right;padding-right:10px}
+table.tb input{font:inherit;width:100%;border:1px solid var(--line);border-radius:8px;padding:7px 9px;background:#fff}
+table.tb input.ok{border-color:var(--ok);background:#EEF6F0}
+table.tb input.no{border-color:var(--hmm);background:#FBF2E6}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px 14px;font-size:18px;cursor:pointer}
+.opt.ok{border-color:var(--ok);background:#EEF6F0}.opt.no{border-color:var(--hmm);background:#FBF2E6}
+.timer{font:600 40px system-ui,sans-serif;text-align:center;color:var(--sage-d);letter-spacing:2px;margin:6px 0}
+ul.cl{list-style:none;padding:0;margin:8px 0}
+ul.cl li{padding:7px 0;border-bottom:1px dashed var(--line)}
+ul.cl label{display:flex;gap:10px;cursor:pointer;font-size:16px}
+textarea{width:100%;min-height:200px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#fff;font-size:17px;line-height:1.6;resize:vertical}
+.ang{border-left:3px solid var(--rose);padding:2px 0 2px 12px;margin:10px 0}
+.link{display:block;text-decoration:none;color:inherit;border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin:8px 0;background:#fff}
+.link b{display:block;color:var(--sage-d)}
+.note{background:#F1EADB;border-radius:14px;padding:14px 16px;font-style:italic}
+audio{width:100%;margin-top:8px}
+.hide{display:none}
+.breathe{width:110px;height:110px;border-radius:50%;background:var(--sage);margin:22px auto;opacity:.5;animation:b 8s ease-in-out infinite}
+@keyframes b{0%,100%{transform:scale(.7)}50%{transform:scale(1.15)}}
+@media (prefers-reduced-motion:reduce){.breathe{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><h1>Safina</h1><a class="back" href="languages.html">← retour</a></header>
+<nav class="tabs" id="tabs"></nav>
+<main id="v"></main>
+</div>
+<script>
+'use strict';
+/* ---- Mr Eric: edit this note (it is in your voice). ---- */
+const NOTE = "Safina, ici, personne ne te note et personne ne te presse. Fais une chose, ferme l'onglet, reviens demain. Tu n'as rien à prouver : tu es déjà quelqu'un qui écrit, qui parle et qui pense en plusieurs langues. Je suis fier de toi. — M. Eric";
+
+const $ = (s, r) => (r || document).querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const pick = a => a[Math.random() * a.length | 0];
+const norm = s => s.toLowerCase().replace(/[’‘`]/g, "'").replace(/\s+/g, ' ').trim();
+const strip = s => norm(s).normalize('NFD').replace(/[̀-ͯ]/g, '');
+const store = { get(k, d) { try { const v = localStorage.getItem('safina.' + k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }, set(k, v) { try { localStorage.setItem('safina.' + k, JSON.stringify(v)); } catch (e) {} } };
+const D = {};
+async function load(n) { if (D[n]) return D[n]; const r = await fetch('data/safina/' + n + '.json'); D[n] = await r.json(); return D[n]; }
+
+const TENSES = { sp: 'subjonctif présent', spa: 'subjonctif passé', cp: 'conditionnel présent', cpa: 'conditionnel passé' };
+const INTERESTS = { langues: 'Langues', musique: 'Musique', études: 'Études & universités', littérature: 'Littérature', cinéma: 'Cinéma & séries', art: 'Art', technologie: 'Technologie', sciences: 'Sciences', science: 'Sciences', environnement: 'Environnement', société: 'Société', philosophie: 'Philosophie', éthique: 'Éthique', psychologie: 'Psychologie & bien-être', santé: 'Santé', histoire: 'Histoire', politique: 'Politique & monde', économie: 'Économie', voyage: 'Voyage', quotidien: 'Vie quotidienne', culture: 'Culture', éducation: 'Éducation', personnel: 'Personnel', fiction: 'Fiction', amitié: 'Amitié' };
+const MAIN = ['langues', 'musique', 'études', 'littérature', 'cinéma', 'art', 'technologie', 'sciences', 'environnement', 'société', 'philosophie', 'psychologie', 'histoire', 'politique', 'économie', 'voyage', 'quotidien'];
+const canon = t => t === 'science' ? 'sciences' : t === 'éthique' ? 'philosophie' : (t === 'culture' || t === 'éducation') ? (t === 'culture' ? 'art' : 'études') : (t === 'santé' ? 'psychologie' : (t === 'personnel' || t === 'fiction' || t === 'amitié') ? 'quotidien' : t);
+function mine() { return store.get('interests', []); }
+function liked(tag) { const m = mine(); return !m.length || m.includes(canon(tag)); }
+
+const TABS = [['home', 'Accueil'], ['conj', 'Conjugaison'], ['parler', 'Parler'], ['ecrire', 'Écrire'], ['lire', 'Lire'], ['toi', 'Pour toi']];
+function nav(cur) { $('#tabs').innerHTML = TABS.map(t => `<button class="${t[0] === cur ? 'on' : ''}" data-t="${t[0]}">${t[1]}</button>`).join(''); }
+$('#tabs').addEventListener('click', e => { const b = e.target.closest('button'); if (b) location.hash = '#' + b.dataset.t; });
+let cleanup = null;
+function route() {
+  if (cleanup) { cleanup(); cleanup = null; }
+  $('#v').onclick = null;
+  const h = (location.hash || '#home').slice(1).split('/');
+  const f = { home, conj, parler, ecrire, lire, toi }[h[0]] || home;
+  nav(f.name); window.scrollTo(0, 0); f(h[1]);
+}
+window.addEventListener('hashchange', route);
+
+/* ---------- Accueil ---------- */
+function home() {
+  $('#v').innerHTML = `
+  <div class="card"><div class="note">${esc(NOTE)}</div></div>
+  <div class="card"><h2>Par où commencer ?</h2>
+  <p class="lead">Ce que tu veux, quand tu veux. Rien n'est obligatoire.</p>
+  <div class="row">
+   <button class="btn" onclick="location.hash='#conj'">Conjugaison</button>
+   <button class="btn" onclick="location.hash='#parler'">Parler</button>
+   <button class="btn" onclick="location.hash='#ecrire'">Écrire</button>
+   <button class="btn" onclick="location.hash='#lire'">Lire</button>
+   <button class="btn alt" onclick="location.hash='#toi'">Pour toi</button>
+  </div></div>
+  <div class="card"><h3>Pause</h3><p class="small">Respire avec le cercle. Quatre secondes, quatre secondes.</p><div class="breathe"></div></div>`;
+}
+
+/* ---------- Conjugaison ---------- */
+let cfg = store.get('cfg', { t: ['sp', 'spa', 'cp', 'cpa'] });
+function conj(mode) {
+  const modes = [['phrases', 'Phrases'], ['choix', 'Indicatif ou subjonctif ?'], ['tableau', 'Tableaux']];
+  mode = mode || 'phrases';
+  $('#v').innerHTML = `<div class="card"><div class="row">${modes.map(m => `<button class="chip ${m[0] === mode ? 'on' : ''}" data-m="${m[0]}">${m[1]}</button>`).join('')}</div>
+  <div class="row" style="margin-top:10px">${Object.keys(TENSES).map(k => `<button class="chip tn ${cfg.t.includes(k) ? 'on' : ''}" data-k="${k}">${TENSES[k]}</button>`).join('')}</div></div><div id="cx"></div>`;
+  $('#v').onclick = e => {
+    const m = e.target.closest('[data-m]'); if (m) { location.hash = '#conj/' + m.dataset.m; return; }
+    const k = e.target.closest('.tn'); if (k) { const t = cfg.t.includes(k.dataset.k) ? cfg.t.filter(x => x !== k.dataset.k) : cfg.t.concat(k.dataset.k); if (!t.length) return; cfg.t = t; store.set('cfg', cfg); k.classList.toggle('on'); if (mode !== 'choix') ({ phrases: phrases, tableau: tableau })[mode](); }
+  };
+  ({ phrases, choix, tableau })[mode]();
+}
+const ACC = ['é', 'è', 'ê', 'à', 'â', 'ç', 'î', 'ï', 'ô', 'û', 'ù', 'œ'];
+function accBar() { return '<div class="acc">' + ACC.map(a => `<button type="button" data-a="${a}">${a}</button>`).join('') + '</div>'; }
+let lastInput = null;
+document.addEventListener('focusin', e => { if (e.target.tagName === 'INPUT') lastInput = e.target; });
+document.addEventListener('mousedown', e => { if (e.target.closest('.acc button')) e.preventDefault(); });
+document.addEventListener('click', e => {
+  const b = e.target.closest('.acc button'); if (!b || !lastInput || !document.contains(lastInput)) return;
+  const i = lastInput, s = i.selectionStart ?? i.value.length; i.value = i.value.slice(0, s) + b.dataset.a + i.value.slice(i.selectionEnd ?? s); i.focus(); i.setSelectionRange(s + 1, s + 1);
+});
+function same(inp, answers) {
+  const v = norm(inp);
+  if (answers.some(a => norm(a) === v)) return 'ok';
+  if (answers.some(a => strip(a) === strip(inp))) return 'acc';
+  return 'no';
+}
+async function phrases() {
+  const all = (await load('conj-sentences')).filter(x => cfg.t.includes(x.t));
+  const box = $('#cx'); if (!all.length) { box.innerHTML = '<div class="card">Choisis au moins un temps.</div>'; return; }
+  let deck = shuffle(all), i = 0, tries = 0;
+  function show() {
+    if (i >= deck.length) { deck = shuffle(all); i = 0; }
+    const x = deck[i]; tries = 0;
+    box.innerHTML = `<div class="card"><span class="tag">${TENSES[x.t]}</span><span class="tag">${esc(x.inf)}</span>
+      <div class="sent">${esc(x.pre)}<input id="a" autocomplete="off" autocapitalize="none" spellcheck="false" size="${Math.max(10, x.ans[0].length)}">${esc(x.post)}</div>
+      ${accBar()}<div class="row"><button class="btn" id="ck">Vérifier</button><button class="btn soft" id="sh">Montrer</button><button class="btn alt" id="nx">Suivant</button></div>
+      <div class="msg" id="m"></div></div>`;
+    const a = $('#a'), m = $('#m'); a.focus();
+    const done = () => { m.innerHTML += `<div class="small" style="margin-top:6px">${esc(x.note || '')}</div>`; };
+    $('#ck').onclick = () => {
+      const r = same(a.value, x.ans);
+      if (r === 'ok') { a.className = 'ok'; m.className = 'msg ok'; m.textContent = 'Oui.'; done(); }
+      else if (r === 'acc') { a.className = 'no'; m.className = 'msg no'; m.textContent = 'Presque : regarde les accents.'; }
+      else { a.className = 'no'; m.className = 'msg no'; m.textContent = ++tries > 1 ? 'Pas encore. Tu peux demander la réponse, sans honte.' : 'Pas tout à fait. Réessaie.'; }
+    };
+    $('#sh').onclick = () => { a.value = x.ans[0]; a.className = 'ok'; m.className = 'msg'; m.innerHTML = 'Réponse : <b>' + esc(x.ans.join(' / ')) + '</b>'; done(); };
+    $('#nx').onclick = () => { i++; show(); };
+    a.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); $('#ck').click(); } };
+  }
+  show();
+}
+async function choix() {
+  const all = await load('choices'); let deck = shuffle(all), i = 0; const box = $('#cx');
+  function show() {
+    if (i >= deck.length) { deck = shuffle(all); i = 0; }
+    const x = deck[i], opts = shuffle(x.opts);
+    box.innerHTML = `<div class="card"><div class="sent">${esc(x.stem)}</div><div>${opts.map(o => `<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div><div class="msg" id="m"></div><button class="btn alt hide" id="nx">Suivant</button></div>`;
+    box.onclick = e => {
+      const b = e.target.closest('.opt'); if (!b || $('#nx').classList.contains('done')) return;
+      const good = b.dataset.o === x.ans;
+      b.classList.add(good ? 'ok' : 'no');
+      if (!good) { $('#m').className = 'msg no'; $('#m').textContent = 'Pas celle-ci. Essaie une autre.'; return; }
+      box.querySelectorAll('.opt').forEach(o => o.disabled = true);
+      $('#m').className = 'msg ok'; $('#m').innerHTML = 'Oui. <span class="small">' + esc(x.note) + '</span>';
+      $('#nx').classList.remove('hide'); $('#nx').classList.add('done');
+    };
+    $('#nx').onclick = () => { i++; show(); };
+  }
+  show();
+}
+async function tableau() {
+  const V = await load('verbs'); const box = $('#cx');
+  const PR = [['je', 'que je'], ['tu', 'que tu'], ['il', 'qu\'il'], ['nous', 'que nous'], ['vous', 'que vous'], ['ils', 'qu\'ils']];
+  const PRC = [['je', 'je'], ['tu', 'tu'], ['il', 'il'], ['nous', 'nous'], ['vous', 'vous'], ['ils', 'ils']];
+  function show() {
+    const v = pick(V), t = pick(cfg.t), rows = (t[0] === 's' ? PR : PRC).filter(p => v.f[t][p[0]]);
+    box.innerHTML = `<div class="card"><h3>${esc(v.v)} <span class="small">(${esc(v.g)})</span></h3><span class="tag">${TENSES[t]}</span>
+    <table class="tb">${rows.map(p => `<tr><td class="p">${p[1]}</td><td><input data-p="${p[0]}" autocomplete="off" autocapitalize="none" spellcheck="false"></td></tr>`).join('')}</table>
+    ${accBar()}<div class="row"><button class="btn" id="ck">Vérifier</button><button class="btn soft" id="sh">Montrer</button><button class="btn alt" id="nx">Suivant</button></div><div class="msg" id="m"></div></div>`;
+    const ins = [...box.querySelectorAll('input')]; ins[0].focus();
+    ins.forEach((inp, k) => inp.onkeydown = e => { if (e.key === 'Enter') { e.preventDefault(); (ins[k + 1] || $('#ck')).focus(); } });
+    $('#ck').onclick = () => { let n = 0; ins.forEach(inp => { const r = same(inp.value, v.f[t][inp.dataset.p]); inp.className = r === 'ok' ? 'ok' : 'no'; if (r === 'ok') n++; }); $('#m').className = 'msg ' + (n === ins.length ? 'ok' : 'no'); $('#m').textContent = n === ins.length ? 'Tout est juste.' : n + ' sur ' + ins.length + ' pour l\'instant.'; };
+    $('#sh').onclick = () => ins.forEach(inp => { inp.value = v.f[t][inp.dataset.p][0]; inp.className = 'ok'; });
+    $('#nx').onclick = show;
+  }
+  show();
+}
+
+/* ---------- Parler ---------- */
+function parler() {
+  $('#v').innerHTML = `<div class="card"><h2>Exposé & entretien</h2>
+  <p>Un sujet argumentatif, un temps de préparation, puis tu parles. Ensuite, tu te réécoutes avec la liste de contrôle. Personne ne note.</p>
+  <div class="row"><label class="small">Préparation <select id="pp"><option value="120">2 min</option><option value="300">5 min</option><option value="600" selected>10 min</option></select></label>
+  <label class="small">Exposé <select id="sp"><option value="180">3 min</option><option value="300">5 min</option><option value="600" selected>10 min</option></select></label></div>
+  <p class="small" style="margin-top:8px">Tu peux aussi garder un exposé court : la fluidité compte plus que la durée.</p>
+  <div class="row"><button class="btn" id="go">Tirer un sujet pour moi</button><button class="btn alt" id="all">Tous les sujets en liste</button></div></div><div id="sx"></div>`;
+  $('#go').onclick = async () => { const S = (await load('speaking')).filter(x => liked(x.tag)); start(pick(S.length ? S : await load('speaking'))); };
+  $('#all').onclick = async () => {
+    const S = await load('speaking');
+    $('#sx').innerHTML = `<div class="card"><div class="row" id="f"></div><div id="l"></div></div>`;
+    const tags = [...new Set(S.map(x => canon(x.tag)))]; let cur = null;
+    const paint = () => { $('#f').innerHTML = tags.map(t => `<button class="chip ${cur === t ? 'on' : ''}" data-t="${t}">${INTERESTS[t] || t}</button>`).join(''); $('#l').innerHTML = S.map((x, i) => [x, i]).filter(p => !cur || canon(p[0].tag) === cur).map(p => `<a class="link" href="#" data-i="${p[1]}"><b>${esc(p[0].title)}</b><span class="small">${esc(p[0].q)}</span></a>`).join(''); };
+    paint();
+    $('#sx').onclick = e => { const c = e.target.closest('[data-t]'); if (c) { cur = cur === c.dataset.t ? null : c.dataset.t; paint(); return; } const l = e.target.closest('[data-i]'); if (l) { e.preventDefault(); start(S[l.dataset.i]); } };
+  };
+}
+const CHECK = ['J\'ai annoncé clairement ma problématique.', 'J\'ai structuré (d\'abord, ensuite, enfin) sans lire mes notes.', 'J\'ai donné au moins un exemple précis.', 'J\'ai reconnu un contre-argument et j\'y ai répondu.', 'J\'ai utilisé un conditionnel de nuance (je dirais que…, cela pourrait…).', 'J\'ai utilisé un subjonctif après « il faut que / bien que / pour que ».', 'J\'ai évité de répéter les mêmes connecteurs.', 'J\'ai conclu en ouvrant sur une idée.'];
+function start(x) {
+  const prep = +$('#pp').value, spk = +$('#sp').value; let t = null, rec = null, chunks = [], stream = null;
+  const box = $('#sx'); box.innerHTML = `<div class="card"><span class="tag">${esc(INTERESTS[canon(x.tag)] || x.tag)}</span><h3>${esc(x.title)}</h3><p class="lead">${esc(x.q)}</p>
+  <div class="timer" id="tm">${fmt(prep)}</div><div class="small" id="ph" style="text-align:center">Préparation</div>
+  <div class="row" style="justify-content:center;margin-top:10px"><button class="btn" id="b1">Commencer à préparer</button><button class="btn alt" id="b2" disabled>Je suis prête : enregistrer</button><button class="btn soft" id="b3" disabled>Arrêter</button></div>
+  <audio id="au" controls class="hide"></audio></div>
+  <div class="card hide" id="en"><h3>Entretien</h3><p class="small">Réponds à voix haute. Tu peux enregistrer chaque réponse séparément.</p>${x.follow.map((q, i) => `<div style="margin:10px 0"><b>${esc(q)}</b><div class="row" style="margin-top:6px"><button class="btn soft rb" data-i="${i}">● Enregistrer</button></div><audio controls class="hide" id="fa${i}"></audio></div>`).join('')}</div>
+  <div class="card hide" id="ck"><h3>Pour te réécouter</h3><ul class="cl">${CHECK.map(c => `<li><label><input type="checkbox"> ${esc(c)}</label></li>`).join('')}</ul><p class="small">Si tout n'est pas coché, c'est normal. Choisis une seule case à gagner la prochaine fois.</p><button class="btn" onclick="$('#go').click()">Un autre sujet</button></div>`;
+  box.scrollIntoView({ behavior: 'smooth' });
+  function fmt(s) { return String(s / 60 | 0).padStart(2, '0') + ':' + String(s % 60).padStart(2, '0'); }
+  function count(n, label, end) { clearInterval(t); $('#ph').textContent = label; let s = n; $('#tm').textContent = fmt(s); t = setInterval(() => { s--; $('#tm').textContent = fmt(Math.max(s, 0)); if (s <= 0) { clearInterval(t); end(); } }, 1000); }
+  cleanup = () => { clearInterval(t); try { stream && stream.getTracks().forEach(k => k.stop()); } catch (e) {} };
+  $('#b1').onclick = () => { $('#b1').disabled = true; $('#b2').disabled = false; count(prep, 'Préparation', () => $('#b2').click()); };
+  async function recorder(onData, btn) {
+    try { stream = await navigator.mediaDevices.getUserMedia({ audio: true }); } catch (e) { alert('Le micro n\'est pas autorisé. Tu peux parler sans enregistrer.'); return null; }
+    chunks = []; const r = new MediaRecorder(stream); r.ondataavailable = e => chunks.push(e.data); r.onstop = () => { stream.getTracks().forEach(k => k.stop()); onData(URL.createObjectURL(new Blob(chunks, { type: r.mimeType }))); }; r.start(); return r;
+  }
+  $('#b2').onclick = async () => { $('#b1').disabled = true; $('#b2').disabled = true; rec = await recorder(u => { const a = $('#au'); a.src = u; a.classList.remove('hide'); $('#en').classList.remove('hide'); $('#ck').classList.remove('hide'); }); $('#b3').disabled = false; count(spk, 'Tu parles', () => $('#b3').click()); };
+  $('#b3').onclick = () => { clearInterval(t); $('#b3').disabled = true; $('#ph').textContent = 'Terminé'; if (rec && rec.state !== 'inactive') rec.stop(); else { $('#en').classList.remove('hide'); $('#ck').classList.remove('hide'); } };
+  box.querySelectorAll('.rb').forEach(b => b.onclick = async () => {
+    if (b._r && b._r.state === 'recording') { b._r.stop(); b.textContent = '● Réenregistrer'; return; }
+    const i = b.dataset.i; const r = await recorder(u => { const a = $('#fa' + i); a.src = u; a.classList.remove('hide'); }); if (r) { b._r = r; b.textContent = '■ Arrêter'; }
+  });
+}
+
+/* ---------- Écrire ---------- */
+const FMT = { essai: 'Essai argumenté', synthèse: 'Synthèse', lettre: 'Lettre', personnel: 'Texte personnel (universités)', discours: 'Discours', article: 'Article', récit: 'Récit', dialogue: 'Dialogue', débat: 'Débat écrit', réflexion: 'Réflexion' };
+const CONNECT = [['Ajouter', 'de surcroît · qui plus est · par ailleurs'], ['Opposer', 'en revanche · or · pourtant · à l\'inverse'], ['Concéder', 'certes… mais · bien que + subj. · quoique + subj.'], ['Cause', 'étant donné que · du fait que · en raison de'], ['Conséquence', 'par conséquent · d\'où · de sorte que + subj.'], ['Nuancer', 'dans une certaine mesure · il se pourrait que · on pourrait objecter que'], ['Conclure', 'en somme · force est de constater que · tout bien considéré']];
+async function ecrire() {
+  const W = await load('writing'); let fm = null, only = true;
+  $('#v').innerHTML = `<div class="card"><h2>Écrire</h2><div class="row" id="ff"></div><label class="small" style="display:block;margin-top:8px"><input type="checkbox" id="mi" checked> Selon mes centres d'intérêt</label><div class="row" style="margin-top:10px"><button class="btn" id="go">Tirer un sujet</button></div></div><div id="wx"></div>
+  <div class="card"><h3>Connecteurs de niveau C1</h3>${CONNECT.map(c => `<p style="margin:6px 0"><b>${c[0]}</b> — <span class="small">${c[1]}</span></p>`).join('')}</div>`;
+  const paint = () => $('#ff').innerHTML = Object.keys(FMT).map(k => `<button class="chip ${fm === k ? 'on' : ''}" data-f="${k}">${FMT[k]}</button>`).join('');
+  paint();
+  $('#ff').onclick = e => { const b = e.target.closest('[data-f]'); if (b) { fm = fm === b.dataset.f ? null : b.dataset.f; paint(); } };
+  $('#mi').onchange = e => only = e.target.checked;
+  $('#go').onclick = () => {
+    let L = W.filter(x => (!fm || x.fmt === fm) && (!only || fm === 'lettre' || fm === 'personnel' || liked(x.tag)));
+    if (!L.length) L = W.filter(x => !fm || x.fmt === fm);
+    const x = pick(L), key = 'draft.' + x.title;
+    $('#wx').innerHTML = `<div class="card"><span class="tag">${FMT[x.fmt]}</span><h3>${esc(x.title)}</h3><p class="lead">${esc(x.q)}</p>${x.angles.map(a => `<div class="ang">${esc(a)}</div>`).join('')}
+    <textarea id="ta" placeholder="Écris ici. Ton brouillon reste sur cet appareil."></textarea><div class="row"><span class="small" id="wc">0 mot</span><button class="btn soft" id="cp">Copier</button></div>
+    <ul class="cl"><li><label><input type="checkbox"> Introduction : accroche + problématique</label></li><li><label><input type="checkbox"> Un connecteur de concession</label></li><li><label><input type="checkbox"> Un conditionnel de nuance</label></li><li><label><input type="checkbox"> Un subjonctif juste</label></li><li><label><input type="checkbox"> Relecture : accords, accents, ponctuation</label></li></ul></div>`;
+    const ta = $('#ta'); ta.value = store.get(key, ''); const wc = () => { const n = (ta.value.match(/\S+/g) || []).length; $('#wc').textContent = n + (n > 1 ? ' mots' : ' mot'); }; wc();
+    ta.oninput = () => { store.set(key, ta.value); wc(); };
+    $('#cp').onclick = () => navigator.clipboard && navigator.clipboard.writeText(ta.value);
+    $('#wx').scrollIntoView({ behavior: 'smooth' });
+  };
+}
+
+/* ---------- Lire ---------- */
+const SRC = [
+ ['Actualité et idées', [['The Conversation France', 'https://theconversation.com/fr', 'Articles de chercheurs, ouverts et rédigés pour le grand public.'], ['France Culture', 'https://www.radiofrance.fr/franceculture', 'Idées, philosophie, histoire, podcasts à écouter et à lire.'], ['Philosophie magazine', 'https://www.philomag.com', 'Une partie des articles est en accès libre.'], ['Le Monde (articles gratuits)', 'https://www.lemonde.fr', 'Certains articles sont libres ; les autres sont payants.']]],
+ ['Textes libres de droits', [['Wikisource en français', 'https://fr.wikisource.org', 'Romans, poèmes, théâtre du domaine public.'], ['Gallica (BnF)', 'https://gallica.bnf.fr', 'Livres anciens et presse numérisée de la Bibliothèque nationale.'], ['Projet Gutenberg', 'https://www.gutenberg.org/browse/languages/fr', 'Des centaines de livres en français, gratuits.'], ['OpenEdition Books', 'https://books.openedition.org', 'Livres de sciences humaines en accès libre.']]],
+ ['Savoirs et sciences', [['Futura Sciences', 'https://www.futura-sciences.com', 'Sciences vulgarisées, lisibles et précises.'], ['Persée', 'https://www.persee.fr', 'Revues scientifiques françaises, accès libre.'], ['Wikipédia', 'https://fr.wikipedia.org', 'Point de départ pour explorer n\'importe quel sujet.'], ['Wiktionnaire', 'https://fr.wiktionary.org', 'Définitions, étymologie, conjugaisons.']]],
+ ['Écouter et regarder', [['RFI Savoirs', 'https://savoirs.rfi.fr', 'Parcours d\'apprentissage à partir de l\'actualité.'], ['TV5Monde — Apprendre', 'https://apprendre.tv5monde.com', 'Vidéos avec exercices, du B2 au C1.'], ['Arte', 'https://www.arte.tv/fr', 'Documentaires et cinéma en français.'], ['Lumni', 'https://www.lumni.fr', 'Ressources éducatives gratuites.'], ['France Musique', 'https://www.radiofrance.fr/francemusique', 'Musique classique, jazz et émissions de fond.']]],
+ ['Préparer le DALF', [['France Éducation international', 'https://www.france-education-international.fr', 'Informations officielles sur les diplômes DELF/DALF.']]]
+];
+function lire() {
+  $('#v').innerHTML = `<div class="card"><h2>Lire, écouter, explorer</h2><p>Des sources libres ou ouvertes. Choisis un sujet qui te donne envie, lis vingt minutes, note cinq mots, c'est tout.</p>
+  <p class="small">Astuce : relève dans chaque article une tournure au conditionnel et une au subjonctif.</p></div>` +
+  SRC.map(g => `<div class="card"><h3>${g[0]}</h3>${g[1].map(l => `<a class="link" target="_blank" rel="noopener" href="${l[1]}"><b>${l[0]}</b><span class="small">${l[2]}</span></a>`).join('')}</div>`).join('');
+}
+
+/* ---------- Pour toi ---------- */
+function toi() {
+  const m = mine();
+  $('#v').innerHTML = `<div class="card"><h2>Pour toi</h2><p>Choisis ce qui t'intéresse. Les sujets d'expression orale et d'écriture seront tirés d'abord parmi ces thèmes.</p>
+  <div class="row" id="ch">${MAIN.map(t => `<button class="chip ${m.includes(t) ? 'on' : ''}" data-t="${t}">${INTERESTS[t]}</button>`).join('')}</div>
+  <p class="small">Rien n'est choisi = tout est possible. Tes choix restent sur cet appareil.</p></div>`;
+  $('#ch').onclick = e => { const b = e.target.closest('[data-t]'); if (!b) return; const s = mine(), t = b.dataset.t; store.set('interests', s.includes(t) ? s.filter(x => x !== t) : s.concat(t)); b.classList.toggle('on'); };
+}
+route();
+</script>
+</body>
+</html>
