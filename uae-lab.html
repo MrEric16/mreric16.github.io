@@ -44880,7 +44880,7 @@ var fw=document.querySelector('.uae-flagwrap'),si=0,lastUser=0,sx=null,sy=0,move
 function setSlide(i){si=(i+3)%3;if(fw){fw.setAttribute('data-i',si);fw.style.setProperty('--i',si);}}
 function slides(){
   if(!fw)return;
-  if(on()){var im=fw.querySelector('.uae-fbox img');if(im&&!im.getAttribute('src'))im.src=FIMG;var z=fw.querySelector('.uae-zr img');if(z&&!z.getAttribute('src'))z.src='uae-zayed-rashid.jpg';}
+  if(on()){var im=fw.querySelector('.uae-fbox img');if(im&&!im.getAttribute('src'))im.src=FIMG;var z=fw.querySelector('.uae-zr img');if(z&&!z.getAttribute('src'))z.src='uae-zayed-rashid.jpg?v=2';}
   if(!fw.hasAttribute('data-i'))setSlide(0);
 }
 if(fw){
