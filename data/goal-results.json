@@ -1,103 +1,6 @@
 {
-  "generatedAt": "2026-11-25T09:32:20.110260Z",
+  "generatedAt": "2026-11-25T19:43:00.516901Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/real-madrid-vs-rb-leipzig/rrLQsvhec_4gi1bfBIYGF",
-      "date": "2026-10-21",
-      "home": "Real Madrid",
-      "away": "Rb Leipzig",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 4,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "B. Silva",
-          "minute": 44
-        },
-        {
-          "scorer": "A. Guler",
-          "minute": 52
-        },
-        {
-          "scorer": "K. Mbappe",
-          "minute": 83
-        },
-        {
-          "scorer": "Y. Diomande",
-          "minute": 87
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "T. Gomis",
-          "minute": 85
-        }
-      ],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/club-brugge-vs-lens/Vx3icYASohobo26_eX1gC",
-      "date": "2026-10-21",
-      "home": "Club Brugge",
-      "away": "Lens",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 3,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "H. Vanaken",
-          "minute": 45
-        },
-        {
-          "scorer": "J. Seys",
-          "minute": 50
-        },
-        {
-          "scorer": "C. Forbs",
-          "minute": 72
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/real-betis-vs-feyenoord/mco7DiFWnp_smt9E1jApA",
-      "date": "2026-10-21",
-      "home": "Real Betis",
-      "away": "Feyenoord",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "Isco",
-          "minute": 59
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/inter-vs-shakhtar-donetsk/vVIDW6OqmvHg8D86UprrI",
-      "date": "2026-10-21",
-      "home": "Inter",
-      "away": "Shakhtar Donetsk",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "C. Augusto",
-          "minute": 77
-        }
-      ],
-      "awayGoals": [],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/aston-villa-vs-viking/yNRPx9PcdHcB59DGs_B3t",
       "date": "2026-10-21",
@@ -7666,6 +7569,100 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/rb-leipzig-vs-lens/eEgtAC9cUrFnWulDwkIoc",
+      "date": "2026-11-24",
+      "home": "Rb Leipzig",
+      "away": "Lens",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "D. Raum",
+          "minute": 6
+        },
+        {
+          "scorer": "A. Nusa",
+          "minute": 9
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Udol",
+          "minute": 58
+        }
+      ],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/slovan-bratislava-vs-real-betis/YWKYZFkghplVO3VyXTb2N",
+      "date": "2026-11-24",
+      "home": "Slovan Bratislava",
+      "away": "Real Betis",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 0,
+      "ftAway": 2,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "J. Hernandez",
+          "minute": 43
+        }
+      ],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/slavia-prague-vs-villarreal/gXVONz6qRW02b5tf_Mz_K",
+      "date": "2026-11-25",
+      "home": "Slavia Prague",
+      "away": "Villarreal",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 1,
+      "homeGoals": [],
+      "awayGoals": [
+        {
+          "scorer": "T. Buchanan",
+          "minute": 62
+        }
+      ],
+      "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/bayern-munich-vs-arsenal/8yDS7nnq8kbP4c2sBoiBd",
+      "date": "2026-10-21",
+      "home": "Bayern Munich",
+      "away": "Arsenal",
+      "htHome": 1,
+      "htAway": 1,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "A. Davies",
+          "minute": 35
+        },
+        {
+          "scorer": "H. Kane",
+          "minute": 61
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "E. Eze",
+          "minute": 25
+        },
+        {
+          "scorer": "D. Rice",
+          "minute": 82
+        }
+      ],
+      "competition": "bayern-munich"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7686,9 +7683,8 @@
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
     "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
-    "https://www.goal.com/en/match/slovan-bratislava-vs-real-betis/YWKYZFkghplVO3VyXTb2N": 2,
-    "https://www.goal.com/en/match/rb-leipzig-vs-lens/eEgtAC9cUrFnWulDwkIoc": 2,
-    "https://www.goal.com/en/match/osnabrueck-vs-bayern-munich/ebLdOgagg2wHEGrpYfcg2": 1,
-    "https://www.goal.com/en/match/hebc-hamburg-vs-borussia-dortmund/XsMyY7DmCyNoD2yvmKJQm": 1
+    "https://www.goal.com/en/match/osnabrueck-vs-bayern-munich/ebLdOgagg2wHEGrpYfcg2": 2,
+    "https://www.goal.com/en/match/hebc-hamburg-vs-borussia-dortmund/XsMyY7DmCyNoD2yvmKJQm": 2,
+    "https://www.goal.com/en/match/sabah-fk-vs-barcelona/6L-mtWApqOAX6kFaEG3kS": 2
   }
 }
