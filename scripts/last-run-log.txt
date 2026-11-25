@@ -1,11 +1,11 @@
 [scrape] Run started. Today (Tashkent): 2026-11-25  Window end: 2026-12-09
 [scrape] NOTE: switched from per-category listing pages to afisha.uz's calendar view (one real day at a time, via Playwright) -- the old approach could only ever see whatever was on the current front page of each category, missing anything pushed down by newer posts. The calendar view asks for each specific date directly instead.
 [scrape] calendar 2026-11-25: 25 new event URLs discovered
-[scrape] calendar 2026-11-26: 5 new event URLs discovered
+[scrape] calendar 2026-11-26: 6 new event URLs discovered
 [scrape] calendar 2026-11-27: 11 new event URLs discovered
-[scrape] calendar 2026-11-28: 19 new event URLs discovered
+[scrape] calendar 2026-11-28: 20 new event URLs discovered
 [scrape] calendar 2026-11-29: 8 new event URLs discovered
-[scrape] calendar 2026-11-30: 1 new event URLs discovered
+[scrape] calendar 2026-11-30: 2 new event URLs discovered
 [scrape] calendar 2026-12-01: 6 new event URLs discovered
 [scrape] calendar 2026-12-02: 3 new event URLs discovered
 [scrape] calendar 2026-12-03: 1 new event URLs discovered
@@ -14,7 +14,7 @@
 [scrape] exhibitions listing page (supplementary): 8 new event URLs discovered, 20 total exhibition links seen on page
 [scrape]   TARGET CHECK 'our-heritage': NOT FOUND in any href on the rendered page
 [scrape]   TARGET CHECK 'photo-chronicle-xx': NOT FOUND in any href on the rendered page
-[scrape] calendar discovery complete: 92 unique event URLs to check
+[scrape] calendar discovery complete: 95 unique event URLs to check
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/24/midnight2311 title='Вечеринки в Midnight' title_hits=[] text_hits=[]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/restaurants/2026/11/16/italian-week title='Тематическое мероприятие Italian Week' title_hits=[] text_hits=["'кино' ...'амма с\\xa0аниматорами;\\nпоказы итальянского кино;\\nвечера живой итальянской музыки;\\nп'"]
 [scrape]   DROP DIAG https://www.afisha.uz/ru/concerts/2026/11/24/jazz-hits title='Творческий «Вечер джаза: Джазовые хиты и их истории»' title_hits=[] text_hits=["'кино' ...'амма, включающая лиричные композиции из\\xa0кинофильмов и\\xa0мюзиклов, джазовые баллады'"]
@@ -27,16 +27,17 @@
 [scrape]   '«По женской линии»: в пространстве Zanmakon открылась выставка Робии Кадыровой': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Бесплатно в музей: в Узбекистане стартовала Неделя музеев': no dates found in window (no schedule/date-range parsed) -- kept 0 events
 [scrape]   'Узбекистан представит современное ремесло на Homo Faber 2026 в Венеции': no dates found in window (no schedule/date-range parsed) -- kept 0 events
-[scrape] calendar detail pass complete: 190 events kept from 92 pages checked
-[scrape] calendar detail pass drops: {'checked': 92, 'no_title': 0, 'excluded_or_banned': 20}
+[scrape] calendar detail pass complete: 197 events kept from 95 pages checked
+[scrape] calendar detail pass drops: {'checked': 95, 'no_title': 0, 'excluded_or_banned': 20}
 [scrape] special-tracked: FAILED to fetch or failed content check for https://www.afisha.uz/ru/cinema/2026/07/16/kinoprazdnik-v-sredu
 [scrape] iticket.uz cat=concert: 0 events kept
 [scrape] iticket.uz cat=theatre: 0 events kept
 [scrape] iticket.uz cat=exhibition: 0 events kept
 [scrape] ticketon.uz: CONFIRMED BLOCKED (Cloudflare challenge, page title='Just a moment...'). 0 events -- this is expected, not a bug to fix.
-[scrape] eventbrite.com: 7 events found (dates NOT yet parsed -- see note in script)
+[scrape] eventbrite.com: CONFIRMED BLOCKED (AWS WAF CAPTCHA, page title='Let's confirm you are human'). 0 events -- this is expected, not a bug to fix. Same category of block as ticketon.uz.
+[scrape] eventbrite.com: 0 events found (dates NOT yet parsed -- see note in script)
 [scrape]   DEDUP: 0 target entries survived Pass 1
 [scrape]   DEDUP: 0 target entries survived Pass 2 (final)
-[scrape] TOTAL before dedup: 197  |  after dedup: 182
+[scrape] TOTAL before dedup: 197  |  after dedup: 189
 [scrape] Wrote data/events-tashkent.json
-[scrape] translation cache: 316 titles
+[scrape] translation cache: 319 titles
