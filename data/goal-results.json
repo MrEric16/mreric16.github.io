@@ -1,37 +1,6 @@
 {
-  "generatedAt": "2026-11-25T00:57:54.192400Z",
+  "generatedAt": "2026-11-25T09:32:20.110260Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/bayern-munich-vs-arsenal/8yDS7nnq8kbP4c2sBoiBd",
-      "date": "2026-10-21",
-      "home": "Bayern Munich",
-      "away": "Arsenal",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 2,
-      "homeGoals": [
-        {
-          "scorer": "A. Davies",
-          "minute": 35
-        },
-        {
-          "scorer": "H. Kane",
-          "minute": 61
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "E. Eze",
-          "minute": 25
-        },
-        {
-          "scorer": "D. Rice",
-          "minute": 82
-        }
-      ],
-      "competition": "CL"
-    },
     {
       "url": "https://www.goal.com/en/match/real-madrid-vs-rb-leipzig/rrLQsvhec_4gi1bfBIYGF",
       "date": "2026-10-21",
@@ -7662,6 +7631,41 @@
         }
       ],
       "competition": "CL"
+    },
+    {
+      "url": "https://www.goal.com/en/match/real-madrid-vs-psv-eindhoven/e-OPkws5C9iuegsp0B_TO",
+      "date": "2026-11-24",
+      "home": "Real Madrid",
+      "away": "Psv Eindhoven",
+      "htHome": 0,
+      "htAway": 1,
+      "ftHome": 5,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "F. Valverde",
+          "minute": 50
+        },
+        {
+          "scorer": "J. Bellingham",
+          "minute": 60
+        },
+        {
+          "scorer": "K. Mbappe",
+          "minute": 64
+        },
+        {
+          "scorer": "Vinicius Junior",
+          "minute": 87
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "I. Perisic",
+          "minute": 32
+        }
+      ],
+      "competition": "CL"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7682,8 +7686,9 @@
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
     "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
-    "https://www.goal.com/en/match/slovan-bratislava-vs-real-betis/YWKYZFkghplVO3VyXTb2N": 1,
-    "https://www.goal.com/en/match/rb-leipzig-vs-lens/eEgtAC9cUrFnWulDwkIoc": 1,
-    "https://www.goal.com/en/match/real-madrid-vs-psv-eindhoven/e-OPkws5C9iuegsp0B_TO": 2
+    "https://www.goal.com/en/match/slovan-bratislava-vs-real-betis/YWKYZFkghplVO3VyXTb2N": 2,
+    "https://www.goal.com/en/match/rb-leipzig-vs-lens/eEgtAC9cUrFnWulDwkIoc": 2,
+    "https://www.goal.com/en/match/osnabrueck-vs-bayern-munich/ebLdOgagg2wHEGrpYfcg2": 1,
+    "https://www.goal.com/en/match/hebc-hamburg-vs-borussia-dortmund/XsMyY7DmCyNoD2yvmKJQm": 1
   }
 }
