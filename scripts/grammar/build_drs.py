@@ -153,6 +153,12 @@ ADVS = [
     A(['fs'], ['next year'], ['the following year', 'the year after', 'the next year'], ok=['fs'], shift=True),
     A(['fs'], ['next Monday'], ['the following Monday', 'the Monday after', 'the next Monday'], ok=['fs'], shift=True),
     A(['fs'], ['soon'], ['soon'], ok=['fs']), A(['fs'], ['after school'], ['after school'], ok=['fs']),
+    A(['fc'], ['tomorrow'], ['the next day', 'the following day'], ok=['fc'], shift=True),
+    A(['fc'], ['tonight'], ['that night'], ok=['fc'], shift=True),
+    A(['fc'], ['next week'], ['the following week', 'the week after', 'the next week'], ok=['fc'], shift=True),
+    A(['fc'], ['at ten tomorrow'], ['at ten the next day', 'at ten the following day'], ok=['fc'], shift=True),
+    A(['fc'], ['all day tomorrow'], ['all day the next day', 'all day the following day'], ok=['fc'], shift=True),
+    A(['fc'], ['at eight o\'clock'], ['at eight o\'clock'], ok=['fc']), A(['fc'], ['this evening'], ['that evening'], ok=['fc'], shift=True),
     A(['fp'], ['by Friday'], ['by Friday'], ok=['fp'], need='tel'), A(['fp'], ['by the end of the month'], ['by the end of the month'], ok=['fp'], need='tel'),
     A(['fp'], ['by 2030'], ['by 2030'], ok=['fp'], need='tel'),
     A(['fp'], ['by tomorrow'], ['by the next day', 'by the following day'], ok=['fp'], need='tel', shift=True),
@@ -164,17 +170,17 @@ ADVS = [
 RT_FROM = {  # direct tense -> accepted reported tenses (first = standard)
     'ps': ['rps'], 'pc': ['rpc'], 'pp': ['rpp'], 'ppc': ['rppc'],
     'pas': ['rpp', 'rps'], 'pac': ['rppc', 'rpc'], 'pap': ['rpp'], 'papc': ['rppc'],
-    'fs': ['rfs'], 'fp': ['rfp'],
+    'fs': ['rfs'], 'fc': ['rfc'], 'fp': ['rfp'],
 }
 D_FROM_R = {  # reported tense -> possible direct tenses (first = standard for the shown tense)
     'rps': ['ps', 'pas'], 'rpc': ['pc', 'pac'], 'rpp': ['pp', 'pap', 'pas'], 'rppc': ['ppc', 'papc', 'pac'],
-    'rfs': ['fs'], 'rfp': ['fp'],
+    'rfs': ['fs'], 'rfc': ['fc'], 'rfp': ['fp'],
 }
 BE_OK = {'ps', 'pas', 'pp', 'pap', 'fs'}
-WHEN_OK = {'pas', 'pac', 'fs', 'fp'}
+WHEN_OK = {'pas', 'pac', 'fs', 'fc', 'fp'}
 TENSE_NAME = {'ps': 'present simple', 'pc': 'present continuous', 'pp': 'present perfect', 'ppc': 'present perfect continuous',
               'pas': 'past simple', 'pac': 'past continuous', 'pap': 'past perfect', 'papc': 'past perfect continuous',
-              'fs': 'future simple', 'fp': 'future perfect'}
+              'fs': 'future simple', 'fc': 'future continuous', 'fp': 'future perfect'}
 
 NEG = {'am': 'am not', 'is': "isn't", 'are': "aren't", 'was': "wasn't", 'were': "weren't", 'have': "haven't", 'has': "hasn't",
        'had': "hadn't", 'will': "won't", 'would': "wouldn't", 'do': "don't", 'does': "doesn't", 'did': "didn't"}
@@ -225,6 +231,8 @@ def chain(t, pol, p, pr, q=False):
         aux, main = ['had', 'been'], V[3]
     elif t == 'fs':
         aux, main = ['will'] + (['be'] if be else []), (None if be else base)
+    elif t == 'fc':
+        aux, main = ['will', 'be'], V[3]
     elif t == 'fp':
         aux, main = ['will', 'have'] + (['been'] if be else []), (None if be else V[2])
     else:
@@ -253,6 +261,8 @@ def rchain(rt, pol, p, pr):
         aux, main = ['had', 'been'], V[3]
     elif rt == 'rfs':
         aux, main = ['would'] + (['be'] if be else []), (None if be else base)
+    elif rt == 'rfc':
+        aux, main = ['would', 'be'], V[3]
     elif rt == 'rfp':
         aux, main = ['would', 'have'] + (['been'] if be else []), (None if be else V[2])
     else:
@@ -470,7 +480,7 @@ def pred_ok(pr, tense, level, allow_sh):
         return tense in BE_OK
     if pr['sh'] and not allow_sh:
         return False
-    if tense in ('pc', 'pac', 'ppc', 'papc') and not pr['act']:
+    if tense in ('pc', 'pac', 'ppc', 'papc', 'fc') and not pr['act']:
         return False
     if tense in ('ppc', 'papc') and not pr['dur']:
         return False
@@ -610,7 +620,7 @@ def gen_spec(level, tense, kind=None, shift_only=False, allow_compound=True):
         if third and isinstance(sp['A'], dict) and third['n'] == sp['A']['n']:
             continue
         # compound (hard): affirmative + negative, same subject, same tense
-        if level == 'hard' and allow_compound and kd == 's' and RNG.random() < .22 and not advs and tense in ('ps', 'pas', 'pc', 'pac', 'fs', 'pp', 'pap'):
+        if level == 'hard' and allow_compound and kd == 's' and RNG.random() < .22 and not advs and tense in ('ps', 'pas', 'pc', 'pac', 'fs', 'fc', 'pp', 'pap'):
             pr2 = RNG.choice(PREDS + BE)
             if pr2['v'] != pr['v'] and pred_ok(pr2, tense, level, False) and not pr2['sh'] and not pr['sh'] and bool(pr2.get('be')) == bool(pr.get('be')):
                 sp['pol'] = 'aff'
@@ -629,7 +639,7 @@ def direct_valid(sp, t):
     pr = sp['pred']
     if pr.get('be') and t not in BE_OK:
         return False
-    if t in ('pc', 'pac', 'ppc', 'papc') and not pr.get('be') and not pr['act']:
+    if t in ('pc', 'pac', 'ppc', 'papc', 'fc') and not pr.get('be') and not pr['act']:
         return False
     if t in ('ppc', 'papc') and not pr['dur']:
         return False
@@ -1020,7 +1030,7 @@ def pool_for(level, tenses, mode, cmds=0.0, kinds=None, shift_only=False, fixes=
     return items
 
 
-ALLT = ['ps', 'pc', 'pp', 'ppc', 'pas', 'pac', 'pap', 'papc', 'fs', 'fp']
+ALLT = ['ps', 'pc', 'pp', 'ppc', 'pas', 'pac', 'pap', 'papc', 'fs', 'fc', 'fp']
 
 TOPICS = [
     # id, name, section, kwargs
@@ -1033,6 +1043,7 @@ TOPICS = [
     ('drs-past-perfect', 'Past perfect', 'Past', dict(tenses=['pap'], mode='both')),
     ('drs-past-perfect-continuous', 'Past perfect continuous', 'Past', dict(tenses=['papc'], mode='both')),
     ('drs-future-simple', 'Future simple (will)', 'Future', dict(tenses=['fs'], mode='both')),
+    ('drs-future-continuous', 'Future continuous', 'Future', dict(tenses=['fc'], mode='both')),
     ('drs-future-perfect', 'Future perfect', 'Future', dict(tenses=['fp'], mode='both')),
     ('drs-questions', 'Reported questions (if, whether, wh-)', 'Questions, commands, time words', dict(tenses=ALLT, mode='both', kinds='Q')),
     ('drs-commands', 'Commands and requests', 'Questions, commands, time words', dict(tenses=ALLT, mode='both', cmds=1.0)),
