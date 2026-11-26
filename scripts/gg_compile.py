@@ -71,6 +71,8 @@ for t in topics:
 open(os.path.join(outdir, 'index.json'), 'w', encoding='utf-8').write(dump({'topics': [{'id': t['id'], 'name': t['name']} for t in topics]}))
 pools = gg_pools.build()
 open(os.path.join(outdir, 'pools.json'), 'w', encoding='utf-8').write(dump(pools))
+import subprocess
+subprocess.check_call([sys.executable, os.path.join(root, 'scripts/grammar/build_drs.py')], stdout=subprocess.DEVNULL)  # direct and reported speech group (rule-generated)
 h = hashlib.sha1()
 for f in sorted(os.listdir(outdir)): h.update(open(os.path.join(outdir, f), 'rb').read())
 ver = h.hexdigest()[:10]

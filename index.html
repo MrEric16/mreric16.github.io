@@ -25935,7 +25935,7 @@ function gramCats(id){
   if(/present|past|future|perfect|continuous|narrative|mixed-past|mixed-tenses/.test(id)) c.push('tenses tense');
   if(/conditional|wish/.test(id)) c.push('conditionals conditional if');
   if(/passive|causative/.test(id)) c.push('passive voice');
-  if(/report|indirect/.test(id)) c.push('reported speech');
+  if(/report|indirect|^drs-/.test(id)) c.push('reported speech direct speech');
   if(/modal/.test(id)) c.push('modals modal verbs');
   if(/preposition/.test(id)) c.push('prepositions');
   if(/phrasal/.test(id)) c.push('phrasal verbs');

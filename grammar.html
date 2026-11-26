@@ -48,6 +48,8 @@
   /* - Grammar Gym (Brain Train style tiles + typed exercise list) - */
   .gg-dot{display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--coral); margin-left:4px; vertical-align:middle;}
   .gg-levels{grid-template-columns:1fr;}
+  .gg-sec{margin:16px 2px 8px; font-size:13px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-soft);}
+  .gg-note{margin:0 2px 4px; font-size:13px; color:var(--ink-soft); line-height:1.45;}
   .gg-sub{font-weight:600; font-size:12px; color:var(--ink-soft);}
   .gg-bar{position:sticky; top:0; z-index:20; background:var(--cream); padding:6px 0 8px; margin:0 0 6px;}
   .gg-bar-row{display:flex; align-items:center; gap:8px;}
@@ -206,10 +208,13 @@ function hexToRgba(hex, a){ var h = hex.replace('#',''); return 'rgba(' + parseI
 function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
 function ggLoad(topic, level){ try{ var raw = localStorage.getItem(ggKey(topic, level)); if(raw) return JSON.parse(raw); }catch(e){} return null; }
 function ggSave(topic, level, st){ st.t = Date.now(); try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
-var DATA_V = 'f73e702046';
+var DATA_V = '006b94c282';
 function getJson(u){ return fetch(u + '?v=' + DATA_V).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
 var INDEX_P = null, TOPIC_P = {};
-function loadIndex(){ if(!INDEX_P) INDEX_P = getJson('data/grammar/index.json').catch(function(e){ INDEX_P = null; throw e; }); return INDEX_P; }
+function loadIndex(){ if(!INDEX_P) INDEX_P = getJson('data/grammar/index.json').then(function(ix){ ix.topics.forEach(function(t){ if(t.parent) GG_PAR[t.id] = t.parent; }); return ix; }).catch(function(e){ INDEX_P = null; throw e; }); return INDEX_P; }
+var GG_PAR = {};
+// Topics with a parent live inside a group tile (e.g. Direct and reported speech); the main grid shows only the group.
+function ggOrder(ix, id){ var cur = ix.topics.filter(function(t){ return t.id === id; })[0], par = cur && cur.parent; return ix.topics.filter(function(t){ return par ? t.parent === par : (!t.parent && !t.group); }); }
 var FALLBACK = { m:['Tom','Aziz','Ali','Sam','Karim'], f:['Anna','Dilya','Malika','Sara','Kim'], s:['Karimov','Smith','Garcia'], c:['London','Paris','Tashkent','Rome'], k:['Spain','Japan','Brazil'], l:['Spanish','French','German'], p:['park','library','station','hotel'], j:['teacher','doctor','pilot','nurse'] };
 var POOLS_P = null;
 function loadPools(){ if(!POOLS_P) POOLS_P = getJson('data/grammar/pools.json').catch(function(){ return FALLBACK; }); return POOLS_P; }
@@ -414,7 +419,7 @@ function ggWireExercise(app, bank, topicId, level){
         nb.style.display = '';
         nb.innerHTML = (nl ? '<a class="main" data-rep="1" href="#' + topicId + '/' + nl.key + '">Next level \u2192</a>' : '') +
           (nt ? '<a' + (nl ? '' : ' class="main"') + ' data-rep="1" href="#' + nt.id + '/' + level + '">Next topic \u2192</a>' : '') +
-          '<a data-rep="1" href="#">All topics</a>';
+          '<a data-rep="1" href="#' + (GG_PAR[topicId] || '') + '">' + (GG_PAR[topicId] ? 'All speech tiles' : 'All topics') + '</a>';
       }
     }
   }
@@ -511,10 +516,11 @@ function showTopics(findQ, findIds){
     var cont = document.getElementById('ggCont');
     if(best && cont) cont.innerHTML = '<a class="gg-cont" href="#' + best.t.id + '/' + best.l.key + '"><b>Continue</b><span>' + escapeHtml(best.t.name) + ' \u00b7 ' + best.l.label + ' \u00b7 ' + ggFilled(best.s) + '/' + GG_PER_SET + '</span></a>';
     var st = ggTileStyle();
-    grid.innerHTML = ix.topics.map(function(t, ti){
-      var busy = false;
-      GG_LEVELS.forEach(function(l){ var s = ggLoad(t.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; });
-      return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-id="' + t.id + '" data-name="' + escapeHtml(t.name.toLowerCase()) + '" data-no="' + (ti + 1) + '"' + st.tint + '>' +
+    grid.innerHTML = ix.topics.map(function(t, ti){ return { t:t, ti:ti }; }).filter(function(x){ return !x.t.parent; }).map(function(x){
+      var t = x.t, ti = x.ti, busy = false;
+      var kids = ix.topics.filter(function(k){ return k.parent === t.id; });
+      [t].concat(kids).forEach(function(tt){ GG_LEVELS.forEach(function(l){ var s = ggLoad(tt.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; }); });
+      return '<a class="sport-hub-tile gg-tile" href="#' + t.id + '" data-id="' + t.id + '" data-kids="' + kids.map(function(k){ return k.id; }).join(',') + '" data-name="' + escapeHtml((t.name + ' ' + kids.map(function(k){ return k.name; }).join(' ')).toLowerCase()) + '" data-no="' + (ti + 1) + '"' + st.tint + '>' +
         '<span class="name"><span class="gg-no">' + (ti + 1) + '</span>' + escapeHtml(t.name) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
     }).join('') + '<div class="empty-card" id="ggNone" style="grid-column:1/-1;display:none;">No topic matches.</div>';
     var applyQ = function(){
@@ -532,7 +538,7 @@ function showTopics(findQ, findIds){
       if(findIds){
         // exact list from the app search, so the count there always equals what opens here
         var set = {}; findIds.split(',').forEach(function(i){ set[i] = 1; }); var shown = 0;
-        Array.prototype.forEach.call(grid.querySelectorAll('.gg-tile'), function(a){ var ok = !!set[a.dataset.id]; a.style.display = ok ? '' : 'none'; if(ok) shown++; });
+        Array.prototype.forEach.call(grid.querySelectorAll('.gg-tile'), function(a){ var ok = !!set[a.dataset.id] || (a.dataset.kids || '').split(',').some(function(k){ return k && set[k]; }); a.style.display = ok ? '' : 'none'; if(ok) shown++; });
         document.getElementById('ggNone').style.display = shown ? 'none' : '';
       } else applyQ();
       return;
@@ -541,7 +547,7 @@ function showTopics(findQ, findIds){
   }).catch(fail);
 }
 function showLevels(topicId){
-  app.innerHTML = '<a class="back-link" href="#">\u2190 Back to Grammar Practice</a><section style="padding-top:14px;"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2 id="ggLevelsTitle">Loading\u2026</h2></div><div class="sport-hub-grid gg-levels" id="ggLevels"></div></section>';
+  app.innerHTML = '<a class="back-link" id="ggBack" href="#">\u2190 Back to Grammar Practice</a><section style="padding-top:14px;"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2 id="ggLevelsTitle">Loading\u2026</h2></div><div class="sport-hub-grid gg-levels" id="ggLevels"></div></section>';
   loadIndex().then(function(ix){
     var topic = ix.topics.filter(function(t){ return t.id === topicId; })[0];
     var box = document.getElementById('ggLevels'); if(!box) return;
@@ -549,6 +555,22 @@ function showLevels(topicId){
     document.title = topic.name + " \u2014 Grammar Practice";
     document.getElementById('ggLevelsTitle').textContent = topic.name;
     var st = ggTileStyle();
+    if(topic.parent){
+      var par = ix.topics.filter(function(t){ return t.id === topic.parent; })[0], bk = document.getElementById('ggBack');
+      if(bk && par){ bk.href = '#' + par.id; bk.textContent = '\u2190 Back to ' + par.name; }
+    }
+    if(topic.group){
+      var kids = ix.topics.filter(function(t){ return t.parent === topicId; }), secs = [];
+      kids.forEach(function(k){ if(secs.indexOf(k.sec) < 0) secs.push(k.sec); });
+      box.className = '';
+      box.innerHTML = '<p class="gg-note">Every tile mixes affirmative, negative and question sentences, in both directions: direct to reported and reported to direct. Tap a tile, then pick a level.</p>' + secs.map(function(sec){
+        return '<h3 class="gg-sec">' + escapeHtml(sec) + '</h3><div class="sport-hub-grid">' + kids.filter(function(k){ return k.sec === sec; }).map(function(k){
+          var busy = false; GG_LEVELS.forEach(function(l){ var s = ggLoad(k.id, l.key); if(s && !s.checked && ggFilled(s) > 0) busy = true; });
+          return '<a class="sport-hub-tile gg-tile" href="#' + k.id + '"' + st.tint + '><span class="name">' + escapeHtml(k.name.replace(/^Speech: /, '').replace(/^./, function(c){ return c.toUpperCase(); })) + (busy ? ' <span class="gg-dot" title="In progress"></span>' : '') + '</span></a>';
+        }).join('') + '</div>';
+      }).join('');
+      return;
+    }
     box.innerHTML = GG_LEVELS.map(function(l){
       var s = ggLoad(topicId, l.key), status = 'Not started';
       if(s){
@@ -561,9 +583,9 @@ function showLevels(topicId){
 }
 var GG_ORDER = [];
 function ggNavHtml(ix, topicId, level){
-  var order = ix.topics, i = order.map(function(t){ return t.id; }).indexOf(topicId);
+  var order = ggOrder(ix, topicId), i = order.map(function(t){ return t.id; }).indexOf(topicId), up = GG_PAR[topicId] || '';
   var prev = i > 0 ? order[i - 1] : null, next = i >= 0 && i < order.length - 1 ? order[i + 1] : null;
-  return '<div class="gg-bar-row"><a class="gg-top" data-rep="1" href="#">\u2190 Topics</a><div class="gg-nav">' +
+  return '<div class="gg-bar-row"><a class="gg-top" data-rep="1" href="#' + up + '">\u2190 ' + (up ? 'Speech' : 'Topics') + '</a><div class="gg-nav">' +
     '<a class="gg-arr' + (prev ? '' : ' off') + '" data-rep="1" aria-label="Previous topic" href="#' + (prev ? prev.id + '/' + level : '') + '">\u2039</a>' +
     '<span class="gg-tn">' + escapeHtml(i >= 0 ? order[i].name : '') + '</span>' +
     '<a class="gg-arr' + (next ? '' : ' off') + '" data-rep="1" aria-label="Next topic" href="#' + (next ? next.id + '/' + level : '') + '">\u203a</a></div></div>' +
@@ -572,7 +594,7 @@ function ggNavHtml(ix, topicId, level){
 function showExercise(topicId, level){
   app.innerHTML = '<div class="gg-bar" id="ggBar"><div class="gg-bar-row"><a class="gg-top" data-rep="1" href="#">\u2190 Topics</a></div></div><section style="padding-top:6px;" id="ggExercise"><div class="section-head"><span class="emoji">' + icon('book') + '</span><h2>Loading\u2026</h2></div><div class="empty-card">Loading\u2026</div></section>';
   Promise.all([loadTopic(topicId), loadPools(), loadIndex()]).then(function(r){
-    var topic = r[0]; POOLS = r[1]; GG_ORDER = r[2].topics;
+    var topic = r[0]; POOLS = r[1]; GG_ORDER = ggOrder(r[2], topicId);
     if(!document.getElementById('ggExercise')) return;
     document.title = topic.name + " \u2014 Grammar Practice";
     document.getElementById('ggBar').innerHTML = ggNavHtml(r[2], topicId, level);
@@ -607,7 +629,7 @@ window.addEventListener('hashchange', route);
     if(dx < 90 || Math.abs(dy) > dx * 0.5 || Date.now() - st0 > 700) return;
     var parts = location.hash.replace(/^#/, '').split('/').filter(Boolean);
     if(parts.length >= 2) location.hash = '#' + parts[0];
-    else if(parts.length === 1) location.hash = '#';
+    else if(parts.length === 1) location.hash = '#' + (GG_PAR[parts[0]] || '');
   }, { passive: true });
 })();
 route();
