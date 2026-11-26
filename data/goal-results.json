@@ -1,85 +1,6 @@
 {
-  "generatedAt": "2026-11-26T02:36:38.069368Z",
+  "generatedAt": "2026-11-26T11:45:09.793448Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/schalke-04-vs-bayern-munich/Adbri7J8q1sjiSGwqV7DE",
-      "date": null,
-      "home": "Schalke 04",
-      "away": "Bayern Munich",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "bayern-munich"
-    },
-    {
-      "url": "https://www.goal.com/en/match/hoffenheim-vs-borussia-dortmund/FTKhZ0EYda51i2oJhG_nC",
-      "date": null,
-      "home": "Hoffenheim",
-      "away": "Borussia Dortmund",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "L. Avdullahu",
-          "minute": 45
-        },
-        {
-          "scorer": "T. Lemperle",
-          "minute": 54
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "S. Guirassy",
-          "minute": 61
-        },
-        {
-          "scorer": "F. Silva",
-          "minute": 66
-        },
-        {
-          "scorer": "A. Hajdari",
-          "minute": 86
-        }
-      ],
-      "competition": "dortmund"
-    },
-    {
-      "url": "https://www.goal.com/en/match/vfb-stuttgart-vs-borussia-moenchengladbach/9vN7Z9zrMlvqaCj0JBDFp",
-      "date": "2026-10-23",
-      "home": "Vfb Stuttgart",
-      "away": "Borussia Moenchengladbach",
-      "htHome": 1,
-      "htAway": 1,
-      "ftHome": 2,
-      "ftAway": 3,
-      "homeGoals": [
-        {
-          "scorer": "E. Demirovic",
-          "minute": 5
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Scally",
-          "minute": 38
-        },
-        {
-          "scorer": "S. Machino",
-          "minute": 51
-        },
-        {
-          "scorer": "W. Mohya",
-          "minute": 66
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/arsenal-vs-everton/b3JISydwy-UnvFnDsunKD",
       "date": "2026-10-24",
@@ -7674,6 +7595,81 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/afc-bournemouth-vs-ac-milan/nur4apFFGmrMAiXpSFmMQ",
+      "date": "2026-10-22",
+      "home": "Afc Bournemouth",
+      "away": "Ac Milan",
+      "htHome": 2,
+      "htAway": 0,
+      "ftHome": 3,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "J. Kluivert",
+          "minute": 8
+        },
+        {
+          "scorer": "M. Tavernier",
+          "minute": 32
+        },
+        {
+          "scorer": "A. Adli",
+          "minute": 84
+        }
+      ],
+      "awayGoals": [],
+      "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/sturm-graz-vs-marseille/-sUHkN1_lnOwakhCoyEBL",
+      "date": "2026-10-22",
+      "home": "Sturm Graz",
+      "away": "Marseille",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "O. Diakite",
+          "minute": 13
+        }
+      ],
+      "awayGoals": [],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-rennes/VtASw2dikWrfVuURLsfzH",
+      "date": "2026-10-22",
+      "home": "Juventus",
+      "away": "Rennes",
+      "htHome": 1,
+      "htAway": 2,
+      "ftHome": 2,
+      "ftAway": 2,
+      "homeGoals": [
+        {
+          "scorer": "M. Celik",
+          "minute": 6
+        },
+        {
+          "scorer": "N. Woltemade",
+          "minute": 67
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "M. Tamari",
+          "minute": 15
+        },
+        {
+          "scorer": "B. Dia",
+          "minute": 43
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
