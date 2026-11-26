@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-25T20:18:54.968983Z",
+ "generatedAt": "2026-11-26T02:57:23.473034Z",
  "results": [
   {
    "url": "espn:401915378",
@@ -53,6 +53,197 @@
     {
      "scorer": "T. Buchanan",
      "minute": 62
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915291",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "Atleti",
+   "away": "Viking",
+   "htHome": 2,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "A. Sørloth",
+     "minute": 19
+    },
+    {
+     "scorer": "J. Álvarez",
+     "minute": 24
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915292",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "Club Brugge",
+   "away": "Liverpool",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 0,
+   "ftAway": 3,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "A. Isak",
+     "minute": 13
+    },
+    {
+     "scorer": "F. Wirtz",
+     "minute": 79
+    },
+    {
+     "scorer": "A. Isak",
+     "minute": 82
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915376",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "Inter",
+   "away": "Stuttgart",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "P. Sucic (pen)",
+     "minute": 57
+    },
+    {
+     "scorer": "L. Martínez",
+     "minute": 74
+    }
+   ],
+   "awayGoals": [],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915377",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "Lille",
+   "away": "Bayern",
+   "htHome": 0,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 1,
+   "homeGoals": [
+    {
+     "scorer": "A. Ueda",
+     "minute": 62
+    },
+    {
+     "scorer": "A. Pavlovic (og)",
+     "minute": 65
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "D. Upamecano",
+     "minute": 15
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915374",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "PSG",
+   "away": "Roma",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "I. Zabarnyi",
+     "minute": 31
+    },
+    {
+     "scorer": "O. Dembélé (pen)",
+     "minute": 62
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "M. Hermoso",
+     "minute": 5
+    },
+    {
+     "scorer": "D. Malen (pen)",
+     "minute": 78
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915375",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "Shaktar",
+   "away": "Fenerbahçe",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 1,
+   "homeGoals": [],
+   "awayGoals": [
+    {
+     "scorer": "V. Muriqi",
+     "minute": 56
+    }
+   ],
+   "competition": "CL",
+   "complete": true
+  },
+  {
+   "url": "espn:401915373",
+   "date": "2026-11-25",
+   "utc": "2026-11-25T20:00Z",
+   "home": "Sporting CP",
+   "away": "Man United",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 2,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "L. Suárez (pen)",
+     "minute": 33
+    },
+    {
+     "scorer": "L. Suárez",
+     "minute": 80
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "B. Fernandes (pen)",
+     "minute": 48
+    },
+    {
+     "scorer": "B. Fernandes",
+     "minute": 50
     }
    ],
    "competition": "CL",
