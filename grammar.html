@@ -208,7 +208,7 @@ function hexToRgba(hex, a){ var h = hex.replace('#',''); return 'rgba(' + parseI
 function ggKey(topic, level){ return 'ggs_' + topic + '_' + level; }
 function ggLoad(topic, level){ try{ var raw = localStorage.getItem(ggKey(topic, level)); if(raw) return JSON.parse(raw); }catch(e){} return null; }
 function ggSave(topic, level, st){ st.t = Date.now(); try{ localStorage.setItem(ggKey(topic, level), JSON.stringify(st)); }catch(e){} }
-var DATA_V = '5384f08140';
+var DATA_V = '8c917d84a3';
 function getJson(u){ return fetch(u + '?v=' + DATA_V).then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); }); }
 var INDEX_P = null, TOPIC_P = {};
 function loadIndex(){ if(!INDEX_P) INDEX_P = getJson('data/grammar/index.json').then(function(ix){ ix.topics.forEach(function(t){ if(t.parent) GG_PAR[t.id] = t.parent; }); return ix; }).catch(function(e){ INDEX_P = null; throw e; }); return INDEX_P; }
