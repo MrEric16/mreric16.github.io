@@ -1,99 +1,6 @@
 {
-  "generatedAt": "2026-11-26T11:45:09.793448Z",
+  "generatedAt": "2026-11-26T20:47:03.670638Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/arsenal-vs-everton/b3JISydwy-UnvFnDsunKD",
-      "date": "2026-10-24",
-      "home": "Arsenal",
-      "away": "Everton",
-      "htHome": 1,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "E. Konsa",
-          "minute": 7
-        },
-        {
-          "scorer": "Gabriel",
-          "minute": 68
-        }
-      ],
-      "awayGoals": [],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/coventry-city-vs-fulham/iX9t1k7T23CYb_5_FX1OB",
-      "date": "2026-10-24",
-      "home": "Coventry City",
-      "away": "Fulham",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 1,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "O. Bobb",
-          "minute": 80
-        }
-      ],
-      "competition": "PL"
-    },
-    {
-      "url": "https://www.goal.com/en/match/rayo-vallecano-vs-elche/dlEgRb0b2IPNTRwCgJ7rN",
-      "date": "2026-10-24",
-      "home": "Rayo Vallecano",
-      "away": "Elche",
-      "htHome": 0,
-      "htAway": 2,
-      "ftHome": 0,
-      "ftAway": 3,
-      "homeGoals": [],
-      "awayGoals": [
-        {
-          "scorer": "F. Redondo",
-          "minute": 23
-        },
-        {
-          "scorer": "F. Nino",
-          "minute": 36
-        },
-        {
-          "scorer": "G. Valera",
-          "minute": 68
-        }
-      ],
-      "competition": "PD"
-    },
-    {
-      "url": "https://www.goal.com/en/match/racing-santander-vs-espanyol/iLsAK7ukc88C4G5vk5SJ3",
-      "date": "2026-10-24",
-      "home": "Racing Santander",
-      "away": "Espanyol",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 2,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "J. Belocian",
-          "minute": 69
-        },
-        {
-          "scorer": "Y. Zabiri",
-          "minute": 84
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "E. Exposito",
-          "minute": 62
-        }
-      ],
-      "competition": "PD"
-    },
     {
       "url": "https://www.goal.com/en/match/augsburg-vs-union-berlin/c7LBH73h2DdqUUTEEDb-v",
       "date": "2026-10-24",
@@ -7670,6 +7577,111 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/schalke-04-vs-bayern-munich/Adbri7J8q1sjiSGwqV7DE",
+      "date": null,
+      "home": "Schalke 04",
+      "away": "Bayern Munich",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "bayern-munich"
+    },
+    {
+      "url": "https://www.goal.com/en/match/olympiacos-vs-ac-milan/lca5C9NagySvbvEVGLlEs",
+      "date": "2026-11-26",
+      "home": "Olympiacos",
+      "away": "Ac Milan",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 4,
+      "homeGoals": [
+        {
+          "scorer": "M. Maignan",
+          "minute": 31
+        },
+        {
+          "scorer": "Jota Silva",
+          "minute": 49
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "O. Hutchinson",
+          "minute": 56
+        },
+        {
+          "scorer": "A. Cisse",
+          "minute": 63
+        },
+        {
+          "scorer": "C. Pulisic",
+          "minute": 71
+        },
+        {
+          "scorer": "D. Moreira",
+          "minute": 90
+        }
+      ],
+      "competition": "ac-milan"
+    },
+    {
+      "url": "https://www.goal.com/en/match/marseille-vs-levski-sofia/gIfg4ALL31p9C7v0ZXqHf",
+      "date": "2026-11-26",
+      "home": "Marseille",
+      "away": "Levski Sofia",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "A. Gouiri",
+          "minute": 29
+        }
+      ],
+      "awayGoals": [],
+      "competition": "marseille"
+    },
+    {
+      "url": "https://www.goal.com/en/match/hoffenheim-vs-borussia-dortmund/FTKhZ0EYda51i2oJhG_nC",
+      "date": null,
+      "home": "Hoffenheim",
+      "away": "Borussia Dortmund",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 2,
+      "ftAway": 3,
+      "homeGoals": [
+        {
+          "scorer": "L. Avdullahu",
+          "minute": 45
+        },
+        {
+          "scorer": "T. Lemperle",
+          "minute": 54
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "S. Guirassy",
+          "minute": 61
+        },
+        {
+          "scorer": "F. Silva",
+          "minute": 66
+        },
+        {
+          "scorer": "A. Hajdari",
+          "minute": 86
+        }
+      ],
+      "competition": "dortmund"
     }
   ],
   "scorerParseRetryCounts": {
