@@ -353,7 +353,7 @@ def obj_text(sp, pr, poss, shift):
     return shift_obj(o) if shift else o
 
 
-def build_direct(sp, t, subj_v=None, advD=None, pr=None, wh=None, pol=None):
+def build_direct(sp, t, subj_v=None, advD=None, pr=None, wh=None, pol=None, oshift=False):
     """Direct-speech sentence for spec sp in tense t."""
     pr = pr or sp['pred']
     pol = pol or sp['pol']
@@ -364,7 +364,7 @@ def build_direct(sp, t, subj_v=None, advD=None, pr=None, wh=None, pol=None):
     mid = next((x for pos, x in advs if pos == 'mid'), None)
     end = next((x for pos, x in advs if pos == 'end'), None)
     wh = wh if wh is not None else sp.get('wh')
-    body = obj_text(sp, pr, sposs, False)
+    body = obj_text(sp, pr, sposs, oshift)
     q = kind in ('yn', 'wh')
     if kind == 'wh':
         if wh == 'what':
@@ -383,7 +383,7 @@ def build_direct(sp, t, subj_v=None, advD=None, pr=None, wh=None, pol=None):
     return s + ('?' if q else '')
 
 
-def build_reported(sp, rt, advR=None, pr=None, pol=None, with_sub=True):
+def build_reported(sp, rt, advR=None, pr=None, pol=None, with_sub=True, oshift=True):
     pr = pr or sp['pred']
     pol = pol or sp['pol']
     stext, sposs, p = r_subject(sp)
@@ -391,7 +391,7 @@ def build_reported(sp, rt, advR=None, pr=None, pol=None, with_sub=True):
     mid = next((x for pos, x in advs if pos == 'mid'), None)
     end = next((x for pos, x in advs if pos == 'end'), None)
     kind = sp['kind']
-    body = obj_text(sp, pr, sposs, True)
+    body = obj_text(sp, pr, sposs, oshift)
     if kind == 'wh':
         wh = sp['wh']
         if wh in ('what', 'where'):
@@ -411,9 +411,11 @@ def elide(clause1, clause2_full, stext):
 
 def rep_end_variants(sp):
     """All reported wordings for each adverbial, as lists of (pos, text) combos."""
+    # a time word that stays as in the direct speech (today, tomorrow, here) is never marked wrong
     combos = [[]]
     for a in sp['advs']:
-        combos = [c + [(a['pos'], r)] for c in combos for r in a['R']]
+        alts = list(dict.fromkeys(a['R'] + a['D']))
+        combos = [c + [(a['pos'], r)] for c in combos for r in alts]
     return combos
 
 
@@ -689,9 +691,10 @@ def key_for_d2r(sp):
                         if pre == 'that ':
                             out.append('that ' + c1 + ' but that ' + c2)
                 continue
-            core = build_reported(sp, rt, advR=combo)
-            for pre in that_variants(sp):
-                out.append(pre + core)
+            for osh in ((True, False) if sp['pred']['sh'] else (True,)):
+                core = build_reported(sp, rt, advR=combo, oshift=osh)
+                for pre in that_variants(sp):
+                    out.append(pre + core)
     seen, res = set(), []
     for x in out:
         if x not in seen:
@@ -729,7 +732,7 @@ def key_for_r2d(sp, rt, advR):
     # direct wording alternatives for every shown reported wording
     d_alts = []
     for a, (pos, rtext) in zip(sp['advs'], advR):
-        d_alts.append([(pos, d) for d in a['D']])
+        d_alts.append([(pos, d) for d in dict.fromkeys(a['D'] + a['R'])])
     combos = [[]]
     for alts in d_alts:
         combos = [c + [x] for c in combos for x in alts]
@@ -746,7 +749,8 @@ def key_for_r2d(sp, rt, advR):
                     texts.add(c1 + ', but ' + c2)
                     texts.add(c1 + ', but ' + c2[len(sv[0]) + 1:])
                 else:
-                    texts.add(build_direct(sp, t, subj_v=sv, advD=combo))
+                    for osh in ((False, True) if sp['pred']['sh'] else (False,)):
+                        texts.add(build_direct(sp, t, subj_v=sv, advD=combo, oshift=osh))
     return sorted(texts)
 
 
@@ -919,7 +923,7 @@ def cmd_direct_variants(sp):
     """Accepted direct wording for a reported command."""
     c = sp['cmd']
     base = cmd_fill(c['base'], True, sp)
-    tails = [(' ' + x) for x in [sp['adv'][0]]] if sp['adv'] else ['']
+    tails = [(' ' + x) for x in dict.fromkeys([sp['adv'][0]] + sp['adv'][1])] if sp['adv'] else ['']
     out = []
     for tl in tails:
         b = base + tl
@@ -945,7 +949,7 @@ def cmd_direct_variants(sp):
 def cmd_reported_variants(sp):
     c = sp['cmd']
     base = cmd_fill(c['base'], False, sp)
-    advs = [sp['adv'][1]] if False else (sp['adv'][1] if sp['adv'] else [None])
+    advs = list(dict.fromkeys(sp['adv'][1] + [sp['adv'][0]])) if sp['adv'] else [None]
     outs = []
     for a in advs:
         tail = (' ' + a) if a else ''
@@ -995,6 +999,210 @@ def item_cmd_fix(sp):
     return {'q': 'Correct the mistake: ' + wrong, 'a': [[head + ' ' + x + '.' for x in cmd_reported_variants(sp)]]}
 
 
+
+# ---------------------------------------------------------------- modal verbs
+MOD_ADVS = [
+    A(['mod'], ['tomorrow'], ['the next day', 'the following day'], ok=['mod'], shift=True),
+    A(['mod'], ['tonight'], ['that night'], ok=['mod'], shift=True),
+    A(['mod'], ['next week'], ['the following week', 'the week after', 'the next week'], ok=['mod'], shift=True),
+    A(['mod'], ['today'], ['that day'], ok=['mod'], shift=True),
+    A(['mod'], ['after school'], ['after school'], ok=['mod']), A(['mod'], ['at the weekend'], ['at the weekend'], ok=['mod']),
+]
+DEF_OPTS = {('s', 'aff'), ('s', 'neg'), ('yn', 'aff'), ('wh', 'aff')}
+MOD_OPTS = {m: DEF_OPTS for m in ['can', 'could', 'may', 'might', 'must', 'haveto', 'hadto', 'should', 'would', 'will',
+                                  'shouldhave', 'couldhave', 'mighthave', 'wouldhave']}
+MOD_OPTS['ought'] = {('s', 'aff')}
+MOD_OPTS['shall'] = {('yn', 'aff'), ('wh', 'aff')}
+MOD_OPTS['mayperm'] = {('yn', 'aff')}
+MOD_IW = ('shall', 'mayperm')  # only with I / we
+MOD_EASY = ['can', 'can', 'could', 'should', 'must', 'haveto', 'will', 'would']
+MOD_MED = MOD_EASY + ['may', 'might', 'ought', 'shall', 'mayperm', 'hadto', 'can', 'must']
+MOD_HARD = MOD_MED + ['shouldhave', 'couldhave', 'mighthave', 'wouldhave']
+R_FOR_M = {
+    'can': ['could', 'wasable'], 'could': ['could'], 'may': ['might', 'may'], 'might': ['might'],
+    'must': ['hadto', 'must'], 'haveto': ['hadto'], 'hadto': ['hadto'], 'should': ['should'], 'ought': ['ought'],
+    'would': ['would'], 'will': ['would'], 'shall': ['should'], 'mayperm': ['could', 'might'],
+    'shouldhave': ['shouldhave'], 'couldhave': ['couldhave'], 'mighthave': ['mighthave'], 'wouldhave': ['wouldhave'],
+}
+D_TOK = {'can': ('can', "can't"), 'could': ('could', "couldn't"), 'may': ('may', 'may not'), 'might': ('might', 'might not'),
+         'must': ('must', "mustn't"), 'should': ('should', "shouldn't"), 'would': ('would', "wouldn't"), 'will': ('will', "won't"),
+         'shall': ('shall', "shan't"), 'mayperm': ('may', 'may not')}
+R_TOK = {'could': ('could', "couldn't"), 'might': ('might', 'might not'), 'may': ('may', 'may not'), 'must': ('must', "mustn't"),
+         'should': ('should', "shouldn't"), 'would': ('would', "wouldn't")}
+PERF = {'shouldhave': ('should', "shouldn't"), 'couldhave': ('could', "couldn't"), 'mighthave': ('might', 'might not'),
+        'wouldhave': ('would', "wouldn't")}
+
+
+def r_for(m, pol):
+    if m == 'must' and pol == 'neg':
+        return ['must']
+    return R_FOR_M[m]
+
+
+def mod_dchain(m, pol, p, q, pr):
+    base, pp = pr['v'], VERBS[pr['v']][2]
+    i = 1 if pol == 'neg' else 0
+    if m in D_TOK:
+        return [D_TOK[m][i]], base
+    if m == 'ought':
+        return ['ought'], 'to ' + base
+    if m in PERF:
+        return [PERF[m][i], 'have'], pp
+    if m == 'haveto':
+        if pol == 'aff' and not q:
+            return [], ('has to ' if p == '3s' else 'have to ') + base
+        a = 'does' if p == '3s' else 'do'
+        return [NEG[a] if pol == 'neg' else a], 'have to ' + base
+    if m == 'hadto':
+        if pol == 'aff' and not q:
+            return [], 'had to ' + base
+        return ["didn't" if pol == 'neg' else 'did'], 'have to ' + base
+    raise ValueError(m)
+
+
+def mod_rchain(rk, pol, p, pr):
+    base, pp = pr['v'], VERBS[pr['v']][2]
+    i = 1 if pol == 'neg' else 0
+    if rk in R_TOK:
+        return [R_TOK[rk][i]], base
+    if rk == 'ought':
+        return ['ought'], 'to ' + base
+    if rk in PERF:
+        return [PERF[rk][i], 'have'], pp
+    if rk == 'wasable':
+        return [NEG[be_past(p)] if pol == 'neg' else be_past(p)], 'able to ' + base
+    if rk == 'hadto':
+        if pol == 'aff':
+            return [], 'had to ' + base
+        return ["didn't"], 'have to ' + base
+    raise ValueError(rk)
+
+
+def build_mod_direct(sp, m, sv, advD, oshift=False):
+    stext, _, sposs, p = sv
+    kind, pr = sp['kind'], sp['pred']
+    q = kind in ('yn', 'wh')
+    end = next((x for pos, x in advD if pos == 'end'), None)
+    body = '' if (kind == 'wh' and sp['wh'] in ('what', 'where')) else obj_text(sp, pr, sposs, oshift)
+    aux, main = mod_dchain(m, sp['pol'], p, q, pr)
+    s = assemble(stext, aux, main, body, None, end, q)
+    if kind == 'wh':
+        s = sp['wh'] + ' ' + s
+    return cap(s) + ('?' if q else '')
+
+
+def build_mod_reported(sp, rk, advR, oshift=True):
+    stext, sposs, p = r_subject(sp)
+    kind, pr = sp['kind'], sp['pred']
+    end = next((x for pos, x in advR if pos == 'end'), None)
+    body = '' if (kind == 'wh' and sp['wh'] in ('what', 'where')) else obj_text(sp, pr, sposs, oshift)
+    aux, main = mod_rchain(rk, sp['pol'], p, pr)
+    s = assemble(stext, aux, main, body, None, end, False)
+    if kind == 'wh':
+        s = sp['wh'] + ' ' + s
+    return s
+
+
+def mod_applicable(m2, sp):
+    if (sp['kind'], sp['pol']) not in MOD_OPTS[m2]:
+        return False
+    if m2 in MOD_IW and sp['dsub'] not in ('I', 'we'):
+        return False
+    return True
+
+
+def gen_mod_spec(level):
+    pool = MOD_EASY if level == 'easy' else MOD_MED if level == 'medium' else MOD_HARD
+    for _ in range(300):
+        m = RNG.choice(pool)
+        kd, pol = RNG.choice(sorted(MOD_OPTS[m]))
+        if level == 'easy' and kd == 'wh':
+            continue
+        opp = lambda S: 'f' if S['g'] == 'm' else 'm'
+        S = person(kin=True)
+        A_ = None
+        if m in MOD_IW:
+            dsub = RNG.choice(['I', 'we'])
+        elif kd == 's':
+            dsub = RNG.choice(['I', 'we', 'third', 'you', 'I'])
+        else:
+            dsub = RNG.choice(['you', 'you', 'I', 'third'])
+        if dsub == 'you' or RNG.random() < .3:
+            A_ = 'me' if (level != 'easy' and RNG.random() < .3) else person(exclude=[S['n']], g=opp(S))
+        if dsub == 'we' and A_ == 'me':
+            continue
+        third = None
+        if dsub == 'third':
+            ex = [S['n']] + ([A_['n']] if isinstance(A_, dict) else [])
+            third = {'n': RNG.choice(['my parents', 'the students', 'my friends']), 'pl': True} if RNG.random() < .2 else person(exclude=ex)
+        pr = RNG.choice([x for x in PREDS if level != 'easy' or not x['sh']])
+        wh = None
+        if kd == 'wh':
+            wh = RNG.choice(['why'] + (['what', 'what'] if pr['what'] else []) + (['where', 'where'] if pr['where'] else []))
+        advs = []
+        if kd != 'wh' and level != 'easy' and RNG.random() < .6:
+            advs = [RNG.choice(MOD_ADVS)]
+        if kd == 'wh' and level != 'easy' and RNG.random() < .4:
+            advs = [RNG.choice(MOD_ADVS)]
+        if m in PERF:
+            advs = []
+        sp = Spec(level=level, tense='mod', m=m, S=S, A=A_, dsub=dsub, third=third, pol=pol, kind=kd, wh=wh, pred=pr,
+                  advs=advs, comp=None, rv='')
+        if kd == 's':
+            if sp['A'] is not None:
+                sp['rv'] = 'told'
+            else:
+                sp['rv'] = RNG.choice(STMT_EASY if level == 'easy' else STMT_VERBS)
+                if sp['rv'] == 'told':
+                    sp['A'] = person(exclude=[S['n']] + ([third['n']] if third else []), g=opp(S))
+        else:
+            if sp['A'] is None:
+                sp['rv'] = RNG.choice(['asked', 'wanted to know', 'wondered'])
+                if sp['rv'] == 'asked' and RNG.random() < .5:
+                    sp['A'] = person(exclude=[S['n']] + ([third['n']] if third else []), g=opp(S))
+            else:
+                sp['rv'] = 'asked'
+        if third and isinstance(sp['A'], dict) and third['n'] == sp['A']['n']:
+            continue
+        return sp
+    raise RuntimeError('no mod spec')
+
+
+def mod_key_d2r(sp):
+    out = []
+    for rk in r_for(sp['m'], sp['pol']):
+        for combo in rep_end_variants(sp):
+            for osh in ((True, False) if sp['pred']['sh'] else (True,)):
+                core = build_mod_reported(sp, rk, combo, osh)
+                for pre in that_variants(sp):
+                    out.append(pre + core)
+    return list(dict.fromkeys(out))
+
+
+def item_mod(sp, direction):
+    head = clause_head(sp)
+    if direction == 'd2r':
+        order = RNG.choice('AB')
+        d = build_mod_direct(sp, sp['m'], d_subject_variants(sp)[0], [(a['pos'], a['D'][0]) for a in sp['advs']])
+        return {'q': 'Direct → reported: ' + render_direct_quote(sp, d, order) + ' ' + head + ' ___.', 'a': [mod_key_d2r(sp)]}
+    rk = r_for(sp['m'], sp['pol'])[0]
+    advR = [(a['pos'], RNG.choice(a['R'])) for a in sp['advs']]
+    core = build_mod_reported(sp, rk, advR)
+    pre = RNG.choice(['', 'that ']) if sp['kind'] == 's' else (RNG.choice(['if ', 'whether ']) if sp['kind'] == 'yn' else '')
+    cands = [m2 for m2 in MOD_OPTS if mod_applicable(m2, sp) and rk in r_for(m2, sp['pol'])]
+    combos = [[]]
+    for a, (pos, _) in zip(sp['advs'], advR):
+        combos = [c + [(pos, d)] for c in combos for d in dict.fromkeys(a['D'] + a['R'])]
+    texts = set()
+    for m2 in cands:
+        for sv in d_subject_variants(sp):
+            for combo in combos:
+                for osh in ((False, True) if sp['pred']['sh'] else (False,)):
+                    texts.add(build_mod_direct(sp, m2, sv, combo, osh))
+    q = 'Reported → direct: ' + head + ' ' + pre + core + '. ' + blank_direct(sp, RNG.choice('AB'))
+    return {'q': q, 'a': [sorted(texts)]}
+
+
 # ---------------------------------------------------------------- assembling the topics
 def uniq(items, n):
     seen, out = set(), []
@@ -1006,13 +1214,19 @@ def uniq(items, n):
     return out[:n]
 
 
-def pool_for(level, tenses, mode, cmds=0.0, kinds=None, shift_only=False, fixes=True, n=PER_LEVEL):
+def pool_for(level, tenses, mode, cmds=0.0, kinds=None, shift_only=False, fixes=True, n=PER_LEVEL, mods=0.0, only_mods=False):
     items = []
     tries = 0
     while len(items) < n * 2 and tries < n * 40:
         tries += 1
         r = RNG.random()
         d = mode if mode in ('d2r', 'r2d') else RNG.choice(['d2r', 'r2d'])
+        if only_mods or (mods and RNG.random() < mods):
+            try:
+                items.append(item_mod(gen_mod_spec(level), d))
+            except RuntimeError:
+                pass
+            continue
         if cmds and r < cmds:
             try:
                 sp = gen_cmd(level, shift_only)
@@ -1057,12 +1271,13 @@ TOPICS = [
     ('drs-future-continuous', 'Future continuous', 'Future', dict(tenses=['fc'], mode='both')),
     ('drs-future-perfect', 'Future perfect', 'Future', dict(tenses=['fp'], mode='both')),
     ('drs-future-perfect-continuous', 'Future perfect continuous', 'Future', dict(tenses=['fpc'], mode='both')),
+    ('drs-modals', 'Modal verbs (can, must, may, should, will)', 'Modals', dict(tenses=ALLT, mode='both', only_mods=True)),
     ('drs-questions', 'Reported questions (if, whether, wh-)', 'Questions, commands, time words', dict(tenses=ALLT, mode='both', kinds='Q')),
     ('drs-commands', 'Commands and requests', 'Questions, commands, time words', dict(tenses=ALLT, mode='both', cmds=1.0)),
     ('drs-time-place', 'Time and place words', 'Questions, commands, time words', dict(tenses=ALLT, mode='both', shift_only=True, cmds=.25)),
-    ('drs-direct-to-reported', 'Direct to reported (all tenses)', 'Mixed', dict(tenses=ALLT, mode='d2r', cmds=.2)),
-    ('drs-reported-to-direct', 'Reported to direct (all tenses)', 'Mixed', dict(tenses=ALLT, mode='r2d', cmds=.2)),
-    ('drs-mixed', 'Everything mixed', 'Mixed', dict(tenses=ALLT, mode='both', cmds=.2)),
+    ('drs-direct-to-reported', 'Direct to reported (all tenses)', 'Mixed', dict(tenses=ALLT, mode='d2r', cmds=.2, mods=.1)),
+    ('drs-reported-to-direct', 'Reported to direct (all tenses)', 'Mixed', dict(tenses=ALLT, mode='r2d', cmds=.2, mods=.1)),
+    ('drs-mixed', 'Everything mixed', 'Mixed', dict(tenses=ALLT, mode='both', cmds=.2, mods=.1)),
 ]
 GROUP_ID = 'direct-reported-speech'
 GROUP_NAME = 'Direct and reported speech (all tenses)'
@@ -1096,7 +1311,7 @@ def build_topic(tid, name, kw):
             RNG.shuffle(items)
             levels[lv] = items
         else:
-            levels[lv] = pool_for(lv, kw['tenses'], kw['mode'], cmds=kw.get('cmds', 0.0), shift_only=kw.get('shift_only', False))
+            levels[lv] = pool_for(lv, kw['tenses'], kw['mode'], cmds=kw.get('cmds', 0.0), shift_only=kw.get('shift_only', False), mods=kw.get('mods', 0.0), only_mods=kw.get('only_mods', False))
     return {'id': tid, 'name': 'Direct and reported speech: ' + name.lower() if False else name, 'levels': levels}
 
 
