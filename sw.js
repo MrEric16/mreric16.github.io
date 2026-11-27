@@ -7,7 +7,7 @@
 // win on the first load after a change. Network-first means you always get the latest push
 // immediately when there's a connection; the cache only kicks in when there's genuinely none.
 
-const CACHE_NAME = 'erics-lounge-v226';
+const CACHE_NAME = 'erics-lounge-v227';
 const SHELL_FILES = [
   './',
   './index.html',
@@ -37,6 +37,25 @@ const SHELL_FILES = [
   './sounds/me-donkey-3.mp3',
   './sounds/me-donkey-4.mp3',
   './sounds/me-donkey-5.mp3',
+  './sounds/me-monkey-7.mp3',
+  './sounds/me-monkey-8.mp3',
+  './sounds/me-monkey-9.mp3',
+  './sounds/me-monkey-10.mp3',
+  './sounds/me-monkey-11.mp3',
+  './sounds/me-monkey-12.mp3',
+  './sounds/me-monkey-13.mp3',
+  './sounds/me-monkey-14.mp3',
+  './sounds/me-monkey-15.mp3',
+  './sounds/me-monkey-16.mp3',
+  './sounds/me-monkey-17.mp3',
+  './sounds/me-monkey-18.mp3',
+  './sounds/me-donkey-6.mp3',
+  './sounds/me-donkey-7.mp3',
+  './sounds/me-donkey-8.mp3',
+  './sounds/me-donkey-9.mp3',
+  './sounds/me-donkey-10.mp3',
+  './sounds/me-donkey-11.mp3',
+  './sounds/me-donkey-12.mp3',
   './writing-hub.html',
   './writing-models.html',
   './writing-band9.html',

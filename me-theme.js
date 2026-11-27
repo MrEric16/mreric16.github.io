@@ -33,8 +33,8 @@
   }
   /* real recorded samples (sounds/me-monkey.mp3, sounds/me-donkey.mp3), decoded once and played through Web Audio */
   var bufs = {}, loading = {}, lastPick = { good: -1, bad: -1 };
-  var VARIANTS = { good: ['sounds/me-monkey-1.mp3','sounds/me-monkey-2.mp3','sounds/me-monkey-3.mp3','sounds/me-monkey-4.mp3','sounds/me-monkey-5.mp3','sounds/me-monkey-6.mp3'],
-                   bad:  ['sounds/me-donkey-1.mp3','sounds/me-donkey-2.mp3','sounds/me-donkey-3.mp3','sounds/me-donkey-4.mp3','sounds/me-donkey-5.mp3'] };
+  var VARIANTS = { good: ['sounds/me-monkey-1.mp3','sounds/me-monkey-2.mp3','sounds/me-monkey-3.mp3','sounds/me-monkey-4.mp3','sounds/me-monkey-5.mp3','sounds/me-monkey-6.mp3','sounds/me-monkey-7.mp3','sounds/me-monkey-8.mp3','sounds/me-monkey-9.mp3','sounds/me-monkey-10.mp3','sounds/me-monkey-11.mp3','sounds/me-monkey-12.mp3','sounds/me-monkey-13.mp3','sounds/me-monkey-14.mp3','sounds/me-monkey-15.mp3','sounds/me-monkey-16.mp3','sounds/me-monkey-17.mp3','sounds/me-monkey-18.mp3'],
+                   bad:  ['sounds/me-donkey-1.mp3','sounds/me-donkey-2.mp3','sounds/me-donkey-3.mp3','sounds/me-donkey-4.mp3','sounds/me-donkey-5.mp3','sounds/me-donkey-6.mp3','sounds/me-donkey-7.mp3','sounds/me-donkey-8.mp3','sounds/me-donkey-9.mp3','sounds/me-donkey-10.mp3','sounds/me-donkey-11.mp3','sounds/me-donkey-12.mp3'] };
   var GAIN = { good: 1.1, bad: 1.6 };
   function base(){ try{ var sc = document.querySelector('script[src$="me-theme.js"]'); return sc ? sc.src.replace(/me-theme\.js.*$/, '') : ''; }catch(e){ return ''; } }
   function load(file, cb){
