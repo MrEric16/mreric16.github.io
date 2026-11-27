@@ -46,6 +46,14 @@ let fails = 0; const ok = (c, m) => { if (!c) { fails++; console.log('FAIL', m);
   ok(d.names.join() === 'true,true,true,false,false,false', 'name filter: ' + d.names.join());
   const rollover = await p.evaluate(() => { const real = Date.now; const day = t => { Date.now = () => t; const k = window.DAILY.dayKey(); Date.now = real; return k; }; return [day(Date.UTC(2026, 10, 10, 18, 57)), day(Date.UTC(2026, 10, 10, 18, 59))]; });
   ok(rollover[0] === '2026-11-10' && rollover[1] === '2026-11-11', 'rollover at 23:59 Tashkent ' + rollover.join());
+  // Safina (French conjugation): nous never accepts a singular participle, plural is listed first for nous and vous, no mangled participles
+  { const V = JSON.parse(require('fs').readFileSync(__dirname + '/../data/safina/verbs.json', 'utf8')); const bad = [];
+    V.forEach(r => Object.keys(r.f).forEach(t => { const nous = r.f[t][3].split('/'), vous = r.f[t][4].split('/'), cmp = ['pc','pqp','pa','fa','cpa','spa','spp'].includes(t);
+      if (nous.some(x => nous.includes(x + 's'))) bad.push(r.v + ' ' + t + ' nous has singular ' + nous);
+      if (cmp && nous.length > 1 && nous[0].includes(' ') && !/s$/.test(nous[0])) bad.push(r.v + ' ' + t + ' nous first not plural ' + nous);
+      if (cmp && vous.length > 1 && vous[0].includes(' ') && !/s$/.test(vous[0])) bad.push(r.v + ' ' + t + ' vous first not plural ' + vous);
+      nous.concat(vous).forEach(x => { if (/(ss|assies)$/.test(x.split(' ').pop())) bad.push(r.v + ' ' + t + ' mangled ' + x); }); }));
+    ok(!bad.length, 'French verbs: nous plural only, plural first, no mangled participles ' + bad.slice(0, 3).join(' | ')); }
   await b.close(); server.close();
   console.log(fails ? fails + ' FAILED' : 'ALL PASSED'); process.exit(fails ? 1 : 0);
 })().catch(e => { console.log('CRASH', e.message); process.exit(1); });

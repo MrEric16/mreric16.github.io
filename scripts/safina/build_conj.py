@@ -21,13 +21,28 @@ def etre():
                     for c in x['c']:
                         _ETRE.add(STRIP.sub('',c).strip())
     return _ETRE
-def variants(a):
+_PP={}
+def pp(inf):
+    """masculine singular past participle, taken from the 'il' passé composé"""
+    if inf not in _PP:
+        _PP[inf]=None
+        for x in moods(inf)['indicatif']['passé-composé']:
+            if x['pr']=='il':
+                _PP[inf]=STRIP.sub('',x['c'][0]).strip().split(' ')[-1]; break
+    return _PP[inf]
+def variants(a,pr='nous',inf=None):
     w=a.split(' ')
     if len(w)<2 or w[-2] not in etre(): return [a]
-    p=w[-1];base=p
-    for suf in ('es','e','s'):
-        if p.endswith(suf) and len(p)>len(suf)+1: base=p[:-len(suf)];break
-    return [' '.join(w[:-1]+[base+x]) for x in ('','e','s','es')]
+    base=pp(inf) if inf else None
+    if not base or not w[-1].startswith(base[:-1]): return [a]
+    m_pl=base if base[-1] in 'sx' else base+'s'
+    # nous = several people: plural agreement only. vous = plural first, singular (polite vous) also correct.
+    ends=[m_pl,base+'es'] if pr=='nous' else [m_pl,base+'es',base,base+'e']
+    out=[]
+    for e in ends:
+        v=' '.join(w[:-1]+[e])
+        if v not in out: out.append(v)
+    return out
 def forms(inf,t,pr):
     m,te=TENSE[t]
     out=[]
@@ -35,7 +50,7 @@ def forms(inf,t,pr):
         if x['pr']==pr:
             for c in x['c']:
                 a=STRIP.sub('',c).strip()
-                for v in (variants(a) if pr in ('nous','vous') else [a]):
+                for v in (variants(a,pr,inf) if pr in ('nous','vous') else [a]):
                     if v not in out: out.append(v)
     return out
 if __name__=='__main__':
