@@ -1,29 +1,6 @@
 {
-  "generatedAt": "2026-11-26T20:47:03.670638Z",
+  "generatedAt": "2026-11-27T03:25:12.058484Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/augsburg-vs-union-berlin/c7LBH73h2DdqUUTEEDb-v",
-      "date": "2026-10-24",
-      "home": "Augsburg",
-      "away": "Union Berlin",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 1,
-      "homeGoals": [
-        {
-          "scorer": "H. Massengo",
-          "minute": 71
-        }
-      ],
-      "awayGoals": [
-        {
-          "scorer": "J. Haberer",
-          "minute": 74
-        }
-      ],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/paderborn-vs-hamburger-sv/LPsziMEWKWihjBx_7KG2n",
       "date": "2026-10-24",
@@ -7682,6 +7659,41 @@
         }
       ],
       "competition": "dortmund"
+    },
+    {
+      "url": "https://www.goal.com/en/match/juventus-vs-omonia-nicosia/aKGeFDOsMEe6j-hyqbroy",
+      "date": "2026-11-26",
+      "home": "Juventus",
+      "away": "Omonia Nicosia",
+      "htHome": 2,
+      "htAway": 1,
+      "ftHome": 4,
+      "ftAway": 1,
+      "homeGoals": [
+        {
+          "scorer": "A. Cambiaso",
+          "minute": 37
+        },
+        {
+          "scorer": "J. Ekhator",
+          "minute": 43
+        },
+        {
+          "scorer": "C. Conceicao",
+          "minute": 68
+        },
+        {
+          "scorer": "J. Boga",
+          "minute": 72
+        }
+      ],
+      "awayGoals": [
+        {
+          "scorer": "L. Satka",
+          "minute": 16
+        }
+      ],
+      "competition": "juventus"
     }
   ],
   "scorerParseRetryCounts": {
