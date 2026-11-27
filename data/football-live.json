@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T14:43:39.751370Z",
+  "generatedAt": "2026-11-27T22:59:22.814556Z",
   "standings": {
     "PL": [
       {
@@ -74,12 +74,12 @@
       },
       {
         "name": "Chelsea",
-        "pld": 11,
+        "pld": 12,
         "w": 5,
         "d": 1,
-        "l": 5,
-        "gf": 20,
-        "ga": 20,
+        "l": 6,
+        "gf": 22,
+        "ga": 23,
         "pts": 16
       },
       {
@@ -133,6 +133,16 @@
         "pts": 13
       },
       {
+        "name": "Nottingham",
+        "pld": 12,
+        "w": 3,
+        "d": 3,
+        "l": 6,
+        "gf": 12,
+        "ga": 17,
+        "pts": 12
+      },
+      {
         "name": "Coventry City",
         "pld": 11,
         "w": 4,
@@ -161,16 +171,6 @@
         "gf": 15,
         "ga": 22,
         "pts": 11
-      },
-      {
-        "name": "Nottingham",
-        "pld": 11,
-        "w": 2,
-        "d": 3,
-        "l": 6,
-        "gf": 9,
-        "ga": 15,
-        "pts": 9
       },
       {
         "name": "Sunderland",
@@ -255,6 +255,16 @@
         "pts": 22
       },
       {
+        "name": "Santander",
+        "pld": 14,
+        "w": 6,
+        "d": 2,
+        "l": 6,
+        "gf": 23,
+        "ga": 33,
+        "pts": 20
+      },
+      {
         "name": "Sevilla FC",
         "pld": 13,
         "w": 5,
@@ -263,16 +273,6 @@
         "gf": 18,
         "ga": 20,
         "pts": 19
-      },
-      {
-        "name": "Santander",
-        "pld": 13,
-        "w": 5,
-        "d": 2,
-        "l": 6,
-        "gf": 20,
-        "ga": 32,
-        "pts": 17
       },
       {
         "name": "Athletic",
@@ -346,12 +346,12 @@
       },
       {
         "name": "Levante",
-        "pld": 13,
+        "pld": 14,
         "w": 2,
         "d": 6,
-        "l": 5,
-        "gf": 17,
-        "ga": 22,
+        "l": 6,
+        "gf": 18,
+        "ga": 25,
         "pts": 12
       },
       {
@@ -458,13 +458,13 @@
       },
       {
         "name": "Bremen",
-        "pld": 10,
+        "pld": 11,
         "w": 5,
-        "d": 3,
+        "d": 4,
         "l": 2,
-        "gf": 21,
-        "ga": 15,
-        "pts": 18
+        "gf": 24,
+        "ga": 18,
+        "pts": 19
       },
       {
         "name": "Frankfurt",
@@ -578,13 +578,13 @@
       },
       {
         "name": "M'gladbach",
-        "pld": 10,
+        "pld": 11,
         "w": 1,
-        "d": 1,
+        "d": 2,
         "l": 8,
-        "gf": 12,
-        "ga": 26,
-        "pts": 4
+        "gf": 15,
+        "ga": 29,
+        "pts": 5
       }
     ],
     "SA": [
@@ -659,6 +659,16 @@
         "pts": 20
       },
       {
+        "name": "Bologna",
+        "pld": 13,
+        "w": 5,
+        "d": 4,
+        "l": 4,
+        "gf": 17,
+        "ga": 15,
+        "pts": 19
+      },
+      {
         "name": "Napoli",
         "pld": 12,
         "w": 5,
@@ -666,16 +676,6 @@
         "l": 4,
         "gf": 19,
         "ga": 14,
-        "pts": 18
-      },
-      {
-        "name": "Bologna",
-        "pld": 12,
-        "w": 5,
-        "d": 3,
-        "l": 4,
-        "gf": 17,
-        "ga": 15,
         "pts": 18
       },
       {
@@ -769,6 +769,16 @@
         "pts": 8
       },
       {
+        "name": "Venezia FC",
+        "pld": 13,
+        "w": 2,
+        "d": 1,
+        "l": 10,
+        "gf": 8,
+        "ga": 25,
+        "pts": 7
+      },
+      {
         "name": "Udinese",
         "pld": 12,
         "w": 1,
@@ -776,16 +786,6 @@
         "l": 8,
         "gf": 13,
         "ga": 26,
-        "pts": 6
-      },
-      {
-        "name": "Venezia FC",
-        "pld": 12,
-        "w": 2,
-        "d": 0,
-        "l": 10,
-        "gf": 8,
-        "ga": 25,
         "pts": 6
       }
     ],
@@ -802,13 +802,23 @@
       },
       {
         "name": "Paris FC",
-        "pld": 11,
+        "pld": 12,
         "w": 7,
         "d": 2,
-        "l": 2,
+        "l": 3,
         "gf": 21,
-        "ga": 10,
+        "ga": 11,
         "pts": 23
+      },
+      {
+        "name": "Brest",
+        "pld": 12,
+        "w": 6,
+        "d": 3,
+        "l": 3,
+        "gf": 20,
+        "ga": 12,
+        "pts": 21
       },
       {
         "name": "Lille",
@@ -838,16 +848,6 @@
         "l": 5,
         "gf": 24,
         "ga": 17,
-        "pts": 18
-      },
-      {
-        "name": "Brest",
-        "pld": 11,
-        "w": 5,
-        "d": 3,
-        "l": 3,
-        "gf": 19,
-        "ga": 12,
         "pts": 18
       },
       {
@@ -973,363 +973,363 @@
     ],
     "CL": [
       {
-        "name": "PSG",
-        "pld": 4,
-        "w": 4,
+        "name": "Real Madrid",
+        "pld": 5,
+        "w": 5,
         "d": 0,
         "l": 0,
+        "gf": 18,
+        "ga": 8,
+        "pts": 15
+      },
+      {
+        "name": "PSG",
+        "pld": 5,
+        "w": 4,
+        "d": 1,
+        "l": 0,
+        "gf": 22,
+        "ga": 7,
+        "pts": 13
+      },
+      {
+        "name": "Como 1907",
+        "pld": 5,
+        "w": 4,
+        "d": 0,
+        "l": 1,
         "gf": 20,
-        "ga": 5,
+        "ga": 6,
         "pts": 12
       },
       {
-        "name": "Real Madrid",
-        "pld": 4,
+        "name": "Barça",
+        "pld": 5,
         "w": 4,
         "d": 0,
-        "l": 0,
-        "gf": 13,
+        "l": 1,
+        "gf": 18,
         "ga": 7,
         "pts": 12
+      },
+      {
+        "name": "Liverpool",
+        "pld": 5,
+        "w": 4,
+        "d": 0,
+        "l": 1,
+        "gf": 17,
+        "ga": 10,
+        "pts": 12
+      },
+      {
+        "name": "Real Betis",
+        "pld": 5,
+        "w": 4,
+        "d": 0,
+        "l": 1,
+        "gf": 10,
+        "ga": 6,
+        "pts": 12
+      },
+      {
+        "name": "Arsenal",
+        "pld": 5,
+        "w": 3,
+        "d": 2,
+        "l": 0,
+        "gf": 9,
+        "ga": 4,
+        "pts": 11
+      },
+      {
+        "name": "Man City",
+        "pld": 5,
+        "w": 3,
+        "d": 1,
+        "l": 1,
+        "gf": 14,
+        "ga": 9,
+        "pts": 10
+      },
+      {
+        "name": "Sporting CP",
+        "pld": 5,
+        "w": 3,
+        "d": 1,
+        "l": 1,
+        "gf": 10,
+        "ga": 6,
+        "pts": 10
+      },
+      {
+        "name": "Dortmund",
+        "pld": 5,
+        "w": 3,
+        "d": 1,
+        "l": 1,
+        "gf": 8,
+        "ga": 6,
+        "pts": 10
       },
       {
         "name": "Aston Villa",
         "pld": 5,
         "w": 3,
-        "d": 1,
-        "l": 1,
-        "gf": 12,
-        "ga": 6,
-        "pts": 10
-      },
-      {
-        "name": "Arsenal",
-        "pld": 4,
-        "w": 3,
-        "d": 1,
-        "l": 0,
-        "gf": 8,
-        "ga": 3,
-        "pts": 10
-      },
-      {
-        "name": "Como 1907",
-        "pld": 4,
-        "w": 3,
         "d": 0,
-        "l": 1,
-        "gf": 19,
-        "ga": 6,
-        "pts": 9
-      },
-      {
-        "name": "Barça",
-        "pld": 4,
-        "w": 3,
-        "d": 0,
-        "l": 1,
-        "gf": 14,
-        "ga": 6,
-        "pts": 9
-      },
-      {
-        "name": "Man City",
-        "pld": 4,
-        "w": 3,
-        "d": 0,
-        "l": 1,
+        "l": 2,
         "gf": 12,
         "ga": 7,
         "pts": 9
       },
       {
-        "name": "Liverpool",
-        "pld": 4,
+        "name": "Inter",
+        "pld": 5,
         "w": 3,
         "d": 0,
-        "l": 1,
-        "gf": 14,
-        "ga": 10,
+        "l": 2,
+        "gf": 10,
+        "ga": 6,
         "pts": 9
       },
       {
         "name": "Club Brugge",
-        "pld": 4,
+        "pld": 5,
         "w": 3,
         "d": 0,
-        "l": 1,
+        "l": 2,
         "gf": 11,
-        "ga": 7,
+        "ga": 10,
         "pts": 9
       },
       {
-        "name": "Sporting CP",
-        "pld": 4,
+        "name": "Galatasaray",
+        "pld": 5,
         "w": 3,
         "d": 0,
-        "l": 1,
-        "gf": 8,
-        "ga": 4,
-        "pts": 9
-      },
-      {
-        "name": "Real Betis",
-        "pld": 4,
-        "w": 3,
-        "d": 0,
-        "l": 1,
-        "gf": 8,
-        "ga": 6,
-        "pts": 9
-      },
-      {
-        "name": "Dortmund",
-        "pld": 4,
-        "w": 3,
-        "d": 0,
-        "l": 1,
-        "gf": 7,
-        "ga": 5,
+        "l": 2,
+        "gf": 9,
+        "ga": 9,
         "pts": 9
       },
       {
         "name": "Bayern",
-        "pld": 4,
+        "pld": 5,
         "w": 2,
         "d": 2,
-        "l": 0,
-        "gf": 12,
-        "ga": 5,
+        "l": 1,
+        "gf": 13,
+        "ga": 7,
+        "pts": 8
+      },
+      {
+        "name": "Fenerbahçe",
+        "pld": 5,
+        "w": 2,
+        "d": 2,
+        "l": 1,
+        "gf": 7,
+        "ga": 11,
         "pts": 8
       },
       {
         "name": "Stuttgart",
-        "pld": 4,
+        "pld": 5,
         "w": 2,
         "d": 1,
-        "l": 1,
+        "l": 2,
         "gf": 7,
-        "ga": 4,
+        "ga": 6,
+        "pts": 7
+      },
+      {
+        "name": "Atleti",
+        "pld": 5,
+        "w": 2,
+        "d": 1,
+        "l": 2,
+        "gf": 6,
+        "ga": 5,
+        "pts": 7
+      },
+      {
+        "name": "Man United",
+        "pld": 5,
+        "w": 2,
+        "d": 1,
+        "l": 2,
+        "gf": 10,
+        "ga": 10,
+        "pts": 7
+      },
+      {
+        "name": "Bodø/Glimt",
+        "pld": 5,
+        "w": 2,
+        "d": 1,
+        "l": 2,
+        "gf": 5,
+        "ga": 9,
         "pts": 7
       },
       {
         "name": "LASK",
         "pld": 5,
         "w": 2,
-        "d": 1,
-        "l": 2,
+        "d": 0,
+        "l": 3,
         "gf": 10,
-        "ga": 9,
-        "pts": 7
-      },
-      {
-        "name": "Galatasaray",
-        "pld": 5,
-        "w": 2,
-        "d": 1,
-        "l": 2,
-        "gf": 8,
-        "ga": 9,
-        "pts": 7
-      },
-      {
-        "name": "Inter",
-        "pld": 4,
-        "w": 2,
-        "d": 0,
-        "l": 2,
-        "gf": 8,
-        "ga": 6,
+        "ga": 10,
         "pts": 6
       },
       {
-        "name": "Man United",
-        "pld": 4,
+        "name": "Porto",
+        "pld": 5,
         "w": 2,
         "d": 0,
-        "l": 2,
-        "gf": 8,
-        "ga": 8,
+        "l": 3,
+        "gf": 7,
+        "ga": 7,
         "pts": 6
       },
       {
-        "name": "Fenerbahçe",
-        "pld": 4,
-        "w": 1,
-        "d": 2,
-        "l": 1,
-        "gf": 6,
-        "ga": 11,
-        "pts": 5
+        "name": "RB Leipzig",
+        "pld": 5,
+        "w": 2,
+        "d": 0,
+        "l": 3,
+        "gf": 8,
+        "ga": 12,
+        "pts": 6
       },
       {
-        "name": "Bodø/Glimt",
+        "name": "Villarreal",
         "pld": 5,
-        "w": 1,
-        "d": 2,
-        "l": 2,
-        "gf": 4,
-        "ga": 9,
-        "pts": 5
+        "w": 2,
+        "d": 0,
+        "l": 3,
+        "gf": 9,
+        "ga": 14,
+        "pts": 6
       },
       {
         "name": "Roma",
-        "pld": 4,
+        "pld": 5,
         "w": 1,
-        "d": 1,
+        "d": 2,
         "l": 2,
-        "gf": 10,
-        "ga": 8,
-        "pts": 4
+        "gf": 12,
+        "ga": 10,
+        "pts": 5
       },
       {
         "name": "Shaktar",
-        "pld": 4,
+        "pld": 5,
         "w": 1,
         "d": 1,
-        "l": 2,
-        "gf": 4,
-        "ga": 4,
-        "pts": 4
-      },
-      {
-        "name": "Viking",
-        "pld": 4,
-        "w": 1,
-        "d": 1,
-        "l": 2,
-        "gf": 9,
-        "ga": 10,
-        "pts": 4
-      },
-      {
-        "name": "Atleti",
-        "pld": 4,
-        "w": 1,
-        "d": 1,
-        "l": 2,
+        "l": 3,
         "gf": 4,
         "ga": 5,
         "pts": 4
       },
       {
-        "name": "PSV",
-        "pld": 4,
+        "name": "Viking",
+        "pld": 5,
         "w": 1,
         "d": 1,
-        "l": 2,
-        "gf": 3,
-        "ga": 4,
+        "l": 3,
+        "gf": 9,
+        "ga": 12,
         "pts": 4
       },
       {
-        "name": "Porto",
-        "pld": 4,
+        "name": "Napoli",
+        "pld": 5,
         "w": 1,
-        "d": 0,
+        "d": 1,
         "l": 3,
-        "gf": 6,
-        "ga": 7,
-        "pts": 3
+        "gf": 8,
+        "ga": 13,
+        "pts": 4
       },
       {
-        "name": "Napoli",
-        "pld": 4,
+        "name": "Lille",
+        "pld": 5,
         "w": 1,
-        "d": 0,
+        "d": 1,
         "l": 3,
         "gf": 6,
         "ga": 11,
-        "pts": 3
+        "pts": 4
       },
       {
-        "name": "Villarreal",
-        "pld": 4,
+        "name": "PSV",
+        "pld": 5,
         "w": 1,
-        "d": 0,
+        "d": 1,
         "l": 3,
-        "gf": 8,
-        "ga": 14,
-        "pts": 3
+        "gf": 4,
+        "ga": 9,
+        "pts": 4
       },
       {
         "name": "PAE AEK",
-        "pld": 4,
+        "pld": 5,
         "w": 1,
         "d": 0,
-        "l": 3,
+        "l": 4,
         "gf": 5,
-        "ga": 11,
-        "pts": 3
-      },
-      {
-        "name": "RB Leipzig",
-        "pld": 4,
-        "w": 1,
-        "d": 0,
-        "l": 3,
-        "gf": 5,
-        "ga": 11,
-        "pts": 3
-      },
-      {
-        "name": "Sabah FK",
-        "pld": 4,
-        "w": 1,
-        "d": 0,
-        "l": 3,
-        "gf": 4,
-        "ga": 10,
+        "ga": 12,
         "pts": 3
       },
       {
         "name": "Feyenoord",
-        "pld": 4,
+        "pld": 5,
         "w": 1,
         "d": 0,
-        "l": 3,
+        "l": 4,
         "gf": 4,
-        "ga": 11,
+        "ga": 12,
+        "pts": 3
+      },
+      {
+        "name": "Sabah FK",
+        "pld": 5,
+        "w": 1,
+        "d": 0,
+        "l": 4,
+        "gf": 5,
+        "ga": 14,
         "pts": 3
       },
       {
         "name": "RC Lens",
-        "pld": 4,
+        "pld": 5,
         "w": 1,
         "d": 0,
-        "l": 3,
-        "gf": 4,
-        "ga": 16,
+        "l": 4,
+        "gf": 5,
+        "ga": 19,
         "pts": 3
       },
       {
         "name": "Slavia Praha",
-        "pld": 4,
+        "pld": 5,
         "w": 0,
         "d": 1,
-        "l": 3,
+        "l": 4,
         "gf": 5,
-        "ga": 9,
-        "pts": 1
-      },
-      {
-        "name": "Lille",
-        "pld": 4,
-        "w": 0,
-        "d": 1,
-        "l": 3,
-        "gf": 4,
         "ga": 10,
         "pts": 1
       },
       {
         "name": "Sl. Bratislava",
-        "pld": 4,
+        "pld": 5,
         "w": 0,
         "d": 0,
-        "l": 4,
+        "l": 5,
         "gf": 1,
-        "ga": 17,
+        "ga": 19,
         "pts": 0
       }
     ]
@@ -1337,37 +1337,6 @@
   "matches": {
     "PL": {
       "fixtures": [
-        {
-          "utcDate": "2026-11-27T20:00:00Z",
-          "status": "TIMED",
-          "matchday": 12,
-          "homeTeam": {
-            "id": 351,
-            "name": "Nottingham Forest FC",
-            "shortName": "Nottingham"
-          },
-          "awayTeam": {
-            "id": 61,
-            "name": "Chelsea FC",
-            "shortName": "Chelsea"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Premier League"
-          },
-          "venue": null
-        },
         {
           "utcDate": "2026-11-28T15:00:00Z",
           "status": "TIMED",
@@ -1649,6 +1618,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-27T20:00:00Z",
+          "status": "FINISHED",
+          "matchday": 12,
+          "homeTeam": {
+            "id": 351,
+            "name": "Nottingham Forest FC",
+            "shortName": "Nottingham"
+          },
+          "awayTeam": {
+            "id": 61,
+            "name": "Chelsea FC",
+            "shortName": "Chelsea"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 3,
+              "away": 2
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Premier League"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-23T20:00:00Z",
           "status": "FINISHED",
@@ -2082,37 +2082,6 @@
             "name": "Premier League"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-11-08T14:00:00Z",
-          "status": "FINISHED",
-          "matchday": 10,
-          "homeTeam": {
-            "id": 397,
-            "name": "Brighton & Hove Albion FC",
-            "shortName": "Brighton Hove"
-          },
-          "awayTeam": {
-            "id": 402,
-            "name": "Brentford FC",
-            "shortName": "Brentford"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 0
-            },
-            "halfTime": {
-              "home": 2,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Premier League"
-          },
-          "venue": null
         }
       ]
     },
@@ -2151,6 +2120,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-27T20:00:00Z",
+          "status": "FINISHED",
+          "matchday": 14,
+          "homeTeam": {
+            "id": 88,
+            "name": "Levante UD",
+            "shortName": "Levante"
+          },
+          "awayTeam": {
+            "id": 5335,
+            "name": "Real Racing Club de Santander",
+            "shortName": "Santander"
+          },
+          "score": {
+            "winner": "AWAY_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 3
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Primera Division"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-23T20:00:00Z",
           "status": "FINISHED",
@@ -2584,73 +2584,11 @@
             "name": "Primera Division"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-11-08T13:00:00Z",
-          "status": "FINISHED",
-          "matchday": 12,
-          "homeTeam": {
-            "id": 285,
-            "name": "Elche CF",
-            "shortName": "Elche"
-          },
-          "awayTeam": {
-            "id": 90,
-            "name": "Real Betis Balompié",
-            "shortName": "Real Betis"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 0,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Primera Division"
-          },
-          "venue": null
         }
       ]
     },
     "BL1": {
       "fixtures": [
-        {
-          "utcDate": "2026-11-27T19:30:00Z",
-          "status": "TIMED",
-          "matchday": 11,
-          "homeTeam": {
-            "id": 12,
-            "name": "SV Werder Bremen",
-            "shortName": "Bremen"
-          },
-          "awayTeam": {
-            "id": 18,
-            "name": "Borussia Mönchengladbach",
-            "shortName": "M'gladbach"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
-        },
         {
           "utcDate": "2026-11-28T14:30:00Z",
           "status": "TIMED",
@@ -2901,6 +2839,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-27T19:30:00Z",
+          "status": "FINISHED",
+          "matchday": 11,
+          "homeTeam": {
+            "id": 12,
+            "name": "SV Werder Bremen",
+            "shortName": "Bremen"
+          },
+          "awayTeam": {
+            "id": 18,
+            "name": "Borussia Mönchengladbach",
+            "shortName": "M'gladbach"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 3,
+              "away": 3
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 1
+            }
+          },
+          "competition": {
+            "name": "Bundesliga"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-22T16:30:00Z",
           "status": "FINISHED",
@@ -3334,73 +3303,11 @@
             "name": "Bundesliga"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-11-07T14:30:00Z",
-          "status": "FINISHED",
-          "matchday": 9,
-          "homeTeam": {
-            "id": 4,
-            "name": "Borussia Dortmund",
-            "shortName": "Dortmund"
-          },
-          "awayTeam": {
-            "id": 719,
-            "name": "SV 07 Elversberg",
-            "shortName": "Elversberg"
-          },
-          "score": {
-            "winner": "HOME_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 2,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 0
-            }
-          },
-          "competition": {
-            "name": "Bundesliga"
-          },
-          "venue": null
         }
       ]
     },
     "SA": {
       "fixtures": [
-        {
-          "utcDate": "2026-11-27T19:45:00Z",
-          "status": "TIMED",
-          "matchday": 13,
-          "homeTeam": {
-            "id": 454,
-            "name": "Venezia FC",
-            "shortName": "Venezia FC"
-          },
-          "awayTeam": {
-            "id": 103,
-            "name": "Bologna FC 1909",
-            "shortName": "Bologna"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
-        },
         {
           "utcDate": "2026-11-28T14:00:00Z",
           "status": "TIMED",
@@ -3682,6 +3589,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-27T19:45:00Z",
+          "status": "FINISHED",
+          "matchday": 13,
+          "homeTeam": {
+            "id": 454,
+            "name": "Venezia FC",
+            "shortName": "Venezia FC"
+          },
+          "awayTeam": {
+            "id": 103,
+            "name": "Bologna FC 1909",
+            "shortName": "Bologna"
+          },
+          "score": {
+            "winner": "DRAW",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 0,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 0,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Serie A"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-23T19:45:00Z",
           "status": "FINISHED",
@@ -4115,73 +4053,11 @@
             "name": "Serie A"
           },
           "venue": null
-        },
-        {
-          "utcDate": "2026-11-08T11:30:00Z",
-          "status": "FINISHED",
-          "matchday": 11,
-          "homeTeam": {
-            "id": 113,
-            "name": "SSC Napoli",
-            "shortName": "Napoli"
-          },
-          "awayTeam": {
-            "id": 110,
-            "name": "SS Lazio",
-            "shortName": "Lazio"
-          },
-          "score": {
-            "winner": "DRAW",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 1,
-              "away": 1
-            },
-            "halfTime": {
-              "home": 0,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Serie A"
-          },
-          "venue": null
         }
       ]
     },
     "FL1": {
       "fixtures": [
-        {
-          "utcDate": "2026-11-27T19:45:00Z",
-          "status": "TIMED",
-          "matchday": 12,
-          "homeTeam": {
-            "id": 512,
-            "name": "Stade Brestois 29",
-            "shortName": "Brest"
-          },
-          "awayTeam": {
-            "id": 1045,
-            "name": "Paris FC",
-            "shortName": "Paris FC"
-          },
-          "score": {
-            "winner": null,
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": null,
-              "away": null
-            },
-            "halfTime": {
-              "home": null,
-              "away": null
-            }
-          },
-          "competition": {
-            "name": "Ligue 1"
-          },
-          "venue": null
-        },
         {
           "utcDate": "2026-11-28T16:15:00Z",
           "status": "TIMED",
@@ -4432,6 +4308,37 @@
         }
       ],
       "results": [
+        {
+          "utcDate": "2026-11-27T19:45:00Z",
+          "status": "FINISHED",
+          "matchday": 12,
+          "homeTeam": {
+            "id": 512,
+            "name": "Stade Brestois 29",
+            "shortName": "Brest"
+          },
+          "awayTeam": {
+            "id": 1045,
+            "name": "Paris FC",
+            "shortName": "Paris FC"
+          },
+          "score": {
+            "winner": "HOME_TEAM",
+            "duration": "REGULAR",
+            "fullTime": {
+              "home": 1,
+              "away": 0
+            },
+            "halfTime": {
+              "home": 1,
+              "away": 0
+            }
+          },
+          "competition": {
+            "name": "Ligue 1"
+          },
+          "venue": null
+        },
         {
           "utcDate": "2026-11-22T19:45:00Z",
           "status": "FINISHED",
@@ -4858,37 +4765,6 @@
             },
             "halfTime": {
               "home": 0,
-              "away": 1
-            }
-          },
-          "competition": {
-            "name": "Ligue 1"
-          },
-          "venue": null
-        },
-        {
-          "utcDate": "2026-11-08T14:00:00Z",
-          "status": "FINISHED",
-          "matchday": 10,
-          "homeTeam": {
-            "id": 529,
-            "name": "Stade Rennais FC 1901",
-            "shortName": "Stade Rennais"
-          },
-          "awayTeam": {
-            "id": 521,
-            "name": "Lille OSC",
-            "shortName": "Lille"
-          },
-          "score": {
-            "winner": "AWAY_TEAM",
-            "duration": "REGULAR",
-            "fullTime": {
-              "home": 1,
-              "away": 2
-            },
-            "halfTime": {
-              "home": 1,
               "away": 1
             }
           },
@@ -6558,18 +6434,18 @@
     },
     "chelsea": {
       "nextFixture": {
-        "utcDate": "2026-11-27T20:00:00Z",
+        "utcDate": "2026-12-02T19:30:00Z",
         "status": "TIMED",
-        "matchday": 12,
+        "matchday": 13,
         "homeTeam": {
-          "id": 351,
-          "name": "Nottingham Forest FC",
-          "shortName": "Nottingham"
-        },
-        "awayTeam": {
           "id": 61,
           "name": "Chelsea FC",
           "shortName": "Chelsea"
+        },
+        "awayTeam": {
+          "id": 354,
+          "name": "Crystal Palace FC",
+          "shortName": "Crystal Palace"
         },
         "score": {
           "winner": null,
@@ -6589,29 +6465,29 @@
         "venue": null
       },
       "lastResult": {
-        "utcDate": "2026-11-21T15:00:00Z",
+        "utcDate": "2026-11-27T20:00:00Z",
         "status": "FINISHED",
-        "matchday": 11,
+        "matchday": 12,
         "homeTeam": {
+          "id": 351,
+          "name": "Nottingham Forest FC",
+          "shortName": "Nottingham"
+        },
+        "awayTeam": {
           "id": 61,
           "name": "Chelsea FC",
           "shortName": "Chelsea"
         },
-        "awayTeam": {
-          "id": 341,
-          "name": "Leeds United FC",
-          "shortName": "Leeds United"
-        },
         "score": {
-          "winner": "AWAY_TEAM",
+          "winner": "HOME_TEAM",
           "duration": "REGULAR",
           "fullTime": {
-            "home": 1,
-            "away": 4
+            "home": 3,
+            "away": 2
           },
           "halfTime": {
             "home": 1,
-            "away": 1
+            "away": 0
           }
         },
         "competition": {
