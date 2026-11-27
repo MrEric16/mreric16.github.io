@@ -41182,6 +41182,13 @@ const COMPLIMENTS = [
   // taps get the same smooth cross-fade instead of an instant jump.
   function applyThemeWithFade(key){
     if(animating) return;
+    // ST/IT ('dme') leaves stale pieces behind (one-liner, top window): hard refresh when entering or leaving it
+    let prevKey = null; try{ prevKey = localStorage.getItem('themeChoice'); }catch(e){}
+    if(prevKey !== key && (key === 'dme' || prevKey === 'dme')){
+      try{ localStorage.setItem('themeChoice', key); }catch(e){}
+      location.reload();
+      return;
+    }
     if(prefersReducedMotion){
       applyThemeState(key);
       return;
