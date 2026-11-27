@@ -1,37 +1,6 @@
 {
-  "generatedAt": "2026-11-27T12:53:46.178985Z",
+  "generatedAt": "2026-11-27T21:47:29.430106Z",
   "results": [
-    {
-      "url": "https://www.goal.com/en/match/paderborn-vs-hamburger-sv/LPsziMEWKWihjBx_7KG2n",
-      "date": "2026-10-24",
-      "home": "Paderborn",
-      "away": "Hamburger Sv",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 1,
-      "ftAway": 0,
-      "homeGoals": [
-        {
-          "scorer": "R. Philippe",
-          "minute": 88
-        }
-      ],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
-    {
-      "url": "https://www.goal.com/en/match/fc-koeln-vs-schalke-04/0jgYIAlhhyEFxG2tldOLo",
-      "date": "2026-10-24",
-      "home": "Fc Koeln",
-      "away": "Schalke 04",
-      "htHome": 0,
-      "htAway": 0,
-      "ftHome": 0,
-      "ftAway": 0,
-      "homeGoals": [],
-      "awayGoals": [],
-      "competition": "BL1"
-    },
     {
       "url": "https://www.goal.com/en/match/cagliari-vs-bologna/-ldvpA1uNPBgFopKdUpg4",
       "date": "2026-10-24",
@@ -7694,6 +7663,37 @@
         }
       ],
       "competition": "juventus"
+    },
+    {
+      "url": "https://www.goal.com/en/match/venezia-vs-bologna/SuRQzZhlVikLGs0rXMqV_",
+      "date": "2026-11-27",
+      "home": "Venezia",
+      "away": "Bologna",
+      "htHome": 0,
+      "htAway": 0,
+      "ftHome": 0,
+      "ftAway": 0,
+      "homeGoals": [],
+      "awayGoals": [],
+      "competition": "SA"
+    },
+    {
+      "url": "https://www.goal.com/en/match/brest-vs-paris-fc/hpLFIkQmzXYwGBbOp3Pyi",
+      "date": "2026-11-27",
+      "home": "Brest",
+      "away": "Paris Fc",
+      "htHome": 1,
+      "htAway": 0,
+      "ftHome": 1,
+      "ftAway": 0,
+      "homeGoals": [
+        {
+          "scorer": "L. Zogbe",
+          "minute": 21
+        }
+      ],
+      "awayGoals": [],
+      "competition": "FL1"
     }
   ],
   "scorerParseRetryCounts": {
@@ -7713,6 +7713,7 @@
     "https://www.goal.com/en/match/lens-vs-como/F7i74dCLsNCctObWukKfL": 1,
     "https://www.goal.com/en/match/viking-vs-sabah-fk/a5xaUNSM4EHSkupE7PA5S": 1,
     "https://www.goal.com/en/match/augsburg-vs-mainz-05/MIWvJPsfrqCn0yu1O5E4D": 2,
-    "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2
+    "https://www.goal.com/en/match/werder-bremen-vs-hamburger-sv/JBLhzQ1vcfRItSMBEbxFH": 2,
+    "https://www.goal.com/en/match/werder-bremen-vs-borussia-moenchengladbach/gFJ57CKR5segUFkW3oVEW": 1
   }
 }
