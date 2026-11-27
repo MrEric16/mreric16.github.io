@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T11:29:20.060692Z",
+  "generatedAt": "2026-11-27T20:16:15.909226Z",
   "tz": "Asia/Tashkent",
   "teams": [
     {
@@ -64,13 +64,13 @@
     },
     {
       "name": "Buxoro",
-      "pld": 28,
+      "pld": 29,
       "w": 12,
-      "d": 7,
+      "d": 8,
       "l": 9,
-      "gf": 38,
-      "ga": 34,
-      "pts": 43
+      "gf": 40,
+      "ga": 36,
+      "pts": 44
     },
     {
       "name": "Qizilqum",
@@ -123,6 +123,16 @@
       "pts": 32
     },
     {
+      "name": "Xorazm Urganch",
+      "pld": 29,
+      "w": 7,
+      "d": 9,
+      "l": 13,
+      "gf": 25,
+      "ga": 38,
+      "pts": 30
+    },
+    {
       "name": "Bunyodkor",
       "pld": 28,
       "w": 9,
@@ -133,37 +143,41 @@
       "pts": 29
     },
     {
-      "name": "Xorazm Urganch",
-      "pld": 28,
-      "w": 6,
-      "d": 9,
-      "l": 13,
-      "gf": 23,
-      "ga": 38,
-      "pts": 27
-    },
-    {
       "name": "Kokand 1912",
-      "pld": 28,
+      "pld": 29,
       "w": 5,
       "d": 9,
-      "l": 14,
+      "l": 15,
       "gf": 26,
-      "ga": 40,
+      "ga": 42,
       "pts": 24
     },
     {
       "name": "Mashal Muborak",
-      "pld": 28,
+      "pld": 29,
       "w": 1,
-      "d": 2,
+      "d": 3,
       "l": 25,
-      "gf": 12,
-      "ga": 55,
-      "pts": 5
+      "gf": 14,
+      "ga": 57,
+      "pts": 6
     }
   ],
   "results": [
+    {
+      "home": "Buxoro",
+      "away": "Mashal Muborak",
+      "raw_time": "27.11. 17:00",
+      "homeScore": 2,
+      "awayScore": 2
+    },
+    {
+      "home": "Kokand 1912",
+      "away": "Xorazm Urganch",
+      "raw_time": "27.11. 17:00",
+      "homeScore": 0,
+      "awayScore": 2
+    },
     {
       "home": "Din. Samarkand",
       "away": "Bunyodkor",
@@ -877,33 +891,9 @@
       "raw_time": "07.08. 19:00",
       "homeScore": 0,
       "awayScore": 1
-    },
-    {
-      "home": "Pakhtakor",
-      "away": "Buxoro",
-      "raw_time": "06.08. 20:00",
-      "homeScore": 2,
-      "awayScore": 2
-    },
-    {
-      "home": "Sogdiana",
-      "away": "Andijan",
-      "raw_time": "06.08. 19:00",
-      "homeScore": 1,
-      "awayScore": 0
     }
   ],
   "fixtures": [
-    {
-      "home": "Buxoro",
-      "away": "Mashal Muborak",
-      "raw_time": "27.11. 17:00"
-    },
-    {
-      "home": "Kokand 1912",
-      "away": "Xorazm Urganch",
-      "raw_time": "27.11. 17:00"
-    },
     {
       "home": "Neftchi Fargona",
       "away": "Din. Samarkand",
