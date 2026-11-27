@@ -1,6 +1,82 @@
 {
- "generatedAt": "2026-11-27T12:51:59.114339Z",
+ "generatedAt": "2026-11-27T21:44:05.170879Z",
  "results": [
+  {
+   "url": "espn:401884720",
+   "date": "2026-11-27",
+   "utc": "2026-11-27T19:30Z",
+   "home": "Bremen",
+   "away": "M'gladbach",
+   "htHome": 1,
+   "htAway": 1,
+   "ftHome": 3,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "E. Dinkci",
+     "minute": 38
+    },
+    {
+     "scorer": "E. Dinkci",
+     "minute": 85
+    },
+    {
+     "scorer": "N. Füllkrug",
+     "minute": "90+2"
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "K. Diks (pen)",
+     "minute": 27
+    },
+    {
+     "scorer": "F. Honorat",
+     "minute": 46
+    },
+    {
+     "scorer": "F. Honorat",
+     "minute": 78
+    }
+   ],
+   "competition": "BL1",
+   "complete": true
+  },
+  {
+   "url": "espn:401875004",
+   "date": "2026-11-27",
+   "utc": "2026-11-27T19:45Z",
+   "home": "Venezia FC",
+   "away": "Bologna",
+   "htHome": 0,
+   "htAway": 0,
+   "ftHome": 0,
+   "ftAway": 0,
+   "homeGoals": [],
+   "awayGoals": [],
+   "competition": "SA",
+   "complete": true
+  },
+  {
+   "url": "espn:401876392",
+   "date": "2026-11-27",
+   "utc": "2026-11-27T19:45Z",
+   "home": "Brest",
+   "away": "Paris FC",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 0,
+   "homeGoals": [
+    {
+     "scorer": "L. Zogbe",
+     "minute": 21
+    }
+   ],
+   "awayGoals": [],
+   "competition": "FL1",
+   "complete": true
+  },
   {
    "url": "espn:401915378",
    "date": "2026-11-25",
