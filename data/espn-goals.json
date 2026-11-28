@@ -1,6 +1,76 @@
 {
- "generatedAt": "2026-11-27T21:44:05.170879Z",
+ "generatedAt": "2026-11-28T03:38:40.021721Z",
  "results": [
+  {
+   "url": "espn:401879225",
+   "date": "2026-11-27",
+   "utc": "2026-11-27T20:00Z",
+   "home": "Nottingham",
+   "away": "Chelsea",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 3,
+   "ftAway": 2,
+   "homeGoals": [
+    {
+     "scorer": "Igor Jesus",
+     "minute": 5
+    },
+    {
+     "scorer": "M. Gibbs-White (pen)",
+     "minute": 51
+    },
+    {
+     "scorer": "M. Gibbs-White",
+     "minute": 72
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "E. Emegha",
+     "minute": 54
+    },
+    {
+     "scorer": "E. Emegha",
+     "minute": 89
+    }
+   ],
+   "competition": "PL",
+   "complete": true
+  },
+  {
+   "url": "espn:401882791",
+   "date": "2026-11-27",
+   "utc": "2026-11-27T20:00Z",
+   "home": "Levante",
+   "away": "Santander",
+   "htHome": 1,
+   "htAway": 0,
+   "ftHome": 1,
+   "ftAway": 3,
+   "homeGoals": [
+    {
+     "scorer": "I. Romero",
+     "minute": 42
+    }
+   ],
+   "awayGoals": [
+    {
+     "scorer": "P. García",
+     "minute": 66
+    },
+    {
+     "scorer": "Y. Zabiri",
+     "minute": 81
+    },
+    {
+     "scorer": "P. García",
+     "minute": "90+5"
+    }
+   ],
+   "competition": "PD",
+   "complete": true
+  },
   {
    "url": "espn:401884720",
    "date": "2026-11-27",
