@@ -99,7 +99,11 @@ cc = {}
 for gid, title, en, lv, paras, qs in b_text.READING:
     P = {'id': gid, 'title': title, 'en': en, 'lv': lv, 'paras': [], 'f': []}
     for i, t in enumerate(paras): P['paras'].append({'l': 'AB'[i], 't': t})
-    for q, o, s in qs: P['f'].append({'q': q, 'o': o, 's': s})
+    for i, (q, o, s) in enumerate(qs):
+        zq, zo = b_text.ZHQ[gid][i]
+        zo = zo.split('|') if '|' in zo else zo.split(' ')
+        assert len(zo) == 4, (gid, i, zo)
+        P['f'].append({'q': zq, 'o': zo, 's': s})
     R.append(P)
 d['reading'] = R
 json.dump(d, open(ZH, 'w', encoding='utf-8'), ensure_ascii=False, separators=(',', ':'))
